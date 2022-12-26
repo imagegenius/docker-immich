@@ -3,5 +3,7 @@
 
 cd /app/immich/machine-learning || exit 1
 
+NODE_ENV=${NODE_ENV:-production}
+
 exec s6-setuidgid abc \
 	node dist/main.js

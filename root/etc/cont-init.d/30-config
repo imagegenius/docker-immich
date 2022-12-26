@@ -13,4 +13,5 @@ mkdir -p \
 chown -R abc:abc \
     /config \
     /app \
+    /photos \
     /run

@@ -3,5 +3,8 @@
 
 cd /app/immich/server || exit 1
 
+NODE_ENV=${NODE_ENV:-production}
+REDIS_HOSTNAME=localhost
+
 exec s6-setuidgid abc \
 	node dist/apps/immich/apps/immich/src/main
