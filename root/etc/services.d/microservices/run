@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+cd /app/immich/server || exit 1
+
+exec s6-setuidgid abc \
+	node dist/apps/microservices/apps/microservices/src/main

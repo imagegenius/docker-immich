@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+echo "127.0.0.1       immich-server immich-microservices immich-machine-learning immich-web" >>/etc/hosts
+
+# make folders
+mkdir -p \
+    /config/log/nginx \
+    /run
+
+# permissions
+chown -R abc:abc \
+    /config \
+    /app \
+    /run
