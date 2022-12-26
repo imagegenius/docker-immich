@@ -19,6 +19,7 @@ RUN set -xe && \
 		nodejs \
         redis-server \
 		nginx-full \
+		ffmpeg \
         build-essential && \
 	echo "**** install immich ****" && \
 	mkdir -p \
@@ -53,6 +54,10 @@ RUN set -xe && \
     npm prune --production && \
     mkdir -p /app/immich/machine-learning && \
     cp -a package.json package-lock.json node_modules dist /app/immich/machine-learning/ && \
+	echo "**** setup upload folder ****" && \
+	mkdir -p /photos && \
+	ln -s /photos /app/immich/server/upload && \
+	ln -s /photos /app/immich/machine-learning/upload && \
 	echo "**** cleanup ****" && \
     apt-get remove -y --purge \
         build-essential && \
