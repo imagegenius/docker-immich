@@ -13,4 +13,4 @@ if pgrep -f "[n]ginx:" >/dev/null; then
     sleep 1
 fi
 
-exec /usr/sbin/nginx
+exec /usr/sbin/nginx -t /defaults/nginx.conf
