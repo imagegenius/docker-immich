@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 
 VARIABLES=("JWT_SECRET" "DB_HOSTNAME" "DB_USERNAME" "DB_PASSWORD" "DB_DATABASE_NAME")
-MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please set one or use '$(openssl rand -base64 128)' (This has been randomly generated)"
+MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please set one or use '$(openssl rand -base64 128 | tr -d '\n')' (This has been randomly generated)"
 "No Database Hostname has been specified in the DB_HOSTNAME variable."
 "No Database Username has been specified in the DB_USERNAME variable."
 "No Database Password has been specified in the DB_PASSWORD variable."
@@ -10,7 +10,7 @@ MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please s
 
 for i in ${!VARIABLES[@]}; do
     if [ -z "${!VARIABLES[$i]}" ]; then
-        echo "${MESSAGES[$i]}"
+        echo "Erro: ${MESSAGES[$i]}"
         sleep infinity
     fi
 done

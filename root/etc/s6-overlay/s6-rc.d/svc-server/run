@@ -7,4 +7,4 @@ export NODE_ENV=${NODE_ENV:-production}
 export REDIS_HOSTNAME=localhost
 
 exec s6-setuidgid abc \
-	node dist/apps/immich/apps/immich/src/main
+	node dist/apps/immich/apps/immich/src/main >/config/log/immich/server.log

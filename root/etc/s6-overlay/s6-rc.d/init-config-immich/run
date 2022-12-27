@@ -9,8 +9,7 @@ fi
 
 # make folders
 mkdir -p \
-    /config/log/ \
-    /config/redis \
+    /config/log/{immich,redis,nginx} \
     /run/immich
 
 # permissions
