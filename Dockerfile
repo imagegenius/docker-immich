@@ -19,6 +19,8 @@ RUN set -xe && \
 		nodejs \
         redis-server \
 		nginx-full \
+		libheif \
+		vips \
 		ffmpeg \
         build-essential && \
 	echo "**** install immich ****" && \
@@ -38,7 +40,7 @@ RUN set -xe && \
     cd /tmp/immich/server && \
     npm ci && \
     npm run build && \
-    npm prune --production && \
+    npm prune --omit=dev && \
     mkdir -p /app/immich/server && \
     cp -a package.json package-lock.json node_modules dist /app/immich/server && \
 	echo "**** build web frontend ****" && \
@@ -51,13 +53,14 @@ RUN set -xe && \
     npm ci && \
     npm rebuild @tensorflow/tfjs-node --build-from-source && \
     npm run build && \
-    npm prune --production && \
+    npm prune --omit=dev && \
     mkdir -p /app/immich/machine-learning && \
     cp -a package.json package-lock.json node_modules dist /app/immich/machine-learning/ && \
 	echo "**** setup upload folder ****" && \
 	mkdir -p /photos && \
 	ln -s /photos /app/immich/server/upload && \
 	ln -s /photos /app/immich/machine-learning/upload && \
+	chown -R abc:abc /app && \
 	echo "**** cleanup ****" && \
     apt-get remove -y --purge \
         build-essential && \
