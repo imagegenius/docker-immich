@@ -19,8 +19,8 @@ RUN set -xe && \
 		nodejs \
         redis-server \
 		nginx-full \
-		libheif \
-		vips \
+		libheif1 \
+		libvips \
 		ffmpeg \
         build-essential && \
 	echo "**** install immich ****" && \
