@@ -2,12 +2,20 @@
 
 [![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/hydaz/immich) ![docker image size](https://img.shields.io/docker/image-size/hydaz/immich?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-immich/actions?query=workflow%3A"Auto+Builder+CI")
 
-This is a highly experimental adaptation of immich that runs in a single container (except postgres).
-My main goal is to have a single image for unraid environments (screw docker-compose). i also hope to keep the size of this image to a minimum.
+**This image has been adapted from [immich-app/immich](https://github.com/immich-app/immich/)**
 
-todo:
-validate supplied variables
-attempt to shrink the image (anything is better than 1GB compressed :0)
+[Immich](https://immich.app/) - High performance self-hosted photo and video backup solution
+
+This is a highly experimental adaptation of Immich that runs in a single container (except Postgres).
+My main goal is to have a single image for Unraid environments (screw docker-compose). I also hope to keep the size of this image to a minimum.
+
+I have tested this image with over 15000 photos/videos using `immich upload` with no issues.
+
+Todo:
+Validate supplied variables
+Attempt to shrink the image (anything is better than 1GB compressed :0)
+Cleanup container scripts
+Migrate to s6v3
 
 ## Usage
 
@@ -27,3 +35,9 @@ docker run -d \
   --restart unless-stopped \
   hydaz/immich
 ```
+
+[![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/immich.xml).
+
+## Upgrading Immich
+
+To upgrade, all you have to do is pull the latest Docker image. We automatically check for Immich updates daily. When a new version is released, we build and publish an image both as a version tag and on `:latest`.
