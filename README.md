@@ -12,10 +12,11 @@ My main goal is to have a single image for Unraid environments (screw docker-com
 I have tested this image with over 15000 photos/videos using `immich upload` with no issues.
 
 Todo:
-Validate supplied variables
-Attempt to shrink the image (anything is better than 1GB compressed :0)
-Cleanup container scripts
-Migrate to s6v3
+
+- [ ] Validate supplied variables
+- [ ] Attempt to shrink the image (anything is better than 1GB compressed :0)
+- [ ] Cleanup container scripts
+- [ ] Migrate to s6v3
 
 ## Usage
 
@@ -36,7 +37,7 @@ docker run -d \
   hydaz/immich
 ```
 
-[![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/immich.xml).
+[![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/immich.xml)
 
 ## Upgrading Immich
 
