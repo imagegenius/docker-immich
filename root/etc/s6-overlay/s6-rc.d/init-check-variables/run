@@ -10,7 +10,7 @@ MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please s
 
 for i in ${!VARIABLES[@]}; do
     if [ -z "${!VARIABLES[$i]}" ]; then
-        echo "Erro: ${MESSAGES[$i]}"
+        echo "Error: ${MESSAGES[$i]}"
         sleep infinity
     fi
 done

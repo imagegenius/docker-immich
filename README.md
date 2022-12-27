@@ -11,12 +11,14 @@ My main goal is to have a single image for Unraid environments (screw docker-com
 
 I have tested this image with over 15000 photos/videos using `immich upload` with no issues.
 
+You will need to create a Postgres 14 container to use with Immich
+
 Todo:
 
-- [ ] Validate supplied variables
+- [x] Validate supplied variables
 - [ ] Attempt to shrink the image (anything is better than 1GB compressed :0)
-- [ ] Cleanup container scripts
-- [ ] Migrate to s6v3
+- [x] Cleanup container scripts
+- [x] Migrate to s6v3
 
 ## Usage
 
