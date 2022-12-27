@@ -2,4 +2,4 @@
 # shellcheck shell=bash
 
 exec s6-setuidgid abc \
-	redis-server /defaults/redis.conf
+	redis-server --pidfile /run/redis.pid --always-show-logo no --dir /config/redis --logfile /config/log/redis.log
