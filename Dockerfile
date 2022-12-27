@@ -50,6 +50,7 @@ RUN set -xe && \
     mv /tmp/immich/web /app/immich/web && \
 	echo "**** build machine-learning ****" && \
     cd /tmp/immich/machine-learning && \
+	sed -i '/@tensorflow\/tfjs-node-gpu/d' package.json && \
     npm ci && \
     npm rebuild @tensorflow/tfjs-node --build-from-source && \
     npm run build && \
@@ -69,7 +70,9 @@ RUN set -xe && \
 	rm -rf \
 		/tmp/* \
 		/var/lib/apt/lists/* \
-		/var/tmp/*
+		/var/tmp/* \
+		/root/.cache \
+		/root/.npm 
 
 # copy local files
 COPY root/ /
