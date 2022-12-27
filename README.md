@@ -22,7 +22,7 @@ docker run -d \
   -e DB_PASSWORD=postgres \ # postgres password
   -e DB_DATABASE_NAME=immich \ # postgres db name
   -e JWT_SECRET= \ # run openssl rand -base64 128
-  -p 8080:8080 \
+  -p 2283:8080 \
   -v <path to appdata>:/config \ # appdata mainly for logs - i was hoping to get postgres into the image as well but seems like a mission
   --restart unless-stopped \
   hydaz/immich
