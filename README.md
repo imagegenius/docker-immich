@@ -6,12 +6,12 @@
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution
 
-This is a highly experimental adaptation of Immich that runs in a single container (except Postgres).
+This is a highly experimental adaptation of Immich that runs in a single container (except PostgreSQL).
 My main goal is to have a single image for Unraid environments (screw docker-compose). I also hope to keep the size of this image to a minimum.
 
 I have tested this image with over 15000 photos/videos using `immich upload` with no issues.
 
-You will need to create a Postgres 14 container to use with Immich
+You will need to create a PostgreSQL 14 container to use with Immich
 
 Todo:
 
@@ -28,13 +28,13 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Australia/Melbourne \
-  -e DB_HOSTNAME=192.168.1.2 \ # postgres host
-  -e DB_USERNAME=postgres \ # postgres username
-  -e DB_PASSWORD=postgres \ # postgres password
-  -e DB_DATABASE_NAME=immich \ # postgres db name
-  -e JWT_SECRET= \ # run openssl rand -base64 128
+  -e DB_HOSTNAME=192.168.1.2 \ # PostgreSQL Host
+  -e DB_USERNAME=postgres \ # PostgreSQL Username
+  -e DB_PASSWORD=postgres \ # PostgreSQL Password
+  -e DB_DATABASE_NAME=immich \ # PostgreSQL Database Name
+  -e JWT_SECRET= \ # Run 'openssl rand -base64 128 | tr -d '\n''
   -p 2283:8080 \
-  -v <path to appdata>:/config \ # appdata mainly for logs - i was hoping to get postgres into the image as well but seems like a mission
+  -v <path to appdata>:/config \ # Appdata mainly for logs - I was hoping to get PostgreSQL into the image as well but seems like a mission
   --restart unless-stopped \
   hydaz/immich
 ```
