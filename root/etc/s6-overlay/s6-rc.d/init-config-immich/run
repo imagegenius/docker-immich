@@ -2,17 +2,20 @@
 # shellcheck shell=bash
 
 # hmm... yes. dont say anything, it works
-echo "127.0.0.1       immich-server immich-microservices immich-machine-learning immich-web" >>/etc/hosts
+HOST="127.0.0.1       immich-server immich-microservices immich-machine-learning immich-web"
+if ! grep -q "$HOST" /etc/hosts; then
+    echo "$HOST" >>/etc/hosts
+fi
 
 # make folders
 mkdir -p \
-    /config/log/nginx \
+    /config/log/ \
     /config/redis \
-    /run
+    /run/immich
 
 # permissions
 chown -R abc:abc \
     /config \
     /app \
     /photos \
-    /run
+    /run/immich
