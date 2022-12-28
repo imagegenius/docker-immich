@@ -8,21 +8,21 @@ LABEL maintainer="hydaz"
 
 # environment settings
 ENV \
-    DEBIAN_FRONTEND="noninteractive"
+	DEBIAN_FRONTEND="noninteractive"
 
 # base dependencies
 RUN set -xe && \
 	echo "**** install runtime packages ****" && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+	curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 	apt-get update && \
 	apt-get install --no-install-recommends -y \
-		nodejs \
-        redis-server \
-		nginx-full \
+		ffmpeg \
 		libheif1 \
 		libvips \
-		ffmpeg \
-        build-essential && \
+		nginx-full \
+		nodejs \
+		build-essential \
+		redis-server && \
 	echo "**** install immich ****" && \
 	mkdir -p \
 		/tmp/immich && \
@@ -37,42 +37,42 @@ RUN set -xe && \
 		/tmp/immich.tar.gz -C \
 		/tmp/immich --strip-components=1 && \
 	echo "**** build server ****" && \
-    cd /tmp/immich/server && \
-    npm ci && \
-    npm run build && \
-    npm prune --omit=dev && \
-    mkdir -p /app/immich/server && \
-    cp -a package.json package-lock.json node_modules dist /app/immich/server && \
+	cd /tmp/immich/server && \
+	npm ci && \
+	npm run build && \
+	npm prune --omit=dev && \
+	mkdir -p /app/immich/server && \
+	cp -a package.json package-lock.json node_modules dist /app/immich/server && \
 	echo "**** build web frontend ****" && \
-    cd /tmp/immich/web && \
-    npm ci && \
-    npm run build && \
-    mv /tmp/immich/web /app/immich/web && \
+	cd /tmp/immich/web && \
+	npm ci && \
+	npm run build && \
+	mv /tmp/immich/web /app/immich/web && \
 	echo "**** build machine-learning ****" && \
-    cd /tmp/immich/machine-learning && \
+	cd /tmp/immich/machine-learning && \
 	sed -i '/@tensorflow\/tfjs-node-gpu/d' package.json && \
-    npm ci && \
-    npm rebuild @tensorflow/tfjs-node --build-from-source && \
-    npm run build && \
-    npm prune --omit=dev && \
-    mkdir -p /app/immich/machine-learning && \
-    cp -a package.json package-lock.json node_modules dist /app/immich/machine-learning/ && \
+	npm ci && \
+	npm rebuild @tensorflow/tfjs-node --build-from-source && \
+	npm run build && \
+	npm prune --omit=dev && \
+	mkdir -p /app/immich/machine-learning && \
+	cp -a package.json package-lock.json node_modules dist /app/immich/machine-learning/ && \
 	echo "**** setup upload folder ****" && \
 	mkdir -p /photos && \
 	ln -s /photos /app/immich/server/upload && \
 	ln -s /photos /app/immich/machine-learning/upload && \
 	chown -R abc:abc /app && \
 	echo "**** cleanup ****" && \
-    apt-get remove -y --purge \
-        build-essential && \
-    apt-get autoremove -y --purge && \
+	apt-get remove -y --purge \
+		build-essential && \
+	apt-get autoremove -y --purge && \
 	apt-get clean && \
 	rm -rf \
 		/tmp/* \
 		/var/lib/apt/lists/* \
 		/var/tmp/* \
 		/root/.cache \
-		/root/.npm 
+		/root/.npm
 
 # copy local files
 COPY root/ /
