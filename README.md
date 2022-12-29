@@ -6,7 +6,7 @@
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution
 
-Please report any issues with the container here!
+Please report any issues with the container [here](https://github.com/hydazz/docker-immich/issues)!
 
 **You will need to create a PostgreSQL 14 container to use with Immich**
 
