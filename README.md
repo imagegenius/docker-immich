@@ -6,19 +6,9 @@
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution
 
-This is a highly experimental adaptation of Immich that runs in a single container (except PostgreSQL).
-My main goal is to have a single image for Unraid environments (screw docker-compose). I also hope to keep the size of this image to a minimum.
+Please report any issues with the container here!
 
-I have tested this image with over 15000 photos/videos using `immich upload` with no issues.
-
-You will need to create a PostgreSQL 14 container to use with Immich
-
-Todo:
-
-- [x] Validate supplied variables
-- [ ] Attempt to shrink the image (anything is better than 1GB compressed :0)
-- [x] Cleanup container scripts
-- [x] Migrate to s6v3
+**You will need to create a PostgreSQL 14 container to use with Immich**
 
 ## Usage
 

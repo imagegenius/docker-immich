@@ -9,19 +9,19 @@ LABEL maintainer="hydaz"
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
 
-# base dependencies
+# this is a really messy dockerfile but it works
 RUN set -xe && \
 	echo "**** install runtime packages ****" && \
 	curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 	apt-get update && \
 	apt-get install --no-install-recommends -y \
+		build-essential \
 		ffmpeg \
 		libheif1 \
 		libvips \
 		libvips-dev \
 		nginx-full \
 		nodejs \
-		build-essential \
 		redis-server && \
 	echo "**** install immich ****" && \
 	mkdir -p \
@@ -97,8 +97,7 @@ RUN set -xe && \
 		/root/.npm
 
 # environment settings
-ENV \
-	NODE_ENV="production" \
+ENV NODE_ENV="production" \
 	REDIS_HOSTNAME="localhost"
 
 # copy local files
