@@ -3,8 +3,5 @@
 
 cd /app/immich/server || exit 1
 
-export NODE_ENV=${NODE_ENV:-production}
-export REDIS_HOSTNAME=localhost
-
 exec s6-setuidgid abc \
 	node dist/apps/microservices/apps/microservices/src/main >/config/log/immich/microservices.log

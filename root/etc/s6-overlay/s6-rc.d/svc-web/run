@@ -3,7 +3,5 @@
 
 cd /app/immich/web || exit 1
 
-export NODE_ENV=${NODE_ENV:-production}
-
 exec s6-setuidgid abc \
 	node build/index.js >/config/log/immich/web.log

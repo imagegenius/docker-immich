@@ -7,8 +7,7 @@ LABEL build_version="Immich version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
 
 # environment settings
-ENV \
-	DEBIAN_FRONTEND="noninteractive"
+ENV DEBIAN_FRONTEND="noninteractive"
 
 # base dependencies
 RUN set -xe && \
@@ -41,26 +40,47 @@ RUN set -xe && \
 	npm ci && \
 	npm run build && \
 	npm prune --omit=dev && \
-	mkdir -p /app/immich/server && \
-	cp -a package.json package-lock.json node_modules dist /app/immich/server && \
+	mkdir -p \
+		/app/immich/server && \
+	cp -a \
+		package.json \
+		package-lock.json \
+		node_modules \
+		dist \
+		/app/immich/server && \
 	echo "**** build web frontend ****" && \
 	cd /tmp/immich/web && \
 	npm ci && \
 	npm run build && \
-	mv /tmp/immich/web /app/immich/web && \
+	mv \
+		/tmp/immich/web \
+		/app/immich/web && \
 	echo "**** build machine-learning ****" && \
 	cd /tmp/immich/machine-learning && \
-	sed -i '/@tensorflow\/tfjs-node-gpu/d' package.json && \
+	sed -i \
+		'/@tensorflow\/tfjs-node-gpu/d' \
+		package.json && \
 	npm ci && \
 	npm rebuild @tensorflow/tfjs-node --build-from-source && \
 	npm run build && \
 	npm prune --omit=dev && \
-	mkdir -p /app/immich/machine-learning && \
-	cp -a package.json package-lock.json node_modules dist /app/immich/machine-learning/ && \
+	mkdir -p \
+		/app/immich/machine-learning && \
+	cp -a \
+		package.json \
+		package-lock.json \
+		node_modules \
+		dist \
+		/app/immich/machine-learning/ && \
 	echo "**** setup upload folder ****" && \
-	mkdir -p /photos && \
-	ln -s /photos /app/immich/server/upload && \
-	ln -s /photos /app/immich/machine-learning/upload && \
+	mkdir -p \
+		/photos && \
+	ln -s \
+		/photos \
+		/app/immich/server/upload && \
+	ln -s \
+		/photos \
+		/app/immich/machine-learning/upload && \
 	chown -R abc:abc /app && \
 	echo "**** cleanup ****" && \
 	apt-get remove -y --purge \
@@ -73,6 +93,11 @@ RUN set -xe && \
 		/var/tmp/* \
 		/root/.cache \
 		/root/.npm
+
+# environment settings
+ENV \
+	NODE_ENV="production" \
+	REDIS_HOSTNAME="localhost"
 
 # copy local files
 COPY root/ /
