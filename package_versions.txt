@@ -117,12 +117,14 @@ libgcc-s112.1.0-2ubuntu1~22.04
 libgcrypt201.9.4-3ubuntu3
 libgd32.3.0-2ubuntu2
 libgdk-pixbuf-2.0-02.42.8+dfsg-1ubuntu0.2
+libgdk-pixbuf2.0-bin2.42.8+dfsg-1ubuntu0.2
 libgdk-pixbuf2.0-common2.42.8+dfsg-1ubuntu0.2
 libgfortran512.1.0-2ubuntu1~22.04
 libgl11.4.0-1
 libgl1-mesa-dri22.0.5-0ubuntu0.1
 libglapi-mesa22.0.5-0ubuntu0.1
 libglib2.0-02.72.4-0ubuntu1
+libglib2.0-data2.72.4-0ubuntu1
 libglvnd01.4.0-1
 libglx01.4.0-1
 libglx-mesa022.0.5-0ubuntu0.1
@@ -238,6 +240,7 @@ librabbitmq40.10.0-1ubuntu2
 libraw1394-112.1.2-2build2
 libreadline88.1.2-1
 librsvg2-22.52.5+dfsg-3
+librsvg2-common2.52.5+dfsg-3
 librtmp12.4+20151223.gitfa8646d.1-2build4
 librubberband22.0.0-2
 libsamplerate00.2.2-1build1
