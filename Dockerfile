@@ -18,6 +18,7 @@ RUN set -xe && \
 		ffmpeg \
 		libheif1 \
 		libvips \
+		libvips-dev \
 		nginx-full \
 		nodejs \
 		build-essential \
@@ -84,7 +85,8 @@ RUN set -xe && \
 	chown -R abc:abc /app && \
 	echo "**** cleanup ****" && \
 	apt-get remove -y --purge \
-		build-essential && \
+		build-essential \
+		libvips-dev && \
 	apt-get autoremove -y --purge && \
 	apt-get clean && \
 	rm -rf \
