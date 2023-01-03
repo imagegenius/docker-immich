@@ -41,7 +41,7 @@ pipeline {
         script{
           env.EXIT_STATUS = ''
           env.RELEASE = sh(
-            script: '''docker run --rm ghcr.io/linuxserver/alexeiled-skopeo sh -c 'skopeo inspect docker://docker.io/'${DOCKERHUB_IMAGE}':latest 2>/dev/null' | jq -r '.Labels.build_version' | awk '{print $2}' | grep '\\-' || : ''',
+            script: '''docker run --rm ghcr.io/linuxserver/alexeiled-skopeo sh -c 'skopeo inspect docker://docker.io/'${DOCKERHUB_IMAGE}':latest 2>/dev/null' | jq -r '.Labels.build_version' | awk '{print $2}' | grep '\\-hz' || : ''',
             returnStdout: true).trim()
           env.RELEASE_NOTES = sh(
             script: '''cat readme-vars.yml | awk -F \\" '/date: "[0-9][0-9].[0-9][0-9].[0-9][0-9]:/ {print $4;exit;}' | sed -E ':a;N;$!ba;s/\\r{0,1}\\n/\\\\n/g' ''',
@@ -59,7 +59,7 @@ pipeline {
         }
         script{
           env.RELEASE_NUMBER = sh(
-            script: '''echo ${RELEASE} |sed 's/^.*-//g' ''',
+            script: '''echo ${RELEASE} |sed 's/^.*-hz//g' ''',
             returnStdout: true).trim()
         }
         script{
@@ -154,12 +154,12 @@ pipeline {
           env.IMAGE = env.DOCKERHUB_IMAGE
           env.GITHUBIMAGE = 'ghcr.io/' + env.USER + '/' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER + '|arm32v7-' + env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER
+            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER + '|arm32v7-' + env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER
+            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER
           }
-          env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER
+          env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER
+          env.META_TAG = env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER
           env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
         }
       }
@@ -328,7 +328,7 @@ pipeline {
           --label \"org.opencontainers.image.authors=hyde.services\" \
           --label \"org.opencontainers.image.url=https://github.com/hydazz/docker-immich/packages\" \
           --label \"org.opencontainers.image.source=https://github.com/hydazz/docker-immich\" \
-          --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-${TAG_NUMBER}\" \
+          --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-hz${TAG_NUMBER}\" \
           --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
           --label \"org.opencontainers.image.vendor=hyde.services\" \
           --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
@@ -357,7 +357,7 @@ pipeline {
               --label \"org.opencontainers.image.authors=hyde.services\" \
               --label \"org.opencontainers.image.url=https://github.com/hydazz/docker-immich/packages\" \
               --label \"org.opencontainers.image.source=https://github.com/hydazz/docker-immich\" \
-              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-${TAG_NUMBER}\" \
+              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-hz${TAG_NUMBER}\" \
               --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.vendor=hyde.services\" \
               --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
@@ -380,7 +380,7 @@ pipeline {
               --label \"org.opencontainers.image.authors=hyde.services\" \
               --label \"org.opencontainers.image.url=https://github.com/hydazz/docker-immich/packages\" \
               --label \"org.opencontainers.image.source=https://github.com/hydazz/docker-immich\" \
-              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-${TAG_NUMBER}\" \
+              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-hz${TAG_NUMBER}\" \
               --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.vendor=hyde.services\" \
               --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
@@ -410,7 +410,7 @@ pipeline {
               --label \"org.opencontainers.image.authors=hyde.services\" \
               --label \"org.opencontainers.image.url=https://github.com/hydazz/docker-immich/packages\" \
               --label \"org.opencontainers.image.source=https://github.com/hydazz/docker-immich\" \
-              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-${TAG_NUMBER}\" \
+              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-hz${TAG_NUMBER}\" \
               --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.vendor=hyde.services\" \
               --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
@@ -546,12 +546,12 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        script{
+          script{
           env.CI_URL = 'https://ci-tests.hyde.services/' + env.IMAGE + '/' + env.META_TAG + '/index.html'
-        }
-        sh '''#! /bin/bash
-              set -e
-              if [ "${MULTIARCH}" == "true" ]; then
+          }
+          sh '''#! /bin/bash
+                set -e
+                if [ "${MULTIARCH}" == "true" ]; then
                 docker pull ghcr.io/hydazz/dev-buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}
                 docker pull ghcr.io/hydazz/dev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                 docker tag ghcr.io/hydazz/dev-buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm32v7-${META_TAG}
@@ -725,7 +725,7 @@ pipeline {
       when {
         branch "main"
         expression {
-          env.RELEASE != env.EXT_RELEASE_CLEAN + '-' + env.TAG_NUMBER
+          env.RELEASE != env.EXT_RELEASE_CLEAN + '-hz' + env.TAG_NUMBER
         }
         environment name: 'CHANGE_ID', value: ''
         environment name: 'EXIT_STATUS', value: ''
@@ -735,7 +735,7 @@ pipeline {
         sh '''curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${USER}/${REPO}/git/tags \
         -d '{"tag":"'${META_TAG}'",\
              "object": "'${COMMIT_SHA}'",\
-             "message": "Tagging Release '${EXT_RELEASE_CLEAN}'-'${TAG_NUMBER}' to main",\
+             "message": "Tagging Release '${EXT_RELEASE_CLEAN}'-hz'${TAG_NUMBER}' to main",\
              "type": "commit",\
              "tagger": {"name": "Jenkins-CI","email": "jenkins@hyde.services","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
