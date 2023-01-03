@@ -49,8 +49,8 @@ jobs:
           else
             image_info=$(echo $image_info | jq -r '.container_config')
           fi
-          IMAGE_RELEASE=$(echo ${image_info} | jq -r '.Labels.build_version' | awk '{print $3}')
-          IMAGE_VERSION=$(echo ${IMAGE_RELEASE} | awk -F'-ls' '{print $1}')
+          IMAGE_RELEASE=$(echo ${image_info} | jq -r '.Labels.build_version' | awk '{print $2}')
+          IMAGE_VERSION=$(echo ${IMAGE_RELEASE} | awk -F'-hz' '{print $1}')
           if [ -z "${IMAGE_VERSION}" ]; then
             echo "**** Can't retrieve last pushed version, exiting ****"
             FAILURE_REASON="Can't retrieve last pushed version for immich tag latest"
