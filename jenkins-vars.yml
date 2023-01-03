@@ -1,0 +1,28 @@
+---
+
+# jenkins variables
+project_name: docker-immich
+external_type: custom_json
+release_type: stable
+release_tag: latest
+branch: main
+repo_vars:
+  - JSON_URL = 'https://api.github.com/repos/immich-app/immich/releases/latest'
+  - JSON_PATH = '.tag_name'
+  - BUILD_VERSION_ARG = 'IMMICH_VERSION'
+  - USER = 'hydazz'
+  - REPO = 'docker-immich'
+  - CONTAINER_NAME = 'immich'
+  - DOCKERHUB_IMAGE = 'hydaz/immich'
+  - DEV_DOCKERHUB_IMAGE = 'dev/immich'
+  - PR_DOCKERHUB_IMAGE = 'pipepr/immich'
+  - DIST_IMAGE = 'ubuntu'
+  - MULTIARCH = 'false'
+  - CI = 'false'
+  - CI_WEB = 'true'
+  - CI_PORT = '2283'
+  - CI_SSL = 'false'
+  - CI_DELAY = '120'
+  - CI_DOCKERENV = 'TZ=Europe/London'
+  - CI_AUTH = ''
+  - CI_WEBPATH = ''

@@ -3,6 +3,7 @@ FROM hydaz/baseimage-ubuntu:latest
 # set version label
 ARG BUILD_DATE
 ARG VERSION
+ARG IMMICH_VERSION
 LABEL build_version="Immich version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
 
@@ -10,7 +11,7 @@ LABEL maintainer="hydaz"
 ENV DEBIAN_FRONTEND="noninteractive"
 
 # this is a really messy dockerfile but it works
-RUN set -xe && \
+RUN  \
 	echo "**** install runtime packages ****" && \
 	curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 	apt-get update && \
@@ -26,13 +27,13 @@ RUN set -xe && \
 	echo "**** install immich ****" && \
 	mkdir -p \
 		/tmp/immich && \
-	if [ -z ${VERSION} ]; then \
-		VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
+	if [ -z ${IMMICH_VERSION} ]; then \
+		IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
 			jq -r '.tag_name'); \
 	fi && \
 	curl -o \
 		/tmp/immich.tar.gz -L \
-		"https://github.com/immich-app/immich/archive/${VERSION}.tar.gz" && \
+		"https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
 	tar xf \
 		/tmp/immich.tar.gz -C \
 		/tmp/immich --strip-components=1 && \
