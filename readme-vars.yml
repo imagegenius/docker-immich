@@ -28,7 +28,7 @@ param_env_vars:
   - { env_var: "DB_USERNAME", env_value: "postgres", desc: "PostgreSQL Username" }
   - { env_var: "DB_PASSWORD", env_value: "postgres", desc: "PostgreSQL Password" }
   - { env_var: "DB_DATABASE_NAME", env_value: "immich", desc: "PostgreSQL Database Name" }
-  - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: " Run `openssl rand -base64 128 | tr -d '\n'`" }
+  - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: " Run `openssl rand -base64 128 | tr -d '\\n'`" }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "path_to_data", desc: "Contains the logs" }
