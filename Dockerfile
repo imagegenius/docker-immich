@@ -4,7 +4,7 @@ FROM hydaz/baseimage-ubuntu:latest
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
-LABEL build_version="Immich version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
 
 # environment settings
