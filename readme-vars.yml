@@ -1,7 +1,7 @@
 ---
 
 # project information
-project_name: mosquitto
+project_name: immich
 project_url: "https://immich.app/"
 project_logo: "https://github.com/immich-app/immich/raw/main/design/immich-logo.svg"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) - High performance self-hosted photo and video backup solution."
