@@ -1,5 +1,5 @@
 # This file is globally distributed to all container image projects from
-# https://github.com/hydazz/docker-jenkins-builder/blob/master/.editorconfig
+# https://github.com/imagegenius/docker-jenkins-builder/blob/master/.editorconfig
 
 # top-most EditorConfig file
 root = true
@@ -15,10 +15,6 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
-[{Dockerfile*}]
-indent_style = tab
-indent_size = 4
-
 [{**.sh,root/etc/cont-init.d/**,root/etc/services.d/**}]
-indent_style = tab
+indent_style = space
 indent_size = 4

@@ -23,17 +23,17 @@ jobs:
           do
             br=$(echo "$br" | sed 's|origin/||g')
             echo "**** Evaluating branch ${br} ****"
-            branch=$(curl -sX GET https://raw.githubusercontent.com/hydazz/docker-immich/${br}/jenkins-vars.yml \
-              | docker run --rm -i --entrypoint yq ghcr.io/linuxserver/yq -r .branch)
-            if [ "$br" == "$branch" ]; then
+            ig_branch=$(curl -sX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/jenkins-vars.yml \
+              | docker run --rm -i --entrypoint yq ghcr.io/linuxserver/yq -r .ig_branch)
+            if [ "$br" == "$ig_branch" ]; then
               echo "**** Branch ${br} appears to be live; checking workflow. ****"
-              if curl -sfX GET https://raw.githubusercontent.com/hydazz/docker-immich/${br}/.github/workflows/external_trigger.yml > /dev/null 2>&1; then
+              if curl -sfX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/.github/workflows/external_trigger.yml > /dev/null 2>&1; then
                 echo "**** Workflow exists. Triggering external trigger workflow for branch ${br} ****."
                 curl -iX POST \
                   -H "Authorization: token ${{ secrets.CR_PAT }}" \
                   -H "Accept: application/vnd.github.v3+json" \
                   -d "{\"ref\":\"refs/heads/${br}\"}" \
-                  https://api.github.com/repos/hydazz/docker-immich/actions/workflows/external_trigger.yml/dispatches
+                  https://api.github.com/repos/imagegenius/docker-immich/actions/workflows/external_trigger.yml/dispatches
               else
                 echo "**** Workflow doesn't exist; skipping trigger. ****"
               fi

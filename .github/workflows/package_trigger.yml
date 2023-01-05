@@ -16,23 +16,23 @@ jobs:
             echo "**** Github secret PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN is set; skipping trigger. ****"
             exit 0
           fi
-          if [ $(curl --user jenkins:${{ secrets.JENKINS_TOKEN }} -s https://jenkins.hyde.services/job/Docker-Pipeline-Builders/job/docker-immich/job/main/lastBuild/api/json | jq -r '.building') == "true" ]; then
+          if [ $(curl --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} -s https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/lastBuild/api/json | jq -r '.building') == "true" ]; then
             echo "**** There already seems to be an active build on Jenkins; skipping package trigger ****"
             exit 0
           fi
-          echo "**** Package trigger running off of main branch. To disable, set a Github secret named \"PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN\". ****"
+          echo "**** Package trigger running off of main ig_branch. To disable, set a Github secret named \"PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN\". ****"
           response=$(curl -iX POST \
-            https://jenkins.hyde.services/job/Docker-Pipeline-Builders/job/docker-immich/job/main/buildWithParameters?PACKAGE_CHECK=true \
-            --user jenkins:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
+            https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/buildWithParameters?PACKAGE_CHECK=true \
+            --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
           echo "**** Jenkins job queue url: ${response%$'\r'} ****"
           echo "**** Sleeping 10 seconds until job starts ****"
           sleep 10
-          buildurl=$(curl --user jenkins:${{ secrets.JENKINS_TOKEN }} -s "${response%$'\r'}api/json" | jq -r '.executable.url')
+          buildurl=$(curl --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} -s "${response%$'\r'}api/json" | jq -r '.executable.url')
           buildurl="${buildurl%$'\r'}"
           echo "**** Jenkins job build url: ${buildurl} ****"
           echo "**** Attempting to change the Jenkins job description ****"
           curl -iX POST \
             "${buildurl}submitDescription" \
-            --user jenkins:${{ secrets.JENKINS_TOKEN }} \
+            --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} \
             --data-urlencode "description=GHA package trigger https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --data-urlencode "Submit=Submit"
