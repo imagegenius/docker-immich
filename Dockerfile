@@ -4,8 +4,8 @@ FROM hydaz/baseimage-ubuntu:latest
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
-LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="hydaz"
+LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="hydazz"
 
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
