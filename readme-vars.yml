@@ -5,7 +5,7 @@ project_name: immich
 project_url: "https://immich.app/"
 project_logo: "https://github.com/immich-app/immich/raw/main/design/immich-logo.svg"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) - High performance self-hosted photo and video backup solution."
-project_github_repo_url: "https://github.com/hydazz/docker-{{ project_name }}"
+project_github_repo_url: "https://github.com/imagegenius/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
 
 # supported architectures
@@ -49,7 +49,7 @@ optional_block_1: false
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  Please report any issues with the container [here](https://github.com/hydazz/docker-immich/issues)!
+  Please report any issues with the container [here](https://github.com/imagegenius/docker-immich/issues)!
 
   **You will need to create a PostgreSQL 14 container to use with Immich**
 
