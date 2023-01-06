@@ -30,7 +30,7 @@ pipeline {
     CI_PORT = '2283'
     CI_SSL = 'false'
     CI_DELAY = '120'
-    CI_DOCKERENV = 'JWT_SECRET=cirunsecretjwt DB_DATABASE_NAME=ci DB_PASSWORD=ci DB_USERNAME=ci DB_HOSTNAME=ci'
+    CI_DOCKERENV = 'JWT_SECRET=cirunsecretjwt|DB_DATABASE_NAME=ci|DB_PASSWORD=ci|DB_USERNAME=ci|DB_HOSTNAME=ci'
     CI_AUTH = ''
     CI_WEBPATH = ''
   }
