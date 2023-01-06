@@ -25,12 +25,12 @@ pipeline {
     PR_DOCKERHUB_IMAGE = 'igpipepr/immich'
     DIST_IMAGE = 'ubuntu'
     MULTIARCH = 'false'
-    CI = 'false'
+    CI = 'true'
     CI_WEB = 'true'
     CI_PORT = '2283'
     CI_SSL = 'false'
     CI_DELAY = '120'
-    CI_DOCKERENV = 'TZ=Europe/London'
+    CI_DOCKERENV = 'JWT_SECRET=cirunsecretjwt DB_DATABASE_NAME=ci DB_PASSWORD=ci DB_USERNAME=ci DB_HOSTNAME=ci'
     CI_AUTH = ''
     CI_WEBPATH = ''
   }
@@ -440,7 +440,7 @@ pipeline {
             sh '''#! /bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGenius-CI --password-stdin
                '''
-            sh "docker buildx build --platform=linux/arm64 --output \"type=docker\" \
+            sh "docker build \
               --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
               --label \"org.opencontainers.image.authors=imagegenius.io\" \
               --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
