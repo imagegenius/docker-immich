@@ -112,7 +112,7 @@ libflite12.2-3
 libfontconfig12.13.1-4.2ubuntu5
 libfreetype62.11.1+dfsg-1ubuntu0.1
 libfribidi01.0.8-2ubuntu3.1
-libgbm122.0.5-0ubuntu0.1
+libgbm122.0.5-0ubuntu0.3
 libgcc-s112.1.0-2ubuntu1~22.04
 libgcrypt201.9.4-3ubuntu3
 libgd32.3.0-2ubuntu2
@@ -121,13 +121,13 @@ libgdk-pixbuf2.0-bin2.42.8+dfsg-1ubuntu0.2
 libgdk-pixbuf2.0-common2.42.8+dfsg-1ubuntu0.2
 libgfortran512.1.0-2ubuntu1~22.04
 libgl11.4.0-1
-libgl1-mesa-dri22.0.5-0ubuntu0.1
-libglapi-mesa22.0.5-0ubuntu0.1
+libgl1-mesa-dri22.0.5-0ubuntu0.3
+libglapi-mesa22.0.5-0ubuntu0.3
 libglib2.0-02.72.4-0ubuntu1
 libglib2.0-data2.72.4-0ubuntu1
 libglvnd01.4.0-1
 libglx01.4.0-1
-libglx-mesa022.0.5-0ubuntu0.1
+libglx-mesa022.0.5-0ubuntu0.3
 libgme00.6.3-2
 libgmp102:6.2.1+dfsg-3ubuntu1
 libgnutls303.7.3-4ubuntu1.1
