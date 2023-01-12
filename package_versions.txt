@@ -157,7 +157,7 @@ libk5crypto31.19.2-2
 libkeyutils11.6.1-2ubuntu3
 libkrb5-31.19.2-2
 libkrb5support01.19.2-2
-libksba81.6.0-2ubuntu0.1
+libksba81.6.0-2ubuntu0.2
 liblapack33.10.0-2ubuntu1
 liblcms2-22.12~rc1-2build2
 libldap-2.5-02.5.13+dfsg-0ubuntu0.22.04.1
@@ -244,9 +244,9 @@ librsvg2-common2.52.5+dfsg-3
 librtmp12.4+20151223.gitfa8646d.1-2build4
 librubberband22.0.0-2
 libsamplerate00.2.2-1build1
-libsasl2-22.1.27+dfsg2-3ubuntu1
-libsasl2-modules2.1.27+dfsg2-3ubuntu1
-libsasl2-modules-db2.1.27+dfsg2-3ubuntu1
+libsasl2-22.1.27+dfsg2-3ubuntu1.1
+libsasl2-modules2.1.27+dfsg2-3ubuntu1.1
+libsasl2-modules-db2.1.27+dfsg2-3ubuntu1.1
 libsdl2-2.0-02.0.20+dfsg-2ubuntu1.22.04.1
 libseccomp22.5.3-2ubuntu2
 libselinux13.3-1build2
