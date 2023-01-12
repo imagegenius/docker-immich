@@ -26,7 +26,7 @@ pipeline {
     PR_DOCKERHUB_IMAGE = 'igpipepr/immich'
     DIST_IMAGE = 'ubuntu'
     MULTIARCH = 'false'
-    CI = 'true'
+    CI = 'false'
     CI_WEB = 'true'
     CI_PORT = '2283'
     CI_SSL = 'false'
