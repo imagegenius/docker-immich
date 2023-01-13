@@ -18,3 +18,8 @@ chown -R abc:abc \
     /app \
     /photos \
     /run/immich
+
+# Echo init finish for test runs
+if [[ -n "${TEST_RUN}" ]]; then
+    echo '[ig-init] done.'
+fi
