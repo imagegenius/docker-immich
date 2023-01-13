@@ -368,7 +368,7 @@ netcat-openbsd1.218-4ubuntu1
 nginx-common1.18.0-6ubuntu14.3
 nginx-core1.18.0-6ubuntu14.3
 nginx-full1.18.0-6ubuntu14.3
-nodejs18.12.1-deb-1nodesource1
+nodejs18.13.0-deb-1nodesource1
 ocl-icd-libopencl12.2.14-3
 openssl3.0.2-0ubuntu1.7
 passwd1:4.8.1-2ubuntu2.1
