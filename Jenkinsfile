@@ -30,8 +30,8 @@ pipeline {
     CI_WEB = 'true'
     CI_PORT = '2283'
     CI_SSL = 'false'
-    CI_DELAY = '30'
-    CI_DOCKERENV = 'TEST_RUN=true|JWT_SECRET=cirunsecretjwt|DB_DATABASE_NAME=ci|DB_PASSWORD=ci|DB_USERNAME=ci|DB_HOSTNAME=192.168.100.2'
+    CI_DELAY = '60'
+    CI_DOCKERENV = 'TZ=Europe/London|TEST_RUN=true|JWT_SECRET=cirunsecretjwt|DB_DATABASE_NAME=immich|DB_PASSWORD=immich|DB_USERNAME=postgres|DB_HOSTNAME=192.168.100.2'
     CI_AUTH = ''
     CI_WEBPATH = ''
   }
