@@ -30,7 +30,7 @@ pipeline {
     CI_WEB = 'true'
     CI_PORT = '2283'
     CI_SSL = 'false'
-    CI_DELAY = '60'
+    CI_DELAY = '30'
     CI_DOCKERENV = 'TZ=Europe/London|TEST_RUN=true|JWT_SECRET=cirunsecretjwt|DB_DATABASE_NAME=immich|DB_PASSWORD=immich|DB_USERNAME=postgres|DB_HOSTNAME=192.168.100.2'
     CI_AUTH = ''
     CI_WEBPATH = ''
@@ -56,7 +56,7 @@ pipeline {
           env.CODE_URL = 'https://github.com/' + env.IG_USER + '/' + env.IG_REPO + '/commit/' + env.GIT_COMMIT
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.DOCKERHUB_IMAGE + '/tags/'
           env.PULL_REQUEST = env.CHANGE_ID
-          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE .editorconfig  ./.github/workflows/external_trigger_scheduler.yml  ./.github/workflows/package_trigger_scheduler.yml  ./.github/workflows/external_trigger.yml ./.github/workflows/package_trigger.yml'
+          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE .editorconfig  ./.github/workflows/external_trigger_scheduler.yml  ./.github/workflows/package_trigger_scheduler.yml  ./.github/workflows/external_trigger.yml ./.github/workflows/package_trigger.yml ./root/donate.txt'
         }
         script{
           env.IG_RELEASE_NUMBER = sh(
