@@ -11,10 +11,9 @@ LABEL maintainer="hydazz"
 ENV DEBIAN_FRONTEND="noninteractive"
 
 # this is a really messy dockerfile but it works
-RUN  \
+RUN	\
 	echo "**** install runtime packages ****" && \
 	curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-	apt-get update && \
 	apt-get install --no-install-recommends -y \
 		build-essential \
 		ffmpeg \
@@ -61,7 +60,9 @@ RUN  \
 		package.json \
 		package-lock.json \
 		node_modules \
-		dist \
+		build \
+		static \
+		src \
 		/app/immich/web && \
 	echo "**** build machine-learning ****" && \
 	cd /tmp/immich/machine-learning && \
