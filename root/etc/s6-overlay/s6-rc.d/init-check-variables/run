@@ -9,8 +9,8 @@ MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please s
 "No PostgreSQL Database Name has been specified in the DB_DATABASE_NAME variable.")
 
 for i in ${!VARIABLES[@]}; do
-    if [ -z "${!VARIABLES[$i]}" ]; then
-        echo "Error: ${MESSAGES[$i]}"
-        sleep infinity
-    fi
+	if [ -z "${!VARIABLES[$i]}" ]; then
+		echo "Error: ${MESSAGES[$i]}"
+		sleep infinity
+	fi
 done
