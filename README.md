@@ -56,6 +56,7 @@ services:
       - JWT_SECRET=somelongrandomstring
     volumes:
       - path_to_data:/config
+      - path_to_photos:/photos
     ports:
       - 2283:8080
     restart: unless-stopped
@@ -76,6 +77,7 @@ docker run -d \
   -e JWT_SECRET=somelongrandomstring \
   -p 2283:8080 \
   -v path_to_data:/config \
+  -v path_to_photos:/photos \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 ```
@@ -96,6 +98,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e JWT_SECRET=somelongrandomstring` |  Run `openssl rand -base64 128 | tr -d '\n'` |
 | `-v /config` | Contains the logs |
+| `-v /photos` | Contains all the photos uploaded to Immich |
 
 ## Environment variables from files (Docker secrets)
 
