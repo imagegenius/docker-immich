@@ -15,15 +15,16 @@ RUN	\
 	echo "**** install runtime packages ****" && \
 	curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 	apt-get install --no-install-recommends -y \
-		build-essential \
 		ffmpeg \
+		g++
 		libheif1 \
 		libvips \
 		libvips-dev \
+		make
 		nginx-full \
 		nodejs \
 		redis-server && \
-	echo "**** install immich ****" && \
+	echo "**** download immich ****" && \
 	mkdir -p \
 		/tmp/immich && \
 	if [ -z ${IMMICH_VERSION} ]; then \
@@ -49,7 +50,7 @@ RUN	\
 		node_modules \
 		dist \
 		/app/immich/server && \
-	echo "**** build web frontend ****" && \
+	echo "**** build web ****" && \
 	cd /tmp/immich/web && \
 	npm ci && \
 	npm run build && \
@@ -62,7 +63,6 @@ RUN	\
 		node_modules \
 		build \
 		static \
-		src \
 		/app/immich/web && \
 	echo "**** build machine-learning ****" && \
 	cd /tmp/immich/machine-learning && \
@@ -90,11 +90,12 @@ RUN	\
 	ln -s \
 		/photos \
 		/app/immich/machine-learning/upload && \
-	chown -R abc:abc /app && \
 	echo "**** cleanup ****" && \
+	chown -R abc:abc /app && \
 	apt-get remove -y --purge \
-		build-essential \
-		libvips-dev && \
+		libvips-dev \
+		make \
+    g++ && \
 	apt-get autoremove -y --purge && \
 	apt-get clean && \
 	rm -rf \
