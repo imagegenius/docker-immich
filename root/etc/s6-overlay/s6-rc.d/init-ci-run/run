@@ -4,13 +4,9 @@
 if [[ -n "${TEST_RUN}" ]]; then
 	echo "Starting minimum services to get a webui"
 
-	# make the run files executable for below
-	chmod +x /etc/s6-overlay/s6-rc.d/svc-nginx/run
-	chmod +x /etc/s6-overlay/s6-rc.d/svc-web/run
-
 	# start services to get webui for CI
-	/etc/s6-overlay/s6-rc.d/svc-nginx/run
-	/etc/s6-overlay/s6-rc.d/svc-web/run
+	/etc/s6-overlay/s6-rc.d/svc-nginx/run &
+	/etc/s6-overlay/s6-rc.d/svc-web/run &
 	
 	# Echo init finish for test runs
 	echo '[ig-init] done.'
