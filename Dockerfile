@@ -54,8 +54,14 @@ RUN  \
 	cd /tmp/immich/web && \
 	npm ci && \
 	npm run build && \
-	mv \
-		/tmp/immich/web \
+	npm prune --omit=dev && \
+	mkdir -p \
+		/app/immich/web && \
+	cp -a \
+		package.json \
+		package-lock.json \
+		node_modules \
+		dist \
 		/app/immich/web && \
 	echo "**** build machine-learning ****" && \
 	cd /tmp/immich/machine-learning && \
