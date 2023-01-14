@@ -6,7 +6,6 @@
 [![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=imagegenius.io&message=GitHub%20Package&logo=github)](https://github.com/imagegenius/docker-immich/packages)
 ![Image Size](https://img.shields.io/docker/image-size/imagegenius/immich.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=docker)
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fmain%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/)
-[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimagegenius%2Fimmich%2Flatest%2Fci-status.yml)](https://ci-tests.imagegenius.io/imagegenius/immich/latest/index.html)
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
 
@@ -25,6 +24,15 @@ The architectures supported by this image are:
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ❌ | |
 | armhf| ❌ | |
+
+## Version Tags
+
+This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
+
+| Tag | Available | Description |
+| :----: | :----: |--- |
+| latest | ✅ | Latest Immich release with an Ubuntu base. Does not include GPU acceleration as tfjs-node-gpu is not included. |
+| gpu | ✅ | Latest Immich release with an Ubuntu base. tfjs-node-gpu is included (much bigger image) - coming soon |
 
 ## Application Setup
 
