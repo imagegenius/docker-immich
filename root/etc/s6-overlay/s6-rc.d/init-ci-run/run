@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+if [[ -n "${TEST_RUN}" ]]; then
+	echo "Starting minimum services to get a webui"
+	/etc/s6-overlay/s6-rc.d/svc-nginx/run
+	/etc/s6-overlay/s6-rc.d/svc-web/run
+	
+	# Echo init finish for test runs
+	echo '[ig-init] done.'
+
+	echo "sleeping forever for CI"
+	sleep infinity
+fi

@@ -4,22 +4,17 @@
 # hmm... yes. dont say anything, it works
 HOST="127.0.0.1       immich-server immich-microservices immich-machine-learning immich-web"
 if ! grep -q "$HOST" /etc/hosts; then
-    echo "$HOST" >>/etc/hosts
+	echo "$HOST" >>/etc/hosts
 fi
 
 # make folders
 mkdir -p \
-    /config/log/{immich,redis,nginx} \
-    /run/immich
+	/config/log/{immich,redis,nginx} \
+	/run/immich
 
 # permissions
 chown -R abc:abc \
-    /config \
-    /app \
-    /photos \
-    /run/immich
-
-# Echo init finish for test runs
-if [[ -n "${TEST_RUN}" ]]; then
-    echo '[ig-init] done.'
-fi
+	/config \
+	/app \
+	/photos \
+	/run/immich
