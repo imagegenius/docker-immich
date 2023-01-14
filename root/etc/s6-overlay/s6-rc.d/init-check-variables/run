@@ -1,16 +1,30 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-VARIABLES=("JWT_SECRET" "DB_HOSTNAME" "DB_USERNAME" "DB_PASSWORD" "DB_DATABASE_NAME")
-MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please set one or use '$(openssl rand -base64 128 | tr -d '\n')' (This has been randomly generated)"
-"No PostgreSQL Database Hostname has been specified in the DB_HOSTNAME variable."
-"No PostgreSQL Database Username has been specified in the DB_USERNAME variable."
-"No PostgreSQL Database Password has been specified in the DB_PASSWORD variable."
-"No PostgreSQL Database Name has been specified in the DB_DATABASE_NAME variable.")
+if [[ -n "${TEST_RUN}" ]]; then
+	echo "Starting minimum services to get a webui"
 
-for i in ${!VARIABLES[@]}; do
-    if [ -z "${!VARIABLES[$i]}" ]; then
-        echo "Error: ${MESSAGES[$i]}"
-        sleep infinity
-    fi
-done
+	# start services to get webui for CI
+	/etc/s6-overlay/s6-rc.d/svc-nginx/run &
+	/etc/s6-overlay/s6-rc.d/svc-web/run &
+
+	# Echo init finish for test runs
+	echo '[ig-init] done.'
+
+	echo "sleeping forever for CI"
+	sleep infinity
+else
+	VARIABLES=("JWT_SECRET" "DB_HOSTNAME" "DB_USERNAME" "DB_PASSWORD" "DB_DATABASE_NAME")
+	MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please set one or use '$(openssl rand -base64 128 | tr -d '\n')' (This has been randomly generated)"
+	"No PostgreSQL Database Hostname has been specified in the DB_HOSTNAME variable."
+	"No PostgreSQL Database Username has been specified in the DB_USERNAME variable."
+	"No PostgreSQL Database Password has been specified in the DB_PASSWORD variable."
+	"No PostgreSQL Database Name has been specified in the DB_DATABASE_NAME variable.")
+
+	for i in ${!VARIABLES[@]}; do
+		if [ -z "${!VARIABLES[$i]}" ]; then
+			echo "Error: ${MESSAGES[$i]}"
+			sleep infinity
+		fi
+	done
+fi

@@ -24,7 +24,7 @@ repo_vars:
   - CI_PORT = '2283'
   - CI_SSL = 'false'
   - CI_DELAY = '120'
-  - CI_DOCKERENV = 'TZ=Europe/London|TEST_RUN=true|JWT_SECRET=cirunsecretjwt|DB_DATABASE_NAME=immich|DB_PASSWORD=immich|DB_USERNAME=postgres|DB_HOSTNAME=192.168.100.2'
+  - CI_DOCKERENV = 'TZ=Europe/London|TEST_RUN=true'
   - CI_AUTH = ''
   - CI_WEBPATH = ''
 sponsor_links:
