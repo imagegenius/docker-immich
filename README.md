@@ -96,7 +96,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e DB_USERNAME=postgres` | PostgreSQL Username |
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
-| `-e JWT_SECRET=somelongrandomstring` |  Run `openssl rand -base64 128 | tr -d '\n'` |
+| `-e JWT_SECRET=somelongrandomstring` | Run openssl rand -base64 128 | tr -d '\n' |
 | `-v /config` | Contains the logs |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 
