@@ -16,11 +16,11 @@ RUN	\
 	curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 	apt-get install --no-install-recommends -y \
 		ffmpeg \
-		g++
+		g++ \
 		libheif1 \
 		libvips \
 		libvips-dev \
-		make
+		make \
 		nginx-full \
 		nodejs \
 		redis-server && \
