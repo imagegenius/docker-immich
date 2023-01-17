@@ -23,7 +23,6 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ❌ | |
-| armhf| ❌ | |
 
 ## Version Tags
 
