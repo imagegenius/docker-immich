@@ -335,7 +335,7 @@ libxi62:1.8-1build1
 libxinerama12:1.1.4-3
 libxkbcommon01.4.0-1
 libxml22.9.13+dfsg-1ubuntu0.2
-libxpm41:3.5.12-1build2
+libxpm41:3.5.12-1ubuntu0.22.04.1
 libxrandr22:1.5.2-1build1
 libxrender11:0.9.10-1build4
 libxshmfence11.3-1build4
