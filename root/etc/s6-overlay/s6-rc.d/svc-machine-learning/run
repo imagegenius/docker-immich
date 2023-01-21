@@ -4,4 +4,4 @@
 cd /app/immich/machine-learning || exit 1
 
 exec s6-setuidgid abc \
-	node dist/main.js >/config/log/immich/machine-learning.log
+	node dist/main.js
