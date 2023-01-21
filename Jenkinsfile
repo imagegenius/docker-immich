@@ -25,7 +25,7 @@ pipeline {
     DEV_DOCKERHUB_IMAGE = 'igdev/immich'
     PR_DOCKERHUB_IMAGE = 'igpipepr/immich'
     DIST_IMAGE = 'ubuntu'
-    MULTIARCH = 'false'
+    MULTIARCH = 'true'
     CI = 'false'
     CI_WEB = 'true'
     CI_PORT = '2283'
@@ -65,7 +65,7 @@ pipeline {
         }
         script{
           env.IG_TAG_NUMBER = sh(
-            script: '''#! /bin/bash
+            script: '''#!/bin/bash
                        tagsha=$(git rev-list -n 1 ${IG_RELEASE} 2>/dev/null)
                        if [ "${tagsha}" == "${COMMIT_SHA}" ]; then
                          echo ${IG_RELEASE_NUMBER}
@@ -230,7 +230,7 @@ pipeline {
             env.SHELLCHECK_URL = 'https://ci-tests.imagegenius.io/' + env.IMAGE + '/' + env.META_TAG + '/shellcheck-result.xml'
           }
           sh '''curl -sL https://raw.githubusercontent.com/linuxserver/docker-shellcheck/master/checkrun.sh | /bin/bash'''
-          sh '''#! /bin/bash
+          sh '''#!/bin/bash
                 set -e
                 docker pull ghcr.io/imagegenius/igdev-spaces-file-upload:latest
                 docker run --rm \
@@ -255,7 +255,7 @@ pipeline {
         }
       }
       steps {
-        sh '''#! /bin/bash
+        sh '''#!/bin/bash
               set -e
               TEMPDIR=$(mktemp -d)
               docker pull ghcr.io/imagegenius/jenkins-builder:latest
@@ -419,7 +419,7 @@ pipeline {
           steps {
             echo "Running on node: ${NODE_NAME}"
             echo 'Logging into Github'
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGenius-CI --password-stdin
                '''
             sh "docker build \
@@ -455,7 +455,7 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        sh '''#! /bin/bash
+        sh '''#!/bin/bash
               set -e
               TEMPDIR=$(mktemp -d)
               if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
@@ -517,7 +517,7 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        sh '''#! /bin/bash
+        sh '''#!/bin/bash
               echo "Packages were updated. Cleaning up the image and exiting."
               if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 docker rmi ${IMAGE}:amd64-${META_TAG}
@@ -541,7 +541,7 @@ pipeline {
         }
       }
       steps {
-        sh '''#! /bin/bash
+        sh '''#!/bin/bash
               echo "There are no package updates. Cleaning up the image and exiting."
               if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 docker rmi ${IMAGE}:amd64-${META_TAG}
@@ -564,7 +564,7 @@ pipeline {
       parallel {
         stage('Push/Pull on Node') {
           steps {
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   if [ "${MULTIARCH}" == "false" ]; then
 				    echo "Pushing image"
                     docker tag ${IMAGE}:${META_TAG} ghcr.io/imagegenius/igdev-buildcache:${COMMIT_SHA}-${BUILD_NUMBER}
@@ -585,7 +585,7 @@ pipeline {
           }
           steps {
             echo "Running on node: ${NODE_NAME}"
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   if [ "${MULTIARCH}" == "true" ]; then
 				    echo "Pulling images"
                     docker pull ghcr.io/imagegenius/igdev-buildcache:amd64-${COMMIT_SHA}-${BUILD_NUMBER}
@@ -627,7 +627,7 @@ pipeline {
           script{
             env.CI_URL = 'https://ci-tests.imagegenius.io/' + env.IMAGE + '/' + env.META_TAG + '/index.html'
           }
-          sh '''#! /bin/bash
+          sh '''#!/bin/bash
                 set -e
                 docker pull ghcr.io/imagegenius/ci:latest
                 docker run --rm \
@@ -674,7 +674,7 @@ pipeline {
         ]) {
           echo "Running on node: ${NODE_NAME}"
           retry(5) {
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   set -e
                   echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGenius-CI --password-stdin
@@ -717,7 +717,7 @@ pipeline {
         ]) {
           echo "Running on node: ${NODE_NAME}"
           retry(5) {
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   set -e
                   echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGenius-CI --password-stdin
@@ -780,7 +780,7 @@ pipeline {
         stage('Docker Cleanup Node') {
           steps {
             echo "Removing all images made by this run"
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   if [ "${MULTIARCH}" == "true" ]; then
                     docker rmi \
                     ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} \
@@ -810,7 +810,7 @@ pipeline {
           steps {
             echo "Running on node: ${NODE_NAME}"
             echo "Removing all images made by this run"
-            sh '''#! /bin/bash
+            sh '''#!/bin/bash
                   if [ "${MULTIARCH}" == "true" ]; then
                     for DELETEIMAGE in "${GITHUBIMAGE}" "${IMAGE}"; do
                       docker rmi \
@@ -866,7 +866,7 @@ pipeline {
              "type": "commit",\
              "tagger": {"name": "ImageGenius Jenkins","email": "ci@imagegenius.io","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
-        sh '''#! /bin/bash
+        sh '''#!/bin/bash
               curl -H "Authorization: token ${GITHUB_TOKEN}" -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases/latest | jq '. |.body' | sed 's:^.\\(.*\\).$:\\1:' > releasebody.json
               echo '{"tag_name":"'${META_TAG}'",\
                      "target_commitish": "main",\
@@ -892,7 +892,7 @@ pipeline {
             passwordVariable: 'DOCKERPASS'
           ]
         ]) {
-          sh '''#! /bin/bash
+          sh '''#!/bin/bash
                 set -e
                 TEMPDIR=$(mktemp -d)
                 docker pull ghcr.io/imagegenius/jenkins-builder:latest
@@ -935,12 +935,12 @@ pipeline {
         }
         else if (currentBuild.currentResult == "SUCCESS"){
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://wiki.jenkins.io/JENKINS/attachments/2916393/57409617.png","embeds": [{"color": 1681177,\
-                 "description": "**Build:**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**ShellCheck Results:**  '${SHELLCHECK_URL}'\\n**Status:**  Success\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
+                 "description": "**'${IG_REPO}'**\\n**Build**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**ShellCheck Results:**  '${SHELLCHECK_URL}'\\n**Status:**  Success\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
         }
         else {
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://wiki.jenkins.io/JENKINS/attachments/2916393/57409617.png","embeds": [{"color": 16711680,\
-                 "description": "**Build:**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**ShellCheck Results:**  '${SHELLCHECK_URL}'\\n**Status:**  failure\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
+                 "description": "**'${IG_REPO}'**\\n**Build**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**ShellCheck Results:**  '${SHELLCHECK_URL}'\\n**Status:**  Failure\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
         }
       }
