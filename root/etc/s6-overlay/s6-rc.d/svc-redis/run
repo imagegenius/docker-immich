@@ -1,5 +1,0 @@
-#!/usr/bin/with-contenv bash
-# shellcheck shell=bash
-
-exec s6-setuidgid abc \
-	redis-server --pidfile /run/immich/redis.pid --always-show-logo no --dir /config/ --logfile /config/log/redis/redis.log
