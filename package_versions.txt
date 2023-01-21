@@ -116,6 +116,8 @@ libgbm122.0.5-0ubuntu0.3
 libgcc-s112.1.0-2ubuntu1~22.04
 libgcrypt201.9.4-3ubuntu3
 libgd32.3.0-2ubuntu2
+libgdbm61.23-1
+libgdbm-compat41.23-1
 libgdk-pixbuf-2.0-02.42.8+dfsg-1ubuntu0.2
 libgdk-pixbuf2.0-bin2.42.8+dfsg-1ubuntu0.2
 libgdk-pixbuf2.0-common2.42.8+dfsg-1ubuntu0.2
@@ -146,6 +148,7 @@ libicu7070.1-2
 libidn2-02.3.2-2build1
 libiec61883-01.2.0-4build3
 libilmbase252.5.7-2
+libimage-exiftool-perl12.40+dfsg-1
 libimagequant02.17.0-1
 libjack-jackd2-01.9.20~dfsg-1
 libjbig02.1-3.1ubuntu0.22.04.1
@@ -222,6 +225,7 @@ libpangocairo-1.0-01.50.6+ds-2
 libpangoft2-1.0-01.50.6+ds-2
 libpcre2-8-010.39-3ubuntu0.1
 libpcre32:8.39-13ubuntu0.22.04.1
+libperl5.345.34.0-3ubuntu1.1
 libpgm-5.3-05.3.128~dfsg-2
 libpixman-1-00.40.0-1ubuntu0.22.04.1
 libpng16-161.6.37-3build5
@@ -372,7 +376,9 @@ nodejs18.13.0-deb-1nodesource1
 ocl-icd-libopencl12.2.14-3
 openssl3.0.2-0ubuntu1.7
 passwd1:4.8.1-2ubuntu2.1
+perl5.34.0-3ubuntu1.1
 perl-base5.34.0-3ubuntu1.1
+perl-modules-5.345.34.0-3ubuntu1.1
 pinentry-curses1.1.1-1build2
 procps2:3.3.17-6ubuntu2
 publicsuffix20211207.1025-1
