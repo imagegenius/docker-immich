@@ -29,7 +29,8 @@ param_env_vars:
   - { env_var: "DB_USERNAME", env_value: "postgres", desc: "PostgreSQL Username" }
   - { env_var: "DB_PASSWORD", env_value: "postgres", desc: "PostgreSQL Password" }
   - { env_var: "DB_DATABASE_NAME", env_value: "immich", desc: "PostgreSQL Database Name" }
-  - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: "Run openssl rand -base64 128 | tr -d '\\n'" }
+  - { env_var: "REDIS_HOSTNAME", env_value: "redis", desc: "Redis Hostname" }
+  - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: "Run `openssl rand -base64 128`" }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "path_to_data", desc: "Contains the logs" }
@@ -41,7 +42,11 @@ param_device_map: false
 cap_add_param: false
 
 # optional container parameters
-opt_param_usage_include_env: false
+opt_param_usage_include_env: true
+opt_param_env_vars:
+  - { env_var: "DB_PORT", env_value: "5432", desc: "PostgreSQL Port" }
+  - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }  
+  - { env_var: "REDIS_PASSWORD", env_value: "redis", desc: "Redis password" }
 opt_param_usage_include_vols: false
 opt_param_usage_include_ports: false
 opt_param_device_map: false
@@ -53,8 +58,9 @@ app_setup_block_enabled: true
 app_setup_block: |
   Please report any issues with the container [here](https://github.com/imagegenius/docker-immich/issues)!
 
-  **You will need to create a PostgreSQL 14 container to use with Immich**
+  **You will need to create a PostgreSQL 14 and Redis container to use with Immich**
 
 # changelog
 changelogs:
+  - { date: "1.21.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
   - { date: "1.02.23:", desc: "Initial Release." }
