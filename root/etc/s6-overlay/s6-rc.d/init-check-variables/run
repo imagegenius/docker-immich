@@ -5,6 +5,7 @@ VARIABLES=("JWT_SECRET" "DB_HOSTNAME" "DB_USERNAME" "DB_PASSWORD" "DB_DATABASE_N
 MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please set one or use '$(openssl rand -base64 128 | tr -d '\n')' (This has been randomly generated)"
 "No PostgreSQL Database Hostname has been specified in the DB_HOSTNAME variable."
 "No PostgreSQL Database Username has been specified in the DB_USERNAME variable."
+"No PostgreSQL Database Password has been specified in the DB_PASSWORD variable."
 "No PostgreSQL Database Name has been specified in the DB_DATABASE_NAME variable."
 "No Redis Hostname has been specified in the REDIS_HOSTNAME variable.")
 
