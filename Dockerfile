@@ -8,7 +8,11 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz"
 
 # environment settings
-ENV DEBIAN_FRONTEND="noninteractive"
+ENV DEBIAN_FRONTEND="noninteractive" \
+	  IMMICH_WEB_HOST=127.0.0.1:3000 \
+	  IMMICH_SERVER_HOST=127.0.0.1:3001 \
+	  IMMICH_SERVER_SCHEME=http:// \
+	  IMMICH_WEB_SCHEME=http://
 
 # this is a really messy dockerfile but it works
 RUN \
@@ -92,6 +96,15 @@ RUN \
   ln -s \
     /photos \
     /app/immich/machine-learning/upload && \
+	echo "**** setup nginx ****" && \
+	mkdir -p /etc/nginx/  && \
+	cp /tmp/immich/nginx/nginx.conf /etc/nginx/nginx.conf && \
+	sed -i "s+\$IMMICH_SERVER_URL+$IMMICH_SERVER_URL+g" /etc/nginx/nginx.conf && \
+	sed -i "s+\$IMMICH_WEB_URL+$IMMICH_WEB_URL+g" /etc/nginx/nginx.conf && \
+	sed -i "s+\${IMMICH_SERVER_SCHEME}+$IMMICH_SERVER_SCHEME+g" /etc/nginx/nginx.conf && \
+	sed -i "s+\${IMMICH_WEB_SCHEME}+$IMMICH_WEB_SCHEME+g" /etc/nginx/nginx.conf && \
+	sed -i "s+\$IMMICH_SERVER_HOST+$IMMICH_SERVER_HOST+g" /etc/nginx/nginx.conf && \
+	sed -i "s+\$IMMICH_WEB_HOST+$IMMICH_WEB_HOST+g" /etc/nginx/nginx.conf && \
   echo "**** cleanup ****" && \
   chown -R abc:abc /app && \
   apt-get remove -y --purge \
