@@ -11,13 +11,13 @@ RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
     make \
-    libvips-dev \
+    vips-dev \
     g++ && \    
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ffmpeg \
     libheif \
-    libvips \
+    vips \
     exiftool \
     perl \
     nginx \
