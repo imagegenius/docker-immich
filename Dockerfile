@@ -28,8 +28,7 @@ RUN \
     libvips-dev \
     make \
     nginx-full \
-    nodejs \
-    redis-server && \
+    nodejs && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -127,8 +126,7 @@ RUN \
     /root/.npm
 
 # environment settings
-ENV NODE_ENV="production" \
-  REDIS_HOSTNAME="localhost"
+ENV NODE_ENV="production"
 
 # copy local files
 COPY root/ /
