@@ -22,7 +22,7 @@ The architectures supported by this image are:
 | Architecture | Available | Tag |
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
-| arm64 | ❌ | |
+| arm64 | ✅ | arm64v8-\<version tag\> |
 
 ## Version Tags
 
@@ -30,8 +30,8 @@ This image provides various versions that are available via tags. Please read th
 
 | Tag | Available | Description |
 | :----: | :----: |--- |
-| latest | ✅ | Latest Immich release with an Ubuntu base. Does not include GPU acceleration as tfjs-node-gpu is not included. |
-| gpu | ✅ | Latest Immich release with an Ubuntu base. tfjs-node-gpu is included (much bigger image) - coming soon |
+| latest | ✅ | Latest Immich release with an Ubuntu base. |
+| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX |
 
 ## Application Setup
 
@@ -203,5 +203,6 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **1.23.23:** - add noml image to readme and add aarch64 image to readme, make github release stable
 * **1.21.23:** - BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres
 * **1.02.23:** - Initial Release.
