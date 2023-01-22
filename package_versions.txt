@@ -140,6 +140,7 @@ utmps-libs-0.1.2.0-r1
 v4l-utils-libs-1.22.1-r2
 vidstab-1.1.0-r2
 vips-8.13.3-r1
+vips-cpp-8.13.3-r1
 wayland-libs-client-1.21.0-r1
 x264-libs-0.164_git20220602-r0
 x265-libs-3.5-r3
