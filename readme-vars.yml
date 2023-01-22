@@ -15,8 +15,8 @@ available_architectures:
 # development version
 development_versions: true
 development_versions_items:
-  - { tag: "latest", desc: "Latest Immich release with an Ubuntu base. Does not include GPU acceleration as tfjs-node-gpu is not included." }
-  - { tag: "gpu", desc: "Latest Immich release with an Ubuntu base. tfjs-node-gpu is included (much bigger image) - coming soon" }
+  - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
+  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX" }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -56,11 +56,11 @@ optional_block_1: false
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
+  # do not use this image yet... (under testing) 
   Please report any issues with the container [here](https://github.com/imagegenius/docker-immich/issues)!
 
   **You will need to create a PostgreSQL 14 and Redis container to use with Immich**
 
 # changelog
 changelogs:
-  - { date: "1.21.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
-  - { date: "1.02.23:", desc: "Initial Release." }
+  - { date: "1.22.23:", desc: "Initial Release." }

@@ -4,8 +4,8 @@
 project_name: docker-immich
 external_type: github_stable
 release_type: prerelease
-release_tag: latest
-ig_branch: main
+release_tag: noml
+ig_branch: noml
 repo_vars:
   - EXT_GIT_BRANCH = 'main'
   - EXT_USER = 'immich-app'
@@ -17,8 +17,8 @@ repo_vars:
   - DOCKERHUB_IMAGE = 'imagegenius/immich'
   - DEV_DOCKERHUB_IMAGE = 'igdev/immich'
   - PR_DOCKERHUB_IMAGE = 'igpipepr/immich'
-  - DIST_IMAGE = 'ubuntu'
-  - MULTIARCH = 'true'
+  - DIST_IMAGE = 'alpine'
+  - MULTIARCH = 'false'
   - CI = 'false'
   - CI_WEB = 'true'
   - CI_PORT = '2283'

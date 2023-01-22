@@ -1,4 +1,4 @@
-FROM ghcr.io/imagegenius/baseimage-ubuntu:jammy
+FROM ghcr.io/imagegenius/baseimage-alpine:3.17
 
 # set version label
 ARG BUILD_DATE
@@ -7,23 +7,20 @@ ARG IMMICH_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz"
 
-# environment settings
-ENV DEBIAN_FRONTEND="noninteractive"
-
-# this is a really messy dockerfile but it works
 RUN \
+  echo "**** install build packages ****" && \
+  apk add --no-cache --virtual=build-dependencies \
+    make \
+    libvips-dev \
+    g++ && \    
   echo "**** install runtime packages ****" && \
-  curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-  apt-get install --no-install-recommends -y \
+  apk add --no-cache \
     ffmpeg \
-    g++ \
-    libheif1 \
+    libheif \
     libvips \
     exiftool \
     perl \
-    libvips-dev \
-    make \
-    nginx-full \
+    nginx \
     nodejs && \
   echo "**** download immich ****" && \
   mkdir -p \
@@ -65,23 +62,6 @@ RUN \
     build \
     static \
     /app/immich/web && \
-  echo "**** build machine-learning ****" && \
-  cd /tmp/immich/machine-learning && \
-  sed -i \
-    '/@tensorflow\/tfjs-node-gpu/d' \
-    package.json && \
-  npm ci && \
-  npm rebuild @tensorflow/tfjs-node --build-from-source && \
-  npm run build && \
-  npm prune --omit=dev && \
-  mkdir -p \
-    /app/immich/machine-learning && \
-  cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    dist \
-    /app/immich/machine-learning/ && \
   echo "**** setup upload folder ****" && \
   mkdir -p \
     /photos && \
@@ -93,16 +73,10 @@ RUN \
     /app/immich/machine-learning/upload && \
   echo "**** cleanup ****" && \
   chown -R abc:abc /app && \
-  apt-get remove -y --purge \
-    libvips-dev \
-    make \
-    g++ && \
-  apt-get autoremove -y --purge && \
-  apt-get clean && \
+  apk del --purge \
+    build-dependencies && \
   rm -rf \
     /tmp/* \
-    /var/lib/apt/lists/* \
-    /var/tmp/* \
     /root/.cache \
     /root/.npm
 
