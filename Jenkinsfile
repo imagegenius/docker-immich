@@ -24,8 +24,8 @@ pipeline {
     DOCKERHUB_IMAGE = 'imagegenius/immich'
     DEV_DOCKERHUB_IMAGE = 'igdev/immich'
     PR_DOCKERHUB_IMAGE = 'igpipepr/immich'
-    DIST_IMAGE = 'ubuntu'
-    MULTIARCH = 'true'
+    DIST_IMAGE = 'alpine'
+    MULTIARCH = 'false'
     CI = 'false'
     CI_WEB = 'true'
     CI_PORT = '2283'
@@ -42,7 +42,7 @@ pipeline {
         script{
           env.EXIT_STATUS = ''
           env.IG_RELEASE = sh(
-            script: '''docker run --rm ghcr.io/linuxserver/alexeiled-skopeo sh -c 'skopeo inspect docker://docker.io/'${DOCKERHUB_IMAGE}':latest 2>/dev/null' | jq -r '.Labels.build_version' | awk '{print $3}' | grep '\\-ig' || : ''',
+            script: '''docker run --rm ghcr.io/linuxserver/alexeiled-skopeo sh -c 'skopeo inspect docker://docker.io/'${DOCKERHUB_IMAGE}':noml 2>/dev/null' | jq -r '.Labels.build_version' | awk '{print $3}' | grep '\\-ig' || : ''',
             returnStdout: true).trim()
           env.IG_RELEASE_NOTES = sh(
             script: '''cat readme-vars.yml | awk -F \\" '/date: "[0-9][0-9].[0-9][0-9].[0-9][0-9]:/ {print $4;exit;}' | sed -E ':a;N;$!ba;s/\\r{0,1}\\n/\\\\n/g' ''',
@@ -151,10 +151,10 @@ pipeline {
         }
       }
     }
-    // If this is a main build use live docker endpoints
+    // If this is a noml build use live docker endpoints
     stage("Set ENV live build"){
       when {
-        branch "main"
+        branch "noml"
         environment name: 'CHANGE_ID', value: ''
       }
       steps {
@@ -162,20 +162,20 @@ pipeline {
           env.IMAGE = env.DOCKERHUB_IMAGE
           env.GITHUBIMAGE = 'ghcr.io/' + env.IG_USER + '/' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
+            env.CI_TAGS = 'amd64-noml-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER + '|arm64v8-noml-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
+            env.CI_TAGS = 'noml-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
           }
           env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.META_TAG = 'noml-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
+          env.EXT_RELEASE_TAG = 'noml-version-' + env.EXT_RELEASE_CLEAN
         }
       }
     }
     // If this is a dev build use dev docker endpoints
     stage("Set ENV dev build"){
       when {
-        not {branch "main"}
+        not {branch "noml"}
         environment name: 'CHANGE_ID', value: ''
       }
       steps {
@@ -183,13 +183,13 @@ pipeline {
           env.IMAGE = env.DEV_DOCKERHUB_IMAGE
           env.GITHUBIMAGE = 'ghcr.io/' + env.IG_USER + '/igdev-' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+            env.CI_TAGS = 'amd64-noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm64v8-noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+            env.CI_TAGS = 'noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
           }
           env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.META_TAG = 'noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+          env.EXT_RELEASE_TAG = 'noml-version-' + env.EXT_RELEASE_CLEAN
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.DEV_DOCKERHUB_IMAGE + '/tags/'
         }
       }
@@ -204,13 +204,13 @@ pipeline {
           env.IMAGE = env.PR_DOCKERHUB_IMAGE
           env.GITHUBIMAGE = 'ghcr.io/' + env.IG_USER + '/igpipepr-' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+            env.CI_TAGS = 'amd64-noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm64v8-noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+            env.CI_TAGS = 'noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           }
           env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.META_TAG = 'noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+          env.EXT_RELEASE_TAG = 'noml-version-' + env.EXT_RELEASE_CLEAN
           env.CODE_URL = 'https://github.com/' + env.IG_USER + '/' + env.IG_REPO + '/pull/' + env.PULL_REQUEST
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.PR_DOCKERHUB_IMAGE + '/tags/'
         }
@@ -248,7 +248,7 @@ pipeline {
     // Use helper containers to render templated files
     stage('Update-Templates') {
       when {
-        branch "main"
+        branch "noml"
         environment name: 'CHANGE_ID', value: ''
         expression {
           env.CONTAINER_NAME != null
@@ -259,13 +259,13 @@ pipeline {
               set -e
               TEMPDIR=$(mktemp -d)
               docker pull ghcr.io/imagegenius/jenkins-builder:latest
-              docker run --rm -e CONTAINER_NAME=${CONTAINER_NAME} -e GITHUB_BRANCH=main -v ${TEMPDIR}:/ansible/jenkins ghcr.io/imagegenius/jenkins-builder:latest 
+              docker run --rm -e CONTAINER_NAME=${CONTAINER_NAME} -e GITHUB_BRANCH=noml -v ${TEMPDIR}:/ansible/jenkins ghcr.io/imagegenius/jenkins-builder:latest 
               # Stage 1 - Jenkinsfile update
               if [[ "$(md5sum Jenkinsfile | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile | awk '{ print $1 }')" ]]; then
                 mkdir -p ${TEMPDIR}/repo
                 git clone https://github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/repo/${IG_REPO}
                 cd ${TEMPDIR}/repo/${IG_REPO}
-                git checkout -f main
+                git checkout -f noml
                 cp ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile ${TEMPDIR}/repo/${IG_REPO}/
                 git add Jenkinsfile
                 git commit -m 'Bot Updating Templated Files'
@@ -285,7 +285,7 @@ pipeline {
                 mkdir -p ${TEMPDIR}/repo
                 git clone https://github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/repo/${IG_REPO}
                 cd ${TEMPDIR}/repo/${IG_REPO}
-                git checkout -f main
+                git checkout -f noml
                 cd ${TEMPDIR}/docker-${CONTAINER_NAME}
                 mkdir -p ${TEMPDIR}/repo/${IG_REPO}/.github/workflows
                 mkdir -p ${TEMPDIR}/repo/${IG_REPO}/.github/ISSUE_TEMPLATE
@@ -334,7 +334,7 @@ pipeline {
     // Exit the build if the Templated files were just updated
     stage('Template-exit') {
       when {
-        branch "main"
+        branch "noml"
         environment name: 'CHANGE_ID', value: ''
         environment name: 'FILES_UPDATED', value: 'true'
         expression {
@@ -450,7 +450,7 @@ pipeline {
     // Take the image we just built and dump package versions for comparison
     stage('Update-packages') {
       when {
-        branch "main"
+        branch "noml"
         environment name: 'CHANGE_ID', value: ''
         environment name: 'EXIT_STATUS', value: ''
       }
@@ -487,7 +487,7 @@ pipeline {
               echo "Package tag sha from current packages in buit container is ${NEW_PACKAGE_TAG} comparing to old ${PACKAGE_TAG} from github"
               if [ "${NEW_PACKAGE_TAG}" != "${PACKAGE_TAG}" ]; then
                 git clone https://github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/${IG_REPO}
-                git --git-dir ${TEMPDIR}/${IG_REPO}/.git checkout -f main
+                git --git-dir ${TEMPDIR}/${IG_REPO}/.git checkout -f noml
                 cp ${TEMPDIR}/package_versions.txt ${TEMPDIR}/${IG_REPO}/
                 cd ${TEMPDIR}/${IG_REPO}/
                 wait
@@ -511,7 +511,7 @@ pipeline {
     // Exit the build if the package file was just updated
     stage('PACKAGE-exit') {
       when {
-        branch "main"
+        branch "noml"
         environment name: 'CHANGE_ID', value: ''
         environment name: 'PACKAGE_UPDATED', value: 'true'
         environment name: 'EXIT_STATUS', value: ''
@@ -532,7 +532,7 @@ pipeline {
     // Exit the build if this is just a package check and there are no changes to push
     stage('PACKAGECHECK-exit') {
       when {
-        branch "main"
+        branch "noml"
         environment name: 'CHANGE_ID', value: ''
         environment name: 'PACKAGE_UPDATED', value: 'false'
         environment name: 'EXIT_STATUS', value: ''
@@ -680,12 +680,12 @@ pipeline {
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGenius-CI --password-stdin
                   for PUSHIMAGE in "${GITHUBIMAGE}" "${IMAGE}"; do
                     docker tag ${IMAGE}:${META_TAG} ${PUSHIMAGE}:${META_TAG}
-                    docker tag ${PUSHIMAGE}:${META_TAG} ${PUSHIMAGE}:latest
+                    docker tag ${PUSHIMAGE}:${META_TAG} ${PUSHIMAGE}:noml
                     docker tag ${PUSHIMAGE}:${META_TAG} ${PUSHIMAGE}:${EXT_RELEASE_TAG}
                     if [ -n "${SEMVER}" ]; then
                       docker tag ${PUSHIMAGE}:${META_TAG} ${PUSHIMAGE}:${SEMVER}
                     fi
-                    docker push ${PUSHIMAGE}:latest
+                    docker push ${PUSHIMAGE}:noml
                     docker push ${PUSHIMAGE}:${META_TAG}
                     docker push ${PUSHIMAGE}:${EXT_RELEASE_TAG}
                     if [ -n "${SEMVER}" ]; then
@@ -724,8 +724,8 @@ pipeline {
                   for MANIFESTIMAGE in "${IMAGE}" "${GITHUBIMAGE}"; do
                     docker tag ${IMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG}
                     docker tag ${IMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
-                    docker tag ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-latest
-                    docker tag ${MANIFESTIMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-latest
+                    docker tag ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-noml
+                    docker tag ${MANIFESTIMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-noml
                     docker tag ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:amd64-${EXT_RELEASE_TAG}
                     docker tag ${MANIFESTIMAGE}:arm64v8-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${EXT_RELEASE_TAG}
                     if [ -n "${SEMVER}" ]; then
@@ -734,17 +734,17 @@ pipeline {
                     fi
                     docker push ${MANIFESTIMAGE}:amd64-${META_TAG}
                     docker push ${MANIFESTIMAGE}:arm64v8-${META_TAG}
-                    docker push ${MANIFESTIMAGE}:amd64-latest
-                    docker push ${MANIFESTIMAGE}:arm64v8-latest
+                    docker push ${MANIFESTIMAGE}:amd64-noml
+                    docker push ${MANIFESTIMAGE}:arm64v8-noml
                     docker push ${MANIFESTIMAGE}:amd64-${EXT_RELEASE_TAG}
                     docker push ${MANIFESTIMAGE}:arm64v8-${EXT_RELEASE_TAG}
                     if [ -n "${SEMVER}" ]; then
                       docker push ${MANIFESTIMAGE}:amd64-${SEMVER}
                       docker push ${MANIFESTIMAGE}:arm64v8-${SEMVER}
                     fi
-                    docker manifest push --purge ${MANIFESTIMAGE}:latest || :
-                    docker manifest create ${MANIFESTIMAGE}:latest ${MANIFESTIMAGE}:amd64-latest ${MANIFESTIMAGE}:arm64v8-latest
-                    docker manifest annotate ${MANIFESTIMAGE}:latest ${MANIFESTIMAGE}:arm64v8-latest --os linux --arch arm64 --variant v8
+                    docker manifest push --purge ${MANIFESTIMAGE}:noml || :
+                    docker manifest create ${MANIFESTIMAGE}:noml ${MANIFESTIMAGE}:amd64-noml ${MANIFESTIMAGE}:arm64v8-noml
+                    docker manifest annotate ${MANIFESTIMAGE}:noml ${MANIFESTIMAGE}:arm64v8-noml --os linux --arch arm64 --variant v8
                     docker manifest push --purge ${MANIFESTIMAGE}:${META_TAG} || :
                     docker manifest create ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
                     docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8
@@ -756,7 +756,7 @@ pipeline {
                       docker manifest create ${MANIFESTIMAGE}:${SEMVER} ${MANIFESTIMAGE}:amd64-${SEMVER} ${MANIFESTIMAGE}:arm64v8-${SEMVER}
                       docker manifest annotate ${MANIFESTIMAGE}:${SEMVER} ${MANIFESTIMAGE}:arm64v8-${SEMVER} --os linux --arch arm64 --variant v8
                     fi
-                    docker manifest push --purge ${MANIFESTIMAGE}:latest
+                    docker manifest push --purge ${MANIFESTIMAGE}:noml
                     docker manifest push --purge ${MANIFESTIMAGE}:${META_TAG} 
                     docker manifest push --purge ${MANIFESTIMAGE}:${EXT_RELEASE_TAG} 
                     if [ -n "${SEMVER}" ]; then
@@ -815,10 +815,10 @@ pipeline {
                     for DELETEIMAGE in "${GITHUBIMAGE}" "${IMAGE}"; do
                       docker rmi \
                       ${DELETEIMAGE}:amd64-${META_TAG} \
-                      ${DELETEIMAGE}:amd64-latest \
+                      ${DELETEIMAGE}:amd64-noml \
                       ${DELETEIMAGE}:amd64-${EXT_RELEASE_TAG} \
                       ${DELETEIMAGE}:arm64v8-${META_TAG} \
-                      ${DELETEIMAGE}:arm64v8-latest \
+                      ${DELETEIMAGE}:arm64v8-noml \
                       ${DELETEIMAGE}:arm64v8-${EXT_RELEASE_TAG} || :
                       if [ -n "${SEMVER}" ]; then
                         docker rmi \
@@ -834,7 +834,7 @@ pipeline {
                       docker rmi \
                       ${DELETEIMAGE}:${META_TAG} \
                       ${DELETEIMAGE}:${EXT_RELEASE_TAG} \
-                      ${DELETEIMAGE}:latest || :
+                      ${DELETEIMAGE}:noml || :
                       if [ -n "${SEMVER}" ]; then
                         docker rmi ${DELETEIMAGE}:${SEMVER} || :
                       fi
@@ -850,7 +850,7 @@ pipeline {
     // If this is a public release tag it in the IG Github
     stage('Github-Tag-Push-Release') {
       when {
-        branch "main"
+        branch "noml"
         expression {
           env.IG_RELEASE != env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
         }
@@ -862,14 +862,14 @@ pipeline {
         sh '''curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${IG_USER}/${IG_REPO}/git/tags \
         -d '{"tag":"'${META_TAG}'",\
              "object": "'${COMMIT_SHA}'",\
-             "message": "Tagging Release '${EXT_RELEASE_CLEAN}'-ig'${IG_TAG_NUMBER}' to main",\
+             "message": "Tagging Release '${EXT_RELEASE_CLEAN}'-ig'${IG_TAG_NUMBER}' to noml",\
              "type": "commit",\
              "tagger": {"name": "ImageGenius Jenkins","email": "ci@imagegenius.io","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
         sh '''#!/bin/bash
               curl -H "Authorization: token ${GITHUB_TOKEN}" -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases/latest | jq '. |.body' | sed 's:^.\\(.*\\).$:\\1:' > releasebody.json
               echo '{"tag_name":"'${META_TAG}'",\
-                     "target_commitish": "main",\
+                     "target_commitish": "noml",\
                      "name": "'${META_TAG}'",\
                      "body": "**ImageGenius Changes:**\\n\\n'${IG_RELEASE_NOTES}'\\n\\n**'${EXT_REPO}' Changes:**\\n\\n' > start
               printf '","draft": false,"prerelease": true}' >> releasebody.json

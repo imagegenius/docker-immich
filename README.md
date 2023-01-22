@@ -5,7 +5,7 @@
 [![GitHub Release](https://img.shields.io/github/release/imagegenius/docker-immich.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/imagegenius/docker-immich/releases)
 [![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=imagegenius.io&message=GitHub%20Package&logo=github)](https://github.com/imagegenius/docker-immich/packages)
 ![Image Size](https://img.shields.io/docker/image-size/imagegenius/immich.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=docker)
-[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fmain%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/)
+[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fnoml%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/noml/)
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
 
@@ -15,7 +15,7 @@
 
 We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
 
-Simply pulling `ghcr.io/imagegenius/immich:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+Simply pulling `ghcr.io/imagegenius/immich:noml` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
 The architectures supported by this image are:
 
@@ -30,11 +30,12 @@ This image provides various versions that are available via tags. Please read th
 
 | Tag | Available | Description |
 | :----: | :----: |--- |
-| latest | ✅ | Latest Immich release with an Ubuntu base. Does not include GPU acceleration as tfjs-node-gpu is not included. |
-| gpu | ✅ | Latest Immich release with an Ubuntu base. tfjs-node-gpu is included (much bigger image) - coming soon |
+| latest | ✅ | Latest Immich release with an Ubuntu base. |
+| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX |
 
 ## Application Setup
 
+# do not use this image yet... (under testing) 
 Please report any issues with the container [here](https://github.com/imagegenius/docker-immich/issues)!
 
 **You will need to create a PostgreSQL 14 and Redis container to use with Immich**
@@ -50,7 +51,7 @@ Here are some example snippets to help you get started creating a container.
 version: "2.1"
 services:
   immich:
-    image: ghcr.io/imagegenius/immich:latest
+    image: ghcr.io/imagegenius/immich:noml
     container_name: immich
     environment:
       - PUID=1000
@@ -94,7 +95,7 @@ docker run -d \
   -v path_to_data:/config \
   -v path_to_photos:/photos \
   --restart unless-stopped \
-  ghcr.io/imagegenius/immich:latest
+  ghcr.io/imagegenius/immich:noml
 ```
 
 ## Parameters
@@ -156,7 +157,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 * container version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' immich`
 * image version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' ghcr.io/imagegenius/immich:latest`
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' ghcr.io/imagegenius/immich:noml`
 
 ## Updating Info
 
@@ -174,7 +175,7 @@ Below are the instructions for updating containers:
 
 ### Via Docker Run
 
-* Update the image: `docker pull ghcr.io/imagegenius/immich:latest`
+* Update the image: `docker pull ghcr.io/imagegenius/immich:noml`
 * Stop the running container: `docker stop immich`
 * Delete the container: `docker rm immich`
 * Recreate a new container with the same docker run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
@@ -190,7 +191,7 @@ cd docker-immich
 docker build \
   --no-cache \
   --pull \
-  -t ghcr.io/imagegenius/immich:latest .
+  -t ghcr.io/imagegenius/immich:noml .
 ```
 
 The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
@@ -203,5 +204,4 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **1.21.23:** - BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres
-* **1.02.23:** - Initial Release.
+* **1.22.23:** - Initial Release.
