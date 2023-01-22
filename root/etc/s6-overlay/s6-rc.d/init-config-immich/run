@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 
 # hmm... yes. dont say anything, it works
-HOST="127.0.0.1       immich-server immich-microservices immich-machine-learning immich-web"
+HOST="127.0.0.1       immich-server immich-microservices immich-web"
 if ! grep -q "$HOST" /etc/hosts; then
 	echo "$HOST" >>/etc/hosts
 fi

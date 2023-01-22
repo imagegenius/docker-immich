@@ -69,9 +69,6 @@ RUN \
   ln -s \
     /photos \
     /app/immich/server/upload && \
-  ln -s \
-    /photos \
-    /app/immich/machine-learning/upload && \
   echo "**** cleanup ****" && \
   chown -R abc:abc /app && \
   apk del --purge \
