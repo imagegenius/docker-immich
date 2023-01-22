@@ -10,18 +10,19 @@ LABEL maintainer="hydazz"
 RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
+    g++ \  
     make \
-    vips-dev \
-    g++ && \    
+    vips-dev && \  
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
+    exiftool \
     ffmpeg \
     libheif \
-    vips \
-    exiftool \
-    perl \
     nginx \
-    nodejs && \
+    nodejs \
+    npm \
+    perl \
+    vips && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
