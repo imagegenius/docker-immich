@@ -22,7 +22,8 @@ RUN \
     nodejs \
     npm \
     perl \
-    vips && \
+    vips \
+    vips-cpp && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
