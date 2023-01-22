@@ -22,7 +22,7 @@ The architectures supported by this image are:
 | Architecture | Available | Tag |
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
-| arm64 | ❌ | |
+| arm64 | ✅ | arm64v8-\<version tag\> |
 
 ## Version Tags
 
@@ -35,8 +35,10 @@ This image provides various versions that are available via tags. Please read th
 
 ## Application Setup
 
-# do not use this image yet... (under testing) 
 Please report any issues with the container [here](https://github.com/imagegenius/docker-immich/issues)!
+
+The `noml` (No Machine Learning) branch is useful for people who use Immich just for viewing media (File uploads still work) or if your CPU does not support AVX.
+This image is fully compatible with the `main`/`:latest` branch, just change the tag from `:latest` to `:noml` as needed.
 
 **You will need to create a PostgreSQL 14 and Redis container to use with Immich**
 
