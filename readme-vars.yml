@@ -11,12 +11,13 @@ project_blurb_optional_extras_enabled: false
 # supported architectures
 available_architectures:
   - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 
 # development version
 development_versions: true
 development_versions_items:
-  - { tag: "latest", desc: "Latest Immich release with an Ubuntu base. Does not include GPU acceleration as tfjs-node-gpu is not included." }
-  - { tag: "gpu", desc: "Latest Immich release with an Ubuntu base. tfjs-node-gpu is included (much bigger image) - coming soon" }
+  - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
+  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX" }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -62,5 +63,6 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "1.23.23:", desc: "add noml image to readme and add aarch64 image to readme, make github release stable" }
   - { date: "1.21.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
   - { date: "1.02.23:", desc: "Initial Release." }

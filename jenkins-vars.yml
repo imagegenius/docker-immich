@@ -3,7 +3,7 @@
 # jenkins variables
 project_name: docker-immich
 external_type: github_stable
-release_type: prerelease
+release_type: stable
 release_tag: latest
 ig_branch: main
 repo_vars:
