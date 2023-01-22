@@ -21,6 +21,7 @@ RUN \
     nginx \
     nodejs \
     npm \
+    openssl \
     perl \
     vips \
     vips-cpp && \
