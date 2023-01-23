@@ -92,7 +92,7 @@ services:
       - JWT_SECRET=somelongrandomstring
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
-      - REDIS_PASSWORD=redis #optional
+      - REDIS_PASSWORD= #optional
     volumes:
       - path_to_data:/config
       - path_to_photos:/photos
@@ -117,7 +117,7 @@ docker run -d \
   -e JWT_SECRET=somelongrandomstring \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
-  -e REDIS_PASSWORD=redis `#optional` \
+  -e REDIS_PASSWORD= `#optional` \
   -p 8080:8080 \
   -v path_to_data:/config \
   -v path_to_photos:/photos \
@@ -143,7 +143,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e JWT_SECRET=somelongrandomstring` | Run `openssl rand -base64 128` |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
-| `-e REDIS_PASSWORD=redis` | Redis password |
+| `-e REDIS_PASSWORD=` | Redis password |
 | `-v /config` | Contains the logs |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 
