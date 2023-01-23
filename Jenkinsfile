@@ -303,10 +303,9 @@ pipeline {
                 echo "false" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
               fi
               mkdir -p ${TEMPDIR}/unraid
-              git clone https://github.com/imagegenius/docker-templates.git ${TEMPDIR}/unraid/docker-templates
               git clone https://github.com/imagegenius/templates.git ${TEMPDIR}/unraid/templates
-              if [[ -f ${TEMPDIR}/unraid/docker-templates/imagegenius/img/${CONTAINER_NAME}.png ]]; then
-                sed -i "s|main/imagegenius/img/default.png|main/imagegenius/img/${CONTAINER_NAME}.png|" ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml
+              if [[ -f ${TEMPDIR}/unraid/templates/unraid/img/${CONTAINER_NAME}.png ]]; then
+                sed -i "s|main/unraid/img/default.png|main/unraid/img/${CONTAINER_NAME}.png|" ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml
               fi
               if [[ ("${BRANCH_NAME}" == "master") || ("${BRANCH_NAME}" == "main") ]] && [[ (! -f ${TEMPDIR}/unraid/templates/unraid/${CONTAINER_NAME}.xml) || ("$(md5sum ${TEMPDIR}/unraid/templates/unraid/${CONTAINER_NAME}.xml | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml | awk '{ print $1 }')") ]]; then
                 cd ${TEMPDIR}/unraid/templates/
