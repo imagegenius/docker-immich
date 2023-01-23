@@ -91,6 +91,6 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "1.23.23:", desc: "add noml image to readme and add aarch64 image to readme, make github release stable" }
-  - { date: "1.21.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
-  - { date: "1.02.23:", desc: "Initial Release." }
+  - { date: "23.01.23:", desc: "add noml image to readme and add aarch64 image to readme, make github release stable" }
+  - { date: "21.01.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
+  - { date: "02.01.23:", desc: "Initial Release." }
