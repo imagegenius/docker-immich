@@ -39,6 +39,30 @@ Please report any issues with the container [here](https://github.com/imagegeniu
 
 **You will need to create a PostgreSQL 14 and Redis container to use with Immich**
 
+### You can use these commands as a place to start a Redis and PostgreSQL container.
+
+Redis:
+
+```bash
+docker run -d \
+  --name=redis \
+  -p 6379:6379 \
+  redis
+```
+
+PostgreSQL 14:
+
+```bash
+docker run -d \
+  --name=postgres14 \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=immich \
+  -v path_to_postgres:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:14
+```
+
 ## Usage
 
 Here are some example snippets to help you get started creating a container.
