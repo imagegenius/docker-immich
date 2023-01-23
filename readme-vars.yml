@@ -38,7 +38,7 @@ param_volumes:
   - { vol_path: "/photos", vol_host_path: "path_to_photos", desc: "Contains all the photos uploaded to Immich" }
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "2283", internal_port: "8080", port_desc: "WebUI Port" }
+  - { external_port: "8080", internal_port: "8080", port_desc: "WebUI Port" }
 param_device_map: false
 cap_add_param: false
 
@@ -53,6 +53,9 @@ opt_param_usage_include_ports: false
 opt_param_device_map: false
 opt_cap_add_param: false
 optional_block_1: false
+
+# unraid template
+unraid_category: "Backup: Cloud: MediaApp:Photos"
 
 # application setup block
 app_setup_block_enabled: true

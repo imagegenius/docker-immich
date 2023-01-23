@@ -69,7 +69,7 @@ services:
       - path_to_data:/config
       - path_to_photos:/photos
     ports:
-      - 2283:8080
+      - 8080:8080
     restart: unless-stopped
 ```
 
@@ -90,7 +90,7 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD=redis `#optional` \
-  -p 2283:8080 \
+  -p 8080:8080 \
   -v path_to_data:/config \
   -v path_to_photos:/photos \
   --restart unless-stopped \
