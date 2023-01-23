@@ -91,5 +91,5 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "1.22.23:", desc: "add openssl." }
-  - { date: "1.22.23:", desc: "Initial Release." }
+  - { date: "22.01.23:", desc: "add openssl." }
+  - { date: "22.01.23:", desc: "Initial Release." }
