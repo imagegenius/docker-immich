@@ -231,5 +231,5 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **1.22.23:** - add openssl.
-* **1.22.23:** - Initial Release.
+* **22.01.23:** - add openssl.
+* **22.01.23:** - Initial Release.
