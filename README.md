@@ -227,6 +227,6 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **1.23.23:** - add noml image to readme and add aarch64 image to readme, make github release stable
-* **1.21.23:** - BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres
-* **1.02.23:** - Initial Release.
+* **23.01.23:** - add noml image to readme and add aarch64 image to readme, make github release stable
+* **21.01.23:** - BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres
+* **02.01.23:** - Initial Release.
