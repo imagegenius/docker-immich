@@ -81,7 +81,8 @@ RUN \
     /root/.npm
 
 # environment settings
-ENV NODE_ENV="production"
+ENV NODE_ENV="production" \
+    MACHINE_LEARNING_ENABLED=false
 
 # copy local files
 COPY root/ /
