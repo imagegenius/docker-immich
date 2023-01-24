@@ -72,7 +72,6 @@ RUN \
     /photos \
     /app/immich/server/upload && \
   echo "**** cleanup ****" && \
-  chown -R abc:abc /app && \
   apk del --purge \
     build-dependencies && \
   rm -rf \
