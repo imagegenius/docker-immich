@@ -10,7 +10,6 @@ LABEL maintainer="hydazz"
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
 
-# this is a really messy dockerfile but it works
 RUN \
   echo "**** install runtime packages ****" && \
   curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
@@ -92,7 +91,6 @@ RUN \
     /photos \
     /app/immich/machine-learning/upload && \
   echo "**** cleanup ****" && \
-  chown -R abc:abc /app && \
   apt-get remove -y --purge \
     libvips-dev \
     make \
