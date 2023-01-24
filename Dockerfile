@@ -91,6 +91,8 @@ RUN \
   ln -s \
     /photos \
     /app/immich/machine-learning/upload && \
+  mkdir -p \
+    /app/immich/server/.reverse-geocoding-dump \
   echo "**** cleanup ****" && \
   chown -R abc:abc /app && \
   apt-get remove -y --purge \
