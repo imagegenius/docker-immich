@@ -231,5 +231,6 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **24.01.23:** - fix services starting prematurely, causing permission errors.
 * **22.01.23:** - add openssl.
 * **22.01.23:** - Initial Release.
