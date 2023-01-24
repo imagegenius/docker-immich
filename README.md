@@ -9,7 +9,11 @@
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
 
-[![immich](https://github.com/immich-app/immich/raw/main/design/immich-logo.svg)](https://immich.app/)
+<p align="center">
+<a href="https://github.com/immich-app/immich">
+<img src="https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.svg" width="150" title="Login With Custom URL">
+</a>
+</p>
 
 ## Supported Architectures
 
@@ -120,6 +124,27 @@ docker run -d \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 ```
+
+## Unraid : Migrate from docker-compose
+
+Move the contents of the previous Postgres docker.
+
+```sh
+mv /var/lib/postgresql/data /mnt/user/appdata/postgres14
+```
+
+Remove all variables from the postgres template :
+`POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`
+
+The database is already initialised and these variables don't do anything.
+
+Start the postgres 14 container and mount it to /mnt/user/appdata/postgres14 on the host.
+
+```sh
+mv /mnt/user/immich/uploads /mnt/user/<wherever you desire>
+```
+
+Edit the Container Path `/photos` and add `/mnt/user/<wherever you desire>` to the Host Path
 
 ## Parameters
 
