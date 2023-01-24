@@ -10,7 +10,7 @@
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
 
 <p align="center">
-<a href="https://github.com/immich-app/immich">
+<a href="https://immich.app/">
 <img src="https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.svg" width="150" title="Login With Custom URL">
 </a>
 </p>
@@ -141,10 +141,10 @@ The database is already initialised and these variables don't do anything.
 Start the postgres 14 container and mount it to /mnt/user/appdata/postgres14 on the host.
 
 ```sh
-mv /mnt/user/immich/uploads /mnt/user/<wherever you desire>
+mv /mnt/user/immich/uploads /mnt/user/<wherever_you_desire>
 ```
 
-Edit the Container Path `/photos` and add `/mnt/user/<wherever you desire>` to the Host Path
+Edit the Container Path `/photos` and add `/mnt/user/<wherever_you_desire>` to the Host Path
 
 ## Parameters
 
