@@ -94,7 +94,26 @@ app_setup_block: |
     -p 5432:5432 \
     postgres:14
   ```
+  ## Unraid : Migrate from docker-compose
 
+  Move the contents of the previous Postgres docker.
+
+  ```sh
+  mv /var/lib/postgresql/data /mnt/user/appdata/postgres14
+  ```
+
+  Remove all variables from the postgres template :
+  `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`
+
+  The database is already initialised and these variables don't do anything.
+
+  Start the postgres 14 container and mount it to /mnt/user/appdata/postgres14 on the host.
+
+  ```sh
+  mv /mnt/user/immich/uploads /mnt/user/<wherever_you_desire>
+  ```
+
+  Edit the Container Path `/photos` and add `/mnt/user/<wherever_you_desire>` to the Host Path
 # changelog
 changelogs:
   - { date: "24.01.23:", desc: "add migration guide to readme, add more opt_param_env_vars" }
