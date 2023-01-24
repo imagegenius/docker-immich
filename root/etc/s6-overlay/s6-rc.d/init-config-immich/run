@@ -10,6 +10,7 @@ fi
 # make folders
 mkdir -p \
 	/config/log/nginx \
+	/app/immich/server/.reverse-geocoding-dump \
 	/run/immich
 
 # permissions
