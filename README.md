@@ -36,17 +36,23 @@ This image provides various versions that are available via tags. Please read th
 
 ## Application Setup
 
-Please report any issues with the container [here](https://github.com/imagegenius/docker-immich/issues)!
+The WebUI can be found at `http://your-ip:8080`. Follow the wizard to set up Immich.
 
 The `noml` (No Machine Learning) branch is useful for people who use Immich just for viewing media (File uploads still work) or if your CPU does not support AVX.
 
 This image is fully compatible with the `main`/`:latest` branch, just change the tag from `:latest` to `:noml` as needed.
 
-**You will need to create a PostgreSQL 14 and Redis container to use with Immich**
+Immich requires that you have PostgreSQL 14 and Redis setup externally.
 
-### You can use these commands as a place to start a Redis and PostgreSQL container.
+Follow these steps if you need help setting up Redis or PostgreSQL.
 
-Redis:
+#### Redis:
+
+Redis can be ran within the container using a docker-mod or you can use an external Redis server/container.
+
+If you don't need to use Redis elsewhere add this environment variable: `DOCKER_MODS=imagegenius/mods:universal-redis`, and set `REDIS_HOSTNAME` to `localhost`.
+
+Or within a seperate container:
 
 ```bash
 docker run -d \
@@ -55,7 +61,9 @@ docker run -d \
   redis
 ```
 
-PostgreSQL 14:
+#### PostgreSQL 14:
+
+(A docker-mod for postgres is in the making)
 
 ```bash
 docker run -d \
@@ -67,6 +75,80 @@ docker run -d \
   -p 5432:5432 \
   postgres:14
 ```
+
+The WebUI can be found at `http://your-ip:8080`. Follow the wizard to set up Immich.
+
+Immich requires that you have PostgreSQL 14 and Redis setup externally.
+
+Follow these steps if you need help setting up Redis or PostgreSQL.
+
+#### Redis:
+
+Redis can be ran within the container using a docker-mod or you can use an external Redis server/container.
+
+If you don't need to use Redis elsewhere add this environment variable: `DOCKER_MODS=imagegenius/mods:universal-redis`, and set `REDIS_HOSTNAME` to `localhost`.
+
+Or within a seperate container:
+
+```bash
+docker run -d \
+  --name=redis \
+  -p 6379:6379 \
+  redis
+```
+
+#### PostgreSQL 14:
+
+(A docker-mod for postgres is in the making)
+
+```bash
+docker run -d \
+  --name=postgres14 \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=immich \
+  -v path_to_postgres:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:14
+```
+
+### Unraid: Migrate from docker-compose
+
+**⚠️ Pre-read all these steps before doing anying, if you are confused open an issue.**
+
+When using the official Immich docker-compose, the PostgreSQL data is stored in a docker volume which _should_ be located at `/var/lib/docker/volumes/pgdata/_data`. Before preceeding you **must** stop the docker-compose stack.
+
+#### 1. Move the database
+
+To move the PostgreSQL data to the unraid array run:
+
+```bash
+mv /var/lib/docker/volumes/pgdata/_data /mnt/user/appdata/postgres14
+```
+
+Install `postgresql14` from the Unraid CA and remove these variables from the template: `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`.
+The database is already initialised and these variables don't do anything.
+Also set `Database Storage Path` to `/mnt/user/appdata/postgres14`.
+
+#### 2. Move the uploads
+
+In the docker-compose .env you would have set the `UPLOAD_LOCATION`, copy that down and use it below:
+
+**⚠️ Note that Immich created the `uploads` folder within the `UPLOAD_LOCATION`.**
+
+```bash
+mv <upload_location>/uploads /mnt/user/<elsewhere>
+```
+
+#### 3. Setup the `imagegenius/immich` container
+
+Search the unraid CA for `immich`, choose either `CorneliousJD`'s or `vcxpz`'s templates (`vcxpz` is the official imagegenius template).
+
+**⚠️ You must configure the template to the values listed in the docker-compose .env**
+
+Ensure that the template matches the `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE_NAME` and `JWT_SECRET` from the .env. Set `Path: /photos` to `/mnt/user/<elsewhere>`.
+
+Click Apply, Open the WebUI and login. Everything _Should_ be as it was.
 
 ## Usage
 
@@ -232,6 +314,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **26.01.23:** - add unraid migration to readme
 * **26.01.23:** - use find to apply chown to /app, excluding node_modules
 * **26.01.23:** - enable ci testing
 * **24.01.23:** - fix services starting prematurely, causing permission errors.
