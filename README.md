@@ -10,7 +10,7 @@
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
 
-[![immich](https://github.com/immich-app/immich/raw/main/design/immich-logo.svg)](https://immich.app/)
+[![immich](https://user-images.githubusercontent.com/27055614/182044984-2ee6d1ed-c4a7-4331-8a4b-64fcde77fe1f.png)](https://immich.app/)
 
 ## Supported Architectures
 
