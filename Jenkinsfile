@@ -26,14 +26,14 @@ pipeline {
     PR_DOCKERHUB_IMAGE = 'igpipepr/immich'
     DIST_IMAGE = 'ubuntu'
     MULTIARCH = 'true'
-    CI = 'false'
+    CI = 'true'
     CI_WEB = 'true'
     CI_PORT = '8080'
     CI_SSL = 'false'
-    CI_DELAY = '30'
-    CI_DOCKERENV = 'TZ=Australia/Melbourne'
+    CI_DELAY = '90'
+    CI_DOCKERENV = 'TEST_RUN=true|DB_HOSTNAME=localhost|DB_USERNAME=postgres|DB_PASSWORD=password|DB_DATABASE_NAME=postgres|REDIS_HOSTNAME=localhost|JWT_SECRET=somelongrandomstring'
     CI_AUTH = ''
-    CI_WEBPATH = ''
+    CI_WEBPATH = '/auth/register'
   }
   stages {
     // Setup all the basic environment variables needed for the build
