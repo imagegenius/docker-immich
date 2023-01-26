@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bash
+
+if [[ -n "$TEST_RUN" ]]; then
+	echo "Configuring CI for test run"
+	apk add \
+		postgresql14 \
+		postgresql14-contrib \
+		redis &>/dev/null
+
+	mkdir -p \
+		/var/lib/postgresql/data \
+		/run/postgresql/
+
+	chown -R postgres:postgres \
+		/var/lib/postgresql \
+		/run/postgresql/
+
+	s6-setuidgid postgres initdb -D /var/lib/postgresql/data &>/dev/null
+	s6-setuidgid postgres pg_ctl start -D /var/lib/postgresql/data &>/dev/null
+	s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';" &>/dev/null
+	s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
+
+	echo "PostgreSQL/Redis started"
+fi
