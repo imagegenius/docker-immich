@@ -91,6 +91,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "26.01.23:", desc: "enable ci testing" }
   - { date: "24.01.23:", desc: "fix services starting prematurely, causing permission errors." }
   - { date: "23.01.23:", desc: "add noml image to readme and add aarch64 image to readme, make github release stable" }
   - { date: "21.01.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
