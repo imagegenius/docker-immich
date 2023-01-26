@@ -13,7 +13,6 @@ debconf1.5.79ubuntu1
 debianutils5.5-1ubuntu2
 diffutils1:3.8-0ubuntu2
 dirmngr2.2.27-3ubuntu2.1
-distro-info-data0.52ubuntu0.2
 dpkg1.21.1ubuntu2.1
 e2fsprogs1.46.5-2ubuntu1.1
 ffmpeg7:4.4.2-0ubuntu0.22.04.1
@@ -184,13 +183,8 @@ libncurses66.3-2
 libncursesw66.3-2
 libnettle83.7.3-1build2
 libnghttp2-141.43.0-1build3
-libnginx-mod-http-auth-pam1.18.0-6ubuntu14.3
-libnginx-mod-http-dav-ext1.18.0-6ubuntu14.3
-libnginx-mod-http-echo1.18.0-6ubuntu14.3
 libnginx-mod-http-geoip21.18.0-6ubuntu14.3
 libnginx-mod-http-image-filter1.18.0-6ubuntu14.3
-libnginx-mod-http-subs-filter1.18.0-6ubuntu14.3
-libnginx-mod-http-upstream-fair1.18.0-6ubuntu14.3
 libnginx-mod-http-xslt-filter1.18.0-6ubuntu14.3
 libnginx-mod-mail1.18.0-6ubuntu14.3
 libnginx-mod-stream1.18.0-6ubuntu14.3
@@ -234,7 +228,6 @@ libpsl50.21.0-1.2build2
 libpulse01:15.99.1+dfsg1-1ubuntu2
 libpython3.10-minimal3.10.6-1~22.04.2
 libpython3.10-stdlib3.10.6-1~22.04.2
-libpython3-stdlib3.10.6-1~22.04
 libquadmath012.1.0-2ubuntu1~22.04
 librabbitmq40.10.0-1ubuntu2
 libraw1394-112.1.2-2build2
@@ -355,7 +348,6 @@ locales2.35-0ubuntu3.1
 login1:4.8.1-2ubuntu2.1
 logsave1.46.5-2ubuntu1.1
 lsb-base11.1.0ubuntu4
-lsb-release11.1.0ubuntu4
 mawk1.3.4.20200120-3
 media-types7.0.0
 mount2.37.2-4ubuntu3
@@ -363,9 +355,9 @@ ncurses-base6.3-2
 ncurses-bin6.3-2
 netcat1.218-4ubuntu1
 netcat-openbsd1.218-4ubuntu1
+nginx1.18.0-6ubuntu14.3
 nginx-common1.18.0-6ubuntu14.3
 nginx-core1.18.0-6ubuntu14.3
-nginx-full1.18.0-6ubuntu14.3
 nodejs16.19.0-deb-1nodesource1
 ocl-icd-libopencl12.2.14-3
 openssl3.0.2-0ubuntu1.7
@@ -378,7 +370,6 @@ procps2:3.3.17-6ubuntu2
 publicsuffix20211207.1025-1
 python3.103.10.6-1~22.04.2
 python3.10-minimal3.10.6-1~22.04.2
-python33.10.6-1~22.04
 python3-minimal3.10.6-1~22.04
 readline-common8.1.2-1
 sed4.8-1ubuntu2
