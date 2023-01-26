@@ -33,7 +33,7 @@ pipeline {
     CI_DELAY = '60'
     CI_DOCKERENV = 'TEST_RUN=true|DB_HOSTNAME=localhost|DB_USERNAME=postgres|DB_PASSWORD=password|DB_DATABASE_NAME=postgres|REDIS_HOSTNAME=localhost|JWT_SECRET=somelongrandomstring'
     CI_AUTH = ''
-    CI_WEBPATH = '/auth/register'
+    CI_WEBPATH = ''
   }
   stages {
     // Setup all the basic environment variables needed for the build
