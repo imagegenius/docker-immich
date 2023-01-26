@@ -12,7 +12,9 @@ ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN \
   echo "**** install runtime packages ****" && \
-  curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list && \
+  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
+  apt-get update && \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
@@ -22,7 +24,7 @@ RUN \
     perl \
     libvips-dev \
     make \
-    nginx-full \
+    nginx \
     nodejs && \
   echo "**** download immich ****" && \
   mkdir -p \

@@ -3,5 +3,7 @@
 
 cd /app/immich/web || exit 1
 
+export CHOKIDAR_USEPOLLING=true
+
 exec s6-setuidgid abc \
 	node build/index.js

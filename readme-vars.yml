@@ -3,7 +3,7 @@
 # project information
 project_name: immich
 project_url: "https://immich.app/"
-project_logo: "https://github.com/immich-app/immich/raw/main/design/immich-logo.svg"
+project_logo: "https://user-images.githubusercontent.com/27055614/182044984-2ee6d1ed-c4a7-4331-8a4b-64fcde77fe1f.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) - High performance self-hosted photo and video backup solution."
 project_github_repo_url: "https://github.com/imagegenius/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
