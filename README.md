@@ -232,6 +232,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **26.01.23:** - use find to apply chown to /app, excluding node_modules
 * **26.01.23:** - enable ci testing
 * **24.01.23:** - fix services starting prematurely, causing permission errors.
 * **22.01.23:** - add openssl.
