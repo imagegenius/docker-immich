@@ -81,11 +81,11 @@ RUN \
 
 # environment settings
 ENV NODE_ENV="production" \
-    MACHINE_LEARNING_ENABLED=false
+    IMMICH_MACHINE_LEARNING_URL=false
 
 # copy local files
 COPY root/ /
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config
+VOLUME /config /uploads
