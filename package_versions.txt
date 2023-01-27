@@ -108,7 +108,7 @@ nghttp2-libs-1.51.0-r0
 nginx-1.22.1-r0
 nodejs-18.12.1-r0
 npm-9.1.2-r0
-numactl-2.0.16-r0
+numactl-2.0.16-r1
 oniguruma-6.9.8-r0
 openexr-3.1.5-r3
 openjpeg-2.5.0-r0
