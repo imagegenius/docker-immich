@@ -10,7 +10,7 @@
 
 [Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
 
-[![immich](https://github.com/immich-app/immich/raw/main/design/immich-logo.svg)](https://immich.app/)
+[![immich](https://user-images.githubusercontent.com/27055614/182044984-2ee6d1ed-c4a7-4331-8a4b-64fcde77fe1f.png)](https://immich.app/)
 
 ## Supported Architectures
 
@@ -177,7 +177,7 @@ services:
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
     volumes:
-      - path_to_data:/config
+      - path_to_appdata:/config
       - path_to_photos:/photos
     ports:
       - 8080:8080
@@ -202,7 +202,7 @@ docker run -d \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
   -p 8080:8080 \
-  -v path_to_data:/config \
+  -v path_to_appdata:/config \
   -v path_to_photos:/photos \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:noml
