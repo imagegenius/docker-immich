@@ -34,7 +34,7 @@ param_env_vars:
   - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: "Run `openssl rand -base64 128`" }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "path_to_data", desc: "Contains the logs" }
+  - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "Contains the logs" }
   - { vol_path: "/photos", vol_host_path: "path_to_photos", desc: "Contains all the photos uploaded to Immich" }
 param_usage_include_ports: true
 param_ports:
@@ -61,42 +61,6 @@ unraid_category: "Backup: Cloud: MediaApp:Photos"
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  The WebUI can be found at `http://your-ip:8080`. Follow the wizard to set up Immich.
-
-  Immich requires that you have PostgreSQL 14 and Redis setup externally.
-
-  Follow these steps if you need help setting up Redis or PostgreSQL.
-
-  #### Redis:
-
-  Redis can be ran within the container using a docker-mod or you can use an external Redis server/container.
-
-  If you don't need to use Redis elsewhere add this environment variable: `DOCKER_MODS=imagegenius/mods:universal-redis`, and set `REDIS_HOSTNAME` to `localhost`.
-
-  Or within a seperate container:
-
-  ```bash
-  docker run -d \
-    --name=redis \
-    -p 6379:6379 \
-    redis
-  ```
-
-  #### PostgreSQL 14:
-
-  (A docker-mod for postgres is in the making)
-
-  ```bash
-  docker run -d \
-    --name=postgres14 \
-    -e POSTGRES_USER=postgres \
-    -e POSTGRES_PASSWORD=postgres \
-    -e POSTGRES_DB=immich \
-    -v path_to_postgres:/var/lib/postgresql/data \
-    -p 5432:5432 \
-    postgres:14
-  ```
-
   The WebUI can be found at `http://your-ip:8080`. Follow the wizard to set up Immich.
 
   Immich requires that you have PostgreSQL 14 and Redis setup externally.
