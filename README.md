@@ -72,42 +72,6 @@ docker run -d \
   postgres:14
 ```
 
-The WebUI can be found at `http://your-ip:8080`. Follow the wizard to set up Immich.
-
-Immich requires that you have PostgreSQL 14 and Redis setup externally.
-
-Follow these steps if you need help setting up Redis or PostgreSQL.
-
-#### Redis:
-
-Redis can be ran within the container using a docker-mod or you can use an external Redis server/container.
-
-If you don't need to use Redis elsewhere add this environment variable: `DOCKER_MODS=imagegenius/mods:universal-redis`, and set `REDIS_HOSTNAME` to `localhost`.
-
-Or within a seperate container:
-
-```bash
-docker run -d \
-  --name=redis \
-  -p 6379:6379 \
-  redis
-```
-
-#### PostgreSQL 14:
-
-(A docker-mod for postgres is in the making)
-
-```bash
-docker run -d \
-  --name=postgres14 \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=immich \
-  -v path_to_postgres:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  postgres:14
-```
-
 ### Unraid: Migrate from docker-compose
 
 **⚠️ Pre-read all these steps before doing anying, if you are confused open an issue.**
@@ -173,7 +137,7 @@ services:
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
     volumes:
-      - path_to_data:/config
+      - path_to_appdata:/config
       - path_to_photos:/photos
     ports:
       - 8080:8080
@@ -198,7 +162,7 @@ docker run -d \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
   -p 8080:8080 \
-  -v path_to_data:/config \
+  -v path_to_appdata:/config \
   -v path_to_photos:/photos \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
