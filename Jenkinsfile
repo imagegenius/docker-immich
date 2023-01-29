@@ -744,9 +744,6 @@ pipeline {
        ####### */
     // Removes all the images created by this run on the master and node
     stage('Prune-Docker') {
-      when {
-        environment name: 'EXIT_STATUS', value: ''
-      }
       parallel {
         stage('Docker Cleanup Node') {
           steps {
