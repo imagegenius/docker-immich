@@ -216,35 +216,6 @@ pipeline {
         }
       }
     }
-    // Run ShellCheck
-    stage('ShellCheck') {
-      when {
-        environment name: 'CI', value: 'true'
-      }
-      steps {
-        withCredentials([
-          string(credentialsId: 'ci-tests-s3-key-id', variable: 'S3_KEY'),
-          string(credentialsId: 'ci-tests-s3-secret-access-key', variable: 'S3_SECRET')
-        ]) {
-          script{
-            env.SHELLCHECK_URL = 'https://ci-tests.imagegenius.io/' + env.IMAGE + '/' + env.META_TAG + '/shellcheck-result.xml'
-          }
-          sh '''curl -sL https://raw.githubusercontent.com/linuxserver/docker-shellcheck/master/checkrun.sh | /bin/bash'''
-          sh '''#!/bin/bash
-                set -e
-                docker pull ghcr.io/imagegenius/igdev-spaces-file-upload:latest
-                docker run --rm \
-                -e DESTINATION=\"${IMAGE}/${META_TAG}/shellcheck-result.xml\" \
-                -e FILE_NAME="shellcheck-result.xml" \
-                -e MIMETYPE="text/xml" \
-                -v ${WORKSPACE}:/mnt \
-                -e SECRET_KEY=\"${S3_SECRET}\" \
-                -e ACCESS_KEY=\"${S3_KEY}\" \
-                -t ghcr.io/imagegenius/igdev-spaces-file-upload:latest \
-                python /upload.py'''
-        }
-      }
-    }
     // Use helper containers to render templated files
     stage('Update-Templates') {
       when {
@@ -565,13 +536,13 @@ pipeline {
           steps {
             sh '''#!/bin/bash
                   if [ "${MULTIARCH}" == "false" ]; then
-				    echo "Pushing image"
+                    echo "Pushing image"
                     docker tag ${IMAGE}:${META_TAG} ghcr.io/imagegenius/igdev-buildcache:${COMMIT_SHA}-${BUILD_NUMBER}
                     docker push ghcr.io/imagegenius/igdev-buildcache:${COMMIT_SHA}-${BUILD_NUMBER}
                     docker rmi \
                     ghcr.io/imagegenius/igdev-buildcache:${COMMIT_SHA}-${BUILD_NUMBER} || :
                   else
-				    echo "Pulling images"
+                    echo "Pulling images"
                     docker pull ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                     docker tag ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm64v8-${META_TAG}
                   fi
@@ -586,13 +557,13 @@ pipeline {
             echo "Running on node: ${NODE_NAME}"
             sh '''#!/bin/bash
                   if [ "${MULTIARCH}" == "true" ]; then
-				    echo "Pulling images"
+                    echo "Pulling images"
                     docker pull ghcr.io/imagegenius/igdev-buildcache:amd64-${COMMIT_SHA}-${BUILD_NUMBER}
                     docker pull ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                     docker tag ghcr.io/imagegenius/igdev-buildcache:amd64-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:amd64-${META_TAG}
                     docker tag ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm64v8-${META_TAG}
                   else
-				    echo "Pulling image"
+                    echo "Pulling image"
                     while true; do
                       docker pull ghcr.io/imagegenius/igdev-buildcache:${COMMIT_SHA}-${BUILD_NUMBER} &>/dev/null
                       if [ $? -eq 0 ]; then
@@ -639,6 +610,7 @@ pipeline {
                 -e PORT=\"${CI_PORT}\" \
                 -e SSL=\"${CI_SSL}\" \
                 -e BASE=\"${DIST_IMAGE}\" \
+                -e BRANCH=\"main\" \
                 -e SECRET_KEY=\"${S3_SECRET}\" \
                 -e ACCESS_KEY=\"${S3_KEY}\" \
                 -e DOCKER_ENV=\"${CI_DOCKERENV}\" \
@@ -919,7 +891,7 @@ pipeline {
       }
       steps {
         sh '''curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${IG_USER}/${IG_REPO}/issues/${PULL_REQUEST}/comments \
-        -d '{"body": "I am a bot, here are the test results for this PR: \\n'${CI_URL}' \\n'${SHELLCHECK_URL}'"}' '''
+        -d '{"body": "I am a bot, here are the test results for this PR: \\n'${CI_URL}'"}' '''
       }
     }
   }
@@ -934,12 +906,12 @@ pipeline {
         }
         else if (currentBuild.currentResult == "SUCCESS"){
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://wiki.jenkins.io/JENKINS/attachments/2916393/57409617.png","embeds": [{"color": 1681177,\
-                 "description": "**'${IG_REPO}'**\\n**Build**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**ShellCheck Results:**  '${SHELLCHECK_URL}'\\n**Status:**  Success\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
+                 "description": "**'${IG_REPO}'**\\n**Build**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**Status:**  Success\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
         }
         else {
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://wiki.jenkins.io/JENKINS/attachments/2916393/57409617.png","embeds": [{"color": 16711680,\
-                 "description": "**'${IG_REPO}'**\\n**Build**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**ShellCheck Results:**  '${SHELLCHECK_URL}'\\n**Status:**  Failure\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
+                 "description": "**'${IG_REPO}'**\\n**Build**  '${BUILD_NUMBER}'\\n**CI Results:**  '${CI_URL}'\\n**Status:**  Failure\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:**: '${RELEASE_LINK}'\\n**DockerHub:** '${DOCKERHUB_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
         }
       }
