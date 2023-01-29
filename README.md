@@ -3,7 +3,8 @@
 # [imagegenius/immich](https://github.com/imagegenius/docker-immich)
 
 [![GitHub Release](https://img.shields.io/github/release/imagegenius/docker-immich.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/imagegenius/docker-immich/releases)
-[![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=imagegenius.io&message=GitHub%20Package&logo=github)](https://github.com/imagegenius/docker-immich/packages)
+[![GitHub Package Repository](https://shields.io/badge/GitHub%20Package-blue?logo=github&logoColor=ffffff&style=for-the-badge)](https://github.com/imagegenius/docker-immich/packages)
+[![Docker Hub](https://shields.io/badge/Docker%20Hub-blue?logo=docker&logoColor=ffffff&style=for-the-badge)](https://hub.docker.com/r/imagegenius/immich)
 ![Image Size](https://img.shields.io/docker/image-size/imagegenius/immich/latest.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=docker)
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fmain%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/)
 [![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimagegenius%2Fimmich%2Flatest-main%2Fci-status.yml)](https://ci-tests.imagegenius.io/imagegenius/immich/latest-main/index.html)
@@ -14,11 +15,11 @@
 
 ## Supported Architectures
 
-We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
+We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
 
-Simply pulling `ghcr.io/imagegenius/immich:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:latest`. Alternatively, you can also obtain specific architecture images by using tags.
 
-The architectures supported by this image are:
+This image supports the following architectures:
 
 | Architecture | Available | Tag |
 | :----: | :----: | ---- |
@@ -27,7 +28,7 @@ The architectures supported by this image are:
 
 ## Version Tags
 
-This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
+This image offers different versions via tags. Be cautious when using unstable or development tags, and read their descriptions carefully.
 
 | Tag | Available | Description |
 | :----: | :----: |--- |
@@ -112,9 +113,9 @@ Click Apply, Open the WebUI and login. Everything _Should_ be as it was.
 
 ## Usage
 
-Here are some example snippets to help you get started creating a container.
+Example snippets to start creating a container:
 
-### docker-compose
+### Docker Compose
 
 ```yaml
 ---
@@ -144,7 +145,7 @@ services:
     restart: unless-stopped
 ```
 
-### docker cli ([click here for more info](https://docs.docker.com/engine/reference/commandline/cli/))
+### Docker CLI ([Click here for more info](https://docs.docker.com/engine/reference/commandline/cli/))
 
 ```bash
 docker run -d \
@@ -168,11 +169,11 @@ docker run -d \
   ghcr.io/imagegenius/immich:latest
 ```
 
-## Parameters
+## Container Variables
 
-Container images are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container.
+To configure the container, pass variables at runtime using the format `<external>:<internal>`. For instance, `-p 8080:80` exposes port `80` inside the container, making it accessible outside the container via the host's IP on port `8080`.
 
-| Parameter | Function |
+| Variable | Description |
 | :----: | --- |
 | `-p 8080` | WebUI Port |
 | `-e PUID=1000` | for UserID - see below for explanation |
@@ -190,50 +191,26 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-v /config` | Contains the logs |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 
-## Environment variables from files (Docker secrets)
-
-You can set any environment variable from a file by using a special prepend `FILE__`.
-
-As an example:
-
-```bash
--e FILE__PASSWORD=/run/secrets/mysecretpassword
-```
-
-Will set the environment variable `PASSWORD` based on the contents of the `/run/secrets/mysecretpassword` file.
-
 ## Umask for running applications
 
-For all of our images we provide the ability to override the default umask settings for services started within the containers using the optional `-e UMASK=022` setting.
-Keep in mind umask is not chmod it subtracts from permissions based on it's value it does not add. Please read up [here](https://en.wikipedia.org/wiki/Umask) before asking for support.
+All of our images allow overriding the default umask setting for services started within the containers using the optional -e UMASK=022 option. Note that umask works differently than chmod and subtracts permissions based on its value, not adding. For more information, please refer to the Wikipedia article on umask [here](https://en.wikipedia.org/wiki/Umask).
 
 ## User / Group Identifiers
 
-When using volumes (`-v` flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user `PUID` and group `PGID`.
+To avoid permissions issues when using volumes (`-v` flags) between the host OS and the container, you can specify the user (`PUID`) and group (`PGID`). Make sure that the volume directories on the host are owned by the same user you specify, and the issues will disappear.
 
-Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
-
-In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as below:
+Example: `PUID=1000` and `PGID=1000`. To find your PUID and PGID, run `id user`.
 
 ```bash
   $ id username
     uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
-## Support Info
+## Updating the Container
 
-* Shell access whilst the container is running: `docker exec -it immich /bin/bash`
-* To monitor the logs of the container in realtime: `docker logs -f immich`
-* container version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' immich`
-* image version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' ghcr.io/imagegenius/immich:latest`
+Most of our images are static, versioned, and require an image update and container recreation to update the app. We do not recommend or support updating apps inside the container. Check the [Application Setup](#application-setup) section for recommendations for the specific image.
 
-## Updating Info
-
-Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.
-
-Below are the instructions for updating containers:
+Instructions for updating containers:
 
 ### Via Docker Compose
 
@@ -250,27 +227,6 @@ Below are the instructions for updating containers:
 * Delete the container: `docker rm immich`
 * Recreate a new container with the same docker run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
 * You can also remove the old dangling images: `docker image prune`
-
-## Building locally
-
-If you want to make local modifications to these images for development purposes or just to customize the logic:
-
-```bash
-git clone https://github.com/imagegenius/docker-immich.git
-cd docker-immich
-docker build \
-  --no-cache \
-  --pull \
-  -t ghcr.io/imagegenius/immich:latest .
-```
-
-The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
-
-```bash
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
-```
-
-Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64`.
 
 ## Versions
 
