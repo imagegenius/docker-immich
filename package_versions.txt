@@ -51,7 +51,7 @@ libc-utils-0.7.2-r3
 libcrypto3-3.0.7-r2
 libcurl-7.87.0-r1
 libdav1d-1.0.0-r2
-libde265-1.0.9-r0
+libde265-1.0.11-r0
 libdrm-2.4.114-r0
 libexif-0.6.24-r0
 libexpat-2.5.0-r0
