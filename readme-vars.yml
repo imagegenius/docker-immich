@@ -138,6 +138,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "04.02.23:", desc: "shrink image" }
   - { date: "26.01.23:", desc: "add unraid migration to readme" }
   - { date: "26.01.23:", desc: "use find to apply chown to /app, excluding node_modules" }
   - { date: "26.01.23:", desc: "enable ci testing" }
