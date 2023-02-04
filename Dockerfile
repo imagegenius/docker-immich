@@ -20,7 +20,6 @@ RUN \
     g++ \
     libheif1 \
     libvips \
-    exiftool \
     perl \
     libvips-dev \
     make \
@@ -43,7 +42,9 @@ RUN \
   cd /tmp/immich/server && \
   npm ci && \
   npm run build && \
-  npm prune --omit=dev && \
+  npm prune --omit=dev --omit=optional && \
+  npm link && \
+  npm cache clean --force && \
   mkdir -p \
     /app/immich/server && \
   cp -a \
@@ -68,11 +69,7 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  sed -i \
-    '/@tensorflow\/tfjs-node-gpu/d' \
-    package.json && \
   npm ci && \
-  npm rebuild @tensorflow/tfjs-node --build-from-source && \
   npm run build && \
   npm prune --omit=dev && \
   mkdir -p \
