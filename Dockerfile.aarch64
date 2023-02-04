@@ -15,7 +15,6 @@ RUN \
     vips-dev && \  
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
-    exiftool \
     ffmpeg \
     libheif \
     nginx \
@@ -42,7 +41,9 @@ RUN \
   cd /tmp/immich/server && \
   npm ci && \
   npm run build && \
-  npm prune --omit=dev && \
+  npm prune --omit=dev --omit=optional && \
+  npm link && \
+  npm cache clean --force && \
   mkdir -p \
     /app/immich/server && \
   cp -a \
