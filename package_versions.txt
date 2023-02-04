@@ -146,7 +146,6 @@ libicu7070.1-2
 libidn2-02.3.2-2build1
 libiec61883-01.2.0-4build3
 libilmbase252.5.7-2
-libimage-exiftool-perl12.40+dfsg-1
 libimagequant02.17.0-1
 libjack-jackd2-01.9.20~dfsg-1
 libjbig02.1-3.1ubuntu0.22.04.1
