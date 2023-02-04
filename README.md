@@ -234,6 +234,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **04.02.23:** - shrink image
 * **26.01.23:** - add unraid migration to readme
 * **26.01.23:** - use find to apply chown to /app, excluding node_modules
 * **26.01.23:** - enable ci testing
