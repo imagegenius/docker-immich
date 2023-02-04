@@ -20,7 +20,6 @@ cjson-1.7.15-r3
 coreutils-9.1-r0
 curl-7.87.0-r1
 dbus-libs-1.14.4-r0
-exiftool-12.50-r0
 ffmpeg-5.1.2-r1
 ffmpeg-libs-5.1.2-r1
 fftw-double-libs-3.3.10-r1
@@ -120,7 +119,6 @@ pango-1.50.12-r0
 pcre-8.45-r2
 pcre2-10.42-r0
 perl-5.36.0-r0
-perl-image-exiftool-12.50-r0
 pixman-0.42.2-r0
 pkgconf-1.9.4-r0
 procps-3.3.17-r2
