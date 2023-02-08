@@ -7,7 +7,7 @@
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fnoml%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/noml/)
 [![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-noml%2Fci-status.yml)](https://ci-tests.imagegenius.io/imagegenius/immich/latest-noml/index.html)
 
-[Immich](https://immich.app/) - High performance self-hosted photo and video backup solution.
+Immich is a high performance self-hosted photo and video backup solution.
 
 [![immich](https://user-images.githubusercontent.com/27055614/182044984-2ee6d1ed-c4a7-4331-8a4b-64fcde77fe1f.png)](https://immich.app/)
 
@@ -35,23 +35,20 @@ This image offers different versions via tags. Be cautious when using unstable o
 
 ## Application Setup
 
-The WebUI can be found at `http://your-ip:8080`. Follow the wizard to set up Immich.
+The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-The `noml` (No Machine Learning) branch is useful for people who use Immich just for viewing media (File uploads still work) or if your CPU does not support AVX.
+To use Immich, you need to have PostgreSQL 14 and Redis set up either externally or within the container using docker-mods.
 
-This image is fully compatible with the `main`/`:latest` branch, just change the tag from `:latest` to `:noml` as needed.
+To set up the dependencies using docker-mods, use the following:
 
-Immich requires that you have PostgreSQL 14 and Redis setup externally.
+- Redis: `DOCKER_MODS=imagegenius/mods:universal-redis` - **Set `REDIS_HOSTNAME` to `localhost`.**
+- PostgreSQL: `DOCKER_MODS=imagegenius/mods:universal-postgres` - **Set `DB_HOSTNAME` to `localhost` and set `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE_NAME` to `postgres`.**
 
-Follow these steps if you need help setting up Redis or PostgreSQL.
+If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
+
+Or within a seperate containers:
 
 #### Redis:
-
-Redis can be ran within the container using a docker-mod or you can use an external Redis server/container.
-
-If you don't need to use Redis elsewhere add this environment variable: `DOCKER_MODS=imagegenius/mods:universal-redis`, and set `REDIS_HOSTNAME` to `localhost`.
-
-Or within a seperate container:
 
 ```bash
 docker run -d \
@@ -61,8 +58,6 @@ docker run -d \
 ```
 
 #### PostgreSQL 14:
-
-(A docker-mod for postgres is in the making)
 
 ```bash
 docker run -d \
