@@ -265,7 +265,7 @@ libsrt1.4-gnutls1.4.4-4
 libss21.46.5-2ubuntu1.1
 libssh-40.9.6-2build1
 libssh-gcrypt-40.9.6-2build1
-libssl33.0.2-0ubuntu1.7
+libssl33.0.2-0ubuntu1.8
 libstdc++612.1.0-2ubuntu1~22.04
 libswresample37:4.4.2-0ubuntu0.22.04.1
 libswscale57:4.4.2-0ubuntu0.22.04.1
