@@ -137,6 +137,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "09.02.23:", desc: "Use Immich environment variables for immich services instead of hosts file" }
   - { date: "04.02.23:", desc: "shrink image" }
   - { date: "26.01.23:", desc: "add unraid migration to readme" }
   - { date: "26.01.23:", desc: "use find to apply chown to /app, excluding node_modules" }
