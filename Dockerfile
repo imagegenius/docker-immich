@@ -103,7 +103,9 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/* \
     /root/.cache \
-    /root/.npm
+    /root/.npm && \
+  echo '#!/bin/sh\nnode /app/immich/server/dist/apps/cli/apps/cli/src/immich "$@"' >> /usr/local/bin/immich && \
+  chmod +x /usr/local/bin/immich
 
 # environment settings
 ENV NODE_ENV="production"
