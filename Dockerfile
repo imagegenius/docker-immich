@@ -7,7 +7,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="hydazz"
+LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
