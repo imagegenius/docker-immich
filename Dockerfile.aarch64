@@ -86,7 +86,6 @@ ENV NODE_ENV="production" \
 
 # copy local files
 COPY root/ /
-RUN chmod +x /usr/local/bin/immich
 
 # ports and volumes
 EXPOSE 8080
