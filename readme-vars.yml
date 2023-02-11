@@ -68,30 +68,6 @@ app_setup_block: |
 
   If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
 
-  Or within a seperate containers:
-
-  #### Redis:
-
-  ```bash
-  docker run -d \
-    --name=redis \
-    -p 6379:6379 \
-    redis
-  ```
-
-  #### PostgreSQL 14:
-
-  ```bash
-  docker run -d \
-    --name=postgres14 \
-    -e POSTGRES_USER=postgres \
-    -e POSTGRES_PASSWORD=postgres \
-    -e POSTGRES_DB=immich \
-    -v path_to_postgres:/var/lib/postgresql/data \
-    -p 5432:5432 \
-    postgres:14
-  ```
-
   ### Unraid: Migrate from docker-compose
 
   **⚠️ Pre-read all these steps before doing anying, if you are confused open an issue.**
@@ -130,9 +106,44 @@ app_setup_block: |
 
   Click Apply, Open the WebUI and login. Everything _Should_ be as it was.
 
+external_application_snippet_enabled: true
+external_application_cli_block: |
+  # Redis:
+  docker run -d \
+    --name=redis \
+    -p 6379:6379 \
+    redis
+
+  # PostgreSQL 14:
+  docker run -d \
+    --name=postgres14 \
+    -e POSTGRES_USER=postgres \
+    -e POSTGRES_PASSWORD=postgres \
+    -e POSTGRES_DB=immich \
+    -v path_to_postgres:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    postgres:14
+external_application_compose_block: |
+    redis:
+      image: redis
+      ports:
+        - 6379:6379
+      container_name: redis
+    postgres14:
+      image: postgres:14
+      ports:
+        - 5432:5432
+      container_name: postgres14
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: immich
+      volumes:
+        - path_to_postgres:/var/lib/postgresql/data
 
 # changelog
 changelogs:
+  - { date: "11.02.23:", desc: "use external app block" }
   - { date: "04.02.23:", desc: "shrink image" }
   - { date: "26.01.23:", desc: "add unraid migration to readme" }
   - { date: "26.01.23:", desc: "use find to apply chown to /app, excluding node_modules" }
