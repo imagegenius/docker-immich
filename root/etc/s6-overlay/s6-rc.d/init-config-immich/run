@@ -1,11 +1,6 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-# hmm... yes. dont say anything, it works
-HOST="127.0.0.1       immich-server immich-microservices immich-web"
-if ! grep -q "$HOST" /etc/hosts; then
-	echo "$HOST" >>/etc/hosts
-fi
 
 # make folders
 mkdir -p \
