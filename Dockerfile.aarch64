@@ -7,7 +7,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="hydazz"
+LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -76,6 +76,7 @@ RUN \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   npm ci && \
+  npm rebuild @tensorflow/tfjs-node --build-from-source && \
   npm run build && \
   npm prune --omit=dev && \
   mkdir -p \
