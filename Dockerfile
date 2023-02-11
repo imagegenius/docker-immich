@@ -104,16 +104,14 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/* \
     /root/.cache \
-    /root/.npm && \
-  echo '#!/bin/sh\nnode /app/immich/server/dist/apps/cli/apps/cli/src/immich "$@"' >> /usr/local/bin/immich && \
-  chmod +x /usr/local/bin/immich
+    /root/.npm 
 
 # environment settings
 ENV NODE_ENV="production"
 
 # copy local files
 COPY root/ /
-
+RUN chmod +x /usr/local/bin/immich
 # ports and volumes
 EXPOSE 8080
 VOLUME /config /uploads
