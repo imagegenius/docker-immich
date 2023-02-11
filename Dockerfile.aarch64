@@ -82,7 +82,10 @@ RUN \
 
 # environment settings
 ENV NODE_ENV="production" \
-    IMMICH_MACHINE_LEARNING_URL=false
+    IMMICH_MACHINE_LEARNING_URL=false \
+    IMMICH_WEB_URL=http://127.0.0.1:3000 \
+	  IMMICH_SERVER_URL=http://127.0.0.1:3001 \
+    PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001
 
 # copy local files
 COPY root/ /
