@@ -5,7 +5,7 @@
 [![GitHub Release](https://img.shields.io/github/release/imagegenius/docker-immich.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/imagegenius/docker-immich/releases)
 [![GitHub Package Repository](https://shields.io/badge/GitHub%20Package-blue?logo=github&logoColor=ffffff&style=for-the-badge)](https://github.com/imagegenius/docker-immich/packages)
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fmain%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/)
-[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-main%2Fci-status.yml)](https://ci-tests.imagegenius.io/imagegenius/immich/latest-main/index.html)
+[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-main%2Fci-status.yml)](https://ci-tests.imagegenius.io/immich/latest-main/index.html)
 
 Immich is a high performance self-hosted photo and video backup solution.
 
@@ -23,6 +23,7 @@ This image supports the following architectures:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
+| armhf | ❌ | |
 
 ## Version Tags
 
@@ -32,7 +33,6 @@ This image offers different versions via tags. Be cautious when using unstable o
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
 | noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX |
-
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
@@ -45,30 +45,6 @@ To set up the dependencies using docker-mods, use the following:
 - PostgreSQL: `DOCKER_MODS=imagegenius/mods:universal-postgres` - **Set `DB_HOSTNAME` to `localhost` and set `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE_NAME` to `postgres`.**
 
 If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
-
-Or within a seperate containers:
-
-#### Redis:
-
-```bash
-docker run -d \
-  --name=redis \
-  -p 6379:6379 \
-  redis
-```
-
-#### PostgreSQL 14:
-
-```bash
-docker run -d \
-  --name=postgres14 \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=immich \
-  -v path_to_postgres:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  postgres:14
-```
 
 ### Unraid: Migrate from docker-compose
 
@@ -124,7 +100,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Australia/Melbourne
+      - TZ=Etc/UTC
       - DB_HOSTNAME=192.168.1.x
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
@@ -140,6 +116,25 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
+# This container requires an external application to be run separately to be run separately.
+redis:
+  image: redis
+  ports:
+- 6379:6379
+  container_name: redis
+postgres14:
+image: postgres:14
+  ports:
+- 5432:5432
+  container_name: postgres14
+  environment:
+POSTGRES_USER: postgres
+POSTGRES_PASSWORD: postgres
+POSTGRES_DB: immich
+  volumes:
+- path_to_postgres:/var/lib/postgresql/data
+
+
 ```
 
 ### Docker CLI ([Click here for more info](https://docs.docker.com/engine/reference/commandline/cli/))
@@ -149,7 +144,7 @@ docker run -d \
   --name=immich \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Australia/Melbourne \
+  -e TZ=Etc/UTC \
   -e DB_HOSTNAME=192.168.1.x \
   -e DB_USERNAME=postgres \
   -e DB_PASSWORD=postgres \
@@ -164,9 +159,28 @@ docker run -d \
   -v path_to_photos:/photos \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
+
+# This container requires an external application to be run separately.
+# Redis:
+docker run -d \
+  --name=redis \
+  -p 6379:6379 \
+redis
+
+# PostgreSQL 14:
+docker run -d \
+  --name=postgres14 \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=immich \
+  -v path_to_postgres:/var/lib/postgresql/data \
+  -p 5432:5432 \
+postgres:14
+
+
 ```
 
-## Container Variables
+## Variables
 
 To configure the container, pass variables at runtime using the format `<external>:<internal>`. For instance, `-p 8080:80` exposes port `80` inside the container, making it accessible outside the container via the host's IP on port `8080`.
 
@@ -175,7 +189,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-p 8080` | WebUI Port |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
-| `-e TZ=Australia/Melbourne` | Specify a timezone to use eg. Australia/Melbourne. |
+| `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
 | `-e DB_HOSTNAME=192.168.1.x` | PostgreSQL Host |
 | `-e DB_USERNAME=postgres` | PostgreSQL Username |
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
@@ -227,6 +241,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **11.02.23:** - use external app block
 * **04.02.23:** - shrink image
 * **26.01.23:** - add unraid migration to readme
 * **26.01.23:** - use find to apply chown to /app, excluding node_modules
