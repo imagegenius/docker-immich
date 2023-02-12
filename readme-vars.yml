@@ -124,11 +124,13 @@ external_application_cli_block: |
     -p 5432:5432 \
     postgres:14
 external_application_compose_block: |
+  # Redis:
     redis:
       image: redis
       ports:
         - 6379:6379
       container_name: redis
+  # PostgreSQL 14:
     postgres14:
       image: postgres:14
       ports:
@@ -144,6 +146,7 @@ external_application_compose_block: |
 # changelog
 changelogs:
   - { date: "11.02.23:", desc: "use external app block" }
+  - { date: "09.02.23:", desc: "execute CLI with the command immich" }
   - { date: "04.02.23:", desc: "shrink image" }
   - { date: "26.01.23:", desc: "add unraid migration to readme" }
   - { date: "26.01.23:", desc: "use find to apply chown to /app, excluding node_modules" }
