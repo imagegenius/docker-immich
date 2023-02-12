@@ -116,7 +116,7 @@ external_application_cli_block: |
   docker run -d \
     --name=redis \
     -p 6379:6379 \
-  redis
+    redis
 
   # PostgreSQL 14:
   docker run -d \
@@ -126,24 +126,33 @@ external_application_cli_block: |
     -e POSTGRES_DB=immich \
     -v path_to_postgres:/var/lib/postgresql/data \
     -p 5432:5432 \
-  postgres:14
+    postgres:14
 external_application_compose_block: |
-  redis:
-    image: redis
-    ports:
-  - 6379:6379
-    container_name: redis
-  postgres14:
-  image: postgres:14
-    ports:
-  - 5432:5432
-    container_name: postgres14
-    environment:
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
-  POSTGRES_DB: immich
-    volumes:
-  - path_to_postgres:/var/lib/postgresql/data
+  # Redis:
+    redis:
+      image: redis
+      ports:
+        - 6379:6379
+      container_name: redis
+  # PostgreSQL 14:
+    postgres14:
+      image: postgres:14
+      ports:
+        - 5432:5432
+      container_name: postgres14
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: immich
+      volumes:
+        - path_to_postgres:/var/lib/postgresql/data
+external_application_unraid_block: |
+  You can also use docker-mods to start postgres and redis within the container:
+  - Redis: `DOCKER_MODS=imagegenius/mods:universal-redis` - **Set `REDIS_HOSTNAME` to `localhost`.**
+  - PostgreSQL: `DOCKER_MODS=imagegenius/mods:universal-postgres` - **Set `DB_HOSTNAME` to `localhost` and set `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE_NAME` to `postgres`.**
+
+  If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
+  See the https://github.com/imagegenius/docker-immich for more information
 
 # changelog
 changelogs:
