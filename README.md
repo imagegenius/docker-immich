@@ -242,6 +242,7 @@ Instructions for updating containers:
 ## Versions
 
 * **11.02.23:** - use external app block
+* **09.02.23:** - execute CLI with the command immich
 * **04.02.23:** - shrink image
 * **26.01.23:** - add unraid migration to readme
 * **26.01.23:** - use find to apply chown to /app, excluding node_modules
