@@ -244,6 +244,7 @@ Instructions for updating containers:
 ## Versions
 
 * **11.02.23:** - use external app block
+* **09.02.23:** - Use Immich environment variables for immich services instead of hosts file
 * **09.02.23:** - execute CLI with the command immich
 * **04.02.23:** - shrink image
 * **26.01.23:** - add unraid migration to readme
