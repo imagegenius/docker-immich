@@ -117,22 +117,24 @@ services:
       - 8080:8080
     restart: unless-stopped
 # This container requires an external application to be run separately to be run separately.
-redis:
-  image: redis
-  ports:
-- 6379:6379
-  container_name: redis
-postgres14:
-image: postgres:14
-  ports:
-- 5432:5432
-  container_name: postgres14
-  environment:
-POSTGRES_USER: postgres
-POSTGRES_PASSWORD: postgres
-POSTGRES_DB: immich
-  volumes:
-- path_to_postgres:/var/lib/postgresql/data
+# Redis:
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    container_name: redis
+# PostgreSQL 14:
+  postgres14:
+    image: postgres:14
+    ports:
+      - 5432:5432
+    container_name: postgres14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: immich
+    volumes:
+      - path_to_postgres:/var/lib/postgresql/data
 
 
 ```
@@ -165,7 +167,7 @@ docker run -d \
 docker run -d \
   --name=redis \
   -p 6379:6379 \
-redis
+  redis
 
 # PostgreSQL 14:
 docker run -d \
@@ -175,7 +177,7 @@ docker run -d \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-postgres:14
+  postgres:14
 
 
 ```
@@ -242,6 +244,7 @@ Instructions for updating containers:
 ## Versions
 
 * **11.02.23:** - use external app block
+* **09.02.23:** - execute CLI with the command immich
 * **04.02.23:** - shrink image
 * **26.01.23:** - add unraid migration to readme
 * **26.01.23:** - use find to apply chown to /app, excluding node_modules
