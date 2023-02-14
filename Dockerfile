@@ -8,10 +8,10 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV MMICH_MACHINE_LEARNING_URL=false \
-    IMMICH_WEB_URL=http://127.0.0.1:3000 \
-	  IMMICH_SERVER_URL=http://127.0.0.1:3001 \
-    PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001
+ENV IMMICH_MACHINE_LEARNING_URL=false \
+  IMMICH_WEB_URL=http://127.0.0.1:3000 \
+  IMMICH_SERVER_URL=http://127.0.0.1:3001 \
+  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001
 
 RUN \
   echo "**** install build packages ****" && \
