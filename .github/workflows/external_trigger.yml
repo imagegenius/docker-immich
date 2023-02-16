@@ -21,10 +21,10 @@ jobs:
           EXT_RELEASE=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/immich-app/immich/releases/latest" | jq -r '. | .tag_name')
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
-            FAILURE_REASON="Can't retrieve external version for immich branch noml"
+            FAILURE_REASON="Can't retrieve external version of immich on branch noml"
             GHA_TRIGGER_URL="https://github.com/imagegenius/docker-immich/actions/runs/${{ github.run_id }}"
             curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 16711680,
-              "description": "**Trigger Failed** \n**Reason:** '"${FAILURE_REASON}"' \n**Trigger URL:** '"${GHA_TRIGGER_URL}"' \n"}],
+              "description": "**Trigger Failed (${{ github.repository }})** \n**Reason:** '"${FAILURE_REASON}"' \n**Trigger URL:** '"${GHA_TRIGGER_URL}"' \n"}],
               "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
             exit 1
           fi
@@ -58,9 +58,9 @@ jobs:
           IMAGE_VERSION=$(echo ${IMAGE_RELEASE} | awk -F'-ig' '{print $1}')
           if [ -z "${IMAGE_VERSION}" ]; then
             echo "**** Can't retrieve last pushed version, exiting ****"
-            FAILURE_REASON="Can't retrieve last pushed version for immich tag noml"
+            FAILURE_REASON="Can't retrieve last pushed version of immich:{ release_tag }}"
             curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 16711680,
-              "description": "**Trigger Failed** \n**Reason:** '"${FAILURE_REASON}"' \n"}],
+              "description": "**Trigger Failed (${{ github.repository }})** \n**Reason:** '"${FAILURE_REASON}"' \n"}],
               "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
             exit 1
           fi
@@ -89,8 +89,8 @@ jobs:
               --data-urlencode "description=GHA external trigger https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
               --data-urlencode "Submit=Submit"
             echo "**** Notifying Discord ****"
-            TRIGGER_REASON="A version change was detected for immich tag noml. Old version:${IMAGE_VERSION} New version:${EXT_RELEASE}"
+            TRIGGER_REASON="A new version of immich:noml was detected. (${IMAGE_VERSION} > ${EXT_RELEASE})"
             curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 9802903,
-              "description": "**Build Triggered** \n**Reason:** '"${TRIGGER_REASON}"' \n**Build URL:** '"${buildurl}display/redirect"' \n"}],
+              "description": "**Build Triggered (${{ github.repository }})** \n**Reason:** '"${TRIGGER_REASON}"' \n**Build URL:** '"${buildurl}display/redirect"' \n"}],
               "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
           fi
