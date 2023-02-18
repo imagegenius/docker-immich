@@ -15,7 +15,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   MMICH_SERVER_URL=http://127.0.0.1:3001 \
   IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
   PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
-  TRANSFORMERS_CACHE=/config/models
+  TRANSFORMERS_CACHE=/cache
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -76,6 +76,7 @@ RUN \
     static \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
+  mkdir -p /cache && \
   cd /tmp/immich/machine-learning && \
   pip install --no-cache-dir torch==1.13.1+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
   pip install transformers tqdm numpy scikit-learn scipy nltk sentencepiece flask Pillow && \
@@ -113,6 +114,9 @@ ENV NODE_ENV="production"
 
 # copy local files
 COPY root/ /
+COPY install.py /app
+RUN python3 /app/install.py && \
+    rm /app/install.py
 
 # ports and volumes
 EXPOSE 8080

@@ -12,4 +12,5 @@ chown -R abc:abc \
 	/config \
 	/photos \
 	/run/immich \
-    $HOME
+    $HOME \
+    /cache
