@@ -14,7 +14,8 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   IMMICH_WEB_URL=http://127.0.0.1:3000 \
   MMICH_SERVER_URL=http://127.0.0.1:3001 \
   IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
-  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001
+  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
+  TRANSFORMERS_CACHE=/config/models
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -30,6 +31,7 @@ RUN \
     libvips-dev \
     make \
     nginx \
+    python3-pip \
     nodejs && \
   echo "**** download immich ****" && \
   mkdir -p \
@@ -75,17 +77,13 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  npm ci && \
-  npm rebuild @tensorflow/tfjs-node --build-from-source && \
-  npm run build && \
-  npm prune --omit=dev && \
+  pip install  --no-cache-dir torch==1.13.1+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
+  pip install  transformers tqdm numpy scikit-learn scipy nltk sentencepiece flask Pillow && \
+  pip install  --no-deps sentence-transformers && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    dist \
+    src \
     /app/immich/machine-learning/ && \
   echo "**** setup upload folder ****" && \
   mkdir -p \
