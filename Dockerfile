@@ -77,9 +77,9 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install  --no-cache-dir torch==1.13.1+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
-  pip install  transformers tqdm numpy scikit-learn scipy nltk sentencepiece flask Pillow && \
-  pip install  --no-deps sentence-transformers && \
+  pip install --no-cache-dir torch==1.13.1+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
+  pip install transformers tqdm numpy scikit-learn scipy nltk sentencepiece flask Pillow && \
+  pip install --no-deps sentence-transformers && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
