@@ -17,6 +17,9 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
   TRANSFORMERS_CACHE=/cache
 
+# copy local files
+COPY root/ /
+
 RUN \
   echo "**** install runtime packages ****" && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list && \
@@ -27,12 +30,12 @@ RUN \
     g++ \
     libheif1 \
     libvips \
-    perl \
     libvips-dev \
     make \
     nginx \
-    python3-pip \
-    nodejs && \
+    nodejs \
+    perl \
+    python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -77,14 +80,23 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   mkdir -p /cache && \
-  cd /tmp/immich/machine-learning && \
-  pip install --no-cache-dir torch==1.13.1+cpu -f https://download.pytorch.org/whl/torch_stable.html && \
-  pip install transformers tqdm numpy scikit-learn scipy nltk sentencepiece flask Pillow && \
-  pip install --no-deps sentence-transformers && \
+  pip install --no-cache-dir -f https://download.pytorch.org/whl/torch_stable.html \
+    pillow \
+    flask \
+    nltk \
+    numpy \
+    scikit-learn \
+    scipy \
+    sentence-transformers \
+    sentencepiece \
+    torch==1.13.1+cpu \
+    tqdm \
+    transformers && \
+  python3 /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    src \
+    /tmp/immich/machine-learning/src \
     /app/immich/machine-learning/ && \
   echo "**** setup upload folder ****" && \
   mkdir -p \
@@ -111,12 +123,6 @@ RUN \
 
 # environment settings
 ENV NODE_ENV="production"
-
-# copy local files
-COPY root/ /
-COPY install.py /app
-RUN python3 /app/install.py && \
-    rm /app/install.py
 
 # ports and volumes
 EXPOSE 8080

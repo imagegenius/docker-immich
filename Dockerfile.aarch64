@@ -14,7 +14,11 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   IMMICH_WEB_URL=http://127.0.0.1:3000 \
   MMICH_SERVER_URL=http://127.0.0.1:3001 \
   IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
-  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001
+  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
+  TRANSFORMERS_CACHE=/cache
+
+# copy local files
+COPY root/ /
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -26,11 +30,12 @@ RUN \
     g++ \
     libheif1 \
     libvips \
-    perl \
     libvips-dev \
     make \
     nginx \
-    nodejs && \
+    nodejs \
+    perl \
+    python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -74,18 +79,24 @@ RUN \
     static \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
-  cd /tmp/immich/machine-learning && \
-  npm ci && \
-  npm rebuild @tensorflow/tfjs-node --build-from-source && \
-  npm run build && \
-  npm prune --omit=dev && \
+  mkdir -p /cache && \
+  pip install --no-cache-dir -f https://download.pytorch.org/whl/torch_stable.html \
+    pillow \
+    flask \
+    nltk \
+    numpy \
+    scikit-learn \
+    scipy \
+    sentence-transformers \
+    sentencepiece \
+    torch==1.13.1+cpu \
+    tqdm \
+    transformers && \
+  python3 /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    dist \
+    /tmp/immich/machine-learning/src \
     /app/immich/machine-learning/ && \
   echo "**** setup upload folder ****" && \
   mkdir -p \
@@ -112,9 +123,6 @@ RUN \
 
 # environment settings
 ENV NODE_ENV="production"
-
-# copy local files
-COPY root/ /
 
 # ports and volumes
 EXPOSE 8080
