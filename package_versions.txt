@@ -105,7 +105,7 @@ ncurses-terminfo-base-6.3_p20221119-r0
 nettle-3.8.1-r0
 nghttp2-libs-1.51.0-r0
 nginx-1.22.1-r0
-nodejs-18.12.1-r0
+nodejs-18.14.1-r0
 npm-9.1.2-r0
 numactl-2.0.16-r1
 oniguruma-6.9.8-r0
