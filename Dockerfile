@@ -93,6 +93,7 @@ RUN \
     tqdm \
     transformers && \
   python3 /defaults/install.py && \
+  rm /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
