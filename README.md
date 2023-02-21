@@ -243,6 +243,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **18.02.23:** - use machine-learning with python
 * **11.02.23:** - use external app block
 * **09.02.23:** - Use Immich environment variables for immich services instead of hosts file
 * **09.02.23:** - execute CLI with the command immich
