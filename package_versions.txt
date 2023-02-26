@@ -28,7 +28,7 @@ fontconfig-2.14.1-r0
 freetype-2.12.1-r0
 fribidi-1.0.12-r0
 gdk-pixbuf-2.42.10-r0
-glib-2.74.5-r0
+glib-2.74.6-r0
 gmp-6.2.1-r2
 gnutls-3.7.8-r3
 graphite2-1.3.14-r2
@@ -105,7 +105,7 @@ ncurses-terminfo-base-6.3_p20221119-r0
 nettle-3.8.1-r0
 nghttp2-libs-1.51.0-r0
 nginx-1.22.1-r0
-nodejs-18.14.1-r0
+nodejs-18.14.2-r0
 npm-9.1.2-r0
 numactl-2.0.16-r1
 oniguruma-6.9.8-r0
