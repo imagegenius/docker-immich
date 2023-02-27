@@ -102,7 +102,7 @@ app_setup_block: |
 
   #### 3. Setup the `imagegenius/immich` container
 
-  Search the unraid CA for `immich`, choose either `CorneliousJD`'s or `vcxpz`'s templates (`vcxpz` is the official imagegenius template).
+  Search the unraid CA for `immich`
 
   **⚠️ You must configure the template to the values listed in the docker-compose .env**
 
@@ -156,6 +156,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "27.02.23:", desc: "re-enable aarch64 with pre-release torch build" }
   - { date: "18.02.23:", desc: "use machine-learning with python" }
   - { date: "11.02.23:", desc: "use external app block" }
   - { date: "09.02.23:", desc: "Use Immich environment variables for immich services instead of hosts file" }

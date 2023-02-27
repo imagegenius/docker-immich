@@ -80,7 +80,9 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   mkdir -p /cache && \
-  pip install --no-cache-dir -f https://download.pytorch.org/whl/torch_stable.html \
+  pip install --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
+    torch && \
+  pip install --no-cache-dir \
     pillow \
     flask \
     nltk \
@@ -89,7 +91,6 @@ RUN \
     scipy \
     sentence-transformers \
     sentencepiece \
-    torch==1.13.1+cpu \
     tqdm \
     transformers && \
   python3 /defaults/install.py && \
