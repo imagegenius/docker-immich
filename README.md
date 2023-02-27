@@ -76,7 +76,7 @@ mv <upload_location>/uploads /mnt/user/<elsewhere>
 
 #### 3. Setup the `imagegenius/immich` container
 
-Search the unraid CA for `immich`, choose either `CorneliousJD`'s or `vcxpz`'s templates (`vcxpz` is the official imagegenius template).
+Search the unraid CA for `immich`
 
 **⚠️ You must configure the template to the values listed in the docker-compose .env**
 
