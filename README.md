@@ -76,7 +76,7 @@ mv <upload_location>/uploads /mnt/user/<elsewhere>
 
 #### 3. Setup the `imagegenius/immich` container
 
-Search the unraid CA for `immich`, choose either `CorneliousJD`'s or `vcxpz`'s templates (`vcxpz` is the official imagegenius template).
+Search the unraid CA for `immich`
 
 **⚠️ You must configure the template to the values listed in the docker-compose .env**
 
@@ -243,6 +243,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **27.02.23:** - re-enable aarch64 with pre-release torch build
 * **18.02.23:** - use machine-learning with python
 * **11.02.23:** - use external app block
 * **09.02.23:** - Use Immich environment variables for immich services instead of hosts file
