@@ -38,17 +38,13 @@ RUN \
     python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
-    /tmp/immich && \
-  if [ -z ${IMMICH_VERSION} ]; then \
-    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
-      jq -r '.tag_name'); \
+    /app/immich && \
+  if [ -z ${IMMICH_VERSION+x} ]; then \
+    IMMICH_VERSION=$(curl -sL "https://api.github.com/repos/immich-app/immich/commits?ref=main" | jq -r '.[0].sha' | cut -c1-8); \
   fi && \
-  curl -o \
-    /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/immich.tar.gz -C \
-    /tmp/immich --strip-components=1 && \
+  git clone -b main https://github.com/immich-app/immich.git /tmp/immich && \
+  cd /tmp/immich && \
+  git checkout ${IMMICH_VERSION} && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
