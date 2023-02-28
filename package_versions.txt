@@ -21,6 +21,8 @@ fontconfig2.13.1-4.2ubuntu5
 fontconfig-config2.13.1-4.2ubuntu5
 fonts-dejavu-core2.37-2build1
 gcc-12-base12.1.0-2ubuntu1~22.04
+git1:2.34.1-1ubuntu1.8
+git-man1:2.34.1-1ubuntu1.8
 gnupg2.2.27-3ubuntu2.1
 gnupg-l10n2.2.27-3ubuntu2.1
 gnupg-utils2.2.27-3ubuntu2.1
@@ -100,6 +102,7 @@ libdrm-nouveau22.4.113-2~ubuntu0.22.04.1
 libdrm-radeon12.4.113-2~ubuntu0.22.04.1
 libedit23.1-20210910-1build1
 libelf10.186-1build1
+liberror-perl0.17029-1
 libexif120.6.24-1build1
 libexpat12.4.7-1ubuntu0.2
 libext2fs21.46.5-2ubuntu1.1
