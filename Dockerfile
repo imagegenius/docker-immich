@@ -28,6 +28,7 @@ RUN \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
+    git \
     libheif1 \
     libvips \
     libvips-dev \
