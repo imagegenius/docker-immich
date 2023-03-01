@@ -36,7 +36,7 @@ gpg-wks-server2.2.27-3ubuntu2.1
 grep3.7-1build1
 gzip1.10-4ubuntu4.1
 hostname3.23ubuntu2
-imagemagick-6-common8:6.9.11.60+dfsg-1.3build2
+imagemagick-6-common8:6.9.11.60+dfsg-1.3ubuntu0.22.04.1
 init-system-helpers1.62
 iproute25.15.0-1ubuntu2
 jq1.6-2.1ubuntu3
@@ -170,7 +170,7 @@ liblqr-1-00.4.2-2.1
 libltdl72.4.6-15build2
 liblz4-11.9.3-2build2
 liblzma55.2.5-2ubuntu1
-libmagickcore-6.q16-68:6.9.11.60+dfsg-1.3build2
+libmagickcore-6.q16-68:6.9.11.60+dfsg-1.3ubuntu0.22.04.1
 libmatio111.5.21-1
 libmaxminddb01.5.2-1build2
 libmd01.0.4-1build1
