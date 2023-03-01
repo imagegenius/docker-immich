@@ -18,7 +18,7 @@ cfitsio-4.2.0-r0
 cgif-0.3.0-r0
 cjson-1.7.15-r3
 coreutils-9.1-r0
-curl-7.87.0-r1
+curl-7.87.0-r2
 dbus-libs-1.14.4-r0
 ffmpeg-5.1.2-r1
 ffmpeg-libs-5.1.2-r1
@@ -40,7 +40,7 @@ jq-1.6-r2
 lame-3.100-r2
 lcms2-2.14-r0
 libacl-2.3.1-r1
-libass-0.16.0-r0
+libass-0.16.0-r1
 libasyncns-0.8-r1
 libattr-2.5.1-r2
 libblkid-2.38.1-r1
@@ -48,7 +48,7 @@ libbsd-0.11.7-r0
 libbz2-1.0.8-r4
 libc-utils-0.7.2-r3
 libcrypto3-3.0.8-r0
-libcurl-7.87.0-r1
+libcurl-7.87.0-r2
 libdav1d-1.0.0-r2
 libde265-1.0.11-r0
 libdrm-2.4.114-r0
