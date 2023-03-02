@@ -13,4 +13,5 @@ chown -R abc:abc \
 	/photos \
 	/run/immich \
     $HOME \
-    /cache
+    /cache \
+    /app/typesense
