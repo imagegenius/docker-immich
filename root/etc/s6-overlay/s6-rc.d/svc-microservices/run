@@ -4,4 +4,4 @@
 cd /app/immich/server || exit 1
 
 exec s6-setuidgid abc \
-	node dist/apps/microservices/apps/microservices/src/main
+    node dist/apps/microservices/apps/microservices/src/main
