@@ -53,6 +53,8 @@ RUN \
   cd /tmp/immich && \
   git checkout ${IMMICH_VERSION} && \
   echo "**** download typesense server ****" && \
+  mkdir -p \
+    /app/typesense && \
   curl -o  \
     /tmp/typesense.tar.gz -L \
     https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
