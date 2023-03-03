@@ -4,4 +4,4 @@
 cd /app/immich/server || exit 1
 
 exec s6-setuidgid abc \
-	node dist/apps/immich/apps/immich/src/main
+    node dist/apps/immich/apps/immich/src/main
