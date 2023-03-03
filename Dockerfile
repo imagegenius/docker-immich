@@ -11,17 +11,17 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
-  IMMICH_WEB_URL=http://127.0.0.1:3000 \
-  MMICH_SERVER_URL=http://127.0.0.1:3001 \
-  IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
-  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
-  TRANSFORMERS_CACHE=/cache \
-  TYPESENSE_DATA_DIR=/config/typesense \
-  TYPESENSE_API_KEY=xyz \
-  TYPESENSE_HOST=127.0.0.1 \
-  TYPESENSE_PORT=8108 \
-  TYPESENSE_PROTOCOL=http \
-  TYPESENSE_VERSION=0.24.0
+  IMMICH_WEB_URL="http://127.0.0.1:3000" \
+  MMICH_SERVER_URL="http://127.0.0.1:3001" \
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
+  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+  TRANSFORMERS_CACHE="/cache" \
+  TYPESENSE_DATA_DIR="/config/typesense" \
+  TYPESENSE_API_KEY="xyz" \
+  TYPESENSE_HOST="127.0.0.1" \
+  TYPESENSE_PORT="8108" \
+  TYPESENSE_PROTOCOL="http" \
+  TYPESENSE_VERSION="0.24.0"
 
 # copy local files
 COPY root/ /
@@ -135,7 +135,8 @@ RUN \
     /root/.npm
 
 # environment settings
-ENV NODE_ENV="production"
+ENV NODE_ENV="production" \
+  HOME="/config"
 
 # ports and volumes
 EXPOSE 8080
