@@ -3,7 +3,5 @@
 
 cd /app/typesense
 
-
-
 exec s6-setuidgid abc \
-	./typesense-server --data-dir=$(pwd)/typesense-data --api-key=$TYPESENSE_API_KEY --enable-cors
+    ./typesense-server --api-key=${TYPESENSE_API_KEY} --enable-cors

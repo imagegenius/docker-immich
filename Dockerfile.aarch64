@@ -16,10 +16,12 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
   PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
   TRANSFORMERS_CACHE=/cache \
+  TYPESENSE_DATA_DIR=/config/typesense \
   TYPESENSE_API_KEY=xyz \
   TYPESENSE_HOST=127.0.0.1 \
   TYPESENSE_PORT=8108 \
-  TYPESENSE_PROTOCOL=http
+  TYPESENSE_PROTOCOL=http \
+  TYPESENSE_VERSION=0.24.0
 
 # copy local files
 COPY root/ /
@@ -51,11 +53,9 @@ RUN \
   cd /tmp/immich && \
   git checkout ${IMMICH_VERSION} && \
   echo "**** download typesense server ****" && \
-  mkdir -p \
-    /app/typesense/typesense-data && \
   curl -o  \
     /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/0.24.0/typesense-server-0.24.0-linux-arm64.tar.gz && \
+    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-arm64.tar.gz && \
   tar -xf \
     /tmp/typesense.tar.gz -C \
     /app/typesense && \
@@ -104,7 +104,6 @@ RUN \
     tqdm \
     transformers && \
   python3 /defaults/install.py && \
-  rm /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \

@@ -16,10 +16,12 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
   PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
   TRANSFORMERS_CACHE=/cache \
+  TYPESENSE_DATA_DIR=/config/typesense \
   TYPESENSE_API_KEY=xyz \
   TYPESENSE_HOST=127.0.0.1 \
   TYPESENSE_PORT=8108 \
-  TYPESENSE_PROTOCOL=http
+  TYPESENSE_PROTOCOL=http \
+  TYPESENSE_VERSION=0.24.0
 
 # copy local files
 COPY root/ /
@@ -50,13 +52,10 @@ RUN \
   git clone -b main https://github.com/immich-app/immich.git /tmp/immich && \
   cd /tmp/immich && \
   git checkout ${IMMICH_VERSION} && \
-    /tmp/immich --strip-components=1 && \
   echo "**** download typesense server ****" && \
-  mkdir -p \
-    /app/typesense/typesense-data && \
   curl -o  \
     /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/0.24.0/typesense-server-0.24.0-linux-amd64.tar.gz && \
+    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
   tar -xf \
     /tmp/typesense.tar.gz -C \
     /app/typesense && \
