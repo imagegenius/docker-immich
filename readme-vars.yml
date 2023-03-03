@@ -1,5 +1,4 @@
 ---
-
 # project information
 project_name: immich
 project_url: "https://immich.app/"
@@ -10,8 +9,8 @@ project_blurb_optional_extras_enabled: false
 
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
+  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest" }
+  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest" }
 
 # development version
 development_versions: true
@@ -46,7 +45,7 @@ cap_add_param: false
 opt_param_usage_include_env: true
 opt_param_env_vars:
   - { env_var: "DB_PORT", env_value: "5432", desc: "PostgreSQL Port" }
-  - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }  
+  - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }
   - { env_var: "REDIS_PASSWORD", env_value: "", desc: "Redis password" }
 opt_param_usage_include_vols: false
 opt_param_usage_include_ports: false
