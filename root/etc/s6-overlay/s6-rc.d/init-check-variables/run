@@ -10,8 +10,8 @@ MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please s
 "No Redis Hostname has been specified in the REDIS_HOSTNAME variable.")
 
 for i in ${!VARIABLES[@]}; do
-	if [ -z "${!VARIABLES[$i]}" ]; then
-		echo "Error: ${MESSAGES[$i]}"
-		sleep infinity
-	fi
+    if [ -z "${!VARIABLES[$i]}" ]; then
+        echo "Error: ${MESSAGES[$i]}"
+        sleep infinity
+    fi
 done
