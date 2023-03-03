@@ -209,9 +209,9 @@ libpam0g1.4.0-11ubuntu2.3
 libpam-modules1.4.0-11ubuntu2.3
 libpam-modules-bin1.4.0-11ubuntu2.3
 libpam-runtime1.4.0-11ubuntu2.3
-libpango-1.0-01.50.6+ds-2
-libpangocairo-1.0-01.50.6+ds-2
-libpangoft2-1.0-01.50.6+ds-2
+libpango-1.0-01.50.6+ds-2ubuntu1
+libpangocairo-1.0-01.50.6+ds-2ubuntu1
+libpangoft2-1.0-01.50.6+ds-2ubuntu1
 libpcre2-8-010.39-3ubuntu0.1
 libpcre32:8.39-13ubuntu0.22.04.1
 libperl5.345.34.0-3ubuntu1.1
