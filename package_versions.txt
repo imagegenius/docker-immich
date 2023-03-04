@@ -599,9 +599,9 @@ librsvg2-common                     2.52.5+dfsg-3                            deb
 librtmp1                            2.4+20151223.gitfa8646d.1-2build4        deb     
 librubberband2                      2.0.0-2                                  deb     
 libsamplerate0                      0.2.2-1build1                            deb     
-libsasl2-2                          2.1.27+dfsg2-3ubuntu1.1                  deb     
-libsasl2-modules                    2.1.27+dfsg2-3ubuntu1.1                  deb     
-libsasl2-modules-db                 2.1.27+dfsg2-3ubuntu1.1                  deb     
+libsasl2-2                          2.1.27+dfsg2-3ubuntu1.2                  deb     
+libsasl2-modules                    2.1.27+dfsg2-3ubuntu1.2                  deb     
+libsasl2-modules-db                 2.1.27+dfsg2-3ubuntu1.2                  deb     
 libsdl2-2.0-0                       2.0.20+dfsg-2ubuntu1.22.04.1             deb     
 libseccomp2                         2.5.3-2ubuntu2                           deb     
 libselinux1                         3.3-1build2                              deb     
