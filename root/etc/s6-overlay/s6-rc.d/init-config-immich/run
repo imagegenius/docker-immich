@@ -3,7 +3,7 @@
 
 # make folders
 mkdir -p \
-    /config/log/nginx \
+    /config/{typesense,log/nginx} \
     /run/immich
 
 # permissions
@@ -12,4 +12,5 @@ chown -R abc:abc \
     /config \
     /photos \
     /run/immich \
+    /app/typesense \
     /cache
