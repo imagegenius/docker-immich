@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+cd /app/typesense
+
+exec s6-setuidgid abc \
+    ./typesense-server --api-key=${TYPESENSE_API_KEY} --enable-cors &> /dev/null
