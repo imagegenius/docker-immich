@@ -321,7 +321,7 @@ pipeline {
       }
       steps {
         echo "Running on node: ${NODE_NAME}"
-        sh "docker build \
+        sh "docker buildx build \
           --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
           --label \"org.opencontainers.image.authors=imagegenius.io\" \
           --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
@@ -333,7 +333,7 @@ pipeline {
           --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
           --label \"org.opencontainers.image.title=Immich\" \
           --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
-          --no-cache --pull -t ${GITHUBIMAGE}:${META_TAG} \
+          --no-cache --pull -t ${GITHUBIMAGE}:${META_TAG} --platform=linux/amd64 \
           --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
       }
     }
@@ -350,7 +350,7 @@ pipeline {
         stage('Build X86') {
           steps {
             echo "Running on node: ${NODE_NAME}"
-            sh "docker build \
+            sh "docker buildx build \
               --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
               --label \"org.opencontainers.image.authors=imagegenius.io\" \
               --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
@@ -362,7 +362,7 @@ pipeline {
               --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.title=Immich\" \
               --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
-              --no-cache --pull -t ${GITHUBIMAGE}:amd64-${META_TAG} \
+              --no-cache --pull -t ${GITHUBIMAGE}:amd64-${META_TAG} --platform=linux/amd64 \
               --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
           }
         }
@@ -376,7 +376,7 @@ pipeline {
             sh '''#!/bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGeniusCI --password-stdin
                '''
-            sh "docker build \
+            sh "docker buildx build \
               --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
               --label \"org.opencontainers.image.authors=imagegenius.io\" \
               --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
@@ -388,7 +388,7 @@ pipeline {
               --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.title=Immich\" \
               --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
-              --no-cache --pull -f Dockerfile.aarch64 -t ${GITHUBIMAGE}:arm64v8-${META_TAG} \
+              --no-cache --pull -f Dockerfile.aarch64 -t ${GITHUBIMAGE}:arm64v8-${META_TAG} --platform=linux/arm64 \
               --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
             sh '''docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                   docker push ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
@@ -416,26 +416,12 @@ pipeline {
               else
                 LOCAL_CONTAINER=${GITHUBIMAGE}:${META_TAG}
               fi
-              if [ "${DIST_IMAGE}" == "alpine" ]; then
-                docker run --rm --entrypoint '/bin/sh' -v ${TEMPDIR}:/tmp ${LOCAL_CONTAINER} -c '\
-                  apk info -v > /tmp/package_versions.txt && \
-                  sort -o /tmp/package_versions.txt  /tmp/package_versions.txt && \
-                  chmod 777 /tmp/package_versions.txt'
-              elif [ "${DIST_IMAGE}" == "ubuntu" ]; then
-                docker run --rm --entrypoint '/bin/sh' -v ${TEMPDIR}:/tmp ${LOCAL_CONTAINER} -c '\
-                  apt list -qq --installed | sed "s#/.*now ##g" | cut -d" " -f1 > /tmp/package_versions.txt && \
-                  sort -o /tmp/package_versions.txt  /tmp/package_versions.txt && \
-                  chmod 777 /tmp/package_versions.txt'
-              elif [ "${DIST_IMAGE}" == "fedora" ]; then
-                docker run --rm --entrypoint '/bin/sh' -v ${TEMPDIR}:/tmp ${LOCAL_CONTAINER} -c '\
-                  rpm -qa > /tmp/package_versions.txt && \
-                  sort -o /tmp/package_versions.txt  /tmp/package_versions.txt && \
-                  chmod 777 /tmp/package_versions.txt'
-              elif [ "${DIST_IMAGE}" == "arch" ]; then
-                docker run --rm --entrypoint '/bin/sh' -v ${TEMPDIR}:/tmp ${LOCAL_CONTAINER} -c '\
-                  pacman -Q > /tmp/package_versions.txt && \
-                  chmod 777 /tmp/package_versions.txt'
-              fi
+              touch ${TEMPDIR}/package_versions.txt
+              docker run --rm \
+                -v /var/run/docker.sock:/var/run/docker.sock:ro \
+                -v ${TEMPDIR}:/tmp \
+                ghcr.io/anchore/syft:latest \
+                ${LOCAL_CONTAINER} -o table=/tmp/package_versions.txt
               NEW_PACKAGE_TAG=$(md5sum ${TEMPDIR}/package_versions.txt | cut -c1-8 )
               echo "Package tag sha from current packages in buit container is ${NEW_PACKAGE_TAG} comparing to old ${PACKAGE_TAG} from github"
               if [ "${NEW_PACKAGE_TAG}" != "${PACKAGE_TAG}" ]; then
