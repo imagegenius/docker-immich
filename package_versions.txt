@@ -322,7 +322,7 @@ http-proxy-agent                    5.0.0                                    npm
 http-signature                      1.2.0                                    npm     
 https-proxy-agent                   5.0.0                                    npm     
 https-proxy-agent                   5.0.1                                    npm     
-huggingface-hub                     0.13.0                                   python  
+huggingface-hub                     0.13.1                                   python  
 humanize-ms                         1.2.1                                    npm     
 i18n-iso-countries                  7.5.0                                    npm     
 iconv-lite                          0.4.24                                   npm     
@@ -922,7 +922,7 @@ safe-buffer                         5.2.1                                    npm
 safer-buffer                        2.1.2                                    npm     
 sanitize-filename                   1.6.3                                    npm     
 sax                                 1.2.4                                    npm     
-scikit-learn                        1.2.1                                    python  
+scikit-learn                        1.2.2                                    python  
 scipy                               1.10.1                                   python  
 sed                                 4.8-1ubuntu2                             deb     
 semver                              5.7.1                                    npm     
@@ -1022,7 +1022,7 @@ unique-slug                         3.0.0                                    npm
 unpipe                              1.0.0                                    npm     
 unzip-stream                        0.3.1                                    npm     
 uri-js                              4.4.1                                    npm     
-urllib3                             1.26.14                                  python  
+urllib3                             1.26.15                                  python  
 usrmerge                            25ubuntu2                                deb     
 utf8-byte-length                    1.0.4                                    npm     
 util-deprecate                      1.0.2                                    npm     
