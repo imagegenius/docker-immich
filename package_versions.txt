@@ -256,7 +256,7 @@ fast-safe-stringify                 2.1.1                                    npm
 fastest-levenshtein                 1.0.12                                   npm     
 ffmpeg                              7:4.4.2-0ubuntu0.22.04.1                 deb     
 figures                             3.2.0                                    npm     
-filelock                            3.9.0                                    python  
+filelock                            3.10.0                                   python  
 finalhandler                        1.2.0                                    npm     
 findutils                           4.8.0-1ubuntu3                           deb     
 fluent-ffmpeg                       2.1.2                                    npm     
@@ -319,7 +319,7 @@ http-proxy-agent                    5.0.0                                    npm
 http-signature                      1.2.0                                    npm     
 https-proxy-agent                   5.0.0                                    npm     
 https-proxy-agent                   5.0.1                                    npm     
-huggingface-hub                     0.13.1                                   python  
+huggingface-hub                     0.13.2                                   python  
 humanize-ms                         1.2.1                                    npm     
 i18n-iso-countries                  7.5.0                                    npm     
 iconv-lite                          0.4.24                                   npm     
@@ -383,7 +383,7 @@ leaflet                             1.9.3                                    npm
 libacl1                             2.3.1-1                                  deb     
 libaec0                             1.0.6-1                                  deb     
 libaom3                             3.3.0-1                                  deb     
-libapparmor1                        3.0.4-2ubuntu2.1                         deb     
+libapparmor1                        3.0.4-2ubuntu2.2                         deb     
 libapt-pkg6.0                       2.4.8                                    deb     
 libasound2                          1.2.6.1-1ubuntu1                         deb     
 libasound2-data                     1.2.6.1-1ubuntu1                         deb     
@@ -472,7 +472,7 @@ libglx-mesa0                        22.2.5-0ubuntu0.1~22.04.1                deb
 libglx0                             1.4.0-1                                  deb     
 libgme0                             0.6.3-2                                  deb     
 libgmp10                            2:6.2.1+dfsg-3ubuntu1                    deb     
-libgnutls30                         3.7.3-4ubuntu1.1                         deb     
+libgnutls30                         3.7.3-4ubuntu1.2                         deb     
 libgomp1                            12.1.0-2ubuntu1~22.04                    deb     
 libgpg-error0                       1.43-3                                   deb     
 libgraphite2-3                      1.3.14-1build2                           deb     
@@ -972,7 +972,7 @@ svelte-local-storage-store          0.4.0                                    npm
 svelte-material-icons               3.0.4                                    npm     
 swagger-ui-dist                     4.15.5                                   npm     
 sysvinit-utils                      3.01-1ubuntu1                            deb     
-tar                                 1.34+dfsg-1build3                        deb     
+tar                                 1.34+dfsg-1ubuntu0.1.22.04.1             deb     
 tar                                 6.1.11                                   npm     
 tar-fs                              2.1.1                                    npm     
 tar-stream                          2.2.0                                    npm     
@@ -990,7 +990,7 @@ torchvision                         0.14.1+rocm5.2                           pyt
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.65.0                                   python  
 tr46                                0.0.3                                    npm     
-transformers                        4.26.1                                   python  
+transformers                        4.27.1                                   python  
 traverse                            0.3.9                                    npm     
 treeverse                           2.0.0                                    npm     
 truncate-utf8-bytes                 1.0.2                                    npm     
