@@ -12,7 +12,7 @@ LABEL maintainer="hydazz, martabal"
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
   IMMICH_WEB_URL="http://127.0.0.1:3000" \
-  MMICH_SERVER_URL="http://127.0.0.1:3001" \
+  IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   TRANSFORMERS_CACHE="/cache" \
