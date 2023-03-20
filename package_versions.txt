@@ -288,6 +288,8 @@ get-port                            5.1.1                  npm
 getpass                             0.1.7                  npm     
 github-from-package                 0.0.0                  npm     
 glib                                2.74.6-r0              apk     
+glibc                               2.35-r5                apk     
+glibc-bin                           2.35-r5                apk     
 glob                                6.0.4                  npm     
 glob                                7.2.0                  npm     
 glob                                7.2.3                  npm     
@@ -383,6 +385,7 @@ libblkid                            2.38.1-r1              apk
 libbsd                              0.11.7-r0              apk     
 libbz2                              1.0.8-r4               apk     
 libc-utils                          0.7.2-r3               apk     
+libc6-compat                        1.2.3-r4               apk     
 libcrypto3                          3.0.8-r0               apk     
 libcurl                             7.88.1-r0              apk     
 libdav1d                            1.0.0-r2               apk     
