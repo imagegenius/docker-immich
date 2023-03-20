@@ -1,2 +1,2 @@
 #!/bin/sh
-node /app/immich/server/dist/apps/cli/apps/cli/src/immich "$@" 
+node /app/immich/server/dist/apps/cli/apps/cli/src/immich "$@"
