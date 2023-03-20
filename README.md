@@ -243,6 +243,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **05.03.23:** - add typesense
 * **27.02.23:** - re-enable aarch64 with pre-release torch build
 * **18.02.23:** - use machine-learning with python
 * **11.02.23:** - use external app block
