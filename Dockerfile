@@ -11,11 +11,16 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
-  IMMICH_WEB_URL=http://127.0.0.1:3000 \
-  MMICH_SERVER_URL=http://127.0.0.1:3001 \
-  IMMICH_MACHINE_LEARNING_URL=http://127.0.0.1:3003 \
-  PUBLIC_IMMICH_SERVER_URL=http://127.0.0.1:3001 \
-  TRANSFORMERS_CACHE=/cache
+  IMMICH_WEB_URL="http://127.0.0.1:3000" \
+  MMICH_SERVER_URL="http://127.0.0.1:3001" \
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
+  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+  TRANSFORMERS_CACHE="/cache" \
+  TYPESENSE_DATA_DIR="/config/typesense" \
+  TYPESENSE_API_KEY="xyz" \
+  TYPESENSE_HOST="127.0.0.1" \
+  TYPESENSE_VERSION="0.24.0" \
+  SENTENCE_TRANSFORMERS_HOME="/cache"
 
 # copy local files
 COPY root/ /
@@ -49,6 +54,15 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
+  echo "**** download typesense server ****" && \
+  mkdir -p \
+    /app/typesense && \
+  curl -o  \
+    /tmp/typesense.tar.gz -L \
+    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
+  tar -xf \
+    /tmp/typesense.tar.gz -C \
+    /app/typesense && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
@@ -123,7 +137,8 @@ RUN \
     /root/.npm
 
 # environment settings
-ENV NODE_ENV="production"
+ENV NODE_ENV="production" \
+  HOME="/config"
 
 # ports and volumes
 EXPOSE 8080
