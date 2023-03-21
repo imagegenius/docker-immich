@@ -326,7 +326,7 @@ icu-data-en                         72.1-r1                apk
 icu-libs                            72.1-r1                apk     
 ieee754                             1.2.1                  npm     
 ignore-walk                         6.0.0                  npm     
-immich                              1.51.0                 npm     
+immich                              1.51.1                 npm     
 immich-web                          1.0.0                  npm     
 import-fresh                        3.3.0                  npm     
 imurmurhash                         0.1.4                  npm     
