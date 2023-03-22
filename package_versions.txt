@@ -257,7 +257,7 @@ fast-safe-stringify                 2.1.1                                    npm
 fastest-levenshtein                 1.0.12                                   npm     
 ffmpeg                              7:4.4.2-0ubuntu0.22.04.1                 deb     
 figures                             3.2.0                                    npm     
-filelock                            3.10.0                                   python  
+filelock                            3.10.1                                   python  
 finalhandler                        1.2.0                                    npm     
 findutils                           4.8.0-1ubuntu3                           deb     
 fluent-ffmpeg                       2.1.2                                    npm     
@@ -329,7 +329,7 @@ idna                                3.4                                      pyt
 ieee754                             1.2.1                                    npm     
 ignore-walk                         5.0.1                                    npm     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.2      deb     
-immich                              1.51.1                                   npm     
+immich                              1.51.2                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -903,7 +903,7 @@ redis-errors                        1.2.0                                    npm
 redis-parser                        3.0.0                                    npm     
 reflect-metadata                    0.1.13                                   npm     
 regenerator-runtime                 0.13.11                                  npm     
-regex                               2022.10.31                               python  
+regex                               2023.3.22                                python  
 request                             2.88.2                                   npm     
 requests                            2.28.2                                   python  
 require-directory                   2.1.1                                    npm     
