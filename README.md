@@ -7,7 +7,7 @@
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fmain%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/)
 [![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-main%2Fci-status.yml)](https://ci-tests.imagegenius.io/immich/latest-main/index.html)
 
-[Immich](https://immich.app/) - Immich is a high performance self-hosted photo and video backup solution.
+[Immich](https://immich.app/) - is a high performance self-hosted photo and video backup solution.
 
 [![immich](https://user-images.githubusercontent.com/27055614/182044984-2ee6d1ed-c4a7-4331-8a4b-64fcde77fe1f.png)](https://immich.app/)
 
@@ -243,6 +243,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **21.03.23:** - Add service checks
 * **05.03.23:** - add typesense
 * **27.02.23:** - re-enable aarch64 with pre-release torch build
 * **18.02.23:** - use machine-learning with python
