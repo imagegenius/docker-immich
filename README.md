@@ -32,7 +32,7 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX |
+| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed, which makes for a very lightweight image. |
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
