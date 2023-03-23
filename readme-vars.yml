@@ -16,7 +16,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX" }
+  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed, which makes for a very lightweight image." }
 
 # container parameters
 common_param_env_vars_enabled: true
