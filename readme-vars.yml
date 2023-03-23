@@ -155,6 +155,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "21.03.23:", desc: "Add service checks" }
   - { date: "05.03.23:", desc: "add typesense" }
   - { date: "27.02.23:", desc: "re-enable aarch64 with pre-release torch build" }
   - { date: "18.02.23:", desc: "use machine-learning with python" }

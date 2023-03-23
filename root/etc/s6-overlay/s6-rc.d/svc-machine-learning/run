@@ -1,7 +1,5 @@
 #!/usr/bin/with-contenv bash
-# shellcheck shell=bash
 
-cd /app/immich/machine-learning || exit 1
-
-exec s6-setuidgid abc \
-    python3 src/main.py
+exec \
+    cd /app/immich/machine-learning s6-setuidgid abc \
+        python3 src/main.py
