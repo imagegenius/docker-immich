@@ -1,9 +1,6 @@
 #!/usr/bin/with-contenv bash
-# shellcheck shell=bash
 
-cd /app/immich/web || exit 1
-
-export CHOKIDAR_USEPOLLING=true
-
-exec s6-setuidgid abc \
-    node build/index.js
+exec \
+    s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 3000" \
+        cd /app/immich/web s6-setuidgid abc \
+            node build/index.js
