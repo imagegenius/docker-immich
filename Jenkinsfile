@@ -393,7 +393,7 @@ pipeline {
             sh '''docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                   docker push ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                   docker rmi \
-				    ${GITHUBIMAGE}:arm64v8-${META_TAG} \
+                    ${GITHUBIMAGE}:arm64v8-${META_TAG} \
                     ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
                '''
           }
@@ -522,7 +522,7 @@ pipeline {
                 --shm-size=1gb \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 -e IMAGE=\"${GITHUBIMAGE}\" \
-				-e CONTAINER=\"${CONTAINER_NAME}\" \
+                -e CONTAINER=\"${CONTAINER_NAME}\" \
                 -e DELAY_START=\"${CI_DELAY}\" \
                 -e TAGS=\"${CI_TAGS}\" \
                 -e META_TAG=\"${META_TAG}\" \
