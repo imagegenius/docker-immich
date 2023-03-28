@@ -107,7 +107,6 @@ RUN \
     tqdm \
     transformers && \
   python3 /defaults/install.py && \
-  rm /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
@@ -137,8 +136,7 @@ RUN \
     /root/.npm
 
 # environment settings
-ENV NODE_ENV="production" \
-  HOME="/config"
+ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
