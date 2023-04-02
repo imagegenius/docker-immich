@@ -203,7 +203,7 @@ cron                                2.0.0                  npm
 cron-parser                         4.2.1                  npm     
 cssesc                              3.0.0                  npm     
 csv-parse                           5.3.3                  npm     
-curl                                7.88.1-r0              apk     
+curl                                7.88.1-r1              apk     
 dashdash                            1.14.1                 npm     
 date-fns                            2.28.0                 npm     
 dbus-libs                           1.14.4-r0              apk     
@@ -387,7 +387,7 @@ libbz2                              1.0.8-r4               apk
 libc-utils                          0.7.2-r3               apk     
 libc6-compat                        1.2.3-r4               apk     
 libcrypto3                          3.0.8-r0               apk     
-libcurl                             7.88.1-r0              apk     
+libcurl                             7.88.1-r1              apk     
 libdav1d                            1.0.0-r2               apk     
 libde265                            1.0.11-r1              apk     
 libdrm                              2.4.114-r0             apk     
@@ -472,7 +472,7 @@ luxon                               3.3.0                  npm
 make-dir                            3.1.0                  npm     
 make-fetch-happen                   10.2.1                 npm     
 make-fetch-happen                   11.0.1                 npm     
-mbedtls                             2.28.2-r0              apk     
+mbedtls                             2.28.3-r0              apk     
 media-typer                         0.3.0                  npm     
 merge-descriptors                   1.0.1                  npm     
 methods                             1.1.2                  npm     
@@ -717,7 +717,7 @@ tar                                 6.1.11                 npm
 tar                                 6.1.12                 npm     
 tar-fs                              2.1.1                  npm     
 tar-stream                          2.2.0                  npm     
-tdb-libs                            1.4.7-r0               apk     
+tdb-libs                            1.4.6-r0               apk     
 text-table                          0.2.0                  npm     
 thenify                             3.3.1                  npm     
 thenify-all                         1.6.0                  npm     
