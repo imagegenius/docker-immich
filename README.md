@@ -243,6 +243,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **01.04.23:** - remove unused Immich environment variables
 * **21.03.23:** - Add service checks
 * **05.03.23:** - add typesense
 * **27.02.23:** - re-enable aarch64 with pre-release torch build
