@@ -244,6 +244,7 @@ Instructions for updating containers:
 ## Versions
 
 * **23.03.23:** - add service checks
+* **21.03.23:** - remove unused Immich environment variables
 * **05.03.23:** - add typesense
 * **11.02.23:** - use external app block
 * **09.02.23:** - Use Immich environment variables for immich services instead of hosts file
