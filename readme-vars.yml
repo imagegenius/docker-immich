@@ -16,7 +16,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed. (tinnny image), use this if your CPU does not support AVX" }
+  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed, which makes for a very lightweight image." }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -144,6 +144,7 @@ external_application_compose_block: |
 
 # changelog
 changelogs:
+  - { date: "23.03.23:", desc: "add service checks" }
   - { date: "21.03.23:", desc: "remove unused Immich environment variables" }
   - { date: "05.03.23:", desc: "add typesense" }
   - { date: "11.02.23:", desc: "use external app block" }

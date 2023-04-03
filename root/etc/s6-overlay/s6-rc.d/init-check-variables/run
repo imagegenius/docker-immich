@@ -1,5 +1,4 @@
 #!/usr/bin/with-contenv bash
-# shellcheck shell=bash
 
 VARIABLES=("JWT_SECRET" "DB_HOSTNAME" "DB_USERNAME" "DB_PASSWORD" "DB_DATABASE_NAME" "REDIS_HOSTNAME")
 MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please set one or use '$(openssl rand -base64 128 | tr -d '\n')' (This has been randomly generated)"
@@ -12,6 +11,7 @@ MESSAGES=("No JWT Secret has been specified in the JWT_SECRET variable. Please s
 for i in ${!VARIABLES[@]}; do
     if [ -z "${!VARIABLES[$i]}" ]; then
         echo "Error: ${MESSAGES[$i]}"
+        echo "See the readme for more information: https://github.com/imagegenius/docker-immich#variables"
         sleep infinity
     fi
 done

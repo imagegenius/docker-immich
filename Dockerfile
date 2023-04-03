@@ -100,8 +100,7 @@ RUN \
     /root/.npm
 
 # environment settings
-ENV NODE_ENV="production" \
-  HOME="/config"
+ENV NODE_ENV="production"
 
 # copy local files
 COPY root/ /

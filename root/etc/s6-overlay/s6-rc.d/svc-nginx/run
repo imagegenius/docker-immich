@@ -1,5 +1,4 @@
 #!/usr/bin/with-contenv bash
-# shellcheck shell=bash
 
 if pgrep -f "[n]ginx:" >/dev/null; then
     echo "Zombie nginx processes detected, sending SIGTERM"
