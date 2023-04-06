@@ -42,18 +42,12 @@ NAME                                VERSION                TYPE
 @npmcli/run-script                  6.0.0                  npm     
 @nuxtjs/opencollective              0.3.2                  npm     
 @photostructure/tz-lookup           7.0.0                  npm     
-@redis/bloom                        1.1.0                  npm     
-@redis/client                       1.4.2                  npm     
-@redis/graph                        1.1.0                  npm     
-@redis/json                         1.0.4                  npm     
-@redis/search                       1.1.0                  npm     
-@redis/time-series                  1.0.4                  npm     
 @sideway/address                    4.1.3                  npm     
 @sideway/formula                    3.0.0                  npm     
 @sideway/pinpoint                   2.0.0                  npm     
 @socket.io/component-emitter        3.1.0                  npm     
 @socket.io/redis-adapter            8.0.1                  npm     
-@sqltools/formatter                 1.2.3                  npm     
+@sqltools/formatter                 1.2.5                  npm     
 @tootallnate/once                   2.0.0                  npm     
 @types/chai-withintoleranceof       0.0.1                  npm     
 @types/cookie                       0.4.1                  npm     
@@ -84,7 +78,7 @@ ansi-styles                         4.3.0                  npm
 any-promise                         1.3.0                  npm     
 aom-libs                            3.5.0-r0               apk     
 apk-tools                           2.12.10-r1             apk     
-app-root-path                       3.0.0                  npm     
+app-root-path                       3.1.0                  npm     
 append-field                        1.0.0                  npm     
 aproba                              1.2.0                  npm     
 aproba                              2.0.0                  npm     
@@ -164,6 +158,7 @@ cli-spinners                        2.6.1                  npm
 cli-table3                          0.6.3                  npm     
 cli-width                           3.0.0                  npm     
 cliui                               7.0.4                  npm     
+cliui                               8.0.1                  npm     
 clone                               1.0.4                  npm     
 cluster-key-slot                    1.1.1                  npm     
 cmd-shim                            6.0.0                  npm     
@@ -205,7 +200,7 @@ cssesc                              3.0.0                  npm
 csv-parse                           5.3.3                  npm     
 curl                                7.88.1-r1              apk     
 dashdash                            1.14.1                 npm     
-date-fns                            2.28.0                 npm     
+date-fns                            2.29.3                 npm     
 dbus-libs                           1.14.4-r0              apk     
 debug                               2.6.9                  npm     
 debug                               4.3.4                  npm     
@@ -224,6 +219,7 @@ diacritics                          1.3.0                  npm
 diff                                5.1.0                  npm     
 diskusage                           1.1.3                  npm     
 dotenv                              16.0.1                 npm     
+dotenv                              16.0.3                 npm     
 dotenv-expand                       8.0.3                  npm     
 ecc-jsbn                            0.1.2                  npm     
 ee-first                            1.1.1                  npm     
@@ -281,7 +277,6 @@ gauge                               2.7.4                  npm
 gauge                               4.0.4                  npm     
 gauge                               5.0.0                  npm     
 gdk-pixbuf                          2.42.10-r0             apk     
-generic-pool                        3.9.0                  npm     
 get-caller-file                     2.0.5                  npm     
 get-intrinsic                       1.1.1                  npm     
 get-port                            5.1.1                  npm     
@@ -294,6 +289,7 @@ glob                                6.0.4                  npm
 glob                                7.2.0                  npm     
 glob                                7.2.3                  npm     
 glob                                8.0.3                  npm     
+glob                                8.1.0                  npm     
 gmp                                 6.2.1-r2               apk     
 gnutls                              3.7.8-r3               apk     
 graceful-fs                         4.2.10                 npm     
@@ -326,7 +322,7 @@ icu-data-en                         72.1-r1                apk
 icu-libs                            72.1-r1                apk     
 ieee754                             1.2.1                  npm     
 ignore-walk                         6.0.0                  npm     
-immich                              1.52.1                 npm     
+immich                              1.53.0                 npm     
 immich-web                          1.0.0                  npm     
 import-fresh                        3.3.0                  npm     
 imurmurhash                         0.1.4                  npm     
@@ -338,7 +334,7 @@ ini                                 1.3.8                  npm
 ini                                 3.0.1                  npm     
 init-package-json                   4.0.1                  npm     
 inquirer                            8.2.4                  npm     
-ioredis                             5.2.4                  npm     
+ioredis                             5.3.1                  npm     
 ip                                  2.0.0                  npm     
 ip-regex                            4.3.0                  npm     
 ipaddr.js                           1.9.1                  npm     
@@ -485,6 +481,7 @@ mimic-fn                            2.1.0                  npm
 mimic-response                      2.1.0                  npm     
 minimatch                           3.1.2                  npm     
 minimatch                           5.1.0                  npm     
+minimatch                           5.1.6                  npm     
 minimist                            1.2.6                  npm     
 minimist                            1.2.8                  npm     
 minipass                            3.1.6                  npm     
@@ -499,6 +496,7 @@ minipass-sized                      1.0.3                  npm
 minizlib                            2.1.2                  npm     
 mkdirp                              0.5.6                  npm     
 mkdirp                              1.0.4                  npm     
+mkdirp                              2.1.6                  npm     
 mkdirp-classic                      0.5.3                  npm     
 ms                                  2.0.0                  npm     
 ms                                  2.1.2                  npm     
@@ -636,7 +634,6 @@ readable-stream                     3.6.0                  npm
 readable-stream                     4.2.0                  npm     
 readdir-glob                        1.1.2                  npm     
 readline                            8.2.0-r0               apk     
-redis                               4.5.1                  npm     
 redis-errors                        1.2.0                  npm     
 redis-parser                        3.0.0                  npm     
 reflect-metadata                    0.1.13                 npm     
@@ -656,7 +653,7 @@ safer-buffer                        2.1.2                  npm
 sanitize-filename                   1.6.3                  npm     
 sax                                 1.2.4                  npm     
 scanelf                             1.3.5-r1               apk     
-sdl2                                2.26.3-r0              apk     
+sdl2                                2.26.5-r0              apk     
 semver                              5.7.1                  npm     
 semver                              6.3.0                  npm     
 semver                              7.3.8                  npm     
@@ -708,7 +705,7 @@ strip-ansi                          6.0.1                  npm
 strip-json-comments                 2.0.1                  npm     
 supports-color                      5.5.0                  npm     
 supports-color                      7.2.0                  npm     
-svelte                              3.55.1                 npm     
+svelte                              3.58.0                 npm     
 svelte-local-storage-store          0.4.0                  npm     
 svelte-material-icons               3.0.4                  npm     
 svt-av1-libs                        1.3.0-r0               apk     
@@ -738,7 +735,7 @@ tweetnacl                           0.14.5                 npm
 type-fest                           0.21.3                 npm     
 type-is                             1.6.18                 npm     
 typedarray                          0.0.6                  npm     
-typeorm                             0.3.11                 npm     
+typeorm                             0.3.12                 npm     
 typesense                           1.5.3                  npm     
 tzdata                              2022f-r1               apk     
 uglify-js                           3.17.4                 npm     
@@ -794,9 +791,9 @@ y18n                                5.0.8                  npm
 yallist                             4.0.0                  npm     
 yaml                                1.10.2                 npm     
 yargs                               16.2.0                 npm     
-yargs                               17.5.1                 npm     
+yargs                               17.7.1                 npm     
 yargs-parser                        20.2.9                 npm     
-yargs-parser                        21.0.1                 npm     
+yargs-parser                        21.1.1                 npm     
 zip-stream                          4.1.0                  npm     
 zlib                                1.2.13-r0              apk     
-zstd-libs                           1.5.2-r9               apk     
+zstd-libs                           1.5.5-r0               apk     
