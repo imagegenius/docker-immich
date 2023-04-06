@@ -42,18 +42,12 @@ NAME                                VERSION                                  TYP
 @npmcli/run-script                  4.2.1                                    npm     
 @nuxtjs/opencollective              0.3.2                                    npm     
 @photostructure/tz-lookup           7.0.0                                    npm     
-@redis/bloom                        1.1.0                                    npm     
-@redis/client                       1.4.2                                    npm     
-@redis/graph                        1.1.0                                    npm     
-@redis/json                         1.0.4                                    npm     
-@redis/search                       1.1.0                                    npm     
-@redis/time-series                  1.0.4                                    npm     
 @sideway/address                    4.1.3                                    npm     
 @sideway/formula                    3.0.0                                    npm     
 @sideway/pinpoint                   2.0.0                                    npm     
 @socket.io/component-emitter        3.1.0                                    npm     
 @socket.io/redis-adapter            8.0.1                                    npm     
-@sqltools/formatter                 1.2.3                                    npm     
+@sqltools/formatter                 1.2.5                                    npm     
 @tootallnate/once                   2.0.0                                    npm     
 @types/chai-withintoleranceof       0.0.1                                    npm     
 @types/cookie                       0.4.1                                    npm     
@@ -82,7 +76,7 @@ ansi-regex                          5.0.1                                    npm
 ansi-styles                         3.2.1                                    npm     
 ansi-styles                         4.3.0                                    npm     
 any-promise                         1.3.0                                    npm     
-app-root-path                       3.0.0                                    npm     
+app-root-path                       3.1.0                                    npm     
 append-field                        1.0.0                                    npm     
 aproba                              1.2.0                                    npm     
 aproba                              2.0.0                                    npm     
@@ -157,6 +151,7 @@ cli-table3                          0.6.2                                    npm
 cli-width                           3.0.0                                    npm     
 click                               8.1.3                                    python  
 cliui                               7.0.4                                    npm     
+cliui                               8.0.1                                    npm     
 clone                               1.0.4                                    npm     
 cluster-key-slot                    1.1.1                                    npm     
 cmd-shim                            5.0.0                                    npm     
@@ -200,7 +195,7 @@ csv-parse                           5.3.3                                    npm
 curl                                7.81.0-1ubuntu1.10                       deb     
 dash                                0.5.11+git20210903+057cd650a4ed-3build1  deb     
 dashdash                            1.14.1                                   npm     
-date-fns                            2.28.0                                   npm     
+date-fns                            2.29.3                                   npm     
 debconf                             1.5.79ubuntu1                            deb     
 debianutils                         5.5-1ubuntu2                             deb     
 debug                               2.6.9                                    npm     
@@ -223,6 +218,7 @@ diffutils                           1:3.8-0ubuntu2                           deb
 dirmngr                             2.2.27-3ubuntu2.1                        deb     
 diskusage                           1.1.3                                    npm     
 dotenv                              16.0.1                                   npm     
+dotenv                              16.0.3                                   npm     
 dotenv-expand                       8.0.3                                    npm     
 dpkg                                1.21.1ubuntu2.1                          deb     
 e2fsprogs                           1.46.5-2ubuntu1.1                        deb     
@@ -278,7 +274,6 @@ function-bind                       1.1.1                                    npm
 gauge                               2.7.4                                    npm     
 gauge                               4.0.4                                    npm     
 gcc-12-base                         12.1.0-2ubuntu1~22.04                    deb     
-generic-pool                        3.9.0                                    npm     
 get-caller-file                     2.0.5                                    npm     
 get-intrinsic                       1.1.1                                    npm     
 get-port                            5.1.1                                    npm     
@@ -288,6 +283,7 @@ glob                                6.0.4                                    npm
 glob                                7.2.0                                    npm     
 glob                                7.2.3                                    npm     
 glob                                8.0.3                                    npm     
+glob                                8.1.0                                    npm     
 gnupg                               2.2.27-3ubuntu2.1                        deb     
 gnupg-l10n                          2.2.27-3ubuntu2.1                        deb     
 gnupg-utils                         2.2.27-3ubuntu2.1                        deb     
@@ -329,7 +325,7 @@ idna                                3.4                                      pyt
 ieee754                             1.2.1                                    npm     
 ignore-walk                         5.0.1                                    npm     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.52.1                                   npm     
+immich                              1.53.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -342,7 +338,7 @@ ini                                 3.0.1                                    npm
 init-package-json                   3.0.2                                    npm     
 init-system-helpers                 1.62                                     deb     
 inquirer                            8.2.4                                    npm     
-ioredis                             5.2.4                                    npm     
+ioredis                             5.3.1                                    npm     
 ip                                  2.0.0                                    npm     
 ip-regex                            4.3.0                                    npm     
 ipaddr.js                           1.9.1                                    npm     
@@ -739,6 +735,7 @@ mimic-fn                            2.1.0                                    npm
 mimic-response                      2.1.0                                    npm     
 minimatch                           3.1.2                                    npm     
 minimatch                           5.1.0                                    npm     
+minimatch                           5.1.6                                    npm     
 minimist                            1.2.6                                    npm     
 minimist                            1.2.8                                    npm     
 minipass                            3.1.6                                    npm     
@@ -752,6 +749,7 @@ minipass-sized                      1.0.3                                    npm
 minizlib                            2.1.2                                    npm     
 mkdirp                              0.5.6                                    npm     
 mkdirp                              1.0.4                                    npm     
+mkdirp                              2.1.6                                    npm     
 mkdirp-classic                      0.5.3                                    npm     
 mkdirp-infer-owner                  2.0.0                                    npm     
 mount                               2.37.2-4ubuntu3                          deb     
@@ -898,7 +896,6 @@ readable-stream                     3.6.0                                    npm
 readdir-glob                        1.1.2                                    npm     
 readdir-scoped-modules              1.1.0                                    npm     
 readline-common                     8.1.2-1                                  deb     
-redis                               4.5.1                                    npm     
 redis-errors                        1.2.0                                    npm     
 redis-parser                        3.0.0                                    npm     
 reflect-metadata                    0.1.13                                   npm     
@@ -972,7 +969,7 @@ strip-ansi                          6.0.1                                    npm
 strip-json-comments                 2.0.1                                    npm     
 supports-color                      5.5.0                                    npm     
 supports-color                      7.2.0                                    npm     
-svelte                              3.55.1                                   npm     
+svelte                              3.58.0                                   npm     
 svelte-local-storage-store          0.4.0                                    npm     
 svelte-material-icons               3.0.4                                    npm     
 swagger-ui-dist                     4.15.5                                   npm     
@@ -989,7 +986,7 @@ through                             2.3.8                                    npm
 tiny-relative-date                  1.3.0                                    npm     
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
-tokenizers                          0.13.2                                   python  
+tokenizers                          0.13.3                                   python  
 torch                               1.13.1+cpu                               python  
 torchvision                         0.14.1+rocm5.2                           python  
 tough-cookie                        2.5.0                                    npm     
@@ -1006,7 +1003,7 @@ tweetnacl                           0.14.5                                   npm
 type-fest                           0.21.3                                   npm     
 type-is                             1.6.18                                   npm     
 typedarray                          0.0.6                                    npm     
-typeorm                             0.3.11                                   npm     
+typeorm                             0.3.12                                   npm     
 typesense                           1.5.3                                    npm     
 typing_extensions                   4.5.0                                    python  
 tzdata                              2022g-0ubuntu0.22.04.1                   deb     
@@ -1057,8 +1054,8 @@ y18n                                5.0.8                                    npm
 yallist                             4.0.0                                    npm     
 yaml                                1.10.2                                   npm     
 yargs                               16.2.0                                   npm     
-yargs                               17.5.1                                   npm     
+yargs                               17.7.1                                   npm     
 yargs-parser                        20.2.9                                   npm     
-yargs-parser                        21.0.1                                   npm     
+yargs-parser                        21.1.1                                   npm     
 zip-stream                          4.1.0                                    npm     
 zlib1g                              1:1.2.11.dfsg-2ubuntu9.2                 deb     
