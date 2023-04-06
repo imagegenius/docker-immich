@@ -18,7 +18,8 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   TYPESENSE_VERSION="0.24.0" \
-  SENTENCE_TRANSFORMERS_HOME="/cache"
+  SENTENCE_TRANSFORMERS_HOME="/cache" \
+  IMMICH_MEDIA_LOCATION="/photos"
 
 # copy local files
 COPY root/ /
