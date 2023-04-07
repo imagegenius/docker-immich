@@ -17,7 +17,7 @@ ENV TRANSFORMERS_CACHE="/cache" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003"
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos"
 
 # copy local files
@@ -97,7 +97,7 @@ RUN \
     nltk \
     numpy \
     pillow \
-    psycopg2 \
+    psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
