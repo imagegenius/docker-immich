@@ -19,7 +19,8 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   TYPESENSE_DATA_DIR="/config/typesense" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.0"
+  TYPESENSE_VERSION="0.24.0" \
+  SENTENCE_TRANSFORMERS_HOME="/cache"
 
 # copy local files
 COPY root/ /
