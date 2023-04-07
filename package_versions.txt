@@ -253,7 +253,7 @@ fast-safe-stringify                 2.1.1                                    npm
 fastest-levenshtein                 1.0.12                                   npm     
 ffmpeg                              7:4.4.2-0ubuntu0.22.04.1                 deb     
 figures                             3.2.0                                    npm     
-filelock                            3.10.7                                   python  
+filelock                            3.11.0                                   python  
 finalhandler                        1.2.0                                    npm     
 findutils                           4.8.0-1ubuntu3                           deb     
 fluent-ffmpeg                       2.1.2                                    npm     
@@ -316,7 +316,7 @@ http-proxy-agent                    5.0.0                                    npm
 http-signature                      1.2.0                                    npm     
 https-proxy-agent                   5.0.0                                    npm     
 https-proxy-agent                   5.0.1                                    npm     
-huggingface-hub                     0.13.3                                   python  
+huggingface-hub                     0.13.4                                   python  
 humanize-ms                         1.2.1                                    npm     
 i18n-iso-countries                  7.5.0                                    npm     
 iconv-lite                          0.4.24                                   npm     
