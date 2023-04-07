@@ -10,15 +10,14 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV DEBIAN_FRONTEND="noninteractive" \
-  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
-  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  TRANSFORMERS_CACHE="/cache" \
+ENV TRANSFORMERS_CACHE="/cache" \
+  SENTENCE_TRANSFORMERS_HOME="/cache" \
   TYPESENSE_DATA_DIR="/config/typesense" \
+  TYPESENSE_VERSION="0.24.0" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.0" \
-  SENTENCE_TRANSFORMERS_HOME="/cache" \
+  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003"
   IMMICH_MEDIA_LOCATION="/photos"
 
 # copy local files
@@ -94,10 +93,11 @@ RUN \
   echo "**** build machine-learning ****" && \
   mkdir -p /cache && \
   pip install --no-cache-dir -f https://download.pytorch.org/whl/torch_stable.html \
-    pillow \
     flask \
     nltk \
     numpy \
+    pillow \
+    psycopg2 \
     scikit-learn \
     scipy \
     sentence-transformers \
@@ -111,15 +111,6 @@ RUN \
   cp -a \
     /tmp/immich/machine-learning/src \
     /app/immich/machine-learning/ && \
-  echo "**** setup upload folder ****" && \
-  mkdir -p \
-    /photos && \
-  ln -s \
-    /photos \
-    /app/immich/server/upload && \
-  ln -s \
-    /photos \
-    /app/immich/machine-learning/upload && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
     libvips-dev \

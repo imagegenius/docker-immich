@@ -3,7 +3,21 @@
 # make folders
 mkdir -p \
     /config/{typesense,log/nginx} \
+    /photos \
     /run/immich
+
+if [ ! -f /config/.migrated ]; then
+    echo "Attempting to automatically migrate the database"
+    if python3 python_script.py; then
+        echo "Database migrated successfully, it is recommened to run a storage migration in Immich"
+        touch /config/.migrated
+    else
+        echo "Database migration failed :( Please investigate or open an issue"
+        sleep infinity
+    fi
+else
+    echo "Database already migrated"
+fi
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
