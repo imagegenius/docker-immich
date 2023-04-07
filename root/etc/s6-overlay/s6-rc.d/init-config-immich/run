@@ -8,7 +8,7 @@ mkdir -p \
 
 if [ ! -f /config/.migrated ]; then
     echo "Attempting to automatically migrate the database"
-    if python3 python_script.py; then
+    if python3 /defaults/migrate.py; then
         echo "Database migrated successfully, it is recommened to run a storage migration in Immich"
         touch /config/.migrated
     else
