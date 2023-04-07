@@ -24,16 +24,15 @@ param_container_name: "{{ project_name }}"
 param_usage_include_net: false
 param_usage_include_env: true
 param_env_vars:
-  - { env_var: "TZ", env_value: "Australia/Melbourne", desc: "Specify a timezone to use eg. Australia/Melbourne." }
   - { env_var: "DB_HOSTNAME", env_value: "192.168.1.x", desc: "PostgreSQL Host" }
   - { env_var: "DB_USERNAME", env_value: "postgres", desc: "PostgreSQL Username" }
   - { env_var: "DB_PASSWORD", env_value: "postgres", desc: "PostgreSQL Password" }
   - { env_var: "DB_DATABASE_NAME", env_value: "immich", desc: "PostgreSQL Database Name" }
-  - { env_var: "REDIS_HOSTNAME", env_value: "redis", desc: "Redis Hostname" }
+  - { env_var: "REDIS_HOSTNAME", env_value: "192.168.1.x", desc: "Redis Hostname" }
   - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: "Run `openssl rand -base64 128`" }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "Contains the logs" }
+  - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "Contains the logs and typesense data" }
   - { vol_path: "/photos", vol_host_path: "path_to_photos", desc: "Contains all the photos uploaded to Immich" }
 param_usage_include_ports: true
 param_ports:

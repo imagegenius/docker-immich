@@ -105,7 +105,7 @@ services:
       - DB_USERNAME=postgres
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
-      - REDIS_HOSTNAME=redis
+      - REDIS_HOSTNAME=192.168.1.x
       - JWT_SECRET=somelongrandomstring
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
@@ -151,7 +151,7 @@ docker run -d \
   -e DB_USERNAME=postgres \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
-  -e REDIS_HOSTNAME=redis \
+  -e REDIS_HOSTNAME=192.168.1.x \
   -e JWT_SECRET=somelongrandomstring \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
@@ -189,19 +189,19 @@ To configure the container, pass variables at runtime using the format `<externa
 | Variable | Description |
 | :----: | --- |
 | `-p 8080` | WebUI Port |
-| `-e PUID=1000` | for UserID - see below for explanation |
-| `-e PGID=1000` | for GroupID - see below for explanation |
-| `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
+| `-e PUID=1000` | UID for permissions - see below for explanation |
+| `-e PGID=1000` | GID for permissions - see below for explanation |
+| `-e TZ=Etc/UTC` | Specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
 | `-e DB_HOSTNAME=192.168.1.x` | PostgreSQL Host |
 | `-e DB_USERNAME=postgres` | PostgreSQL Username |
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
-| `-e REDIS_HOSTNAME=redis` | Redis Hostname |
+| `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
 | `-e JWT_SECRET=somelongrandomstring` | Run `openssl rand -base64 128` |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-v /config` | Contains the logs |
+| `-v /config` | Contains the logs and typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 
 ## Umask for running applications

@@ -25,7 +25,7 @@ COPY root/ /
 
 RUN \
   echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -120,10 +120,12 @@ RUN \
   apt-get clean && \
   rm -rf \
     /tmp/* \
-    /var/lib/apt/lists/* \
     /var/tmp/* \
+    /var/lib/apt/lists/* \
     /root/.cache \
-    /root/.npm
+    /root/.npm \
+    /etc/apt/sources.list.d/node.list \
+    /usr/share/keyrings/nodesource.gpg
 
 # environment settings
 ENV NODE_ENV="production"
