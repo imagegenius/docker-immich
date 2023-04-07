@@ -119,6 +119,9 @@ RUN \
     /photos \
     /app/immich/machine-learning/upload && \
   echo "**** cleanup ****" && \
+  for cleanfiles in *.pyc *.pyo; do \
+    find /usr/local/lib/python3.* -name "${cleanfiles}" -delete; \
+  done && \
   apt-get remove -y --purge \
     libvips-dev \
     make \
