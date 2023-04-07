@@ -1,5 +1,6 @@
 #!/usr/bin/with-contenv bash
 
 exec \
-    cd /app/immich/server s6-setuidgid abc \
-        node dist/apps/immich/apps/immich/src/main
+    s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost 3001" \
+        cd /app/immich/server s6-setuidgid abc \
+            node dist/apps/immich/apps/immich/src/main
