@@ -10,24 +10,21 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV DEBIAN_FRONTEND="noninteractive" \
-  IMMICH_WEB_URL="http://127.0.0.1:3000" \
-  IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
-  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  TRANSFORMERS_CACHE="/cache" \
+ENV TRANSFORMERS_CACHE="/cache" \
+  SENTENCE_TRANSFORMERS_HOME="/cache" \
   TYPESENSE_DATA_DIR="/config/typesense" \
+  TYPESENSE_VERSION="0.24.0" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.0" \
-  SENTENCE_TRANSFORMERS_HOME="/cache"
+  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003"
 
 # copy local files
 COPY root/ /
 
 RUN \
   echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -131,10 +128,12 @@ RUN \
   apt-get clean && \
   rm -rf \
     /tmp/* \
-    /var/lib/apt/lists/* \
     /var/tmp/* \
+    /var/lib/apt/lists/* \
     /root/.cache \
-    /root/.npm
+    /root/.npm \
+    /etc/apt/sources.list.d/node.list \
+    /usr/share/keyrings/nodesource.gpg
 
 # environment settings
 ENV NODE_ENV="production"
