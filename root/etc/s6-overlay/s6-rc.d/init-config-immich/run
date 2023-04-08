@@ -9,20 +9,23 @@ mkdir -p \
 if [[ -z "${TEST_RUN}" ]]; then
     if [[ "$DOCKER_MODS" != *"postgres"* ]]; then
         if [ ! -f /config/.migrated ]; then
-            echo "Attempting to automatically migrate the database"
+            echo "Attempting to automatically migrate the database..."
             if python3 /defaults/migrate.py; then
-                echo "Database migrated successfully. It is recommended to run a storage migration in Immich."
+                echo "Database migration completed successfully."
+                echo "Please run a storage migration in Immich to complete the setup."
             else
-                echo "ERROR: Database migration failed. Please investigate or open an issue."
+                echo "ERROR: Database migration failed. Please check the logs or open an issue."
                 sleep infinity
             fi
         fi
     else
         if [ ! -f /config/.migrated ]; then
-            echo "WARN: It looks like you're using the PostgreSQL docker mod, the database cannot automatically migrate."
-            echo "WARN: The container will now sleep until you manually restart it"
-            echo "WARN: You MUST run 'python3 /defaults/migrate.py' within the container when you start it again, otherwise all your photos won't appear"
+            echo "WARNING: The PostgreSQL docker mod is being used, and the database cannot be migrated automatically."
+            echo "The container will now sleep until you manually restart it."
+            echo "To complete the setup, please run 'python3 /defaults/migrate.py' within the container when you start it again."
+            echo "Otherwise, your photos may not appear correctly."
             touch /config/.migrated
+            sleep infinity
         fi
     fi
 fi

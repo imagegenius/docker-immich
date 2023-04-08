@@ -22,10 +22,10 @@ try:
             # Define a SQL query to update the rows in the assets table
             sql = """
                 UPDATE assets
-                SET "originalPath" = REPLACE("originalPath", 'upload/', '/photos/'),
-                    "resizePath" = REPLACE("resizePath", 'upload/', '/photos/'),
-                    "webpPath" = REPLACE("webpPath", 'upload/', '/photos/'),
-                    "encodedVideoPath" = REPLACE("encodedVideoPath", 'upload/', '/photos/')
+                SET "originalPath" = REGEXP_REPLACE("originalPath", '^upload/', '/photos/'),
+                    "resizePath" = REGEXP_REPLACE("resizePath", '^upload/', '/photos/'),
+                    "webpPath" = REGEXP_REPLACE("webpPath", '^upload/', '/photos/'),
+                    "encodedVideoPath" = REGEXP_REPLACE("encodedVideoPath", '^upload/', '/photos/')
                 WHERE "originalPath" LIKE 'upload/%';
             """
 
