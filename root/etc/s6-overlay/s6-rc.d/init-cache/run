@@ -2,14 +2,19 @@
 
 import os
 import sys
+import logging
 
-# Check if CI_RUN variable is set
-if "CI_RUN" not in os.environ:
+# send things to docker logs
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+
+# Check if TEST_RUN variable is set
+if "TEST_RUN" not in os.environ:
     from sentence_transformers import SentenceTransformer
     from transformers import pipeline
 
     # Print message before downloading models
-    print("Initialising caches... This may take a while! (errors can be ignored)")
+    logging.info(
+        "Initialising caches... This may take a while! (errors can be ignored)")
 
     # Disable output
     sys.stdout = open(os.devnull, "w")

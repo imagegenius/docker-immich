@@ -87,13 +87,12 @@ RUN \
     static \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
-  pip install --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
-    torch==2.1.0.dev20230405+cpu && \
-  pip install --no-cache-dir \
+  pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     pillow \
     flask \
     nltk \
     numpy \
+    torch \
     scikit-learn \
     scipy \
     sentence-transformers \
