@@ -88,7 +88,7 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   pip install --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
-    torch && \
+    torch==2.1.0.dev20230405+cpu && \
   pip install --no-cache-dir \
     pillow \
     flask \
