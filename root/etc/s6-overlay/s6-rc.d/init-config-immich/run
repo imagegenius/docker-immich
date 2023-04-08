@@ -6,17 +6,25 @@ mkdir -p \
     /photos \
     /run/immich
 
-if [ ! -f /config/.migrated ]; then
-    echo "Attempting to automatically migrate the database"
-    if python3 /defaults/migrate.py; then
-        echo "Database migrated successfully, it is recommened to run a storage migration in Immich"
-        touch /config/.migrated
+if [[ -z "${TEST_RUN}" ]]; then
+    if [[ "$DOCKER_MODS" != *"postgres"* ]]; then
+        if [ ! -f /config/.migrated ]; then
+            echo "Attempting to automatically migrate the database"
+            if python3 /defaults/migrate.py; then
+                echo "Database migrated successfully. It is recommended to run a storage migration in Immich."
+            else
+                echo "ERROR: Database migration failed. Please investigate or open an issue."
+                sleep infinity
+            fi
+        fi
     else
-        echo "Database migration failed :( Please investigate or open an issue"
-        sleep infinity
+        if [ ! -f /config/.migrated ]; then
+            echo "WARN: It looks like you're using the PostgreSQL docker mod, the database cannot automatically migrate."
+            echo "WARN: The container will now sleep until you manually restart it"
+            echo "WARN: You MUST run 'python3 /defaults/migrate.py' within the container when you start it again, otherwise all your photos won't appear"
+            touch /config/.migrated
+        fi
     fi
-else
-    echo "Database already migrated"
 fi
 
 # permissions

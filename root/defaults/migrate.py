@@ -1,7 +1,6 @@
 import psycopg2
 import os
 
-
 # Define connection parameters
 host = os.environ.get('DB_HOSTNAME', '')
 port = os.environ.get('DB_PORT', '5432')
@@ -35,6 +34,11 @@ try:
 
             # Commit the changes to the database
             conn.commit()
+
+            # Create .migrated file if update succeeds
+            if cur.rowcount > 0:
+                with open('/config/.migrated', 'w'):
+                    pass
 
 
 except psycopg2.Error as e:
