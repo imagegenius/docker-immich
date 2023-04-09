@@ -94,7 +94,7 @@ RUN \
     nltk \
     numpy \
     pillow \
-    psycopg2-binary
+    psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
