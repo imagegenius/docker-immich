@@ -6,24 +6,16 @@ mkdir -p \
     /photos \
     /run/immich
 
+# update the database to reference the correct paths, now that 'IMMICH_MEDIA_LOCATION' is set
 if [[ -z "${TEST_RUN}" ]]; then
-    if [[ "$DOCKER_MODS" != *"postgres"* ]]; then
-        if [ ! -f /config/.migrated ]; then
-            echo "Attempting to automatically migrate the database..."
-            if python3 /defaults/migrate.py; then
-                echo "Database migration completed successfully."
-                echo "Please run a storage migration in Immich to complete the setup."
-            else
-                echo "ERROR: Database migration failed. Please check the logs or open an issue."
-                sleep infinity
-            fi
-        fi
-    else
-        if [ ! -f /config/.migrated ]; then
-            echo "WARNING: The PostgreSQL docker mod is being used, and the database cannot be migrated automatically."
+    if [ ! -f /config/.migrated ]; then
+        if python3 /defaults/migrate.py; then
+            touch /config/.migrated
+        else
             echo "The container will now sleep until you manually restart it."
-            echo "To complete the setup, please run 'python3 /defaults/migrate.py' within the container when you start it again."
-            echo "Otherwise, your photos may not appear correctly."
+            echo "Please try run 'python3 /defaults/migrate.py' within the container when you start it again."
+            echo "If 'python3 /defaults/migrate.py' fails when you run it manually, please check the log and open an issue."
+            echo "This error is normal when you're using the PostgreSQL docker mod as PostgreSQL has not yet been started."
             touch /config/.migrated
             sleep infinity
         fi

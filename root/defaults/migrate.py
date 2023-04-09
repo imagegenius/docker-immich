@@ -19,6 +19,15 @@ try:
     ) as conn:
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
+            # Check if assets table exists (if this is a new instance)
+            cur.execute("SELECT EXISTS(SELECT * FROM information_schema.tables WHERE table_name='assets')")
+            assets_table_exists = cur.fetchone()[0]
+
+            if not assets_table_exists:
+                exit(0)
+                
+
+            print("Attempting to automatically migrate the database...")
             # Define a SQL query to update the rows in the assets table
             sql = """
                 UPDATE assets
@@ -34,13 +43,10 @@ try:
 
             # Commit the changes to the database
             conn.commit()
-
-            # Create .migrated file if update succeeds
-            if cur.rowcount > 0:
-                with open('/config/.migrated', 'w'):
-                    pass
+            print("Database migration successfully completed.")
 
 
 except psycopg2.Error as e:
     print("Database update failed:", e)
+    print("ERROR: Database migration failed!")
     exit(1)
