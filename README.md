@@ -201,7 +201,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-v /config` | Contains the logs and typesense data |
+| `-v /config` | Contains the logs |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 
 ## Umask for running applications
@@ -243,6 +243,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **08.04.23:** - remove typesense
 * **23.03.23:** - add service checks
 * **21.03.23:** - remove unused Immich environment variables
 * **05.03.23:** - add typesense
