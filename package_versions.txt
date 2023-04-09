@@ -283,8 +283,6 @@ get-port                            5.1.1                  npm
 getpass                             0.1.7                  npm     
 github-from-package                 0.0.0                  npm     
 glib                                2.74.6-r0              apk     
-glibc                               2.35-r5                apk     
-glibc-bin                           2.35-r5                apk     
 glob                                6.0.4                  npm     
 glob                                7.2.0                  npm     
 glob                                7.2.3                  npm     
@@ -381,8 +379,7 @@ libblkid                            2.38.1-r1              apk
 libbsd                              0.11.7-r0              apk     
 libbz2                              1.0.8-r4               apk     
 libc-utils                          0.7.2-r3               apk     
-libc6-compat                        1.2.3-r4               apk     
-libcrypto3                          3.0.8-r0               apk     
+libcrypto3                          3.0.8-r1               apk     
 libcurl                             7.88.1-r1              apk     
 libdav1d                            1.0.0-r2               apk     
 libde265                            1.0.11-r1              apk     
@@ -427,7 +424,7 @@ libsodium                           1.0.18-r2              apk
 libspng                             0.7.2-r1               apk     
 libsrt                              1.5.1-r0               apk     
 libssh                              0.10.4-r0              apk     
-libssl3                             3.0.8-r0               apk     
+libssl3                             3.0.8-r1               apk     
 libstdc++                           12.2.1_git20220924-r4  apk     
 libtasn1                            4.19.0-r0              apk     
 libtheora                           1.1.1-r16              apk     
@@ -737,7 +734,7 @@ type-is                             1.6.18                 npm
 typedarray                          0.0.6                  npm     
 typeorm                             0.3.12                 npm     
 typesense                           1.5.3                  npm     
-tzdata                              2022f-r1               apk     
+tzdata                              2023b-r1               apk     
 uglify-js                           3.17.4                 npm     
 uid2                                1.0.0                  npm     
 unique-filename                     2.0.1                  npm     
