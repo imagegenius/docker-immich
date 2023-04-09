@@ -113,6 +113,7 @@ services:
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
+      - path_to_transformers:/config/transformers #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -159,6 +160,7 @@ docker run -d \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
+  -v path_to_transformers:/config/transformers `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 
@@ -201,8 +203,9 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-v /config` | Contains the logs and typesense data |
+| `-v /config` | Contains the logs, Transformers cache and Typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
+| `-v /config/transformers` | Store the Transformers cache elsewhere (~800MB) |
 
 ## Umask for running applications
 
@@ -243,6 +246,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **09.04.23:** - Cache is downloaded to the host (/config/transformers)
 * **01.04.23:** - remove unused Immich environment variables
 * **21.03.23:** - Add service checks
 * **05.03.23:** - add typesense
