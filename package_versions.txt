@@ -753,6 +753,7 @@ mkdirp                              2.1.6                                    npm
 mkdirp-classic                      0.5.3                                    npm     
 mkdirp-infer-owner                  2.0.0                                    npm     
 mount                               2.37.2-4ubuntu3                          deb     
+mpmath                              1.3.0                                    python  
 ms                                  2.0.0                                    npm     
 ms                                  2.1.2                                    npm     
 ms                                  2.1.3                                    npm     
@@ -771,6 +772,7 @@ neo-async                           2.6.2                                    npm
 nest-commander                      3.3.0                                    npm     
 netcat                              1.218-4ubuntu1                           deb     
 netcat-openbsd                      1.218-4ubuntu1                           deb     
+networkx                            3.1                                      python  
 nginx                               1.18.0-6ubuntu14.3                       deb     
 nginx-common                        1.18.0-6ubuntu14.3                       deb     
 nginx-core                          1.18.0-6ubuntu14.3                       deb     
@@ -973,6 +975,7 @@ svelte                              3.58.0                                   npm
 svelte-local-storage-store          0.4.0                                    npm     
 svelte-material-icons               3.0.4                                    npm     
 swagger-ui-dist                     4.15.5                                   npm     
+sympy                               1.12rc1                                  python  
 sysvinit-utils                      3.01-1ubuntu1                            deb     
 tar                                 1.34+dfsg-1ubuntu0.1.22.04.1             deb     
 tar                                 6.1.11                                   npm     
@@ -987,8 +990,8 @@ tiny-relative-date                  1.3.0                                    npm
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
-torch                               1.13.1+cpu                               python  
-torchvision                         0.14.1+rocm5.2                           python  
+torch                               2.1.0.dev20230408+cpu                    python  
+torchvision                         0.16.0.dev20230408+cpu                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.65.0                                   python  
 tr46                                0.0.3                                    npm     
