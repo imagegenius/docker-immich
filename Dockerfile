@@ -10,17 +10,14 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV TRANSFORMERS_CACHE="/cache" \
-  SENTENCE_TRANSFORMERS_HOME="/cache" \
+ENV TRANSFORMERS_CACHE="/config/transformers" \
+  SENTENCE_TRANSFORMERS_HOME="/config/transformers" \
   TYPESENSE_DATA_DIR="/config/typesense" \
   TYPESENSE_VERSION="0.24.0" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003"
-
-# copy local files
-COPY root/ /
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -90,20 +87,18 @@ RUN \
     static \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
-  mkdir -p /cache && \
-  pip install --no-cache-dir -f https://download.pytorch.org/whl/torch_stable.html \
+  pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     pillow \
     flask \
     nltk \
     numpy \
+    torch \
     scikit-learn \
     scipy \
     sentence-transformers \
     sentencepiece \
-    torch==1.13.1+cpu \
     tqdm \
     transformers && \
-  python3 /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
@@ -133,6 +128,9 @@ RUN \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
     /usr/share/keyrings/nodesource.gpg
+
+# copy local files
+COPY root/ /
 
 # environment settings
 ENV NODE_ENV="production"
