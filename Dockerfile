@@ -90,10 +90,10 @@ RUN \
     static \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
-  mkdir -p /cache && \
   pip install --no-cache-dir -f https://download.pytorch.org/whl/torch_stable.html \
     pillow \
     flask \
+    gunicorn \
     nltk \
     numpy \
     scikit-learn \
@@ -103,6 +103,7 @@ RUN \
     torch==1.13.1+cpu \
     tqdm \
     transformers && \
+  mkdir -p /cache && \
   python3 /defaults/install.py && \
   mkdir -p \
     /app/immich/machine-learning && \
