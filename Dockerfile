@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-alpine-glibc:latest
+FROM ghcr.io/imagegenius/baseimage-alpine:3.17
 
 # set version label
 ARG BUILD_DATE
@@ -10,10 +10,7 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV TYPESENSE_DATA_DIR="/config/typesense" \
-  TYPESENSE_VERSION="0.24.0" \
-  TYPESENSE_API_KEY="xyz" \
-  TYPESENSE_HOST="127.0.0.1" \
+ENV TYPESENSE_ENABLED="false" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="false"
 
@@ -47,15 +44,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download typesense server ****" && \
-  mkdir -p \
-    /app/typesense && \
-  curl -o  \
-    /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
-  tar -xf \
-    /tmp/typesense.tar.gz -C \
-    /app/typesense && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
