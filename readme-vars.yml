@@ -156,6 +156,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "10.04.23:", desc: "fix gunicorn" }
   - { date: "09.04.23:", desc: "Cache is downloaded to the host (/config/transformers)" }
   - { date: "01.04.23:", desc: "remove unused Immich environment variables" }
   - { date: "21.03.23:", desc: "Add service checks" }
