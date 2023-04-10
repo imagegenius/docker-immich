@@ -27,12 +27,17 @@ try:
                 exit(0)
                 
             # Check if asset paths have already been changed (prevent running the migration a second time)
-            cur.execute("SELECT originalPath FROM assets LIMIT 1;")
+            sql = """
+                SELECT "originalPath" FROM assets LIMIT 1;
+            """
 
-            # fetch the first row of the result set
+            # Execute the SQL query
+            cur.execute(sql)
+
+            # Fetch the first row of the result set
             result = cur.fetchone()
 
-            # check if the first value in the tuple starts with "/photos"
+            # Check if the first value in the tuple starts with "/photos"
             if result[0].startswith('/photos'):
                 exit(0)
 
