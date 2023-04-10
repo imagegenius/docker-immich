@@ -246,6 +246,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **10.04.23:** - fix gunicorn
 * **09.04.23:** - Cache is downloaded to the host (/config/transformers)
 * **01.04.23:** - remove unused Immich environment variables
 * **21.03.23:** - Add service checks
