@@ -26,6 +26,15 @@ try:
             if not assets_table_exists:
                 exit(0)
                 
+            # Check if asset paths have already been changed (prevent running the migration a second time)
+            cur.execute("SELECT originalPath FROM assets LIMIT 1;")
+
+            # fetch the first row of the result set
+            result = cur.fetchone()
+
+            # check if the first value in the tuple starts with "/photos"
+            if result[0].startswith('/photos'):
+                exit(0)
 
             print("Attempting to automatically migrate the database...")
             # Define a SQL query to update the rows in the assets table
