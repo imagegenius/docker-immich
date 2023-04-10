@@ -88,15 +88,16 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
-    pillow \
     flask \
+    gunicorn \
     nltk \
     numpy \
-    torch \
+    pillow \
     scikit-learn \
     scipy \
     sentence-transformers \
     sentencepiece \
+    torch \
     tqdm \
     transformers && \
   mkdir -p \
