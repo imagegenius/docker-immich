@@ -7,7 +7,7 @@ mkdir -p \
     /run/immich
 
 # update the database to reference the correct paths, now that 'IMMICH_MEDIA_LOCATION' is set
-if [[ -z "${DISABLE_IG_MIGRATION}" ]]; then
+if [[ -z "${TEST_RUN}" ]]; then
     if [ ! -f /config/.migrated ]; then
         if python3 /defaults/migrate.py; then
             touch /config/.migrated
