@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${IMMICH_MACHINE_LEARNING_URL}" == "false" ]; then
+if [ "${MACHINE_LEANRNING_ENABLED}" == "false" ]; then
     echo "machine-learning disabled";
     tail -f /dev/null;
 else

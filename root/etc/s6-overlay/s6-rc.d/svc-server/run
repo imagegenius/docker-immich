@@ -1,5 +1,8 @@
 #!/usr/bin/with-contenv bash
 
+if [ "${MACHINE_LEANRNING_ENABLED}" == "false" ]; then
+    export IMMICH_MACHINE_LEARNING_URL=false
+fi
 exec \
     s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost 3001" \
         cd /app/immich/server s6-setuidgid abc \
