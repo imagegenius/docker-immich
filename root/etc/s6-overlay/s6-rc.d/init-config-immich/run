@@ -5,6 +5,13 @@ mkdir -p \
     /config/{typesense,log/nginx} \
     /run/immich
 
+if [ "${TYPESENSE_ENABLED}" == "false" ]; then
+    s6-rc -d change svc-typesense
+fi
+if [ "${IMMICH_MACHINE_LEARNING_URL}" == "false" ]; then
+    s6-rc -d change svc-machine-learning
+fi
+
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 chown -R abc:abc \
