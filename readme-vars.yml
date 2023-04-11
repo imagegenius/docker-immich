@@ -156,6 +156,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "10.04.23:", desc: "fix gunicorn" }
   - { date: "04.04.23:", desc: "use environment variables to set location of the photos folder" }
   - { date: "09.04.23:", desc: "Cache is downloaded to the host (/config/transformers)" }
   - { date: "01.04.23:", desc: "remove unused Immich environment variables" }

@@ -88,6 +88,7 @@ RUN \
     static \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
+  cd /tmp/immich/machine-learning && \
   pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     flask \
     gunicorn \
@@ -105,8 +106,9 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    /tmp/immich/machine-learning/src \
-    /app/immich/machine-learning/ && \
+    gunicorn.conf.py \
+    src \
+    /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
     libvips-dev \
