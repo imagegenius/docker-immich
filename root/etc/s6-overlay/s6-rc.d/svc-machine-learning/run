@@ -1,7 +1,11 @@
 #!/usr/bin/with-contenv bash
 
-export HOME=/config
-
-exec \
-    cd /app/immich/machine-learning s6-setuidgid abc \
-        gunicorn src.main:server
+if [ "${IMMICH_MACHINE_LEARNING_URL}" == "false" ]; then
+    echo "machine-learning disabled";
+    tail -f /dev/null;
+else
+    export HOME=/config
+    exec \
+        cd /app/immich/machine-learning s6-setuidgid abc \
+            gunicorn src.main:server
+fi

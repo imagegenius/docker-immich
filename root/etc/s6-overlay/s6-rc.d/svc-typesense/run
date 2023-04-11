@@ -1,7 +1,12 @@
 #!/usr/bin/with-contenv bash
 
-exec \
-    cd /app/typesense s6-setuidgid abc \
-        ./typesense-server \
-            --api-key=${TYPESENSE_API_KEY} \
-            --enable-cors &>/dev/null
+if [ "${TYPESENSE_ENABLED}" == "false" ]; then
+    echo "typesense disabled";
+    tail -f /dev/null;
+else
+    exec \
+        cd /app/typesense s6-setuidgid abc \
+            ./typesense-server \
+                --api-key=${TYPESENSE_API_KEY} \
+                --enable-cors &>/dev/null
+fi
