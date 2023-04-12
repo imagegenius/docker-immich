@@ -1,7 +1,6 @@
 #!/usr/bin/with-contenv bash
 
 if [ "${TYPESENSE_ENABLED}" == "false" ]; then
-    echo "typesense disabled";
     tail -f /dev/null;
 else
     exec \
