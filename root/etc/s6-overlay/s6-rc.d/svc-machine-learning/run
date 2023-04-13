@@ -1,10 +1,12 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${MACHINE_LEANRNING_ENABLED}" == "false" ]; then
-    tail -f /dev/null;
-else
-    export HOME=/config
-    exec \
-        cd /app/immich/machine-learning s6-setuidgid abc \
-            gunicorn src.main:server
+
+# stop machine learning from starting
+if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
+    tail -f /dev/null
 fi
+
+export HOME=/config
+exec \
+    cd /app/immich/machine-learning s6-setuidgid abc \
+        gunicorn src.main:server
