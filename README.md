@@ -32,7 +32,7 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed, which makes for a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, which makes for a very lightweight image. |
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
@@ -107,6 +107,8 @@ services:
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=192.168.1.x
       - JWT_SECRET=somelongrandomstring
+      - DISABLE_MACHINE_LEANRNING=false #optional
+      - DISABLE_TYPESENSE=false #optional
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
@@ -154,6 +156,8 @@ docker run -d \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=192.168.1.x \
   -e JWT_SECRET=somelongrandomstring \
+  -e DISABLE_MACHINE_LEANRNING=false `#optional` \
+  -e DISABLE_TYPESENSE=false `#optional` \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
@@ -200,6 +204,8 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
 | `-e JWT_SECRET=somelongrandomstring` | Run `openssl rand -base64 128` |
+| `-e DISABLE_MACHINE_LEANRNING=false` | Set to `true` to disable machine learning |
+| `-e DISABLE_TYPESENSE=false` | Set to `true` to disable Typesense (disables searching completely!) |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
@@ -246,6 +252,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **13.04.23:** - add variables to disable typesense and machine learning
 * **10.04.23:** - fix gunicorn
 * **09.04.23:** - Cache is downloaded to the host (/config/transformers)
 * **01.04.23:** - remove unused Immich environment variables
