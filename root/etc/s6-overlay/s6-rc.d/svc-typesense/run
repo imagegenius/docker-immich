@@ -1,5 +1,10 @@
 #!/usr/bin/with-contenv bash
 
+# stop typesense from starting
+if [ "${DISABLE_TYPESENSE}" == "true" ]; then
+    tail -f /dev/null
+fi
+
 exec \
     cd /app/typesense s6-setuidgid abc \
         ./typesense-server \

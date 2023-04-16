@@ -1,5 +1,13 @@
 #!/usr/bin/with-contenv bash
 
+# map disable variables to immich variables
+if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
+    export IMMICH_MACHINE_LEARNING_URL=false
+fi
+if [ "${DISABLE_TYPESENSE}" == "true" ]; then
+    export TYPESENSE_ENABLED=false
+fi
+
 exec \
     s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost 3001" \
         cd /app/immich/server s6-setuidgid abc \
