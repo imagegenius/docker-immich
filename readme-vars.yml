@@ -160,6 +160,7 @@ external_application_unraid_block: |
 changelogs:
   - { date: "13.04.23:", desc: "add variables to disable typesense and machine learning" }
   - { date: "10.04.23:", desc: "fix gunicorn" }
+  - { date: "04.04.23:", desc: "use environment variables to set location of the photos folder" }
   - { date: "09.04.23:", desc: "Cache is downloaded to the host (/config/transformers)" }
   - { date: "01.04.23:", desc: "remove unused Immich environment variables" }
   - { date: "21.03.23:", desc: "Add service checks" }

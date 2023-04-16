@@ -17,7 +17,8 @@ ENV TRANSFORMERS_CACHE="/config/transformers" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003"
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
+  IMMICH_MEDIA_LOCATION="/photos"
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -94,6 +95,7 @@ RUN \
     nltk \
     numpy \
     pillow \
+    psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
@@ -107,15 +109,6 @@ RUN \
     gunicorn.conf.py \
     src \
     /app/immich/machine-learning && \
-  echo "**** setup upload folder ****" && \
-  mkdir -p \
-    /photos && \
-  ln -s \
-    /photos \
-    /app/immich/server/upload && \
-  ln -s \
-    /photos \
-    /app/immich/machine-learning/upload && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
     libvips-dev \
