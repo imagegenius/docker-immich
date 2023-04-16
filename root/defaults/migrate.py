@@ -55,6 +55,16 @@ try:
             # Execute the SQL query
             cur.execute(sql)
 
+            # Define a SQL query to update the rows in the users table
+            sql = """
+                UPDATE users
+                SET "profileImagePath" = REGEXP_REPLACE("profileImagePath", '^upload/', '/photos/')
+                WHERE "profileImagePath" LIKE 'upload/%';
+            """
+
+            # Execute the SQL query
+            cur.execute(sql)
+
             # Commit the changes to the database
             conn.commit()
             print("Database migration successfully completed.")
