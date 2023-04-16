@@ -870,6 +870,7 @@ promise-retry                       2.0.1                                    npm
 promzard                            0.3.0                                    npm     
 proxy-addr                          2.0.7                                    npm     
 psl                                 1.8.0                                    npm     
+psycopg2-binary                     2.9.6                                    python  
 publicsuffix                        20211207.1025-1                          deb     
 pump                                3.0.0                                    npm     
 punycode                            2.1.1                                    npm     
