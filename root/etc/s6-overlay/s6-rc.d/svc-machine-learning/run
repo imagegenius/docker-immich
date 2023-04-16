@@ -1,6 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-
 # stop machine learning from starting
 if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
     tail -f /dev/null
