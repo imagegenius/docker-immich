@@ -254,6 +254,7 @@ Instructions for updating containers:
 
 * **13.04.23:** - add variables to disable typesense and machine learning
 * **10.04.23:** - fix gunicorn
+* **04.04.23:** - use environment variables to set location of the photos folder
 * **09.04.23:** - Cache is downloaded to the host (/config/transformers)
 * **01.04.23:** - remove unused Immich environment variables
 * **21.03.23:** - Add service checks
