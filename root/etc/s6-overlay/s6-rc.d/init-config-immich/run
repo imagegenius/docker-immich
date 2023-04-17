@@ -7,17 +7,19 @@ mkdir -p \
     /run/immich
 
 # update the database to reference the correct paths, now that 'IMMICH_MEDIA_LOCATION' is set
-if [[ -z "${TEST_RUN}" ]]; then
-    if [ ! -f /config/.migrated ]; then
-        if python3 /defaults/migrate.py; then
-            touch /config/.migrated
-        else
-            echo "The container will now sleep until you manually restart it."
-            echo "Please try run 'python3 /defaults/migrate.py' within the container when you start it again."
-            echo "If 'python3 /defaults/migrate.py' fails when you run it manually, please check the log and open an issue."
-            echo "This error is normal when you're using the PostgreSQL docker mod as PostgreSQL has not yet been started."
-            touch /config/.migrated
-            sleep infinity
+if [[ -z "${TEST_RUN}" ]]; then # skip if test run
+    if [ ! -f /config/.migrated ]; then # skip if already migrated
+        if [ -n "$(ls -A /photos)" ]; then # skip if theres nothing to migrate
+            if python3 /defaults/migrate.py; then
+                touch /config/.migrated
+            else
+                echo "The container will now sleep until you manually restart it."
+                echo "Please try run 'python3 /defaults/migrate.py' within the container when you start it again."
+                echo "If 'python3 /defaults/migrate.py' fails when you run it manually, please check the log and open an issue."
+                echo "This error is normal when you're using the PostgreSQL docker mod as PostgreSQL has not yet been started."
+                touch /config/.migrated
+                sleep infinity
+            fi
         fi
     fi
 fi
