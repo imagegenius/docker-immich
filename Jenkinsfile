@@ -395,8 +395,8 @@ pipeline {
               sh "docker push ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
             }
             sh '''docker rmi \
-                  ${GITHUBIMAGE}:arm64v8-${META_TAG} \
-                  ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
+                    ${GITHUBIMAGE}:arm64v8-${META_TAG} \
+                    ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
                '''
           }
         }
@@ -648,11 +648,11 @@ pipeline {
                   ${GITHUBIMAGE}:arm64v8-${EXT_RELEASE_TAG} || :
                 if [ -n "${SEMVER}" ]; then
                   docker rmi \
-                  ${GITHUBIMAGE}:amd64-${SEMVER} \
-                  ${GITHUBIMAGE}:arm64v8-${SEMVER} || :
+                    ${GITHUBIMAGE}:amd64-${SEMVER} \
+                    ${GITHUBIMAGE}:arm64v8-${SEMVER} || :
                 fi
-              docker rmi \
-                ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
+                docker rmi \
+                  ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
              '''
       }
     }
