@@ -17,11 +17,11 @@ NAME                                VERSION                                  TYP
 @nestjs/common                      9.2.1                                    npm     
 @nestjs/config                      2.2.0                                    npm     
 @nestjs/core                        9.2.1                                    npm     
-@nestjs/mapped-types                1.2.0                                    npm     
+@nestjs/mapped-types                1.2.2                                    npm     
 @nestjs/platform-express            9.2.1                                    npm     
 @nestjs/platform-socket.io          9.2.1                                    npm     
 @nestjs/schedule                    2.1.0                                    npm     
-@nestjs/swagger                     6.1.4                                    npm     
+@nestjs/swagger                     6.3.0                                    npm     
 @nestjs/typeorm                     9.0.1                                    npm     
 @nestjs/websockets                  9.2.1                                    npm     
 @npmcli/arborist                    5.6.3                                    npm     
@@ -57,6 +57,7 @@ NAME                                VERSION                                  TYP
 @types/node                         16.11.21                                 npm     
 @types/parse-json                   4.0.0                                    npm     
 @types/through                      0.0.30                                   npm     
+@types/validator                    13.7.14                                  npm     
 Flask                               2.2.3                                    python  
 Jinja2                              3.1.2                                    python  
 MarkupSafe                          2.1.2                                    python  
@@ -141,7 +142,7 @@ chownr                              1.1.4                                    npm
 chownr                              2.0.0                                    npm     
 cidr-regex                          3.1.1                                    npm     
 class-transformer                   0.5.1                                    npm     
-class-validator                     0.13.2                                   npm     
+class-validator                     0.14.0                                   npm     
 clean-stack                         2.2.0                                    npm     
 cli-columns                         4.0.0                                    npm     
 cli-cursor                          3.1.0                                    npm     
@@ -253,7 +254,7 @@ fast-safe-stringify                 2.1.1                                    npm
 fastest-levenshtein                 1.0.12                                   npm     
 ffmpeg                              7:4.4.2-0ubuntu0.22.04.1                 deb     
 figures                             3.2.0                                    npm     
-filelock                            3.11.0                                   python  
+filelock                            3.12.0                                   python  
 finalhandler                        1.2.0                                    npm     
 findutils                           4.8.0-1ubuntu3                           deb     
 fluent-ffmpeg                       2.1.2                                    npm     
@@ -326,7 +327,7 @@ idna                                3.4                                      pyt
 ieee754                             1.2.1                                    npm     
 ignore-walk                         5.0.1                                    npm     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.53.0                                   npm     
+immich                              1.54.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -375,6 +376,7 @@ jsonparse                           1.3.1                                    npm
 jsprim                              1.4.2                                    npm     
 just-diff                           5.1.1                                    npm     
 just-diff-apply                     5.4.1                                    npm     
+justified-layout                    4.1.0                                    npm     
 kdt                                 0.1.0                                    npm     
 lazystream                          1.0.1                                    npm     
 leaflet                             1.9.3                                    npm     
@@ -499,8 +501,8 @@ libkrb5support0                     1.19.2-2ubuntu0.1                        deb
 libksba8                            1.6.0-2ubuntu0.2                         deb     
 liblapack3                          3.10.0-2ubuntu1                          deb     
 liblcms2-2                          2.12~rc1-2build2                         deb     
-libldap-2.5-0                       2.5.14+dfsg-0ubuntu0.22.04.1             deb     
-libldap-common                      2.5.14+dfsg-0ubuntu0.22.04.1             deb     
+libldap-2.5-0                       2.5.14+dfsg-0ubuntu0.22.04.2             deb     
+libldap-common                      2.5.14+dfsg-0ubuntu0.22.04.2             deb     
 liblilv-0-0                         0.24.12-2                                deb     
 libllvm15                           1:15.0.7-0ubuntu0.22.04.1                deb     
 liblqr-1-0                          0.4.2-2.1                                deb     
@@ -567,11 +569,7 @@ libpcre2-8-0                        10.39-3ubuntu0.1                         deb
 libpcre3                            2:8.39-13ubuntu0.22.04.1                 deb     
 libperl5.34                         5.34.0-3ubuntu1.1                        deb     
 libpgm-5.3-0                        5.3.128~dfsg-2                           deb     
-libphonenumber-js                   1.9.48                                   npm     
-libphonenumber-js-core              1.0.0                                    npm     
-libphonenumber-js-max               1.0.0                                    npm     
-libphonenumber-js-min               1.0.0                                    npm     
-libphonenumber-js-mobile            1.0.0                                    npm     
+libphonenumber-js                   1.10.26                                  npm     
 libpixman-1-0                       0.40.0-1ubuntu0.22.04.1                  deb     
 libpng16-16                         1.6.37-3build5                           deb     
 libpocketsphinx3                    0.8.0+real5prealpha+1-14ubuntu1          deb     
@@ -976,7 +974,7 @@ supports-color                      7.2.0                                    npm
 svelte                              3.58.0                                   npm     
 svelte-local-storage-store          0.4.0                                    npm     
 svelte-material-icons               3.0.4                                    npm     
-swagger-ui-dist                     4.15.5                                   npm     
+swagger-ui-dist                     4.18.2                                   npm     
 sympy                               1.12rc1                                  python  
 sysvinit-utils                      3.01-1ubuntu1                            deb     
 tar                                 1.34+dfsg-1ubuntu0.1.22.04.1             deb     
@@ -992,8 +990,8 @@ tiny-relative-date                  1.3.0                                    npm
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
-torch                               2.1.0.dev20230416+cpu                    python  
-torchvision                         0.16.0.dev20230416+cpu                   python  
+torch                               2.1.0.dev20230418+cpu                    python  
+torchvision                         0.16.0.dev20230418+cpu                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.65.0                                   python  
 tr46                                0.0.3                                    npm     
@@ -1011,7 +1009,7 @@ typedarray                          0.0.6                                    npm
 typeorm                             0.3.12                                   npm     
 typesense                           1.5.3                                    npm     
 typing_extensions                   4.5.0                                    python  
-tzdata                              2022g-0ubuntu0.22.04.1                   deb     
+tzdata                              2023c-0ubuntu0.22.04.0                   deb     
 ubuntu-keyring                      2021.03.26                               deb     
 ucf                                 3.0043                                   deb     
 uglify-js                           3.17.4                                   npm     
