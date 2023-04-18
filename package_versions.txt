@@ -271,6 +271,7 @@ fresh                               0.5.2                                    npm
 fs-constants                        1.0.0                                    npm     
 fs-minipass                         2.1.0                                    npm     
 fs.realpath                         1.0.0                                    npm     
+fsspec                              2023.4.0                                 python  
 function-bind                       1.1.1                                    npm     
 gauge                               2.7.4                                    npm     
 gauge                               4.0.4                                    npm     
@@ -318,7 +319,7 @@ http-proxy-agent                    5.0.0                                    npm
 http-signature                      1.2.0                                    npm     
 https-proxy-agent                   5.0.0                                    npm     
 https-proxy-agent                   5.0.1                                    npm     
-huggingface-hub                     0.13.4                                   python  
+huggingface-hub                     0.14.0rc0                                python  
 humanize-ms                         1.2.1                                    npm     
 i18n-iso-countries                  7.5.0                                    npm     
 iconv-lite                          0.4.24                                   npm     
