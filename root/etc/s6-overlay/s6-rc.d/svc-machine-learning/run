@@ -8,4 +8,4 @@ fi
 export HOME=/config
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
-        gunicorn src.main:server
+        python3 main.py
