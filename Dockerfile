@@ -92,11 +92,11 @@ RUN \
   cd /tmp/immich/machine-learning && \
   pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     fastapi \
-    uvicorn[standard] \
+    flask \
     insightface \
-    onnxruntime \
     nltk \
     numpy \
+    onnxruntime \
     pillow \
     psycopg2-binary \
     scikit-learn \
@@ -105,7 +105,8 @@ RUN \
     sentencepiece \
     torch \
     tqdm \
-    transformers && \
+    transformers \
+    uvicorn[standard] && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
