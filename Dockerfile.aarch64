@@ -35,6 +35,7 @@ RUN \
     nginx \
     nodejs \
     perl \
+    python3-dev \
     python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
@@ -90,8 +91,10 @@ RUN \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
-    flask \
-    gunicorn \
+    fastapi \
+    uvicorn[standard] \
+    insightface \
+    onnxruntime \
     nltk \
     numpy \
     pillow \
@@ -106,14 +109,14 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    gunicorn.conf.py \
-    src \
+    src/. \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
+    g++ \
     libvips-dev \
     make \
-    g++ && \
+    python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \

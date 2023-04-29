@@ -35,8 +35,8 @@ RUN \
     nginx \
     nodejs \
     perl \
-    python3-pip \
-    python3-dev && \
+    python3-dev \
+    python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -113,9 +113,10 @@ RUN \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
+    g++ \
     libvips-dev \
     make \
-    g++ && \
+    python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
