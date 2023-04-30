@@ -2,9 +2,12 @@
 
 # make folders
 mkdir -p \
-    /config/{typesense,log/nginx} \
+    /config/{typesense,log/nginx,faces} \
     /photos \
-    /run/immich \
+    /run/immich 
+
+ln -s \
+    /config/faces \
     /cache
 
 # update the database to reference the correct paths, now that 'IMMICH_MEDIA_LOCATION' is set
