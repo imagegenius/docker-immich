@@ -18,7 +18,8 @@ ENV TRANSFORMERS_CACHE="/config/transformers" \
   TYPESENSE_HOST="127.0.0.1" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
-  IMMICH_MEDIA_LOCATION="/photos"
+  IMMICH_MEDIA_LOCATION="/photos" \
+  MACHINE_LEARNING_CACHE_FOLDER="/config/faces"
 
 RUN \
   echo "**** install runtime packages ****" && \

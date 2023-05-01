@@ -6,9 +6,6 @@ mkdir -p \
     /photos \
     /run/immich 
 
-ln -s \
-    /config/faces \
-    /cache
 
 # update the database to reference the correct paths, now that 'IMMICH_MEDIA_LOCATION' is set
 if [[ -z "${TEST_RUN}" ]]; then # skip if test run
@@ -34,5 +31,4 @@ chown -R abc:abc \
     /config \
     /photos \
     /run/immich \
-    /app/typesense \
-    /cache
+    /app/typesense
