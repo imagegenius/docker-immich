@@ -4,8 +4,7 @@
 mkdir -p \
     /config/{typesense,log/nginx,machine-learning} \
     /photos \
-    /run/immich 
-
+    /run/immich
 
 # update the database to reference the correct paths, now that 'IMMICH_MEDIA_LOCATION' is set
 if [[ -z "${TEST_RUN}" ]]; then # skip if test run

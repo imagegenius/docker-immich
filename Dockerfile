@@ -44,8 +44,12 @@ RUN \
     IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
       jq -r '.tag_name'); \
   fi && \
-  curl -sL "https://github.com/immich-app/immich/archive/feat/facial-recognition.tar.gz" -o /tmp/immich.tar.gz && \
-	tar xf /tmp/immich.tar.gz -C /tmp/immich --strip-components=1 && \
+  curl -o \
+    /tmp/immich.tar.gz -L \
+    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
+  tar xf \
+    /tmp/immich.tar.gz -C \
+    /tmp/immich --strip-components=1 && \
   echo "**** download typesense server ****" && \
   mkdir -p \
     /app/typesense && \
