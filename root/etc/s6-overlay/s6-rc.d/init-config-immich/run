@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-    /config/{typesense,log/nginx,faces} \
+    /config/{typesense,log/nginx,machine-learning} \
     /photos \
     /run/immich 
 
@@ -31,4 +31,5 @@ chown -R abc:abc \
     /config \
     /photos \
     /run/immich \
-    /app/typesense
+    /app/typesense \
+    /home

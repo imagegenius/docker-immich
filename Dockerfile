@@ -10,8 +10,7 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV TRANSFORMERS_CACHE="/config/transformers" \
-  SENTENCE_TRANSFORMERS_HOME="/config/transformers" \
+ENV TRANSFORMERS_CACHE="/config/machine-learning" \
   TYPESENSE_DATA_DIR="/config/typesense" \
   TYPESENSE_VERSION="0.24.0" \
   TYPESENSE_API_KEY="xyz" \
@@ -19,7 +18,7 @@ ENV TRANSFORMERS_CACHE="/config/transformers" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/faces"
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning"
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -45,12 +44,8 @@ RUN \
     IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
       jq -r '.tag_name'); \
   fi && \
-  curl -o \
-    /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/immich.tar.gz -C \
-    /tmp/immich --strip-components=1 && \
+  curl -sL "https://github.com/immich-app/immich/archive/feat/facial-recognition.tar.gz" -o /tmp/immich.tar.gz && \
+	tar xf /tmp/immich.tar.gz -C /tmp/immich --strip-components=1 && \
   echo "**** download typesense server ****" && \
   mkdir -p \
     /app/typesense && \

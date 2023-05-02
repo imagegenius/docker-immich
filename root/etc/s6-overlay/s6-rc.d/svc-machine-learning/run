@@ -5,7 +5,7 @@ if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
     tail -f /dev/null
 fi
 
-export HOME=/config
+export HOME=/home
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
         python3 main.py
