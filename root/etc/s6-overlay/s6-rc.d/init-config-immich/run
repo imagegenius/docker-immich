@@ -30,5 +30,4 @@ chown -R abc:abc \
     /config \
     /photos \
     /run/immich \
-    /app/typesense \
-    /tmp
+    /app/typesense
