@@ -8,4 +8,4 @@ fi
 export HOME=/home
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
-        python3 main.py
+        python3 src/main.py
