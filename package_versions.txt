@@ -381,7 +381,7 @@ libblkid                            2.38.1-r1              apk
 libbsd                              0.11.7-r0              apk     
 libbz2                              1.0.8-r4               apk     
 libc-utils                          0.7.2-r3               apk     
-libcrypto3                          3.0.8-r3               apk     
+libcrypto3                          3.0.8-r4               apk     
 libcurl                             8.0.1-r0               apk     
 libdav1d                            1.0.0-r2               apk     
 libde265                            1.0.11-r1              apk     
@@ -422,7 +422,7 @@ libsodium                           1.0.18-r2              apk
 libspng                             0.7.2-r1               apk     
 libsrt                              1.5.1-r0               apk     
 libssh                              0.10.4-r0              apk     
-libssl3                             3.0.8-r3               apk     
+libssl3                             3.0.8-r4               apk     
 libstdc++                           12.2.1_git20220924-r4  apk     
 libtasn1                            4.19.0-r0              apk     
 libtheora                           1.1.1-r16              apk     
