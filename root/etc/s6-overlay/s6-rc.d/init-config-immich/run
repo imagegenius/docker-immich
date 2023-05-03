@@ -31,4 +31,4 @@ chown -R abc:abc \
     /photos \
     /run/immich \
     /app/typesense \
-    /home
+    /tmp
