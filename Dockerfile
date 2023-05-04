@@ -110,7 +110,7 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    src/ \
+    src \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
