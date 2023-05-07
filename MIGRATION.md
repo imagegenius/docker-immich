@@ -32,6 +32,6 @@
 
   **⚠️ You must configure the template to the values listed in the docker-compose .env**
 
-  Ensure that the template matches the `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE_NAME` and `JWT_SECRET` from the .env. Set `Path: /photos` to `/mnt/user/<elsewhere>`.
+  Ensure that the template matches the `DB_USERNAME`, `DB_PASSWORD`, `DB_DATABASE_NAME` from the .env. Set `Path: /photos` to `/mnt/user/<elsewhere>`.
 
   Click Apply, Open the WebUI and login. Everything _Should_ be as it was.

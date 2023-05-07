@@ -27,7 +27,7 @@ pipeline {
     CI_WEB = 'true'
     CI_PORT = '8080'
     CI_SSL = 'false'
-    CI_DOCKERENV = 'TEST_RUN=true|DB_HOSTNAME=localhost|DB_USERNAME=postgres|DB_PASSWORD=password|DB_DATABASE_NAME=postgres|REDIS_HOSTNAME=localhost|JWT_SECRET=somelongrandomstring'
+    CI_DOCKERENV = 'TEST_RUN=true|DB_HOSTNAME=localhost|DB_USERNAME=postgres|DB_PASSWORD=password|DB_DATABASE_NAME=postgres|REDIS_HOSTNAME=localhost'
     CI_AUTH = ''
     CI_WEBPATH = ''
   }
