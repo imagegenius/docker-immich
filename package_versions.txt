@@ -421,7 +421,7 @@ libsndfile                          1.1.0-r2               apk
 libsodium                           1.0.18-r2              apk     
 libspng                             0.7.2-r1               apk     
 libsrt                              1.5.1-r0               apk     
-libssh                              0.10.4-r0              apk     
+libssh                              0.10.5-r0              apk     
 libssl3                             3.0.8-r4               apk     
 libstdc++                           12.2.1_git20220924-r4  apk     
 libtasn1                            4.19.0-r0              apk     
