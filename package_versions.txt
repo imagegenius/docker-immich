@@ -58,12 +58,10 @@ NAME                                VERSION                                  TYP
 @types/parse-json                   4.0.0                                    npm     
 @types/through                      0.0.30                                   npm     
 @types/validator                    13.7.14                                  npm     
-Flask                               2.3.2                                    python  
 Jinja2                              3.1.2                                    python  
 MarkupSafe                          2.1.2                                    python  
 Pillow                              9.5.0                                    python  
 PyYAML                              6.0                                      python  
-Werkzeug                            2.3.3                                    python  
 abbrev                              1.1.1                                    npm     
 accepts                             1.3.8                                    npm     
 adduser                             3.118ubuntu5                             deb     
@@ -77,6 +75,7 @@ ansi-regex                          5.0.1                                    npm
 ansi-styles                         3.2.1                                    npm     
 ansi-styles                         4.3.0                                    npm     
 any-promise                         1.3.0                                    npm     
+anyio                               3.6.2                                    python  
 app-root-path                       3.1.0                                    npm     
 append-field                        1.0.0                                    npm     
 aproba                              1.2.0                                    npm     
@@ -113,7 +112,6 @@ bin-links                           3.0.3                                    npm
 binary                              0.3.0                                    npm     
 binary-extensions                   2.2.0                                    npm     
 bl                                  4.1.0                                    npm     
-blinker                             1.6.2                                    python  
 body-parser                         1.20.1                                   npm     
 brace-expansion                     1.1.11                                   npm     
 brace-expansion                     2.0.1                                    npm     
@@ -193,7 +191,7 @@ crc32-stream                        4.0.2                                    npm
 cron                                2.0.0                                    npm     
 cron-parser                         4.2.1                                    npm     
 cssesc                              3.0.0                                    npm     
-csv-parse                           5.3.3                                    npm     
+csv-parse                           5.3.10                                   npm     
 curl                                7.81.0-1ubuntu1.10                       deb     
 dash                                0.5.11+git20210903+057cd650a4ed-3build1  deb     
 dashdash                            1.14.1                                   npm     
@@ -252,6 +250,7 @@ extsprintf                          1.3.0                                    npm
 fast-deep-equal                     3.1.3                                    npm     
 fast-json-stable-stringify          2.1.0                                    npm     
 fast-safe-stringify                 2.1.1                                    npm     
+fastapi                             0.95.1                                   python  
 fastest-levenshtein                 1.0.12                                   npm     
 ffmpeg                              7:4.4.2-0ubuntu0.22.04.1                 deb     
 figures                             3.2.0                                    npm     
@@ -272,7 +271,7 @@ fresh                               0.5.2                                    npm
 fs-constants                        1.0.0                                    npm     
 fs-minipass                         2.1.0                                    npm     
 fs.realpath                         1.0.0                                    npm     
-fsspec                              2023.4.0                                 python  
+fsspec                              2023.5.0                                 python  
 function-bind                       1.1.1                                    npm     
 gauge                               2.7.4                                    npm     
 gauge                               4.0.4                                    npm     
@@ -300,8 +299,8 @@ gpgv                                2.2.27-3ubuntu2.1                        deb
 graceful-fs                         4.2.10                                   npm     
 graceful-fs                         4.2.9                                    npm     
 grep                                3.7-1build1                              deb     
-gunicorn                            20.1.0                                   python  
 gzip                                1.10-4ubuntu4.1                          deb     
+h11                                 0.14.0                                   python  
 handlebars                          4.7.7                                    npm     
 har-schema                          2.0.0                                    npm     
 har-validator                       5.1.5                                    npm     
@@ -320,6 +319,7 @@ http-proxy-agent                    5.0.0                                    npm
 http-signature                      1.2.0                                    npm     
 https-proxy-agent                   5.0.0                                    npm     
 https-proxy-agent                   5.0.1                                    npm     
+httptools                           0.5.0                                    python  
 huggingface-hub                     0.14.1                                   python  
 humanize-ms                         1.2.1                                    npm     
 i18n-iso-countries                  7.5.0                                    npm     
@@ -329,7 +329,7 @@ idna                                3.4                                      pyt
 ieee754                             1.2.1                                    npm     
 ignore-walk                         5.0.1                                    npm     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.54.1                                   npm     
+immich                              1.55.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -361,7 +361,6 @@ isarray                             1.0.0                                    npm
 isexe                               2.0.0                                    npm     
 isstream                            0.1.2                                    npm     
 iterare                             1.2.1                                    npm     
-itsdangerous                        2.1.2                                    python  
 joblib                              1.2.0                                    python  
 joi                                 17.5.0                                   npm     
 jose                                4.10.3                                   npm     
@@ -382,6 +381,7 @@ justified-layout                    4.1.0                                    npm
 kdt                                 0.1.0                                    npm     
 lazystream                          1.0.1                                    npm     
 leaflet                             1.9.3                                    npm     
+leaflet.markercluster               1.5.3                                    npm     
 libacl1                             2.3.1-1                                  deb     
 libaec0                             1.0.6-1                                  deb     
 libaom3                             3.3.0-1                                  deb     
@@ -700,7 +700,7 @@ libzstd1                            1.4.8+dfsg-3build1                       deb
 libzvbi-common                      0.2.35-19                                deb     
 libzvbi0                            0.2.35-19                                deb     
 lines-and-columns                   1.2.4                                    npm     
-local-reverse-geocoder              0.12.5                                   npm     
+local-reverse-geocoder              0.15.2                                   npm     
 locales                             2.35-0ubuntu3.1                          deb     
 lodash                              4.17.21                                  npm     
 lodash-es                           4.17.21                                  npm     
@@ -874,7 +874,9 @@ psycopg2-binary                     2.9.6                                    pyt
 publicsuffix                        20211207.1025-1                          deb     
 pump                                3.0.0                                    npm     
 punycode                            2.1.1                                    npm     
+pydantic                            1.10.7                                   python  
 python                              3.10.6                                   binary  
+python-dotenv                       1.0.0                                    python  
 python3                             3.10.6-1~22.04                           deb     
 python3-distutils                   3.10.6-1~22.04                           deb     
 python3-lib2to3                     3.10.6-1~22.04                           deb     
@@ -945,6 +947,7 @@ simple-concat                       1.0.1                                    npm
 simple-get                          3.1.1                                    npm     
 simple-swizzle                      0.2.2                                    npm     
 smart-buffer                        4.2.0                                    npm     
+sniffio                             1.3.0                                    python  
 socket.io                           4.5.3                                    npm     
 socket.io-adapter                   2.4.0                                    npm     
 socket.io-client                    4.4.0                                    npm     
@@ -962,6 +965,7 @@ split2                              4.1.0                                    npm
 sshpk                               1.17.0                                   npm     
 ssri                                9.0.1                                    npm     
 standard-as-callback                2.1.0                                    npm     
+starlette                           0.26.1                                   python  
 statuses                            2.0.1                                    npm     
 streamsearch                        1.1.0                                    npm     
 string-width                        1.0.2                                    npm     
@@ -992,8 +996,8 @@ tiny-relative-date                  1.3.0                                    npm
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
-torch                               2.1.0.dev20230506+cpu                    python  
-torchvision                         0.16.0.dev20230507+cpu                   python  
+torch                               2.1.0.dev20230508+cpu                    python  
+torchvision                         0.16.0.dev20230508+cpu                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.65.0                                   python  
 tr46                                0.0.3                                    npm     
@@ -1012,6 +1016,7 @@ typeorm                             0.3.12                                   npm
 typesense                           1.5.3                                    npm     
 typing_extensions                   4.5.0                                    python  
 tzdata                              2023c-0ubuntu0.22.04.0                   deb     
+ua-parser-js                        1.0.35                                   npm     
 ubuntu-keyring                      2021.03.26                               deb     
 ucf                                 3.0043                                   deb     
 uglify-js                           3.17.4                                   npm     
@@ -1030,14 +1035,18 @@ utils-merge                         1.0.1                                    npm
 uuid                                3.4.0                                    npm     
 uuid                                8.3.2                                    npm     
 uuid                                9.0.0                                    npm     
+uvicorn                             0.22.0                                   python  
+uvloop                              0.17.0                                   python  
 validate-npm-package-license        3.0.4                                    npm     
 validate-npm-package-name           4.0.0                                    npm     
 validator                           13.7.0                                   npm     
 vary                                1.1.2                                    npm     
 verror                              1.10.0                                   npm     
 walk-up-path                        1.0.0                                    npm     
+watchfiles                          0.19.0                                   python  
 wcwidth                             1.0.1                                    npm     
 webidl-conversions                  3.0.1                                    npm     
+websockets                          11.0.3                                   python  
 whatwg-url                          5.0.0                                    npm     
 wheel                               0.37.1                                   python  
 which                               1.3.1                                    npm     
