@@ -18,7 +18,7 @@ jobs:
           fi
           echo "**** External trigger running off of main branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_IMMICH_MAIN\". ****"
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/immich-app/immich/releases/latest" | jq -r '. | .tag_name')
+          EXT_RELEASE=$(echo 'v1.55.0')
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version of immich on branch main"
