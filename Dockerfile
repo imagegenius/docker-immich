@@ -92,7 +92,6 @@ RUN \
   cd /tmp/immich/machine-learning && \
   pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     fastapi \
-    flask \
     insightface \
     nltk \
     numpy \
