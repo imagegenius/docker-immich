@@ -90,8 +90,7 @@ RUN \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
-    flask \
-    gunicorn \
+    fastapi \
     nltk \
     numpy \
     pillow \
@@ -102,11 +101,11 @@ RUN \
     sentencepiece \
     torch \
     tqdm \
-    transformers && \
+    transformers \
+    uvicorn[standard] && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    gunicorn.conf.py \
     src \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
