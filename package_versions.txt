@@ -198,7 +198,7 @@ crc32-stream                        4.0.2                  npm
 cron                                2.0.0                  npm     
 cron-parser                         4.2.1                  npm     
 cssesc                              3.0.0                  npm     
-csv-parse                           5.3.3                  npm     
+csv-parse                           5.3.10                 npm     
 curl                                8.0.1-r0               apk     
 dashdash                            1.14.1                 npm     
 date-fns                            2.29.3                 npm     
@@ -321,7 +321,7 @@ icu-data-en                         72.1-r1                apk
 icu-libs                            72.1-r1                apk     
 ieee754                             1.2.1                  npm     
 ignore-walk                         6.0.0                  npm     
-immich                              1.54.1                 npm     
+immich                              1.55.0                 npm     
 immich-web                          1.0.0                  npm     
 import-fresh                        3.3.0                  npm     
 imurmurhash                         0.1.4                  npm     
@@ -373,6 +373,7 @@ lame                                3.100-r2               apk
 lazystream                          1.0.1                  npm     
 lcms2                               2.14-r0                apk     
 leaflet                             1.9.3                  npm     
+leaflet.markercluster               1.5.3                  npm     
 libacl                              2.3.1-r1               apk     
 libass                              0.16.0-r1              apk     
 libasyncns                          0.8-r1                 apk     
@@ -444,7 +445,7 @@ libxrender                          0.9.11-r0              apk
 libzmq                              4.3.4-r1               apk     
 lines-and-columns                   1.2.4                  npm     
 linux-pam                           1.5.2-r1               apk     
-local-reverse-geocoder              0.12.5                 npm     
+local-reverse-geocoder              0.15.2                 npm     
 lodash                              4.17.21                npm     
 lodash-es                           4.17.21                npm     
 lodash.defaults                     4.2.0                  npm     
@@ -733,6 +734,7 @@ typedarray                          0.0.6                  npm
 typeorm                             0.3.12                 npm     
 typesense                           1.5.3                  npm     
 tzdata                              2023c-r0               apk     
+ua-parser-js                        1.0.35                 npm     
 uglify-js                           3.17.4                 npm     
 uid2                                1.0.0                  npm     
 unique-filename                     2.0.1                  npm     
