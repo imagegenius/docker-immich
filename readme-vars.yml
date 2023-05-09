@@ -29,7 +29,6 @@ param_env_vars:
   - { env_var: "DB_PASSWORD", env_value: "postgres", desc: "PostgreSQL Password" }
   - { env_var: "DB_DATABASE_NAME", env_value: "immich", desc: "PostgreSQL Database Name" }
   - { env_var: "REDIS_HOSTNAME", env_value: "192.168.1.x", desc: "Redis Hostname" }
-  - { env_var: "JWT_SECRET", env_value: "somelongrandomstring", desc: "Run `openssl rand -base64 128`" }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "Contains the logs, machine-learning models and Typesense data" }
@@ -124,6 +123,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
   - { date: "29.04.23:", desc: "add support for facial recognition" }
   - { date: "13.04.23:", desc: "add variables to disable typesense and machine learning" }
   - { date: "10.04.23:", desc: "fix gunicorn" }

@@ -72,7 +72,6 @@ services:
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=192.168.1.x
-      - JWT_SECRET=somelongrandomstring
       - DISABLE_MACHINE_LEANRNING=false #optional
       - DISABLE_TYPESENSE=false #optional
       - DB_PORT=5432 #optional
@@ -121,7 +120,6 @@ docker run -d \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=192.168.1.x \
-  -e JWT_SECRET=somelongrandomstring \
   -e DISABLE_MACHINE_LEANRNING=false `#optional` \
   -e DISABLE_TYPESENSE=false `#optional` \
   -e DB_PORT=5432 `#optional` \
@@ -169,7 +167,6 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
-| `-e JWT_SECRET=somelongrandomstring` | Run `openssl rand -base64 128` |
 | `-e DISABLE_MACHINE_LEANRNING=false` | Set to `true` to disable machine learning |
 | `-e DISABLE_TYPESENSE=false` | Set to `true` to disable Typesense (disables searching completely!) |
 | `-e DB_PORT=5432` | PostgreSQL Port |
@@ -218,6 +215,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **07.05.23:** - remove unused `JWT_SECRET` env
 * **13.04.23:** - add variables to disable typesense and machine learning
 * **10.04.23:** - fix gunicorn
 * **04.04.23:** - use environment variables to set location of the photos folder

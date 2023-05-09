@@ -58,12 +58,12 @@ NAME                                VERSION                                  TYP
 @types/parse-json                   4.0.0                                    npm     
 @types/through                      0.0.30                                   npm     
 @types/validator                    13.7.14                                  npm     
-Flask                               2.3.1                                    python  
+Flask                               2.3.2                                    python  
 Jinja2                              3.1.2                                    python  
 MarkupSafe                          2.1.2                                    python  
 Pillow                              9.5.0                                    python  
 PyYAML                              6.0                                      python  
-Werkzeug                            2.3.0                                    python  
+Werkzeug                            2.3.3                                    python  
 abbrev                              1.1.1                                    npm     
 accepts                             1.3.8                                    npm     
 adduser                             3.118ubuntu5                             deb     
@@ -81,8 +81,8 @@ app-root-path                       3.1.0                                    npm
 append-field                        1.0.0                                    npm     
 aproba                              1.2.0                                    npm     
 aproba                              2.0.0                                    npm     
-apt                                 2.4.8                                    deb     
-apt-utils                           2.4.8                                    deb     
+apt                                 2.4.9                                    deb     
+apt-utils                           2.4.9                                    deb     
 archiver                            5.3.1                                    npm     
 archiver-utils                      2.1.0                                    npm     
 archy                               1.0.0                                    npm     
@@ -133,7 +133,7 @@ cacache                             16.1.3                                   npm
 call-bind                           1.0.2                                    npm     
 callsites                           3.1.0                                    npm     
 caseless                            0.12.0                                   npm     
-certifi                             2022.12.7                                python  
+certifi                             2023.5.7                                 python  
 chainsaw                            0.1.0                                    npm     
 chalk                               2.4.2                                    npm     
 chalk                               4.1.2                                    npm     
@@ -386,7 +386,7 @@ libacl1                             2.3.1-1                                  deb
 libaec0                             1.0.6-1                                  deb     
 libaom3                             3.3.0-1                                  deb     
 libapparmor1                        3.0.4-2ubuntu2.2                         deb     
-libapt-pkg6.0                       2.4.8                                    deb     
+libapt-pkg6.0                       2.4.9                                    deb     
 libasound2                          1.2.6.1-1ubuntu1                         deb     
 libasound2-data                     1.2.6.1-1ubuntu1                         deb     
 libass9                             1:0.15.2-1                               deb     
@@ -467,8 +467,8 @@ libgfortran5                        12.1.0-2ubuntu1~22.04                    deb
 libgl1                              1.4.0-1                                  deb     
 libgl1-mesa-dri                     22.2.5-0ubuntu0.1~22.04.1                deb     
 libglapi-mesa                       22.2.5-0ubuntu0.1~22.04.1                deb     
-libglib2.0-0                        2.72.4-0ubuntu1                          deb     
-libglib2.0-data                     2.72.4-0ubuntu1                          deb     
+libglib2.0-0                        2.72.4-0ubuntu2                          deb     
+libglib2.0-data                     2.72.4-0ubuntu2                          deb     
 libglvnd0                           1.4.0-1                                  deb     
 libglx-mesa0                        22.2.5-0ubuntu0.1~22.04.1                deb     
 libglx0                             1.4.0-1                                  deb     
@@ -820,7 +820,7 @@ once                                1.4.0                                    npm
 onetime                             5.1.2                                    npm     
 opener                              1.5.2                                    npm     
 openid-client                       5.2.1                                    npm     
-openssl                             3.0.2-0ubuntu1.8                         deb     
+openssl                             3.0.2-0ubuntu1.9                         deb     
 ora                                 5.4.1                                    npm     
 os-tmpdir                           1.0.2                                    npm     
 p-finally                           1.0.0                                    npm     
@@ -904,9 +904,9 @@ redis-errors                        1.2.0                                    npm
 redis-parser                        3.0.0                                    npm     
 reflect-metadata                    0.1.13                                   npm     
 regenerator-runtime                 0.13.11                                  npm     
-regex                               2023.3.23                                python  
+regex                               2023.5.5                                 python  
 request                             2.88.2                                   npm     
-requests                            2.29.0                                   python  
+requests                            2.30.0                                   python  
 require-directory                   2.1.1                                    npm     
 resolve-from                        4.0.0                                    npm     
 restore-cursor                      3.1.0                                    npm     
@@ -930,7 +930,7 @@ semver                              7.3.8                                    npm
 send                                0.18.0                                   npm     
 sensible-utils                      0.0.17                                   deb     
 sentence-transformers               2.2.2                                    python  
-sentencepiece                       0.1.98                                   python  
+sentencepiece                       0.1.99                                   python  
 serve-static                        1.15.0                                   npm     
 set-blocking                        2.0.0                                    npm     
 setprototypeof                      1.2.0                                    npm     
@@ -992,8 +992,8 @@ tiny-relative-date                  1.3.0                                    npm
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
-torch                               2.1.0.dev20230426+cpu                    python  
-torchvision                         0.16.0.dev20230426+cpu                   python  
+torch                               2.1.0.dev20230506+cpu                    python  
+torchvision                         0.16.0.dev20230507+cpu                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.65.0                                   python  
 tr46                                0.0.3                                    npm     
@@ -1021,7 +1021,7 @@ unique-slug                         3.0.0                                    npm
 unpipe                              1.0.0                                    npm     
 unzip-stream                        0.3.1                                    npm     
 uri-js                              4.4.1                                    npm     
-urllib3                             1.26.15                                  python  
+urllib3                             2.0.2                                    python  
 usrmerge                            25ubuntu2                                deb     
 utf8-byte-length                    1.0.4                                    npm     
 util-deprecate                      1.0.2                                    npm     
