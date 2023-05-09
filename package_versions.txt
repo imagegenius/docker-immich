@@ -198,7 +198,7 @@ crc32-stream                        4.0.2                  npm
 cron                                2.0.0                  npm     
 cron-parser                         4.2.1                  npm     
 cssesc                              3.0.0                  npm     
-csv-parse                           5.3.10                 npm     
+csv-parse                           5.3.3                  npm     
 curl                                8.0.1-r0               apk     
 dashdash                            1.14.1                 npm     
 date-fns                            2.29.3                 npm     
@@ -321,7 +321,7 @@ icu-data-en                         72.1-r1                apk
 icu-libs                            72.1-r1                apk     
 ieee754                             1.2.1                  npm     
 ignore-walk                         6.0.0                  npm     
-immich                              1.55.0                 npm     
+immich                              1.55.1                 npm     
 immich-web                          1.0.0                  npm     
 import-fresh                        3.3.0                  npm     
 imurmurhash                         0.1.4                  npm     
@@ -445,7 +445,7 @@ libxrender                          0.9.11-r0              apk
 libzmq                              4.3.4-r1               apk     
 lines-and-columns                   1.2.4                  npm     
 linux-pam                           1.5.2-r1               apk     
-local-reverse-geocoder              0.15.2                 npm     
+local-reverse-geocoder              0.12.5                 npm     
 lodash                              4.17.21                npm     
 lodash-es                           4.17.21                npm     
 lodash.defaults                     4.2.0                  npm     
