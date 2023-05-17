@@ -123,8 +123,8 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
-  - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
   - { date: "29.04.23:", desc: "add support for facial recognition" }
+  - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
   - { date: "13.04.23:", desc: "add variables to disable typesense and machine learning" }
   - { date: "10.04.23:", desc: "fix gunicorn" }
   - { date: "04.04.23:", desc: "use environment variables to set location of the photos folder" }
