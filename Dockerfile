@@ -90,7 +90,9 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
+  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch && \
+  pip install -U --no-cache-dir \
     fastapi \
     insightface \
     nltk \
@@ -102,7 +104,6 @@ RUN \
     scipy \
     sentence-transformers \
     sentencepiece \
-    torch \
     tqdm \
     transformers \
     uvicorn[standard] && \
