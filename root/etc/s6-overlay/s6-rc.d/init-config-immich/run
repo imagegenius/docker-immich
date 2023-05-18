@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-    /config/{typesense,log/nginx} \
+    /config/{typesense,log/nginx,machine-learning} \
     /photos \
     /run/immich
 

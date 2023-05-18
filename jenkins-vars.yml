@@ -2,12 +2,7 @@
 
 # jenkins variables
 project_name: docker-immich
-
-# Pin immich to v1.55.0 until PR #68 is merged
-external_type: na
-custom_version_command: "echo 'v1.55.1'"
-
-#external_type: github_stable
+external_type: github_stable
 release_type: stable
 release_tag: latest
 ig_branch: main

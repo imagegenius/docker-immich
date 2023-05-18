@@ -10,15 +10,15 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV TRANSFORMERS_CACHE="/config/transformers" \
-  SENTENCE_TRANSFORMERS_HOME="/config/transformers" \
+ENV TRANSFORMERS_CACHE="/config/machine-learning" \
   TYPESENSE_DATA_DIR="/config/typesense" \
   TYPESENSE_VERSION="0.24.0" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
-  IMMICH_MEDIA_LOCATION="/photos"
+  IMMICH_MEDIA_LOCATION="/photos" \
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning"
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -35,6 +35,7 @@ RUN \
     nginx \
     nodejs \
     perl \
+    python3-dev \
     python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
@@ -89,17 +90,20 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
+  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch && \
+  pip install -U --no-cache-dir \
     fastapi \
+    insightface \
     nltk \
     numpy \
+    onnxruntime \
     pillow \
     psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
     sentencepiece \
-    torch \
     tqdm \
     transformers \
     uvicorn[standard] && \
@@ -110,9 +114,10 @@ RUN \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
+    g++ \
     libvips-dev \
     make \
-    g++ && \
+    python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
