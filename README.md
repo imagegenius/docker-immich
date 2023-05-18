@@ -80,7 +80,7 @@ services:
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
-      - path_to_transformers:/config/transformers #optional
+      - path_to_machine-learning:/config/machine-learning #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -128,7 +128,7 @@ docker run -d \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
-  -v path_to_transformers:/config/transformers `#optional` \
+  -v path_to_machine-learning:/config/machine-learning `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 
@@ -172,9 +172,9 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-v /config` | Contains the logs, Transformers cache and Typesense data |
+| `-v /config` | Contains the logs, machine-learning models and Typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
-| `-v /config/transformers` | Store the Transformers cache elsewhere (~800MB) |
+| `-v /config/machine-learning` | Store the machine-learning models (~800MB) |
 
 ## Umask for running applications
 
@@ -215,6 +215,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **18.05.23:** - add support for facial recognition
 * **07.05.23:** - remove unused `JWT_SECRET` env
 * **13.04.23:** - add variables to disable typesense and machine learning
 * **10.04.23:** - fix gunicorn
