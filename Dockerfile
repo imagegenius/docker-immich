@@ -23,7 +23,7 @@ RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ffmpeg \
-    libheif \
+    vips-heif \
     nginx \
     nodejs \
     npm \
