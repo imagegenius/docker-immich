@@ -29,19 +29,16 @@ RUN \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
+    libheif1 \
     libvips \
     libvips-dev \
     make \
     nginx \
     nodejs \
     perl \
-    libheif1 \
-    libvips \
-    libvips-dev \
     python3-dev \
     python3-pip \
-    python3-venv \
-    python3-numpy  && \
+    python3-venv && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -100,15 +97,16 @@ RUN \
   pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
     torch && \
   pip install -U --no-cache-dir \
+    coloredlogs \
     fastapi \
+    flatbuffers \
     insightface \
     nltk \
-    coloredlogs \
-    flatbuffers \
+    numpy \
     packaging \
+    pillow \
     protobuf \
     sympy \
-    pillow \
     scikit-learn \
     scipy \
     sentence-transformers \
