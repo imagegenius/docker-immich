@@ -22,10 +22,11 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning" \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x jammy main" >>/etc/apt/sources.list.d/node.list && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
+  echo "deb http://it.archive.ubuntu.com/ubuntu/ lunar main universe restricted multiverse" >> /etc/apt/sources.list && \
   apt-get update && \
-  apt-get install --no-install-recommends -y \
+  apt-get install --no-install-recommends -y \ 
     ffmpeg \
     g++ \
     libvips \
@@ -33,10 +34,7 @@ RUN \
     make \
     nginx \
     nodejs \
-    perl  && \
-  echo "deb http://it.archive.ubuntu.com/ubuntu/ mantic main universe restricted multiverse" >> /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \  
+    perl \
     libheif1 \
     libvips \
     libvips-dev \
@@ -95,7 +93,7 @@ RUN \
     build \
     static \
     /app/immich/web && \
- echo "**** build machine-learning ****" && \
+  echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   python3 -m venv /home/.venv && \
   bash -c "source /home/.venv/bin/activate && \
