@@ -6,7 +6,6 @@ if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
 fi
 
 export HOME=/tmp
-source /lsiopy/bin/activate
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
         python3 src/main.py

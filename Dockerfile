@@ -36,8 +36,7 @@ RUN \
     nodejs \
     perl \
     python3-dev \
-    python3-pip \
-    python3-venv && \
+    python3-pip && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -91,11 +90,9 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  python3 -m venv /lsiopy && \
-  bash -c "source /lsiopy/bin/activate && \
-  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+  pip install --break-system-packages -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
     torch && \
-  pip install -U --no-cache-dir \
+  pip install --break-system-packages -U --no-cache-dir \
     coloredlogs \
     fastapi \
     flatbuffers \
@@ -113,8 +110,8 @@ RUN \
     tqdm \
     transformers \
     uvicorn[standard] && \
-  pip install -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
-    ort-nightly " && \
+  pip install --break-system-packages -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
+    ort-nightly && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
