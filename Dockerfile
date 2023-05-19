@@ -90,9 +90,7 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
-    torch && \
-  pip install --break-system-packages -U --no-cache-dir \
+  pip install --break-system-packages -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     coloredlogs \
     fastapi \
     flatbuffers \
@@ -107,6 +105,7 @@ RUN \
     scipy \
     sentence-transformers \
     sentencepiece \
+    torch \
     tqdm \
     transformers \
     uvicorn[standard] && \
