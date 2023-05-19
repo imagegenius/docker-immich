@@ -26,7 +26,7 @@ RUN \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
   echo "deb http://it.archive.ubuntu.com/ubuntu/ lunar main universe restricted multiverse" >> /etc/apt/sources.list && \
   apt-get update && \
-  apt-get install --no-install-recommends -y \ 
+  apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
     libvips \
@@ -109,7 +109,6 @@ RUN \
     protobuf \
     sympy \
     pillow \
-    psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
