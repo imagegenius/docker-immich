@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:jammy
+FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
 
 # set version label
 ARG BUILD_DATE
@@ -24,7 +24,6 @@ RUN \
   echo "**** install runtime packages ****" && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
-  echo "deb http://it.archive.ubuntu.com/ubuntu/ lunar main universe restricted multiverse" >> /etc/apt/sources.list && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     ffmpeg \
