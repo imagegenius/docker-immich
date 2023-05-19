@@ -93,8 +93,6 @@ RUN  echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   python3 -m venv /lsiopy && \
   bash -c "source /lsiopy/bin/activate && \
-  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
-    torch && \
   pip install -U --no-cache-dir \
     coloredlogs \
     fastapi \
@@ -113,6 +111,8 @@ RUN  echo "**** build machine-learning ****" && \
     tqdm \
     transformers \
     uvicorn[standard] && \
+  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch && \
   pip install -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
     ort-nightly " && \
   mkdir -p \
