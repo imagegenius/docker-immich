@@ -22,21 +22,28 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning" \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main" >>/etc/apt/sources.list.d/node.list && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x jammy main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
-    libheif1 \
     libvips \
     libvips-dev \
     make \
     nginx \
     nodejs \
-    perl \
+    perl  && \
+  echo "deb http://it.archive.ubuntu.com/ubuntu/ mantic main universe restricted multiverse" >> /etc/apt/sources.list && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \  
+    libheif1 \
+    libvips \
+    libvips-dev \
     python3-dev \
-    python3-pip && \
+    python3-pip \
+    python3-venv \
+    python3-numpy  && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -88,17 +95,23 @@ RUN \
     build \
     static \
     /app/immich/web && \
-  echo "**** build machine-learning ****" && \
+ echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
+  python3 -m venv /home/.venv && \
+  bash -c "source /home/.venv/bin/activate && \
   pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
     torch && \
   pip install -U --no-cache-dir \
     fastapi \
     insightface \
     nltk \
-    numpy \
-    onnxruntime \
+    coloredlogs \
+    flatbuffers \
+    packaging \
+    protobuf \
+    sympy \
     pillow \
+    psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
@@ -106,6 +119,8 @@ RUN \
     tqdm \
     transformers \
     uvicorn[standard] && \
+  pip install -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
+    ort-nightly " && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
