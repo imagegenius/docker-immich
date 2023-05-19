@@ -90,10 +90,12 @@ RUN \
     build \
     static \
     /app/immich/web && \
- echo "**** build machine-learning ****" && \
+  echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   python3 -m venv /home/.venv && \
   bash -c "source /home/.venv/bin/activate && \
+  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch && \
   pip install -U --no-cache-dir \
     coloredlogs \
     fastapi \
@@ -112,8 +114,6 @@ RUN \
     tqdm \
     transformers \
     uvicorn[standard] && \
-  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
-    torch && \
   pip install -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
     ort-nightly " && \
   mkdir -p \
