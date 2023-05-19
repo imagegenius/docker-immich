@@ -739,6 +739,7 @@ verror                              1.10.0                 npm
 vidstab                             1.1.0-r2               apk     
 vips                                8.13.3-r1              apk     
 vips-cpp                            8.13.3-r1              apk     
+vips-heif                           8.13.3-r1              apk     
 walk-up-path                        1.0.0                  npm     
 wayland-libs-client                 1.21.0-r1              apk     
 wcwidth                             1.0.1                  npm     
