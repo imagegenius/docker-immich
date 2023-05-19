@@ -99,7 +99,6 @@ RUN \
     numpy \
     onnxruntime \
     pillow \
-    psycopg2-binary \
     scikit-learn \
     scipy \
     sentence-transformers \
