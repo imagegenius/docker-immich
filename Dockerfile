@@ -91,8 +91,8 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  python3 -m venv /lsiopy/.venv && \
-  bash -c "source /lsiopy/.venv/bin/activate && \
+  python3 -m venv /lsiopy && \
+  bash -c "source /lsiopy/bin/activate && \
   pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
     torch && \
   pip install -U --no-cache-dir \
