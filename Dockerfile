@@ -18,7 +18,8 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning"
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
+  PG_VERSION=15
 
 RUN \
   echo "**** install runtime packages ****" && \
