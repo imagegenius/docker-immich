@@ -5,10 +5,10 @@ if [[ -n "${TEST_RUN}" ]]; then
     echo "Configuring CI for test run"
     apt-get update &>/dev/null
     apt-get install -y --no-install-recommends \
-        postgresql-15 \
+        postgresql-14 \
         redis-server &>/dev/null
 
-    s6-setuidgid postgres pg_ctlcluster 15 main start
+    s6-setuidgid postgres pg_ctlcluster 14 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
     s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
 
