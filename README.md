@@ -32,23 +32,16 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completly removed, which makes for a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, which makes for a very lightweight image. |
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-To use Immich, you need to have PostgreSQL 14 and Redis set up either externally or within the container using docker-mods.
+To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
 
-To set up the dependencies using docker-mods, use the following:
+To set up redis using the docker mod, use the following:
 
-- Redis: `DOCKER_MODS=imagegenius/mods:universal-redis` 
-  - **Set `REDIS_HOSTNAME` to `localhost`.**
-
-- PostgreSQL: `DOCKER_MODS=imagegenius/mods:universal-postgres` 
-  - **Set `DB_HOSTNAME` to `localhost`**
-  - **set `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE_NAME` to `postgres`.**
-
-If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
+Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
 ## Usage
 
@@ -206,6 +199,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **22.05.23:** - deprecate postgresql docker mod
 * **07.05.23:** - remove unused `JWT_SECRET` env
 * **08.04.23:** - remove typesense
 * **23.03.23:** - add service checks
