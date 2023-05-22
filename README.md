@@ -37,18 +37,11 @@ This image offers different versions via tags. Be cautious when using unstable o
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-To use Immich, you need to have PostgreSQL 14 and Redis set up either externally or within the container using docker-mods.
+To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
 
-To set up the dependencies using docker-mods, use the following:
+To set up redis using the docker mod, use the following:
 
-- Redis: `DOCKER_MODS=imagegenius/mods:universal-redis` 
-  - **Set `REDIS_HOSTNAME` to `localhost`.**
-
-- PostgreSQL: `DOCKER_MODS=imagegenius/mods:universal-postgres` 
-  - **Set `DB_HOSTNAME` to `localhost`**
-  - **set `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE_NAME` to `postgres`.**
-
-If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
+Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
 ## Usage
 
@@ -215,6 +208,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **22.05.23:** - deprecate postgresql docker mod
 * **18.05.23:** - add support for facial recognition
 * **07.05.23:** - remove unused `JWT_SECRET` env
 * **13.04.23:** - add variables to disable typesense and machine learning
