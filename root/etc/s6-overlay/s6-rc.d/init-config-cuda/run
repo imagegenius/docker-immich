@@ -18,11 +18,8 @@ if [ "${ML_CUDA}" = "true" ]; then
     # install/update pip packages to /config venv
     source /config/cuda-venv/bin/activate
     pip install -U --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cu117 \
-        torch==1.13.1+cu117 \
-        torchvision==0.14.1+cu117 \
-        torchtext==0.14.1 \
-        torchaudio==0.13.1 \
-        torchdata==0.5.1
+        torch==1.13.1 \
+        torchvision==0.14.1
     pip install -U --no-cache-dir \
         coloredlogs \
         fastapi \
