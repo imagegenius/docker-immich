@@ -10,7 +10,7 @@ if [ "${ML_CUDA}" = "true" ]; then
 
     # apply early ml support
     sed -i 's/pipeline(model=model, task=task)/pipeline(model=model, task=task, device=0)/' /app/immich/machine-learning/src/main.py
-    sed -i 's/face_model = FaceAnalysis(name=model, root=cache_folder, allowed_modules=\["detection", "recognition"\],)/face_model = FaceAnalysis(name=model, root=cache_folder, allowed_modules=\["detection", "recognition"\], providers=\["CUDAExecutionProvider"\])/g' /app/immich/machine-learning/src/main.py
+    sed -i 's/allowed_modules=\["detection", "recognition"\],/allowed_modules=\["detection", "recognition"\], providers=\["CUDAExecutionProvider"\],/' /app/immich/machine-learning/src/main.py
     sed -i 's/_model_cache\[key\] = SentenceTransformer(model, cache_folder=cache_folder)/_model_cache[key] = SentenceTransformer(model, cache_folder=cache_folder, device="cuda")/g' /app/immich/machine-learning/src/main.py
     # create venv if it does not exist
     if [ ! -d /config/cuda-venv ]; then
