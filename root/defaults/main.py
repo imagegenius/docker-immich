@@ -36,9 +36,9 @@ _model_cache = {}
 app = FastAPI()
 
 cuda_acceleration = os.getenv("ML_CUDA") == "true"
-provider = ["CUDAExecutionProvider", "CPUExecutionProvider"] if cuda_acceleration else None
-device_pipeline = 0 if cuda_acceleration else None
-device_sentence_transformer = "cuda" if cuda_acceleration else None
+provider = ["CUDAExecutionProvider", "CPUExecutionProvider"] if cuda_acceleration else ["CPUExecutionProvider"]
+device_pipeline = 0 if cuda_acceleration else -1
+device_sentence_transformer = "cuda" if cuda_acceleration else "cpu"
     
 
 @app.on_event("startup")
