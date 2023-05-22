@@ -16,7 +16,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completly removed, which makes for a very lightweight image." }
+  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completely removed, which makes for a very lightweight image." }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -56,18 +56,11 @@ app_setup_block_enabled: true
 app_setup_block: |
   The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-  To use Immich, you need to have PostgreSQL 14 and Redis set up either externally or within the container using docker-mods.
+  To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
 
-  To set up the dependencies using docker-mods, use the following:
+  To set up redis using the docker mod, use the following:
 
-  - Redis: `DOCKER_MODS=imagegenius/mods:universal-redis` 
-    - **Set `REDIS_HOSTNAME` to `localhost`.**
-  
-  - PostgreSQL: `DOCKER_MODS=imagegenius/mods:universal-postgres` 
-    - **Set `DB_HOSTNAME` to `localhost`**
-    - **set `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE_NAME` to `postgres`.**
-
-  If you want to use both, set `DOCKER_MODS` to `imagegenius/mods:universal-redis|imagegenius/mods:universal-postgres`.
+  Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
@@ -108,6 +101,7 @@ external_application_compose_block: |
 
 # changelog
 changelogs:
+  - { date: "22.05.23:", desc: "deprecate postgresql docker mod" }
   - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
   - { date: "08.04.23:", desc: "remove typesense" }
   - { date: "23.03.23:", desc: "add service checks" }
