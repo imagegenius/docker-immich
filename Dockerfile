@@ -24,8 +24,6 @@ RUN \
   echo "**** install runtime packages ****" && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
-  echo "deb http://apt.postgresql.org/pub/repos/apt/ lunar-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
-  curl -s https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     ffmpeg \
