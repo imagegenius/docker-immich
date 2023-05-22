@@ -36,6 +36,10 @@ _model_cache = {}
 app = FastAPI()
 
 cuda_acceleration = os.getenv("ML_CUDA") == "true"
+provider = ["CUDAExecutionProvider", "CPUExecutionProvider"] if cuda_acceleration else None
+device_pipeline = 0 if cuda_acceleration else None
+device_sentence_transformer = "cuda" if cuda_acceleration else None
+    
 
 @app.on_event("startup")
 async def startup_event():
@@ -140,14 +144,14 @@ def _get_model(model, task=None):
                 name=model,
                 root=cache_folder,
                 allowed_modules=["detection", "recognition"],
-                provider=["CUDAExecutionProvider"] if cuda_acceleration else None
+                provider=provider,
             )
             face_model.prepare(ctx_id=0, det_size=(640, 640))
             _model_cache[key] = face_model
         elif task:
-            _model_cache[key] = pipeline(model=model, task=task, device=0 if cuda_acceleration else None)
+            _model_cache[key] = pipeline(model=model, task=task, device=device_pipeline)
         else:
-            _model_cache[key] = SentenceTransformer(model, cache_folder=cache_folder, device="cuda" if cuda_acceleration else None)
+            _model_cache[key] = SentenceTransformer(model, cache_folder=cache_folder, device=device_sentence_transformer)
     return _model_cache[key]
 
 
