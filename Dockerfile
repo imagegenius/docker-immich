@@ -38,7 +38,14 @@ RUN \
     nodejs \
     perl \
     python3-dev \
-    python3-pip && \
+    python3-fastapi \
+    python3-nltk \
+    python3-numpy \
+    python3-pil \
+    python3-pip \
+    python3-sentencepiece \
+    python3-tqdm \
+    python3-uvicorn && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -94,23 +101,16 @@ RUN \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     coloredlogs \
-    fastapi \
     flatbuffers \
     insightface \
-    nltk \
-    numpy \
     packaging \
-    pillow \
     protobuf \
-    sympy \
     scikit-learn \
     scipy \
     sentence-transformers \
-    sentencepiece \
+    sympy \
     torch \
-    tqdm \
-    transformers \
-    uvicorn[standard] && \
+    transformers && \
   pip install --break-system-packages -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
     ort-nightly && \
   mkdir -p \
