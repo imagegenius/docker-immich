@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:jammy
+FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
 
 # set version label
 ARG BUILD_DATE
@@ -22,8 +22,8 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning" \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x jammy main" >>/etc/apt/sources.list.d/node.list && \
-  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
+  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     ffmpeg \
@@ -36,7 +36,14 @@ RUN \
     nodejs \
     perl \
     python3-dev \
-    python3-pip && \
+    python3-fastapi \
+    python3-nltk \
+    python3-numpy \
+    python3-pil \
+    python3-pip \
+    python3-sentencepiece \
+    python3-tqdm \
+    python3-uvicorn && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -90,22 +97,20 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
-    torch && \
-  pip install -U --no-cache-dir \
-    fastapi \
+  pip install --break-system-packages -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
+    coloredlogs \
+    flatbuffers \
     insightface \
-    nltk \
-    numpy \
-    onnxruntime \
-    pillow \
+    packaging \
+    protobuf \
     scikit-learn \
     scipy \
     sentence-transformers \
-    sentencepiece \
-    tqdm \
-    transformers \
-    uvicorn[standard] && \
+    sympy \
+    torch \
+    transformers && \
+  pip install --break-system-packages -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
+    ort-nightly && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \

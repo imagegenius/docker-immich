@@ -5,7 +5,11 @@ if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
     tail -f /dev/null
 fi
 
+if [ "${ML_CUDA}" = "true" ]; then
+    source /config/cuda-venv/bin/activate
+fi
+
 export HOME=/tmp
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
-        python3 src/main.py
+       python3 src/main.py
