@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${ML_CUDA}" = "true" ]; then
+if [ "${CUDA_ACCELERATION}" = "true" ]; then
     # install pip deps
     apt-get update
     apt-get install --no-install-recommends -y \

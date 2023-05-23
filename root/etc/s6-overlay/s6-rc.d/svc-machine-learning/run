@@ -5,7 +5,7 @@ if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
     tail -f /dev/null
 fi
 
-if [ "${ML_CUDA}" = "true" ]; then
+if [ "${CUDA_ACCELERATION}" = "true" ]; then
     source /config/cuda-venv/bin/activate
 fi
 
