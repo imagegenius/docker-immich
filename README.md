@@ -43,7 +43,7 @@ To set up redis using the docker mod, use the following:
 
 Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
-When `CUDA_ACCELERATION=true` is set, it takes a few minutes to download or update packages and pip packages.
+When `CUDA_ACCELERATION` is set to `true`, container startup times will be increased, as it will force upgrade the cuda pip packages every restart.
 
 ## Usage
 
@@ -169,7 +169,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-e CUDA_ACCELERATION=false` | Cuda acceleration for machine-learning |
+| `-e CUDA_ACCELERATION=false` | Set to `true` to enable CUDA Acceleration (NVIDIA GPU must be passed through! `--gpus=all`) |
 | `-v /config` | Contains the logs, machine-learning models and Typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /config/machine-learning` | Store the machine-learning models (~800MB) |
