@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:arm64v8-lunar
+FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
 
 # set version label
 ARG BUILD_DATE
@@ -62,7 +62,7 @@ RUN \
     /app/typesense && \
   curl -o  \
     /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-arm64.tar.gz && \
+    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
   tar -xf \
     /tmp/typesense.tar.gz -C \
     /app/typesense && \
@@ -117,6 +117,9 @@ RUN \
     src \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
+  for cleanfiles in *.pyc *.pyo; do \
+    find /usr/local/lib/python3.* /usr/lib/python3.* -name "${cleanfiles}" -delete; \
+  done && \
   apt-get remove -y --purge \
     g++ \
     libvips-dev \
