@@ -335,7 +335,7 @@ ieee754                             1.2.1                                    npm
 ignore-walk                         6.0.1                                    npm     
 imageio                             2.28.1                                   python  
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.57.0                                   npm     
+immich                              1.57.1                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -462,7 +462,7 @@ libflite1                           2.2-3                                    deb
 libfontconfig1                      2.13.1-4.2ubuntu5                        deb     
 libfreetype6                        2.11.1+dfsg-1ubuntu0.2                   deb     
 libfribidi0                         1.0.8-2ubuntu3.1                         deb     
-libgbm1                             22.2.5-0ubuntu0.1~22.04.1                deb     
+libgbm1                             22.2.5-0ubuntu0.1~22.04.2                deb     
 libgcc-s1                           12.1.0-2ubuntu1~22.04                    deb     
 libgcrypt20                         1.9.4-3ubuntu3                           deb     
 libgd3                              2.3.0-2ubuntu2                           deb     
@@ -473,12 +473,12 @@ libgdk-pixbuf2.0-bin                2.42.8+dfsg-1ubuntu0.2                   deb
 libgdk-pixbuf2.0-common             2.42.8+dfsg-1ubuntu0.2                   deb     
 libgfortran5                        12.1.0-2ubuntu1~22.04                    deb     
 libgl1                              1.4.0-1                                  deb     
-libgl1-mesa-dri                     22.2.5-0ubuntu0.1~22.04.1                deb     
-libglapi-mesa                       22.2.5-0ubuntu0.1~22.04.1                deb     
+libgl1-mesa-dri                     22.2.5-0ubuntu0.1~22.04.2                deb     
+libglapi-mesa                       22.2.5-0ubuntu0.1~22.04.2                deb     
 libglib2.0-0                        2.72.4-0ubuntu2                          deb     
 libglib2.0-data                     2.72.4-0ubuntu2                          deb     
 libglvnd0                           1.4.0-1                                  deb     
-libglx-mesa0                        22.2.5-0ubuntu0.1~22.04.1                deb     
+libglx-mesa0                        22.2.5-0ubuntu0.1~22.04.2                deb     
 libglx0                             1.4.0-1                                  deb     
 libgme0                             0.6.3-2                                  deb     
 libgmp10                            2:6.2.1+dfsg-3ubuntu1                    deb     
