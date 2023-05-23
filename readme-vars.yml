@@ -112,7 +112,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
-  - { date: "23.05.23:", desc: "move to ubuntu lunar (python 3.11 support)" }
+  - { date: "23.05.23:", desc: "move to ubuntu lunar and support cuda acceleration for machine-learning" }
   - { date: "22.05.23:", desc: "deprecate postgresql docker mod" }
   - { date: "18.05.23:", desc: "add support for facial recognition" }
   - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
