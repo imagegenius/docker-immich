@@ -208,6 +208,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **23.05.23:** - move to ubuntu lunar and support cuda acceleration for machine-learning
 * **22.05.23:** - deprecate postgresql docker mod
 * **18.05.23:** - add support for facial recognition
 * **07.05.23:** - remove unused `JWT_SECRET` env
