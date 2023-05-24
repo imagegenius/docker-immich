@@ -274,7 +274,7 @@ get-intrinsic                       1.2.0                  npm
 get-port                            5.1.1                  npm     
 getpass                             0.1.7                  npm     
 github-from-package                 0.0.0                  npm     
-glib                                2.74.6-r0              apk     
+glib                                2.74.7-r0              apk     
 glob                                6.0.4                  npm     
 glob                                7.1.6                  npm     
 glob                                7.2.3                  npm     
@@ -420,7 +420,7 @@ libva                               2.16.0-r0              apk
 libvdpau                            1.5-r0                 apk     
 libvorbis                           1.3.7-r0               apk     
 libvpx                              1.12.0-r1              apk     
-libwebp                             1.2.4-r1               apk     
+libwebp                             1.2.4-r2               apk     
 libx11                              1.8.4-r0               apk     
 libxau                              1.0.10-r0              apk     
 libxcb                              1.15-r0                apk     
@@ -566,7 +566,7 @@ path-type                           4.0.0                  npm
 pcre                                8.45-r2                apk     
 pcre2                               10.42-r0               apk     
 performance-now                     2.1.0                  npm     
-perl                                5.36.0-r1              apk     
+perl                                5.36.0-r2              apk     
 pg                                  8.10.0                 npm     
 pg-connection-string                2.5.0                  npm     
 pg-int8                             1.0.1                  npm     
