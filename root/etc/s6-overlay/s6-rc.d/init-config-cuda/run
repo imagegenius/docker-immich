@@ -22,7 +22,7 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
     pip install -U --no-cache-dir \
         fastapi \
         insightface \
-        onnxruntime-gpu \
+        onnxruntime \
         scikit-learn \
         scipy \
         sentence-transformers \
