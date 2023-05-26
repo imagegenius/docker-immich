@@ -198,7 +198,7 @@ cron                                2.3.0                              npm
 cron-parser                         4.8.1                              npm     
 cssesc                              3.0.0                              npm     
 csv-parse                           5.3.10                             npm     
-curl                                7.88.1-8ubuntu1                    deb     
+curl                                7.88.1-8ubuntu2                    deb     
 cycler                              0.11.0                             python  
 dash                                0.5.12-2ubuntu1                    deb     
 dashdash                            1.14.1                             npm     
@@ -437,8 +437,8 @@ libcjson1                           1.7.15-1                           deb
 libcodec2-1.0                       1.0.5-1ubuntu2                     deb     
 libcom-err2                         1.47.0-1ubuntu1                    deb     
 libcrypt1                           1:4.4.33-2                         deb     
-libcurl3-gnutls                     7.88.1-8ubuntu1                    deb     
-libcurl4                            7.88.1-8ubuntu1                    deb     
+libcurl3-gnutls                     7.88.1-8ubuntu2                    deb     
+libcurl4                            7.88.1-8ubuntu2                    deb     
 libdatrie1                          0.2.13-2                           deb     
 libdav1d6                           1.0.0-2                            deb     
 libdb5.3                            5.3.28+dfsg2-1                     deb     
@@ -1041,8 +1041,8 @@ tiny-relative-date                  1.3.0                              npm
 tmp                                 0.0.33                             npm     
 toidentifier                        1.0.1                              npm     
 tokenizers                          0.13.3                             python  
-torch                               2.1.0.dev20230524+cpu              python  
-torchvision                         0.16.0.dev20230524+cpu             python  
+torch                               2.1.0.dev20230525+cpu              python  
+torchvision                         0.16.0.dev20230525+cpu             python  
 tough-cookie                        2.5.0                              npm     
 tqdm                                4.64.1                             python  
 tr46                                0.0.3                              npm     
