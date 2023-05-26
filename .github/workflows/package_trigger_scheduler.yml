@@ -21,7 +21,7 @@ jobs:
           do
             br=$(echo "$br" | sed 's|origin/||g')
             echo "**** Evaluating branch ${br} ****"
-            ig_branch=$(curl -sX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/jenkins-vars.yml | yq -r '.ls_branch')
+            ig_branch=$(curl -sX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/jenkins-vars.yml | yq -r '.ig_branch')
             if [ "${br}" == "${ig_branch}" ]; then
               echo "**** Branch ${br} appears to be live; checking workflow. ****"
               if curl -sfX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/.github/workflows/package_trigger.yml > /dev/null 2>&1; then
