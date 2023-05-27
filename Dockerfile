@@ -97,20 +97,15 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
-    coloredlogs \
-    flatbuffers \
+  pip install --break-system-packages -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch && \
+  pip install --break-system-packages -U --no-cache-dir \
     insightface \
-    packaging \
-    protobuf \
+    onnxruntime \
     scikit-learn \
     scipy \
     sentence-transformers \
-    sympy \
-    torch \
     transformers && \
-  pip install --break-system-packages -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
-    ort-nightly && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \

@@ -17,24 +17,17 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
 
     # install/update pip packages to /config venv
     source /config/cuda-venv/bin/activate
-    pip install -U --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cu117 \
-        torch==1.13.1 \
-        torchvision==0.14.1
+    pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cu117 \
+        torch
     pip install -U --no-cache-dir \
-        coloredlogs \
         fastapi \
-        flatbuffers \
         insightface \
-        packaging \
-        protobuf \
+        onnxruntime \
         scikit-learn \
         scipy \
         sentence-transformers \
-        sympy \
         transformers \
         uvicorn[standard]
-    pip install -U --no-cache-dir --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/ \
-        ort-nightly-gpu
 
     # cleanup
     apt-get remove -y --purge \
