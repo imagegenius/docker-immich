@@ -262,7 +262,7 @@ figures                             3.2.0                              npm
 filelock                            3.12.0                             python  
 finalhandler                        1.2.0                              npm     
 findutils                           4.9.0-3ubuntu1                     deb     
-flatbuffers                         23.5.9                             python  
+flatbuffers                         23.5.26                            python  
 fluent-ffmpeg                       2.1.2                              npm     
 follow-redirects                    1.15.2                             npm     
 fontconfig                          2.14.1-3ubuntu3                    deb     
@@ -888,7 +888,7 @@ promise-call-limit                  1.0.1                              npm
 promise-inflight                    1.0.1                              npm     
 promise-retry                       2.0.1                              npm     
 promzard                            1.0.0                              npm     
-protobuf                            4.23.1                             python  
+protobuf                            4.23.2                             python  
 proxy-addr                          2.0.7                              npm     
 psl                                 1.9.0                              npm     
 publicsuffix                        20230209.2326-1                    deb     
