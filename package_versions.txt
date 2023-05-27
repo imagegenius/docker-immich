@@ -336,7 +336,7 @@ ieee754                             1.2.1                                    npm
 ignore-walk                         6.0.1                                    npm     
 imageio                             2.27.0                                   python  
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.57.1                                   npm     
+immich                              1.58.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -1034,7 +1034,7 @@ tmp                                 0.0.33                                   npm
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
 torch                               2.1.0.dev20230526+cpu                    python  
-torchvision                         0.16.0.dev20230526+cpu                   python  
+torchvision                         0.16.0.dev20230527+cpu                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.57.0                                   python  
 tr46                                0.0.3                                    npm     
