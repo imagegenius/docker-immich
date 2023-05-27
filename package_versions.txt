@@ -311,7 +311,7 @@ icu-data-en                         72.1-r1                apk
 icu-libs                            72.1-r1                apk     
 ieee754                             1.2.1                  npm     
 ignore-walk                         6.0.0                  npm     
-immich                              1.57.1                 npm     
+immich                              1.58.0                 npm     
 immich-web                          1.0.0                  npm     
 import-fresh                        3.3.0                  npm     
 imurmurhash                         0.1.4                  npm     
@@ -490,8 +490,8 @@ mv                                  2.1.1                  npm
 mz                                  2.7.0                  npm     
 napi-build-utils                    1.0.2                  npm     
 ncp                                 2.0.0                  npm     
-ncurses-libs                        6.3_p20221119-r0       apk     
-ncurses-terminfo-base               6.3_p20221119-r0       apk     
+ncurses-libs                        6.3_p20221119-r1       apk     
+ncurses-terminfo-base               6.3_p20221119-r1       apk     
 negotiator                          0.6.3                  npm     
 neo-async                           2.6.2                  npm     
 nest-commander                      3.7.1                  npm     
