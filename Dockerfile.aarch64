@@ -62,7 +62,7 @@ RUN \
     /app/typesense && \
   curl -o  \
     /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
+    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-arm64.tar.gz && \
   tar -xf \
     /tmp/typesense.tar.gz -C \
     /app/typesense && \
