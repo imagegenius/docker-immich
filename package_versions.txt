@@ -334,7 +334,7 @@ iconv-lite                          0.6.3                              npm
 idna                                3.3                                python  
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.1                              npm     
-imageio                             2.29.0                             python  
+imageio                             2.30.0                             python  
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
 immich                              1.58.0                             npm     
 immich-web                          1.0.0                              npm     
