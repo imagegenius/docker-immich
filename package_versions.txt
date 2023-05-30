@@ -57,6 +57,8 @@ NAME                                VERSION                            TYPE
 @types/node                         18.16.8                            npm     
 @types/through                      0.0.30                             npm     
 @types/validator                    13.7.17                            npm     
+@zoom-image/core                    0.14.0                             npm     
+@zoom-image/svelte                  0.1.0                              npm     
 Cython                              0.29.35                            python  
 Jinja2                              3.1.2                              python  
 MarkupSafe                          2.1.2                              python  
@@ -336,7 +338,7 @@ ieee754                             1.2.1                              npm
 ignore-walk                         6.0.1                              npm     
 imageio                             2.30.0                             python  
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
-immich                              1.58.0                             npm     
+immich                              1.59.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
@@ -642,7 +644,7 @@ libsrt1.5-gnutls                    1.5.1-1                            deb
 libss2                              1.47.0-1ubuntu1                    deb     
 libssh-4                            0.10.4-2                           deb     
 libssh-gcrypt-4                     0.10.4-2                           deb     
-libssl3                             3.0.8-1ubuntu1.1                   deb     
+libssl3                             3.0.8-1ubuntu1.2                   deb     
 libstdc++6                          13-20230320-1ubuntu1               deb     
 libsvtav1enc1                       1.4.1+dfsg-1                       deb     
 libswresample4                      7:5.1.2-3ubuntu1                   deb     
@@ -840,7 +842,7 @@ onnx                                1.14.0                             python
 onnxruntime                         1.15.0                             python  
 opencv-python-headless              4.7.0.72                           python  
 openid-client                       5.4.2                              npm     
-openssl                             3.0.8-1ubuntu1.1                   deb     
+openssl                             3.0.8-1ubuntu1.2                   deb     
 ora                                 5.4.1                              npm     
 os-tmpdir                           1.0.2                              npm     
 p-map                               4.0.0                              npm     
