@@ -1035,8 +1035,8 @@ tiny-relative-date                  1.3.0                                    npm
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
-torch                               2.1.0.dev20230530+cpu                    python  
-torchvision                         0.16.0.dev20230530+cpu                   python  
+torch                               2.1.0.dev20230531+cpu                    python  
+torchvision                         0.16.0.dev20230531+cpu                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.57.0                                   python  
 tr46                                0.0.3                                    npm     
