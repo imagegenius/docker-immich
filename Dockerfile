@@ -103,10 +103,13 @@ RUN \
   pip install --break-system-packages -U --no-cache-dir \
     insightface \
     onnxruntime \
+    optimum \
     scikit-learn \
     scipy \
     sentence-transformers \
     transformers && \
+  pip install --break-system-packages -U --no-cache-dir nvidia-pyindex && \
+  pip install --break-system-packages -U --no-cache-dir onnx-graphsurgeon && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \

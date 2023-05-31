@@ -101,11 +101,14 @@ RUN \
   pip install --break-system-packages -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
     insightface \
     onnxruntime \
+    optimum \
     scikit-learn \
     scipy \
     sentence-transformers \
     torch \
     transformers && \
+  pip install --break-system-packages -U --no-cache-dir nvidia-pyindex && \
+  pip install --break-system-packages -U --no-cache-dir onnx-graphsurgeon && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \

@@ -21,11 +21,14 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
         fastapi \
         insightface \
         onnxruntime \
+        optimum \
         scikit-learn \
         scipy \
         sentence-transformers \
         transformers \
         uvicorn[standard]
+    pip install --break-system-packages -U --no-cache-dir nvidia-pyindex && \
+    pip install --break-system-packages -U --no-cache-dir onnx-graphsurgeon && \
 
     # cleanup
     apt-get remove -y --purge \
