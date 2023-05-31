@@ -35,6 +35,7 @@ RUN \
     nginx \
     nodejs \
     perl \
+    python3-aiocache \
     python3-dev \
     python3-fastapi \
     python3-nltk \
@@ -108,7 +109,7 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    src \
+    src/. \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
