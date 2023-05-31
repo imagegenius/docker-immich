@@ -8,8 +8,6 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
         python3-dev \
         python3-venv
 
-    # apply early ml support
-    cp /defaults/main.py /app/immich/machine-learning/src/main.py
     # create venv if it does not exist
     if [ ! -d /config/cuda-venv ]; then
         python3 -m venv /config/cuda-venv/
