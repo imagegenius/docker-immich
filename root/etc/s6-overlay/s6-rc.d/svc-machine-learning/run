@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # stop machine learning from starting
-if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
+if [ "${DISABLE_MACHINE_LEANRNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
     tail -f /dev/null
 fi
 
