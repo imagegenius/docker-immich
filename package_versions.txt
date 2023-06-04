@@ -12,8 +12,8 @@ NAME                                VERSION                            TYPE
 @isaacs/string-locale-compare       1.1.0                              npm     
 @lukeed/csprng                      1.1.0                              npm     
 @mapbox/node-pre-gyp                1.0.10                             npm     
-@nestjs/bull                        0.6.3                              npm     
 @nestjs/bull-shared                 0.1.3                              npm     
+@nestjs/bullmq                      1.1.0                              npm     
 @nestjs/common                      9.4.0                              npm     
 @nestjs/config                      2.3.1                              npm     
 @nestjs/core                        9.4.0                              npm     
@@ -129,7 +129,7 @@ buffer-from                         1.1.2                              npm
 buffer-writer                       2.0.0                              npm     
 buffers                             0.1.1                              npm     
 builtins                            5.0.1                              npm     
-bull                                4.10.4                             npm     
+bullmq                              3.14.1                             npm     
 busboy                              1.6.0                              npm     
 bytes                               3.1.2                              npm     
 ca-certificates                     20230311ubuntu0.23.04.1            deb     
@@ -209,7 +209,6 @@ debconf                             1.5.82                             deb
 debianutils                         5.7-0.4                            deb     
 debug                               2.6.9                              npm     
 debug                               4.3.4                              npm     
-debuglog                            1.0.1                              npm     
 decompress-response                 6.0.0                              npm     
 deep-extend                         0.6.0                              npm     
 defaults                            1.0.4                              npm     
@@ -288,7 +287,6 @@ gauge                               5.0.0                              npm
 gcc-13-base                         13-20230320-1ubuntu1               deb     
 get-caller-file                     2.0.5                              npm     
 get-intrinsic                       1.2.0                              npm     
-get-port                            5.1.1                              npm     
 getpass                             0.1.7                              npm     
 github-from-package                 0.0.0                              npm     
 glob                                6.0.4                              npm     
@@ -327,7 +325,7 @@ http-errors                         2.0.0                              npm
 http-proxy-agent                    5.0.0                              npm     
 http-signature                      1.2.0                              npm     
 https-proxy-agent                   5.0.1                              npm     
-huggingface-hub                     0.14.1                             python  
+huggingface-hub                     0.15.1                             python  
 humanfriendly                       10.0                               python  
 humanize-ms                         1.2.1                              npm     
 i18n-iso-countries                  7.6.0                              npm     
@@ -338,7 +336,7 @@ ieee754                             1.2.1                              npm
 ignore-walk                         6.0.1                              npm     
 imageio                             2.30.0                             python  
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
-immich                              1.59.1                             npm     
+immich                              1.60.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
@@ -781,7 +779,7 @@ mpmath                              1.2.1                              python
 ms                                  2.0.0                              npm     
 ms                                  2.1.2                              npm     
 ms                                  2.1.3                              npm     
-msgpackr                            1.9.1                              npm     
+msgpackr                            1.9.2                              npm     
 multer                              1.4.4-lts.1                        npm     
 mute-stream                         0.0.8                              npm     
 mute-stream                         1.0.0                              npm     
@@ -968,7 +966,7 @@ safe-buffer                         5.1.2                              npm
 safe-buffer                         5.2.1                              npm     
 safer-buffer                        2.1.2                              npm     
 sanitize-filename                   1.6.3                              npm     
-scikit-image                        0.20.0                             python  
+scikit-image                        0.21.0                             python  
 scikit-learn                        1.2.2                              python  
 scipy                               1.10.1                             python  
 sed                                 4.9-1                              deb     
