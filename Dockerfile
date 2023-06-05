@@ -79,12 +79,6 @@ RUN \
     build \
     static \
     /app/immich/web && \
-  echo "**** setup upload folder ****" && \
-  mkdir -p \
-    /photos && \
-  ln -s \
-    /photos \
-    /app/immich/server/upload && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
