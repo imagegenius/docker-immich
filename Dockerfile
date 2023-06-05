@@ -10,8 +10,7 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV TYPESENSE_ENABLED="false" \
-  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+ENV PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_URL="false" \
   IMMICH_MEDIA_LOCATION="/photos"
 
