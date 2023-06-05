@@ -104,7 +104,6 @@ RUN \
     insightface \
     onnxruntime \
     optimum \
-    pydantic \
     scikit-learn \
     scipy \
     sentence-transformers \
