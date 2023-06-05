@@ -98,21 +98,23 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir --pre -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
+  pip install --break-system-packages -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
+    torch && \
+  pip install --break-system-packages -U --no-cache-dir \
     insightface \
     onnxruntime \
     optimum \
+    pydantic \
     scikit-learn \
     scipy \
     sentence-transformers \
-    torch \
     transformers && \
   pip install --break-system-packages -U --no-cache-dir nvidia-pyindex && \
   pip install --break-system-packages -U --no-cache-dir onnx-graphsurgeon && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    src/. \
+    app/. \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \

@@ -104,6 +104,7 @@ RUN \
     insightface \
     onnxruntime \
     optimum \
+    pydantic \
     scikit-learn \
     scipy \
     sentence-transformers \
@@ -113,7 +114,7 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    src/. \
+    app/. \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \

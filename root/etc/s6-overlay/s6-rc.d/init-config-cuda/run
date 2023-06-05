@@ -22,6 +22,7 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
         insightface \
         onnxruntime \
         optimum \
+        pydantic \
         scikit-learn \
         scipy \
         sentence-transformers \
