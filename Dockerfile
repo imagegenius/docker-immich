@@ -12,7 +12,8 @@ LABEL maintainer="hydazz, martabal"
 # environment settings
 ENV TYPESENSE_ENABLED="false" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  IMMICH_MACHINE_LEARNING_URL="false"
+  IMMICH_MACHINE_LEARNING_URL="false" \
+  IMMICH_MEDIA_LOCATION="/photos"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -29,6 +30,8 @@ RUN \
     npm \
     openssl \
     perl \
+    python3 \
+    py3-pip \
     vips \
     vips-cpp && \
   echo "**** download immich ****" && \
@@ -44,6 +47,9 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
+  echo "**** install pip dependencies ****" && \
+  pip install --break-system-packages -U --no-cache-dir \
+    psycopg2-binary && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
