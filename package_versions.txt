@@ -334,7 +334,7 @@ iconv-lite                          0.6.3                              npm
 idna                                3.3                                python  
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.1                              npm     
-imageio                             2.30.0                             python  
+imageio                             2.31.0                             python  
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
 immich                              1.60.0                             npm     
 immich-web                          1.0.0                              npm     
@@ -585,7 +585,7 @@ libpangoft2-1.0-0                   1.50.12+ds-1                       deb
 libpciaccess0                       0.17-2                             deb     
 libpcre2-8-0                        10.42-1                            deb     
 libpcre3                            2:8.39-15                          deb     
-libperl5.36                         5.36.0-7                           deb     
+libperl5.36                         5.36.0-7ubuntu0.23.04.1            deb     
 libpgm-5.3-0                        5.3.128~dfsg-2                     deb     
 libphonenumber-js                   1.10.30                            npm     
 libpixman-1-0                       0.42.2-1                           deb     
@@ -599,8 +599,8 @@ libproc2-0                          2:4.0.3-1ubuntu1                   deb
 libpsl5                             0.21.2-1                           deb     
 libpulse0                           1:16.1+dfsg1-2ubuntu3              deb     
 libpython3-stdlib                   3.11.2-1                           deb     
-libpython3.11-minimal               3.11.2-6                           deb     
-libpython3.11-stdlib                3.11.2-6                           deb     
+libpython3.11-minimal               3.11.2-6ubuntu0.1                  deb     
+libpython3.11-stdlib                3.11.2-6ubuntu0.1                  deb     
 librabbitmq4                        0.11.0-1                           deb     
 libraqm0                            0.7.0-4.1                          deb     
 librav1e0                           0.5.1-6ubuntu1                     deb     
@@ -640,8 +640,8 @@ libsqlite3-0                        3.40.1-1                           deb
 libsratom-0-0                       0.6.14-1                           deb     
 libsrt1.5-gnutls                    1.5.1-1                            deb     
 libss2                              1.47.0-1ubuntu1                    deb     
-libssh-4                            0.10.4-2                           deb     
-libssh-gcrypt-4                     0.10.4-2                           deb     
+libssh-4                            0.10.4-2ubuntu0.1                  deb     
+libssh-gcrypt-4                     0.10.4-2ubuntu0.1                  deb     
 libssl3                             3.0.8-1ubuntu1.2                   deb     
 libstdc++6                          13-20230320-1ubuntu1               deb     
 libsvtav1enc1                       1.4.1+dfsg-1                       deb     
@@ -704,7 +704,7 @@ libxext6                            2:1.3.4-1build1                    deb
 libxfixes3                          1:6.0.0-2                          deb     
 libxi6                              2:1.8-1build1                      deb     
 libxkbcommon0                       1.5.0-1                            deb     
-libxml2                             2.9.14+dfsg-1.1build2              deb     
+libxml2                             2.9.14+dfsg-1.1ubuntu0.1           deb     
 libxpm4                             1:3.5.12-1.1                       deb     
 libxrandr2                          2:1.5.2-2                          deb     
 libxrender1                         1:0.9.10-1.1                       deb     
@@ -860,9 +860,9 @@ path-to-regexp                      0.1.7                              npm
 path-to-regexp                      3.2.0                              npm     
 path-type                           4.0.0                              npm     
 performance-now                     2.1.0                              npm     
-perl                                5.36.0-7                           deb     
-perl-base                           5.36.0-7                           deb     
-perl-modules-5.36                   5.36.0-7                           deb     
+perl                                5.36.0-7ubuntu0.23.04.1            deb     
+perl-base                           5.36.0-7ubuntu0.23.04.1            deb     
+perl-modules-5.36                   5.36.0-7ubuntu0.23.04.1            deb     
 pg                                  8.10.0                             npm     
 pg-connection-string                2.5.0                              npm     
 pg-int8                             1.0.1                              npm     
@@ -926,8 +926,8 @@ python3-typing-extensions           4.4.0-1                            deb
 python3-uvicorn                     0.15.0-2ubuntu1                    deb     
 python3-wheel                       0.38.4-1                           deb     
 python3-wsproto                     1.2.0-1                            deb     
-python3.11                          3.11.2-6                           deb     
-python3.11-minimal                  3.11.2-6                           deb     
+python3.11                          3.11.2-6ubuntu0.1                  deb     
+python3.11-minimal                  3.11.2-6ubuntu0.1                  deb     
 qrcode-terminal                     0.12.0                             npm     
 qs                                  6.11.0                             npm     
 qs                                  6.5.3                              npm     
@@ -1060,8 +1060,8 @@ typedarray                          0.0.6                              npm
 typeorm                             0.3.16                             npm     
 typesense                           1.5.3                              npm     
 typing_extensions                   4.4.0                              python  
-tzdata                              2023c-2exp1ubuntu1                 deb     
-tzdata-icu                          2023c-2exp1ubuntu1                 deb     
+tzdata                              2023c-2exp1ubuntu1.1               deb     
+tzdata-icu                          2023c-2exp1ubuntu1.1               deb     
 ua-parser-js                        1.0.35                             npm     
 ubuntu-keyring                      2021.03.26                         deb     
 uglify-js                           3.17.4                             npm     
@@ -1074,7 +1074,7 @@ unique-slug                         4.0.0                              npm
 unpipe                              1.0.0                              npm     
 unzip-stream                        0.3.1                              npm     
 uri-js                              4.4.1                              npm     
-urllib3                             2.0.2                              python  
+urllib3                             2.0.3                              python  
 usrmerge                            33ubuntu1                          deb     
 utf8-byte-length                    1.0.4                              npm     
 util-deprecate                      1.0.2                              npm     
