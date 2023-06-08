@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # stop typesense from starting
-if [ "${DISABLE_TYPESENSE}" == "true" ]; then
+if [ "${DISABLE_TYPESENSE}" == "true" || "${TYPESENSE_HOST}" != "127.0.0.1" ]; then
     tail -f /dev/null
 fi
 
