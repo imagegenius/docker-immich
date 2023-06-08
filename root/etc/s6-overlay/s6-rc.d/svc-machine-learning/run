@@ -1,5 +1,9 @@
 #!/usr/bin/with-contenv bash
 
+if [ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
+    echo "WARN: The Machine-Learning service is disabled as 'IMMICH_MACHINE_LEARNING_URL' is set to '${IMMICH_MACHINE_LEARNING_URL}'."
+fi
+
 # stop machine learning from starting
 if [ "${DISABLE_MACHINE_LEANRNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
     tail -f /dev/null
