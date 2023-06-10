@@ -43,7 +43,7 @@ To set up redis using the docker mod, use the following:
 
 Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
-When `CUDA_ACCELERATION` is set to `true`, container startup times will be increased, as it will force upgrade the cuda pip packages every restart.
+When `CUDA_ACCELERATION` is set to `true`, container startup times will be increased, as it will force upgrade the cuda pip packages every restart. TAG OBJECTS and ENCODE CLIP jobs will use the GPU acceleration, however RECOGNIZE FACES job won't use the GPU acceleration. If you want to have GPU acceleration for all your machine-learning jobs, you have to setup a new immich-cuda-node docker. All instructions to set it up can be found on [the repo](https://github.com/imagegenius/docker-immich-cuda-node/)
 
 ## Usage
 
