@@ -23,14 +23,17 @@ RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ffmpeg \
-    vips-heif \
+    imagemagick-dev \
+    libraw-dev \
     nginx \
     nodejs \
     npm \
     openssl \
     perl \
     vips \
-    vips-cpp && \
+    vips-cpp \
+    vips-heif \
+    vips-magick && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
