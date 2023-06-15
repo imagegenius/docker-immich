@@ -33,6 +33,7 @@ RUN \
     vips \
     vips-cpp \
     vips-heif \
+    vips-jxl \
     vips-magick && \
   echo "**** download immich ****" && \
   mkdir -p \
