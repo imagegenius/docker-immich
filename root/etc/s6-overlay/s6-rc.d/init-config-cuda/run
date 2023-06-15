@@ -15,8 +15,6 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
 
     # install/update pip packages to /config venv
     source /config/cuda-venv/bin/activate
-    pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cu117 \
-        torch
     pip install -U --no-cache-dir \
         aiocache \
         fastapi \
@@ -25,6 +23,7 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
         scikit-learn \
         scipy \
         sentence-transformers \
+        torch \
         transformers \
         uvicorn[standard]
 
