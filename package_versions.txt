@@ -888,7 +888,7 @@ promise-call-limit                  1.0.1                              npm
 promise-inflight                    1.0.1                              npm     
 promise-retry                       2.0.1                              npm     
 promzard                            1.0.0                              npm     
-protobuf                            4.23.2                             python  
+protobuf                            4.23.3                             python  
 proxy-addr                          2.0.7                              npm     
 psl                                 1.9.0                              npm     
 publicsuffix                        20230209.2326-1                    deb     
