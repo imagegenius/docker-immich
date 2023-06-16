@@ -59,9 +59,9 @@ NAME                                VERSION                                  TYP
 @types/validator                    13.7.17                                  npm     
 @zoom-image/core                    0.14.0                                   npm     
 @zoom-image/svelte                  0.1.0                                    npm     
-Cython                              3.0.0b3                                  python  
+Cython                              0.29.35                                  python  
 Jinja2                              3.1.2                                    python  
-MarkupSafe                          2.1.3                                    python  
+MarkupSafe                          2.1.2                                    python  
 Pillow                              9.0.1                                    python  
 PyWavelets                          1.4.1                                    python  
 PyYAML                              6.0                                      python  
@@ -73,6 +73,7 @@ adduser                             3.118ubuntu5                             deb
 agent-base                          6.0.2                                    npm     
 agentkeepalive                      4.2.1                                    npm     
 aggregate-error                     3.1.0                                    npm     
+aiocache                            0.12.1                                   python  
 ajv                                 6.12.6                                   npm     
 albumentations                      1.3.1                                    python  
 ansi-escapes                        4.3.2                                    npm     
@@ -260,7 +261,7 @@ fastapi                             0.63.0                                   pyt
 fastest-levenshtein                 1.0.16                                   npm     
 ffmpeg                              7:4.4.2-0ubuntu0.22.04.1                 deb     
 figures                             3.2.0                                    npm     
-filelock                            3.12.2                                   python  
+filelock                            3.9.0                                    python  
 finalhandler                        1.2.0                                    npm     
 findutils                           4.8.0-1ubuntu3                           deb     
 flatbuffers                         23.5.26                                  python  
@@ -317,6 +318,7 @@ has-flag                            4.0.0                                    npm
 has-symbols                         1.0.3                                    npm     
 has-unicode                         2.0.1                                    npm     
 he                                  1.2.0                                    npm     
+hicolor-icon-theme                  0.17-2                                   deb     
 highlight.js                        10.7.3                                   npm     
 hosted-git-info                     6.1.1                                    npm     
 hostname                            3.23ubuntu2                              deb     
@@ -335,8 +337,10 @@ idna                                3.3                                      pyt
 ieee754                             1.2.1                                    npm     
 ignore-walk                         6.0.1                                    npm     
 imageio                             2.31.1                                   python  
+imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.60.0                                   npm     
+imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
+immich                              1.61.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -386,6 +390,7 @@ jsonparse                           1.3.1                                    npm
 jsprim                              1.4.2                                    npm     
 just-diff                           5.2.0                                    npm     
 just-diff-apply                     5.5.0                                    npm     
+justified-layout                    4.1.0                                    npm     
 kdt                                 0.1.0                                    npm     
 kiwisolver                          1.4.4                                    python  
 lazy_loader                         0.2                                      python  
@@ -447,6 +452,8 @@ libde265-0                          1.0.8-1                                  deb
 libdebconfclient0                   0.261ubuntu1                             deb     
 libdecor-0-0                        0.1.0-3build1                            deb     
 libdeflate0                         1.10-2                                   deb     
+libdjvulibre-text                   3.5.28-2build2                           deb     
+libdjvulibre21                      3.5.28-2build2                           deb     
 libdrm-amdgpu1                      2.4.113-2~ubuntu0.22.04.1                deb     
 libdrm-common                       2.4.113-2~ubuntu0.22.04.1                deb     
 libdrm-nouveau2                     2.4.113-2~ubuntu0.22.04.1                deb     
@@ -513,6 +520,7 @@ libkrb5support0                     1.19.2-2ubuntu0.2                        deb
 libksba8                            1.6.0-2ubuntu0.2                         deb     
 liblapack3                          3.10.0-2ubuntu1                          deb     
 liblcms2-2                          2.12~rc1-2build2                         deb     
+liblcms2-dev                        2.12~rc1-2build2                         deb     
 libldap-2.5-0                       2.5.14+dfsg-0ubuntu0.22.04.2             deb     
 libldap-common                      2.5.14+dfsg-0ubuntu0.22.04.2             deb     
 liblilv-0-0                         0.24.12-2                                deb     
@@ -522,6 +530,8 @@ libltdl7                            2.4.6-15build2                           deb
 liblz4-1                            1.9.3-2build2                            deb     
 liblzma5                            5.2.5-2ubuntu1                           deb     
 libmagickcore-6.q16-6               8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
+libmagickcore-6.q16-6-extra         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
+libmagickwand-6.q16-6               8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 libmatio11                          1.5.21-1                                 deb     
 libmaxminddb0                       1.5.2-1build2                            deb     
 libmd0                              1.0.4-1build1                            deb     
@@ -597,7 +607,9 @@ libpython3.10-stdlib                3.10.6-1~22.04.2ubuntu1.1                deb
 libquadmath0                        12.1.0-2ubuntu1~22.04                    deb     
 librabbitmq4                        0.10.0-1ubuntu2                          deb     
 libraqm0                            0.7.0-4ubuntu1                           deb     
+libraw-dev                          0.20.2-2ubuntu2.22.04.1                  deb     
 libraw1394-11                       2.1.2-2build2                            deb     
+libraw20                            0.20.2-2ubuntu2.22.04.1                  deb     
 libreadline8                        8.1.2-1                                  deb     
 librsvg2-2                          2.52.5+dfsg-3                            deb     
 librsvg2-common                     2.52.5+dfsg-3                            deb     
@@ -671,9 +683,10 @@ libwayland-server0                  1.20.0-1ubuntu0.1                        deb
 libwebp7                            1.2.2-2ubuntu0.22.04.1                   deb     
 libwebpdemux2                       1.2.2-2ubuntu0.22.04.1                   deb     
 libwebpmux3                         1.2.2-2ubuntu0.22.04.1                   deb     
-libx11-6                            2:1.7.5-1                                deb     
-libx11-data                         2:1.7.5-1                                deb     
-libx11-xcb1                         2:1.7.5-1                                deb     
+libwmflite-0.2-7                    0.2.12-5ubuntu1                          deb     
+libx11-6                            2:1.7.5-1ubuntu0.2                       deb     
+libx11-data                         2:1.7.5-1ubuntu0.2                       deb     
+libx11-xcb1                         2:1.7.5-1ubuntu0.2                       deb     
 libx264-163                         2:0.163.3060+git5db6aa6-2build1          deb     
 libx265-199                         3.5-2                                    deb     
 libxau6                             1:1.0.9-1build5                          deb     
@@ -766,7 +779,7 @@ mkdirp                              1.0.4                                    npm
 mkdirp                              2.1.6                                    npm     
 mkdirp-classic                      0.5.3                                    npm     
 mount                               2.37.2-4ubuntu3                          deb     
-mpmath                              1.3.0                                    python  
+mpmath                              1.2.1                                    python  
 ms                                  2.0.0                                    npm     
 ms                                  2.1.2                                    npm     
 ms                                  2.1.3                                    npm     
@@ -785,7 +798,7 @@ neo-async                           2.6.2                                    npm
 nest-commander                      3.7.1                                    npm     
 netcat                              1.218-4ubuntu1                           deb     
 netcat-openbsd                      1.218-4ubuntu1                           deb     
-networkx                            3.1                                      python  
+networkx                            3.0                                      python  
 nginx                               1.18.0-6ubuntu14.3                       deb     
 nginx-common                        1.18.0-6ubuntu14.3                       deb     
 nginx-core                          1.18.0-6ubuntu14.3                       deb     
@@ -817,7 +830,7 @@ npmlog                              5.0.1                                    npm
 npmlog                              6.0.2                                    npm     
 npmlog                              7.0.1                                    npm     
 numpy                               1.21.5                                   python  
-numpy                               1.25.0rc1                                python  
+numpy                               1.24.3                                   python  
 nw-pre-gyp-module-test              0.0.1                                    npm     
 oauth-sign                          0.9.0                                    npm     
 object-assign                       4.1.1                                    npm     
@@ -830,11 +843,11 @@ on-finished                         2.4.1                                    npm
 once                                1.4.0                                    npm     
 onetime                             5.1.2                                    npm     
 onnx                                1.14.0                                   python  
+onnxruntime                         1.15.0                                   python  
 opencv-python-headless              4.7.0.72                                 python  
 openid-client                       5.4.2                                    npm     
 openssl                             3.0.2-0ubuntu1.10                        deb     
 ora                                 5.4.1                                    npm     
-ort-nightly                         1.16.0.dev20230613002                    python  
 os-tmpdir                           1.0.2                                    npm     
 p-map                               4.0.0                                    npm     
 packaging                           23.1                                     python  
@@ -881,14 +894,14 @@ promise-call-limit                  1.0.1                                    npm
 promise-inflight                    1.0.1                                    npm     
 promise-retry                       2.0.1                                    npm     
 promzard                            1.0.0                                    npm     
-protobuf                            4.23.2                                   python  
+protobuf                            4.23.3                                   python  
 proxy-addr                          2.0.7                                    npm     
 psl                                 1.9.0                                    npm     
 publicsuffix                        20211207.1025-1                          deb     
 pump                                3.0.0                                    npm     
 punycode                            2.3.0                                    npm     
 pydantic                            1.8.2                                    python  
-pyparsing                           3.1.0b2                                  python  
+pyparsing                           3.0.9                                    python  
 python                              3.10.6                                   binary  
 python-dateutil                     2.8.2                                    python  
 python3                             3.10.6-1~22.04                           deb     
@@ -962,7 +975,7 @@ safetensors                         0.3.1                                    pyt
 sanitize-filename                   1.6.3                                    npm     
 scikit-image                        0.21.0                                   python  
 scikit-learn                        1.2.2                                    python  
-scipy                               1.11.0rc1                                python  
+scipy                               1.10.1                                   python  
 sed                                 4.8-1ubuntu2                             deb     
 semver                              6.3.0                                    npm     
 semver                              7.3.8                                    npm     
@@ -1018,7 +1031,7 @@ svelte                              3.59.1                                   npm
 svelte-local-storage-store          0.4.0                                    npm     
 svelte-material-icons               3.0.4                                    npm     
 swagger-ui-dist                     4.18.2                                   npm     
-sympy                               1.12                                     python  
+sympy                               1.11.1                                   python  
 sysvinit-utils                      3.01-1ubuntu1                            deb     
 tar                                 1.34+dfsg-1ubuntu0.1.22.04.1             deb     
 tar                                 6.1.13                                   npm     
@@ -1035,8 +1048,8 @@ tiny-relative-date                  1.3.0                                    npm
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
 tokenizers                          0.13.3                                   python  
-torch                               2.1.0.dev20230614+cpu                    python  
-torchvision                         0.16.0.dev20230614+cpu                   python  
+torch                               2.0.1+cpu                                python  
+torchvision                         0.15.2                                   python  
 tough-cookie                        2.5.0                                    npm     
 tqdm                                4.57.0                                   python  
 tr46                                0.0.3                                    npm     
