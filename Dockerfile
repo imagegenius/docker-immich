@@ -23,7 +23,8 @@ RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ffmpeg \
-    vips-heif \
+    imagemagick-dev \
+    libraw-dev \
     nginx \
     nodejs \
     npm \
@@ -32,7 +33,10 @@ RUN \
     python3 \
     py3-pip \
     vips \
-    vips-cpp && \
+    vips-cpp \
+    vips-heif \
+    vips-jxl \
+    vips-magick && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
