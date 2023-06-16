@@ -9,10 +9,6 @@ if [ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}"
     tail -f /dev/null
 fi
 
-if [ "${CUDA_ACCELERATION}" = "true" ]; then
-    source /config/cuda-venv/bin/activate
-fi
-
 export HOME=/tmp
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \

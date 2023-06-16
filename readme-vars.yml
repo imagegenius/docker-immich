@@ -47,7 +47,6 @@ opt_param_env_vars:
   - { env_var: "DB_PORT", env_value: "5432", desc: "PostgreSQL Port" }
   - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }
   - { env_var: "REDIS_PASSWORD", env_value: "", desc: "Redis password" }
-  - { env_var: "CUDA_ACCELERATION", env_value: "false", desc: "Set to `true` to enable CUDA Acceleration (NVIDIA GPU must be passed through! `--gpus=all`)" }
 opt_param_usage_include_vols: true
 opt_param_volumes:
   - { vol_path: "/config/machine-learning", vol_host_path: "path_to_machine-learning", desc: "Store the machine-learning models (~800MB)" }
@@ -74,8 +73,6 @@ app_setup_block: |
   Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
 
   Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
-
-  Take note that when `CUDA_ACCELERATION` is set to `true`, container startup times will be longer. This is because it triggers a force upgrade of the CUDA pip packages every time the container restarts. 'TAG OBJECTS' and 'ENCODE CLIP' jobs will leverage GPU acceleration, however, the 'RECOGNIZE FACES' job won't utilize GPU acceleration.
 
   If you desire GPU acceleration for all your machine learning jobs, you'll need to set up a new `immich-cuda-node` Docker. All the necessary instructions to do this are available on [the immich-cuda-node repository](https://github.com/imagegenius/docker-immich-cuda-node/).
 
@@ -121,6 +118,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "16.06.23:", desc: "disable cuda acceleration" }
   - { date: "23.05.23:", desc: "move to ubuntu lunar and support cuda acceleration for machine-learning" }
   - { date: "22.05.23:", desc: "deprecate postgresql docker mod" }
   - { date: "18.05.23:", desc: "add support for facial recognition" }
