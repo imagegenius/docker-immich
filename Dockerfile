@@ -28,7 +28,9 @@ RUN \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
+    imagemagick \
     libheif1 \
+    libraw-dev \
     libvips \
     libvips-dev \
     make \
@@ -100,6 +102,7 @@ RUN \
   pip install --break-system-packages -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
     torch && \
   pip install --break-system-packages -U --no-cache-dir \
+    aiocache \
     insightface \
     onnxruntime \
     scikit-learn \
@@ -109,7 +112,7 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    src \
+    app/. \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
