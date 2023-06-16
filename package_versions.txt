@@ -101,6 +101,7 @@ asn1                                0.2.6                   npm
 assert-plus                         1.0.0                   npm     
 async                               3.2.4                   npm     
 asynckit                            0.4.0                   npm     
+avahi-libs                          0.8-r13                 apk     
 aws-sign2                           0.7.0                   npm     
 aws4                                1.12.0                  npm     
 axios                               0.26.1                  npm     
@@ -205,6 +206,7 @@ cron-parser                         4.8.1                   npm
 cross-spawn                         7.0.3                   npm     
 cssesc                              3.0.0                   npm     
 csv-parse                           5.3.10                  npm     
+cups-libs                           2.4.5-r0                apk     
 curl                                8.1.2-r0                apk     
 dashdash                            1.14.1                  npm     
 date-fns                            2.30.0                  npm     
@@ -292,6 +294,7 @@ gdk-pixbuf                          2.42.10-r5              apk
 get-caller-file                     2.0.5                   npm     
 get-intrinsic                       1.2.0                   npm     
 getpass                             0.1.7                   npm     
+ghostscript                         10.01.1-r1              apk     
 github-from-package                 0.0.0                   npm     
 glib                                2.76.3-r0               apk     
 glob                                10.2.2                  npm     
@@ -326,12 +329,16 @@ hwdata-pci                          0.370-r0                apk
 i18n-iso-countries                  7.6.0                   npm     
 iconv-lite                          0.4.24                  npm     
 iconv-lite                          0.6.3                   npm     
-icu-data-en                         73.1-r1                 apk     
-icu-libs                            73.1-r1                 apk     
+icu-data-en                         73.2-r0                 apk     
+icu-libs                            73.2-r0                 apk     
 ieee754                             1.2.1                   npm     
 ignore-walk                         6.0.3                   npm     
+imagemagick                         7.1.1.10-r0             apk     
+imagemagick-c++                     7.1.1.10-r0             apk     
+imagemagick-dev                     7.1.1.10-r0             apk     
+imagemagick-libs                    7.1.1.10-r0             apk     
 imath                               3.1.7-r1                apk     
-immich                              1.60.0                  npm     
+immich                              1.61.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -361,6 +368,7 @@ isexe                               2.0.0                   npm
 isstream                            0.1.2                   npm     
 iterare                             1.2.1                   npm     
 jackspeak                           2.2.0                   npm     
+jbig2dec                            0.19-r3                 apk     
 joi                                 17.9.2                  npm     
 jose                                4.14.4                  npm     
 jq                                  1.6-r3                  apk     
@@ -377,10 +385,13 @@ jsonparse                           1.3.1                   npm
 jsprim                              1.4.2                   npm     
 just-diff                           6.0.2                   npm     
 just-diff-apply                     5.5.0                   npm     
+justified-layout                    4.1.0                   npm     
 kdt                                 0.1.0                   npm     
 lame-libs                           3.100-r5                apk     
 lazystream                          1.0.1                   npm     
 lcms2                               2.15-r2                 apk     
+lcms2-dev                           2.15-r2                 apk     
+lcms2-plugins                       2.15-r2                 apk     
 leaflet                             1.9.3                   npm     
 leaflet.markercluster               1.5.3                   npm     
 libacl                              2.3.1-r3                apk     
@@ -407,8 +418,9 @@ libhwy                              1.0.4-r1                apk
 libidn2                             2.3.4-r1                apk     
 libimagequant                       4.2.0-r0                apk     
 libintl                             0.21.1-r7               apk     
-libjpeg-turbo                       2.1.5.1-r2              apk     
-libjxl                              0.8.1-r5                apk     
+libjpeg-turbo                       2.1.5.1-r3              apk     
+libjpeg-turbo-dev                   2.1.5.1-r3              apk     
+libjxl                              0.8.2-r0                apk     
 libltdl                             2.4.7-r2                apk     
 libmd                               1.0.4-r2                apk     
 libmount                            2.38.1-r8               apk     
@@ -433,6 +445,8 @@ libplacebo                          5.264.1-r1              apk
 libpng                              1.6.39-r3               apk     
 libproc2                            4.0.3-r1                apk     
 libpulse                            16.1-r10                apk     
+libraw                              0.21.1-r0               apk     
+libraw-dev                          0.21.1-r0               apk     
 librist                             0.2.7-r0                apk     
 librsvg                             2.56.1-r0               apk     
 libsndfile                          1.2.0-r2                apk     
@@ -444,6 +458,7 @@ libssl3                             3.1.1-r1                apk
 libstdc++                           12.2.1_git20220924-r10  apk     
 libtasn1                            4.19.0-r1               apk     
 libtheora                           1.1.1-r17               apk     
+libtiffxx                           4.5.1-r0                apk     
 libunibreak                         5.1-r0                  apk     
 libunistring                        1.1-r1                  apk     
 libva                               2.18.0-r1               apk     
@@ -451,7 +466,8 @@ libvdpau                            1.5-r1                  apk
 libvorbis                           1.3.7-r1                apk     
 libvpx                              1.13.0-r1               apk     
 libwebp                             1.3.0-r2                apk     
-libx11                              1.8.4-r3                apk     
+libwebp-dev                         1.3.0-r2                apk     
+libx11                              1.8.4-r4                apk     
 libxau                              1.0.11-r2               apk     
 libxcb                              1.15-r1                 apk     
 libxdmcp                            1.1.4-r2                apk     
@@ -753,7 +769,8 @@ text-table                          0.2.0                   npm
 thenify                             3.3.1                   npm     
 thenify-all                         1.6.0                   npm     
 through                             2.3.8                   npm     
-tiff                                4.5.0-r6                apk     
+tiff                                4.5.1-r0                apk     
+tiff-dev                            4.5.1-r0                apk     
 tiny-relative-date                  1.3.0                   npm     
 tmp                                 0.0.33                  npm     
 toidentifier                        1.0.1                   npm     
@@ -801,6 +818,7 @@ vips                                8.14.2-r3               apk
 vips-cpp                            8.14.2-r3               apk     
 vips-heif                           8.14.2-r3               apk     
 vips-jxl                            8.14.2-r3               apk     
+vips-magick                         8.14.2-r3               apk     
 vulkan-loader                       1.3.243.0-r1            apk     
 walk-up-path                        3.0.1                   npm     
 wayland-libs-client                 1.22.0-r2               apk     
@@ -832,4 +850,7 @@ yargs-parser                        21.1.1                  npm
 zimg                                3.0.4-r2                apk     
 zip-stream                          4.1.0                   npm     
 zlib                                1.2.13-r1               apk     
+zlib-dev                            1.2.13-r1               apk     
+zstd                                1.5.5-r4                apk     
+zstd-dev                            1.5.5-r4                apk     
 zstd-libs                           1.5.5-r4                apk     
