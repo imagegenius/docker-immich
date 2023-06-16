@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # map disable variables to immich variables
-if [ "${DISABLE_MACHINE_LEANRNING}" == "true" ]; then
+if [ "${DISABLE_MACHINE_LEARNING}" == "true" ]; then
     export IMMICH_MACHINE_LEARNING_URL=false
 fi
 if [ "${DISABLE_TYPESENSE}" == "true" ]; then

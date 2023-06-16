@@ -32,7 +32,7 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, which makes for a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
@@ -43,7 +43,13 @@ To set up redis using the docker mod, use the following:
 
 Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
-When `CUDA_ACCELERATION` is set to `true`, container startup times will be increased, as it will force upgrade the cuda pip packages every restart.
+Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
+
+Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
+
+Take note that when `CUDA_ACCELERATION` is set to `true`, container startup times will be longer. This is because it triggers a force upgrade of the CUDA pip packages every time the container restarts. 'TAG OBJECTS' and 'ENCODE CLIP' jobs will leverage GPU acceleration, however, the 'RECOGNIZE FACES' job won't utilize GPU acceleration.
+
+If you desire GPU acceleration for all your machine learning jobs, you'll need to set up a new `immich-cuda-node` Docker. All the necessary instructions to do this are available on [the immich-cuda-node repository](https://github.com/imagegenius/docker-immich-cuda-node/).
 
 ## Usage
 
@@ -67,7 +73,7 @@ services:
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=192.168.1.x
-      - DISABLE_MACHINE_LEANRNING=false #optional
+      - DISABLE_MACHINE_LEARNING=false #optional
       - DISABLE_TYPESENSE=false #optional
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
@@ -116,7 +122,7 @@ docker run -d \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=192.168.1.x \
-  -e DISABLE_MACHINE_LEANRNING=false `#optional` \
+  -e DISABLE_MACHINE_LEARNING=false `#optional` \
   -e DISABLE_TYPESENSE=false `#optional` \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
@@ -164,7 +170,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
-| `-e DISABLE_MACHINE_LEANRNING=false` | Set to `true` to disable machine learning |
+| `-e DISABLE_MACHINE_LEARNING=false` | Set to `true` to disable machine learning |
 | `-e DISABLE_TYPESENSE=false` | Set to `true` to disable Typesense (disables searching completely!) |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
