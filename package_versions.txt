@@ -73,6 +73,7 @@ adduser                             3.129ubuntu1                       deb
 agent-base                          6.0.2                              npm     
 agentkeepalive                      4.2.1                              npm     
 aggregate-error                     3.1.0                              npm     
+aiocache                            0.12.1                             python  
 ajv                                 6.12.6                             npm     
 albumentations                      1.3.1                              python  
 ansi-escapes                        4.3.2                              npm     
@@ -317,6 +318,7 @@ has-flag                            4.0.0                              npm
 has-symbols                         1.0.3                              npm     
 has-unicode                         2.0.1                              npm     
 he                                  1.2.0                              npm     
+hicolor-icon-theme                  0.17-2                             deb     
 highlight.js                        10.7.3                             npm     
 hosted-git-info                     6.1.1                              npm     
 hostname                            3.23+nmu1ubuntu1                   deb     
@@ -335,8 +337,10 @@ idna                                3.3                                python
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.1                              npm     
 imageio                             2.31.1                             python  
+imagemagick                         8:6.9.11.60+dfsg-1.6               deb     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
-immich                              1.60.0                             npm     
+imagemagick-6.q16                   8:6.9.11.60+dfsg-1.6               deb     
+immich                              1.61.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
@@ -385,6 +389,7 @@ jsonparse                           1.3.1                              npm
 jsprim                              1.4.2                              npm     
 just-diff                           5.2.0                              npm     
 just-diff-apply                     5.5.0                              npm     
+justified-layout                    4.1.0                              npm     
 kdt                                 0.1.0                              npm     
 kiwisolver                          1.4.4                              python  
 krb5-locales                        1.20.1-1build1                     deb     
@@ -448,6 +453,8 @@ libde265-0                          1.0.11-1                           deb
 libdebconfclient0                   0.267ubuntu1                       deb     
 libdecor-0-0                        0.1.1-2                            deb     
 libdeflate0                         1.15-1                             deb     
+libdjvulibre-text                   3.5.28-2build3                     deb     
+libdjvulibre21                      3.5.28-2build3                     deb     
 libdrm-amdgpu1                      2.4.114-1                          deb     
 libdrm-common                       2.4.114-1                          deb     
 libdrm-intel1                       2.4.114-1                          deb     
@@ -518,6 +525,7 @@ libkrb5support0                     1.20.1-1build1                     deb
 libksba8                            1.6.3-2                            deb     
 liblapack3                          3.11.0-2                           deb     
 liblcms2-2                          2.14-2                             deb     
+liblcms2-dev                        2.14-2                             deb     
 libldap-common                      2.6.3+dfsg-1~exp1ubuntu2           deb     
 libldap2                            2.6.3+dfsg-1~exp1ubuntu2           deb     
 liblerc4                            4.0.0+ds-2ubuntu2                  deb     
@@ -528,6 +536,8 @@ libltdl7                            2.4.7-5                            deb
 liblz4-1                            1.9.4-1                            deb     
 liblzma5                            5.4.1-0.2                          deb     
 libmagickcore-6.q16-6               8:6.9.11.60+dfsg-1.6               deb     
+libmagickcore-6.q16-6-extra         8:6.9.11.60+dfsg-1.6               deb     
+libmagickwand-6.q16-6               8:6.9.11.60+dfsg-1.6               deb     
 libmatio11                          1.5.23-2                           deb     
 libmaxminddb0                       1.7.1-1                            deb     
 libmbedcrypto7                      2.28.2-1                           deb     
@@ -604,7 +614,9 @@ libpython3.11-stdlib                3.11.2-6ubuntu0.1                  deb
 librabbitmq4                        0.11.0-1                           deb     
 libraqm0                            0.7.0-4.1                          deb     
 librav1e0                           0.5.1-6ubuntu1                     deb     
+libraw-dev                          0.20.2-2ubuntu2.23.04.1            deb     
 libraw1394-11                       2.1.2-2build2                      deb     
+libraw20                            0.20.2-2ubuntu2.23.04.1            deb     
 libreadline8                        8.2-1.3                            deb     
 librist4                            0.2.7+dfsg-1                       deb     
 librsvg2-2                          2.54.5+dfsg-1ubuntu2               deb     
@@ -681,9 +693,10 @@ libwayland-server0                  1.21.0-1                           deb
 libwebp7                            1.2.4-0.1ubuntu0.23.04.1           deb     
 libwebpdemux2                       1.2.4-0.1ubuntu0.23.04.1           deb     
 libwebpmux3                         1.2.4-0.1ubuntu0.23.04.1           deb     
-libx11-6                            2:1.8.4-2                          deb     
-libx11-data                         2:1.8.4-2                          deb     
-libx11-xcb1                         2:1.8.4-2                          deb     
+libwmflite-0.2-7                    0.2.12-5ubuntu3                    deb     
+libx11-6                            2:1.8.4-2ubuntu0.2                 deb     
+libx11-data                         2:1.8.4-2ubuntu0.2                 deb     
+libx11-xcb1                         2:1.8.4-2ubuntu0.2                 deb     
 libx264-164                         2:0.164.3095+gitbaee400-2build1    deb     
 libx265-199                         3.5-2                              deb     
 libxau6                             1:1.0.9-1build5                    deb     
