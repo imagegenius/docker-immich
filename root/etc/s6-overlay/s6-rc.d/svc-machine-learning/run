@@ -12,4 +12,4 @@ fi
 export HOME=/tmp
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
-       python3 main.py
+       /lsiopy/bin/serve run app.main:ingress --host 0.0.0.0 --port 3003

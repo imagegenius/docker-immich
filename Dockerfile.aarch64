@@ -1,5 +1,47 @@
 # syntax=docker/dockerfile:1
 
+FROM ghcr.io/imagegenius/baseimage-ubuntu:jammy as builder
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+  PYTHONUNBUFFERED=1 \
+  PIP_NO_CACHE_DIR=true
+
+RUN \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    g++ \
+    python3-dev \
+    python3-pip \
+    python3-venv && \
+  mkdir -p \
+    /tmp/immich && \
+  if [ -z ${IMMICH_VERSION} ]; then \
+    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl  \
+    -o /tmp/immich.tar.gz
+    -sL "https://github.com/mertalev/immich/archive/ml-ray.tar.gz" && \
+	tar xf \
+    /tmp/immich.tar.gz -C \
+    /tmp/immich --strip-components=1 && \
+  mkdir -p \
+    /app/immich/machine-learning && \
+  cp -a \
+    /tmp/immich/machine-learning/poetry.lock \
+    /tmp/immich/machine-learning/pyproject.toml \
+    /app/immich/machine-learning && \
+  pip install --upgrade pip && pip install poetry && \
+  poetry config installer.max-workers 10 && \
+  poetry config virtualenvs.create false && \
+  python3 -m venv /lsiopy
+
+ENV VIRTUAL_ENV="/lsiopy" PATH="/lsiopy/bin:${PATH}"
+
+WORKDIR /app/immich/machine-learning
+
+RUN poetry install --sync --no-interaction --no-ansi --no-root --only main
+
 FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
 
 # set version label
@@ -36,16 +78,7 @@ RUN \
     make \
     nginx \
     nodejs \
-    perl \
-    python3-dev \
-    python3-fastapi \
-    python3-nltk \
-    python3-numpy \
-    python3-pil \
-    python3-pip \
-    python3-sentencepiece \
-    python3-tqdm \
-    python3-uvicorn && \
+    perl && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -53,10 +86,10 @@ RUN \
     IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
       jq -r '.tag_name'); \
   fi && \
-  curl -o \
-    /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
-  tar xf \
+  curl  \
+    -o /tmp/immich.tar.gz
+    -sL "https://github.com/mertalev/immich/archive/ml-ray.tar.gz" && \
+	tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
   echo "**** download typesense server ****" && \
@@ -99,30 +132,16 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
-    torch && \
-  pip install --break-system-packages -U --no-cache-dir \
-    aiocache \
-    insightface \
-    onnxruntime \
-    scikit-learn \
-    scipy \
-    sentence-transformers \
-    transformers && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
-    app/. \
+    app \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
-  for cleanfiles in *.pyc *.pyo; do \
-    find /usr/local/lib/python3.* /usr/lib/python3.* -name "${cleanfiles}" -delete; \
-  done && \
   apt-get remove -y --purge \
     g++ \
     libvips-dev \
-    make \
-    python3-dev && \
+    make && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
@@ -133,6 +152,13 @@ RUN \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
     /usr/share/keyrings/nodesource.gpg
+
+# copy python dependencies
+COPY --from=builder /lsiopy /lsiopy
+COPY --from=builder /usr/bin/python3 /usr/bin/python3
+COPY --from=builder /usr/lib/python3 /usr/lib/python3
+COPY --from=builder /usr/lib/python3.10 /usr/lib/python3.10
+COPY --from=builder /usr/local/lib/python3.10 /usr/local/lib/python3.10
 
 # copy local files
 COPY root/ /
