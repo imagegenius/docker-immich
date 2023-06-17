@@ -51,7 +51,7 @@ LABEL maintainer="hydazz, martabal"
 # environment settings
 ENV TRANSFORMERS_CACHE="/config/machine-learning" \
   TYPESENSE_DATA_DIR="/config/typesense" \
-  TYPESENSE_VERSION="0.24.0" \
+  TYPESENSE_VERSION="0.24.1" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
