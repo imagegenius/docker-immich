@@ -74,8 +74,6 @@ app_setup_block: |
 
   Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
 
-  If you desire GPU acceleration for all your machine learning jobs, you'll need to set up a new `immich-cuda-node` Docker. All the necessary instructions to do this are available on [the immich-cuda-node repository](https://github.com/imagegenius/docker-immich-cuda-node/).
-
 external_application_snippet_enabled: true
 external_application_cli_block: |
   # Redis:
