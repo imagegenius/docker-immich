@@ -32,7 +32,8 @@ RUN \
   poetry config virtualenvs.create false && \
   python3 -m venv /lsiopy
 
-ENV VIRTUAL_ENV="/lsiopy" PATH="/lsiopy/bin:${PATH}"
+ENV VIRTUAL_ENV="/lsiopy" \
+  PATH="/lsiopy/bin:${PATH}"
 
 WORKDIR /app/immich/machine-learning
 
@@ -147,6 +148,8 @@ RUN \
 
 # copy python dependencies
 COPY --from=builder /lsiopy /lsiopy
+
+# copy python 3.10
 COPY --from=builder /usr/bin/python3 /usr/bin/python3
 COPY --from=builder /usr/lib/python3 /usr/lib/python3
 COPY --from=builder /usr/lib/python3.10 /usr/lib/python3.10
