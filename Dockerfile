@@ -71,7 +71,6 @@ RUN \
     libheif1 \
     libraw-dev \
     libvips \
-    libvips-dev \
     make \
     nginx \
     nodejs \
@@ -133,7 +132,6 @@ RUN \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
     g++ \
-    libvips-dev \
     make && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
