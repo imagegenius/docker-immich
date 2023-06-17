@@ -5,7 +5,7 @@ if [[ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]]; then
 fi
 
 # stop machine learning from starting
-if [[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]]; then
+if [[ "${DISABLE_MACHINE_LEARNING}" == "true" ]] || [[ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]]; then
     tail -f /dev/null
 fi
 
