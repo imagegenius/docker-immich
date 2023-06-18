@@ -1,19 +1,19 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
+if [[ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]]; then
     echo "WARN: The Machine-Learning service is disabled as 'IMMICH_MACHINE_LEARNING_URL' is set to '${IMMICH_MACHINE_LEARNING_URL}'."
 fi
 
 # stop machine learning from starting
-if [ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
+if [[ "${DISABLE_MACHINE_LEARNING}" == "true" ]] || [[ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]]; then
     tail -f /dev/null
 fi
 
-if [ "${CUDA_ACCELERATION}" = "true" ]; then
+if [[ "${CUDA_ACCELERATION}" = "true" ]]; then
     source /config/cuda-venv/bin/activate
 fi
 
 export HOME=/tmp
 exec \
-    cd /app/immich/machine-learning s6-setuidgid abc \
+    cd /app/immich/machine-learning/app s6-setuidgid abc \
        python3 main.py
