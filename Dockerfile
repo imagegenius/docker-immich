@@ -30,7 +30,11 @@ RUN \
   pip install --upgrade pip && pip install poetry && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  python3 -m venv /lsiopy
+  python3 -m venv /lsiopy && \
+  echo "**** cleanup ****" && \
+  for cleanfiles in *.pyc *.pyo; do \
+    find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
+  done && \
 
 ENV VIRTUAL_ENV="/lsiopy" \
   PATH="/lsiopy/bin:${PATH}"
@@ -70,6 +74,7 @@ RUN \
     libheif1 \
     libraw-dev \
     libvips \
+    libvips-dev \
     nginx \
     nodejs \
     perl && \
