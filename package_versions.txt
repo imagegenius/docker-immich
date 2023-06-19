@@ -57,8 +57,9 @@ NAME                                VERSION                            TYPE
 @types/node                         18.16.8                            npm     
 @types/through                      0.0.30                             npm     
 @types/validator                    13.7.17                            npm     
-@zoom-image/core                    0.14.0                             npm     
-@zoom-image/svelte                  0.1.0                              npm     
+@unlazy/core                        0.8.9                              npm     
+@zoom-image/core                    0.18.2                             npm     
+@zoom-image/svelte                  0.1.7                              npm     
 Cython                              0.29.35                            python  
 Jinja2                              3.1.2                              python  
 MarkupSafe                          2.1.2                              python  
@@ -130,7 +131,7 @@ buffer-from                         1.1.2                              npm
 buffer-writer                       2.0.0                              npm     
 buffers                             0.1.1                              npm     
 builtins                            5.0.1                              npm     
-bullmq                              3.14.1                             npm     
+bullmq                              3.15.4                             npm     
 busboy                              1.6.0                              npm     
 bytes                               3.1.2                              npm     
 ca-certificates                     20230311ubuntu0.23.04.1            deb     
@@ -254,6 +255,7 @@ express                             4.18.2                             npm
 extend                              3.0.2                              npm     
 external-editor                     3.1.0                              npm     
 extsprintf                          1.3.0                              npm     
+fast-blurhash                       1.1.2                              npm     
 fast-deep-equal                     3.1.3                              npm     
 fast-json-stable-stringify          2.1.0                              npm     
 fast-safe-stringify                 2.1.1                              npm     
@@ -340,7 +342,7 @@ imageio                             2.31.1                             python
 imagemagick                         8:6.9.11.60+dfsg-1.6               deb     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.6               deb     
-immich                              1.61.0                             npm     
+immich                              1.62.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
@@ -395,7 +397,7 @@ kiwisolver                          1.4.4                              python
 krb5-locales                        1.20.1-1build1                     deb     
 lazy_loader                         0.2                                python  
 lazystream                          1.0.1                              npm     
-leaflet                             1.9.3                              npm     
+leaflet                             1.9.4                              npm     
 leaflet.markercluster               1.5.3                              npm     
 libacl1                             2.3.1-3                            deb     
 libaec0                             1.0.6-1                            deb     
@@ -850,7 +852,7 @@ on-finished                         2.4.1                              npm
 once                                1.4.0                              npm     
 onetime                             5.1.2                              npm     
 onnx                                1.14.0                             python  
-onnxruntime                         1.15.0                             python  
+onnxruntime                         1.15.1                             python  
 opencv-python-headless              4.7.0.72                           python  
 openid-client                       5.4.2                              npm     
 openssl                             3.0.8-1ubuntu1.2                   deb     
@@ -908,7 +910,7 @@ publicsuffix                        20230209.2326-1                    deb
 pump                                3.0.0                              npm     
 punycode                            2.3.0                              npm     
 pydantic                            1.10.4                             python  
-pyparsing                           3.0.9                              python  
+pyparsing                           3.1.0                              python  
 python                              3.11.2                             binary  
 python-dateutil                     2.8.2                              python  
 python3                             3.11.2-1                           deb     
@@ -973,7 +975,6 @@ retry                               0.12.0                             npm
 rimraf                              2.4.5                              npm     
 rimraf                              3.0.2                              npm     
 run-async                           2.4.1                              npm     
-rxjs                                7.8.0                              npm     
 rxjs                                7.8.1                              npm     
 safe-buffer                         5.1.2                              npm     
 safe-buffer                         5.2.1                              npm     
@@ -1010,8 +1011,9 @@ sniffio                             1.2.0                              python
 socket.io                           4.6.1                              npm     
 socket.io-adapter                   2.5.2                              npm     
 socket.io-client                    4.4.0                              npm     
-socket.io-client                    4.6.1                              npm     
+socket.io-client                    4.6.2                              npm     
 socket.io-parser                    4.2.2                              npm     
+socket.io-parser                    4.2.4                              npm     
 socks                               2.7.1                              npm     
 socks-proxy-agent                   7.0.0                              npm     
 source-map                          0.6.1                              npm     
@@ -1035,7 +1037,7 @@ strip-json-comments                 2.0.1                              npm
 supports-color                      5.5.0                              npm     
 supports-color                      7.2.0                              npm     
 svelte                              3.59.1                             npm     
-svelte-local-storage-store          0.4.0                              npm     
+svelte-local-storage-store          0.5.0                              npm     
 svelte-material-icons               3.0.4                              npm     
 swagger-ui-dist                     4.18.2                             npm     
 sympy                               1.11.1                             python  
@@ -1050,6 +1052,7 @@ thenify                             3.3.1                              npm
 thenify-all                         1.6.0                              npm     
 threadpoolctl                       3.1.0                              python  
 through                             2.3.8                              npm     
+thumbhash                           0.1.1                              npm     
 tifffile                            2023.4.12                          python  
 tiny-relative-date                  1.3.0                              npm     
 tmp                                 0.0.33                             npm     
@@ -1065,6 +1068,7 @@ traverse                            0.3.9                              npm
 treeverse                           3.0.0                              npm     
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.5.0                              npm     
+tslib                               2.5.3                              npm     
 tuf-js                              1.0.0                              npm     
 tunnel-agent                        0.6.0                              npm     
 tweetnacl                           0.14.5                             npm     
@@ -1085,6 +1089,7 @@ unique-filename                     2.0.1                              npm
 unique-filename                     3.0.0                              npm     
 unique-slug                         3.0.0                              npm     
 unique-slug                         4.0.0                              npm     
+unlazy                              0.8.9                              npm     
 unpipe                              1.0.0                              npm     
 unzip-stream                        0.3.1                              npm     
 uri-js                              4.4.1                              npm     
