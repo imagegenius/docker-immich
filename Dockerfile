@@ -28,7 +28,6 @@ RUN \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
-    imagemagick \
     libheif1 \
     libraw-dev \
     libvips \
@@ -105,6 +104,9 @@ RUN \
     app \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
+  for cleanfiles in *.pyc *.pyo; do \
+    find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
+  done && \
   apt-get remove -y --purge \
     g++ \
     make \
