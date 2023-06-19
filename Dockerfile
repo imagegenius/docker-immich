@@ -70,11 +70,13 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     ffmpeg \
+    g++ \
     imagemagick \
     libheif1 \
     libraw-dev \
     libvips \
     libvips-dev \
+    make \
     nginx \
     nodejs \
     perl && \
@@ -133,7 +135,9 @@ RUN \
     app \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
-  apt-get autoremove -y --purge && \
+  apt-get autoremove -y --purge \
+    g++ \
+    make && \
   apt-get clean && \
   rm -rf \
     /tmp/* \
