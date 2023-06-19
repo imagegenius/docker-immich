@@ -34,7 +34,7 @@ RUN \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
-  done && \
+  done
 
 ENV VIRTUAL_ENV="/lsiopy" \
   PATH="/lsiopy/bin:${PATH}"
