@@ -28,6 +28,7 @@ RUN \
   apt-get install --no-install-recommends -y \
     ffmpeg \
     g++ \
+    imagemagick \
     libheif1 \
     libraw-dev \
     libvips \
