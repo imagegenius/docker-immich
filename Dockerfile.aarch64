@@ -97,7 +97,6 @@ RUN \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry config virtualenvs.path /lsiopy && \
   poetry install --sync --no-interaction --no-ansi --no-root --only main && \
   mkdir -p \
     /app/immich/machine-learning && \
@@ -110,6 +109,7 @@ RUN \
   done && \
   apt-get remove -y --purge \
     g++ \
+    libvips-dev \
     make \
     python3-dev && \
   apt-get autoremove -y --purge && \

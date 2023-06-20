@@ -11,8 +11,6 @@ fi
 
 if [[ "${CUDA_ACCELERATION}" = "true" ]]; then
     source /config/cuda-venv/bin/activate
-else
-    source /lsiopy/bin/activate
 fi
 
 export HOME=/tmp
