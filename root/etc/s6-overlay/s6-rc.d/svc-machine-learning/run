@@ -9,11 +9,11 @@ if [ "${DISABLE_MACHINE_LEARNING}" == "true" ] || [ "${IMMICH_MACHINE_LEARNING_U
     tail -f /dev/null
 fi
 
-if [ "${CUDA_ACCELERATION}" = "true" ]; then
+if [[ "${CUDA_ACCELERATION}" = "true" ]]; then
     source /config/cuda-venv/bin/activate
 fi
 
 export HOME=/tmp
 exec \
-    cd /app/immich/machine-learning s6-setuidgid abc \
+    cd /app/immich/machine-learning/app s6-setuidgid abc \
        python3 main.py

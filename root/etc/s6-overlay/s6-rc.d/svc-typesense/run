@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${TYPESENSE_HOST}" != "127.0.0.1" ]; then
+if [[ "${TYPESENSE_HOST}" != "127.0.0.1" ]]; then
     echo "WARN: The Typesense service is disabled as 'TYPESENSE_HOST' is set to '${TYPESENSE_HOST}'."
 fi
 

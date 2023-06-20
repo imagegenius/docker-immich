@@ -19,11 +19,16 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
         aiocache \
         fastapi \
         insightface \
+        ntlk \
+        numpy \
         onnxruntime \
+        Pillow \
         scikit-learn \
         scipy \
+        sentencepiece \
         sentence-transformers \
         torch \
+        tqdm \
         transformers \
         uvicorn[standard]
 
