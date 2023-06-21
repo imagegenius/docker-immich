@@ -903,7 +903,7 @@ pgpass                              1.0.5                              npm
 pinentry-curses                     1.2.1-1ubuntu1                     deb     
 pip                                 23.0.1                             python  
 pkginfo                             1.9.6                              python  
-platformdirs                        3.6.0                              python  
+platformdirs                        3.7.0                              python  
 poetry                              1.5.1                              python  
 poetry-core                         1.6.1                              python  
 poetry-plugin-export                1.4.0                              python  
