@@ -54,6 +54,7 @@ NAME                                VERSION                                  TYP
 @types/cors                         2.8.13                                   npm     
 @types/inquirer                     8.2.6                                    npm     
 @types/luxon                        3.3.0                                    npm     
+@types/mime-types                   2.1.1                                    npm     
 @types/node                         18.16.8                                  npm     
 @types/through                      0.0.30                                   npm     
 @types/validator                    13.7.17                                  npm     
@@ -340,7 +341,7 @@ imageio                             2.31.1                                   pyt
 imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
-immich                              1.62.1                                   npm     
+immich                              1.63.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -803,12 +804,12 @@ nginx                               1.18.0-6ubuntu14.3                       deb
 nginx-common                        1.18.0-6ubuntu14.3                       deb     
 nginx-core                          1.18.0-6ubuntu14.3                       deb     
 nltk                                3.7                                      python  
-node                                18.16.0                                  binary  
+node                                18.16.1                                  binary  
 node-abi                            3.40.0                                   npm     
 node-addon-api                      5.1.0                                    npm     
 node-fetch                          2.6.11                                   npm     
 node-gyp                            9.3.1                                    npm     
-nodejs                              18.16.0-deb-1nodesource1                 deb     
+nodejs                              18.16.1-deb-1nodesource1                 deb     
 nopt                                5.0.0                                    npm     
 nopt                                6.0.0                                    npm     
 nopt                                7.0.0                                    npm     
