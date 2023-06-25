@@ -1,2 +1,2 @@
 #!/bin/sh
-node /app/immich/cli/bin/index.js "$@"
+node /app/cli/bin/index.js "$@"

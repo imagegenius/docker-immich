@@ -70,7 +70,7 @@ RUN \
   echo "**** build cli ****" && \
   cd /tmp/cli && \
   mkdir -p \
-    /app/immich/cli && \
+    /app/cli && \
   npm ci && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
@@ -79,7 +79,7 @@ RUN \
     package-lock.json \
     node_modules \
     bin \
-    /app/immich/cli && \
+    /app/cli && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
