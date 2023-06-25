@@ -17,14 +17,16 @@ else
         /tmp/cli --strip-components=1
     echo "**** building Immich CLI ****"
     cd /tmp/cli
-    npm ci --dev
+    npm ci --include=dev
     npm run build
+    npm prune --omit=dev --omit=optional && \
     echo "**** updating Immich CLI ... ****"
     rm -rf \
         /app/immich/cli/*
     cp -a \
         package.json \
         package-lock.json \
+        node_modules \
         bin \
         /app/immich/cli
     cd /app/immich/cli
