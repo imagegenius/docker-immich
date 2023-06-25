@@ -1,34 +1,36 @@
 #!/bin/bash
 IMMICH_CLI_LATEST_VERSION=$(curl -sL https://api.github.com/repos/immich-app/CLI/releases/latest | jq -r '.tag_name');
 IMMICH_CLI_INSTALLED_VERSION=$(cat /app/immich/cli/package.json | jq -r '.version')
-echo "Installed CLI version : ${IMMICH_CLI_INSTALLED_VERSION}"
+echo "Version of Immich CLI installed : v${IMMICH_CLI_INSTALLED_VERSION}"
 if [[ $IMMICH_CLI_LATEST_VERSION =~ .*${IMMICH_CLI_INSTALLED_VERSION}.* ]]; then
-    echo "Latest CLI version already installed"
+    echo "Latest Immich CLI version is already installed"
 else
-    echo "New version of CLI detected, installing ${IMMICH_CLI_LATEST_VERSION}"
+    echo "New version of Immich CLI detected, installing ${IMMICH_CLI_LATEST_VERSION}"
     mkdir -p \
         /tmp/cli
-    echo "**** download immich-CLI ****"
+    echo "**** downloading Immich CLI ****"
     curl -o \
         /tmp/cli.tar.gz -L \
         "https://github.com/immich-app/CLI/archive/${IMMICH_CLI_LATEST_VERSION}.tar.gz"
     tar xf \
         /tmp/cli.tar.gz -C \
         /tmp/cli --strip-components=1
-    echo "**** build CLI ****"
+    echo "**** building Immich CLI ****"
     cd /tmp/cli
-    npm ci
+    npm ci --dev
     npm run build
-    echo "**** update CLI ... ****"
+    echo "**** updating Immich CLI ... ****"
     rm -rf \
         /app/immich/cli/*
     cp -a \
         package.json \
         package-lock.json \
-        node_modules \
         bin \
         /app/immich/cli
+    cd /app/immich/cli
+    npm ci
     echo "**** cleanup ****"
-    rm /tmp/cli /tmp/cli.tar.gz
-    echo "Latest CLI version installed"
+    rm -rf \
+        /tmp/cli /tmp/cli.tar.gz
+    echo "Latest Immich CLI version installed"
 fi
