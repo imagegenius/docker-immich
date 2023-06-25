@@ -82,6 +82,7 @@ RUN \
     /app/immich/cli && \
   npm ci && \
   npm run build && \
+  npm prune --omit=dev --omit=optional && \
   cp -a \
     package.json \
     package-lock.json \
