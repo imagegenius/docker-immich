@@ -352,7 +352,7 @@ imageio                             2.30.0                             python
 imagemagick                         8:6.9.11.60+dfsg-1.6               deb     
 imagemagick-6-common                8:6.9.11.60+dfsg-1.6               deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.6               deb     
-immich                              1.63.0                             npm     
+immich                              1.63.2                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.7.0                              python  
