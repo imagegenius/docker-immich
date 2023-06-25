@@ -1,2 +1,4 @@
 #!/bin/sh
-node /app/immich/server/dist/main cli "$@"
+echo "To execute the administrative CLI, run 'immich-admin'"
+echo "To execute the CLI for uploading assets, run 'immich-upload'"
+echo "To update the CLI for uploading assets, run 'immich-upload-update'"
