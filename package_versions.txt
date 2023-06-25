@@ -76,7 +76,7 @@ ajv                                 6.12.6                  npm
 alpine-baselayout                   3.4.3-r1                apk     
 alpine-baselayout-data              3.4.3-r1                apk     
 alpine-keys                         2.4-r1                  apk     
-alpine-release                      3.18.0-r0               apk     
+alpine-release                      3.18.2-r0               apk     
 alsa-lib                            1.2.9-r1                apk     
 ansi-escapes                        4.3.2                   npm     
 ansi-regex                          5.0.1                   npm     
@@ -339,7 +339,7 @@ imagemagick-c++                     7.1.1.10-r0             apk
 imagemagick-dev                     7.1.1.10-r0             apk     
 imagemagick-libs                    7.1.1.10-r0             apk     
 imath                               3.1.7-r1                apk     
-immich                              1.63.0                  npm     
+immich                              1.63.2                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -709,7 +709,7 @@ setprototypeof                      1.2.0                   npm
 setuptools                          67.7.2                  python  
 sha.js                              2.4.11                  npm     
 shaderc                             2023.3-r1               apk     
-shadow                              4.13-r2                 apk     
+shadow                              4.13-r4                 apk     
 shared-mime-info                    2.2-r5                  apk     
 sharp                               0.31.3                  npm     
 shebang-command                     2.0.0                   npm     
