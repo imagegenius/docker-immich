@@ -29,8 +29,6 @@ else
         node_modules \
         bin \
         /app/immich/cli
-    cd /app/immich/cli
-    npm ci
     echo "**** cleanup ****"
     rm -rf \
         /tmp/cli /tmp/cli.tar.gz
