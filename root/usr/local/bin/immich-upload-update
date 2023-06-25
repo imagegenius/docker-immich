@@ -31,6 +31,7 @@ else
         /app/immich/cli
     echo "**** cleanup ****"
     rm -rf \
-        /tmp/cli /tmp/cli.tar.gz
+        /tmp/cli \
+        /tmp/cli.tar.gz
     echo "Latest Immich CLI version installed"
 fi
