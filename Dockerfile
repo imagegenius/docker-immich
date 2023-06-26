@@ -48,6 +48,7 @@ RUN \
     libopenslide-dev \
     liborc-dev \
     libpango1.0-dev \
+    libpng-dev \
     libpoppler-glib-dev \
     libraw-dev \
     librsvg2-dev \
