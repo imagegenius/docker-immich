@@ -26,20 +26,84 @@ RUN \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
+    build-essential \
+    bc \
     ffmpeg \
     g++ \
-    imagemagick \
-    libheif1 \
     libraw-dev \
-    libvips \
-    libvips-dev \
+    libfftw3-dev \
+    libopenexr-dev \
+    libgsf-1-dev \
+    libglib2.0-dev \
+    liborc-dev \
+    libheif-dev \
+    libjxl-dev \
+    libopenslide-dev \
+    libmatio-dev \
+    libwebp-dev \
+    libjpeg-turbo8-dev \
+    libexpat1-dev \
+    libexif-dev \
+    libtiff5-dev \
+    libcfitsio-dev \
+    libpoppler-glib-dev \
+    librsvg2-dev \
+    libltdl-dev \
+    libpango1.0-dev \
+    libopenjp2-7-dev \
+    libimagequant-dev \
+    libgirepository1.0-dev \
     make \
     nginx \
+    ninja-build \
     nodejs \
     perl \
     python3-dev \
     python3-pip \
     python3-venv && \
+  pip install --break-system-packages -U --no-cache-dir meson && \
+  echo "**** download imagemagick ****" && \
+  mkdir -p \
+    /tmp/imagemagick && \
+  if [ -z ${IMAGE_MAGICK_VERSION} ]; then \
+    IMAGE_MAGICK_VERSION=$(curl -sL https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/imagemagick.tar.gz -L \
+    "https://github.com/ImageMagick/ImageMagick/archive/${IMAGE_MAGICK_VERSION}.tar.gz" && \
+  cd /tmp && \
+  tar xf \
+    /tmp/imagemagick.tar.gz -C \
+    /tmp/imagemagick --strip-components=1 && \
+  echo "**** build imagemagick ****" && \
+  cd /tmp/imagemagick && \
+  ./configure --with-modules && \
+  make -j 4 && \
+  make install && \
+  ldconfig /usr/local/lib && \
+  echo "**** download libvips ****" && \
+  mkdir -p \
+    /tmp/libvips && \
+  if [ -z ${IMAGE_LIBVIPS_VERSION} ]; then \
+    IMAGE_LIBVIPS_VERSION=$(curl -sL https://api.github.com/repos/libvips/libvips/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/libvips.tar.gz -L \
+    "https://github.com/libvips/libvips/archive/${IMAGE_LIBVIPS_VERSION}.tar.gz" && \
+  cd /tmp && \
+  tar xf \
+    /tmp/libvips.tar.gz -C \
+    /tmp/libvips --strip-components=1 && \
+  echo "**** build libvips ****" && \
+  cd /tmp/libvips && \
+  meson build --libdir=lib --buildtype=release -Dintrospection=false && \
+  cd build && \
+  meson compile && \
+  meson test && \
+  meson install && \
+  ldconfig && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -108,9 +172,12 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
+    bc \
+    build-essential \
     g++ \
     libvips-dev \
     make \
+    ninja-build \
     python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
