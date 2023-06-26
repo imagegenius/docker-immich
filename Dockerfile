@@ -6,7 +6,6 @@ FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
-ARG IMMICH_CLI_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
 
@@ -54,19 +53,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download immich-cli ****" && \
-  mkdir -p \
-    /tmp/cli && \
-  if [ -z ${IMMICH_CLI_VERSION} ]; then \
-    IMMICH_CLI_VERSION=$(curl -sL https://api.github.com/repos/immich-app/CLI/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
-  curl -o \
-    /tmp/cli.tar.gz -L \
-    "https://github.com/immich-app/CLI/archive/${IMMICH_CLI_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/cli.tar.gz -C \
-    /tmp/cli --strip-components=1 && \
   echo "**** download typesense ****" && \
   mkdir -p \
     /app/typesense && \
@@ -76,19 +62,6 @@ RUN \
   tar -xf \
     /tmp/typesense.tar.gz -C \
     /app/typesense && \
-  echo "**** build cli ****" && \
-  cd /tmp/cli && \
-  mkdir -p \
-    /app/cli && \
-  npm ci && \
-  npm run build && \
-  npm prune --omit=dev --omit=optional && \
-  cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    bin \
-    /app/cli && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
@@ -130,6 +103,10 @@ RUN \
   cp -a \
     app \
     /app/immich/machine-learning && \
+  echo "**** install immich cli (immich upload) ****" && \
+    npm install -g immich && \
+    mv /usr/bin/immich /usr/local/bin/immich-upload && \
+    mv /usr/local/bin/immich /usr/local/bin/immich-admin && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
