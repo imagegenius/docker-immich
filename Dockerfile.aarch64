@@ -55,6 +55,7 @@ RUN \
     libtiff-dev \
     libwebp-dev \
     make \
+    meson \
     nginx \
     ninja-build \
     nodejs \
@@ -62,7 +63,6 @@ RUN \
     python3-dev \
     python3-pip \
     python3-venv && \
-  pip install --break-system-packages -U --no-cache-dir meson && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
     /tmp/imagemagick && \
@@ -177,6 +177,7 @@ RUN \
     build-essential \
     g++ \
     make \
+    meson \
     ninja-build \
     python3-dev && \
   apt-get autoremove -y --purge && \
