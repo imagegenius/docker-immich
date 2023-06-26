@@ -15,5 +15,5 @@ fi
 
 export HOME=/tmp
 exec \
-    cd /app/immich/machine-learning/app s6-setuidgid abc \
-       python3 main.py
+    cd /app/immich/machine-learning s6-setuidgid abc \
+       python3 -m app.main

@@ -30,29 +30,30 @@ RUN \
     bc \
     ffmpeg \
     g++ \
-    libraw-dev \
-    libfftw3-dev \
-    libopenexr-dev \
-    libgsf-1-dev \
-    libglib2.0-dev \
-    liborc-dev \
-    libheif-dev \
-    libjxl-dev \
-    libopenslide-dev \
-    libmatio-dev \
-    libwebp-dev \
-    libjpeg-turbo8-dev \
-    libexpat1-dev \
-    libexif-dev \
-    libtiff5-dev \
     libcfitsio-dev \
+    libexif-dev \
+    libexpat1-dev \
+    libfftw3-dev \
+    libgirepository1.0-dev \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libheif-dev \
+    libimagequant-dev \
+    libjpeg-dev \
+    libjpeg-turbo8-dev \
+    libjxl-dev \
+    libmatio-dev \
+    libopenexr-dev \
+    libopenjp2-7-dev \
+    libopenslide-dev \
+    liborc-dev \
+    libpango1.0-dev \
     libpoppler-glib-dev \
+    libraw-dev \
     librsvg2-dev \
     libltdl-dev \
-    libpango1.0-dev \
-    libopenjp2-7-dev \
-    libimagequant-dev \
-    libgirepository1.0-dev \
+    libtiff-dev \
+    libwebp-dev \
     make \
     nginx \
     ninja-build \
@@ -175,7 +176,6 @@ RUN \
     bc \
     build-essential \
     g++ \
-    libvips-dev \
     make \
     ninja-build \
     python3-dev && \
