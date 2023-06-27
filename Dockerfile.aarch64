@@ -82,6 +82,10 @@ RUN \
     build \
     static \
     /app/immich/web && \
+  echo "**** install immich cli (immich upload) ****" && \
+    npm install -g immich && \
+    mv /usr/local/lib/node_modules/immich /app/cli && \
+    rm -f /usr/local/bin/immich && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
