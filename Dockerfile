@@ -6,7 +6,6 @@ FROM ghcr.io/imagegenius/baseimage-alpine:3.18
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
-ARG IMMICH_CLI_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
 
