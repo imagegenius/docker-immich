@@ -51,35 +51,9 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download immich-cli ****" && \
-  mkdir -p \
-    /tmp/cli && \
-  if [ -z ${IMMICH_CLI_VERSION} ]; then \
-    IMMICH_CLI_VERSION=$(curl -sL https://api.github.com/repos/immich-app/CLI/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
-  curl -o \
-    /tmp/cli.tar.gz -L \
-    "https://github.com/immich-app/CLI/archive/${IMMICH_CLI_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/cli.tar.gz -C \
-    /tmp/cli --strip-components=1 && \
   echo "**** install pip dependencies ****" && \
   pip install --break-system-packages -U --no-cache-dir \
     psycopg2-binary && \
-  echo "**** build cli ****" && \
-  cd /tmp/cli && \
-  mkdir -p \
-    /app/cli && \
-  npm ci && \
-  npm run build && \
-  npm prune --omit=dev --omit=optional && \
-  cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    bin \
-    /app/cli && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
@@ -109,6 +83,9 @@ RUN \
     build \
     static \
     /app/immich/web && \
+  echo "**** install immich cli (immich upload) ****" && \
+    npm install -g immich && \
+    mv /usr/lib/node_modules/immich /app/cli && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
