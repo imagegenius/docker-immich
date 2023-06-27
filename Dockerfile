@@ -103,6 +103,10 @@ RUN \
   cp -a \
     app \
     /app/immich/machine-learning && \
+  echo "**** install immich cli (immich upload) ****" && \
+    npm install -g immich && \
+    mv /usr/lib/node_modules/immich /app/cli && \
+    rm -f /usr/bin/immich && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
