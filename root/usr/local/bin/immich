@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 if [[ $# -eq 0 ]]; then
-    echo "Usage: immich [upload|reset-admin-password|enable-password-login|disable-password-login|list-users|help]"
+    echo "Usage: immich [upload|reset-admin-password|enable-password-login|disable-password-login|list-users]"
     exit 1
 fi
 
@@ -22,7 +22,7 @@ help)
         node /app/immich/server/dist/main cli help
         ;;
     *)
-        echo "Invalid command for help. Available commands are: admin, upload"
+        echo "Invalid command for help. Available commands are 'immich admin help' or 'immich upload help'"
         exit 1
         ;;
     esac
