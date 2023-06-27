@@ -86,6 +86,7 @@ RUN \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g immich && \
     mv /usr/lib/node_modules/immich /app/cli && \
+    rm -f /usr/bin/immich && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
