@@ -184,11 +184,6 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir poetry && \
-  python3 -m venv /lsiopy && \
-  poetry config installer.max-workers 10 && \
-  poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --only main && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
