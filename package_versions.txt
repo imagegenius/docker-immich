@@ -374,7 +374,7 @@ isexe                               2.0.0                                    npm
 isstream                            0.1.2                                    npm     
 iterare                             1.2.1                                    npm     
 joblib                              0.17.0                                   python  
-joblib                              1.2.0                                    python  
+joblib                              1.3.0                                    python  
 joi                                 17.9.2                                   npm     
 jose                                4.14.4                                   npm     
 jq                                  1.6-2.1ubuntu3                           deb     
