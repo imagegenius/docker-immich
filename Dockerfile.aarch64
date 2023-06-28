@@ -21,23 +21,12 @@ RUN \
   fi && \
   curl -sL "https://github.com/mertalev/immich/archive/ml-ray.tar.gz" -o /tmp/immich.tar.gz && \
 	tar xf /tmp/immich.tar.gz -C /tmp/immich --strip-components=1 && \
-  mkdir -p \
-    /app/immich/machine-learning && \
-  cp -a \
-    /tmp/immich/machine-learning/poetry.lock \
-    /tmp/immich/machine-learning/pyproject.toml \
-    /app/immich/machine-learning && \
-  pip install --upgrade pip && pip install poetry && \
+  cd /tmp/immich/machine-learning && \
+  pip install -U --no-cache-dir poetry && \
+  python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  python3 -m venv /lsiopy
-
-ENV VIRTUAL_ENV="/lsiopy" \
-  PATH="/lsiopy/bin:${PATH}"
-
-WORKDIR /app/immich/machine-learning
-
-RUN poetry install --sync --no-interaction --no-ansi --no-root --only main
+  poetry install --sync --no-interaction --no-ansi --no-root --only main
 
 FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
 
@@ -149,9 +138,13 @@ RUN \
     IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
       jq -r '.tag_name'); \
   fi && \
-  curl -sL "https://github.com/mertalev/immich/archive/ml-ray.tar.gz" -o /tmp/immich.tar.gz && \
-	tar xf /tmp/immich.tar.gz -C /tmp/immich --strip-components=1 && \
-  echo "**** download typesense server ****" && \
+  curl -o \
+    /tmp/immich.tar.gz -L \
+    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
+  tar xf \
+    /tmp/immich.tar.gz -C \
+    /tmp/immich --strip-components=1 && \
+  echo "**** download typesense ****" && \
   mkdir -p \
     /app/typesense && \
   curl -o  \
@@ -191,16 +184,23 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
+  pip install --break-system-packages -U --no-cache-dir poetry && \
+  python3 -m venv /lsiopy && \
+  poetry config installer.max-workers 10 && \
+  poetry config virtualenvs.create false && \
+  poetry install --sync --no-interaction --no-ansi --no-root --only main && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
     app \
     /app/immich/machine-learning && \
   echo "**** install immich cli (immich upload) ****" && \
-    npm install -g immich && \
-    mv /usr/lib/node_modules/immich /app/cli && \
-    rm -f /usr/bin/immich && \
+    npm install -g --prefix /tmp/cli immich && \
+    mv /tmp/cli/lib/node_modules/immich /app/cli && \
   echo "**** cleanup ****" && \
+  for cleanfiles in *.pyc *.pyo; do \
+    find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
+  done && \
   apt-get remove -y --purge \
     bc \
     build-essential \
@@ -219,6 +219,9 @@ RUN \
     /etc/apt/sources.list.d/node.list \
     /usr/share/keyrings/nodesource.gpg
 
+# copy local files
+COPY root/ /
+
 # copy python dependencies
 COPY --from=builder /lsiopy /lsiopy
 
@@ -227,9 +230,6 @@ COPY --from=builder /usr/bin/python3 /usr/bin/python3
 COPY --from=builder /usr/lib/python3 /usr/lib/python3
 COPY --from=builder /usr/lib/python3.10 /usr/lib/python3.10
 COPY --from=builder /usr/local/lib/python3.10 /usr/local/lib/python3.10
-
-# copy local files
-COPY root/ /
 
 # environment settings
 ENV NODE_ENV="production"
