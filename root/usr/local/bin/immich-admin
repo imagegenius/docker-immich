@@ -1,0 +1,2 @@
+#!/bin/sh
+node /app/immich/server/dist/main cli "$@"
