@@ -205,6 +205,7 @@ corepack                            0.17.0                             npm
 coreutils                           9.1-1ubuntu2                       deb     
 cors                                2.8.5                              npm     
 cosmiconfig                         8.1.3                              npm     
+coverage                            7.2.7                              python  
 crashtest                           0.4.1                              python  
 crc-32                              1.2.2                              npm     
 crc32-stream                        4.0.2                              npm     
@@ -364,7 +365,7 @@ ieee754                             1.2.1                              npm
 ignore-walk                         6.0.1                              npm     
 imageio                             2.31.1                             python  
 immich                              0.39.0                             npm     
-immich                              1.64.0                             npm     
+immich                              1.65.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.7.0                              python  
@@ -375,6 +376,7 @@ inflight                            1.0.6                              npm
 inherits                            2.0.4                              npm     
 ini                                 1.3.8                              npm     
 ini                                 3.0.1                              npm     
+iniconfig                           2.0.0                              python  
 init-package-json                   5.0.0                              npm     
 init-system-helpers                 1.65.2                             deb     
 inquirer                            8.2.5                              npm     
@@ -1020,6 +1022,7 @@ pkgconf                             1.8.1-1ubuntu2                     deb
 pkgconf-bin                         1.8.1-1ubuntu2                     deb     
 pkginfo                             1.9.6                              python  
 platformdirs                        3.8.0                              python  
+pluggy                              1.2.0                              python  
 poetry                              1.5.1                              python  
 poetry-core                         1.6.1                              python  
 poetry-plugin-export                1.4.0                              python  
@@ -1051,6 +1054,8 @@ pydantic                            1.10.9                             python
 pyparsing                           3.1.0                              python  
 pyproject_hooks                     1.0.0                              python  
 pyrsistent                          0.19.3                             python  
+pytest                              7.4.0                              python  
+pytest-cov                          4.1.0                              python  
 python                              3.11.2                             binary  
 python-dateutil                     2.8.2                              python  
 python-dotenv                       1.0.0                              python  
@@ -1102,6 +1107,7 @@ retry                               0.12.0                             npm
 rimraf                              2.4.5                              npm     
 rimraf                              3.0.2                              npm     
 rpcsvc-proto                        1.4.2-0ubuntu6                     deb     
+ruff                                0.0.272                            python  
 run-async                           2.4.1                              npm     
 rxjs                                7.8.1                              npm     
 safe-buffer                         5.1.2                              npm     
@@ -1170,7 +1176,7 @@ svelte-local-storage-store          0.5.0                              npm
 svelte-material-icons               3.0.4                              npm     
 swagger-ui-dist                     4.18.2                             npm     
 sympy                               1.12                               python  
-systeminformation                   5.18.5                             npm     
+systeminformation                   5.18.6                             npm     
 sysvinit-utils                      3.06-2ubuntu1                      deb     
 tar                                 1.34+dfsg-1.2ubuntu0.1             deb     
 tar                                 6.1.13                             npm     
