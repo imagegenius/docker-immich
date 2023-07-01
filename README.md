@@ -176,6 +176,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-e CUDA_ACCELERATION=false` | Set to `true` to enable CUDA Acceleration (NVIDIA GPU must be passed through! `--gpus=all`) |
+| `-e SKIP_CHOWN` | Set to `true` to skip chown at container startup |
 | `-v /config` | Contains the logs, machine-learning models and Typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /config/machine-learning` | Store the machine-learning models (~800MB) |

@@ -19,9 +19,31 @@ mkdir -p \
     /run/immich
 
 # permissions
-find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
-find /config -path "cuda-venv" -prune -o -exec chown abc:abc {} +
-chown -R abc:abc \
-    /photos \
-    /run/immich \
-    /app/typesense
+if [ "$SKIP_CHOWN" == "true" ]; then
+    echo "Skip chown for photos"
+else
+    echo "chown photos"
+    chown -R abc:abc \
+    /photos
+fi
+
+skip_chown_for_app="false"
+if [ "$SKIP_CHOWN" == "true" ]; then
+    if [ -f /flag_chown_for_app_runned ]; then
+            skip_chown_for_app="true"
+        else
+            echo "miss /flag_chown_for_app_runned"
+    fi 
+fi 
+
+if [ "${skip_chown_for_app}" == "true" ]; then
+    echo "Skip chown for app"
+else
+    echo "chown app files" ;
+    find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
+    find /config -path "cuda-venv" -prune -o -exec chown abc:abc {} +
+    chown -R abc:abc \
+        /run/immich \
+        /app/typesense
+    touch /flag_chown_for_app_runned
+fi 
