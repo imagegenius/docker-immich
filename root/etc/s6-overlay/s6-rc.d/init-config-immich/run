@@ -22,9 +22,6 @@ if [[ -z "${TEST_RUN}" ]]; then
     fi
 fi
 
-if [[ -z "${TYPESENSE_HOST}" ]]; then
-    export TYPESENSE_ENABLED="false"
-fi
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
