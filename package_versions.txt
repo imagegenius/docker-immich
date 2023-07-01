@@ -333,8 +333,8 @@ hwdata-pci                          0.370-r0                apk
 i18n-iso-countries                  7.6.0                   npm     
 iconv-lite                          0.4.24                  npm     
 iconv-lite                          0.6.3                   npm     
-icu-data-en                         73.2-r0                 apk     
-icu-libs                            73.2-r0                 apk     
+icu-data-en                         73.2-r1                 apk     
+icu-libs                            73.2-r1                 apk     
 ieee754                             1.2.1                   npm     
 ignore-walk                         6.0.3                   npm     
 imagemagick                         7.1.1.10-r0             apk     
@@ -453,7 +453,7 @@ libpulse                            16.1-r10                apk
 libraw                              0.21.1-r0               apk     
 libraw-dev                          0.21.1-r0               apk     
 librist                             0.2.7-r0                apk     
-librsvg                             2.56.1-r0               apk     
+librsvg                             2.56.2-r0               apk     
 libsndfile                          1.2.0-r2                apk     
 libsodium                           1.0.18-r3               apk     
 libspng                             0.7.4-r0                apk     
@@ -857,7 +857,7 @@ yargs                               17.7.2                  npm
 yargs-parser                        20.2.9                  npm     
 yargs-parser                        21.1.1                  npm     
 yocto-queue                         0.1.0                   npm     
-zimg                                3.0.4-r2                apk     
+zimg                                3.0.5-r0                apk     
 zip-stream                          4.1.0                   npm     
 zlib                                1.2.13-r1               apk     
 zlib-dev                            1.2.13-r1               apk     
