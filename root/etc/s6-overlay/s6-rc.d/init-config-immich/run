@@ -19,9 +19,12 @@ mkdir -p \
     /run/immich
 
 # permissions
+if [[ "${SKIP_CHOWN_PHOTOS}" != "true" ]]; then
+    chown -R abc:abc \
+        /photos
+fi
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 find /config -path "cuda-venv" -prune -o -exec chown abc:abc {} +
 chown -R abc:abc \
-    /photos \
     /run/immich \
     /app/typesense
