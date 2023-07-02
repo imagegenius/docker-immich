@@ -21,7 +21,7 @@ mkdir -p \
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 find /config -path "cuda-venv" -prune -o -exec chown abc:abc {} +
-chown -R abc:abc \
+lsiown -R abc:abc \
     /photos \
     /run/immich \
     /app/typesense
