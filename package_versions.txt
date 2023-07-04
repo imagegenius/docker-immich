@@ -365,7 +365,7 @@ ieee754                             1.2.1                              npm
 ignore-walk                         6.0.1                              npm     
 imageio                             2.31.1                             python  
 immich                              0.39.0                             npm     
-immich                              1.65.0                             npm     
+immich                              1.66.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.7.0                              python  
