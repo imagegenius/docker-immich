@@ -19,7 +19,6 @@ if [ "${CUDA_ACCELERATION}" = "true" ]; then
         aiocache \
         fastapi \
         insightface \
-        ntlk \
         numpy \
         onnxruntime \
         Pillow \
