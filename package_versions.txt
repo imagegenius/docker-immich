@@ -331,7 +331,7 @@ http-errors                         2.0.0                                    npm
 http-proxy-agent                    5.0.0                                    npm     
 http-signature                      1.2.0                                    npm     
 https-proxy-agent                   5.0.1                                    npm     
-huggingface-hub                     0.15.1                                   python  
+huggingface-hub                     0.16.2                                   python  
 humanfriendly                       10.0                                     python  
 humanize-ms                         1.2.1                                    npm     
 i18n-iso-countries                  7.6.0                                    npm     
