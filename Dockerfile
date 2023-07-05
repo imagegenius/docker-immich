@@ -23,7 +23,7 @@ RUN \
 	tar xf /tmp/immich.tar.gz -C /tmp/immich --strip-components=1 && \
   cd /tmp/immich/machine-learning && \
   pip install -U --no-cache-dir poetry && \
-  python3 -m venv /lsiopy && \
+  python3 -m venv --copies /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
   poetry install --sync --no-interaction --no-ansi --no-root --only main
@@ -219,12 +219,6 @@ COPY root/ /
 
 # copy python dependencies
 COPY --from=builder /lsiopy /lsiopy
-
-# copy python 3.10
-COPY --from=builder /usr/bin/python3 /usr/bin/python3
-COPY --from=builder /usr/lib/python3 /usr/lib/python3
-COPY --from=builder /usr/lib/python3.10 /usr/lib/python3.10
-COPY --from=builder /usr/local/lib/python3.10 /usr/local/lib/python3.10
 
 # environment settings
 ENV NODE_ENV="production"
