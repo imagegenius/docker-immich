@@ -26,7 +26,7 @@ RUN \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -v '[<>]') \
+    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev') \
     bc \
     build-essential \
     ffmpeg \
