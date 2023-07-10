@@ -71,7 +71,7 @@ app_setup_block: |
 
   Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
-  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in the `DB_URL` environment variable.
+  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
 
   Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
 
@@ -84,7 +84,7 @@ app_setup_block: |
   To import your existing library into Immich :
   - Add a new volume to your Immich Docker container by mapping your existing library path using : `path_to_your_existing_library:/photos/import`
   - Access the Immich web UI and generate an API key from your account settings
-  - In your administration settings, include /photos/import as the external path for your user
+  - In your administration settings, include `/photos/import` as the external path for your user
   - Execute the following command to import your library : `docker exec -it immich immich upload --key <your_api_key> --server http://your_server_ip:8080/api /photos/import --recursive --import`
 external_application_snippet_enabled: true
 external_application_cli_block: |
