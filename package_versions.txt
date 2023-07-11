@@ -300,7 +300,7 @@ get-intrinsic                       1.2.0                   npm
 getpass                             0.1.7                   npm     
 ghostscript                         10.01.2-r0              apk     
 github-from-package                 0.0.0                   npm     
-glib                                2.76.3-r0               apk     
+glib                                2.76.4-r0               apk     
 glob                                10.2.2                  npm     
 glob                                6.0.4                   npm     
 glob                                7.1.6                   npm     
