@@ -86,6 +86,7 @@ app_setup_block: |
   - Access the Immich web UI and generate an API key from your account settings
   - In your administration settings, include `/photos/import` as the external path for your user
   - Execute the following command to import your library : `docker exec -it immich immich upload --key <your_api_key> --server http://your_server_ip:8080/api /photos/import --recursive --import`
+
 external_application_snippet_enabled: true
 external_application_cli_block: |
   # Redis:
