@@ -217,7 +217,7 @@ pipeline {
       }
       steps {
         sh '''#!/bin/bash
-              set -e
+              set -ex
               TEMPDIR=$(mktemp -d)
               docker pull ghcr.io/imagegenius/jenkins-builder:latest
               # Stage 1 - Jenkinsfile update
@@ -226,18 +226,6 @@ pipeline {
 			  cd ${TEMPDIR}/repo/${IG_REPO}
               git checkout -f main
               docker run --rm -e CONTAINER_NAME=${CONTAINER_NAME} -e GITHUB_BRANCH=main -v ${TEMPDIR}/repo/${IG_REPO}:/tmp -v ${TEMPDIR}:/ansible/jenkins ghcr.io/imagegenius/jenkins-builder:latest 
-              if [[ "$(md5sum Jenkinsfile | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile | awk '{ print $1 }')" ]]; then
-                cp ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile ${TEMPDIR}/repo/${IG_REPO}/
-                git add Jenkinsfile
-                git commit -m 'Bot Updating Templated Files'
-                git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git --all
-                echo "true" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
-                echo "Updating Jenkinsfile"
-                rm -rf ${TEMPDIR}
-                exit 0
-              else
-                echo "Jenkinsfile is up to date."
-              fi
               # Stage 2 - Update templates
               CURRENTHASH=$(grep -hs ^ ${TEMPLATED_FILES} | md5sum | cut -c1-8)
               cd ${TEMPDIR}/docker-${CONTAINER_NAME}
