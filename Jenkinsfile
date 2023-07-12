@@ -61,7 +61,7 @@ pipeline {
         }
         script{
           env.IG_TAG_NUMBER = sh(
-            script: '''#!/bin/bash
+            script: '''#! /bin/bash
                        tagsha=$(git rev-list -n 1 noml-${IG_RELEASE} 2>/dev/null)
                        if [ "${tagsha}" == "${COMMIT_SHA}" ]; then
                          echo ${IG_RELEASE_NUMBER}
@@ -82,7 +82,7 @@ pipeline {
       steps{
         script{
           env.PACKAGE_TAG = sh(
-            script: '''#!/bin/bash
+            script: '''#! /bin/bash
                        if [ -e package_versions.txt ] ; then
                          cat package_versions.txt | md5sum | cut -c1-8
                        else
@@ -217,29 +217,57 @@ pipeline {
         }
       }
       steps {
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               set -e
               TEMPDIR=$(mktemp -d)
               docker pull ghcr.io/imagegenius/jenkins-builder:latest
-              # Stage 1 - Jenkinsfile update
-              mkdir -p ${TEMPDIR}/repo
-              git clone https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/repo/${IG_REPO}
-			  cd ${TEMPDIR}/repo/${IG_REPO}
+              mkdir -p ${TEMPDIR}/source
+              git clone https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/source
+              cd ${TEMPDIR}/source
               git checkout -f noml
-              docker run --rm -e CONTAINER_NAME=${CONTAINER_NAME} -e GITHUB_BRANCH=noml -v ${TEMPDIR}/repo/${IG_REPO}:/tmp -v ${TEMPDIR}:/ansible/jenkins ghcr.io/imagegenius/jenkins-builder:latest 
+              docker run --rm -e CONTAINER_NAME=${CONTAINER_NAME} -e GITHUB_BRANCH=noml -v ${TEMPDIR}/source:/tmp -v ${TEMPDIR}:/ansible/jenkins ghcr.io/imagegenius/jenkins-builder:latest 
+              # Stage 1 - Jenkinsfile update
               if [[ "$(md5sum Jenkinsfile | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile | awk '{ print $1 }')" ]]; then
+                mkdir -p ${TEMPDIR}/repo
+                git clone https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/repo/${IG_REPO}
+                cd ${TEMPDIR}/repo/${IG_REPO}
+                git checkout -f noml
                 cp ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile ${TEMPDIR}/repo/${IG_REPO}/
                 git add Jenkinsfile
                 git commit -m 'Bot Updating Templated Files'
                 git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git --all
                 echo "true" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
                 echo "Updating Jenkinsfile"
-                rm -rf ${TEMPDIR}
+                rm -Rf ${TEMPDIR}
                 exit 0
               else
                 echo "Jenkinsfile is up to date."
               fi
-              # Stage 2 - Update templates
+              # Stage 2 - Delete old templates
+              OLD_TEMPLATES=".github/ISSUE_TEMPLATE.md .github/ISSUE_TEMPLATE/issue.bug.md .github/ISSUE_TEMPLATE/issue.feature.md .github/workflows/call_invalid_helper.yml .github/workflows/stale.yml Dockerfile.armhf"
+              for i in ${OLD_TEMPLATES}; do
+                if [[ -f "${i}" ]]; then
+                  TEMPLATES_TO_DELETE="${i} ${TEMPLATES_TO_DELETE}"
+                fi
+              done
+              if [[ -n "${TEMPLATES_TO_DELETE}" ]]; then
+                mkdir -p ${TEMPDIR}/repo
+                git clone https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/repo/${IG_REPO}
+                cd ${TEMPDIR}/repo/${IG_REPO}
+                git checkout -f noml
+                for i in ${TEMPLATES_TO_DELETE}; do
+                  git rm "${i}"
+                done
+                git commit -m 'Bot Updating Templated Files'
+                git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git --all
+                echo "true" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
+                echo "Deleting old and deprecated templates"
+                rm -Rf ${TEMPDIR}
+                exit 0
+              else
+                echo "No templates to delete"
+              fi
+              # Stage 3 - Update templates
               CURRENTHASH=$(grep -hs ^ ${TEMPLATED_FILES} | md5sum | cut -c1-8)
               cd ${TEMPDIR}/docker-${CONTAINER_NAME}
               NEWHASH=$(grep -hs ^ ${TEMPLATED_FILES} | md5sum | cut -c1-8)
@@ -252,12 +280,13 @@ pipeline {
                 mkdir -p ${TEMPDIR}/repo/${IG_REPO}/.github/workflows
                 mkdir -p ${TEMPDIR}/repo/${IG_REPO}/.github/ISSUE_TEMPLATE
                 cp --parents ${TEMPLATED_FILES} ${TEMPDIR}/repo/${IG_REPO}/ || :
+                cp --parents readme-vars.yml ${TEMPDIR}/repo/${IG_REPO}/ || :
                 cd ${TEMPDIR}/repo/${IG_REPO}/
                 if ! grep -q '.jenkins-external' .gitignore 2>/dev/null; then
                   echo ".jenkins-external" >> .gitignore
                   git add .gitignore
                 fi
-                git add ${TEMPLATED_FILES}
+                git add readme-vars.yml ${TEMPLATED_FILES}
                 git commit -m 'Bot Updating Templated Files'
                 git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git --all
                 echo "true" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
@@ -284,7 +313,7 @@ pipeline {
                 fi
                 git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/imagegenius/templates.git --all
               fi
-              rm -rf ${TEMPDIR}'''
+              rm -Rf ${TEMPDIR}'''
         script{
           env.FILES_UPDATED = sh(
             script: '''cat /tmp/${COMMIT_SHA}-${BUILD_NUMBER}''',
@@ -317,7 +346,7 @@ pipeline {
       }
       steps {
         script{
-          sh '''#!/bin/bash
+          sh '''#! /bin/bash
             WRONG_PERM=$(find ./  -path "./.git" -prune -o \\( -name "run" -o -name "finish" -o -name "check" \\) -not -perm -u=x,g=x,o=x -print)
             if [[ -n "${WRONG_PERM}" ]]; then
               echo "The following S6 service files are missing the executable bit; canceling the faulty build: ${WRONG_PERM}"
@@ -341,7 +370,7 @@ pipeline {
       }
       steps {
         echo "Running on node: ${NODE_NAME}"
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               set -e
               BUILDX_CONTAINER=$(head /dev/urandom | tr -dc 'a-z' | head -c12)
               trap 'docker buildx rm ${BUILDX_CONTAINER}' EXIT
@@ -377,7 +406,7 @@ pipeline {
         stage('Build X86') {
           steps {
             echo "Running on node: ${NODE_NAME}"
-            sh '''#!/bin/bash
+            sh '''#! /bin/bash
                   set -e
                   BUILDX_CONTAINER=$(head /dev/urandom | tr -dc 'a-z' | head -c12)
                   trap 'docker buildx rm ${BUILDX_CONTAINER}' EXIT
@@ -407,10 +436,10 @@ pipeline {
           steps {
             echo "Running on node: ${NODE_NAME}"
             echo 'Logging into Github'
-            sh '''#!/bin/bash
+            sh '''#! /bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGeniusCI --password-stdin
                '''
-            sh '''#!/bin/bash
+            sh '''#! /bin/bash
                   set -e
                   BUILDX_CONTAINER=$(head /dev/urandom | tr -dc 'a-z' | head -c12)
                   trap 'docker buildx rm ${BUILDX_CONTAINER}' EXIT
@@ -451,7 +480,7 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               set -e
               TEMPDIR=$(mktemp -d)
               if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
@@ -482,8 +511,7 @@ pipeline {
                 echo "false" > /tmp/packages-${COMMIT_SHA}-${BUILD_NUMBER}
                 echo "Package tag is same as previous continue with build process"
               fi
-              rm -rf ${TEMPDIR}
-           '''
+              rm -Rf ${TEMPDIR}'''
         script{
           env.PACKAGE_UPDATED = sh(
             script: '''cat /tmp/packages-${COMMIT_SHA}-${BUILD_NUMBER}''',
@@ -500,7 +528,7 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               echo "Packages were updated. Cleaning up the image and exiting."
               if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
@@ -524,7 +552,7 @@ pipeline {
         }
       }
       steps {
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               echo "There are no package updates. Cleaning up the image and exiting."
               if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
@@ -554,7 +582,7 @@ pipeline {
             env.CI_URL = 'https://ci-tests.imagegenius.io/' + env.CONTAINER_NAME + '/' + env.META_TAG + '/index.html'
             env.CI_JSON_URL = 'https://ci-tests.imagegenius.io/' + env.CONTAINER_NAME + '/' + env.META_TAG + '/report.json'
           }
-          sh '''#!/bin/bash
+          sh '''#! /bin/bash
                 set -e
                 docker pull ghcr.io/imagegenius/ci:latest
                 if [ "${MULTIARCH}" == "true" ]; then
@@ -595,7 +623,7 @@ pipeline {
       }
       steps {
         retry(5) {
-          sh '''#!/bin/bash
+          sh '''#! /bin/bash
                 set -e
                 echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGeniusCI --password-stdin
                 docker tag ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:noml
@@ -611,7 +639,7 @@ pipeline {
                 fi
              '''
         }
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               docker rmi \
                 ${GITHUBIMAGE}:${META_TAG} \
                 ${GITHUBIMAGE}:${EXT_RELEASE_TAG} \
@@ -630,7 +658,7 @@ pipeline {
       }
       steps {
         retry(5) {
-          sh '''#!/bin/bash
+          sh '''#! /bin/bash
                 set -e
                 echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGeniusCI --password-stdin
                 if [ "${CI}" == "false" ]; then
@@ -671,9 +699,16 @@ pipeline {
                   docker manifest create ${GITHUBIMAGE}:${SEMVER} ${GITHUBIMAGE}:amd64-${SEMVER} ${GITHUBIMAGE}:arm64v8-${SEMVER}
                   docker manifest annotate ${GITHUBIMAGE}:${SEMVER} ${GITHUBIMAGE}:arm64v8-${SEMVER} --os linux --arch arm64 --variant v8
                 fi
-                docker manifest push --purge ${GITHUBIMAGE}:arm32v7-noml || :
-                docker manifest create ${GITHUBIMAGE}:arm32v7-noml ${GITHUBIMAGE}:amd64-noml
-                docker manifest push --purge ${GITHUBIMAGE}:arm32v7-noml
+                token=$(curl -sX GET "https://ghcr.io/token?scope=repository%3Aimagegenius%2F${CONTAINER_NAME}%3Apull" | jq -r '.token')
+                digest=$(curl -s \
+                  --header "Accept: application/vnd.docker.distribution.manifest.v2+json" \
+                  --header "Authorization: Bearer ${token}" \
+                  "https://ghcr.io/v2/imagegenius/${CONTAINER_NAME}/manifests/arm32v7-noml")
+                if [[ $(echo "$digest" | jq -r '.layers') != "null" ]]; then
+                  docker manifest push --purge ${GITHUBIMAGE}:arm32v7-noml || :
+                  docker manifest create ${GITHUBIMAGE}:arm32v7-noml ${GITHUBIMAGE}:amd64-noml
+                  docker manifest push --purge ${GITHUBIMAGE}:arm32v7-noml
+                fi
                 docker manifest push --purge ${GITHUBIMAGE}:noml
                 docker manifest push --purge ${GITHUBIMAGE}:${META_TAG} 
                 docker manifest push --purge ${GITHUBIMAGE}:${EXT_RELEASE_TAG} 
@@ -682,7 +717,7 @@ pipeline {
                 fi
              '''
           }
-          sh '''#!/bin/bash
+          sh '''#! /bin/bash
                 docker rmi \
                   ${GITHUBIMAGE}:amd64-${META_TAG} \
                   ${GITHUBIMAGE}:amd64-noml \
@@ -719,7 +754,7 @@ pipeline {
              "type": "commit",\
              "tagger": {"name": "ImageGenius Jenkins","email": "ci@imagegenius.io","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
               curl -H "Authorization: token ${GITHUB_TOKEN}" -s https://api.github.com/repos/${EXT_USER}/${EXT_REPO}/releases/latest | jq '. |.body' | sed 's:^.\\(.*\\).$:\\1:' > releasebody.json
               echo '{"tag_name":"'${META_TAG}'",\
                      "target_commitish": "noml",\
@@ -737,7 +772,7 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        sh '''#!/bin/bash
+        sh '''#! /bin/bash
             # Function to retrieve JSON data from URL
             get_json() {
               local url="$1"
@@ -827,19 +862,20 @@ pipeline {
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jenkins-avatar.png","embeds": [{"color": 16711680,\
                  "description": "**'${IG_REPO}' Build '${BUILD_NUMBER}' Failed! (noml)**\\n**CI Results:**  '${CI_URL}'\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:** '${RELEASE_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
-          // Clean up images if CI tests fail
-          sh ''' if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
-                   docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
-                   docker rmi ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
-                   docker rmi ${GITHUBIMAGE}:arm64v8-${META_TAG} || :
-                 else
-                   docker rmi ${GITHUBIMAGE}:${META_TAG} || :
-                 fi
-            '''
         }
       }
     }
     cleanup {
+          // Clean up images if CI tests fail
+          sh '''#! /bin/bash
+                if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
+                  docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
+                  docker rmi ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
+                  docker rmi ${GITHUBIMAGE}:arm64v8-${META_TAG} || :
+                else
+                  docker rmi ${GITHUBIMAGE}:${META_TAG} || :
+                fi
+            '''
       cleanWs()
     }
   }
