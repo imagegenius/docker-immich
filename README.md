@@ -43,6 +43,8 @@ To set up redis using the docker mod, use the following:
 
 Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
+To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
+
 Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
 
 Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
@@ -50,6 +52,12 @@ Search functionality is powered by Typesense, which requires a CPU compatible wi
 Take note that when `CUDA_ACCELERATION` is set to `true`, container startup times will be longer. This is because it triggers a force upgrade of the CUDA pip packages every time the container restarts. 'TAG OBJECTS' and 'ENCODE CLIP' jobs will leverage GPU acceleration, however, the 'RECOGNIZE FACES' job won't utilize GPU acceleration.
 
 If you desire GPU acceleration for all your machine learning jobs, you'll need to set up a new `immich-cuda-node` Docker. All the necessary instructions to do this are available on [the immich-cuda-node repository](https://github.com/imagegenius/docker-immich-cuda-node/).
+
+To import your existing library into Immich :
+- Add a new volume to your Immich Docker container by mapping your existing library path using : `path_to_your_existing_library:/photos/import`
+- Access the Immich web UI and generate an API key from your account settings
+- In your administration settings, include `/photos/import` as the external path for your user
+- Execute the following command to import your library : `docker exec -it immich immich upload --key <your_api_key> --server http://your_server_ip:8080/api /photos/import --recursive --import`
 
 ## Usage
 
