@@ -54,7 +54,6 @@ NAME                                VERSION                                  TYP
 @types/cors                         2.8.13                                   npm     
 @types/inquirer                     8.2.6                                    npm     
 @types/luxon                        3.3.0                                    npm     
-@types/mime-types                   2.1.1                                    npm     
 @types/node                         18.16.8                                  npm     
 @types/through                      0.0.30                                   npm     
 @types/validator                    13.7.17                                  npm     
@@ -274,7 +273,7 @@ follow-redirects                    1.15.2                                   npm
 fontconfig                          2.13.1-4.2ubuntu5                        deb     
 fontconfig-config                   2.13.1-4.2ubuntu5                        deb     
 fonts-dejavu-core                   2.37-2build1                             deb     
-fonttools                           4.40.0                                   python  
+fonttools                           4.41.0                                   python  
 forever-agent                       0.6.1                                    npm     
 form-data                           2.3.3                                    npm     
 form-data                           4.0.0                                    npm     
@@ -345,7 +344,7 @@ imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 immich                              0.39.0                                   npm     
-immich                              1.66.1                                   npm     
+immich                              1.67.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -1048,7 +1047,7 @@ tar-stream                          2.2.0                                    npm
 text-table                          0.2.0                                    npm     
 thenify                             3.3.1                                    npm     
 thenify-all                         1.6.0                                    npm     
-threadpoolctl                       3.1.0                                    python  
+threadpoolctl                       3.2.0                                    python  
 through                             2.3.8                                    npm     
 thumbhash                           0.1.1                                    npm     
 tifffile                            2023.7.10                                python  
