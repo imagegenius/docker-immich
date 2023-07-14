@@ -344,7 +344,7 @@ imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 immich                              0.39.0                                   npm     
-immich                              1.67.0                                   npm     
+immich                              1.67.1                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
