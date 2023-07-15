@@ -158,7 +158,6 @@ RUN \
     bc \
     build-essential \
     g++ \
-    libltdl-dev \
     make \
     meson \
     ninja-build \
