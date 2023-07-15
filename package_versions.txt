@@ -102,6 +102,9 @@ assert-plus                         1.0.0                              npm
 async                               3.2.4                              npm           
 asynckit                            0.4.0                              npm           
 attrs                               23.1.0                             python        
+autoconf                            2.71-3                             deb           
+automake                            1:1.16.5-1.3                       deb           
+autotools-dev                       20220109.1                         deb           
 aws-sign2                           0.7.0                              npm           
 aws4                                1.12.0                             npm           
 axios                               0.26.1                             npm           
@@ -619,6 +622,8 @@ liblerc-dev                         4.0.0+ds-2ubuntu2                  deb
 liblerc4                            4.0.0+ds-2ubuntu2                  deb           
 liblilv-0-0                         0.24.14-1                          deb           
 libllvm15                           1:15.0.7-3                         deb           
+libltdl-dev                         2.4.7-5                            deb           
+libltdl7                            2.4.7-5                            deb           
 liblz4-1                            1.9.4-1                            deb           
 liblzma-dev                         5.4.1-0.2                          deb           
 liblzma5                            5.4.1-0.2                          deb           
@@ -879,6 +884,7 @@ logsave                             1.47.0-1ubuntu1                    deb
 lru-cache                           6.0.0                              npm           
 lru-cache                           7.16.2                             npm           
 luxon                               3.3.0                              npm           
+m4                                  1.4.19-3                           deb           
 make-dir                            3.1.0                              npm           
 make-fetch-happen                   10.2.1                             npm           
 make-fetch-happen                   11.0.3                             npm           
@@ -1018,7 +1024,7 @@ pip                                 23.0.1                             python
 pkgconf                             1.8.1-1ubuntu2                     deb           
 pkgconf-bin                         1.8.1-1ubuntu2                     deb           
 pkginfo                             1.9.6                              python        
-platformdirs                        3.8.1                              python        
+platformdirs                        3.9.1                              python        
 pluggy                              1.2.0                              python        
 poetry                              1.5.1                              python        
 poetry-core                         1.6.1                              python        
@@ -1248,7 +1254,7 @@ validate-npm-package-name           5.0.0                              npm
 validator                           13.9.0                             npm           
 vary                                1.1.2                              npm           
 verror                              1.10.0                             npm           
-virtualenv                          20.23.1                            python        
+virtualenv                          20.24.0                            python        
 walk-up-path                        1.0.0                              npm           
 watchfiles                          0.19.0                             python        
 wcwidth                             0.2.6                              python        
@@ -1283,6 +1289,6 @@ yargs-parser                        20.2.9                             npm
 yargs-parser                        21.1.1                             npm           
 yocto-queue                         0.1.0                              npm           
 zip-stream                          4.1.0                              npm           
-zipp                                3.16.1                             python        
+zipp                                3.16.2                             python        
 zlib1g                              1:1.2.13.dfsg-1ubuntu4             deb           
 zlib1g-dev                          1:1.2.13.dfsg-1ubuntu4             deb           
