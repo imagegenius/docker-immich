@@ -158,10 +158,14 @@ RUN \
     bc \
     build-essential \
     g++ \
+    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
     make \
     meson \
     ninja-build \
     python3-dev && \
+  apt-get install --no-install-recommends -y \
+    $(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6') \
+    libraw-bin && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
