@@ -59,7 +59,7 @@ RUN \
   echo "**** build imagemagick ****" && \
   cd /tmp/imagemagick && \
   ./configure --with-modules && \
-  make -j 4 && \
+  make -j4 && \
   make install && \
   ldconfig /usr/local/lib && \
   echo "**** download libvips ****" && \
@@ -155,13 +155,19 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
+    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
     bc \
     build-essential \
     g++ \
+    libltdl-dev \
     make \
     meson \
     ninja-build \
     python3-dev && \
+  apt-get install --no-install-recommends -y \
+    $(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6') \
+    libltdl7 \
+    libraw-bin && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
