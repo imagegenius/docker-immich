@@ -336,10 +336,10 @@ icu-data-en                         73.2-r2                 apk
 icu-libs                            73.2-r2                 apk     
 ieee754                             1.2.1                   npm     
 ignore-walk                         6.0.3                   npm     
-imagemagick                         7.1.1.10-r0             apk     
-imagemagick-c++                     7.1.1.10-r0             apk     
-imagemagick-dev                     7.1.1.10-r0             apk     
-imagemagick-libs                    7.1.1.10-r0             apk     
+imagemagick                         7.1.1.13-r0             apk     
+imagemagick-c++                     7.1.1.13-r0             apk     
+imagemagick-dev                     7.1.1.13-r0             apk     
+imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.39.0                  npm     
 immich                              1.67.2                  npm     
@@ -407,7 +407,7 @@ libbluray                           1.3.4-r0                apk
 libbsd                              0.11.7-r1               apk     
 libbz2                              1.0.8-r5                apk     
 libc-utils                          0.7.2-r5                apk     
-libcrypto3                          3.1.1-r1                apk     
+libcrypto3                          3.1.1-r2                apk     
 libcurl                             8.1.2-r0                apk     
 libdav1d                            1.2.1-r0                apk     
 libde265                            1.0.12-r0               apk     
@@ -449,8 +449,8 @@ libplacebo                          5.264.1-r1              apk
 libpng                              1.6.39-r3               apk     
 libproc2                            4.0.3-r1                apk     
 libpulse                            16.1-r10                apk     
-libraw                              0.21.1-r0               apk     
-libraw-dev                          0.21.1-r0               apk     
+libraw                              0.21.1-r1               apk     
+libraw-dev                          0.21.1-r1               apk     
 librist                             0.2.7-r0                apk     
 librsvg                             2.56.2-r0               apk     
 libsndfile                          1.2.0-r2                apk     
@@ -458,7 +458,7 @@ libsodium                           1.0.18-r3               apk
 libspng                             0.7.4-r0                apk     
 libsrt                              1.5.2-r0                apk     
 libssh                              0.10.5-r0               apk     
-libssl3                             3.1.1-r1                apk     
+libssl3                             3.1.1-r2                apk     
 libstdc++                           12.2.1_git20220924-r10  apk     
 libtasn1                            4.19.0-r1               apk     
 libtheora                           1.1.1-r17               apk     
@@ -551,12 +551,12 @@ netcat-openbsd                      1.219-r1                apk
 nettle                              3.8.1-r2                apk     
 nghttp2-libs                        1.53.0-r0               apk     
 nginx                               1.24.0-r6               apk     
-node                                18.16.1                 binary  
+node                                18.17.0                 binary  
 node-abi                            3.40.0                  npm     
 node-addon-api                      5.1.0                   npm     
 node-fetch                          2.6.11                  npm     
 node-gyp                            9.3.1                   npm     
-nodejs                              18.16.1-r0              apk     
+nodejs                              18.17.0-r0              apk     
 nopt                                5.0.0                   npm     
 nopt                                6.0.0                   npm     
 nopt                                7.1.0                   npm     
@@ -596,7 +596,7 @@ openexr-libilmthread                3.1.9-r0                apk
 openexr-libopenexr                  3.1.9-r0                apk     
 openid-client                       5.4.2                   npm     
 openjpeg                            2.5.0-r3                apk     
-openssl                             3.1.1-r1                apk     
+openssl                             3.1.1-r2                apk     
 opus                                1.4-r0                  apk     
 ora                                 5.4.1                   npm     
 orc                                 0.4.34-r0               apk     
