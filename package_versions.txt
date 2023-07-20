@@ -1,4 +1,5 @@
 NAME                                VERSION                 TYPE   
+@ampproject/remapping               2.2.1                   npm     
 @babel/code-frame                   7.21.4                  npm     
 @babel/helper-validator-identifier  7.19.1                  npm     
 @babel/highlight                    7.18.6                  npm     
@@ -11,6 +12,12 @@ NAME                                VERSION                 TYPE
 @ioredis/commands                   1.2.0                   npm     
 @isaacs/cliui                       8.0.2                   npm     
 @isaacs/string-locale-compare       1.1.0                   npm     
+@jridgewell/gen-mapping             0.3.3                   npm     
+@jridgewell/resolve-uri             3.1.0                   npm     
+@jridgewell/set-array               1.1.2                   npm     
+@jridgewell/sourcemap-codec         1.4.14                  npm     
+@jridgewell/sourcemap-codec         1.4.15                  npm     
+@jridgewell/trace-mapping           0.3.18                  npm     
 @lukeed/csprng                      1.1.0                   npm     
 @mapbox/node-pre-gyp                1.0.10                  npm     
 @nestjs/bull-shared                 0.1.3                   npm     
@@ -57,17 +64,19 @@ NAME                                VERSION                 TYPE
 @types/chai-withintoleranceof       0.0.1                   npm     
 @types/cookie                       0.4.1                   npm     
 @types/cors                         2.8.13                  npm     
+@types/estree                       1.0.0                   npm     
 @types/inquirer                     8.2.6                   npm     
 @types/luxon                        3.3.0                   npm     
 @types/node                         18.16.8                 npm     
 @types/through                      0.0.30                  npm     
 @types/validator                    13.7.17                 npm     
-@zoom-image/core                    0.18.2                  npm     
-@zoom-image/svelte                  0.1.7                   npm     
+@zoom-image/core                    0.20.0                  npm     
+@zoom-image/svelte                  0.1.10                  npm     
 abbrev                              1.1.1                   npm     
 abbrev                              2.0.0                   npm     
 abort-controller                    3.0.0                   npm     
 accepts                             1.3.8                   npm     
+acorn                               8.10.0                  npm     
 agent-base                          6.0.2                   npm     
 agentkeepalive                      4.3.0                   npm     
 aggregate-error                     3.1.0                   npm     
@@ -96,6 +105,7 @@ are-we-there-yet                    2.0.0                   npm
 are-we-there-yet                    3.0.1                   npm     
 are-we-there-yet                    4.0.0                   npm     
 argparse                            2.0.1                   npm     
+aria-query                          5.3.0                   npm     
 array-flatten                       1.1.1                   npm     
 asn1                                0.2.6                   npm     
 assert-plus                         1.0.0                   npm     
@@ -106,6 +116,7 @@ aws-sign2                           0.7.0                   npm
 aws4                                1.12.0                  npm     
 axios                               0.26.1                  npm     
 axios                               0.27.2                  npm     
+axobject-query                      3.2.1                   npm     
 balanced-match                      1.0.2                   npm     
 base64-js                           1.5.1                   npm     
 base64id                            2.0.0                   npm     
@@ -173,6 +184,7 @@ cliui                               8.0.1                   npm
 clone                               1.0.4                   npm     
 cluster-key-slot                    1.1.2                   npm     
 cmd-shim                            6.0.1                   npm     
+code-red                            1.0.3                   npm     
 color                               4.2.3                   npm     
 color-convert                       1.9.3                   npm     
 color-convert                       2.0.1                   npm     
@@ -206,6 +218,7 @@ crc32-stream                        4.0.2                   npm
 cron                                2.3.0                   npm     
 cron-parser                         4.8.1                   npm     
 cross-spawn                         7.0.3                   npm     
+css-tree                            2.3.1                   npm     
 cssesc                              3.0.0                   npm     
 csv-parse                           5.3.10                  npm     
 cups-libs                           2.4.6-r0                apk     
@@ -222,10 +235,12 @@ delayed-stream                      1.0.0                   npm
 delegates                           1.0.0                   npm     
 denque                              2.1.0                   npm     
 depd                                2.0.0                   npm     
+dequal                              2.0.3                   npm     
 destroy                             1.2.0                   npm     
 detect-libc                         2.0.1                   npm     
 diacritics                          1.3.0                   npm     
 diff                                5.1.0                   npm     
+dom-to-image                        2.6.0                   npm     
 dotenv                              16.0.3                  npm     
 dotenv-expand                       10.0.0                  npm     
 eastasianwidth                      0.2.0                   npm     
@@ -245,6 +260,7 @@ error-ex                            1.3.2                   npm
 escalade                            3.1.1                   npm     
 escape-html                         1.0.3                   npm     
 escape-string-regexp                1.0.5                   npm     
+estree-walker                       3.0.3                   npm     
 etag                                1.8.1                   npm     
 event-target-shim                   5.0.1                   npm     
 events                              3.3.0                   npm     
@@ -336,13 +352,14 @@ icu-data-en                         73.2-r2                 apk
 icu-libs                            73.2-r2                 apk     
 ieee754                             1.2.1                   npm     
 ignore-walk                         6.0.3                   npm     
+imagediff                           1.0.8                   npm     
 imagemagick                         7.1.1.13-r0             apk     
 imagemagick-c++                     7.1.1.13-r0             apk     
 imagemagick-dev                     7.1.1.13-r0             apk     
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.39.0                  npm     
-immich                              1.67.2                  npm     
+immich                              1.68.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -365,6 +382,7 @@ is-core-module                      2.12.0                  npm
 is-fullwidth-code-point             3.0.0                   npm     
 is-interactive                      1.0.0                   npm     
 is-lambda                           1.0.1                   npm     
+is-reference                        3.0.1                   npm     
 is-typedarray                       1.0.0                   npm     
 is-unicode-supported                0.1.0                   npm     
 isarray                             1.0.0                   npm     
@@ -407,7 +425,7 @@ libbluray                           1.3.4-r0                apk
 libbsd                              0.11.7-r1               apk     
 libbz2                              1.0.8-r5                apk     
 libc-utils                          0.7.2-r5                apk     
-libcrypto3                          3.1.1-r2                apk     
+libcrypto3                          3.1.1-r3                apk     
 libcurl                             8.1.2-r0                apk     
 libdav1d                            1.2.1-r0                apk     
 libde265                            1.0.12-r0               apk     
@@ -458,7 +476,7 @@ libsodium                           1.0.18-r3               apk
 libspng                             0.7.4-r0                apk     
 libsrt                              1.5.2-r0                apk     
 libssh                              0.10.5-r0               apk     
-libssl3                             3.1.1-r2                apk     
+libssl3                             3.1.1-r3                apk     
 libstdc++                           12.2.1_git20220924-r10  apk     
 libtasn1                            4.19.0-r1               apk     
 libtheora                           1.1.1-r17               apk     
@@ -484,6 +502,7 @@ libzmq                              4.3.4-r4                apk
 lines-and-columns                   1.2.4                   npm     
 linux-pam                           1.5.2-r10               apk     
 local-reverse-geocoder              0.12.5                  npm     
+locate-character                    3.0.0                   npm     
 lodash                              4.17.21                 npm     
 lodash-es                           4.17.21                 npm     
 lodash.defaults                     4.2.0                   npm     
@@ -498,10 +517,12 @@ lru-cache                           6.0.0                   npm
 lru-cache                           7.18.3                  npm     
 lru-cache                           9.1.1                   npm     
 luxon                               3.3.0                   npm     
+magic-string                        0.30.1                  npm     
 make-dir                            3.1.0                   npm     
 make-fetch-happen                   10.2.1                  npm     
 make-fetch-happen                   11.1.1                  npm     
 mbedtls                             2.28.3-r1               apk     
+mdn-data                            2.0.30                  npm     
 media-typer                         0.3.0                   npm     
 merge-descriptors                   1.0.1                   npm     
 methods                             1.1.2                   npm     
@@ -596,7 +617,7 @@ openexr-libilmthread                3.1.9-r0                apk
 openexr-libopenexr                  3.1.9-r0                apk     
 openid-client                       5.4.2                   npm     
 openjpeg                            2.5.0-r3                apk     
-openssl                             3.1.1-r2                apk     
+openssl                             3.1.1-r3                apk     
 opus                                1.4-r0                  apk     
 ora                                 5.4.1                   npm     
 orc                                 0.4.34-r0               apk     
@@ -624,6 +645,7 @@ path-type                           4.0.0                   npm
 pcre                                8.45-r3                 apk     
 pcre2                               10.42-r1                apk     
 performance-now                     2.1.0                   npm     
+periscopic                          3.1.0                   npm     
 perl                                5.36.1-r2               apk     
 pg                                  8.10.0                  npm     
 pg-connection-string                2.5.0                   npm     
@@ -736,6 +758,7 @@ socket.io-parser                    4.2.4                   npm
 socks                               2.7.1                   npm     
 socks-proxy-agent                   7.0.0                   npm     
 source-map                          0.6.1                   npm     
+source-map-js                       1.0.2                   npm     
 soxr                                0.1.3-r5                apk     
 spdx-correct                        3.2.0                   npm     
 spdx-exceptions                     2.3.0                   npm     
@@ -761,9 +784,9 @@ strip-ansi                          7.0.1                   npm
 strip-json-comments                 2.0.1                   npm     
 supports-color                      5.5.0                   npm     
 supports-color                      7.2.0                   npm     
-svelte                              3.59.1                  npm     
+svelte                              4.0.5                   npm     
 svelte-local-storage-store          0.5.0                   npm     
-svelte-material-icons               3.0.4                   npm     
+svelte-material-icons               3.0.5                   npm     
 svt-av1-libs                        1.6.0-r0                apk     
 swagger-ui-dist                     4.18.2                  npm     
 systeminformation                   5.18.6                  npm     
@@ -788,7 +811,6 @@ traverse                            0.3.9                   npm
 treeverse                           3.0.0                   npm     
 truncate-utf8-bytes                 1.0.2                   npm     
 tslib                               2.5.0                   npm     
-tslib                               2.5.3                   npm     
 tuf-js                              1.1.5                   npm     
 tunnel-agent                        0.6.0                   npm     
 tweetnacl                           0.14.5                  npm     
