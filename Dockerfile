@@ -31,6 +31,7 @@ RUN \
     build-essential \
     ffmpeg \
     g++ \
+    intel-media-va-driver-non-free \
     libltdl-dev \
     libraw-dev \
     make \
