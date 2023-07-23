@@ -157,7 +157,7 @@ cacache                             17.1.2                                   npm
 call-bind                           1.0.2                                    npm     
 callsites                           3.1.0                                    npm     
 caseless                            0.12.0                                   npm     
-certifi                             2023.5.7                                 python  
+certifi                             2023.7.22                                python  
 chainsaw                            0.1.0                                    npm     
 chalk                               2.4.2                                    npm     
 chalk                               4.1.2                                    npm     
@@ -298,7 +298,7 @@ follow-redirects                    1.15.2                                   npm
 fontconfig                          2.13.1-4.2ubuntu5                        deb     
 fontconfig-config                   2.13.1-4.2ubuntu5                        deb     
 fonts-dejavu-core                   2.37-2build1                             deb     
-fonttools                           4.41.0                                   python  
+fonttools                           4.41.1                                   python  
 foreground-child                    3.1.1                                    npm     
 forever-agent                       0.6.1                                    npm     
 form-data                           2.3.3                                    npm     
@@ -371,7 +371,7 @@ imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 immich                              0.39.0                                   npm     
-immich                              1.68.0                                   npm     
+immich                              1.69.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
