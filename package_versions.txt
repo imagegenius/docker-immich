@@ -359,7 +359,7 @@ imagemagick-dev                     7.1.1.13-r0             apk
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.39.0                  npm     
-immich                              0.40.1                  npm     
+immich                              0.40.2                  npm     
 immich                              1.69.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
@@ -791,7 +791,7 @@ svelte-material-icons               3.0.5                   npm
 svt-av1-libs                        1.6.0-r0                apk     
 swagger-ui-dist                     4.18.2                  npm     
 systeminformation                   5.18.6                  npm     
-systeminformation                   5.18.7                  npm     
+systeminformation                   5.18.9                  npm     
 tar                                 6.1.14                  npm     
 tar-fs                              2.1.1                   npm     
 tar-stream                          2.2.0                   npm     
