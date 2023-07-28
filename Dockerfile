@@ -35,6 +35,7 @@ RUN \
     libltdl-dev \
     libraw-dev \
     make \
+    mesa-va-drivers \
     meson \
     nginx \
     ninja-build \
