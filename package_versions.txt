@@ -4,7 +4,12 @@ NAME                                VERSION                                  TYP
 @babel/helper-validator-identifier  7.19.1                                   npm     
 @babel/highlight                    7.18.6                                   npm     
 @babel/runtime                      7.21.5                                   npm     
+@cfcs/core                          0.0.24                                   npm     
 @colors/colors                      1.5.0                                    npm     
+@egjs/component                     3.0.4                                    npm     
+@egjs/imready                       1.4.1                                    npm     
+@egjs/svelte-view360                4.0.0-beta.7                             npm     
+@egjs/view360                       4.0.0-beta.7                             npm     
 @gar/promisify                      1.1.3                                    npm     
 @golevelup/nestjs-discovery         3.0.0                                    npm     
 @hapi/hoek                          9.3.0                                    npm     
@@ -70,6 +75,7 @@ NAME                                VERSION                                  TYP
 @types/node                         18.16.8                                  npm     
 @types/through                      0.0.30                                   npm     
 @types/validator                    13.7.17                                  npm     
+@types/webxr                        0.5.2                                    npm     
 @zoom-image/core                    0.20.0                                   npm     
 @zoom-image/svelte                  0.1.10                                   npm     
 Cython                              3.0.0                                    python  
@@ -128,7 +134,7 @@ base-passwd                         3.5.52build1                             deb
 base64-js                           1.5.1                                    npm     
 base64id                            2.0.0                                    npm     
 bash                                5.1-6ubuntu1                             deb     
-batch-cluster                       11.0.0                                   npm     
+batch-cluster                       12.1.0                                   npm     
 bcrypt                              5.1.0                                    npm     
 bcrypt-pbkdf                        1.0.2                                    npm     
 beep-boop                           1.2.3                                    npm     
@@ -274,7 +280,7 @@ estree-walker                       3.0.3                                    npm
 etag                                1.8.1                                    npm     
 event-target-shim                   5.0.1                                    npm     
 events                              3.3.0                                    npm     
-exiftool-vendored                   19.0.0                                   npm     
+exiftool-vendored                   22.0.0                                   npm     
 exiftool-vendored.pl                12.62.0                                  npm     
 expand-template                     2.0.3                                    npm     
 express                             4.18.2                                   npm     
@@ -319,6 +325,7 @@ get-caller-file                     2.0.5                                    npm
 get-intrinsic                       1.2.0                                    npm     
 getpass                             0.1.7                                    npm     
 github-from-package                 0.0.0                                    npm     
+gl-matrix                           3.4.3                                    npm     
 glob                                10.2.4                                   npm     
 glob                                6.0.4                                    npm     
 glob                                7.1.6                                    npm     
@@ -371,7 +378,7 @@ imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 immich                              0.40.1                                   npm     
-immich                              1.70.0                                   npm     
+immich                              1.71.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -557,7 +564,7 @@ liblcms2-dev                        2.12~rc1-2build2                         deb
 libldap-2.5-0                       2.5.14+dfsg-0ubuntu0.22.04.2             deb     
 libldap-common                      2.5.14+dfsg-0ubuntu0.22.04.2             deb     
 liblilv-0-0                         0.24.12-2                                deb     
-libllvm15                           1:15.0.7-0ubuntu0.22.04.2                deb     
+libllvm15                           1:15.0.7-0ubuntu0.22.04.3                deb     
 liblqr-1-0                          0.4.2-2.1                                deb     
 libltdl7                            2.4.6-15build2                           deb     
 liblz4-1                            1.9.3-2build2                            deb     
