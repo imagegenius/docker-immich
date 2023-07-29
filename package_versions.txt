@@ -4,7 +4,12 @@ NAME                                VERSION                 TYPE
 @babel/helper-validator-identifier  7.19.1                  npm     
 @babel/highlight                    7.18.6                  npm     
 @babel/runtime                      7.21.5                  npm     
+@cfcs/core                          0.0.24                  npm     
 @colors/colors                      1.5.0                   npm     
+@egjs/component                     3.0.4                   npm     
+@egjs/imready                       1.4.1                   npm     
+@egjs/svelte-view360                4.0.0-beta.7            npm     
+@egjs/view360                       4.0.0-beta.7            npm     
 @gar/promisify                      1.1.3                   npm     
 @golevelup/nestjs-discovery         3.0.0                   npm     
 @hapi/hoek                          9.3.0                   npm     
@@ -70,6 +75,7 @@ NAME                                VERSION                 TYPE
 @types/node                         18.16.8                 npm     
 @types/through                      0.0.30                  npm     
 @types/validator                    13.7.17                 npm     
+@types/webxr                        0.5.2                   npm     
 @zoom-image/core                    0.20.0                  npm     
 @zoom-image/svelte                  0.1.10                  npm     
 abbrev                              1.1.1                   npm     
@@ -121,7 +127,7 @@ balanced-match                      1.0.2                   npm
 base64-js                           1.5.1                   npm     
 base64id                            2.0.0                   npm     
 bash                                5.2.15-r5               apk     
-batch-cluster                       11.0.0                  npm     
+batch-cluster                       12.1.0                  npm     
 bcrypt                              5.1.0                   npm     
 bcrypt-pbkdf                        1.0.2                   npm     
 beep-boop                           1.2.3                   npm     
@@ -264,7 +270,7 @@ estree-walker                       3.0.3                   npm
 etag                                1.8.1                   npm     
 event-target-shim                   5.0.1                   npm     
 events                              3.3.0                   npm     
-exiftool-vendored                   19.0.0                  npm     
+exiftool-vendored                   22.0.0                  npm     
 exiftool-vendored.pl                12.62.0                 npm     
 expand-template                     2.0.3                   npm     
 express                             4.18.2                  npm     
@@ -315,6 +321,7 @@ get-intrinsic                       1.2.0                   npm
 getpass                             0.1.7                   npm     
 ghostscript                         10.01.2-r0              apk     
 github-from-package                 0.0.0                   npm     
+gl-matrix                           3.4.3                   npm     
 glib                                2.76.4-r0               apk     
 glob                                10.2.2                  npm     
 glob                                6.0.4                   npm     
@@ -360,7 +367,7 @@ imagemagick-libs                    7.1.1.13-r0             apk
 imath                               3.1.7-r1                apk     
 immich                              0.40.1                  npm     
 immich                              0.40.2                  npm     
-immich                              1.70.0                  npm     
+immich                              1.71.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -557,7 +564,7 @@ ms                                  2.1.2                   npm
 ms                                  2.1.3                   npm     
 msgpackr                            1.9.2                   npm     
 multer                              1.4.4-lts.1             npm     
-musl                                1.2.4-r0                apk     
+musl                                1.2.4-r1                apk     
 musl-utils                          1.2.4-r0                apk     
 mute-stream                         0.0.8                   npm     
 mute-stream                         1.0.0                   npm     
@@ -790,8 +797,8 @@ svelte-local-storage-store          0.5.0                   npm
 svelte-material-icons               3.0.5                   npm     
 svt-av1-libs                        1.6.0-r0                apk     
 swagger-ui-dist                     4.18.2                  npm     
+systeminformation                   5.18.10                 npm     
 systeminformation                   5.18.6                  npm     
-systeminformation                   5.18.9                  npm     
 tar                                 6.1.14                  npm     
 tar-fs                              2.1.1                   npm     
 tar-stream                          2.2.0                   npm     
