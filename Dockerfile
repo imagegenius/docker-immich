@@ -31,10 +31,12 @@ RUN \
     build-essential \
     ffmpeg \
     g++ \
+    intel-media-va-driver-non-free \
     libexif-dev \
     libltdl-dev \
     libraw-dev \
     make \
+    mesa-va-drivers \
     meson \
     nginx \
     ninja-build \
