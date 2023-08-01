@@ -86,6 +86,7 @@ Pillow                              9.5.0                              python
 PyWavelets                          1.4.1                              python  
 PyYAML                              6.0.1                              python  
 SecretStorage                       3.3.3                              python  
+Simple Launcher Executable          1.1.0.14                           dotnet  
 abbrev                              1.1.1                              npm     
 abbrev                              2.0.0                              npm     
 abort-controller                    3.0.0                              npm     
@@ -232,7 +233,7 @@ crc32-stream                        4.0.2                              npm
 cron                                2.3.0                              npm     
 cron-parser                         4.8.1                              npm     
 cross-spawn                         7.0.3                              npm     
-cryptography                        41.0.2                             python  
+cryptography                        41.0.3                             python  
 css-tree                            2.3.1                              npm     
 cssesc                              3.0.0                              npm     
 csv-parse                           5.3.10                             npm     
@@ -328,7 +329,7 @@ function-bind                       1.1.1                              npm
 gauge                               3.0.2                              npm     
 gauge                               4.0.4                              npm     
 gauge                               5.0.1                              npm     
-gcc-13-base                         13-20230320-1ubuntu1               deb     
+gcc-13-base                         13.1.0-2ubuntu2~23.04              deb     
 get-caller-file                     2.0.5                              npm     
 get-intrinsic                       1.2.0                              npm     
 getpass                             0.1.7                              npm     
@@ -401,6 +402,7 @@ init-system-helpers                 1.65.2                             deb
 inquirer                            8.2.5                              npm     
 insightface                         0.7.3                              python  
 installer                           0.7.0                              python  
+intel-media-va-driver-non-free      23.1.2+ds1-1                       deb     
 ioredis                             5.3.2                              npm     
 ip                                  2.0.0                              npm     
 ip-regex                            4.3.0                              npm     
@@ -527,7 +529,7 @@ libfontconfig1                      2.14.1-3ubuntu3                    deb
 libfreetype6                        2.12.1+dfsg-4ubuntu0.1             deb     
 libfribidi0                         1.0.8-2.1ubuntu1                   deb     
 libgbm1                             23.0.4-0ubuntu1~23.04.1            deb     
-libgcc-s1                           13-20230320-1ubuntu1               deb     
+libgcc-s1                           13.1.0-2ubuntu2~23.04              deb     
 libgcrypt20                         1.10.1-3ubuntu1                    deb     
 libgd3                              2.3.3-7ubuntu2                     deb     
 libgdbm-compat4                     1.23-3                             deb     
@@ -535,7 +537,7 @@ libgdbm6                            1.23-3                             deb
 libgdk-pixbuf-2.0-0                 2.42.10+dfsg-1build1               deb     
 libgdk-pixbuf2.0-bin                2.42.10+dfsg-1build1               deb     
 libgdk-pixbuf2.0-common             2.42.10+dfsg-1build1               deb     
-libgfortran5                        13-20230320-1ubuntu1               deb     
+libgfortran5                        13.1.0-2ubuntu2~23.04              deb     
 libgl1                              1.6.0-1                            deb     
 libgl1-mesa-dri                     23.0.4-0ubuntu1~23.04.1            deb     
 libglapi-mesa                       23.0.4-0ubuntu1~23.04.1            deb     
@@ -547,7 +549,7 @@ libglx0                             1.6.0-1                            deb
 libgme0                             0.6.3-6                            deb     
 libgmp10                            2:6.2.1+dfsg1-1.1ubuntu1           deb     
 libgnutls30                         3.7.8-5ubuntu1                     deb     
-libgomp1                            13-20230320-1ubuntu1               deb     
+libgomp1                            13.1.0-2ubuntu2~23.04              deb     
 libgpg-error0                       1.46-1                             deb     
 libgraphite2-3                      1.3.14-1build2                     deb     
 libgsf-1-114                        1.14.50-1                          deb     
@@ -562,6 +564,7 @@ libhwy1                             1.0.3-2                            deb
 libicu72                            72.1-3ubuntu2                      deb     
 libidn2-0                           2.3.3-1build1                      deb     
 libiec61883-0                       1.2.0-6                            deb     
+libigdgmm12                         22.3.4+ds1-1                       deb     
 libimagequant0                      2.17.0-1                           deb     
 libimath-3-1-29                     3.1.6-1ubuntu1                     deb     
 libjack-jackd2-0                    1.9.21~dfsg-2                      deb     
@@ -656,8 +659,8 @@ libproc2-0                          2:4.0.3-1ubuntu1                   deb
 libpsl5                             0.21.2-1                           deb     
 libpulse0                           1:16.1+dfsg1-2ubuntu3              deb     
 libpython3-stdlib                   3.11.2-1                           deb     
-libpython3.11-minimal               3.11.2-6ubuntu0.1                  deb     
-libpython3.11-stdlib                3.11.2-6ubuntu0.1                  deb     
+libpython3.11-minimal               3.11.4-1~23.04                     deb     
+libpython3.11-stdlib                3.11.4-1~23.04                     deb     
 librabbitmq4                        0.11.0-1                           deb     
 librav1e0                           0.5.1-6ubuntu1                     deb     
 libraw-bin                          0.20.2-2ubuntu2.23.04.1            deb     
@@ -665,8 +668,8 @@ libraw1394-11                       2.1.2-2build2                      deb
 libraw20                            0.20.2-2ubuntu2.23.04.1            deb     
 libreadline8                        8.2-1.3                            deb     
 librist4                            0.2.7+dfsg-1                       deb     
-librsvg2-2                          2.54.5+dfsg-1ubuntu2               deb     
-librsvg2-common                     2.54.5+dfsg-1ubuntu2               deb     
+librsvg2-2                          2.54.5+dfsg-1ubuntu2.1             deb     
+librsvg2-common                     2.54.5+dfsg-1ubuntu2.1             deb     
 librtmp1                            2.4+20151223.gitfa8646d.1-2build4  deb     
 librubberband2                      3.1.2+dfsg0-1                      deb     
 libsamplerate0                      0.2.2-3                            deb     
@@ -700,7 +703,7 @@ libss2                              1.47.0-1ubuntu1                    deb
 libssh-4                            0.10.4-2ubuntu0.1                  deb     
 libssh-gcrypt-4                     0.10.4-2ubuntu0.1                  deb     
 libssl3                             3.0.8-1ubuntu1.2                   deb     
-libstdc++6                          13-20230320-1ubuntu1               deb     
+libstdc++6                          13.1.0-2ubuntu2~23.04              deb     
 libsvtav1enc1                       1.4.1+dfsg-1                       deb     
 libswresample4                      7:5.1.2-3ubuntu1                   deb     
 libswscale6                         7:5.1.2-3ubuntu1                   deb     
@@ -808,6 +811,7 @@ mdn-data                            2.0.30                             npm
 media-typer                         0.3.0                              npm     
 media-types                         10.0.0                             deb     
 merge-descriptors                   1.0.1                              npm     
+mesa-va-drivers                     23.0.4-0ubuntu1~23.04.1            deb     
 methods                             1.1.2                              npm     
 mime                                1.6.0                              npm     
 mime-db                             1.52.0                             npm     
@@ -938,7 +942,7 @@ pgpass                              1.0.5                              npm
 pinentry-curses                     1.2.1-1ubuntu1                     deb     
 pip                                 23.0.1                             python  
 pkginfo                             1.9.6                              python  
-platformdirs                        3.9.1                              python  
+platformdirs                        3.10.0                             python  
 poetry                              1.5.1                              python  
 poetry-core                         1.6.1                              python  
 poetry-plugin-export                1.4.0                              python  
@@ -969,7 +973,7 @@ pycparser                           2.21                               python
 pydantic                            1.10.11                            python  
 pyparsing                           3.0.9                              python  
 pyproject_hooks                     1.0.0                              python  
-python                              3.11.2                             binary  
+python                              3.11.4                             binary  
 python-dateutil                     2.8.2                              python  
 python-dotenv                       1.0.0                              python  
 python3                             3.11.2-1                           deb     
@@ -983,9 +987,9 @@ python3-setuptools                  66.1.1-1                           deb
 python3-setuptools-whl              66.1.1-1                           deb     
 python3-venv                        3.11.2-1                           deb     
 python3-wheel                       0.38.4-1                           deb     
-python3.11                          3.11.2-6ubuntu0.1                  deb     
-python3.11-minimal                  3.11.2-6ubuntu0.1                  deb     
-python3.11-venv                     3.11.2-6ubuntu0.1                  deb     
+python3.11                          3.11.4-1~23.04                     deb     
+python3.11-minimal                  3.11.4-1~23.04                     deb     
+python3.11-venv                     3.11.4-1~23.04                     deb     
 qrcode-terminal                     0.12.0                             npm     
 qs                                  6.11.0                             npm     
 qs                                  6.5.3                              npm     
