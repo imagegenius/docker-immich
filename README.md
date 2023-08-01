@@ -49,10 +49,6 @@ Machine Learning operations tend to be CPU-intensive. If you're operating Immich
 
 Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
 
-Take note that when `CUDA_ACCELERATION` is set to `true`, container startup times will be longer. This is because it triggers a force upgrade of the CUDA pip packages every time the container restarts. 'TAG OBJECTS' and 'ENCODE CLIP' jobs will leverage GPU acceleration, however, the 'RECOGNIZE FACES' job won't utilize GPU acceleration.
-
-If you desire GPU acceleration for all your machine learning jobs, you'll need to set up a new `immich-cuda-node` Docker. All the necessary instructions to do this are available on [the immich-cuda-node repository](https://github.com/imagegenius/docker-immich-cuda-node/).
-
 To import your existing library into Immich :
 - Add a new volume to your Immich Docker container by mapping your existing library path using : `path_to_your_existing_library:/photos/import`
 - Access the Immich web UI and generate an API key from your account settings
@@ -86,7 +82,6 @@ services:
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
-      - CUDA_ACCELERATION=false #optional
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
@@ -135,7 +130,6 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
-  -e CUDA_ACCELERATION=false `#optional` \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
@@ -183,7 +177,6 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-e CUDA_ACCELERATION=false` | Set to `true` to enable CUDA Acceleration (NVIDIA GPU must be passed through! `--gpus=all`) |
 | `-v /config` | Contains the logs, machine-learning models and Typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /config/machine-learning` | Store the machine-learning models (~800MB) |
@@ -227,6 +220,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **29.07.23:** - remove cuda acceleration for machine-learning
 * **23.05.23:** - move to ubuntu lunar and support cuda acceleration for machine-learning
 * **22.05.23:** - deprecate postgresql docker mod
 * **18.05.23:** - add support for facial recognition

@@ -32,6 +32,7 @@ RUN \
     ffmpeg \
     g++ \
     intel-media-va-driver-non-free \
+    libexif-dev \
     libltdl-dev \
     libraw-dev \
     make \
@@ -161,6 +162,7 @@ RUN \
     bc \
     build-essential \
     g++ \
+    libexif-dev \
     libltdl-dev \
     make \
     meson \
@@ -168,6 +170,7 @@ RUN \
     python3-dev && \
   apt-get install --no-install-recommends -y \
     $(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6') \
+    libexif12 \
     libltdl7 \
     libraw-bin && \
   apt-get autoremove -y --purge && \
