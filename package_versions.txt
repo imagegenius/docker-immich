@@ -78,6 +78,7 @@ NAME                                VERSION                 TYPE
 @types/webxr                        0.5.2                   npm     
 @zoom-image/core                    0.20.0                  npm     
 @zoom-image/svelte                  0.1.10                  npm     
+Simple Launcher Executable          1.1.0.14                dotnet  
 abbrev                              1.1.1                   npm     
 abbrev                              2.0.0                   npm     
 abort-controller                    3.0.0                   npm     
@@ -228,7 +229,7 @@ css-tree                            2.3.1                   npm
 cssesc                              3.0.0                   npm     
 csv-parse                           5.3.10                  npm     
 cups-libs                           2.4.6-r0                apk     
-curl                                8.1.2-r0                apk     
+curl                                8.2.0-r1                apk     
 dashdash                            1.14.1                  npm     
 date-fns                            2.30.0                  npm     
 dbus-libs                           1.14.8-r0               apk     
@@ -434,7 +435,7 @@ libbsd                              0.11.7-r1               apk
 libbz2                              1.0.8-r5                apk     
 libc-utils                          0.7.2-r5                apk     
 libcrypto3                          3.1.1-r3                apk     
-libcurl                             8.1.2-r0                apk     
+libcurl                             8.2.0-r1                apk     
 libdav1d                            1.2.1-r0                apk     
 libde265                            1.0.12-r0               apk     
 libdrm                              2.4.115-r4              apk     
@@ -578,7 +579,7 @@ neo-async                           2.6.2                   npm
 nest-commander                      3.7.1                   npm     
 netcat-openbsd                      1.219-r1                apk     
 nettle                              3.8.1-r2                apk     
-nghttp2-libs                        1.53.0-r0               apk     
+nghttp2-libs                        1.55.1-r0               apk     
 nginx                               1.24.0-r6               apk     
 node                                18.17.0                 binary  
 node-abi                            3.40.0                  npm     
