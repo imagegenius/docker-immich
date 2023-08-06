@@ -152,8 +152,8 @@ builtins                            5.0.1                   npm
 bullmq                              3.15.4                  npm     
 busboy                              1.6.0                   npm     
 busybox                             1.36.1                  binary  
-busybox                             1.36.1-r1               apk     
-busybox-binsh                       1.36.1-r1               apk     
+busybox                             1.36.1-r2               apk     
+busybox-binsh                       1.36.1-r2               apk     
 bytes                               3.1.2                   npm     
 c-ares                              1.19.1-r0               apk     
 ca-certificates                     20230506-r0             apk     
@@ -229,7 +229,7 @@ css-tree                            2.3.1                   npm
 cssesc                              3.0.0                   npm     
 csv-parse                           5.3.10                  npm     
 cups-libs                           2.4.6-r0                apk     
-curl                                8.2.0-r1                apk     
+curl                                8.2.1-r0                apk     
 dashdash                            1.14.1                  npm     
 date-fns                            2.30.0                  npm     
 dbus-libs                           1.14.8-r0               apk     
@@ -368,7 +368,7 @@ imagemagick-libs                    7.1.1.13-r0             apk
 imath                               3.1.7-r1                apk     
 immich                              0.40.1                  npm     
 immich                              0.40.2                  npm     
-immich                              1.71.0                  npm     
+immich                              1.72.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -434,8 +434,8 @@ libbluray                           1.3.4-r0                apk
 libbsd                              0.11.7-r1               apk     
 libbz2                              1.0.8-r5                apk     
 libc-utils                          0.7.2-r5                apk     
-libcrypto3                          3.1.1-r3                apk     
-libcurl                             8.2.0-r1                apk     
+libcrypto3                          3.1.2-r0                apk     
+libcurl                             8.2.1-r0                apk     
 libdav1d                            1.2.1-r0                apk     
 libde265                            1.0.12-r0               apk     
 libdrm                              2.4.115-r4              apk     
@@ -485,7 +485,7 @@ libsodium                           1.0.18-r3               apk
 libspng                             0.7.4-r0                apk     
 libsrt                              1.5.2-r0                apk     
 libssh                              0.10.5-r0               apk     
-libssl3                             3.1.1-r3                apk     
+libssl3                             3.1.2-r0                apk     
 libstdc++                           12.2.1_git20220924-r10  apk     
 libtasn1                            4.19.0-r1               apk     
 libtheora                           1.1.1-r17               apk     
@@ -530,7 +530,7 @@ magic-string                        0.30.1                  npm
 make-dir                            3.1.0                   npm     
 make-fetch-happen                   10.2.1                  npm     
 make-fetch-happen                   11.1.1                  npm     
-mbedtls                             2.28.3-r1               apk     
+mbedtls                             2.28.4-r0               apk     
 mdn-data                            2.0.30                  npm     
 media-typer                         0.3.0                   npm     
 merge-descriptors                   1.0.1                   npm     
@@ -566,7 +566,7 @@ ms                                  2.1.3                   npm
 msgpackr                            1.9.2                   npm     
 multer                              1.4.4-lts.1             npm     
 musl                                1.2.4-r1                apk     
-musl-utils                          1.2.4-r0                apk     
+musl-utils                          1.2.4-r1                apk     
 mute-stream                         0.0.8                   npm     
 mute-stream                         1.0.0                   npm     
 mv                                  2.1.1                   npm     
@@ -626,7 +626,7 @@ openexr-libilmthread                3.1.9-r0                apk
 openexr-libopenexr                  3.1.9-r0                apk     
 openid-client                       5.4.2                   npm     
 openjpeg                            2.5.0-r3                apk     
-openssl                             3.1.1-r3                apk     
+openssl                             3.1.2-r0                apk     
 opus                                1.4-r0                  apk     
 ora                                 5.4.1                   npm     
 orc                                 0.4.34-r0               apk     
@@ -683,7 +683,7 @@ promise-retry                       2.0.1                   npm
 promzard                            1.0.0                   npm     
 proxy-addr                          2.0.7                   npm     
 psl                                 1.9.0                   npm     
-psycopg2-binary                     2.9.6                   python  
+psycopg2-binary                     2.9.7                   python  
 pump                                3.0.0                   npm     
 punycode                            2.3.0                   npm     
 py3-packaging                       23.1-r1                 apk     
@@ -778,7 +778,7 @@ spirv-tools                         1.3.243.0-r1            apk
 split2                              4.2.0                   npm     
 sqlite-libs                         3.41.2-r2               apk     
 sshpk                               1.17.0                  npm     
-ssl_client                          1.36.1-r1               apk     
+ssl_client                          1.36.1-r2               apk     
 ssri                                10.0.4                  npm     
 ssri                                9.0.1                   npm     
 standard-as-callback                2.1.0                   npm     
@@ -798,7 +798,7 @@ svelte-local-storage-store          0.5.0                   npm
 svelte-material-icons               3.0.5                   npm     
 svt-av1-libs                        1.6.0-r0                apk     
 swagger-ui-dist                     4.18.2                  npm     
-systeminformation                   5.18.10                 npm     
+systeminformation                   5.18.12                 npm     
 systeminformation                   5.18.6                  npm     
 tar                                 6.1.14                  npm     
 tar-fs                              2.1.1                   npm     
