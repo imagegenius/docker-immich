@@ -313,7 +313,7 @@ follow-redirects                    1.15.2                             npm
 fontconfig                          2.14.1-3ubuntu3                    deb     
 fontconfig-config                   2.14.1-3ubuntu3                    deb     
 fonts-dejavu-core                   2.37-6                             deb     
-fonttools                           4.41.1                             python  
+fonttools                           4.42.0                             python  
 foreground-child                    3.1.1                              npm     
 forever-agent                       0.6.1                              npm     
 form-data                           2.3.3                              npm     
@@ -386,7 +386,7 @@ imagediff                           1.0.8                              npm
 imageio                             2.31.1                             python  
 immich                              0.40.1                             npm     
 immich                              0.40.2                             npm     
-immich                              1.71.0                             npm     
+immich                              1.72.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.8.0                              python  
@@ -888,7 +888,7 @@ npm-user-validate                   2.0.0                              npm
 npmlog                              5.0.1                              npm     
 npmlog                              6.0.2                              npm     
 npmlog                              7.0.1                              npm     
-numpy                               1.25.1                             python  
+numpy                               1.25.2                             python  
 nw-pre-gyp-module-test              0.0.1                              npm     
 oauth-sign                          0.9.0                              npm     
 object-assign                       4.1.1                              npm     
@@ -970,7 +970,7 @@ publicsuffix                        20230209.2326-1                    deb
 pump                                3.0.0                              npm     
 punycode                            2.3.0                              npm     
 pycparser                           2.21                               python  
-pydantic                            1.10.11                            python  
+pydantic                            1.10.12                            python  
 pyparsing                           3.0.9                              python  
 pyproject_hooks                     1.0.0                              python  
 python                              3.11.4                             binary  
@@ -1010,7 +1010,7 @@ readdir-glob                        1.1.3                              npm
 readline-common                     8.2-1.3                            deb     
 redis-errors                        1.2.0                              npm     
 redis-parser                        3.0.0                              npm     
-referencing                         0.30.0                             python  
+referencing                         0.30.2                             python  
 reflect-metadata                    0.1.13                             npm     
 regenerator-runtime                 0.13.11                            npm     
 regex                               2023.6.3                           python  
@@ -1098,7 +1098,7 @@ svelte-local-storage-store          0.5.0                              npm
 svelte-material-icons               3.0.5                              npm     
 swagger-ui-dist                     4.18.2                             npm     
 sympy                               1.12                               python  
-systeminformation                   5.18.10                            npm     
+systeminformation                   5.18.12                            npm     
 systeminformation                   5.18.6                             npm     
 sysvinit-utils                      3.06-2ubuntu1                      deb     
 tar                                 1.34+dfsg-1.2ubuntu0.1             deb     
