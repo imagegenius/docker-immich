@@ -1124,7 +1124,7 @@ tr46                                0.0.3                              npm
 transformers                        4.31.0                             python  
 traverse                            0.3.9                              npm     
 treeverse                           3.0.0                              npm     
-trove-classifiers                   2023.7.6                           python  
+trove-classifiers                   2023.8.7                           python  
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.5.0                              npm     
 tuf-js                              1.1.6                              npm     
