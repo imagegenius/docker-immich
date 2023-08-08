@@ -27,13 +27,13 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
+    autoconf \
     bc \
     build-essential \
     ffmpeg \
     g++ \
     libexif-dev \
     libltdl-dev \
-    libraw-dev \
     make \
     mesa-va-drivers \
     meson \
@@ -44,6 +44,27 @@ RUN \
     python3-dev \
     python3-pip \
     python3-venv && \
+  echo "**** download libraw ****" && \
+  mkdir -p \
+    /tmp/libraw && \
+  if [ -z ${LIBRAW_VERSION_VERSION} ]; then \
+    LIBRAW_VERSION=$(curl -sL https://api.github.com/repos/libraw/libraw/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/libraw.tar.gz -L \
+    "https://github.com/libraw/libraw/archive/${LIBRAW_VERSION_VERSION}.tar.gz" && \
+  cd /tmp && \
+  tar xf \
+    /tmp/libraw.tar.gz -C \
+    /tmp/libraw --strip-components=1 && \
+  echo "**** build libraw ****" && \
+  cd /tmp/libraw && \
+  autoreconf --install
+  ./configure && \
+  make -j4 && \
+  make install && \
+  ldconfig /usr/local/lib && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
     /tmp/imagemagick && \
@@ -158,6 +179,7 @@ RUN \
   done && \
   apt-get remove -y --purge \
     $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
+    autoconf \
     bc \
     build-essential \
     g++ \
@@ -170,8 +192,7 @@ RUN \
   apt-get install --no-install-recommends -y \
     $(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6') \
     libexif12 \
-    libltdl7 \
-    libraw-bin && \
+    libltdl7 && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
