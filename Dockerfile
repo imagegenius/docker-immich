@@ -61,7 +61,7 @@ RUN \
     /tmp/libraw --strip-components=1 && \
   echo "**** build libraw ****" && \
   cd /tmp/libraw && \
-  autoreconf --install
+  autoreconf --install && \
   ./configure && \
   make -j4 && \
   make install && \
