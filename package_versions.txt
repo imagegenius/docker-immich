@@ -413,7 +413,7 @@ isstream                            0.1.2                                    npm
 iterare                             1.2.1                                    npm     
 jackspeak                           2.2.0                                    npm     
 joblib                              0.17.0                                   python  
-joblib                              1.3.1                                    python  
+joblib                              1.3.2                                    python  
 joi                                 17.9.2                                   npm     
 jose                                4.14.4                                   npm     
 jq                                  1.6-2.1ubuntu3                           deb     
@@ -562,8 +562,8 @@ libksba8                            1.6.0-2ubuntu0.2                         deb
 liblapack3                          3.10.0-2ubuntu1                          deb     
 liblcms2-2                          2.12~rc1-2build2                         deb     
 liblcms2-dev                        2.12~rc1-2build2                         deb     
-libldap-2.5-0                       2.5.14+dfsg-0ubuntu0.22.04.2             deb     
-libldap-common                      2.5.14+dfsg-0ubuntu0.22.04.2             deb     
+libldap-2.5-0                       2.5.15+dfsg-0ubuntu0.22.04.1             deb     
+libldap-common                      2.5.15+dfsg-0ubuntu0.22.04.1             deb     
 liblilv-0-0                         0.24.12-2                                deb     
 libllvm15                           1:15.0.7-0ubuntu0.22.04.3                deb     
 liblqr-1-0                          0.4.2-2.1                                deb     
@@ -890,7 +890,7 @@ once                                1.4.0                                    npm
 onetime                             5.1.2                                    npm     
 onnx                                1.14.0                                   python  
 onnxruntime                         1.15.1                                   python  
-opencv-python-headless              4.8.0.74                                 python  
+opencv-python-headless              4.8.0.76                                 python  
 openid-client                       5.4.2                                    npm     
 openssl                             3.0.2-0ubuntu1.10                        deb     
 ora                                 5.4.1                                    npm     
@@ -944,7 +944,7 @@ promise-call-limit                  1.0.2                                    npm
 promise-inflight                    1.0.1                                    npm     
 promise-retry                       2.0.1                                    npm     
 promzard                            1.0.0                                    npm     
-protobuf                            4.23.4                                   python  
+protobuf                            4.24.0                                   python  
 proxy-addr                          2.0.7                                    npm     
 psl                                 1.9.0                                    npm     
 publicsuffix                        20211207.1025-1                          deb     
@@ -1019,7 +1019,7 @@ rxjs                                7.8.1                                    npm
 safe-buffer                         5.1.2                                    npm     
 safe-buffer                         5.2.1                                    npm     
 safer-buffer                        2.1.2                                    npm     
-safetensors                         0.3.1                                    python  
+safetensors                         0.3.2                                    python  
 sanitize-filename                   1.6.3                                    npm     
 scikit-image                        0.21.0                                   python  
 scikit-learn                        1.3.0                                    python  
