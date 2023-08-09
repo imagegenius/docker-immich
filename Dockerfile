@@ -48,13 +48,13 @@ RUN \
   echo "**** download libraw ****" && \
   mkdir -p \
     /tmp/libraw && \
-  if [ -z ${LIBRAW_VERSION_VERSION} ]; then \
+  if [ -z ${LIBRAW_VERSION} ]; then \
     LIBRAW_VERSION=$(curl -sL https://api.github.com/repos/libraw/libraw/releases/latest | \
       jq -r '.tag_name'); \
   fi && \
   curl -o \
     /tmp/libraw.tar.gz -L \
-    "https://github.com/libraw/libraw/archive/${LIBRAW_VERSION_VERSION}.tar.gz" && \
+    "https://github.com/libraw/libraw/archive/${LIBRAW_VERSION}.tar.gz" && \
   cd /tmp && \
   tar xf \
     /tmp/libraw.tar.gz -C \
