@@ -28,6 +28,7 @@ RUN \
   apt-get install --no-install-recommends -y \
     $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
     autoconf \
+    automake \
     bc \
     build-essential \
     ffmpeg \
@@ -35,6 +36,7 @@ RUN \
     intel-media-va-driver-non-free \
     libexif-dev \
     libltdl-dev \
+    libtool \
     make \
     mesa-va-drivers \
     meson \
@@ -181,11 +183,13 @@ RUN \
   apt-get remove -y --purge \
     $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
     autoconf \
+    automake \
     bc \
     build-essential \
     g++ \
     libexif-dev \
     libltdl-dev \
+    libtool \
     make \
     meson \
     ninja-build \
