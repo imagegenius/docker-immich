@@ -44,6 +44,7 @@ RUN \
     python3-dev \
     python3-pip \
     python3-poetry \
+    python3-poetry-core \
     python3-venv && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
