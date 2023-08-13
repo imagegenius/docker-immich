@@ -44,6 +44,7 @@ RUN \
     perl \
     python3-dev \
     python3-pip \
+    python3-poetry \
     python3-venv && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
@@ -140,7 +141,6 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir poetry && \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
