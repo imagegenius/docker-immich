@@ -44,9 +44,8 @@ RUN \
     perl \
     python3-dev \
     python3-pip \
-    python3-poetry \
-    python3-poetry-core \
     python3-venv && \
+  curl -sSL https://install.python-poetry.org | python3 - && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
     /tmp/imagemagick && \
