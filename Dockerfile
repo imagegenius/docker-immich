@@ -188,7 +188,7 @@ RUN \
     /etc/apt/sources.list.d/node.list \
     /etc/apt/sources.list.d/jellyfin.list \
     /usr/share/keyrings/nodesource.gpg \
-    /etc/apt/trusted.gpg.d/jellyfin_team.gpg \
+    /etc/apt/trusted.gpg.d/jellyfin_team.gpg
 
 # copy local files
 COPY root/ /
