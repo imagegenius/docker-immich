@@ -25,8 +25,10 @@ RUN \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
+  libvips_dev_dependencies=$(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0|libtiff-dev') && \
+  libvips_dependencies=$(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6|libtiff6') && \
   apt-get install --no-install-recommends -y \
-    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
+    $libvips_dev_dependencies \
     bc \
     build-essential \
     ffmpeg \
@@ -81,7 +83,7 @@ RUN \
     /tmp/libvips --strip-components=1 && \
   echo "**** build libvips ****" && \
   cd /tmp/libvips && \
-  meson build --libdir=lib --buildtype=release -Dintrospection=false && \
+  meson build --libdir=lib --buildtype=release -Dintrospection=false -Dtiff=disabled && \
   cd build && \
   meson compile && \
   meson test && \
@@ -158,7 +160,7 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
+    $libvips_dev_dependencies \
     bc \
     build-essential \
     g++ \
@@ -169,7 +171,7 @@ RUN \
     ninja-build \
     python3-dev && \
   apt-get install --no-install-recommends -y \
-    $(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6') \
+    $libvips_dependencies \
     libexif12 \
     libltdl7 \
     libraw-bin && \
