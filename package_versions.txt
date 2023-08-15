@@ -378,7 +378,7 @@ imagemagick                         8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb
 imagemagick-6-common                8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 imagemagick-6.q16                   8:6.9.11.60+dfsg-1.3ubuntu0.22.04.3      deb     
 immich                              0.41.0                                   npm     
-immich                              1.72.2                                   npm     
+immich                              1.73.0                                   npm     
 immich-web                          1.0.0                                    npm     
 import-fresh                        3.3.0                                    npm     
 imurmurhash                         0.1.4                                    npm     
@@ -849,12 +849,12 @@ nginx                               1.18.0-6ubuntu14.4                       deb
 nginx-common                        1.18.0-6ubuntu14.4                       deb     
 nginx-core                          1.18.0-6ubuntu14.4                       deb     
 nltk                                3.7                                      python  
-node                                18.17.0                                  binary  
+node                                18.17.1                                  binary  
 node-abi                            3.40.0                                   npm     
 node-addon-api                      5.1.0                                    npm     
 node-fetch                          2.6.11                                   npm     
 node-gyp                            9.3.1                                    npm     
-nodejs                              18.17.0-deb-1nodesource1                 deb     
+nodejs                              18.17.1-deb-1nodesource1                 deb     
 nopt                                5.0.0                                    npm     
 nopt                                6.0.0                                    npm     
 nopt                                7.1.0                                    npm     
@@ -1099,7 +1099,7 @@ thenify-all                         1.6.0                                    npm
 threadpoolctl                       3.2.0                                    python  
 through                             2.3.8                                    npm     
 thumbhash                           0.1.1                                    npm     
-tifffile                            2023.7.18                                python  
+tifffile                            2023.8.12                                python  
 tiny-relative-date                  1.3.0                                    npm     
 tmp                                 0.0.33                                   npm     
 toidentifier                        1.0.1                                    npm     
