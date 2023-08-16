@@ -22,6 +22,8 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning" \
 
 RUN \
   echo "**** install runtime packages ****" && \
+  echo 'deb [arch=amd64] https://repo.jellyfin.org/ubuntu lunar main' > /etc/apt/sources.list.d/jellyfin.list && \
+  curl -s https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/jellyfin_team.gpg >/dev/null && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
@@ -31,7 +33,7 @@ RUN \
     $libvips_dev_dependencies \
     bc \
     build-essential \
-    ffmpeg \
+    jellyfin-ffmpeg6 \
     g++ \
     intel-media-va-driver-non-free \
     libexif-dev \
@@ -47,6 +49,8 @@ RUN \
     python3-dev \
     python3-pip \
     python3-venv && \
+  ln -s /usr/lib/jellyfin-ffmpeg/ffmpeg /usr/bin && \
+  ln -s /usr/lib/jellyfin-ffmpeg/ffprobe /usr/bin && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
     /tmp/imagemagick && \
@@ -184,7 +188,9 @@ RUN \
     /root/.cache \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
-    /usr/share/keyrings/nodesource.gpg
+    /etc/apt/sources.list.d/jellyfin.list \
+    /usr/share/keyrings/nodesource.gpg \
+    /etc/apt/trusted.gpg.d/jellyfin_team.gpg
 
 # copy local files
 COPY root/ /
