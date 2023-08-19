@@ -384,7 +384,7 @@ ignore-walk                         6.0.3                              npm
 imagediff                           1.0.8                              npm     
 imageio                             2.31.1                             python  
 immich                              0.41.0                             npm     
-immich                              1.73.0                             npm     
+immich                              1.74.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.8.0                              python  
@@ -949,7 +949,7 @@ shared-mime-info                    2.2-1                              deb
 sharp                               0.31.3                             npm     
 shebang-command                     2.0.0                              npm     
 shebang-regex                       3.0.0                              npm     
-shellingham                         1.5.2                              python  
+shellingham                         1.5.3                              python  
 side-channel                        1.0.4                              npm     
 signal-exit                         3.0.7                              npm     
 signal-exit                         4.0.2                              npm     
