@@ -367,7 +367,7 @@ imagemagick-dev                     7.1.1.13-r0             apk
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.41.0                  npm     
-immich                              1.73.0                  npm     
+immich                              1.74.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
