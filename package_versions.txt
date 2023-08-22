@@ -837,7 +837,7 @@ pinentry-curses                     1.2.1-1ubuntu1                     deb
 pip                                 23.0.1                             python  
 pkginfo                             1.9.6                              python  
 platformdirs                        3.10.0                             python  
-poetry                              1.6.0                              python  
+poetry                              1.6.1                              python  
 poetry-core                         1.7.0                              python  
 poetry-plugin-export                1.5.0                              python  
 postcss-selector-parser             6.0.13                             npm     
