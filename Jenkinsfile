@@ -584,7 +584,7 @@ pipeline {
           }
           sh '''#! /bin/bash
                 set -e
-                docker pull ghcr.io/imagegenius/ci:latest
+                docker pull ghcr.io/imagegenius/ci:e92336cd-ig50
                 if [ "${MULTIARCH}" == "true" ]; then
                   docker pull ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}
                   docker tag ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${GITHUBIMAGE}:arm64v8-${META_TAG}
@@ -606,7 +606,7 @@ pipeline {
                 -e WEB_SCREENSHOT=\"${CI_WEB}\" \
                 -e WEB_AUTH=\"${CI_AUTH}\" \
                 -e WEB_PATH=\"${CI_WEBPATH}\" \
-                -t ghcr.io/imagegenius/ci:latest \
+                -t ghcr.io/imagegenius/ci:e92336cd-ig50 \
                 python3 test_build.py
              '''
         }
