@@ -990,8 +990,8 @@ svelte-local-storage-store          0.5.0                              npm
 svelte-material-icons               3.0.5                              npm     
 swagger-ui-dist                     4.18.2                             npm     
 sympy                               1.12                               python  
-systeminformation                   5.18.15                            npm     
 systeminformation                   5.18.6                             npm     
+systeminformation                   5.19.1                             npm     
 sysvinit-utils                      3.06-2ubuntu1                      deb     
 tar                                 1.34+dfsg-1.2ubuntu0.1             deb     
 tar                                 6.1.14                             npm     
