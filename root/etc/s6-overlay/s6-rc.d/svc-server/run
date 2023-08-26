@@ -2,7 +2,7 @@
 
 # map disable variables to immich variables
 if [ "${DISABLE_MACHINE_LEARNING}" == "true" ]; then
-    export IMMICH_MACHINE_LEARNING_URL=false
+    export IMMICH_MACHINE_LEARNING_ENABLED=false
 fi
 if [ "${DISABLE_TYPESENSE}" == "true" ]; then
     export TYPESENSE_ENABLED=false
