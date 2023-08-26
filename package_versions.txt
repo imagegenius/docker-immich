@@ -194,6 +194,7 @@ cli-spinners                        2.9.0                              npm
 cli-table3                          0.6.3                              npm     
 cli-width                           3.0.0                              npm     
 click                               8.1.7                              python  
+clip-server                         0.8.2                              python  
 cliui                               7.0.4                              npm     
 cliui                               8.0.1                              npm     
 clone                               1.0.4                              npm     
