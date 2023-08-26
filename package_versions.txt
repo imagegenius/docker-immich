@@ -366,7 +366,7 @@ imagemagick-dev                     7.1.1.13-r0             apk
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.41.0                  npm     
-immich                              1.75.0                  npm     
+immich                              1.75.1                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -693,9 +693,9 @@ py3-setuptools                      67.7.2-r0               apk
 py3-setuptools-pyc                  67.7.2-r0               apk     
 pyc                                 0.1-r0                  apk     
 pyparsing                           3.0.9                   python  
-python3                             3.11.4-r0               apk     
-python3-pyc                         3.11.4-r0               apk     
-python3-pycache-pyc0                3.11.4-r0               apk     
+python3                             3.11.5-r0               apk     
+python3-pyc                         3.11.5-r0               apk     
+python3-pycache-pyc0                3.11.5-r0               apk     
 qrcode-terminal                     0.12.0                  npm     
 qs                                  6.11.0                  npm     
 qs                                  6.5.3                   npm     
