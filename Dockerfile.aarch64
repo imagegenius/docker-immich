@@ -102,6 +102,8 @@ RUN \
   pip install -U --no-cache-dir --index-url https://download.pytorch.org/whl/cpu \
     torch && \
   pip install -U --no-cache-dir \
+    safetensors==0.3.2 && \
+  pip install -U --no-cache-dir \
     aiocache \
     insightface \
     onnxruntime \
