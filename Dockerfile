@@ -22,16 +22,18 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning" \
 
 RUN \
   echo "**** install runtime packages ****" && \
+  echo 'deb [arch=amd64] https://repo.jellyfin.org/ubuntu lunar main' > /etc/apt/sources.list.d/jellyfin.list && \
+  curl -s https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/jellyfin_team.gpg >/dev/null && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
+  libvips_dev_dependencies=$(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0|libtiff-dev') && \
+  libvips_dependencies=$(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6|libtiff6') && \
   apt-get install --no-install-recommends -y \
-    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
-    autoconf \
-    automake \
+    $libvips_dev_dependencies \
     bc \
     build-essential \
-    ffmpeg \
+    jellyfin-ffmpeg6 \
     g++ \
     intel-media-va-driver-non-free \
     libexif-dev \
@@ -47,6 +49,8 @@ RUN \
     python3-dev \
     python3-pip \
     python3-venv && \
+  ln -s /usr/lib/jellyfin-ffmpeg/ffmpeg /usr/bin && \
+  ln -s /usr/lib/jellyfin-ffmpeg/ffprobe /usr/bin && \
   echo "**** download libraw ****" && \
   mkdir -p \
     /tmp/libraw && \
@@ -104,7 +108,7 @@ RUN \
     /tmp/libvips --strip-components=1 && \
   echo "**** build libvips ****" && \
   cd /tmp/libvips && \
-  meson build --libdir=lib --buildtype=release -Dintrospection=false && \
+  meson build --libdir=lib --buildtype=release -Dintrospection=false -Dtiff=disabled && \
   cd build && \
   meson compile && \
   meson test && \
@@ -168,6 +172,7 @@ RUN \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
   poetry install --sync --no-interaction --no-ansi --no-root --only main && \
+  poetry run pip install --no-deps -r requirements.txt && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
@@ -181,9 +186,7 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    $(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0') \
-    autoconf \
-    automake \
+    $libvips_dev_dependencies \
     bc \
     build-essential \
     g++ \
@@ -195,7 +198,7 @@ RUN \
     ninja-build \
     python3-dev && \
   apt-get install --no-install-recommends -y \
-    $(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6') \
+    $libvips_dependencies \
     libexif12 \
     libltdl7 && \
   apt-get autoremove -y --purge && \
@@ -207,7 +210,9 @@ RUN \
     /root/.cache \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
-    /usr/share/keyrings/nodesource.gpg
+    /etc/apt/sources.list.d/jellyfin.list \
+    /usr/share/keyrings/nodesource.gpg \
+    /etc/apt/trusted.gpg.d/jellyfin_team.gpg
 
 # copy local files
 COPY root/ /
