@@ -18,6 +18,10 @@ development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
   - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning is completely removed, which makes for a very lightweight image." }
 
+# deprecation information
+project_deprecation_status: true
+project_deprecation_message: "Due to versioning issues, the jammy branch is deprecated."
+
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
