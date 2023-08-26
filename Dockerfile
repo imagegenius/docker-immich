@@ -11,7 +11,7 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  IMMICH_MACHINE_LEARNING_URL="false" \
+  IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos"
 
 RUN \
