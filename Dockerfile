@@ -38,7 +38,7 @@ RUN \
     intel-media-va-driver-non-free \
     libexif-dev \
     libltdl-dev \
-    libraw-dev \
+    libtool \
     make \
     mesa-va-drivers \
     meson \
@@ -51,6 +51,27 @@ RUN \
     python3-venv && \
   ln -s /usr/lib/jellyfin-ffmpeg/ffmpeg /usr/bin && \
   ln -s /usr/lib/jellyfin-ffmpeg/ffprobe /usr/bin && \
+  echo "**** download libraw ****" && \
+  mkdir -p \
+    /tmp/libraw && \
+  if [ -z ${LIBRAW_VERSION} ]; then \
+    LIBRAW_VERSION=$(curl -sL https://api.github.com/repos/libraw/libraw/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/libraw.tar.gz -L \
+    "https://github.com/libraw/libraw/archive/${LIBRAW_VERSION}.tar.gz" && \
+  cd /tmp && \
+  tar xf \
+    /tmp/libraw.tar.gz -C \
+    /tmp/libraw --strip-components=1 && \
+  echo "**** build libraw ****" && \
+  cd /tmp/libraw && \
+  autoreconf --install && \
+  ./configure && \
+  make -j4 && \
+  make install && \
+  ldconfig /usr/local/lib && \
   echo "**** download imagemagick ****" && \
   mkdir -p \
     /tmp/imagemagick && \
@@ -171,6 +192,7 @@ RUN \
     g++ \
     libexif-dev \
     libltdl-dev \
+    libtool \
     make \
     meson \
     ninja-build \
@@ -178,8 +200,7 @@ RUN \
   apt-get install --no-install-recommends -y \
     $libvips_dependencies \
     libexif12 \
-    libltdl7 \
-    libraw-bin && \
+    libltdl7 && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
