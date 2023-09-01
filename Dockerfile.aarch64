@@ -50,6 +50,19 @@ RUN \
     python3-venv && \
   ln -s /usr/lib/jellyfin-ffmpeg/ffmpeg /usr/bin && \
   ln -s /usr/lib/jellyfin-ffmpeg/ffprobe /usr/bin && \
+  echo "**** download immich ****" && \
+  mkdir -p \
+    /tmp/immich && \
+  if [ -z ${IMMICH_VERSION} ]; then \
+    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/immich.tar.gz -L \
+    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
+  tar xf \
+    /tmp/immich.tar.gz -C \
+    /tmp/immich --strip-components=1 && \
   echo "**** download libraw ****" && \
   mkdir -p \
     /tmp/libraw && \
@@ -87,6 +100,7 @@ RUN \
     /tmp/imagemagick --strip-components=1 && \
   echo "**** build imagemagick ****" && \
   cd /tmp/imagemagick && \
+  patch -u coders/dng.c -i /tmp/immich/server/bin/use-camera-wb.patch && \
   ./configure --with-modules && \
   make -j4 && \
   make install && \
@@ -113,19 +127,6 @@ RUN \
   meson test && \
   meson install && \
   ldconfig && \
-  echo "**** download immich ****" && \
-  mkdir -p \
-    /tmp/immich && \
-  if [ -z ${IMMICH_VERSION} ]; then \
-    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
-  curl -o \
-    /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/immich.tar.gz -C \
-    /tmp/immich --strip-components=1 && \
   echo "**** download typesense ****" && \
   mkdir -p \
     /app/typesense && \
