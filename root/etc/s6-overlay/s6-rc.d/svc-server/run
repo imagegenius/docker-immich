@@ -8,6 +8,8 @@ if [ "${DISABLE_TYPESENSE}" == "true" ]; then
     export TYPESENSE_ENABLED=false
 fi
 
+export LD_PRELOAD="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
+
 exec \
     s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost 3001" \
         cd /app/immich/server s6-setuidgid abc \
