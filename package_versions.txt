@@ -541,6 +541,7 @@ liblzma5                            5.4.1-0.2                          deb
 libmatio11                          1.5.23-2                           deb     
 libmaxminddb0                       1.7.1-1                            deb     
 libmd0                              1.0.4-2                            deb     
+libmimalloc2.0                      2.0.9+ds-2                         deb     
 libmnl0                             1.0.4-3ubuntu1                     deb     
 libmount1                           2.38.1-4ubuntu1                    deb     
 libmp3lame0                         3.100-6                            deb     
