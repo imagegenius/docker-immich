@@ -38,6 +38,7 @@ RUN \
     intel-media-va-driver-non-free \
     libexif-dev \
     libltdl-dev \
+    libmimalloc2.0 \
     libtool \
     make \
     mesa-va-drivers \
