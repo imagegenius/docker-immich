@@ -178,6 +178,7 @@ RUN \
     /app/immich/machine-learning && \
   cp -a \
     app \
+    log_conf.json \
     /app/immich/machine-learning && \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g --prefix /tmp/cli immich && \
