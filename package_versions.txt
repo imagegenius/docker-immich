@@ -355,7 +355,7 @@ imagemagick-dev                     7.1.1.13-r0             apk
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.41.0                  npm     
-immich                              1.77.0                  npm     
+immich                              1.78.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -454,7 +454,7 @@ libpciaccess                        0.17-r2                 apk
 libphonenumber-js                   1.10.30                 npm     
 libplacebo                          5.264.1-r1              apk     
 libpng                              1.6.39-r3               apk     
-libproc2                            4.0.3-r1                apk     
+libproc2                            4.0.4-r0                apk     
 libpulse                            16.1-r10                apk     
 libraw                              0.21.1-r1               apk     
 libraw-dev                          0.21.1-r1               apk     
@@ -656,7 +656,7 @@ prebuild-install                    7.1.1                   npm
 proc-log                            3.0.0                   npm     
 process                             0.11.10                 npm     
 process-nextick-args                2.0.1                   npm     
-procps-ng                           4.0.3-r1                apk     
+procps-ng                           4.0.4-r0                apk     
 promise-all-reject-late             1.0.1                   npm     
 promise-call-limit                  1.0.2                   npm     
 promise-inflight                    1.0.1                   npm     
