@@ -238,7 +238,7 @@ cryptography                        41.0.3                             python
 css-tree                            2.3.1                              npm     
 cssesc                              3.0.0                              npm     
 csv-parse                           5.5.0                              npm     
-curl                                7.88.1-8ubuntu2.1                  deb     
+curl                                7.88.1-8ubuntu2.2                  deb     
 cycler                              0.11.0                             python  
 dash                                0.5.12-2ubuntu1                    deb     
 data-uri-to-buffer                  4.0.1                              npm     
@@ -469,8 +469,8 @@ libcfitsio10                        4.2.0-3                            deb
 libcgif0                            0.3.0-1                            deb     
 libcom-err2                         1.47.0-1ubuntu1                    deb     
 libcrypt1                           1:4.4.33-2                         deb     
-libcurl3-gnutls                     7.88.1-8ubuntu2.1                  deb     
-libcurl4                            7.88.1-8ubuntu2.1                  deb     
+libcurl3-gnutls                     7.88.1-8ubuntu2.2                  deb     
+libcurl4                            7.88.1-8ubuntu2.2                  deb     
 libdatrie1                          0.2.13-2                           deb     
 libdav1d6                           1.0.0-2                            deb     
 libdb5.3                            5.3.28+dfsg2-1                     deb     
