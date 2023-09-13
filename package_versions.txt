@@ -383,7 +383,7 @@ ignore-walk                         6.0.3                              npm
 imagediff                           1.0.8                              npm     
 imageio                             2.31.2                             python  
 immich                              0.41.0                             npm     
-immich                              1.77.0                             npm     
+immich                              1.78.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.8.0                              python  
@@ -1058,7 +1058,7 @@ validate-npm-package-license        3.0.4                              npm
 validate-npm-package-name           5.0.0                              npm     
 validator                           13.9.0                             npm     
 vary                                1.1.2                              npm     
-virtualenv                          20.24.4                            python  
+virtualenv                          20.24.5                            python  
 walk-up-path                        3.0.1                              npm     
 watchfiles                          0.20.0                             python  
 wcwidth                             0.2.6                              python  
