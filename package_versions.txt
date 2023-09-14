@@ -355,7 +355,7 @@ imagemagick-dev                     7.1.1.13-r0             apk
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.41.0                  npm     
-immich                              1.78.0                  npm     
+immich                              1.78.1                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -476,8 +476,8 @@ libva                               2.18.0-r1               apk
 libvdpau                            1.5-r1                  apk     
 libvorbis                           1.3.7-r1                apk     
 libvpx                              1.13.0-r1               apk     
-libwebp                             1.3.1-r0                apk     
-libwebp-dev                         1.3.1-r0                apk     
+libwebp                             1.3.2-r0                apk     
+libwebp-dev                         1.3.2-r0                apk     
 libx11                              1.8.4-r4                apk     
 libxau                              1.0.11-r2               apk     
 libxcb                              1.15-r1                 apk     
