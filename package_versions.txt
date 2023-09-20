@@ -290,6 +290,7 @@ finalhandler                        1.2.0                   npm
 flac-libs                           1.4.3-r0                apk     
 fluent-ffmpeg                       2.1.2                   npm     
 follow-redirects                    1.15.2                  npm     
+follow-redirects                    1.15.3                  npm     
 fontconfig                          2.14.2-r3               apk     
 foreground-child                    3.1.1                   npm     
 form-data                           4.0.0                   npm     
@@ -775,7 +776,7 @@ svelte-material-icons               3.0.5                   npm
 svt-av1-libs                        1.6.0-r0                apk     
 swagger-ui-dist                     5.3.1                   npm     
 systeminformation                   5.18.6                  npm     
-systeminformation                   5.21.4                  npm     
+systeminformation                   5.21.8                  npm     
 tar                                 6.1.14                  npm     
 tar                                 6.1.15                  npm     
 tar-fs                              2.1.1                   npm     
