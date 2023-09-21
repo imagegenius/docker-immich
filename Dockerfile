@@ -69,8 +69,8 @@ RUN \
   mkdir -p \
     /tmp/libraw && \
   if [ -z ${LIBRAW_VERSION} ]; then \
-    LIBRAW_VERSION=$(curl -sL https://api.github.com/repos/libraw/libraw/releases/latest | \
-      jq -r '.tag_name'); \
+    LIBRAW_VERSION=$(jq -r '.packages[] | select(.name == "libraw") | .version' \
+      /tmp/immich/server/build-lock.json); \
   fi && \
   curl -o \
     /tmp/libraw.tar.gz -L \
@@ -90,8 +90,8 @@ RUN \
   mkdir -p \
     /tmp/imagemagick && \
   if [ -z ${IMAGE_MAGICK_VERSION} ]; then \
-    IMAGE_MAGICK_VERSION=$(curl -sL https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest | \
-      jq -r '.tag_name'); \
+    IMAGE_MAGICK_VERSION=$(jq -r '.packages[] | select(.name == "imagemagick") | .version' \
+      /tmp/immich/server/build-lock.json); \
   fi && \
   curl -o \
     /tmp/imagemagick.tar.gz -L \
@@ -111,8 +111,8 @@ RUN \
   mkdir -p \
     /tmp/libvips && \
   if [ -z ${IMAGE_LIBVIPS_VERSION} ]; then \
-    IMAGE_LIBVIPS_VERSION=$(curl -sL https://api.github.com/repos/libvips/libvips/releases/latest | \
-      jq -r '.tag_name'); \
+    IMAGE_LIBVIPS_VERSION=v$(jq -r '.packages[] | select(.name == "libvips") | .version' \
+      /tmp/immich/server/build-lock.json); \
   fi && \
   curl -o \
     /tmp/libvips.tar.gz -L \
