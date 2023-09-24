@@ -1,16 +1,13 @@
 #!/usr/bin/with-contenv bash
 
-if [[ "${TYPESENSE_HOST}" != "127.0.0.1" ]]; then
-    echo "WARN: The Typesense service is disabled as 'TYPESENSE_HOST' is set to '${TYPESENSE_HOST}'."
-fi
+# check if typesense is set to an external server
+[[ "${TYPESENSE_HOST}" != "127.0.0.1" ]] && echo "WARN: Disabling the Typesense service as 'TYPESENSE_HOST' is set externally (${TYPESENSE_HOST})!"
 
 # stop typesense from starting
-if [ "${DISABLE_TYPESENSE}" == "true" ] || [ "${TYPESENSE_HOST}" != "127.0.0.1" ]; then
-    tail -f /dev/null
-fi
+[[ "${DISABLE_TYPESENSE}" == "true" || "${TYPESENSE_HOST}" != "127.0.0.1" ]] && tail -f /dev/null
 
 exec \
     cd /app/typesense s6-setuidgid abc \
         ./typesense-server \
-            --api-key=${TYPESENSE_API_KEY} \
+            --api-key=${TYPESENSE_API_KEY:-xyz} \
             --enable-cors &>/dev/null
