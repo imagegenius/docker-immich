@@ -156,6 +156,9 @@ RUN \
     app \
     log_conf.json \
     /app/immich/machine-learning && \
+  echo "**** install immich cli (immich upload) ****" && \
+    npm install -g --prefix /tmp/cli immich && \
+    mv /tmp/cli/lib/node_modules/immich /app/cli && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
