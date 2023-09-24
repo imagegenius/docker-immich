@@ -16,7 +16,7 @@ exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
        gunicorn app.main:app \
         -k uvicorn.workers.UvicornWorker \
-        -w 1 \
+        -w ${MACHINE_LEARNING_WORKERS:=1} \
         -b 0.0.0.0:3003 \
-        -t 120 \
+        -t ${MACHINE_LEARNING_WORKER_TIMEOUT:=120} \
         --log-config-json log_conf.json
