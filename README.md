@@ -82,6 +82,8 @@ services:
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
+      - MACHINE_LEARNING_WORKERS=1 #optional
+      - MACHINE_LEARNING_WORKER_TIMEOUT=120 #optional
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
@@ -130,6 +132,8 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
+  -e MACHINE_LEARNING_WORKERS=1 `#optional` \
+  -e MACHINE_LEARNING_WORKER_TIMEOUT=120 `#optional` \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
@@ -177,6 +181,8 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
+| `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
+| `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
 | `-v /config` | Contains the logs, machine-learning models and Typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /config/machine-learning` | Store the machine-learning models (~800MB) |
@@ -220,6 +226,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **24.09.23:** - add vars for ml workers/timeout
 * **29.07.23:** - remove cuda acceleration for machine-learning
 * **23.05.23:** - move to ubuntu lunar and support cuda acceleration for machine-learning
 * **22.05.23:** - deprecate postgresql docker mod
