@@ -172,7 +172,7 @@ RUN \
     /root/.cache \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
-    /usr/share/keyrings/nodesource.gpg \
+    /usr/share/keyrings/nodesource.gpg
 
 # copy local files
 COPY root/ /
