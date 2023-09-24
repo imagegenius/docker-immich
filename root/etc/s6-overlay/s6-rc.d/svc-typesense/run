@@ -9,5 +9,5 @@
 exec \
     cd /app/typesense s6-setuidgid abc \
         ./typesense-server \
-            --api-key=${TYPESENSE_API_KEY:-xyz} \
+            --api-key=${TYPESENSE_API_KEY} \
             --enable-cors &>/dev/null

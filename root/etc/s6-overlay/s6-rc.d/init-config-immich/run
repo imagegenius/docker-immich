@@ -4,6 +4,7 @@
 mkdir -p \
     /config/{typesense,log/nginx,machine-learning} \
     /photos \
+    /import \
     /run/immich
 
 # permissions

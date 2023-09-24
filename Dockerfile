@@ -11,14 +11,13 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
-  PATH="/config/lsiopy/bin:${PATH}" \
-  PYTHONPATH="/config/lsiopy/lib/python3.11/site-packages:/lsiopy/lib/python3.11/site-packages" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
   TYPESENSE_DATA_DIR="/config/typesense" \
+  TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   TYPESENSE_VERSION="0.24.1"
 
@@ -55,14 +54,35 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     intel-media-va-driver-non-free \
+    libexif12 \
+    libexpat1 \
+    libgcc-s1 \
+    libglib2.0-0 \
+    libgomp1 \
+    libgsf-1-114 \
+    libheif1 \
+    libjxl0.7 \
+    liblcms2-2 \
+    liblqr-1-0 \
+    libltdl7 \
     libmimalloc2.0 \
+    libopenexr-3-1-30 \
+    libopenjp2-7 \
+    liborc-0.4-0 \
+    libpng16-16 \
+    librsvg2-2 \
+    libspng0 \
+    libwebp7 \
+    libwebpdemux2 \
+    libwebpmux3 \
     mesa-va-drivers \
-    nginx-light \
+    nginx \
     nodejs \
     perl \
     python3 \
     python3-pip \
-    python3-venv && \
+    python3-venv \
+    zlib1g && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
