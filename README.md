@@ -88,6 +88,7 @@ services:
       - path_to_appdata:/config
       - path_to_photos:/photos
       - path_to_machine-learning:/config/machine-learning #optional
+      - path_to_imports:/import #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -138,6 +139,7 @@ docker run -d \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
   -v path_to_machine-learning:/config/machine-learning `#optional` \
+  -v path_to_imports:/import `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 
@@ -183,9 +185,10 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
 | `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
-| `-v /config` | Contains the logs, machine-learning models and Typesense data |
+| `-v /config` | Contains the logs, machine learning models and typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
-| `-v /config/machine-learning` | Store the machine-learning models (~800MB) |
+| `-v /config/machine-learning` | Store the machine learning models (~1.5GB) |
+| `-v /import` | This folder will be periodically scanned, contents will be automatically imported into Immich |
 
 ## Umask for running applications
 
@@ -226,6 +229,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **24.09.23:** - house cleaning
 * **24.09.23:** - add vars for ml workers/timeout
 * **29.07.23:** - remove cuda acceleration for machine-learning
 * **23.05.23:** - move to ubuntu lunar and support cuda acceleration for machine-learning
