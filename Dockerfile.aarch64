@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
+FROM ghcr.io/imagegenius/baseimage-ubuntu:arm64v8-lunar
 
 # set version label
 ARG BUILD_DATE
@@ -10,47 +10,78 @@ LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}
 LABEL maintainer="hydazz, martabal"
 
 # environment settings
-ENV TRANSFORMERS_CACHE="/config/machine-learning" \
-  TYPESENSE_DATA_DIR="/config/typesense" \
-  TYPESENSE_VERSION="0.24.1" \
-  TYPESENSE_API_KEY="xyz" \
-  TYPESENSE_HOST="127.0.0.1" \
-  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning"
+  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
+  TRANSFORMERS_CACHE="/config/machine-learning" \
+  TYPESENSE_DATA_DIR="/config/typesense" \
+  TYPESENSE_API_KEY="xyz" \
+  TYPESENSE_HOST="127.0.0.1" \
+  TYPESENSE_VERSION="0.24.1"
 
 RUN \
+  echo "**** install build packages ****" && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    autoconf \
+    bc \
+    build-essential \
+    g++ \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libheif-dev \
+    libjpeg-dev \
+    libjxl-dev \
+    libltdl-dev \
+    liborc-0.4-dev \
+    librsvg2-dev \
+    libspng-dev \
+    libtool \
+    libwebp-dev \
+    make \
+    meson \
+    ninja-build \
+    pkg-config \
+    python3-dev \
+    wget && \
   echo "**** install runtime packages ****" && \
-  echo 'deb [arch=arm64] https://repo.jellyfin.org/ubuntu lunar main' > /etc/apt/sources.list.d/jellyfin.list && \
-  curl -s https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/jellyfin_team.gpg >/dev/null && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x lunar main" >>/etc/apt/sources.list.d/node.list && \
   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null && \
   apt-get update && \
-  libvips_dev_dependencies=$(apt-cache depends libvips-dev | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickwand-dev|libmagickcore-dev|libvips42|gir1.2-vips-8.0|libtiff-dev') && \
-  libvips_dependencies=$(apt-cache depends libvips42 | awk '/Depends:/{print $2}' | grep -Ev '[<>]|libmagickcore-6.q16-6|libtiff6') && \
   apt-get install --no-install-recommends -y \
-    $libvips_dev_dependencies \
-    bc \
-    build-essential \
-    jellyfin-ffmpeg6 \
-    g++ \
-    libexif-dev \
-    libltdl-dev \
+    libexif12 \
+    libexpat1 \
+    libgcc-s1 \
+    libglib2.0-0 \
+    libgomp1 \
+    libgsf-1-114 \
+    libheif1 \
+    libjxl0.7 \
+    liblcms2-2 \
+    liblqr-1-0 \
+    libltdl7 \
     libmimalloc2.0 \
-    libtool \
-    make \
+    libopenexr-3-1-30 \
+    libopenjp2-7 \
+    liborc-0.4-0 \
+    libpng16-16 \
+    librsvg2-2 \
+    libspng0 \
+    libwebp7 \
+    libwebpdemux2 \
+    libwebpmux3 \
     mesa-va-drivers \
-    meson \
     nginx \
-    ninja-build \
     nodejs \
     perl \
-    python3-dev \
+    python3 \
     python3-pip \
-    python3-venv && \
-  ln -s /usr/lib/jellyfin-ffmpeg/ffmpeg /usr/bin && \
-  ln -s /usr/lib/jellyfin-ffmpeg/ffprobe /usr/bin && \
+    python3-venv \
+    zlib1g && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -64,74 +95,17 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download libraw ****" && \
-  mkdir -p \
-    /tmp/libraw && \
-  if [ -z ${LIBRAW_VERSION} ]; then \
-    LIBRAW_VERSION=$(jq -r '.packages[] | select(.name == "libraw") | .version' \
-      /tmp/immich/server/build-lock.json); \
-  fi && \
-  curl -o \
-    /tmp/libraw.tar.gz -L \
-    "https://github.com/libraw/libraw/archive/${LIBRAW_VERSION}.tar.gz" && \
-  cd /tmp && \
-  tar xf \
-    /tmp/libraw.tar.gz -C \
-    /tmp/libraw --strip-components=1 && \
-  echo "**** build libraw ****" && \
-  cd /tmp/libraw && \
-  autoreconf --install && \
-  ./configure && \
-  make -j4 && \
-  make install && \
-  ldconfig /usr/local/lib && \
-  echo "**** download imagemagick ****" && \
-  mkdir -p \
-    /tmp/imagemagick && \
-  if [ -z ${IMAGE_MAGICK_VERSION} ]; then \
-    IMAGE_MAGICK_VERSION=$(jq -r '.packages[] | select(.name == "imagemagick") | .version' \
-      /tmp/immich/server/build-lock.json); \
-  fi && \
-  curl -o \
-    /tmp/imagemagick.tar.gz -L \
-    "https://github.com/ImageMagick/ImageMagick/archive/${IMAGE_MAGICK_VERSION}.tar.gz" && \
-  cd /tmp && \
-  tar xf \
-    /tmp/imagemagick.tar.gz -C \
-    /tmp/imagemagick --strip-components=1 && \
-  echo "**** build imagemagick ****" && \
-  cd /tmp/imagemagick && \
-  patch -u coders/dng.c -i /tmp/immich/server/bin/use-camera-wb.patch && \
-  ./configure --with-modules && \
-  make -j4 && \
-  make install && \
-  ldconfig /usr/local/lib && \
-  echo "**** download libvips ****" && \
-  mkdir -p \
-    /tmp/libvips && \
-  if [ -z ${IMAGE_LIBVIPS_VERSION} ]; then \
-    IMAGE_LIBVIPS_VERSION=v$(jq -r '.packages[] | select(.name == "libvips") | .version' \
-      /tmp/immich/server/build-lock.json); \
-  fi && \
-  curl -o \
-    /tmp/libvips.tar.gz -L \
-    "https://github.com/libvips/libvips/archive/${IMAGE_LIBVIPS_VERSION}.tar.gz" && \
-  cd /tmp && \
-  tar xf \
-    /tmp/libvips.tar.gz -C \
-    /tmp/libvips --strip-components=1 && \
-  echo "**** build libvips ****" && \
-  cd /tmp/libvips && \
-  meson build --libdir=lib --buildtype=release -Dintrospection=false -Dtiff=disabled && \
-  cd build && \
-  meson compile && \
-  meson test && \
-  meson install && \
-  ldconfig && \
+  echo "**** build immich dependencies ****" && \
+  cd /tmp/immich/server && \
+  bin/install-ffmpeg.sh && \
+  bin/build-libraw.sh || bin/build-libraw.sh && \
+  mv bin/use-camera-wb.patch . && \
+  bin/build-imagemagick.sh && \
+  bin/build-libvips.sh && \
   echo "**** download typesense ****" && \
   mkdir -p \
     /app/typesense && \
-  curl -o  \
+  curl -o \
     /tmp/typesense.tar.gz -L \
     https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-arm64.tar.gz && \
   tar -xf \
@@ -168,7 +142,8 @@ RUN \
     /app/immich/web && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir poetry && \
+  pip install --break-system-packages -U --no-cache-dir \
+    poetry && \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
@@ -188,21 +163,29 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    $libvips_dev_dependencies \
+    autoconf \
     bc \
     build-essential \
     g++ \
     libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libheif-dev \
+    libjpeg-dev \
+    libjxl-dev \
     libltdl-dev \
+    liborc-0.4-dev \
+    librsvg2-dev \
+    libspng-dev \
     libtool \
+    libwebp-dev \
     make \
     meson \
     ninja-build \
-    python3-dev && \
-  apt-get install --no-install-recommends -y \
-    $libvips_dependencies \
-    libexif12 \
-    libltdl7 && \
+    pkg-config \
+    python3-dev \
+    wget && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
@@ -212,9 +195,7 @@ RUN \
     /root/.cache \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
-    /etc/apt/sources.list.d/jellyfin.list \
-    /usr/share/keyrings/nodesource.gpg \
-    /etc/apt/trusted.gpg.d/jellyfin_team.gpg
+    /usr/share/keyrings/nodesource.gpg
 
 # copy local files
 COPY root/ /
@@ -224,4 +205,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /uploads
+VOLUME /config /uploads /import

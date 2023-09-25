@@ -1,12 +1,8 @@
 #!/usr/bin/with-contenv bash
 
 # map disable variables to immich variables
-if [ "${DISABLE_MACHINE_LEARNING}" == "true" ]; then
-    export IMMICH_MACHINE_LEARNING_ENABLED=false
-fi
-if [ "${DISABLE_TYPESENSE}" == "true" ]; then
-    export TYPESENSE_ENABLED=false
-fi
+[[ "${DISABLE_MACHINE_LEARNING}" == "true" ]] && export IMMICH_MACHINE_LEARNING_ENABLED=false
+[[ "${DISABLE_TYPESENSE}" == "true" ]] && export TYPESENSE_ENABLED=false
 
 export LD_PRELOAD="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
 

@@ -1,27 +1,17 @@
 #!/usr/bin/with-contenv bash
 
-# !! freeze startup if using postgresql docker mod (pg14)
-
-if [ -f /config/postgres/PG_VERSION ]; then
-    if [ "$(cat /config/postgres/PG_VERSION)" = "14" ]; then
-        echo "Hey there!"
-        echo "It looks like you're using the PostgreSQL docker mod, unfortunately this mod is no longer supported as there are no longer PostgreSQL 14 upstream packages, there is nothing we can do about this :(."
-        echo "We recommend migrating the docker mod to a dedicatied PostgreSQL container, this is easier than it sounds, please see the github issue below for some steps, and if you need a lil' extra help, just reply and well help out out ASAP!"
-        echo "https://github.com/imagegenius/docker-immich/issues/90"
-        sleep infinity
-    fi
-fi
-
 # make folders
 mkdir -p \
     /config/{typesense,log/nginx,machine-learning} \
     /photos \
+    /import \
     /run/immich
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
+    /app/typesense \
     /config \
+    /import \
     /photos \
-    /run/immich \
-    /app/typesense
+    /run/immich

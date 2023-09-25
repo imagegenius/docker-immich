@@ -1,13 +1,10 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
-    echo "WARN: The Machine-Learning service is disabled as 'IMMICH_MACHINE_LEARNING_URL' is set to '${IMMICH_MACHINE_LEARNING_URL}'."
-fi
+# check if machine learning is set to an external server
+[[ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && echo "WARN: Disabling the machine learning service as 'IMMICH_MACHINE_LEARNING_URL' is set externally (${IMMICH_MACHINE_LEARNING_URL})!"
 
 # stop machine learning from starting
-if [ "${DISABLE_MACHINE_LEARNING}" == "true" ] || [ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]; then
-    tail -f /dev/null
-fi
+[[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && tail -f /dev/null
 
 export LD_PRELOAD="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
 export HOME=/tmp
