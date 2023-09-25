@@ -78,8 +78,12 @@ app_setup_block: |
   Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
 
   Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
-  
-  If you have an existing media collection that you want to import into Immich, just mount the whole folder to `/import` (within the container), Immich will then import the contents automatically.
+
+  To import your existing library into Immich :
+  - Add a new volume to your Immich Docker container by mapping your existing library path using : `path_to_your_existing_library:/photos/import`
+  - Access the Immich web UI and generate an API key from your account settings
+  - In your administration settings, include `/photos/import` as the external path for your user
+  - Execute the following command to import your library : `docker exec -it immich immich upload --key <your_api_key> --server http://your_server_ip:8080/api /photos/import --recursive --import`
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
