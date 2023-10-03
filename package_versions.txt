@@ -367,7 +367,7 @@ imagemagick-dev                     7.1.1.13-r0             apk
 imagemagick-libs                    7.1.1.13-r0             apk     
 imath                               3.1.7-r1                apk     
 immich                              0.41.0                  npm     
-immich                              1.80.0                  npm     
+immich                              1.81.0                  npm     
 immich-web                          1.0.0                   npm     
 import-fresh                        3.3.0                   npm     
 imurmurhash                         0.1.4                   npm     
@@ -683,7 +683,7 @@ promzard                            1.0.0                   npm
 protocol-buffers-schema             3.6.0                   npm     
 proxy-addr                          2.0.7                   npm     
 proxy-from-env                      1.1.0                   npm     
-psycopg2-binary                     2.9.8                   python  
+psycopg2-binary                     2.9.9                   python  
 pump                                3.0.0                   npm     
 py3-packaging                       23.1-r1                 apk     
 py3-packaging-pyc                   23.1-r1                 apk     
