@@ -695,9 +695,9 @@ py3-setuptools                      67.7.2-r0               apk
 py3-setuptools-pyc                  67.7.2-r0               apk     
 pyc                                 0.1-r0                  apk     
 pyparsing                           3.0.9                   python  
-python3                             3.11.5-r0               apk     
-python3-pyc                         3.11.5-r0               apk     
-python3-pycache-pyc0                3.11.5-r0               apk     
+python3                             3.11.6-r0               apk     
+python3-pyc                         3.11.6-r0               apk     
+python3-pycache-pyc0                3.11.6-r0               apk     
 qrcode-terminal                     0.12.0                  npm     
 qs                                  6.11.0                  npm     
 queue-tick                          1.0.1                   npm     
