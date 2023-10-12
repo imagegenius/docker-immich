@@ -30,8 +30,6 @@ RUN \
     npm \
     openssl \
     perl \
-    python3 \
-    py3-pip \
     vips \
     vips-cpp \
     vips-heif \
@@ -50,9 +48,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** install pip dependencies ****" && \
-  pip install --break-system-packages -U --no-cache-dir \
-    psycopg2-binary && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
