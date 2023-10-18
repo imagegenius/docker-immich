@@ -394,7 +394,7 @@ ignore-walk                         6.0.3                              npm
 imagediff                           1.0.8                              npm     
 imageio                             2.31.2                             python  
 immich                              0.41.0                             npm     
-immich                              1.82.0                             npm     
+immich                              1.82.1                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.8.0                              python  
