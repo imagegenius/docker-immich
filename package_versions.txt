@@ -784,7 +784,7 @@ svelte-local-storage-store          0.5.0                   npm
 svelte-material-icons               3.0.5                   npm   
 svt-av1-libs                        1.6.0-r0                apk   
 swagger-ui-dist                     5.7.2                   npm   
-systeminformation                   5.21.11                 npm   
+systeminformation                   5.21.12                 npm   
 systeminformation                   5.21.9                  npm   
 tar                                 6.1.14                  npm   
 tar                                 6.2.0                   npm   
