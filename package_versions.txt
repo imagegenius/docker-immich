@@ -246,7 +246,7 @@ cryptography                        41.0.4                             python
 css-tree                            2.3.1                              npm     
 cssesc                              3.0.0                              npm     
 csv-parse                           5.5.0                              npm     
-curl                                7.88.1-8ubuntu2.2                  deb     
+curl                                7.88.1-8ubuntu2.3                  deb     
 cycler                              0.11.0                             python  
 dash                                0.5.12-2ubuntu1                    deb     
 data-uri-to-buffer                  4.0.1                              npm     
@@ -480,7 +480,7 @@ libcap2                             1:2.66-3ubuntu2.1                  deb
 libcap2-bin                         1:2.66-3ubuntu2.1                  deb     
 libcom-err2                         1.47.0-1ubuntu1                    deb     
 libcrypt1                           1:4.4.33-2                         deb     
-libcurl4                            7.88.1-8ubuntu2.2                  deb     
+libcurl4                            7.88.1-8ubuntu2.3                  deb     
 libdatrie1                          0.2.13-2                           deb     
 libdav1d6                           1.0.0-2                            deb     
 libdb5.3                            5.3.28+dfsg2-1                     deb     
@@ -1007,7 +1007,7 @@ svelte-local-storage-store          0.5.0                              npm
 svelte-material-icons               3.0.5                              npm     
 swagger-ui-dist                     5.7.2                              npm     
 sympy                               1.12                               python  
-systeminformation                   5.21.11                            npm     
+systeminformation                   5.21.12                            npm     
 systeminformation                   5.21.9                             npm     
 sysvinit-utils                      3.06-2ubuntu1                      deb     
 tar                                 1.34+dfsg-1.2ubuntu0.1             deb     
@@ -1038,7 +1038,7 @@ tr46                                0.0.3                              npm
 transformers                        4.32.1                             python  
 traverse                            0.3.9                              npm     
 treeverse                           3.0.0                              npm     
-trove-classifiers                   2023.9.19                          python  
+trove-classifiers                   2023.10.18                         python  
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.6.0                              npm     
 tslib                               2.6.2                              npm     
@@ -1065,7 +1065,7 @@ unique-slug                         4.0.0                              npm
 unpipe                              1.0.0                              npm     
 unzip-stream                        0.3.1                              npm     
 urllib3                             2.0.4                              python  
-urllib3                             2.0.6                              python  
+urllib3                             2.0.7                              python  
 usrmerge                            33ubuntu1                          deb     
 utf8-byte-length                    1.0.4                              npm     
 util-deprecate                      1.0.2                              npm     
