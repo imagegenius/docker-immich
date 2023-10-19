@@ -16,12 +16,12 @@ ENV PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
 
 RUN \
   echo "**** install build packages ****" && \
-  apk add --no-cache --virtual=build-dependencies \
+  apk add --no-cache --virtual=build-dependencies -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
     g++ \  
     make \
     vips-dev && \  
   echo "**** install runtime packages ****" && \
-  apk add --no-cache \
+  apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
     ffmpeg \
     imagemagick-dev \
     libraw-dev \
