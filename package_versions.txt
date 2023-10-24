@@ -620,7 +620,7 @@ libspng0                            0.7.3-3                            deb
 libsqlite3-0                        3.40.1-1                           deb     
 libss2                              1.47.0-1ubuntu1                    deb     
 libssh-4                            0.10.4-2ubuntu0.1                  deb     
-libssl3                             3.0.8-1ubuntu1.2                   deb     
+libssl3                             3.0.8-1ubuntu1.4                   deb     
 libstdc++6                          13.1.0-2ubuntu2~23.04              deb     
 libsystemd0                         252.5-2ubuntu3                     deb     
 libtasn1-6                          4.19.0-2                           deb     
@@ -799,7 +799,7 @@ onnxruntime                         1.15.1                             python
 open-clip-torch                     2.20.0                             python  
 opencv-python-headless              4.8.0.76                           python  
 openid-client                       5.5.0                              npm     
-openssl                             3.0.8-1ubuntu1.2                   deb     
+openssl                             3.0.8-1ubuntu1.4                   deb     
 optimum                             1.12.0                             python  
 ora                                 5.4.1                              npm     
 orjson                              3.9.5                              python  
