@@ -49,11 +49,11 @@ Machine Learning operations tend to be CPU-intensive. If you're operating Immich
 
 Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
 
-To import your existing library into Immich :
-- Add a new volume to your Immich Docker container by mapping your existing library path using : `path_to_your_existing_library:/photos/import`
-- Access the Immich web UI and generate an API key from your account settings
-- In your administration settings, include `/photos/import` as the external path for your user
-- Execute the following command to import your library : `docker exec -it immich immich upload --key <your_api_key> --server http://your_server_ip:8080/api /photos/import --recursive --import`
+To import your existing libraries into Immich :
+
+- Mount your existing library folder to `/import`
+- In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)
+- In your account settings, add a new library and set the path to `/import` or `/import/<user>`
 
 ## Usage
 

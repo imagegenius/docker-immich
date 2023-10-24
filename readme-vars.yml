@@ -52,7 +52,7 @@ opt_param_env_vars:
 opt_param_usage_include_vols: true
 opt_param_volumes:
   - { vol_path: "/config/machine-learning", vol_host_path: "path_to_machine-learning", desc: "Store the machine learning models (~1.5GB)" }
-  - { vol_path: "/import", vol_host_path: "path_to_imports", desc: "This folder will be periodically scanned, contents will be automatically imported into Immich" }
+  - { vol_path: "/import:ro", vol_host_path: "path_to_imports", desc: "This folder will be periodically scanned, contents will be automatically imported into Immich" }
 opt_param_usage_include_ports: false
 opt_param_device_map: false
 opt_cap_add_param: false
