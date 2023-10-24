@@ -49,11 +49,11 @@ Machine Learning operations tend to be CPU-intensive. If you're operating Immich
 
 Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
 
-To import your existing libraries into Immich :
-
-- Mount your existing library folder to `/import`
-- In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)
-- In your account settings, add a new library and set the path to `/import` or `/import/<user>`
+To import your existing library into Immich :
+- Add a new volume to your Immich Docker container by mapping your existing library path using : `path_to_your_existing_library:/photos/import`
+- Access the Immich web UI and generate an API key from your account settings
+- In your administration settings, include `/photos/import` as the external path for your user
+- Execute the following command to import your library : `docker exec -it immich immich upload --key <your_api_key> --server http://your_server_ip:8080/api /photos/import --recursive --import`
 
 ## Usage
 
@@ -88,7 +88,7 @@ services:
       - path_to_appdata:/config
       - path_to_photos:/photos
       - path_to_machine-learning:/config/machine-learning #optional
-      - path_to_imports:/import #optional
+      - path_to_imports:/import:ro #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -139,7 +139,7 @@ docker run -d \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
   -v path_to_machine-learning:/config/machine-learning `#optional` \
-  -v path_to_imports:/import `#optional` \
+  -v path_to_imports:/import:ro `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 
@@ -188,7 +188,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-v /config` | Contains the logs, machine learning models and typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /config/machine-learning` | Store the machine learning models (~1.5GB) |
-| `-v /import` | This folder will be periodically scanned, contents will be automatically imported into Immich |
+| `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
 
 ## Umask for running applications
 
