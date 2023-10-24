@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-alpine:3.18
+FROM ghcr.io/imagegenius/baseimage-alpine:edge
 
 # set version label
 ARG BUILD_DATE
@@ -16,12 +16,12 @@ ENV PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
 
 RUN \
   echo "**** install build packages ****" && \
-  apk add --no-cache --virtual=build-dependencies -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
+  apk add --no-cache --virtual=build-dependencies \
     g++ \  
     make \
     vips-dev && \  
   echo "**** install runtime packages ****" && \
-  apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
+  apk add --no-cache \
     ffmpeg \
     imagemagick-dev \
     libraw-dev \
