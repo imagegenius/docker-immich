@@ -199,6 +199,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **25.10.23:** - rebase to alpine edge
 * **22.05.23:** - deprecate postgresql docker mod
 * **07.05.23:** - remove unused `JWT_SECRET` env
 * **08.04.23:** - remove typesense
