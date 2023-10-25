@@ -101,6 +101,7 @@ external_application_compose_block: |
 
 # changelog
 changelogs:
+  - { date: "25.10.23:", desc: "rebase to alpine edge" }
   - { date: "22.05.23:", desc: "deprecate postgresql docker mod" }
   - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
   - { date: "08.04.23:", desc: "remove typesense" }
