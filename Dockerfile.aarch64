@@ -148,7 +148,6 @@ RUN \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
   poetry install --sync --no-interaction --no-ansi --no-root --only main && \
-  poetry run pip install --no-deps -r requirements.txt && \
   mkdir -p \
     /app/immich/machine-learning && \
   cp -a \
