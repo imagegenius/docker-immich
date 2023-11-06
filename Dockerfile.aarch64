@@ -12,7 +12,8 @@ LABEL maintainer="hydazz, martabal"
 # environment settings
 ENV PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
-  IMMICH_MEDIA_LOCATION="/photos"
+  IMMICH_MEDIA_LOCATION="/photos" \
+  REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/"
 
 RUN \
   echo "**** install build packages ****" && \
