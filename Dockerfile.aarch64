@@ -19,7 +19,8 @@ ENV \
   TYPESENSE_DATA_DIR="/config/typesense" \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.1"
+  TYPESENSE_VERSION="0.24.1" \
+  REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/"
 
 RUN \
   echo "**** install build packages ****" && \
