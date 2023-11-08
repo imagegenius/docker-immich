@@ -139,7 +139,7 @@ body-parser                         1.20.2                 npm
 boost1.82-python3                   1.82.0-r2              apk   
 brace-expansion                     1.1.11                 npm   
 brace-expansion                     2.0.1                  npm   
-brotli-libs                         1.1.0-r0               apk   
+brotli-libs                         1.1.0-r1               apk   
 buffer                              5.7.1                  npm   
 buffer                              6.0.3                  npm   
 buffer-crc32                        0.2.13                 npm   
@@ -366,7 +366,7 @@ imagemagick-tiff                    7.1.1.21-r0            apk
 imagemagick-webp                    7.1.1.21-r0            apk   
 imath                               3.1.9-r3               apk   
 immich                              0.41.0                 npm   
-immich                              1.84.0                 npm   
+immich                              1.85.0                 npm   
 immich-web                          1.0.0                  npm   
 import-fresh                        3.3.0                  npm   
 imurmurhash                         0.1.4                  npm   
@@ -558,7 +558,7 @@ ms                                  2.1.2                  npm
 ms                                  2.1.3                  npm   
 msgpackr                            1.9.9                  npm   
 multer                              1.4.4-lts.1            npm   
-musl                                1.2.4_git20230717-r3   apk   
+musl                                1.2.4_git20230717-r4   apk   
 musl-utils                          1.2.4_git20230717-r3   apk   
 mute-stream                         0.0.8                  npm   
 mute-stream                         1.0.0                  npm   
@@ -759,7 +759,7 @@ spdx-license-ids                    3.0.16                 npm
 speexdsp                            1.2.1-r2               apk   
 spirv-tools                         1.3.261.1-r0           apk   
 split2                              4.2.0                  npm   
-sqlite-libs                         3.43.2-r0              apk   
+sqlite-libs                         3.44.0-r0              apk   
 sratom                              0.6.16-r0              apk   
 ssl_client                          1.36.1-r14             apk   
 ssri                                10.0.5                 npm   
