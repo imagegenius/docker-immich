@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:lunar
+FROM ghcr.io/imagegenius/baseimage-immich:latest
 
 # set version label
 ARG BUILD_DATE
@@ -26,64 +26,8 @@ RUN \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    autoconf \
-    bc \
     build-essential \
-    g++ \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libjpeg-dev \
-    libjxl-dev \
-    libltdl-dev \
-    liborc-0.4-dev \
-    librsvg2-dev \
-    libspng-dev \
-    libtool \
-    libwebp-dev \
-    make \
-    meson \
-    ninja-build \
-    pkg-config \
-    python3-dev \
-    wget && \
-  echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_18.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
-  curl -s https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \
-    intel-media-va-driver-non-free \
-    libexif12 \
-    libexpat1 \
-    libgcc-s1 \
-    libglib2.0-0 \
-    libgomp1 \
-    libgsf-1-114 \
-    libheif1 \
-    libjxl0.7 \
-    liblcms2-2 \
-    liblqr-1-0 \
-    libltdl7 \
-    libmimalloc2.0 \
-    libopenexr-3-1-30 \
-    libopenjp2-7 \
-    liborc-0.4-0 \
-    libpng16-16 \
-    librsvg2-2 \
-    libspng0 \
-    libwebp7 \
-    libwebpdemux2 \
-    libwebpmux3 \
-    mesa-va-drivers \
-    nginx \
-    nodejs \
-    perl \
-    python3 \
-    python3-pip \
-    python3-venv \
-    zlib1g && \
+    python3-dev && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -97,13 +41,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** build immich dependencies ****" && \
-  cd /tmp/immich/server && \
-  bin/install-ffmpeg.sh && \
-  bin/build-libraw.sh || bin/build-libraw.sh && \
-  mv bin/use-camera-wb.patch . && \
-  bin/build-imagemagick.sh && \
-  bin/build-libvips.sh && \
   echo "**** download typesense ****" && \
   mkdir -p \
     /app/typesense && \
@@ -164,29 +101,8 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    autoconf \
-    bc \
     build-essential \
-    g++ \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libjpeg-dev \
-    libjxl-dev \
-    libltdl-dev \
-    liborc-0.4-dev \
-    librsvg2-dev \
-    libspng-dev \
-    libtool \
-    libwebp-dev \
-    make \
-    meson \
-    ninja-build \
-    pkg-config \
-    python3-dev \
-    wget && \
+    python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
@@ -194,9 +110,7 @@ RUN \
     /var/tmp/* \
     /var/lib/apt/lists/* \
     /root/.cache \
-    /root/.npm \
-    /etc/apt/sources.list.d/node.list \
-    /usr/share/keyrings/nodesource.gpg
+    /root/.npm
 
 # copy local files
 COPY root/ /
