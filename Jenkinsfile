@@ -35,6 +35,13 @@ pipeline {
     // Setup all the basic environment variables needed for the build
     stage("Set ENV Variables base"){
       steps{
+        sh '''#! /bin/bash
+              containers=$(docker ps -aq)
+              if [[ -n "${containers}" ]]; then
+                docker stop ${containers}
+              fi
+              docker system prune -af --volumes || :
+           '''
         script{
           env.EXIT_STATUS = ''
           env.IG_RELEASE = sh(
@@ -369,27 +376,20 @@ pipeline {
       }
       steps {
         echo "Running on node: ${NODE_NAME}"
-        sh '''#! /bin/bash
-              set -e
-              BUILDX_CONTAINER=$(head /dev/urandom | tr -dc 'a-z' | head -c12)
-              trap 'docker buildx rm ${BUILDX_CONTAINER}' EXIT
-              docker buildx create --driver=docker-container --name=${BUILDX_CONTAINER}
-              docker buildx build \
-                --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
-                --label \"org.opencontainers.image.authors=imagegenius.io\" \
-                --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
-                --label \"org.opencontainers.image.source=https://github.com/imagegenius/docker-immich\" \
-                --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ig${IG_TAG_NUMBER}\" \
-                --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
-                --label \"org.opencontainers.image.vendor=imagegenius.io\" \
-                --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
-                --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-                --label \"org.opencontainers.image.title=Immich\" \
-                --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
-                --no-cache --pull -t ${GITHUBIMAGE}:${META_TAG} --platform=linux/amd64 \
-                --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} \
-                --builder=${BUILDX_CONTAINER} --load .
-           '''
+        sh "docker buildx build \
+          --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
+          --label \"org.opencontainers.image.authors=imagegenius.io\" \
+          --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
+          --label \"org.opencontainers.image.source=https://github.com/imagegenius/docker-immich\" \
+          --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ig${IG_TAG_NUMBER}\" \
+          --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
+          --label \"org.opencontainers.image.vendor=imagegenius.io\" \
+          --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
+          --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
+          --label \"org.opencontainers.image.title=Immich\" \
+          --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
+          --no-cache --pull -t ${GITHUBIMAGE}:${META_TAG} --platform=linux/amd64 \
+          --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
       }
     }
     // Build MultiArch Docker containers for push to IG Repo
@@ -405,27 +405,20 @@ pipeline {
         stage('Build X86') {
           steps {
             echo "Running on node: ${NODE_NAME}"
-            sh '''#! /bin/bash
-                  set -e
-                  BUILDX_CONTAINER=$(head /dev/urandom | tr -dc 'a-z' | head -c12)
-                  trap 'docker buildx rm ${BUILDX_CONTAINER}' EXIT
-                  docker buildx create --driver=docker-container --name=${BUILDX_CONTAINER}
-                  docker buildx build \
-                    --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
-                    --label \"org.opencontainers.image.authors=imagegenius.io\" \
-                    --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
-                    --label \"org.opencontainers.image.source=https://github.com/imagegenius/docker-immich\" \
-                    --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ig${IG_TAG_NUMBER}\" \
-                    --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
-                    --label \"org.opencontainers.image.vendor=imagegenius.io\" \
-                    --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
-                    --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-                    --label \"org.opencontainers.image.title=Immich\" \
-                    --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
-                    --no-cache --pull -t ${GITHUBIMAGE}:amd64-${META_TAG} --platform=linux/amd64 \
-                    --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} \
-                    --builder=${BUILDX_CONTAINER} --load .
-               '''
+            sh "docker buildx build \
+              --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
+              --label \"org.opencontainers.image.authors=imagegenius.io\" \
+              --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
+              --label \"org.opencontainers.image.source=https://github.com/imagegenius/docker-immich\" \
+              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ig${IG_TAG_NUMBER}\" \
+              --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
+              --label \"org.opencontainers.image.vendor=imagegenius.io\" \
+              --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
+              --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
+              --label \"org.opencontainers.image.title=Immich\" \
+              --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
+              --no-cache --pull -t ${GITHUBIMAGE}:amd64-${META_TAG} --platform=linux/amd64 \
+              --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
           }
         }
         stage('Build ARM64') {
@@ -438,35 +431,30 @@ pipeline {
             sh '''#! /bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGeniusCI --password-stdin
                '''
-            sh '''#! /bin/bash
-                  set -e
-                  BUILDX_CONTAINER=$(head /dev/urandom | tr -dc 'a-z' | head -c12)
-                  trap 'docker buildx rm ${BUILDX_CONTAINER}' EXIT
-                  docker buildx create --driver=docker-container --name=${BUILDX_CONTAINER}
-                  docker buildx build \
-                    --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
-                    --label \"org.opencontainers.image.authors=imagegenius.io\" \
-                    --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
-                    --label \"org.opencontainers.image.source=https://github.com/imagegenius/docker-immich\" \
-                    --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ig${IG_TAG_NUMBER}\" \
-                    --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
-                    --label \"org.opencontainers.image.vendor=imagegenius.io\" \
-                    --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
-                    --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-                    --label \"org.opencontainers.image.title=Immich\" \
-                    --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
-                    --no-cache --pull -f Dockerfile.aarch64 -t ${GITHUBIMAGE}:arm64v8-${META_TAG} --platform=linux/arm64 \
-                    --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} \
-                    --builder=${BUILDX_CONTAINER} --load .
-               '''
+            sh "docker buildx build \
+              --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
+              --label \"org.opencontainers.image.authors=imagegenius.io\" \
+              --label \"org.opencontainers.image.url=https://github.com/imagegenius/docker-immich/packages\" \
+              --label \"org.opencontainers.image.source=https://github.com/imagegenius/docker-immich\" \
+              --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ig${IG_TAG_NUMBER}\" \
+              --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
+              --label \"org.opencontainers.image.vendor=imagegenius.io\" \
+              --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
+              --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
+              --label \"org.opencontainers.image.title=Immich\" \
+              --label \"org.opencontainers.image.description=Immich is a high performance self-hosted photo and video backup solution.\" \
+              --no-cache --pull -f Dockerfile.aarch64 -t ${GITHUBIMAGE}:arm64v8-${META_TAG} --platform=linux/arm64 \
+              --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
             sh "docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
             retry(5) {
               sh "docker push ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
             }
-            sh '''docker rmi \
-                    ${GITHUBIMAGE}:arm64v8-${META_TAG} \
-                    ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
-               '''
+            sh '''#! /bin/bash
+                  containers=$(docker ps -aq)
+                  if [[ -n "${containers}" ]]; then
+                    docker stop ${containers}
+                  fi
+                  docker system prune -af --volumes || : '''
           }
         }
       }
@@ -527,13 +515,6 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
-        sh '''#! /bin/bash
-              echo "Packages were updated. Cleaning up the image and exiting."
-              if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
-                docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
-              else
-                docker rmi ${GITHUBIMAGE}:${META_TAG} || :
-              fi'''
         script{
           env.EXIT_STATUS = 'ABORTED'
         }
@@ -551,13 +532,6 @@ pipeline {
         }
       }
       steps {
-        sh '''#! /bin/bash
-              echo "There are no package updates. Cleaning up the image and exiting."
-              if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
-                docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
-              else
-                docker rmi ${GITHUBIMAGE}:${META_TAG} || :
-              fi'''
         script{
           env.EXIT_STATUS = 'ABORTED'
         }
@@ -593,6 +567,7 @@ pipeline {
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 -e IMAGE=\"${GITHUBIMAGE}\" \
                 -e CONTAINER=\"${CONTAINER_NAME}\" \
+                -e DELAY_START=\"${CI_DELAY:-30}\" \
                 -e TAGS=\"${CI_TAGS}\" \
                 -e META_TAG=\"${META_TAG}\" \
                 -e PORT=\"${CI_PORT}\" \
@@ -638,15 +613,6 @@ pipeline {
                 fi
              '''
         }
-        sh '''#! /bin/bash
-              docker rmi \
-                ${GITHUBIMAGE}:${META_TAG} \
-                ${GITHUBIMAGE}:${EXT_RELEASE_TAG} \
-                ${GITHUBIMAGE}:latest || :
-              if [ -n "${SEMVER}" ]; then
-                docker rmi ${GITHUBIMAGE}:${SEMVER} || :
-              fi
-           '''
       }
     }
     // If this is a multi arch release push all images and define the manifest
@@ -716,22 +682,6 @@ pipeline {
                 fi
              '''
           }
-          sh '''#! /bin/bash
-                docker rmi \
-                  ${GITHUBIMAGE}:amd64-${META_TAG} \
-                  ${GITHUBIMAGE}:amd64-latest \
-                  ${GITHUBIMAGE}:amd64-${EXT_RELEASE_TAG} \
-                  ${GITHUBIMAGE}:arm64v8-${META_TAG} \
-                  ${GITHUBIMAGE}:arm64v8-latest \
-                  ${GITHUBIMAGE}:arm64v8-${EXT_RELEASE_TAG} || :
-                if [ -n "${SEMVER}" ]; then
-                  docker rmi \
-                    ${GITHUBIMAGE}:amd64-${SEMVER} \
-                    ${GITHUBIMAGE}:arm64v8-${SEMVER} || :
-                fi
-                docker rmi \
-                  ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
-             '''
       }
     }
     // If this is a public release tag it in the IG Github
@@ -762,6 +712,41 @@ pipeline {
               printf '","draft": false,"prerelease": false}' >> releasebody.json
               paste -d'\\0' start releasebody.json > releasebody.json.done
               curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST https://api.github.com/repos/${IG_USER}/${IG_REPO}/releases -d @releasebody.json.done'''
+      }
+    }
+    // Add protection to the release branch
+    stage('Github-Release-Branch-Protection') {
+      when {
+        branch "main"
+        environment name: 'CHANGE_ID', value: ''
+        environment name: 'EXIT_STATUS', value: ''
+      }
+      steps {
+        echo "Setting up protection for release branch main"
+        sh '''#! /bin/bash
+          curl -H "Authorization: token ${GITHUB_TOKEN}" -X PUT https://api.github.com/repos/${IG_USER}/${IG_REPO}/branches/main/protection \
+          -d $(jq -c .  << EOF
+            {
+              "required_status_checks": null,
+              "enforce_admins": false,
+              "required_pull_request_reviews": {
+                "dismiss_stale_reviews": false,
+                "require_code_owner_reviews": false,
+                "require_last_push_approval": false,
+                "required_approving_review_count": 1
+              },
+              "restrictions": null,
+              "required_linear_history": false,
+              "allow_force_pushes": false,
+              "allow_deletions": false,
+              "block_creations": false,
+              "required_conversation_resolution": true,
+              "lock_branch": false,
+              "allow_fork_syncing": false,
+              "required_signatures": false
+            }
+EOF
+          ) '''
       }
     }
     // If this is a Pull request send the CI link as a comment on it
@@ -865,16 +850,14 @@ pipeline {
       }
     }
     cleanup {
-          // Clean up images if CI tests fail
-          sh '''#! /bin/bash
-                if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
-                  docker rmi ${GITHUBIMAGE}:amd64-${META_TAG} || :
-                  docker rmi ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} || :
-                  docker rmi ${GITHUBIMAGE}:arm64v8-${META_TAG} || :
-                else
-                  docker rmi ${GITHUBIMAGE}:${META_TAG} || :
-                fi
-            '''
+      sh '''#! /bin/bash
+            echo "Performing docker system prune!!"
+            containers=$(docker ps -aq)
+            if [[ -n "${containers}" ]]; then
+              docker stop ${containers}
+            fi
+            docker system prune -af --volumes || :
+         '''
       cleanWs()
     }
   }
