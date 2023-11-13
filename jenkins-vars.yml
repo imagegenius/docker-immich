@@ -3,8 +3,8 @@
 project_name: docker-immich
 external_type: github_stable
 release_type: prerelease
-release_tag: noml
-ig_branch: noml
+release_tag: alpine
+ig_branch: alpine
 repo_vars:
   - EXT_GIT_BRANCH = 'main'
   - EXT_USER = 'immich-app'
