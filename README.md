@@ -4,8 +4,8 @@
 
 [![GitHub Release](https://img.shields.io/github/release/imagegenius/docker-immich.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/imagegenius/docker-immich/releases)
 [![GitHub Package Repository](https://shields.io/badge/GitHub%20Package-blue?logo=github&logoColor=ffffff&style=for-the-badge)](https://github.com/imagegenius/docker-immich/packages)
-[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fnoml%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/noml/)
-[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-noml%2Fci-status.yml)](https://ci-tests.imagegenius.io/immich/latest-noml/index.html)
+[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Falpine%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/alpine/)
+[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-alpine%2Fci-status.yml)](https://ci-tests.imagegenius.io/immich/latest-alpine/index.html)
 
 [Immich](https://immich.app/) is a high performance self-hosted photo and video backup solution.
 
@@ -15,7 +15,7 @@
 
 We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
 
-To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:noml`. Alternatively, you can also obtain specific architecture images by using tags.
+To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:alpine`. Alternatively, you can also obtain specific architecture images by using tags.
 
 This image supports the following architectures:
 
@@ -54,7 +54,7 @@ Example snippets to start creating a container:
 version: "2.1"
 services:
   immich:
-    image: ghcr.io/imagegenius/immich:noml
+    image: ghcr.io/imagegenius/immich:alpine
     container_name: immich
     environment:
       - PUID=1000
@@ -117,7 +117,7 @@ docker run -d \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
   --restart unless-stopped \
-  ghcr.io/imagegenius/immich:noml
+  ghcr.io/imagegenius/immich:alpine
 
 # This container requires an external application to be run separately.
 # Redis:
@@ -191,7 +191,7 @@ Instructions for updating containers:
 
 ### Via Docker Run
 
-* Update the image: `docker pull ghcr.io/imagegenius/immich:noml`
+* Update the image: `docker pull ghcr.io/imagegenius/immich:alpine`
 * Stop the running container: `docker stop immich`
 * Delete the container: `docker rm immich`
 * Recreate a new container with the same docker run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
