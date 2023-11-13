@@ -229,6 +229,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **08.11.23:** - move to using seperate immich baseimage
 * **24.09.23:** - house cleaning
 * **24.09.23:** - add vars for ml workers/timeout
 * **29.07.23:** - remove cuda acceleration for machine-learning
