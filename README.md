@@ -32,12 +32,13 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed. |
+| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
+To use Immich, you need to have PostgreSQL 15 server set up externally, and Redis set up externally or within the container using a docker mod.
 
 To set up redis using the docker mod, use the following:
 
@@ -99,12 +100,12 @@ services:
     ports:
       - 6379:6379
     container_name: redis
-# PostgreSQL 14:
-  postgres14:
-    image: postgres:14
+# PostgreSQL 15:
+  postgres15:
+    image: postgres:15
     ports:
       - 5432:5432
-    container_name: postgres14
+    container_name: postgres15
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -150,15 +151,15 @@ docker run -d \
   -p 6379:6379 \
   redis
 
-# PostgreSQL 14:
+# PostgreSQL 15:
 docker run -d \
-  --name=postgres14 \
+  --name=postgres15 \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  postgres:14
+  postgres:15
 
 
 ```
