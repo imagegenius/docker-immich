@@ -32,16 +32,11 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, which makes for a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed. |
+| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
 ## Application Setup
 
-The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
-
-To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
-
-To set up redis using the docker mod, use the following:
-
-Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
+See [main branch](https://github.com/imagegenius/docker-immich#application-setup) for setup instructions.
 
 ## Usage
 
@@ -71,6 +66,7 @@ services:
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
+      - path_to_imports:/import:ro #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -116,6 +112,7 @@ docker run -d \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
+  -v path_to_imports:/import:ro `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:alpine
 
@@ -159,6 +156,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-v /config` | Contains the logs |
 | `-v /photos` | Contains all the photos uploaded to Immich |
+| `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
 
 ## Umask for running applications
 
