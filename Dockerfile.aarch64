@@ -28,6 +28,12 @@ RUN \
   apt-get install --no-install-recommends -y \
     build-essential \
     python3-dev && \
+  echo "**** install runtime packages ****" && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    python3 \
+    python3-pip \
+    python3-venv && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
