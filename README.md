@@ -32,28 +32,11 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed. |
+| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
 ## Application Setup
 
-The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
-
-To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
-
-To set up redis using the docker mod, use the following:
-
-Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
-
-To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
-
-Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
-
-Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
-
-To import your existing libraries into Immich :
-
-- Mount your existing library folder to `/import`
-- In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)
-- In your account settings, add a new library and set the path to `/import` or `/import/<user>`
+See [main branch](https://github.com/imagegenius/docker-immich#application-setup) for setup instructions.
 
 ## Usage
 
@@ -218,31 +201,4 @@ Instructions for updating containers:
 ## Versions
 
 * **13.11.23:** - rebase noml to ubuntu
-* **08.11.23:** - move to using seperate immich baseimage
-* **24.09.23:** - house cleaning
-* **24.09.23:** - add vars for ml workers/timeout
-* **29.07.23:** - remove cuda acceleration for machine-learning
-* **23.05.23:** - move to ubuntu lunar and support cuda acceleration for machine-learning
-* **22.05.23:** - deprecate postgresql docker mod
-* **18.05.23:** - add support for facial recognition
-* **07.05.23:** - remove unused `JWT_SECRET` env
-* **13.04.23:** - add variables to disable typesense and machine learning
-* **10.04.23:** - fix gunicorn
-* **04.04.23:** - use environment variables to set location of the photos folder
-* **09.04.23:** - Cache is downloaded to the host (/config/transformers)
-* **01.04.23:** - remove unused Immich environment variables
-* **21.03.23:** - Add service checks
-* **05.03.23:** - add typesense
-* **27.02.23:** - re-enable aarch64 with pre-release torch build
-* **18.02.23:** - use machine-learning with python
-* **11.02.23:** - use external app block
-* **09.02.23:** - Use Immich environment variables for immich services instead of hosts file
-* **09.02.23:** - execute CLI with the command immich
-* **04.02.23:** - shrink image
-* **26.01.23:** - add unraid migration to readme
-* **26.01.23:** - use find to apply chown to /app, excluding node_modules
-* **26.01.23:** - enable ci testing
-* **24.01.23:** - fix services starting prematurely, causing permission errors.
-* **23.01.23:** - add noml image to readme and add aarch64 image to readme, make github release stable
-* **21.01.23:** - BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres
 * **02.01.23:** - Initial Release.
