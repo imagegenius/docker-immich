@@ -16,7 +16,8 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image." }
+  - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning is completely removed." }
+  - { tag: "alpine", desc: "Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image." }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -61,25 +62,7 @@ unraid_category: "Backup: Cloud: MediaApp:Photos"
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
-
-  To use Immich, you need to have PostgreSQL 14/15 server set up externally, and Redis set up externally or within the container using a docker mod.
-
-  To set up redis using the docker mod, use the following:
-
-  Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
-
-  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
-
-  Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
-
-  Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
-
-  To import your existing libraries into Immich :
-
-  - Mount your existing library folder to `/import`
-  - In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)
-  - In your account settings, add a new library and set the path to `/import` or `/import/<user>`
+  See [main branch](https://github.com/imagegenius/docker-immich#application-setup) for setup instructions.
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
@@ -117,38 +100,8 @@ external_application_compose_block: |
         POSTGRES_DB: immich
       volumes:
         - path_to_postgres:/var/lib/postgresql/data
-external_application_unraid_block: |
-  You can also use a docker mods to start redis within the container,
-  Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
 # changelog
 changelogs:
   - { date: "13.11.23:", desc: "rebase noml to ubuntu" }
-  - { date: "08.11.23:", desc: "move to using seperate immich baseimage" }
-  - { date: "24.09.23:", desc: "house cleaning" }
-  - { date: "24.09.23:", desc: "add vars for ml workers/timeout" }
-  - { date: "29.07.23:", desc: "remove cuda acceleration for machine-learning" }
-  - { date: "23.05.23:", desc: "move to ubuntu lunar and support cuda acceleration for machine-learning" }
-  - { date: "22.05.23:", desc: "deprecate postgresql docker mod" }
-  - { date: "18.05.23:", desc: "add support for facial recognition" }
-  - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
-  - { date: "13.04.23:", desc: "add variables to disable typesense and machine learning" }
-  - { date: "10.04.23:", desc: "fix gunicorn" }
-  - { date: "04.04.23:", desc: "use environment variables to set location of the photos folder" }
-  - { date: "09.04.23:", desc: "Cache is downloaded to the host (/config/transformers)" }
-  - { date: "01.04.23:", desc: "remove unused Immich environment variables" }
-  - { date: "21.03.23:", desc: "Add service checks" }
-  - { date: "05.03.23:", desc: "add typesense" }
-  - { date: "27.02.23:", desc: "re-enable aarch64 with pre-release torch build" }
-  - { date: "18.02.23:", desc: "use machine-learning with python" }
-  - { date: "11.02.23:", desc: "use external app block" }
-  - { date: "09.02.23:", desc: "Use Immich environment variables for immich services instead of hosts file" }
-  - { date: "09.02.23:", desc: "execute CLI with the command immich" }
-  - { date: "04.02.23:", desc: "shrink image" }
-  - { date: "26.01.23:", desc: "add unraid migration to readme" }
-  - { date: "26.01.23:", desc: "use find to apply chown to /app, excluding node_modules" }
-  - { date: "26.01.23:", desc: "enable ci testing" }
-  - { date: "24.01.23:", desc: "fix services starting prematurely, causing permission errors." }
-  - { date: "23.01.23:", desc: "add noml image to readme and add aarch64 image to readme, make github release stable" }
-  - { date: "21.01.23:", desc: "BREAKING: Redis is removed. Update missing param_env_vars & opt_param_env_vars for redis & postgres" }
   - { date: "02.01.23:", desc: "Initial Release." }

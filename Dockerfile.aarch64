@@ -11,7 +11,6 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
-  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
@@ -22,11 +21,6 @@ ENV \
   REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/"
 
 RUN \
-  echo "**** install build packages ****" && \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \
-    build-essential \
-    python3-dev && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -82,18 +76,9 @@ RUN \
     npm install -g --prefix /tmp/cli immich && \
     mv /tmp/cli/lib/node_modules/immich /app/cli && \
   echo "**** cleanup ****" && \
-  for cleanfiles in *.pyc *.pyo; do \
-    find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
-  done && \
-  apt-get remove -y --purge \
-    build-essential \
-    python3-dev && \
-  apt-get autoremove -y --purge && \
-  apt-get clean && \
   rm -rf \
     /tmp/* \
     /var/tmp/* \
-    /var/lib/apt/lists/* \
     /root/.cache \
     /root/.npm
 
