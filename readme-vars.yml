@@ -31,7 +31,7 @@ param_env_vars:
   - { env_var: "REDIS_HOSTNAME", env_value: "192.168.1.x", desc: "Redis Hostname" }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "Contains the logs, machine learning models and typesense data" }
+  - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "Contains the logs and typesense data" }
   - { vol_path: "/photos", vol_host_path: "path_to_photos", desc: "Contains all the photos uploaded to Immich" }
 param_usage_include_ports: true
 param_ports:
@@ -42,16 +42,12 @@ cap_add_param: false
 # optional container parameters
 opt_param_usage_include_env: true
 opt_param_env_vars:
-  - { env_var: "DISABLE_MACHINE_LEARNING", env_value: "false", desc: "Set to `true` to disable machine learning" }
   - { env_var: "DISABLE_TYPESENSE", env_value: "false", desc: "Set to `true` to disable Typesense (disables searching completely!)" }
   - { env_var: "DB_PORT", env_value: "5432", desc: "PostgreSQL Port" }
   - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }
   - { env_var: "REDIS_PASSWORD", env_value: "", desc: "Redis password" }
-  - { env_var: "MACHINE_LEARNING_WORKERS", env_value: "1", desc: "Machine learning workers" }
-  - { env_var: "MACHINE_LEARNING_WORKER_TIMEOUT", env_value: "120", desc: "Machine learning worker timeout" }
 opt_param_usage_include_vols: true
 opt_param_volumes:
-  - { vol_path: "/config/machine-learning", vol_host_path: "path_to_machine-learning", desc: "Store the machine learning models (~1.5GB)" }
   - { vol_path: "/import:ro", vol_host_path: "path_to_imports", desc: "This folder will be periodically scanned, contents will be automatically imported into Immich" }
 opt_param_usage_include_ports: false
 opt_param_device_map: false
@@ -127,6 +123,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "13.11.23:", desc: "rebase noml to ubuntu" }
   - { date: "08.11.23:", desc: "move to using seperate immich baseimage" }
   - { date: "24.09.23:", desc: "house cleaning" }
   - { date: "24.09.23:", desc: "add vars for ml workers/timeout" }

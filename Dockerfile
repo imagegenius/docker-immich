@@ -14,7 +14,6 @@ ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
   TYPESENSE_DATA_DIR="/config/typesense" \
   TYPESENSE_API_KEY="xyz" \
@@ -79,20 +78,6 @@ RUN \
     build \
     static \
     /app/immich/web && \
-  echo "**** build machine-learning ****" && \
-  cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir \
-    poetry && \
-  python3 -m venv /lsiopy && \
-  poetry config installer.max-workers 10 && \
-  poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --only main && \
-  mkdir -p \
-    /app/immich/machine-learning && \
-  cp -a \
-    app \
-    log_conf.json \
-    /app/immich/machine-learning && \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g --prefix /tmp/cli immich && \
     mv /tmp/cli/lib/node_modules/immich /app/cli && \
