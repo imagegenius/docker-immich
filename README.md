@@ -4,8 +4,8 @@
 
 [![GitHub Release](https://img.shields.io/github/release/imagegenius/docker-immich.svg?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/imagegenius/docker-immich/releases)
 [![GitHub Package Repository](https://shields.io/badge/GitHub%20Package-blue?logo=github&logoColor=ffffff&style=for-the-badge)](https://github.com/imagegenius/docker-immich/packages)
-[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fmain%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/)
-[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-main%2Fci-status.yml)](https://ci-tests.imagegenius.io/immich/latest-main/index.html)
+[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.imagegenius.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-immich%2Fjob%2Fnoml%2F&logo=jenkins)](https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/noml/)
+[![IG CI](https://img.shields.io/badge/dynamic/yaml?color=007EC6&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.imagegenius.io%2Fimmich%2Flatest-noml%2Fci-status.yml)](https://ci-tests.imagegenius.io/immich/latest-noml/index.html)
 
 [Immich](https://immich.app/) is a high performance self-hosted photo and video backup solution.
 
@@ -15,7 +15,7 @@
 
 We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
 
-To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:latest`. Alternatively, you can also obtain specific architecture images by using tags.
+To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:noml`. Alternatively, you can also obtain specific architecture images by using tags.
 
 This image supports the following architectures:
 
@@ -66,7 +66,7 @@ Example snippets to start creating a container:
 version: "2.1"
 services:
   immich:
-    image: ghcr.io/imagegenius/immich:latest
+    image: ghcr.io/imagegenius/immich:noml
     container_name: immich
     environment:
       - PUID=1000
@@ -77,17 +77,13 @@ services:
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=192.168.1.x
-      - DISABLE_MACHINE_LEARNING=false #optional
       - DISABLE_TYPESENSE=false #optional
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
-      - MACHINE_LEARNING_WORKERS=1 #optional
-      - MACHINE_LEARNING_WORKER_TIMEOUT=120 #optional
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
-      - path_to_machine-learning:/config/machine-learning #optional
       - path_to_imports:/import:ro #optional
     ports:
       - 8080:8080
@@ -128,20 +124,16 @@ docker run -d \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=192.168.1.x \
-  -e DISABLE_MACHINE_LEARNING=false `#optional` \
   -e DISABLE_TYPESENSE=false `#optional` \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
-  -e MACHINE_LEARNING_WORKERS=1 `#optional` \
-  -e MACHINE_LEARNING_WORKER_TIMEOUT=120 `#optional` \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
-  -v path_to_machine-learning:/config/machine-learning `#optional` \
   -v path_to_imports:/import:ro `#optional` \
   --restart unless-stopped \
-  ghcr.io/imagegenius/immich:latest
+  ghcr.io/imagegenius/immich:noml
 
 # This container requires an external application to be run separately.
 # Redis:
@@ -178,16 +170,12 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
-| `-e DISABLE_MACHINE_LEARNING=false` | Set to `true` to disable machine learning |
 | `-e DISABLE_TYPESENSE=false` | Set to `true` to disable Typesense (disables searching completely!) |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
-| `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
-| `-v /config` | Contains the logs, machine learning models and typesense data |
+| `-v /config` | Contains the logs and typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
-| `-v /config/machine-learning` | Store the machine learning models (~1.5GB) |
 | `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
 
 ## Umask for running applications
@@ -221,7 +209,7 @@ Instructions for updating containers:
 
 ### Via Docker Run
 
-* Update the image: `docker pull ghcr.io/imagegenius/immich:latest`
+* Update the image: `docker pull ghcr.io/imagegenius/immich:noml`
 * Stop the running container: `docker stop immich`
 * Delete the container: `docker rm immich`
 * Recreate a new container with the same docker run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
@@ -229,6 +217,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **13.11.23:** - rebase noml to ubuntu
 * **08.11.23:** - move to using seperate immich baseimage
 * **24.09.23:** - house cleaning
 * **24.09.23:** - add vars for ml workers/timeout
