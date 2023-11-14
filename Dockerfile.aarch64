@@ -108,7 +108,7 @@ RUN \
   echo "**** build immich dependencies ****" && \
   cd /tmp/immich-dependencies/server/bin && \
   ./install-ffmpeg.sh && \
-  ./build-libraw.sh || ./build-libraw.sh && \
+  ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
   echo "**** download typesense ****" && \
