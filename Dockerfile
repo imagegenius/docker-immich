@@ -131,6 +131,7 @@ RUN \
   mkdir -p \
     /app/immich/server && \
   cp -a \
+    assets \
     package.json \
     package-lock.json \
     node_modules \
