@@ -11,6 +11,7 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
+  IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   TYPESENSE_DATA_DIR="/config/typesense" \
@@ -102,7 +103,7 @@ RUN \
   echo "**** build immich dependencies ****" && \
   cd /tmp/immich-dependencies/server/bin && \
   ./install-ffmpeg.sh && \
-  ./build-libraw.sh || ./build-libraw.sh && \
+  ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
   echo "**** download typesense ****" && \
