@@ -333,7 +333,7 @@ fast-fifo                           1.3.2                              npm
 fast-safe-stringify                 2.1.1                              npm     
 fastapi                             0.95.2                             python  
 fastest-levenshtein                 1.0.16                             npm     
-fastjsonschema                      2.18.1                             python  
+fastjsonschema                      2.19.0                             python  
 fdir                                5.3.0                              npm     
 fetch-blob                          3.2.0                              npm     
 fflate                              0.8.1                              npm     
@@ -923,8 +923,8 @@ python3                             3.11.2-1                           deb
 python3-distutils                   3.11.2-2                           deb     
 python3-lib2to3                     3.11.2-2                           deb     
 python3-minimal                     3.11.2-1                           deb     
-python3-pip                         23.0.1+dfsg-1ubuntu0.1             deb     
-python3-pip-whl                     23.0.1+dfsg-1ubuntu0.1             deb     
+python3-pip                         23.0.1+dfsg-1ubuntu0.2             deb     
+python3-pip-whl                     23.0.1+dfsg-1ubuntu0.2             deb     
 python3-pkg-resources               66.1.1-1                           deb     
 python3-setuptools                  66.1.1-1                           deb     
 python3-setuptools-whl              66.1.1-1                           deb     
@@ -1077,14 +1077,14 @@ tinyqueue                           2.0.3                              npm
 tmp                                 0.0.33                             npm     
 toidentifier                        1.0.1                              npm     
 tokenizers                          0.14.1                             python  
-tomlkit                             0.12.2                             python  
+tomlkit                             0.12.3                             python  
 torch                               2.1.0+cpu                          python  
 tqdm                                4.66.1                             python  
 tr46                                0.0.3                              npm     
 transformers                        4.34.1                             python  
 traverse                            0.3.9                              npm     
 treeverse                           3.0.0                              npm     
-trove-classifiers                   2023.11.13                         python  
+trove-classifiers                   2023.11.14                         python  
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.6.0                              npm     
 tslib                               2.6.2                              npm     
