@@ -191,6 +191,7 @@ cacache                             17.1.4                             npm
 cacache                             18.0.0                             npm     
 call-bind                           1.0.2                              npm     
 callsites                           3.1.0                              npm     
+certifi                             2023.11.17                         python  
 certifi                             2023.7.22                          python  
 cffi                                1.16.0                             python  
 chainsaw                            0.1.0                              npm     
@@ -427,7 +428,7 @@ ignore-walk                         6.0.3                              npm
 imagediff                           1.0.8                              npm     
 imageio                             2.31.6                             python  
 immich                              0.41.0                             npm     
-immich                              1.86.0                             npm     
+immich                              1.87.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  6.8.0                              python  
@@ -883,7 +884,7 @@ pip                                 23.0.1                             python
 pkginfo                             1.9.6                              python  
 platformdirs                        3.11.0                             python  
 pmtiles                             2.11.0                             npm     
-poetry                              1.7.0                              python  
+poetry                              1.7.1                              python  
 poetry-core                         1.8.1                              python  
 poetry-plugin-export                1.6.0                              python  
 postcss-selector-parser             6.0.13                             npm     
