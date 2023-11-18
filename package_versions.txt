@@ -378,7 +378,7 @@ ieee754                             1.2.1                              npm
 ignore-walk                         6.0.3                              npm     
 imagediff                           1.0.8                              npm     
 immich                              0.41.0                             npm     
-immich                              1.86.0                             npm     
+immich                              1.87.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
