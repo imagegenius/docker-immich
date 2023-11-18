@@ -48,7 +48,7 @@ NAME                                VERSION                TYPE
 @nestjs/websockets                  10.2.8                 npm   
 @npmcli/agent                       2.2.0                  npm   
 @npmcli/arborist                    7.2.1                  npm   
-@npmcli/config                      8.0.1                  npm   
+@npmcli/config                      8.0.2                  npm   
 @npmcli/disparity-colors            3.0.0                  npm   
 @npmcli/fs                          3.1.0                  npm   
 @npmcli/git                         5.0.3                  npm   
@@ -69,8 +69,8 @@ NAME                                VERSION                TYPE
 @sideway/pinpoint                   2.0.0                  npm   
 @sigstore/bundle                    2.1.0                  npm   
 @sigstore/protobuf-specs            0.2.1                  npm   
-@sigstore/sign                      2.1.0                  npm   
-@sigstore/tuf                       2.1.0                  npm   
+@sigstore/sign                      2.2.0                  npm   
+@sigstore/tuf                       2.2.0                  npm   
 @socket.io/component-emitter        3.1.0                  npm   
 @socket.io/redis-adapter            8.2.1                  npm   
 @sqltools/formatter                 1.2.5                  npm   
@@ -186,9 +186,9 @@ chalk                               5.3.0                  npm
 chardet                             0.7.0                  npm   
 chownr                              1.1.4                  npm   
 chownr                              2.0.0                  npm   
-ci-info                             3.9.0                  npm   
-cidr-regex                          3.1.1                  npm   
-cjson                               1.7.16-r0              apk   
+ci-info                             4.0.0                  npm   
+cidr-regex                          4.0.3                  npm   
+cjson                               1.7.16-r1              apk   
 class-transformer                   0.5.1                  npm   
 class-validator                     0.14.0                 npm   
 clean-stack                         2.2.0                  npm   
@@ -332,6 +332,7 @@ fs-minipass                         2.1.0                  npm
 fs-minipass                         3.0.3                  npm   
 fs.realpath                         1.0.0                  npm   
 function-bind                       1.1.1                  npm   
+function-bind                       1.1.2                  npm   
 gauge                               3.0.2                  npm   
 gauge                               5.0.1                  npm   
 gdbm                                1.23-r1                apk   
@@ -362,6 +363,7 @@ has-flag                            4.0.0                  npm
 has-proto                           1.0.1                  npm   
 has-symbols                         1.0.3                  npm   
 has-unicode                         2.0.1                  npm   
+hasown                              2.0.0                  npm   
 he                                  1.2.0                  npm   
 highlight.js                        10.7.3                 npm   
 hosted-git-info                     7.0.1                  npm   
@@ -393,7 +395,7 @@ imagemagick-tiff                    7.1.1.21-r0            apk
 imagemagick-webp                    7.1.1.21-r0            apk   
 imath                               3.1.9-r3               apk   
 immich                              0.41.0                 npm   
-immich                              1.86.0                 npm   
+immich                              1.87.0                 npm   
 immich-web                          1.0.0                  npm   
 import-fresh                        3.3.0                  npm   
 imurmurhash                         0.1.4                  npm   
@@ -407,12 +409,12 @@ inquirer                            8.2.6                  npm
 internmap                           2.0.3                  npm   
 ioredis                             5.3.2                  npm   
 ip                                  2.0.0                  npm   
-ip-regex                            4.3.0                  npm   
+ip-regex                            5.0.0                  npm   
 ipaddr.js                           1.9.1                  npm   
 is-arrayish                         0.2.1                  npm   
 is-arrayish                         0.3.2                  npm   
-is-cidr                             4.0.2                  npm   
-is-core-module                      2.13.0                 npm   
+is-cidr                             5.0.3                  npm   
+is-core-module                      2.13.1                 npm   
 is-extendable                       0.1.1                  npm   
 is-extendable                       1.0.1                  npm   
 is-fullwidth-code-point             3.0.0                  npm   
@@ -486,12 +488,12 @@ libmount                            2.39.2-r0              apk
 libncursesw                         6.4_p20231007-r0       apk   
 libnpmaccess                        8.0.1                  npm   
 libnpmdiff                          6.0.3                  npm   
-libnpmexec                          7.0.3                  npm   
+libnpmexec                          7.0.4                  npm   
 libnpmfund                          5.0.1                  npm   
 libnpmhook                          10.0.0                 npm   
 libnpmorg                           6.0.1                  npm   
 libnpmpack                          6.0.3                  npm   
-libnpmpublish                       9.0.1                  npm   
+libnpmpublish                       9.0.2                  npm   
 libnpmsearch                        7.0.0                  npm   
 libnpmteam                          6.0.0                  npm   
 libnpmversion                       5.0.1                  npm   
@@ -552,6 +554,7 @@ lodash.isarguments                  3.1.0                  npm
 log-symbols                         4.1.0                  npm   
 loglevel                            1.8.1                  npm   
 lru-cache                           10.0.1                 npm   
+lru-cache                           10.0.2                 npm   
 lru-cache                           6.0.0                  npm   
 luxon                               3.3.0                  npm   
 luxon                               3.4.3                  npm   
@@ -625,8 +628,8 @@ nopt                                7.2.0                  npm
 normalize-package-data              6.0.0                  npm   
 normalize-path                      3.0.0                  npm   
 notepack.io                         3.0.1                  npm   
-npm                                 10.2.3                 npm   
-npm                                 10.2.3-r0              apk   
+npm                                 10.2.4                 npm   
+npm                                 10.2.4-r0              apk   
 npm-audit-report                    5.0.0                  npm   
 npm-bundled                         3.0.0                  npm   
 npm-install-checks                  6.3.0                  npm   
@@ -775,7 +778,6 @@ shebang-command                     2.0.0                  npm
 shebang-regex                       3.0.0                  npm   
 side-channel                        1.0.4                  npm   
 signal-exit                         3.0.7                  npm   
-signal-exit                         4.0.2                  npm   
 signal-exit                         4.1.0                  npm   
 sigstore                            2.1.0                  npm   
 simple-concat                       1.0.1                  npm   
