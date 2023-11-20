@@ -213,7 +213,6 @@ combined-stream                     1.0.8                              npm
 commander                           11.0.0                             npm     
 commander                           11.1.0                             npm     
 commander                           2.20.3                             npm     
-commander                           9.5.0                              npm     
 common-ancestor-path                1.0.1                              npm     
 compress-commons                    5.0.1                              npm     
 concat-map                          0.0.1                              npm     
@@ -302,7 +301,6 @@ external-editor                     3.1.0                              npm
 fast-fifo                           1.3.2                              npm     
 fast-safe-stringify                 2.1.1                              npm     
 fastest-levenshtein                 1.0.16                             npm     
-fdir                                5.3.0                              npm     
 fetch-blob                          3.2.0                              npm     
 fflate                              0.8.1                              npm     
 figures                             3.2.0                              npm     
@@ -380,7 +378,6 @@ iconv-lite                          0.6.3                              npm
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
 imagediff                           1.0.8                              npm     
-immich                              0.41.0                             npm     
 immich                              1.88.0                             npm     
 immich-web                          1.0.0                              npm     
 import-fresh                        3.3.0                              npm     
@@ -668,6 +665,7 @@ login                               1:4.13+dfsg1-1ubuntu1              deb
 loglevel                            1.8.1                              npm     
 logsave                             1.47.0-1ubuntu1                    deb     
 lru-cache                           10.0.1                             npm     
+lru-cache                           10.0.3                             npm     
 lru-cache                           6.0.0                              npm     
 lru-cache                           7.18.3                             npm     
 luxon                               3.3.0                              npm     
@@ -774,7 +772,6 @@ openid-client                       5.6.1                              npm
 openssl                             3.0.8-1ubuntu1.4                   deb     
 ora                                 5.4.1                              npm     
 os-tmpdir                           1.0.2                              npm     
-p-limit                             3.1.0                              npm     
 p-map                               4.0.0                              npm     
 packet-reader                       1.0.0                              npm     
 pacote                              17.0.4                             npm     
@@ -934,7 +931,6 @@ svelte-loading-spinners             0.3.4                              npm
 svelte-local-storage-store          0.5.0                              npm     
 svelte-maplibre                     0.7.0                              npm     
 swagger-ui-dist                     5.9.1                              npm     
-systeminformation                   5.21.17                            npm     
 sysvinit-utils                      3.06-2ubuntu1                      deb     
 tar                                 1.34+dfsg-1.2ubuntu0.1             deb     
 tar                                 6.1.15                             npm     
@@ -1019,6 +1015,5 @@ yargs                               16.2.0                             npm
 yargs                               17.7.2                             npm     
 yargs-parser                        20.2.9                             npm     
 yargs-parser                        21.1.1                             npm     
-yocto-queue                         0.1.0                              npm     
 zip-stream                          5.0.1                              npm     
 zlib1g                              1:1.2.13.dfsg-1ubuntu4             deb     
