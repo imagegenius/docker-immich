@@ -20,7 +20,8 @@ ENV \
   TYPESENSE_API_KEY="xyz" \
   TYPESENSE_HOST="127.0.0.1" \
   TYPESENSE_VERSION="0.24.1" \
-  REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/"
+  REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/" \
+  SERVER_PORT="8080"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -141,16 +142,12 @@ RUN \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  npm prune --omit=dev && \
   mkdir -p \
-    /app/immich/web && \
+    /app/immich/server/www && \
   cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    build \
+    build/* \
     static \
-    /app/immich/web && \
+    /app/immich/server/www  && \
   echo "**** build machine-learning ****" && \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
@@ -166,8 +163,8 @@ RUN \
     log_conf.json \
     /app/immich/machine-learning && \
   echo "**** install immich cli (immich upload) ****" && \
-    npm install -g --prefix /tmp/cli immich && \
-    mv /tmp/cli/lib/node_modules/immich /app/cli && \
+    npm install -g --prefix /tmp/cli @immich/cli && \
+    mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
