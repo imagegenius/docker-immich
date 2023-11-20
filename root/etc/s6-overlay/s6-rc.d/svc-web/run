@@ -1,7 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-export HOME=/config
-
-exec \
-    cd /app/immich/web s6-setuidgid abc \
-        node build/index.js
