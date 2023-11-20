@@ -13,7 +13,8 @@ LABEL maintainer="hydazz, martabal"
 ENV PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/"
+  REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/" \
+  SERVER_PORT="8080"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -26,7 +27,6 @@ RUN \
     ffmpeg \
     imagemagick-dev \
     libraw-dev \
-    nginx \
     nodejs \
     npm \
     openssl \
@@ -68,19 +68,15 @@ RUN \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  npm prune --omit=dev && \
   mkdir -p \
-    /app/immich/web && \
+    /app/immich/server/www && \
   cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    build \
+    build/* \
     static \
-    /app/immich/web && \
+    /app/immich/server/www  && \
   echo "**** install immich cli (immich upload) ****" && \
-    npm install -g --prefix /tmp/cli immich && \
-    mv /tmp/cli/lib/node_modules/immich /app/cli && \
+    npm install -g --prefix /tmp/cli @immich/cli && \
+    mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
