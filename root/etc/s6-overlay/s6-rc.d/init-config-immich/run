@@ -12,6 +12,6 @@ find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /app/typesense \
     /config \
-    /import \
     /photos \
     /run/immich
+lsiown -R abc:abc /import 2>/dev/null

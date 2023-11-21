@@ -13,7 +13,6 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
   TYPESENSE_DATA_DIR="/config/typesense" \
