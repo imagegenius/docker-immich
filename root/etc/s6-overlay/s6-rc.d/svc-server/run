@@ -1,8 +1,10 @@
 #!/usr/bin/with-contenv bash
+
 if [[ -z "${TYPESENSE_HOST}" ]]; then
     export TYPESENSE_ENABLED="false"
 fi
 
 exec \
-    cd /app/immich/server s6-setuidgid abc \
-        node dist/main immich
+    s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost 8080" \
+        cd /app/immich/server s6-setuidgid abc \
+            node dist/main immich

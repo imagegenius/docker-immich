@@ -2,13 +2,10 @@
 
 # make folders
 mkdir -p \
-    /config/log/nginx \
-    /photos \
-    /run/immich
+    /photos
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config \
-    /photos \
-    /run/immich
+    /photos
