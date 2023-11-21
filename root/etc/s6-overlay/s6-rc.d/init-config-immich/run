@@ -2,16 +2,12 @@
 
 # make folders
 mkdir -p \
-    /config/{typesense} \
     /photos \
-    /import \
-    /run/immich
+    /import
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
-    /app/typesense \
     /config \
     /import \
-    /photos \
-    /run/immich
+    /photos
