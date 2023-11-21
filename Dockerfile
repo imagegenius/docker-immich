@@ -123,16 +123,12 @@ RUN \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  npm prune --omit=dev && \
   mkdir -p \
-    /app/immich/web && \
+    /app/immich/server/www && \
   cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    build \
+    build/* \
     static \
-    /app/immich/web && \
+    /app/immich/server/www  && \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g --prefix /tmp/cli @immich/cli && \
     mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
