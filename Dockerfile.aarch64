@@ -13,7 +13,6 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
   REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/" \
   SERVER_PORT="8080"
 
