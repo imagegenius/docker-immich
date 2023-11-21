@@ -14,10 +14,6 @@ ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   PUBLIC_IMMICH_SERVER_URL="http://127.0.0.1:3001" \
-  TYPESENSE_DATA_DIR="/config/typesense" \
-  TYPESENSE_API_KEY="xyz" \
-  TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.1" \
   REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/" \
   SERVER_PORT="8080"
 
@@ -107,15 +103,6 @@ RUN \
   ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
-  echo "**** download typesense ****" && \
-  mkdir -p \
-    /app/typesense && \
-  curl -o \
-    /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
-  tar -xf \
-    /tmp/typesense.tar.gz -C \
-    /app/typesense && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
