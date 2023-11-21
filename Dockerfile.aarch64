@@ -14,7 +14,8 @@ ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   REVERSE_GEOCODING_DUMP_DIRECTORY="/config/.reverse-geocoding-dump/" \
-  SERVER_PORT="8080"
+  SERVER_PORT="8080" \
+  TYPESENSE_ENABLED="false"
 
 RUN \
   echo "**** install build packages ****" && \
