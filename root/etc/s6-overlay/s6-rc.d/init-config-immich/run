@@ -9,5 +9,5 @@ mkdir -p \
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config \
-    /import \
     /photos
+lsiown -R abc:abc /import 2>/dev/null
