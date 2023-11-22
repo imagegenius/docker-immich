@@ -87,7 +87,7 @@ ansi-styles                         3.2.1                  npm
 ansi-styles                         4.3.0                  npm   
 ansi-styles                         6.2.1                  npm   
 any-promise                         1.3.0                  npm   
-aom-libs                            3.7.0-r0               apk   
+aom-libs                            3.7.1-r0               apk   
 apk-tools                           2.14.0-r5              apk   
 app-root-path                       3.1.0                  npm   
 append-field                        1.0.0                  npm   
@@ -407,7 +407,7 @@ libffi                              3.4.4-r3               apk
 libflac                             1.4.3-r1               apk   
 libgcc                              13.2.1_git20231014-r0  apk   
 libgomp                             13.2.1_git20231014-r0  apk   
-libheif                             1.17.3-r0              apk   
+libheif                             1.17.3-r1              apk   
 libhwy                              1.0.7-r0               apk   
 libidn2                             2.3.4-r4               apk   
 libimagequant                       4.2.2-r0               apk   
