@@ -31,6 +31,7 @@ RUN \
     npm \
     openssl \
     perl \
+    unzip \
     vips \
     vips-cpp \
     vips-heif \
@@ -49,6 +50,22 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
+  echo "**** download geocoding data ****" && \
+  mkdir -p \
+    /usr/src/resources && \
+  curl -o \
+    /tmp/cities500.zip -L \
+    "https://download.geonames.org/export/dump/cities500.zip" && \
+  curl -o \
+    /usr/src/resources/admin1CodesASCII.txt -L \
+    "https://download.geonames.org/export/dump/admin1CodesASCII.txt" && \
+  curl -o \
+    /usr/src/resources/admin2Codes.txt -L \
+    "https://download.geonames.org/export/dump/admin2Codes.txt" && \
+  unzip \
+    /tmp/cities500.zip -d \
+    /usr/src/resources && \
+  date --iso-8601=seconds | tr -d "\n" > /usr/src/resources/geodata-date.txt && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
@@ -79,7 +96,8 @@ RUN \
     mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
   echo "**** cleanup ****" && \
   apk del --purge \
-    build-dependencies && \
+    build-dependencies \
+    unzip && \
   rm -rf \
     /tmp/* \
     /root/.cache \
