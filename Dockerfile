@@ -74,6 +74,7 @@ RUN \
     nginx \
     nodejs \
     perl \
+    unzip \
     zlib1g && \
   echo "**** download immich ****" && \
   mkdir -p \
@@ -97,6 +98,22 @@ RUN \
   tar xf \
     /tmp/immich-dependencies.tar.gz -C \
     /tmp/immich-dependencies --strip-components=1 && \
+  echo "**** download geocoding data ****" && \
+  mkdir -p \
+    /usr/src/resources && \
+  curl -o \
+    /tmp/cities500.zip -L \
+    "https://download.geonames.org/export/dump/cities500.zip" && \
+  curl -o \
+    /usr/src/resources/admin1CodesASCII.txt -L \
+    "https://download.geonames.org/export/dump/admin1CodesASCII.txt" && \
+  curl -o \
+    /usr/src/resources/admin2Codes.txt -L \
+    "https://download.geonames.org/export/dump/admin2Codes.txt" && \
+  unzip \
+    /tmp/cities500.zip -d \
+    /usr/src/resources && \
+  date --iso-8601=seconds | tr -d "\n" > /usr/src/resources/geodata-date.txt && \
   echo "**** build immich dependencies ****" && \
   cd /tmp/immich-dependencies/server/bin && \
   ./install-ffmpeg.sh && \
@@ -155,6 +172,7 @@ RUN \
     meson \
     ninja-build \
     pkg-config \
+    unzip \
     wget && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
