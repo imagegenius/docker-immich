@@ -973,7 +973,7 @@ tr46                                0.0.3                              npm
 transformers                        4.34.1                             python  
 traverse                            0.3.9                              npm     
 treeverse                           3.0.0                              npm     
-trove-classifiers                   2023.11.22                         python  
+trove-classifiers                   2023.11.29                         python  
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.6.0                              npm     
 tslib                               2.6.2                              npm     
