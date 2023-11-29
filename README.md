@@ -38,7 +38,7 @@ This image offers different versions via tags. Be cautious when using unstable o
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-To use Immich, you need to have PostgreSQL 15 server set up externally, and Redis set up externally or within the container using a docker mod.
+To use Immich, you need to have PostgreSQL 14/15/16 server set up externally, and Redis set up externally or within the container using a docker mod.
 
 To set up redis using the docker mod, use the following:
 
@@ -100,12 +100,12 @@ services:
     ports:
       - 6379:6379
     container_name: redis
-# PostgreSQL 15:
-  postgres15:
-    image: postgres:15
+# PostgreSQL 14:
+  postgres14:
+    image: postgres:14
     ports:
       - 5432:5432
-    container_name: postgres15
+    container_name: postgres14
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -151,15 +151,15 @@ docker run -d \
   -p 6379:6379 \
   redis
 
-# PostgreSQL 15:
+# PostgreSQL 14:
 docker run -d \
-  --name=postgres15 \
+  --name=postgres14 \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  postgres:15
+  postgres:14
 
 
 ```
