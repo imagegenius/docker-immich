@@ -129,7 +129,7 @@ RUN \
   mkdir -p \
     /app/immich/server && \
   cp -a \
-    assets \
+    resources \
     package.json \
     package-lock.json \
     node_modules \
