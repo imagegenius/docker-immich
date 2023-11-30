@@ -32,7 +32,7 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed. |
+| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning and Search with Typesense are completely removed, making it still compatible with hardware accelaration. |
 | alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
 ## Application Setup
 
