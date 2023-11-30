@@ -186,7 +186,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
 | `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
-| `-v /config` | Contains the logs, machine learning models and typesense data |
+| `-v /config` | Contains machine learning models and typesense data |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /config/machine-learning` | Store the machine learning models (~1.5GB) |
 | `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
