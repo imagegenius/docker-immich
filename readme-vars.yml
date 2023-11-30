@@ -16,7 +16,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning is completely removed." }
+  - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning and Search with Typesense are completely removed, making it still compatible with hardware accelaration." }
   - { tag: "alpine", desc: "Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image." }
 
 # container parameters
