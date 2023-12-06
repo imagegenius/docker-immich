@@ -404,8 +404,8 @@ libgdbm6                            1.23-3                             deb
 libgdk-pixbuf-2.0-0                 2.42.10+dfsg-1build1               deb     
 libgdk-pixbuf2.0-bin                2.42.10+dfsg-1build1               deb     
 libgdk-pixbuf2.0-common             2.42.10+dfsg-1build1               deb     
-libglib2.0-0                        2.76.1-1                           deb     
-libglib2.0-data                     2.76.1-1                           deb     
+libglib2.0-0                        2.76.4-0ubuntu1                    deb     
+libglib2.0-data                     2.76.4-0ubuntu1                    deb     
 libgmp10                            2:6.2.1+dfsg1-1.1ubuntu1           deb     
 libgnutls30                         3.7.8-5ubuntu1                     deb     
 libgomp1                            13.1.0-2ubuntu2~23.04              deb     
