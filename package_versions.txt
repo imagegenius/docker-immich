@@ -246,7 +246,7 @@ distlib                             0.3.7                              python
 dotenv                              16.3.1                             npm     
 dotenv-expand                       10.0.0                             npm     
 dpkg                                1.21.21ubuntu1                     deb     
-dulwich                             0.21.6                             python  
+dulwich                             0.21.7                             python  
 e2fsprogs                           1.47.0-1ubuntu1                    deb     
 eastasianwidth                      0.2.0                              npm     
 easydict                            1.11                               python  
@@ -359,7 +359,7 @@ ignore-walk                         6.0.3                              npm
 imageio                             2.31.6                             python  
 immich                              1.89.0                             npm     
 import-fresh                        3.3.0                              npm     
-importlib-metadata                  6.8.0                              python  
+importlib-metadata                  7.0.0                              python  
 imurmurhash                         0.1.4                              npm     
 indent-string                       4.0.0                              npm     
 inflight                            1.0.6                              npm     
@@ -464,8 +464,8 @@ libgdbm6                            1.23-3                             deb
 libgdk-pixbuf-2.0-0                 2.42.10+dfsg-1build1               deb     
 libgdk-pixbuf2.0-bin                2.42.10+dfsg-1build1               deb     
 libgdk-pixbuf2.0-common             2.42.10+dfsg-1build1               deb     
-libglib2.0-0                        2.76.1-1                           deb     
-libglib2.0-data                     2.76.1-1                           deb     
+libglib2.0-0                        2.76.4-0ubuntu1                    deb     
+libglib2.0-data                     2.76.4-0ubuntu1                    deb     
 libgmp10                            2:6.2.1+dfsg1-1.1ubuntu1           deb     
 libgnutls30                         3.7.8-5ubuntu1                     deb     
 libgomp1                            13.1.0-2ubuntu2~23.04              deb     
@@ -999,7 +999,7 @@ validate-npm-package-license        3.0.4                              npm
 validate-npm-package-name           5.0.0                              npm     
 validator                           13.11.0                            npm     
 vary                                1.1.2                              npm     
-virtualenv                          20.24.7                            python  
+virtualenv                          20.25.0                            python  
 walk-up-path                        3.0.1                              npm     
 watchfiles                          0.21.0                             python  
 wcwidth                             0.2.8                              python  
