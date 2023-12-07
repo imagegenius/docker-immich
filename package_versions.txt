@@ -306,7 +306,7 @@ iconv-lite                          0.4.24                             npm
 iconv-lite                          0.6.3                              npm     
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
-immich                              1.89.0                             npm     
+immich                              1.90.0                             npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
 indent-string                       4.0.0                              npm     
@@ -366,8 +366,8 @@ libbpf1                             1:1.1.0-1                          deb
 libbrotli1                          1.0.9-2build8                      deb     
 libbsd0                             0.11.7-4                           deb     
 libbz2-1.0                          1.0.8-5build1                      deb     
-libc-bin                            2.37-0ubuntu2.1                    deb     
-libc6                               2.37-0ubuntu2.1                    deb     
+libc-bin                            2.37-0ubuntu2.2                    deb     
+libc6                               2.37-0ubuntu2.2                    deb     
 libcairo-gobject2                   1.16.0-7                           deb     
 libcairo2                           1.16.0-7                           deb     
 libcap-ng0                          0.8.3-1build2                      deb     
@@ -566,7 +566,7 @@ libzstd1                            1.5.4+dfsg2-4                      deb
 libzvbi-common                      0.2.41-1                           deb     
 libzvbi0                            0.2.41-1                           deb     
 lines-and-columns                   1.2.4                              npm     
-locales                             2.37-0ubuntu2.1                    deb     
+locales                             2.37-0ubuntu2.2                    deb     
 lodash                              4.17.21                            npm     
 lodash.defaults                     4.2.0                              npm     
 lodash.isarguments                  3.1.0                              npm     
