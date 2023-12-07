@@ -13,8 +13,7 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SERVER_PORT="8080" \
-  TYPESENSE_ENABLED="false"
+  SERVER_PORT="8080"
 
 RUN \
   echo "**** install build packages ****" && \
