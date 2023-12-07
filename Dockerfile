@@ -15,10 +15,6 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
-  TYPESENSE_DATA_DIR="/config/typesense" \
-  TYPESENSE_API_KEY="xyz" \
-  TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.1" \
   SERVER_PORT="8080"
 
 RUN \
@@ -128,15 +124,6 @@ RUN \
   ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
-  echo "**** download typesense ****" && \
-  mkdir -p \
-    /app/typesense && \
-  curl -o \
-    /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-amd64.tar.gz && \
-  tar -xf \
-    /tmp/typesense.tar.gz -C \
-    /app/typesense && \
   echo "**** build server ****" && \
   cd /tmp/immich/server && \
   npm ci && \
