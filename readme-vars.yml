@@ -60,7 +60,7 @@ opt_cap_add_param: false
 optional_block_1: false
 
 # unraid template
-unraid_requirement: "PostgreSQL 14/15/16, Redis"
+unraid_requirement: "PostgreSQL 14/15/16 with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs), Redis"
 unraid_category: "Backup: Cloud: MediaApp:Photos"
 
 # application setup block
@@ -68,7 +68,7 @@ app_setup_block_enabled: true
 app_setup_block: |
   The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-  To use Immich, you need to have PostgreSQL 14/15/16 server set up externally, and Redis set up externally or within the container using a docker mod.
+  To use Immich, you need to have PostgreSQL 14/15/16 server with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs) set up externally, and Redis set up externally or within the container using a docker mod.
 
   To set up redis using the docker mod, use the following:
 
@@ -102,7 +102,7 @@ external_application_cli_block: |
     -e POSTGRES_DB=immich \
     -v path_to_postgres:/var/lib/postgresql/data \
     -p 5432:5432 \
-    postgres:14
+    tensorchord/pgvecto-rs:pg14-latest
 external_application_compose_block: |
   # Redis:
     redis:
@@ -112,7 +112,7 @@ external_application_compose_block: |
       container_name: redis
   # PostgreSQL 14:
     postgres14:
-      image: postgres:14
+      image: tensorchord/pgvecto-rs:pg14-latest
       ports:
         - 5432:5432
       container_name: postgres14
