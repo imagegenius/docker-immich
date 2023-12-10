@@ -22,19 +22,38 @@ RUN \
     autoconf \
     bc \
     build-essential \
+    cpanminus \
     g++ \
+    libany-uri-escape-perl \
+    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
+    libffi-checklib-perl \
+    libfile-chdir-perl \
+    libfile-slurper-perl \
+    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
+    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
+    libmojolicious-perl \
+    libnet-ssleay-perl \
+    libpath-tiny-perl \
+    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
+    libsort-versions-perl \
     libspng-dev \
+    libterm-table-perl \
+    libtest-warnings-perl \
+    libtest-fatal-perl \
+    libtest-needs-perl \
+    libtest2-suite-perl \
     libtool \
+    libtry-tiny-perl \
     libwebp-dev \
     make \
     meson \
@@ -69,7 +88,6 @@ RUN \
     libwebpdemux2 \
     libwebpmux3 \
     mesa-va-drivers \
-    nginx \
     nodejs \
     perl \
     unzip \
@@ -118,6 +136,7 @@ RUN \
   ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
+  ./build-perllib-compress-brotli.sh && \
   echo "**** build server ****" && \
   mkdir -p \
     /app/immich/server \
@@ -162,18 +181,38 @@ RUN \
     bc \
     build-essential \
     g++ \
+    cpanminus \
+    g++ \
+    libany-uri-escape-perl \
+    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
+    libffi-checklib-perl \
+    libfile-chdir-perl \
+    libfile-slurper-perl \
+    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
+    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
+    libmojolicious-perl \
+    libnet-ssleay-perl \
+    libpath-tiny-perl \
+    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
+    libsort-versions-perl \
     libspng-dev \
+    libterm-table-perl \
+    libtest-warnings-perl \
+    libtest-fatal-perl \
+    libtest-needs-perl \
+    libtest2-suite-perl \
     libtool \
+    libtry-tiny-perl \  
     libwebp-dev \
     make \
     meson \
