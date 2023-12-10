@@ -123,14 +123,23 @@ RUN \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
   echo "**** build server ****" && \
+  mkdir -p \
+    /app/immich/server \
+    /tmp/sharp && \
   cd /tmp/immich/server && \
   npm ci && \
+  rm -rf node_modules/@img/sharp-libvips* && \
+  rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
+  cp -r \
+    node_modules/@img \
+    /tmp/sharp && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
+  cp -r \
+    /tmp/sharp/@img \
+    node_modules && \
   npm link && \
   npm cache clean --force && \
-  mkdir -p \
-    /app/immich/server && \
   cp -a \
     resources \
     package.json \
@@ -139,16 +148,18 @@ RUN \
     dist \
     /app/immich/server && \
   echo "**** build web ****" && \
+  mkdir -p \
+    /app/immich/server/www && \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  mkdir -p \
-    /app/immich/server/www && \
   cp -a \
     build/* \
     static \
     /app/immich/server/www  && \
   echo "**** build machine-learning ****" && \
+  mkdir -p \
+    /app/immich/machine-learning && \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
     poetry && \
@@ -156,8 +167,6 @@ RUN \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
   poetry install --sync --no-interaction --no-ansi --no-root --only main && \
-  mkdir -p \
-    /app/immich/machine-learning && \
   cp -a \
     app \
     log_conf.json \
