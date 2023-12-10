@@ -72,7 +72,7 @@ RUN \
   cd /tmp/immich/server && \
   npm ci && \
   rm -rf node_modules/@img/sharp-libvips* && \
-  rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
+  rm -rf node_modules/@img/sharp-linux-x64 && \
   cp -r \
     node_modules/@img \
     /tmp/sharp && \
