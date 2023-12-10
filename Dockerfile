@@ -180,7 +180,6 @@ RUN \
     autoconf \
     bc \
     build-essential \
-    g++ \
     cpanminus \
     g++ \
     libany-uri-escape-perl \
