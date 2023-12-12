@@ -17,7 +17,7 @@ development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
   - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning is completely removed, making it still compatible with hardware accelaration." }
-  - { tag: "alpine", desc: "Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image." }
+  - { tag: "alpine", desc: "Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images)." }
 
 # container parameters
 common_param_env_vars_enabled: true
