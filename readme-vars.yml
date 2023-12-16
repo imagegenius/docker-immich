@@ -97,7 +97,7 @@ external_application_cli_block: |
     -e POSTGRES_DB=immich \
     -v path_to_postgres:/var/lib/postgresql/data \
     -p 5432:5432 \
-    tensorchord/pgvecto-rs:pg14-latest
+    tensorchord/pgvecto-rs:pg14-v0.1.11
 external_application_compose_block: |
   # Redis:
     redis:
@@ -107,7 +107,7 @@ external_application_compose_block: |
       container_name: redis
   # PostgreSQL 14:
     postgres14:
-      image: tensorchord/pgvecto-rs:pg14-latest
+      image: tensorchord/pgvecto-rs:pg14-v0.1.11
       ports:
         - 5432:5432
       container_name: postgres14
