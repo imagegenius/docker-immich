@@ -21,6 +21,7 @@ if [[ -n "${TEST_RUN}" ]]; then
     s6-setuidgid postgres psql -c 'ALTER SYSTEM SET shared_preload_libraries = "vectors.so"'
     sleep 1
     pkill postgres
+    sleep 1
     s6-setuidgid postgres pg_ctlcluster 15 main start
     sleep 1
     s6-setuidgid postgres psql -c "CREATE EXTENSION vectors;"
