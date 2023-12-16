@@ -5,23 +5,21 @@ if [[ -n "${TEST_RUN}" ]]; then
     echo "Configuring CI for test run"
     apt-get update &>/dev/null
     apt-get install -y --no-install-recommends \
-        build-essential \
-        git \
         postgresql-15 \
-        postgresql-server-dev-15 \
         redis-server &>/dev/null
 
     s6-setuidgid postgres pg_ctlcluster 15 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
 
-    # Install vector/pgvector
-    cd /tmp
-    git clone --branch v0.5.1 https://github.com/pgvector/pgvector.git
-    cd pgvector
-    make
-    make install
-
-    s6-setuidgid postgres psql -c "CREATE EXTENSION vector;"
+    # Install vectors
+    curl -o \
+        /tmp/vectors.deb -L \
+        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.0.0-nightly.20231216/vectors-pg15-v0.0.0-nightly.20231216-$(arch)-unknown-linux-gnu.deb"
+    dpkg -i /tmp/vectors.deb
+    s6-setuidgid postgres psql -c 'ALTER SYSTEM SET shared_preload_libraries = "vectors.so"'
+    pkill postgres
+    s6-setuidgid postgres pg_ctlcluster 15 main start
+    s6-setuidgid postgres psql -c "CREATE EXTENSION vectors;"
 
     s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
 
