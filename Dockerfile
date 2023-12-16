@@ -26,6 +26,7 @@ RUN \
     build-essential \
     cpanminus \
     g++ \
+    git \
     libany-uri-escape-perl \
     libcapture-tiny-perl \
     libexif-dev \
@@ -206,6 +207,7 @@ RUN \
     build-essential \
     cpanminus \
     g++ \
+    git \
     libany-uri-escape-perl \
     libcapture-tiny-perl \
     libexif-dev \
