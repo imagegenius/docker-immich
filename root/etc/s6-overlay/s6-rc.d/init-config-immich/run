@@ -2,7 +2,7 @@
 
 # make folders
 mkdir -p \
-    /config/{typesense,machine-learning} \
+    /config/machine-learning \
     /photos \
     /import \
     /run/immich
@@ -10,7 +10,6 @@ mkdir -p \
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
-    /app/typesense \
     /config \
     /photos \
     /run/immich \

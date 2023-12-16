@@ -15,10 +15,6 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
-  TYPESENSE_DATA_DIR="/config/typesense" \
-  TYPESENSE_API_KEY="xyz" \
-  TYPESENSE_HOST="127.0.0.1" \
-  TYPESENSE_VERSION="0.24.1" \
   SERVER_PORT="8080"
 
 RUN \
@@ -28,19 +24,39 @@ RUN \
     autoconf \
     bc \
     build-essential \
+    cpanminus \
     g++ \
+    git \
+    libany-uri-escape-perl \
+    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
+    libffi-checklib-perl \
+    libfile-chdir-perl \
+    libfile-slurper-perl \
+    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
+    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
+    libmojolicious-perl \
+    libnet-ssleay-perl \
+    libpath-tiny-perl \
+    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
+    libsort-versions-perl \
     libspng-dev \
+    libterm-table-perl \
+    libtest-warnings-perl \
+    libtest-fatal-perl \
+    libtest-needs-perl \
+    libtest2-suite-perl \
     libtool \
+    libtry-tiny-perl \
     libwebp-dev \
     make \
     meson \
@@ -126,24 +142,25 @@ RUN \
   ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
-  echo "**** download typesense ****" && \
-  mkdir -p \
-    /app/typesense && \
-  curl -o \
-    /tmp/typesense.tar.gz -L \
-    https://dl.typesense.org/releases/${TYPESENSE_VERSION}/typesense-server-${TYPESENSE_VERSION}-linux-arm64.tar.gz && \
-  tar -xf \
-    /tmp/typesense.tar.gz -C \
-    /app/typesense && \
+  ./build-perllib-compress-brotli.sh && \
   echo "**** build server ****" && \
+  mkdir -p \
+    /app/immich/server \
+    /tmp/sharp && \
   cd /tmp/immich/server && \
   npm ci && \
+  rm -rf node_modules/@img/sharp-libvips* && \
+  rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
+  cp -r \
+    node_modules/@img \
+    /tmp/sharp && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
+  cp -r \
+    /tmp/sharp/@img \
+    node_modules && \
   npm link && \
   npm cache clean --force && \
-  mkdir -p \
-    /app/immich/server && \
   cp -a \
     resources \
     package.json \
@@ -152,16 +169,18 @@ RUN \
     dist \
     /app/immich/server && \
   echo "**** build web ****" && \
+  mkdir -p \
+    /app/immich/server/www && \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  mkdir -p \
-    /app/immich/server/www && \
   cp -a \
     build/* \
     static \
     /app/immich/server/www  && \
   echo "**** build machine-learning ****" && \
+  mkdir -p \
+    /app/immich/machine-learning && \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
     poetry && \
@@ -169,8 +188,6 @@ RUN \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
   poetry install --sync --no-interaction --no-ansi --no-root --only main && \
-  mkdir -p \
-    /app/immich/machine-learning && \
   cp -a \
     app \
     log_conf.json \
@@ -186,19 +203,42 @@ RUN \
     autoconf \
     bc \
     build-essential \
+    cpanminus \
     g++ \
+    git \
+    libany-uri-escape-perl \
+    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
+    libffi-checklib-perl \
+    libfile-chdir-perl \
+    libfile-slurper-perl \
+    libfile-which-perl \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libheif-dev \
+    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
+    libmojolicious-perl \
+    libnet-ssleay-perl \
+    libpath-tiny-perl \
+    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
+    libsort-versions-perl \
     libspng-dev \
+    libterm-table-perl \
+    libtest-warnings-perl \
+    libtest-fatal-perl \
+    libtest-needs-perl \
+    libtest2-suite-perl \
     libtool \
+    libtry-tiny-perl \
     libwebp-dev \
     make \
     meson \
