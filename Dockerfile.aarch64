@@ -13,7 +13,8 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SERVER_PORT="8080"
+  SERVER_PORT="8080" \
+  IMMICH_WEB_ROOT="/app/immich/server/www"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -110,6 +111,7 @@ RUN \
   rm -rf \
     /tmp/* \
     /root/.cache \
+    /root/.cpanm \
     /root/.npm
 
 # environment settings
