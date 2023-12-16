@@ -15,7 +15,8 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
-  SERVER_PORT="8080"
+  SERVER_PORT="8080" \
+  IMMICH_WEB_ROOT="/app/immich/server/www"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -92,7 +93,6 @@ RUN \
     libwebpdemux2 \
     libwebpmux3 \
     mesa-va-drivers \
-    nginx \
     nodejs \
     perl \
     python3 \
@@ -256,6 +256,7 @@ RUN \
     /var/tmp/* \
     /var/lib/apt/lists/* \
     /root/.cache \
+    /root/.cpanm \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
     /usr/share/keyrings/nodesource.gpg
