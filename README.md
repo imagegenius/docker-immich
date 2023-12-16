@@ -32,13 +32,13 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning and Search with Typesense are completely removed, making it still compatible with hardware accelaration. |
-| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed, making it still compatible with hardware accelaration. |
+| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images). |
 ## Application Setup
 
 The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
 
-To use Immich, you need to have PostgreSQL 14/15/16 server set up externally, and Redis set up externally or within the container using a docker mod.
+To use Immich, you need to have PostgreSQL 14/15/16 server with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs) set up externally, and Redis set up externally or within the container using a docker mod.
 
 To set up redis using the docker mod, use the following:
 
@@ -46,9 +46,7 @@ Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `loc
 
 To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
 
-Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `DISABLE_IMMICH_MACHINE_LEARNING` to `true`.
-
-Search functionality is powered by Typesense, which requires a CPU compatible with AVX. If your CPU does not support AVX, you can disable the search feature by setting `DISABLE_TYPESENSE` to `true`.
+Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `IMMICH_MACHINE_LEARNING_ENABLED` to `false`.
 
 To import your existing libraries into Immich :
 
@@ -78,8 +76,6 @@ services:
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=192.168.1.x
-      - DISABLE_MACHINE_LEARNING=false #optional
-      - DISABLE_TYPESENSE=false #optional
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
@@ -88,7 +84,6 @@ services:
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
-      - path_to_machine-learning:/config/machine-learning #optional
       - path_to_imports:/import:ro #optional
     ports:
       - 8080:8080
@@ -102,7 +97,7 @@ services:
     container_name: redis
 # PostgreSQL 14:
   postgres14:
-    image: postgres:14
+    image: tensorchord/pgvecto-rs:pg14-v0.1.11
     ports:
       - 5432:5432
     container_name: postgres14
@@ -129,8 +124,6 @@ docker run -d \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=192.168.1.x \
-  -e DISABLE_MACHINE_LEARNING=false `#optional` \
-  -e DISABLE_TYPESENSE=false `#optional` \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
@@ -139,7 +132,6 @@ docker run -d \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
-  -v path_to_machine-learning:/config/machine-learning `#optional` \
   -v path_to_imports:/import:ro `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
@@ -159,7 +151,7 @@ docker run -d \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  postgres:14
+  tensorchord/pgvecto-rs:pg14-v0.1.11
 
 
 ```
@@ -179,16 +171,13 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
-| `-e DISABLE_MACHINE_LEARNING=false` | Set to `true` to disable machine learning |
-| `-e DISABLE_TYPESENSE=false` | Set to `true` to disable Typesense (disables searching completely!) |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
 | `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
-| `-v /config` | Contains machine learning models and typesense data |
+| `-v /config` | Contains machine learning models (~1.5GB with default models) |
 | `-v /photos` | Contains all the photos uploaded to Immich |
-| `-v /config/machine-learning` | Store the machine learning models (~1.5GB) |
 | `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
 
 ## Umask for running applications
@@ -230,6 +219,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **07.12.23:** - remove typesense (no longer needed)
 * **08.11.23:** - move to using seperate immich baseimage
 * **24.09.23:** - house cleaning
 * **24.09.23:** - add vars for ml workers/timeout
