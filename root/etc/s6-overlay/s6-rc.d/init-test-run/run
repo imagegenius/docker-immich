@@ -5,11 +5,24 @@ if [[ -n "${TEST_RUN}" ]]; then
     echo "Configuring CI for test run"
     apt-get update &>/dev/null
     apt-get install -y --no-install-recommends \
+        build-essential \
+        git \
         postgresql-15 \
+        postgresql-server-dev-15 \
         redis-server &>/dev/null
 
     s6-setuidgid postgres pg_ctlcluster 15 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
+
+    # Install vector/pgvector
+    cd /tmp
+    git clone --branch v0.5.1 https://github.com/pgvector/pgvector.git
+    cd pgvector
+    make
+    make install
+
+    s6-setuidgid postgres psql -c "CREATE EXTENSION vector;"
+
     s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
 
     echo "PostgreSQL/Redis started"
