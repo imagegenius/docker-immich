@@ -14,11 +14,15 @@ if [[ -n "${TEST_RUN}" ]]; then
     # Install vectors
     curl -o \
         /tmp/vectors.deb -L \
-        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.0.0-nightly.20231216/vectors-pg15-v0.0.0-nightly.20231216-$(arch)-unknown-linux-gnu.deb"
+        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.1.11/vectors-pg15-v0.1.11-$(arch)-unknown-linux-gnu.deb"
     dpkg -i /tmp/vectors.deb
+
+    # Setup vectors
     s6-setuidgid postgres psql -c 'ALTER SYSTEM SET shared_preload_libraries = "vectors.so"'
+    sleep 1
     pkill postgres
     s6-setuidgid postgres pg_ctlcluster 15 main start
+    sleep 1
     s6-setuidgid postgres psql -c "CREATE EXTENSION vectors;"
 
     s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
