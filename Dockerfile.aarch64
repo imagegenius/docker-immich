@@ -13,7 +13,8 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SERVER_PORT="8080"
+  SERVER_PORT="8080" \
+  IMMICH_WEB_ROOT="/app/immich/server/www"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -66,14 +67,23 @@ RUN \
     /usr/src/resources && \
   date --iso-8601=seconds | tr -d "\n" > /usr/src/resources/geodata-date.txt && \
   echo "**** build server ****" && \
+  mkdir -p \
+    /app/immich/server \
+    /tmp/sharp && \
   cd /tmp/immich/server && \
   npm ci && \
+  rm -rf node_modules/@img/sharp-libvips* && \
+  rm -rf node_modules/@img/sharp-linux-x64 && \
+  cp -r \
+    node_modules/@img \
+    /tmp/sharp && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
+  cp -r \
+    /tmp/sharp/@img \
+    node_modules && \
   npm link && \
   npm cache clean --force && \
-  mkdir -p \
-    /app/immich/server && \
   cp -a \
     resources \
     package.json \
@@ -82,11 +92,11 @@ RUN \
     dist \
     /app/immich/server && \
   echo "**** build web ****" && \
+  mkdir -p \
+    /app/immich/server/www && \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  mkdir -p \
-    /app/immich/server/www && \
   cp -a \
     build/* \
     static \
@@ -101,6 +111,7 @@ RUN \
   rm -rf \
     /tmp/* \
     /root/.cache \
+    /root/.cpanm \
     /root/.npm
 
 # environment settings

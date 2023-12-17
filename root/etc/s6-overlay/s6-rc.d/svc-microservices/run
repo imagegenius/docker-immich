@@ -1,7 +1,4 @@
 #!/usr/bin/with-contenv bash
-if [[ -z "${TYPESENSE_HOST}" ]]; then
-    export TYPESENSE_ENABLED="false"
-fi
 
 exec \
     cd /app/immich/server s6-setuidgid abc \
