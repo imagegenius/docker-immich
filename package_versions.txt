@@ -309,8 +309,8 @@ hwdata-pci                          0.377.2-r0             apk
 i18n-iso-countries                  7.7.0                  npm   
 iconv-lite                          0.4.24                 npm   
 iconv-lite                          0.6.3                  npm   
-icu-data-en                         74.1-r0                apk   
-icu-libs                            74.1-r0                apk   
+icu-data-en                         74.2-r0                apk   
+icu-libs                            74.2-r0                apk   
 ieee754                             1.2.1                  npm   
 ignore-walk                         6.0.4                  npm   
 imagemagick                         7.1.1.22-r0            apk   
@@ -395,7 +395,7 @@ libheif                             1.17.3-r1              apk
 libhwy                              1.0.7-r0               apk   
 libidn2                             2.3.4-r4               apk   
 libimagequant                       4.2.2-r0               apk   
-libintl                             0.22.3-r0              apk   
+libintl                             0.22.4-r0              apk   
 libjpeg-turbo                       3.0.1-r0               apk   
 libjpeg-turbo-dev                   3.0.1-r0               apk   
 libjxl                              0.8.2-r0               apk   
