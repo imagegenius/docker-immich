@@ -125,7 +125,7 @@ docker run -d \
   -p 6379:6379 \
   redis
 
-# PostgreSQL 14:
+# PostgreSQL 14 with pgvecto.rs:
 docker run -d \
   --name=postgres14 \
   -e POSTGRES_USER=postgres \
@@ -133,7 +133,7 @@ docker run -d \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  postgres:14
+  tensorchord/pgvecto-rs:pg14-v0.1.11
 
 
 ```
