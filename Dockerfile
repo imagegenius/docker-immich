@@ -14,7 +14,7 @@ ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   SERVER_PORT="8080" \
-  TYPESENSE_ENABLED="false"
+  IMMICH_WEB_ROOT="/app/immich/server/www"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -23,19 +23,39 @@ RUN \
     autoconf \
     bc \
     build-essential \
+    cpanminus \
     g++ \
+    git \
+    libany-uri-escape-perl \
+    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
+    libffi-checklib-perl \
+    libfile-chdir-perl \
+    libfile-slurper-perl \
+    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
+    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
+    libmojolicious-perl \
+    libnet-ssleay-perl \
+    libpath-tiny-perl \
+    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
+    libsort-versions-perl \
     libspng-dev \
+    libterm-table-perl \
+    libtest-warnings-perl \
+    libtest-fatal-perl \
+    libtest-needs-perl \
+    libtest2-suite-perl \
     libtool \
+    libtry-tiny-perl \
     libwebp-dev \
     make \
     meson \
@@ -70,7 +90,6 @@ RUN \
     libwebpdemux2 \
     libwebpmux3 \
     mesa-va-drivers \
-    nginx \
     nodejs \
     perl \
     unzip \
@@ -119,15 +138,25 @@ RUN \
   ./build-libraw.sh && \
   ./build-imagemagick.sh && \
   ./build-libvips.sh && \
+  ./build-perllib-compress-brotli.sh && \
   echo "**** build server ****" && \
+  mkdir -p \
+    /app/immich/server \
+    /tmp/sharp && \
   cd /tmp/immich/server && \
   npm ci && \
+  rm -rf node_modules/@img/sharp-libvips* && \
+  rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
+  cp -r \
+    node_modules/@img \
+    /tmp/sharp && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
+  cp -r \
+    /tmp/sharp/@img \
+    node_modules && \
   npm link && \
   npm cache clean --force && \
-  mkdir -p \
-    /app/immich/server && \
   cp -a \
     resources \
     package.json \
@@ -136,11 +165,11 @@ RUN \
     dist \
     /app/immich/server && \
   echo "**** build web ****" && \
+  mkdir -p \
+    /app/immich/server/www && \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
-  mkdir -p \
-    /app/immich/server/www && \
   cp -a \
     build/* \
     static \
@@ -153,19 +182,39 @@ RUN \
     autoconf \
     bc \
     build-essential \
+    cpanminus \
     g++ \
+    git \
+    libany-uri-escape-perl \
+    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
+    libffi-checklib-perl \
+    libfile-chdir-perl \
+    libfile-slurper-perl \
+    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
+    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
+    libmojolicious-perl \
+    libnet-ssleay-perl \
+    libpath-tiny-perl \
+    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
+    libsort-versions-perl \
     libspng-dev \
+    libterm-table-perl \
+    libtest-warnings-perl \
+    libtest-fatal-perl \
+    libtest-needs-perl \
+    libtest2-suite-perl \
     libtool \
+    libtry-tiny-perl \  
     libwebp-dev \
     make \
     meson \
@@ -180,6 +229,7 @@ RUN \
     /var/tmp/* \
     /var/lib/apt/lists/* \
     /root/.cache \
+    /root/.cpanm \
     /root/.npm \
     /etc/apt/sources.list.d/node.list \
     /usr/share/keyrings/nodesource.gpg
