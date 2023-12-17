@@ -111,7 +111,6 @@ RUN \
   rm -rf \
     /tmp/* \
     /root/.cache \
-    /root/.cpanm \
     /root/.npm
 
 # environment settings
