@@ -326,7 +326,7 @@ imagemagick-svg                     7.1.1.22-r0            apk
 imagemagick-tiff                    7.1.1.22-r0            apk   
 imagemagick-webp                    7.1.1.22-r0            apk   
 imath                               3.1.9-r3               apk   
-immich                              1.91.2                 npm   
+immich                              1.91.3                 npm   
 import-fresh                        3.3.0                  npm   
 imurmurhash                         0.1.4                  npm   
 indent-string                       4.0.0                  npm   
