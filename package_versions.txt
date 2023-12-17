@@ -426,7 +426,7 @@ libpulse                            16.1-r11               apk
 libraw                              0.21.1-r2              apk   
 libraw-dev                          0.21.1-r2              apk   
 librist                             0.2.10-r0              apk   
-librsvg                             2.57.0-r0              apk   
+librsvg                             2.57.1-r0              apk   
 libsharpyuv                         1.3.2-r0               apk   
 libsndfile                          1.2.2-r0               apk   
 libsodium                           1.0.19-r0              apk   
