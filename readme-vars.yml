@@ -123,6 +123,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "07.12.23:", desc: "move to ubuntu mantic" }
   - { date: "07.12.23:", desc: "remove typesense (no longer needed)" }
   - { date: "08.11.23:", desc: "move to using seperate immich baseimage" }
   - { date: "24.09.23:", desc: "house cleaning" }
