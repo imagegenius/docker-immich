@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:arm64v8-lunar
+FROM ghcr.io/imagegenius/baseimage-ubuntu:arm64v8-mantic
 
 # set version label
 ARG BUILD_DATE
