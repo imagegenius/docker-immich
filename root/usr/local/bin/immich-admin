@@ -1,2 +1,2 @@
 #!/bin/sh
-node /app/immich/server/dist/main admin-cli "$@"
+node /app/immich/server/dist/main immich-admin "$@"
