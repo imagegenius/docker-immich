@@ -219,6 +219,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **07.12.23:** - move to ubuntu mantic
 * **07.12.23:** - remove typesense (no longer needed)
 * **08.11.23:** - move to using seperate immich baseimage
 * **24.09.23:** - house cleaning
