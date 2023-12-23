@@ -219,13 +219,13 @@ Instructions for updating containers:
 
 ## Versions
 
-* **07.12.23:** - move to ubuntu mantic
+* **23.12.23:** - move to using seperate immich baseimage
+* **07.12.23:** - rebase to ubuntu mantic
 * **07.12.23:** - remove typesense (no longer needed)
-* **08.11.23:** - move to using seperate immich baseimage
 * **24.09.23:** - house cleaning
 * **24.09.23:** - add vars for ml workers/timeout
 * **29.07.23:** - remove cuda acceleration for machine-learning
-* **23.05.23:** - move to ubuntu lunar and support cuda acceleration for machine-learning
+* **23.05.23:** - rebase to ubuntu lunar and support cuda acceleration for machine-learning
 * **22.05.23:** - deprecate postgresql docker mod
 * **18.05.23:** - add support for facial recognition
 * **07.05.23:** - remove unused `JWT_SECRET` env
