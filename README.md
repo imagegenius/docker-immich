@@ -32,8 +32,8 @@ This image offers different versions via tags. Be cautious when using unstable o
 | Tag | Available | Description |
 | :----: | :----: |--- |
 | latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed. |
-| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning and Search with Typesense are completely removed, making it a very lightweight image. |
+| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed, making it still compatible with hardware accelaration. |
+| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images). |
 ## Application Setup
 
 See [main branch](https://github.com/imagegenius/docker-immich#application-setup) for setup instructions.
@@ -60,7 +60,6 @@ services:
       - DB_PASSWORD=postgres
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=192.168.1.x
-      - DISABLE_TYPESENSE=false #optional
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
@@ -107,7 +106,6 @@ docker run -d \
   -e DB_PASSWORD=postgres \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOSTNAME=192.168.1.x \
-  -e DISABLE_TYPESENSE=false `#optional` \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
@@ -153,11 +151,10 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
 | `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
-| `-e DISABLE_TYPESENSE=false` | Set to `true` to disable Typesense (disables searching completely!) |
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-v /config` | Contains the logs and typesense data |
+| `-v /config` | AppData |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
 
@@ -200,5 +197,6 @@ Instructions for updating containers:
 
 ## Versions
 
+* **23.12.23:** - move to use seperate baseimage
 * **13.11.23:** - rebase noml to ubuntu
 * **02.01.23:** - Initial Release.
