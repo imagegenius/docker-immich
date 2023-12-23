@@ -123,13 +123,13 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
-  - { date: "07.12.23:", desc: "move to ubuntu mantic" }
+  - { date: "23.12.23:", desc: "move to using seperate immich baseimage" }
+  - { date: "07.12.23:", desc: "rebase to ubuntu mantic" }
   - { date: "07.12.23:", desc: "remove typesense (no longer needed)" }
-  - { date: "08.11.23:", desc: "move to using seperate immich baseimage" }
   - { date: "24.09.23:", desc: "house cleaning" }
   - { date: "24.09.23:", desc: "add vars for ml workers/timeout" }
   - { date: "29.07.23:", desc: "remove cuda acceleration for machine-learning" }
-  - { date: "23.05.23:", desc: "move to ubuntu lunar and support cuda acceleration for machine-learning" }
+  - { date: "23.05.23:", desc: "rebase to ubuntu lunar and support cuda acceleration for machine-learning" }
   - { date: "22.05.23:", desc: "deprecate postgresql docker mod" }
   - { date: "18.05.23:", desc: "add support for facial recognition" }
   - { date: "07.05.23:", desc: "remove unused `JWT_SECRET` env" }
