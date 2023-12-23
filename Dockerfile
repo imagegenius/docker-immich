@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-ubuntu:mantic
+FROM ghcr.io/imagegenius/baseimage-immich:latest
 
 # set version label
 ARG BUILD_DATE
@@ -23,77 +23,25 @@ RUN \
     autoconf \
     bc \
     build-essential \
-    cpanminus \
     g++ \
-    git \
-    libany-uri-escape-perl \
-    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
-    libffi-checklib-perl \
-    libfile-chdir-perl \
-    libfile-slurper-perl \
-    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
-    libio-socket-ssl-perl \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
-    libmojolicious-perl \
-    libnet-ssleay-perl \
-    libpath-tiny-perl \
-    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
-    libsort-versions-perl \
     libspng-dev \
-    libterm-table-perl \
-    libtest-warnings-perl \
-    libtest-fatal-perl \
-    libtest-needs-perl \
-    libtest2-suite-perl \
     libtool \
-    libtry-tiny-perl \
     libwebp-dev \
     make \
     meson \
     ninja-build \
     pkg-config \
     wget && \
-  echo "**** install runtime packages ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_20.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
-  curl -s https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \
-    intel-media-va-driver-non-free \
-    libexif12 \
-    libexpat1 \
-    libgcc-s1 \
-    libglib2.0-0 \
-    libgomp1 \
-    libgsf-1-114 \
-    libheif1 \
-    libjxl0.7 \
-    liblcms2-2 \
-    liblqr-1-0 \
-    libltdl7 \
-    libmimalloc2.0 \
-    libopenexr-3-1-30 \
-    libopenjp2-7 \
-    liborc-0.4-0 \
-    libpng16-16 \
-    librsvg2-2 \
-    libspng0 \
-    libwebp7 \
-    libwebpdemux2 \
-    libwebpmux3 \
-    mesa-va-drivers \
-    nodejs \
-    perl \
-    unzip \
-    zlib1g && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -116,29 +64,6 @@ RUN \
   tar xf \
     /tmp/immich-dependencies.tar.gz -C \
     /tmp/immich-dependencies --strip-components=1 && \
-  echo "**** download geocoding data ****" && \
-  mkdir -p \
-    /usr/src/resources && \
-  curl -o \
-    /tmp/cities500.zip -L \
-    "https://download.geonames.org/export/dump/cities500.zip" && \
-  curl -o \
-    /usr/src/resources/admin1CodesASCII.txt -L \
-    "https://download.geonames.org/export/dump/admin1CodesASCII.txt" && \
-  curl -o \
-    /usr/src/resources/admin2Codes.txt -L \
-    "https://download.geonames.org/export/dump/admin2Codes.txt" && \
-  unzip \
-    /tmp/cities500.zip -d \
-    /usr/src/resources && \
-  date --iso-8601=seconds | tr -d "\n" > /usr/src/resources/geodata-date.txt && \
-  echo "**** build immich dependencies ****" && \
-  cd /tmp/immich-dependencies/server/bin && \
-  ./install-ffmpeg.sh && \
-  ./build-libraw.sh && \
-  ./build-imagemagick.sh && \
-  ./build-libvips.sh && \
-  ./build-perllib-compress-brotli.sh && \
   echo "**** build server ****" && \
   mkdir -p \
     /app/immich/server \
@@ -185,36 +110,21 @@ RUN \
     cpanminus \
     g++ \
     git \
-    libany-uri-escape-perl \
-    libcapture-tiny-perl \
     libexif-dev \
     libexpat1-dev \
-    libffi-checklib-perl \
-    libfile-chdir-perl \
-    libfile-slurper-perl \
-    libfile-which-perl \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
-    libio-socket-ssl-perl \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libheif-dev \
     libjpeg-dev \
     libjxl-dev \
     libltdl-dev \
-    libmojolicious-perl \
-    libnet-ssleay-perl \
-    libpath-tiny-perl \
-    libpkgconfig-perl \
     liborc-0.4-dev \
     librsvg2-dev \
-    libsort-versions-perl \
     libspng-dev \
-    libterm-table-perl \
-    libtest-warnings-perl \
-    libtest-fatal-perl \
-    libtest-needs-perl \
-    libtest2-suite-perl \
     libtool \
-    libtry-tiny-perl \  
     libwebp-dev \
     make \
     meson \
@@ -229,10 +139,7 @@ RUN \
     /var/tmp/* \
     /var/lib/apt/lists/* \
     /root/.cache \
-    /root/.cpanm \
-    /root/.npm \
-    /etc/apt/sources.list.d/node.list \
-    /usr/share/keyrings/nodesource.gpg
+    /root/.npm
 
 # copy local files
 COPY root/ /
