@@ -78,7 +78,7 @@ Pillow                              9.5.0                              python
 PyYAML                              6.0.1                              python  
 Pygments                            2.16.1                             python  
 SecretStorage                       3.3.3                              python  
-SimpleLauncherExecutable            1.1.0.14                           dotnet  
+Simple Launcher                     1.1.0.14                           dotnet  
 abbrev                              1.1.1                              npm     
 abbrev                              2.0.0                              npm     
 abort-controller                    3.0.0                              npm     
@@ -354,7 +354,7 @@ ignore-walk                         6.0.3                              npm
 imageio                             2.31.6                             python  
 immich                              1.91.4                             npm     
 import-fresh                        3.3.0                              npm     
-importlib-metadata                  7.0.0                              python  
+importlib-metadata                  7.0.1                              python  
 imurmurhash                         0.1.4                              npm     
 indent-string                       4.0.0                              npm     
 inflight                            1.0.6                              npm     
