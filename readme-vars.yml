@@ -75,7 +75,25 @@ app_setup_block: |
 
   Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `IMMICH_MACHINE_LEARNING_ENABLED` to `false`.
 
-  To import your existing libraries into Immich :
+  ## Hardware Acceleration
+
+  ### Intel
+
+  Users using hardware acceleration for Intel Quicksync must include the mounting of their /dev/dri video device within the container. This can be achieved by executing or creating the container with the following command:
+
+  ```bash
+  --device=/dev/dri:/dev/dri
+  ```
+
+  During the init, the docker will configure the necessary permissions for the user "abc" within the container to access this device.
+
+  ### Nvidia
+
+  Users using hardware acceleration for Nvidia must install the container runtime offered by Nvidia on their host machine. Instructions for installation can be found [here](https://github.com/NVIDIA/nvidia-docker.
+
+  After installing nvidia-docker on your host, you must re/create the Docker container using the nvidia container runtime (--runtime=nvidia). Additionally, include an environment variable, `NVIDIA_VISIBLE_DEVICES=all` (or set it to a specific GPU's UUID).
+
+  ## Import your existing libraries into Immich
 
   - Mount your existing library folder to `/import`
   - In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)
