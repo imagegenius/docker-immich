@@ -79,7 +79,7 @@ app_setup_block: |
 
   ### Intel
 
-  Users using hardware acceleration for Intel Quicksync must include the mounting of their /dev/dri video device within the container. This can be achieved by executing or creating the container with the following command:
+  Users using hardware acceleration for Intel Quicksync must mount their /dev/dri video device within the container. This can be achieved by passing with the following command when creating or running the container:
 
   ```bash
   --device=/dev/dri:/dev/dri
