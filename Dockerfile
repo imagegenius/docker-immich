@@ -9,7 +9,7 @@ ARG IMMICH_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
 
-#Add needed nvidia environment variables https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/docker-specialized.html
+# nvidia environment variable https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/docker-specialized.html
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 # environment settings
