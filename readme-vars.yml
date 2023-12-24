@@ -71,27 +71,40 @@ app_setup_block: |
 
   Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
-  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
-
-  Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `IMMICH_MACHINE_LEARNING_ENABLED` to `false`.
+  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in the `DB_URL` environment variable.
 
   ## Hardware Acceleration
 
-  ### Intel
+  ### Intel Hardware Acceleration
 
-  Users using hardware acceleration for Intel Quicksync must mount their /dev/dri video device within the container. This can be achieved by passing with the following command when creating or running the container:
+  To use Intel Quicksync hardware acceleration:
 
-  ```bash
-  --device=/dev/dri:/dev/dri
-  ```
+  1. Ensure your container has access to the `/dev/dri` video device.
+  2. Add the device to your container by including the following option in your Docker run command:
 
-  During the init, the docker will configure the necessary permissions for the user "abc" within the container to access this device.
+     ```bash
+     docker run --device=/dev/dri:/dev/dri ...
+     ```
 
-  ### Nvidia
+  ### Nvidia Hardware Acceleration
 
-  Users using hardware acceleration for Nvidia must install the container runtime offered by Nvidia on their host machine. Instructions for installation can be found [here](https://github.com/NVIDIA/nvidia-docker.
+  For Nvidia GPUs with Nvidia/CUDA hardware acceleration:
 
-  After installing nvidia-docker on your host, you must re/create the Docker container using the nvidia container runtime (--runtime=nvidia). Additionally, include an environment variable, `NVIDIA_VISIBLE_DEVICES=all` (or set it to a specific GPU's UUID).
+  1. First, install the Nvidia container runtime on your host machine. Follow the [installation instructions here](https://github.com/NVIDIA/  nvidia-docker).
+
+  2. After installing `nvidia-docker2`, recreate or create a new Docker container using the Nvidia runtime. This can be done in two ways:
+
+     - Add both `--runtime=nvidia` and `NVIDIA_VISIBLE_DEVICES=all` to your Docker run command. Replace `all` with a specific GPU's UUID if needed. Example:
+
+       ```bash
+       docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all
+       ```
+
+     - Alternatively, use `--gpus=all` in your Docker run command. Example:
+
+       ```bash
+       docker run --gpus=all ...
+       ```
 
   ## Import your existing libraries into Immich
 
