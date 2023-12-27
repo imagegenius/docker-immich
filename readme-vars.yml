@@ -71,11 +71,42 @@ app_setup_block: |
 
   Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
 
-  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in a new `DB_URL` environment variable.
+  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in the `DB_URL` environment variable.
 
-  Machine Learning operations tend to be CPU-intensive. If you're operating Immich on less capable hardware, we recommend disabling this feature. You can easily do so by setting `IMMICH_MACHINE_LEARNING_ENABLED` to `false`.
+  ## Hardware Acceleration
 
-  To import your existing libraries into Immich :
+  ### Intel Hardware Acceleration
+
+  To use Intel Quicksync hardware acceleration:
+
+  1. Ensure your container has access to the `/dev/dri` video device.
+  2. Add the device to your container by including the following option in your Docker run command:
+
+     ```bash
+     docker run --device=/dev/dri:/dev/dri ...
+     ```
+
+  ### Nvidia Hardware Acceleration
+
+  For Nvidia GPUs with Nvidia/CUDA hardware acceleration:
+
+  1. First, install the Nvidia container runtime on your host machine. Follow the [installation instructions here](https://github.com/NVIDIA/  nvidia-docker).
+
+  2. After installing `nvidia-docker2`, recreate or create a new Docker container using the Nvidia runtime. This can be done in two ways:
+
+     - Add both `--runtime=nvidia` and `NVIDIA_VISIBLE_DEVICES=all` to your Docker run command. Replace `all` with a specific GPU's UUID if needed. Example:
+
+       ```bash
+       docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all
+       ```
+
+     - Alternatively, use `--gpus=all` in your Docker run command. Example:
+
+       ```bash
+       docker run --gpus=all ...
+       ```
+
+  ## Import your existing libraries into Immich
 
   - Mount your existing library folder to `/import`
   - In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)

@@ -16,7 +16,8 @@ ENV \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
   TRANSFORMERS_CACHE="/config/machine-learning" \
   SERVER_PORT="8080" \
-  IMMICH_WEB_ROOT="/app/immich/server/www"
+  IMMICH_WEB_ROOT="/app/immich/server/www" \
+  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 RUN \
   echo "**** install build packages ****" && \
