@@ -10,6 +10,7 @@ NAME                                VERSION                TYPE
 @hapi/topo                          5.1.0                  npm   
 @img/sharp-linuxmusl-x64            0.33.0                 npm   
 @immich/cli                         2.0.4                  npm   
+@immich/cli                         2.0.5                  npm   
 @ioredis/commands                   1.2.0                  npm   
 @isaacs/cliui                       8.0.2                  npm   
 @isaacs/string-locale-compare       1.1.0                  npm   
@@ -78,8 +79,8 @@ ada-libs                            2.7.4-r0               apk
 agent-base                          6.0.2                  npm   
 agent-base                          7.1.0                  npm   
 aggregate-error                     3.1.0                  npm   
-alpine-baselayout                   3.4.3-r2               apk   
-alpine-baselayout-data              3.4.3-r2               apk   
+alpine-baselayout                   3.4.4-r0               apk   
+alpine-baselayout-data              3.4.4-r0               apk   
 alpine-keys                         2.4-r1                 apk   
 alsa-lib                            1.2.10-r0              apk   
 ansi-escapes                        4.3.2                  npm   
@@ -106,6 +107,7 @@ async                               3.2.4                  npm
 async-lock                          1.4.0                  npm   
 asynckit                            0.4.0                  npm   
 axios                               1.6.2                  npm   
+axios                               1.6.3                  npm   
 b4a                                 1.6.4                  npm   
 balanced-match                      1.0.2                  npm   
 base64-js                           1.5.1                  npm   
@@ -260,7 +262,7 @@ file-source                         0.6.1                  npm
 finalhandler                        1.2.0                  npm   
 fluent-ffmpeg                       2.1.2                  npm   
 follow-redirects                    1.15.3                 npm   
-fontconfig                          2.14.2-r4              apk   
+fontconfig                          2.15.0-r0              apk   
 foreground-child                    3.1.1                  npm   
 form-data                           4.0.0                  npm   
 forwarded                           0.2.0                  npm   
@@ -354,7 +356,7 @@ iterare                             1.2.1                  npm
 jackspeak                           2.3.6                  npm   
 joi                                 17.11.0                npm   
 jose                                4.15.1                 npm   
-jq                                  1.7-r2                 apk   
+jq                                  1.7.1-r0               apk   
 js-tokens                           4.0.0                  npm   
 js-yaml                             4.1.0                  npm   
 json-parse-even-better-errors       2.3.1                  npm   
@@ -384,7 +386,7 @@ libcurl                             8.5.0-r0               apk
 libdav1d                            1.3.0-r0               apk   
 libde265                            1.0.12-r0              apk   
 libdovi                             3.2.0-r1               apk   
-libdrm                              2.4.118-r0             apk   
+libdrm                              2.4.119-r0             apk   
 libexif                             0.6.24-r2              apk   
 libexpat                            2.5.0-r2               apk   
 libffi                              3.4.4-r3               apk   
@@ -639,7 +641,7 @@ readable-stream                     2.3.8                  npm
 readable-stream                     3.6.2                  npm   
 readable-stream                     4.4.2                  npm   
 readdir-glob                        1.1.3                  npm   
-readline                            8.2.1-r2               apk   
+readline                            8.2.7-r0               apk   
 redis-errors                        1.2.0                  npm   
 redis-parser                        3.0.0                  npm   
 reflect-metadata                    0.1.13                 npm   
@@ -759,11 +761,11 @@ validate-npm-package-name           5.0.0                  npm
 validator                           13.11.0                npm   
 vary                                1.1.2                  npm   
 vidstab                             1.1.1-r0               apk   
-vips                                8.15.0-r0              apk   
-vips-cpp                            8.15.0-r0              apk   
-vips-heif                           8.15.0-r0              apk   
-vips-jxl                            8.15.0-r0              apk   
-vips-magick                         8.15.0-r0              apk   
+vips                                8.15.1-r0              apk   
+vips-cpp                            8.15.1-r0              apk   
+vips-heif                           8.15.1-r0              apk   
+vips-jxl                            8.15.1-r0              apk   
+vips-magick                         8.15.1-r0              apk   
 vulkan-loader                       1.3.261.1-r0           apk   
 walk-up-path                        3.0.1                  npm   
 wayland-libs-client                 1.22.0-r4              apk   
