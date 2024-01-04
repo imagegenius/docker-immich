@@ -117,7 +117,6 @@ external_application_cli_block: |
   # Redis:
   docker run -d \
     --name=redis \
-    -p 6379:6379 \
     redis
 
   # PostgreSQL 14:
@@ -127,20 +126,15 @@ external_application_cli_block: |
     -e POSTGRES_PASSWORD=postgres \
     -e POSTGRES_DB=immich \
     -v path_to_postgres:/var/lib/postgresql/data \
-    -p 5432:5432 \
     tensorchord/pgvecto-rs:pg14-v0.1.11
 external_application_compose_block: |
   # Redis:
     redis:
       image: redis
-      ports:
-        - 6379:6379
       container_name: redis
   # PostgreSQL 14:
     postgres14:
       image: tensorchord/pgvecto-rs:pg14-v0.1.11
-      ports:
-        - 5432:5432
       container_name: postgres14
       environment:
         POSTGRES_USER: postgres
