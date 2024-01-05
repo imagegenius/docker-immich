@@ -10,7 +10,7 @@ NAME                                VERSION                            TYPE
 @hapi/topo                          5.1.0                              npm     
 @img/sharp-linux-x64                0.33.0                             npm     
 @immich/cli                         2.0.4                              npm     
-@immich/cli                         2.0.5                              npm     
+@immich/cli                         2.0.6                              npm     
 @ioredis/commands                   1.2.0                              npm     
 @isaacs/cliui                       8.0.2                              npm     
 @isaacs/string-locale-compare       1.1.0                              npm     
@@ -103,7 +103,7 @@ async                               3.2.4                              npm
 async-lock                          1.4.0                              npm     
 asynckit                            0.4.0                              npm     
 axios                               1.6.2                              npm     
-axios                               1.6.3                              npm     
+axios                               1.6.4                              npm     
 b4a                                 1.6.4                              npm     
 balanced-match                      1.0.2                              npm     
 base-files                          12.3ubuntu3                        deb     
@@ -246,6 +246,7 @@ finalhandler                        1.2.0                              npm
 findutils                           4.9.0-4ubuntu1                     deb     
 fluent-ffmpeg                       2.1.2                              npm     
 follow-redirects                    1.15.3                             npm     
+follow-redirects                    1.15.4                             npm     
 fontconfig                          2.14.2-4ubuntu1                    deb     
 fontconfig-config                   2.14.2-4ubuntu1                    deb     
 fonts-noto-core                     20201225-2                         deb     
