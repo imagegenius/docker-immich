@@ -16,6 +16,5 @@ fi
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config \
-    /photos \
     /run/immich \
     /usr/src/resources
