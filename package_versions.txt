@@ -10,7 +10,7 @@ NAME                                VERSION                TYPE
 @hapi/topo                          5.1.0                  npm   
 @img/sharp-linuxmusl-x64            0.33.0                 npm   
 @immich/cli                         2.0.4                  npm   
-@immich/cli                         2.0.5                  npm   
+@immich/cli                         2.0.6                  npm   
 @ioredis/commands                   1.2.0                  npm   
 @isaacs/cliui                       8.0.2                  npm   
 @isaacs/string-locale-compare       1.1.0                  npm   
@@ -79,8 +79,8 @@ ada-libs                            2.7.4-r0               apk
 agent-base                          6.0.2                  npm   
 agent-base                          7.1.0                  npm   
 aggregate-error                     3.1.0                  npm   
-alpine-baselayout                   3.4.4-r0               apk   
-alpine-baselayout-data              3.4.4-r0               apk   
+alpine-baselayout                   3.5.0-r0               apk   
+alpine-baselayout-data              3.5.0-r0               apk   
 alpine-keys                         2.4-r1                 apk   
 alsa-lib                            1.2.10-r0              apk   
 ansi-escapes                        4.3.2                  npm   
@@ -107,7 +107,7 @@ async                               3.2.4                  npm
 async-lock                          1.4.0                  npm   
 asynckit                            0.4.0                  npm   
 axios                               1.6.2                  npm   
-axios                               1.6.3                  npm   
+axios                               1.6.4                  npm   
 b4a                                 1.6.4                  npm   
 balanced-match                      1.0.2                  npm   
 base64-js                           1.5.1                  npm   
@@ -132,11 +132,11 @@ buffer-writer                       2.0.0                  npm
 builtins                            5.0.1                  npm   
 bullmq                              4.14.4                 npm   
 busboy                              1.6.0                  npm   
-busybox                             1.36.1-r16             apk   
-busybox-binsh                       1.36.1-r16             apk   
+busybox                             1.36.1-r18             apk   
+busybox-binsh                       1.36.1-r18             apk   
 byte-size                           8.1.1                  npm   
 bytes                               3.1.2                  npm   
-c-ares                              1.23.0-r0              apk   
+c-ares                              1.24.0-r0              apk   
 ca-certificates                     20230506-r0            apk   
 ca-certificates-bundle              20230506-r0            apk   
 cacache                             18.0.1                 npm   
@@ -262,6 +262,7 @@ file-source                         0.6.1                  npm
 finalhandler                        1.2.0                  npm   
 fluent-ffmpeg                       2.1.2                  npm   
 follow-redirects                    1.15.3                 npm   
+follow-redirects                    1.15.4                 npm   
 fontconfig                          2.15.0-r0              apk   
 foreground-child                    3.1.1                  npm   
 form-data                           4.0.0                  npm   
@@ -384,7 +385,7 @@ libc-utils                          0.7.2-r5               apk
 libcrypto3                          3.1.4-r2               apk   
 libcurl                             8.5.0-r0               apk   
 libdav1d                            1.3.0-r0               apk   
-libde265                            1.0.12-r0              apk   
+libde265                            1.0.15-r0              apk   
 libdovi                             3.2.0-r1               apk   
 libdrm                              2.4.119-r0             apk   
 libexif                             0.6.24-r2              apk   
@@ -508,7 +509,7 @@ ms                                  2.1.3                  npm
 msgpackr                            1.9.9                  npm   
 multer                              1.4.4-lts.1            npm   
 musl                                1.2.4_git20230717-r5   apk   
-musl-utils                          1.2.4_git20230717-r4   apk   
+musl-utils                          1.2.4_git20230717-r5   apk   
 mute-stream                         0.0.8                  npm   
 mute-stream                         1.0.0                  npm   
 mv                                  2.1.1                  npm   
@@ -681,7 +682,7 @@ signal-exit                         3.0.7                  npm
 signal-exit                         4.1.0                  npm   
 sigstore                            2.1.0                  npm   
 simple-swizzle                      0.2.2                  npm   
-skalibs                             2.14.0.1-r0            apk   
+skalibs                             2.14.1.0-r0            apk   
 slice-source                        0.4.1                  npm   
 smart-buffer                        4.2.0                  npm   
 socket.io                           4.7.2                  npm   
@@ -701,7 +702,7 @@ spirv-tools                         1.3.261.1-r0           apk
 split2                              4.2.0                  npm   
 sqlite-libs                         3.44.2-r0              apk   
 sratom                              0.6.16-r0              apk   
-ssl_client                          1.36.1-r16             apk   
+ssl_client                          1.36.1-r18             apk   
 ssri                                10.0.5                 npm   
 standard-as-callback                2.1.0                  npm   
 statuses                            2.0.1                  npm   
