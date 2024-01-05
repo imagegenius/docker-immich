@@ -10,7 +10,7 @@ NAME                                VERSION                            TYPE
 @hapi/topo                          5.1.0                              npm     
 @img/sharp-linux-x64                0.33.0                             npm     
 @immich/cli                         2.0.4                              npm     
-@immich/cli                         2.0.5                              npm     
+@immich/cli                         2.0.6                              npm     
 @ioredis/commands                   1.2.0                              npm     
 @isaacs/cliui                       8.0.2                              npm     
 @isaacs/string-locale-compare       1.1.0                              npm     
@@ -119,7 +119,7 @@ async-timeout                       4.0.3                              python
 asynckit                            0.4.0                              npm     
 attrs                               23.1.0                             python  
 axios                               1.6.2                              npm     
-axios                               1.6.3                              npm     
+axios                               1.6.4                              npm     
 b4a                                 1.6.4                              npm     
 balanced-match                      1.0.2                              npm     
 base-files                          12.3ubuntu3                        deb     
@@ -275,7 +275,7 @@ fast-fifo                           1.3.2                              npm
 fast-safe-stringify                 2.1.1                              npm     
 fastapi                             0.95.2                             python  
 fastest-levenshtein                 1.0.16                             npm     
-fastjsonschema                      2.19.0                             python  
+fastjsonschema                      2.19.1                             python  
 figures                             3.2.0                              npm     
 file-source                         0.6.1                              npm     
 filelock                            3.13.0                             python  
@@ -285,6 +285,7 @@ findutils                           4.9.0-4ubuntu1                     deb
 flatbuffers                         23.5.26                            python  
 fluent-ffmpeg                       2.1.2                              npm     
 follow-redirects                    1.15.3                             npm     
+follow-redirects                    1.15.4                             npm     
 fontconfig                          2.14.2-4ubuntu1                    deb     
 fontconfig-config                   2.14.2-4ubuntu1                    deb     
 fonts-noto-core                     20201225-2                         deb     
@@ -815,7 +816,7 @@ qs                                  6.11.0                             npm
 qudida                              0.0.4                              python  
 queue-tick                          1.0.1                              npm     
 range-parser                        1.2.1                              npm     
-rapidfuzz                           3.6.0                              python  
+rapidfuzz                           3.6.1                              python  
 raw-body                            2.5.1                              npm     
 raw-body                            2.5.2                              npm     
 read                                2.1.0                              npm     
