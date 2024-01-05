@@ -7,6 +7,11 @@ mkdir -p \
     /import \
     /run/immich
 
+# check if /photos is empty
+if [ -z "$(ls -A /photos)" ]; then
+    lsiown -R abc:abc /photos
+fi
+
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
@@ -14,4 +19,3 @@ lsiown -R abc:abc \
     /photos \
     /run/immich \
     /usr/src/resources
-lsiown -R abc:abc /import 2>/dev/null
