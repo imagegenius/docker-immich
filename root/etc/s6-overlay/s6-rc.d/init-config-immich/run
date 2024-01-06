@@ -1,11 +1,10 @@
 #!/usr/bin/with-contenv bash
 
 # make folders
-mkdir -p \
-    /photos
+mkdir -p /import
 
-# check if /photos is empty
-if [ -z "$(ls -A /photos)" ]; then
+if [ ! -d "/photos" ]; then
+    mkdir -p /photos
     lsiown -R abc:abc /photos
 fi
 
