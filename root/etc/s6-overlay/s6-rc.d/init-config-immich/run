@@ -4,12 +4,9 @@
 mkdir -p \
     /config/machine-learning \
     /import \
+    /photos \
     /run/immich
 
-if [ ! -d "/photos" ]; then
-    mkdir -p /photos
-    lsiown -R abc:abc /photos
-fi
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
