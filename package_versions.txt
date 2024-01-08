@@ -341,7 +341,7 @@ idna                                3.6                                python
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
 imageio                             2.33.1                             python  
-immich                              1.92.0                             npm     
+immich                              1.92.1                             npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  7.0.1                              python  
 imurmurhash                         0.1.4                              npm     
@@ -637,7 +637,7 @@ minizlib                            2.1.2                              npm
 mkdirp                              0.5.6                              npm     
 mkdirp                              1.0.4                              npm     
 mkdirp                              2.1.6                              npm     
-more-itertools                      10.1.0                             python  
+more-itertools                      10.2.0                             python  
 mount                               2.39.1-4ubuntu2                    deb     
 mpmath                              1.3.0                              python  
 ms                                  2.0.0                              npm     
@@ -903,7 +903,7 @@ tomlkit                             0.12.3                             python
 tqdm                                4.66.1                             python  
 tr46                                0.0.3                              npm     
 treeverse                           3.0.0                              npm     
-trove-classifiers                   2023.11.29                         python  
+trove-classifiers                   2024.1.8                           python  
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.6.0                              npm     
 tslib                               2.6.2                              npm     
