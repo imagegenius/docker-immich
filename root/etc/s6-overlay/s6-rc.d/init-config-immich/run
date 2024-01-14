@@ -5,7 +5,7 @@ mkdir -p \
     /photos
 
 # permissions
-find /photos \( ! -user abc -o ! -group abc \) -exec lsiown abc:abc {} \;
+find /photos -maxdepth 1 \( ! -user abc -o ! -group abc \) -exec lsiown abc:abc {} \;
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config \
