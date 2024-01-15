@@ -4,14 +4,12 @@
 mkdir -p \
     /config/machine-learning \
     /photos \
-    /import \
     /run/immich
 
 # permissions
+find /photos -maxdepth 1 \( ! -user abc -o ! -group abc \) -exec lsiown abc:abc {} \;
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config \
-    /photos \
     /run/immich \
     /usr/src/resources
-lsiown -R abc:abc /import 2>/dev/null
