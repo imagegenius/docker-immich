@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 check_var() {
     if [ -z "${!1}" ]; then

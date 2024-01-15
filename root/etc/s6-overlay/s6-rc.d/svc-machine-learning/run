@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 # check if machine learning is set to an external server
 [[ "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && echo "WARN: Disabling the machine learning service as 'IMMICH_MACHINE_LEARNING_URL' is set externally (${IMMICH_MACHINE_LEARNING_URL})!"
@@ -6,7 +7,8 @@
 # stop machine learning from starting
 [[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && tail -f /dev/null
 
-export LD_PRELOAD="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
+lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
+export LD_PRELOAD="$lib_path"
 export HOME=/tmp
 
 exec \
@@ -16,4 +18,4 @@ exec \
         -w ${MACHINE_LEARNING_WORKERS:=1} \
         -b 0.0.0.0:3003 \
         -t ${MACHINE_LEARNING_WORKER_TIMEOUT:=120} \
-        --log-config-json log_conf.json
+        --log-config-json log_conf.json || exit
