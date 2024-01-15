@@ -31,7 +31,7 @@ NAME                                VERSION                            TYPE
 @nestjs/websockets                  10.3.0                             npm     
 @npmcli/agent                       2.2.0                              npm     
 @npmcli/arborist                    7.2.1                              npm     
-@npmcli/config                      8.0.1                              npm     
+@npmcli/config                      8.0.2                              npm     
 @npmcli/disparity-colors            3.0.0                              npm     
 @npmcli/fs                          3.1.0                              npm     
 @npmcli/git                         5.0.3                              npm     
@@ -52,8 +52,8 @@ NAME                                VERSION                            TYPE
 @sideway/pinpoint                   2.0.0                              npm     
 @sigstore/bundle                    2.1.0                              npm     
 @sigstore/protobuf-specs            0.2.1                              npm     
-@sigstore/sign                      2.1.0                              npm     
-@sigstore/tuf                       2.1.0                              npm     
+@sigstore/sign                      2.2.0                              npm     
+@sigstore/tuf                       2.2.0                              npm     
 @socket.io/component-emitter        3.1.0                              npm     
 @socket.io/postgres-adapter         0.3.1                              npm     
 @sqltools/formatter                 1.2.5                              npm     
@@ -141,8 +141,8 @@ chalk                               4.1.2                              npm
 chalk                               5.3.0                              npm     
 chardet                             0.7.0                              npm     
 chownr                              2.0.0                              npm     
-ci-info                             3.9.0                              npm     
-cidr-regex                          3.1.1                              npm     
+ci-info                             4.0.0                              npm     
+cidr-regex                          4.0.3                              npm     
 class-transformer                   0.5.1                              npm     
 class-validator                     0.14.0                             npm     
 clean-stack                         2.2.0                              npm     
@@ -183,7 +183,7 @@ cookie                              0.5.0                              npm
 cookie-parser                       1.4.6                              npm     
 cookie-signature                    1.0.6                              npm     
 core-util-is                        1.0.3                              npm     
-corepack                            0.22.0                             npm     
+corepack                            0.23.0                             npm     
 coreutils                           9.1-1ubuntu2                       deb     
 cors                                2.8.5                              npm     
 cosmiconfig                         8.3.6                              npm     
@@ -246,7 +246,7 @@ finalhandler                        1.2.0                              npm
 findutils                           4.9.0-4ubuntu1                     deb     
 fluent-ffmpeg                       2.1.2                              npm     
 follow-redirects                    1.15.3                             npm     
-follow-redirects                    1.15.4                             npm     
+follow-redirects                    1.15.5                             npm     
 fontconfig                          2.14.2-4ubuntu1                    deb     
 fontconfig-config                   2.14.2-4ubuntu1                    deb     
 fonts-noto-core                     20201225-2                         deb     
@@ -259,6 +259,7 @@ fs-minipass                         2.1.0                              npm
 fs-minipass                         3.0.3                              npm     
 fs.realpath                         1.0.0                              npm     
 function-bind                       1.1.1                              npm     
+function-bind                       1.1.2                              npm     
 gauge                               3.0.2                              npm     
 gauge                               5.0.1                              npm     
 gcc-13-base                         13.2.0-4ubuntu3                    deb     
@@ -289,6 +290,7 @@ has-flag                            4.0.0                              npm
 has-proto                           1.0.1                              npm     
 has-symbols                         1.0.3                              npm     
 has-unicode                         2.0.1                              npm     
+hasown                              2.0.0                              npm     
 he                                  1.2.0                              npm     
 highlight.js                        10.7.3                             npm     
 hosted-git-info                     7.0.1                              npm     
@@ -316,12 +318,12 @@ inquirer                            8.2.6                              npm
 intel-media-va-driver-non-free      23.2.3+ds1-1                       deb     
 ioredis                             5.3.2                              npm     
 ip                                  2.0.0                              npm     
-ip-regex                            4.3.0                              npm     
+ip-regex                            5.0.0                              npm     
 ipaddr.js                           1.9.1                              npm     
 is-arrayish                         0.2.1                              npm     
 is-arrayish                         0.3.2                              npm     
-is-cidr                             4.0.2                              npm     
-is-core-module                      2.13.0                             npm     
+is-cidr                             5.0.3                              npm     
+is-core-module                      2.13.1                             npm     
 is-fullwidth-code-point             3.0.0                              npm     
 is-interactive                      1.0.0                              npm     
 is-lambda                           1.0.1                              npm     
@@ -444,12 +446,12 @@ libnettle8                          3.8.1-2                            deb
 libnghttp2-14                       1.55.1-1ubuntu0.1                  deb     
 libnpmaccess                        8.0.1                              npm     
 libnpmdiff                          6.0.3                              npm     
-libnpmexec                          7.0.3                              npm     
+libnpmexec                          7.0.4                              npm     
 libnpmfund                          5.0.1                              npm     
 libnpmhook                          10.0.0                             npm     
 libnpmorg                           6.0.1                              npm     
 libnpmpack                          6.0.3                              npm     
-libnpmpublish                       9.0.1                              npm     
+libnpmpublish                       9.0.2                              npm     
 libnpmsearch                        7.0.0                              npm     
 libnpmteam                          6.0.0                              npm     
 libnpmversion                       5.0.1                              npm     
@@ -555,6 +557,7 @@ log-symbols                         4.1.0                              npm
 login                               1:4.13+dfsg1-1ubuntu1              deb     
 logsave                             1.47.0-1ubuntu1                    deb     
 lru-cache                           10.0.1                             npm     
+lru-cache                           10.0.2                             npm     
 lru-cache                           10.1.0                             npm     
 lru-cache                           6.0.0                              npm     
 luxon                               3.4.4                              npm     
@@ -608,12 +611,12 @@ node-addon-api                      5.1.0                              npm
 node-addon-api                      7.0.0                              npm     
 node-fetch                          2.7.0                              npm     
 node-gyp                            10.0.1                             npm     
-nodejs                              20.10.0-1nodesource1               deb     
+nodejs                              20.11.0-1nodesource1               deb     
 nopt                                5.0.0                              npm     
 nopt                                7.2.0                              npm     
 normalize-package-data              6.0.0                              npm     
 normalize-path                      3.0.0                              npm     
-npm                                 10.2.3                             npm     
+npm                                 10.2.4                             npm     
 npm-audit-report                    5.0.0                              npm     
 npm-bundled                         3.0.0                              npm     
 npm-install-checks                  6.3.0                              npm     
@@ -748,7 +751,6 @@ shebang-command                     2.0.0                              npm
 shebang-regex                       3.0.0                              npm     
 side-channel                        1.0.4                              npm     
 signal-exit                         3.0.7                              npm     
-signal-exit                         4.0.2                              npm     
 signal-exit                         4.1.0                              npm     
 sigstore                            2.1.0                              npm     
 simple-swizzle                      0.2.2                              npm     
