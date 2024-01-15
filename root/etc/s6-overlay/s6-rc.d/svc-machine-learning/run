@@ -9,13 +9,13 @@
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
 export LD_PRELOAD="$lib_path"
-export HOME=/tmp
+export MPLCONFIGDIR="/tmp"
 
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
        gunicorn app.main:app \
         -k uvicorn.workers.UvicornWorker \
-        -w ${MACHINE_LEARNING_WORKERS:=1} \
+        -w "${MACHINE_LEARNING_WORKERS:=1}" \
         -b 0.0.0.0:3003 \
-        -t ${MACHINE_LEARNING_WORKER_TIMEOUT:=120} \
+        -t "${MACHINE_LEARNING_WORKER_TIMEOUT:=120}" \
         --log-config-json log_conf.json || exit
