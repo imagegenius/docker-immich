@@ -1,7 +1,9 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
-export LD_PRELOAD="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
+lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
+export LD_PRELOAD="$lib_path"
 
 exec \
     cd /app/immich/server s6-setuidgid abc \
-        node dist/main microservices
+        node dist/main microservices || exit
