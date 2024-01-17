@@ -56,10 +56,15 @@ pipeline {
           env.COMMIT_SHA = sh(
             script: '''git rev-parse HEAD''',
             returnStdout: true).trim()
+          env.GH_DEFAULT_BRANCH = sh(
+            script: '''git remote show origin | grep "HEAD branch:" | sed 's|.*HEAD branch: ||' ''',
+            returnStdout: true).trim()
           env.CODE_URL = 'https://github.com/' + env.IG_USER + '/' + env.IG_REPO + '/commit/' + env.GIT_COMMIT
           env.PULL_REQUEST = env.CHANGE_ID
           env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE .editorconfig  ./.github/workflows/external_trigger_scheduler.yml  ./.github/workflows/package_trigger_scheduler.yml ./.github/workflows/permissions.yml ./.github/workflows/external_trigger.yml ./.github/workflows/package_trigger.yml ./root/donate.txt'
         }
+        sh '''#! /bin/bash
+              echo "The default github branch detected as ${GH_DEFAULT_BRANCH}" '''
         script{
           env.IG_RELEASE_NUMBER = sh(
             script: '''echo ${IG_RELEASE} |sed 's/^.*-ig//g' ''',
@@ -124,7 +129,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE_CLEAN = sh(
-            script: '''echo ${EXT_RELEASE} | sed 's/[~,%@+;:/]//g' ''',
+            script: '''echo ${EXT_RELEASE} | sed 's/[~,%@+;:/ ]//g' ''',
             returnStdout: true).trim()
 
           def semver = env.EXT_RELEASE_CLEAN =~ /(\d+)\.(\d+)\.(\d+)/
@@ -142,7 +147,7 @@ pipeline {
           }
 
           if (env.SEMVER != null) {
-            if (BRANCH_NAME != "master" && BRANCH_NAME != "main") {
+            if (BRANCH_NAME != "${env.GH_DEFAULT_BRANCH}") {
               env.SEMVER = "${env.SEMVER}-${BRANCH_NAME}"
             }
             println("SEMVER: ${env.SEMVER}")
@@ -210,6 +215,33 @@ pipeline {
           env.META_TAG = 'noml-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           env.EXT_RELEASE_TAG = 'noml-version-' + env.EXT_RELEASE_CLEAN
           env.CODE_URL = 'https://github.com/' + env.IG_USER + '/' + env.IG_REPO + '/pull/' + env.PULL_REQUEST
+        }
+      }
+    }
+    // Run ShellCheck
+    stage('ShellCheck') {
+      when {
+        environment name: 'CI', value: 'true'
+      }
+      steps {
+        withCredentials([
+          string(credentialsId: 'ci-tests-s3-key-id', variable: 'S3_KEY'),
+          string(credentialsId: 'ci-tests-s3-secret-access-key', variable: 'S3_SECRET')
+        ]) {
+          script{
+            env.SHELLCHECK_URL = 'https://ci-tests.linuxserver.io/' + env.CONTAINER_NAME + '/' + env.META_TAG + '/shellcheck-result.xml'
+          }
+          sh '''curl -sL https://raw.githubusercontent.com/linuxserver/docker-jenkins-builder/master/checkrun.sh | /bin/bash'''
+          sh '''#! /bin/bash
+                docker run --rm \
+                  -v ${WORKSPACE}:/mnt \
+                  -e AWS_ACCESS_KEY_ID="${S3_KEY}" \
+                  -e AWS_SECRET_ACCESS_KEY="${S3_SECRET}" \
+                  ghcr.io/linuxserver/baseimage-alpine:3.17 s6-envdir -fn -- /var/run/s6/container_environment /bin/bash -c "\
+                    apk add --no-cache py3-pip && \
+                    pip install s3cmd && \
+                    s3cmd --host=s3.imagegenius.io --host-bucket= put -m text/xml /mnt/shellcheck-result.xml s3://ci-tests.imagegenius.io/${GITHUBIMAGE}/${META_TAG}/shellcheck-result.xml" || :
+             '''
         }
       }
     }
@@ -491,7 +523,8 @@ pipeline {
                 wait
                 git add package_versions.txt
                 git commit -m 'Bot Updating Package Versions'
-                git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git --all
+                git pull https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git noml
+                git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git noml
                 echo "true" > /tmp/packages-${COMMIT_SHA}-${BUILD_NUMBER}
                 echo "Package tag updated, stopping build process"
               else
@@ -816,12 +849,12 @@ EOF
               curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
                 -H "Accept: application/vnd.github.v3+json" \
                 "https://api.github.com/repos/$IG_USER/$IG_REPO/issues/$PULL_REQUEST/comments" \
-                -d "{\\"body\\": \\"I am a bot, here are the test results for this PR: \\n${CI_URL}\\n${table}\\"}"
+                -d "{\\"body\\": \\"I am a bot, here are the test results for this PR: \\n${CI_URL}\\n${SHELLCHECK_URL}\\n${table}\\"}"
             else
               curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
                 -H "Accept: application/vnd.github.v3+json" \
                 "https://api.github.com/repos/$IG_USER/$IG_REPO/issues/$PULL_REQUEST/comments" \
-                -d "{\\"body\\": \\"I am a bot, here is the pushed image/manifest for this PR: \\n\\n\\`${IMAGE}:${META_TAG}\\`\\"}"
+                -d "{\\"body\\": \\"I am a bot, here is the pushed image/manifest for this PR: \\n\\n\\`${GITHUBIMAGE}:${META_TAG}\\`\\"}"
             fi
             '''
 
@@ -839,12 +872,12 @@ EOF
         }
         else if (currentBuild.currentResult == "SUCCESS"){
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jenkins-avatar.png","embeds": [{"color": 1681177,\
-                 "description": "**'${IG_REPO}' Build '${BUILD_NUMBER}' (noml)**\\n**CI Results:**  '${CI_URL}'\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Changes:** '${CODE_URL}'\\n**External Release:** '${RELEASE_LINK}'\\n"}],\
+                 "description": "**'${IG_REPO}' Build '${BUILD_NUMBER}' (noml)**\\n**CI Results:** '${CI_URL}'\\n**ShellCheck Results:** '${SHELLCHECK_URL}'\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Changes:** '${CODE_URL}'\\n**External Release:** '${RELEASE_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
         }
         else {
           sh ''' curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jenkins-avatar.png","embeds": [{"color": 16711680,\
-                 "description": "**'${IG_REPO}' Build '${BUILD_NUMBER}' Failed! (noml)**\\n**CI Results:**  '${CI_URL}'\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:** '${RELEASE_LINK}'\\n"}],\
+                 "description": "**'${IG_REPO}' Build '${BUILD_NUMBER}' Failed! (noml)**\\n**CI Results:** '${CI_URL}'\\n**ShellCheck Results:** '${SHELLCHECK_URL}'\\n**Job:** '${RUN_DISPLAY_URL}'\\n**Change:** '${CODE_URL}'\\n**External Release:** '${RELEASE_LINK}'\\n"}],\
                  "username": "Jenkins"}' ${BUILDS_DISCORD} '''
         }
       }
