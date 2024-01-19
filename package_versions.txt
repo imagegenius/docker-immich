@@ -2,14 +2,13 @@ NAME                                VERSION                            TYPE
 @babel/code-frame                   7.22.13                            npm     
 @babel/helper-validator-identifier  7.22.20                            npm     
 @babel/highlight                    7.22.20                            npm     
-@babel/runtime                      7.23.7                             npm     
+@babel/runtime                      7.23.8                             npm     
 @colors/colors                      1.5.0                              npm     
 @fig/complete-commander             3.0.0                              npm     
 @golevelup/nestjs-discovery         4.0.0                              npm     
 @hapi/hoek                          9.3.0                              npm     
 @hapi/topo                          5.1.0                              npm     
-@img/sharp-linux-x64                0.33.1                             npm     
-@immich/cli                         2.0.5                              npm     
+@img/sharp-linux-x64                0.33.2                             npm     
 @immich/cli                         2.0.6                              npm     
 @ioredis/commands                   1.2.0                              npm     
 @isaacs/cliui                       8.0.2                              npm     
@@ -45,7 +44,7 @@ NAME                                VERSION                            TYPE
 @npmcli/query                       3.0.1                              npm     
 @npmcli/run-script                  7.0.2                              npm     
 @nuxtjs/opencollective              0.3.2                              npm     
-@photostructure/tz-lookup           8.0.0                              npm     
+@photostructure/tz-lookup           9.0.0                              npm     
 @pkgjs/parseargs                    0.11.0                             npm     
 @sideway/address                    4.1.4                              npm     
 @sideway/formula                    3.0.1                              npm     
@@ -66,14 +65,13 @@ NAME                                VERSION                            TYPE
 @types/cookie                       0.4.1                              npm     
 @types/cors                         2.8.14                             npm     
 @types/inquirer                     8.2.6                              npm     
-@types/luxon                        3.3.5                              npm     
-@types/node                         20.10.5                            npm     
+@types/luxon                        3.3.7                              npm     
+@types/node                         20.11.0                            npm     
 @types/pg                           8.10.9                             npm     
 @types/through                      0.0.31                             npm     
-@types/validator                    13.11.2                            npm     
+@types/validator                    13.11.8                            npm     
 CacheControl                        0.13.1                             python  
-Cython                              3.0.7                              python  
-Pillow                              10.1.0                             python  
+Cython                              0.29.37                            python  
 PyYAML                              6.0.1                              python  
 Pygments                            2.17.2                             python  
 SecretStorage                       3.3.3                              python  
@@ -112,7 +110,6 @@ array-source                        0.0.4                              npm
 async                               3.2.4                              npm     
 async-lock                          1.4.1                              npm     
 asynckit                            0.4.0                              npm     
-axios                               1.6.3                              npm     
 axios                               1.6.5                              npm     
 b4a                                 1.6.4                              npm     
 balanced-match                      1.0.2                              npm     
@@ -158,7 +155,7 @@ chownr                              2.0.0                              npm
 ci-info                             4.0.0                              npm     
 cidr-regex                          4.0.3                              npm     
 class-transformer                   0.5.1                              npm     
-class-validator                     0.14.0                             npm     
+class-validator                     0.14.1                             npm     
 clean-stack                         2.2.0                              npm     
 cleo                                2.1.0                              python  
 cli-columns                         4.0.0                              npm     
@@ -216,7 +213,7 @@ cssesc                              3.0.0                              npm
 curl                                8.2.1-1ubuntu3.2                   deb     
 cycler                              0.12.1                             python  
 dash                                0.5.12-2ubuntu1                    deb     
-date-fns                            2.30.0                             npm     
+dayjs                               1.11.10                            npm     
 debconf                             1.5.82                             deb     
 debianutils                         5.7-0.4                            deb     
 debug                               2.6.9                              npm     
@@ -256,14 +253,14 @@ escape-string-regexp                1.0.5                              npm
 etag                                1.8.1                              npm     
 event-target-shim                   5.0.1                              npm     
 events                              3.3.0                              npm     
-exiftool-vendored                   23.5.0                             npm     
-exiftool-vendored.pl                12.70.0                            npm     
+exiftool-vendored                   24.3.0                             npm     
+exiftool-vendored.pl                12.72.0                            npm     
 exponential-backoff                 3.1.1                              npm     
 express                             4.18.2                             npm     
 external-editor                     3.1.0                              npm     
 fast-fifo                           1.3.2                              npm     
 fast-safe-stringify                 2.1.1                              npm     
-fastapi                             0.106.0                            python  
+fastapi                             0.109.0                            python  
 fastest-levenshtein                 1.0.16                             npm     
 fastjsonschema                      2.19.1                             python  
 figures                             3.2.0                              npm     
@@ -273,7 +270,6 @@ finalhandler                        1.2.0                              npm
 findutils                           4.9.0-4ubuntu1                     deb     
 flatbuffers                         23.5.26                            python  
 fluent-ffmpeg                       2.1.2                              npm     
-follow-redirects                    1.15.3                             npm     
 follow-redirects                    1.15.5                             npm     
 fontconfig                          2.14.2-4ubuntu1                    deb     
 fontconfig-config                   2.14.2-4ubuntu1                    deb     
@@ -294,7 +290,7 @@ function-bind                       1.1.2                              npm
 gauge                               3.0.2                              npm     
 gauge                               5.0.1                              npm     
 gcc-13-base                         13.2.0-4ubuntu3                    deb     
-geo-tz                              7.0.7                              npm     
+geo-tz                              8.0.0                              npm     
 geobuf                              3.0.2                              npm     
 get-caller-file                     2.0.5                              npm     
 get-intrinsic                       1.2.1                              npm     
@@ -334,7 +330,7 @@ http-proxy-agent                    7.0.0                              npm
 https-proxy-agent                   5.0.1                              npm     
 https-proxy-agent                   7.0.2                              npm     
 httptools                           0.6.1                              python  
-huggingface-hub                     0.20.1                             python  
+huggingface-hub                     0.20.2                             python  
 humanfriendly                       10.0                               python  
 i18n-iso-countries                  7.7.0                              npm     
 iconv-lite                          0.4.24                             npm     
@@ -343,7 +339,7 @@ idna                                3.6                                python
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
 imageio                             2.33.1                             python  
-immich                              1.92.1                             npm     
+immich                              1.93.2                             npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  7.0.1                              python  
 imurmurhash                         0.1.4                              npm     
@@ -523,7 +519,7 @@ libpangoft2-1.0-0                   1.51.0+ds-2                        deb
 libpciaccess0                       0.17-2                             deb     
 libpcre2-8-0                        10.42-4                            deb     
 libperl5.36                         5.36.0-9ubuntu1.1                  deb     
-libphonenumber-js                   1.10.45                            npm     
+libphonenumber-js                   1.10.53                            npm     
 libpixman-1-0                       0.42.2-1                           deb     
 libpng16-16                         1.6.40-1                           deb     
 libproc2-0                          2:4.0.3-1ubuntu1                   deb     
@@ -697,8 +693,8 @@ once                                1.4.0                              npm
 onetime                             5.1.2                              npm     
 onnx                                1.15.0                             python  
 onnxruntime                         1.16.3                             python  
-opencv-python-headless              4.8.1.78                           python  
-openid-client                       5.6.2                              npm     
+opencv-python-headless              4.9.0.80                           python  
+openid-client                       5.6.4                              npm     
 openssl                             3.0.10-1ubuntu2.1                  deb     
 ora                                 5.4.1                              npm     
 orjson                              3.9.10                             python  
@@ -736,6 +732,7 @@ pg-protocol                         1.6.0                              npm
 pg-types                            2.2.0                              npm     
 pg-types                            4.0.1                              npm     
 pgpass                              1.0.5                              npm     
+pillow                              10.2.0                             python  
 pinentry-curses                     1.2.1-1ubuntu1                     deb     
 pip                                 23.2                               python  
 pkginfo                             1.9.6                              python  
@@ -753,7 +750,7 @@ postgres-date                       2.0.1                              npm
 postgres-interval                   1.2.0                              npm     
 postgres-interval                   3.0.0                              npm     
 postgres-range                      1.1.3                              npm     
-prettier                            3.1.1                              npm     
+prettier                            3.2.0                              npm     
 prettytable                         3.9.0                              python  
 proc-log                            3.0.0                              npm     
 process                             0.11.10                            npm     
@@ -843,7 +840,7 @@ setuptools                          68.2.2                             python
 sha.js                              2.4.11                             npm     
 shapefile                           0.6.6                              npm     
 shared-mime-info                    2.2-1                              deb     
-sharp                               0.33.1                             npm     
+sharp                               0.33.2                             npm     
 shebang-command                     2.0.0                              npm     
 shebang-regex                       3.0.0                              npm     
 shellingham                         1.5.4                              python  
@@ -869,7 +866,7 @@ spdx-license-ids                    3.0.16                             npm
 split2                              4.2.0                              npm     
 ssri                                10.0.5                             npm     
 standard-as-callback                2.1.0                              npm     
-starlette                           0.27.0                             python  
+starlette                           0.35.1                             python  
 statuses                            2.0.1                              npm     
 stream-source                       0.3.5                              npm     
 streamsearch                        1.1.0                              npm     
@@ -913,7 +910,7 @@ tuf-js                              2.1.0                              npm
 type-fest                           0.21.3                             npm     
 type-is                             1.6.18                             npm     
 typedarray                          0.0.6                              npm     
-typeorm                             0.3.17                             npm     
+typeorm                             0.3.19                             npm     
 typing_extensions                   4.9.0                              python  
 tzdata                              2023c-9ubuntu1                     deb     
 tzdata-icu                          2023c-9ubuntu1                     deb     
