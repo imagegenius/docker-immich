@@ -99,6 +99,10 @@ RUN \
     node_modules \
     dist \
     /app/immich/server && \
+  echo "**** build open-api ****" && \
+  cd /tmp/immich/open-api/typescript-sdk && \
+  npm ci && \
+  npm run build && \
   echo "**** build web ****" && \
   mkdir -p \
     /app/immich/server/www && \
@@ -111,7 +115,7 @@ RUN \
     /app/immich/server/www  && \
   echo "**** build machine-learning ****" && \
   mkdir -p \
-    /app/immich/machine-learning && \
+    /app/immich/machine-learning/ann && \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
     poetry && \
@@ -123,6 +127,9 @@ RUN \
     app \
     log_conf.json \
     /app/immich/machine-learning && \
+  cp -a \
+    ann/ann.py \
+    /app/immich/machine-learning/ann && \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g --prefix /tmp/cli @immich/cli && \
     mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
