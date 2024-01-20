@@ -339,7 +339,7 @@ idna                                3.6                                python
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
 imageio                             2.33.1                             python  
-immich                              1.93.2                             npm     
+immich                              1.93.3                             npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  7.0.1                              python  
 imurmurhash                         0.1.4                              npm     
