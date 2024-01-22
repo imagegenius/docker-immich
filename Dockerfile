@@ -122,8 +122,10 @@ RUN \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --only main && \
+  poetry install --sync --no-interaction --no-ansi --no-root --with cpu --without dev && \
   cp -a \
+    pyproject.toml \
+    poetry.lock \
     app \
     log_conf.json \
     /app/immich/machine-learning && \
