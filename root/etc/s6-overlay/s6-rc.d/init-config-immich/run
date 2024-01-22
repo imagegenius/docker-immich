@@ -3,7 +3,7 @@
 
 # make folders
 mkdir -p \
-    /config/machine-learning \
+    /config/machine-learning/models \
     /photos \
     /run/immich
 

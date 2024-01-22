@@ -13,8 +13,8 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
-  TRANSFORMERS_CACHE="/config/machine-learning" \
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
+  TRANSFORMERS_CACHE="/config/machine-learning/models" \
   SERVER_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www"
 
@@ -121,8 +121,10 @@ RUN \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --only main && \
+  poetry install --sync --no-interaction --no-ansi --no-root --with cpu --without dev && \
   cp -a \
+    pyproject.toml \
+    poetry.lock \
     app \
     log_conf.json \
     /app/immich/machine-learning && \

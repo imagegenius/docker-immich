@@ -1,0 +1,42 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash source=/dev/null
+
+if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
+
+    path="/config/machine-learning/cuda"
+
+    libcudnn="libcudnn8_8.9.7.29-1+cuda12.2.deb"
+    libcudnn_url="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.7.29-1+cuda12.2_amd64.deb"
+    
+    venv="$path/venv"
+    source="$venv/bin/activate"
+    libcudnn_path="$path/$libcudnn"
+
+
+    mkdir -p "$path"
+
+    if [ ! -e "$libcudnn_path" ]; then
+        echo "**** download libcudnn ****"
+        curl -o "$libcudnn_path" -L \
+            "$libcudnn_url"
+    fi
+
+
+    apt-get update
+    apt-get install --no-install-recommends -y \
+        nvidia-cuda-dev
+
+    # create venv if it does not exist
+    if [ ! -d "$venv" ]; then
+        python3 -m venv "$venv"
+    fi
+
+    # install/update pip packages to /config venv
+    # and install onnxruntime nightly until it supports cuda 12 https://github.com/Microsoft/onnxruntime/releases/
+    source "$source"
+    cd /app/immich/machine-learning || exit
+    poetry source add --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/
+    poetry add --source ort --group cuda ort-nightly-gpu
+    poetry remove --group cuda onnxruntime-gpu
+    poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev
+fi
