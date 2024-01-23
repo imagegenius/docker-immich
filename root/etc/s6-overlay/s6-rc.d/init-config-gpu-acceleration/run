@@ -10,7 +10,7 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
     libcudnn="libcudnn8_8.9.7.29-1+cuda12.2.deb"
     libcudnn_url="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.7.29-1+cuda12.2_amd64.deb"
 
-    venv="$cuda_path/venv"
+    venv="$cuda_path/.venv"
     source="$venv/bin/activate"
     libcudnn_path="$cuda_path/$libcudnn"
 
@@ -42,9 +42,10 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
 ## commented until openvino supports python 3.11 (probably with onnxruntime-openvino 1.17.0) or when using ubuntu 24.04 for the base image
 # elif [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "openvino" ]; then
 #     openvino_path="$path/openvino"
-#     venv="$openvino_path/venv"
+#     venv="$openvino_path/.venv"
 #     source="$venv/bin/activate"
 
+#     mkdir -p "$openvino_path"
 #     # create venv if it does not exist
 #     if [ ! -d "$venv" ]; then
 #         python3 -m venv "$venv"
