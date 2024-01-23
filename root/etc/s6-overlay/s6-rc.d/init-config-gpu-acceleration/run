@@ -1,19 +1,20 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash source=/dev/null
 
+path="/config/machine-learning"
+
 if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
 
-    path="/config/machine-learning/cuda"
+    cuda_path="$path/cuda"
 
     libcudnn="libcudnn8_8.9.7.29-1+cuda12.2.deb"
     libcudnn_url="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.7.29-1+cuda12.2_amd64.deb"
-    
-    venv="$path/venv"
+
+    venv="$cuda_path/venv"
     source="$venv/bin/activate"
-    libcudnn_path="$path/$libcudnn"
+    libcudnn_path="$cuda_path/$libcudnn"
 
-
-    mkdir -p "$path"
+    mkdir -p "$cuda_path"
 
     if [ ! -e "$libcudnn_path" ]; then
         echo "**** download libcudnn ****"
@@ -37,4 +38,20 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
     source "$source"
     cd /app/immich/machine-learning/cuda || exit
     poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev
+
+## commented until openvino supports python 3.11 (probably with onnxruntime-openvino 1.17.0) or when using ubuntu 24.04 for the base image
+# elif [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "openvino" ]; then
+#     openvino_path="$path/openvino"
+#     venv="$openvino_path/venv"
+#     source="$venv/bin/activate"
+
+#     # create venv if it does not exist
+#     if [ ! -d "$venv" ]; then
+#         python3 -m venv "$venv"
+#     fi
+
+#     source "$source"
+#     cd /app/immich/machine-learning || exit
+#     poetry install --sync --no-interaction --no-ansi --no-root --with openvino --without dev
+
 fi
