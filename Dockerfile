@@ -65,15 +65,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download immich dependencies ****" && \
-  mkdir -p \
-    /tmp/immich-dependencies && \
-  curl -o \
-    /tmp/immich-dependencies.tar.gz -L \
-    "https://github.com/immich-app/base-images/archive/main.tar.gz" && \
-  tar xf \
-    /tmp/immich-dependencies.tar.gz -C \
-    /tmp/immich-dependencies --strip-components=1 && \
   echo "**** build server ****" && \
   mkdir -p \
     /app/immich/server \
@@ -115,7 +106,8 @@ RUN \
     /app/immich/server/www  && \
   echo "**** build machine-learning ****" && \
   mkdir -p \
-    /app/immich/machine-learning/ann && \
+    /app/immich/machine-learning/ann \
+    /app/immich/machine-learning/cuda && \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
     poetry && \
@@ -130,8 +122,17 @@ RUN \
     log_conf.json \
     /app/immich/machine-learning && \
   cp -a \
+    pyproject.toml \
+    poetry.lock \
+    /app/immich/machine-learning/cuda && \
+  cp -a \
     ann/ann.py \
     /app/immich/machine-learning/ann && \
+  echo "**** change machine learning dependencies for cuda acceleration ****" && \
+  cd /app/immich/machine-learning/cuda && \
+  poetry source add --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/ && \
+  poetry add --source ort --group cuda ort-nightly-gpu && \
+  poetry remove --group cuda onnxruntime-gpu && \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g --prefix /tmp/cli @immich/cli && \
     mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \

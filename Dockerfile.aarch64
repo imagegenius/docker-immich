@@ -64,15 +64,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download immich dependencies ****" && \
-  mkdir -p \
-    /tmp/immich-dependencies && \
-  curl -o \
-    /tmp/immich-dependencies.tar.gz -L \
-    "https://github.com/immich-app/base-images/archive/main.tar.gz" && \
-  tar xf \
-    /tmp/immich-dependencies.tar.gz -C \
-    /tmp/immich-dependencies --strip-components=1 && \
   echo "**** build server ****" && \
   mkdir -p \
     /app/immich/server \

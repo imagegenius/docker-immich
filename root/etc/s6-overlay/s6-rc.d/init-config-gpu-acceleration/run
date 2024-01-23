@@ -20,7 +20,8 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
         curl -o "$libcudnn_path" -L \
             "$libcudnn_url"
     fi
-
+    echo "**** install libcudnn ****"
+    dpkg -i "$libcudnn_path"
 
     apt-get update
     apt-get install --no-install-recommends -y \
@@ -34,9 +35,6 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
     # install/update pip packages to /config venv
     # and install onnxruntime nightly until it supports cuda 12 https://github.com/Microsoft/onnxruntime/releases/
     source "$source"
-    cd /app/immich/machine-learning || exit
-    poetry source add --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/
-    poetry add --source ort --group cuda ort-nightly-gpu
-    poetry remove --group cuda onnxruntime-gpu
+    cd /app/immich/machine-learning/cuda || exit
     poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev
 fi
