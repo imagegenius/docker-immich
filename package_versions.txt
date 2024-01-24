@@ -208,7 +208,7 @@ crc32-stream                        5.0.0                              npm
 cron                                3.1.3                              npm     
 cron-parser                         4.9.0                              npm     
 cross-spawn                         7.0.3                              npm     
-cryptography                        41.0.7                             python  
+cryptography                        42.0.0                             python  
 cssesc                              3.0.0                              npm     
 curl                                8.2.1-1ubuntu3.2                   deb     
 cycler                              0.12.1                             python  
@@ -912,8 +912,8 @@ type-is                             1.6.18                             npm
 typedarray                          0.0.6                              npm     
 typeorm                             0.3.19                             npm     
 typing_extensions                   4.9.0                              python  
-tzdata                              2023c-9ubuntu1                     deb     
-tzdata-icu                          2023c-9ubuntu1                     deb     
+tzdata                              2023d-0ubuntu0.23.10               deb     
+tzdata-icu                          2023d-0ubuntu0.23.10               deb     
 ua-parser-js                        1.0.37                             npm     
 ubuntu-keyring                      2021.03.26                         deb     
 uid                                 2.0.2                              npm     
