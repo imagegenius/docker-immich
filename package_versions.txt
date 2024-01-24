@@ -803,8 +803,8 @@ type-fest                           0.21.3                             npm
 type-is                             1.6.18                             npm     
 typedarray                          0.0.6                              npm     
 typeorm                             0.3.19                             npm     
-tzdata                              2023c-9ubuntu1                     deb     
-tzdata-icu                          2023c-9ubuntu1                     deb     
+tzdata                              2023d-0ubuntu0.23.10               deb     
+tzdata-icu                          2023d-0ubuntu0.23.10               deb     
 ua-parser-js                        1.0.37                             npm     
 ubuntu-keyring                      2021.03.26                         deb     
 uid                                 2.0.2                              npm     
