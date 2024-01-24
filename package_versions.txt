@@ -90,7 +90,7 @@ ansi-styles                         6.2.1                  npm
 any-promise                         1.3.0                  npm         
 anyhow                              1.0.71                 rust-crate  
 anyhow                              1.0.75                 rust-crate  
-aom-libs                            3.7.1-r0               apk         
+aom-libs                            3.8.1-r0               apk         
 apk-tools                           2.14.0-r5              apk         
 app-root-path                       3.1.0                  npm         
 append-field                        1.0.0                  npm         
@@ -234,7 +234,7 @@ crossbeam-utils                     0.8.16                 rust-crate
 cssesc                              3.0.0                  npm         
 curl                                8.5.0-r1               apk         
 dayjs                               1.11.10                npm         
-dbus-libs                           1.14.10-r0             apk         
+dbus-libs                           1.14.10-r1             apk         
 debug                               2.6.9                  npm         
 debug                               4.3.4                  npm         
 defaults                            1.0.4                  npm         
@@ -311,7 +311,7 @@ geobuf                              3.0.2                  npm
 get-caller-file                     2.0.5                  npm         
 get-intrinsic                       1.2.1                  npm         
 getrandom                           0.2.9                  rust-crate  
-glib                                2.78.3-r0              apk         
+glib                                2.78.4-r0              apk         
 glob                                10.3.10                npm         
 glob                                7.2.3                  npm         
 glob                                8.1.0                  npm         
@@ -461,7 +461,7 @@ libogg                              1.3.5-r5               apk
 libopenmpt                          0.7.3-r1               apk         
 libpciaccess                        0.17-r2                apk         
 libphonenumber-js                   1.10.53                npm         
-libplacebo                          6.338.1-r0             apk         
+libplacebo                          6.338.2-r0             apk         
 libpng                              1.6.40-r0              apk         
 libproc2                            4.0.4-r0               apk         
 libpsl                              0.21.2-r1              apk         
@@ -887,8 +887,8 @@ yargs-parser                        21.1.1                 npm
 zimg                                3.0.5-r2               apk         
 zip-stream                          5.0.1                  npm         
 zix-libs                            0.4.2-r0               apk         
-zlib                                1.3-r2                 apk         
-zlib-dev                            1.3-r2                 apk         
+zlib                                1.3.1-r0               apk         
+zlib-dev                            1.3.1-r0               apk         
 zstd                                1.5.5-r8               apk         
 zstd-dev                            1.5.5-r8               apk         
 zstd-libs                           1.5.5-r8               apk         
