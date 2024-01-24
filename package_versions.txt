@@ -620,7 +620,7 @@ openjpeg                            2.5.0-r3               apk
 openssl                             3.1.4-r4               apk         
 opus                                1.4-r0                 apk         
 ora                                 5.4.1                  npm         
-orc                                 0.4.34-r0              apk         
+orc                                 0.4.35-r0              apk         
 os-tmpdir                           1.0.2                  npm         
 os_str_bytes                        6.5.0                  rust-crate  
 p-map                               4.0.0                  npm         
