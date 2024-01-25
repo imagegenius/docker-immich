@@ -155,7 +155,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
-  - { date: "22.01.24:", desc: "support gpu acceleration for machine-learning" }
+  - { date: "22.01.24:", desc: "support GPU acceleration with CUDA for machine-learning" }
   - { date: "23.12.23:", desc: "move to using seperate immich baseimage" }
   - { date: "07.12.23:", desc: "rebase to ubuntu mantic" }
   - { date: "07.12.23:", desc: "remove typesense (no longer needed)" }
