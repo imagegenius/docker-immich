@@ -24,20 +24,42 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
     echo "**** install libcudnn ****"
     dpkg -i "$libcudnn_path"
 
+    # based on https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html
+    echo "**** install system dependencies ****"
     apt-get update
     apt-get install --no-install-recommends -y \
-        nvidia-cuda-dev
+        build-essential \
+        libcublas12 \
+        libcublaslt12 \
+        libcudart12 \
+        libcufft11 \
+        libcurand10 \
+        python3-dev
 
     # create venv if it does not exist
     if [ ! -d "$venv_path" ]; then
+        echo "**** create python virtual environment ****"
         python3 -m venv "$venv_path"
     fi
 
     # install/update pip packages to /config venv
     # and install onnxruntime nightly until it supports cuda 12 https://github.com/Microsoft/onnxruntime/releases/
+    echo "**** install python dependencies ****"
     source "$source_path"
     cd /app/immich/machine-learning/cuda || exit
     poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev
+
+
+    echo "**** cleanup ****"
+    apt-get remove -y --purge \
+        build-essential \
+        python3-dev
+    apt-get autoremove -y --purge
+    rm -rf \
+        /tmp/* \
+        /var/tmp/* \
+        /var/lib/apt/lists/* \
+        /root/.cache
 
 ## commented until openvino supports python 3.11 (probably with onnxruntime-openvino 1.17.0) or when using ubuntu 24.04 for the base image
 # elif [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "openvino" ]; then
