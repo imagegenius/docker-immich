@@ -47,7 +47,6 @@ RUN \
     python3-dev \
     wget && \
   echo "**** install runtime packages ****" && \
-  apt-get update && \
   apt-get install --no-install-recommends -y \
     python3 \
     python3-pip \
