@@ -23,29 +23,8 @@ RUN \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    autoconf \
-    bc \
     build-essential \
-    g++ \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libjpeg-dev \
-    libjxl-dev \
-    libltdl-dev \
-    liborc-0.4-dev \
-    librsvg2-dev \
-    libspng-dev \
-    libtool \
-    libwebp-dev \
-    make \
-    meson \
-    ninja-build \
-    pkg-config \
-    python3-dev \
-    wget && \
+    python3-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     python3 \
@@ -140,35 +119,8 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    autoconf \
-    bc \
     build-essential \
-    cpanminus \
-    g++ \
-    git \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libjpeg-dev \
-    libjxl-dev \
-    libltdl-dev \
-    liborc-0.4-dev \
-    librsvg2-dev \
-    libspng-dev \
-    libtool \
-    libwebp-dev \
-    make \
-    meson \
-    ninja-build \
-    pkg-config \
-    python3-dev \
-    unzip \
-    wget && \
+    python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
@@ -186,4 +138,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /uploads /import
+VOLUME /config /import
