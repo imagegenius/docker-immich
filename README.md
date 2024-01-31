@@ -110,6 +110,7 @@ services:
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
+      - MACHINE_LEARNING_GPU_ACCELERATION= #optional
       - MACHINE_LEARNING_WORKERS=1 #optional
       - MACHINE_LEARNING_WORKER_TIMEOUT=120 #optional
     volumes:
@@ -158,6 +159,7 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
+  -e MACHINE_LEARNING_GPU_ACCELERATION= `#optional` \
   -e MACHINE_LEARNING_WORKERS=1 `#optional` \
   -e MACHINE_LEARNING_WORKER_TIMEOUT=120 `#optional` \
   -p 8080:8080 \
@@ -205,6 +207,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
+| `-e MACHINE_LEARNING_GPU_ACCELERATION=` | Enable cuda acceleration by setting the value to 'cuda' |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
 | `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
 | `-v /config` | Contains machine learning models (~1.5GB with default models) |
@@ -250,6 +253,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **22.01.24:** - support GPU acceleration with CUDA for machine-learning
 * **23.12.23:** - move to using seperate immich baseimage
 * **07.12.23:** - rebase to ubuntu mantic
 * **07.12.23:** - remove typesense (no longer needed)
