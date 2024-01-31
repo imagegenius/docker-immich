@@ -1,0 +1,80 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash source=/dev/null
+
+config_path="/config/machine-learning"
+
+if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
+
+    cuda_path="$config_path/cuda"
+
+    libcudnn_filename="libcudnn8_8.9.7.29-1+cuda12.2.deb"
+    libcudnn_url="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.7.29-1+cuda12.2_amd64.deb"
+
+    venv_path="$cuda_path/.venv"
+    source_path="$venv_path/bin/activate"
+    libcudnn_path="$cuda_path/$libcudnn_filename"
+
+    mkdir -p "$cuda_path"
+
+    if [ ! -e "$libcudnn_path" ]; then
+        echo "**** download libcudnn ****"
+        curl -o "$libcudnn_path" -L \
+            "$libcudnn_url"
+    fi
+    echo "**** install libcudnn ****"
+    dpkg -i "$libcudnn_path"
+
+    # based on https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html
+    echo "**** install system dependencies ****"
+    apt-get update
+    apt-get install --no-install-recommends -y \
+        build-essential \
+        libcublas12 \
+        libcublaslt12 \
+        libcudart12 \
+        libcufft11 \
+        libcurand10 \
+        python3-dev
+
+    # create venv if it does not exist
+    if [ ! -d "$venv_path" ]; then
+        echo "**** create python virtual environment ****"
+        python3 -m venv "$venv_path"
+    fi
+
+    # install/update pip packages to /config venv
+    # and install onnxruntime nightly until it supports cuda 12 https://github.com/Microsoft/onnxruntime/releases/
+    echo "**** install python dependencies ****"
+    source "$source_path"
+    cd /app/immich/machine-learning/cuda || exit
+    poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev
+
+
+    echo "**** cleanup ****"
+    apt-get remove -y --purge \
+        build-essential \
+        python3-dev
+    apt-get autoremove -y --purge
+    rm -rf \
+        /tmp/* \
+        /var/tmp/* \
+        /var/lib/apt/lists/* \
+        /root/.cache
+
+## commented until openvino supports python 3.11 (probably with onnxruntime-openvino 1.17.0) or when using ubuntu 24.04 for the base image
+# elif [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "openvino" ]; then
+#     openvino_path="$config_path/openvino"
+#     venv_path="$openvino_path/.venv"
+#     source_path="$venv/bin/activate"
+
+#     mkdir -p "$openvino_path"
+#     # create venv if it does not exist
+#     if [ ! -d "$venv_path" ]; then
+#         python3 -m venv "$venv_path"
+#     fi
+
+#     source "$source_path"
+#     cd /app/immich/machine-learning || exit
+#     poetry install --sync --no-interaction --no-ansi --no-root --with openvino --without dev
+
+fi

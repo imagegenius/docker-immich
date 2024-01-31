@@ -13,8 +13,8 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning" \
-  TRANSFORMERS_CACHE="/config/machine-learning" \
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
+  TRANSFORMERS_CACHE="/config/machine-learning/models" \
   SERVER_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
@@ -23,31 +23,9 @@ RUN \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    autoconf \
-    bc \
     build-essential \
-    g++ \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libjpeg-dev \
-    libjxl-dev \
-    libltdl-dev \
-    liborc-0.4-dev \
-    librsvg2-dev \
-    libspng-dev \
-    libtool \
-    libwebp-dev \
-    make \
-    meson \
-    ninja-build \
-    pkg-config \
-    python3-dev \
-    wget && \
+    python3-dev && \
   echo "**** install runtime packages ****" && \
-  apt-get update && \
   apt-get install --no-install-recommends -y \
     python3 \
     python3-pip \
@@ -65,15 +43,6 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** download immich dependencies ****" && \
-  mkdir -p \
-    /tmp/immich-dependencies && \
-  curl -o \
-    /tmp/immich-dependencies.tar.gz -L \
-    "https://github.com/immich-app/base-images/archive/main.tar.gz" && \
-  tar xf \
-    /tmp/immich-dependencies.tar.gz -C \
-    /tmp/immich-dependencies --strip-components=1 && \
   echo "**** build server ****" && \
   mkdir -p \
     /app/immich/server \
@@ -115,21 +84,33 @@ RUN \
     /app/immich/server/www  && \
   echo "**** build machine-learning ****" && \
   mkdir -p \
-    /app/immich/machine-learning/ann && \
+    /app/immich/machine-learning/ann \
+    /app/immich/machine-learning/cuda && \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
     poetry && \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --only main && \
+  poetry install --sync --no-interaction --no-ansi --no-root --with cpu --without dev && \
   cp -a \
+    pyproject.toml \
+    poetry.lock \
     app \
     log_conf.json \
     /app/immich/machine-learning && \
   cp -a \
+    pyproject.toml \
+    poetry.lock \
+    /app/immich/machine-learning/cuda && \
+  cp -a \
     ann/ann.py \
     /app/immich/machine-learning/ann && \
+  echo "**** change machine learning dependencies for cuda acceleration ****" && \
+  cd /app/immich/machine-learning/cuda && \
+  poetry source add --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/ && \
+  poetry add --source ort --group cuda ort-nightly-gpu && \
+  poetry remove --group cuda onnxruntime-gpu && \
   echo "**** install immich cli (immich upload) ****" && \
     npm install -g --prefix /tmp/cli @immich/cli && \
     mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
@@ -138,35 +119,8 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    autoconf \
-    bc \
     build-essential \
-    cpanminus \
-    g++ \
-    git \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libglib2.0-dev \
-    libgsf-1-dev \
-    libheif-dev \
-    libjpeg-dev \
-    libjxl-dev \
-    libltdl-dev \
-    liborc-0.4-dev \
-    librsvg2-dev \
-    libspng-dev \
-    libtool \
-    libwebp-dev \
-    make \
-    meson \
-    ninja-build \
-    pkg-config \
-    python3-dev \
-    unzip \
-    wget && \
+    python3-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
@@ -184,4 +138,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /uploads /import
+VOLUME /config /import
