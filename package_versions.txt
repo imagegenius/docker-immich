@@ -18,16 +18,16 @@ NAME                                VERSION                TYPE
 @msgpack/msgpack                    2.8.0                  npm         
 @nestjs/bull-shared                 10.0.1                 npm         
 @nestjs/bullmq                      10.0.1                 npm         
-@nestjs/common                      10.3.0                 npm         
+@nestjs/common                      10.3.1                 npm         
 @nestjs/config                      3.1.1                  npm         
-@nestjs/core                        10.3.0                 npm         
+@nestjs/core                        10.3.1                 npm         
 @nestjs/mapped-types                2.0.4                  npm         
-@nestjs/platform-express            10.3.0                 npm         
-@nestjs/platform-socket.io          10.3.0                 npm         
+@nestjs/platform-express            10.3.1                 npm         
+@nestjs/platform-socket.io          10.3.1                 npm         
 @nestjs/schedule                    4.0.0                  npm         
-@nestjs/swagger                     7.1.17                 npm         
+@nestjs/swagger                     7.2.0                  npm         
 @nestjs/typeorm                     10.0.1                 npm         
-@nestjs/websockets                  10.3.0                 npm         
+@nestjs/websockets                  10.3.1                 npm         
 @npmcli/agent                       2.2.0                  npm         
 @npmcli/arborist                    7.3.1                  npm         
 @npmcli/config                      8.1.0                  npm         
@@ -68,8 +68,10 @@ NAME                                VERSION                TYPE
 @types/cors                         2.8.14                 npm         
 @types/inquirer                     8.2.6                  npm         
 @types/luxon                        3.3.7                  npm         
-@types/node                         20.11.0                npm         
+@types/luxon                        3.4.2                  npm         
+@types/node                         20.11.6                npm         
 @types/pg                           8.10.9                 npm         
+@types/picomatch                    2.3.3                  npm         
 @types/through                      0.0.31                 npm         
 @types/validator                    13.11.8                npm         
 abbrev                              1.1.1                  npm         
@@ -92,6 +94,7 @@ ansi-styles                         6.2.1                  npm
 any-promise                         1.3.0                  npm         
 anyhow                              1.0.71                 rust-crate  
 anyhow                              1.0.75                 rust-crate  
+anymatch                            3.1.3                  npm         
 aom-libs                            3.8.1-r0               apk         
 apk-tools                           2.14.0-r5              apk         
 app-root-path                       3.1.0                  npm         
@@ -113,7 +116,7 @@ async-lock                          1.4.1                  npm
 asynckit                            0.4.0                  npm         
 av-metrics                          0.9.0                  rust-crate  
 av1-grain                           0.2.2                  rust-crate  
-axios                               1.6.5                  npm         
+axios                               1.6.6                  npm         
 axios                               1.6.7                  npm         
 b4a                                 1.6.4                  npm         
 balanced-match                      1.0.2                  npm         
@@ -135,6 +138,7 @@ body-parser                         1.20.1                 npm
 body-parser                         1.20.2                 npm         
 brace-expansion                     1.1.11                 npm         
 brace-expansion                     2.0.1                  npm         
+braces                              3.0.2                  npm         
 brotli-libs                         1.1.0-r1               apk         
 buffer                              5.7.1                  npm         
 buffer                              6.0.3                  npm         
@@ -164,6 +168,7 @@ chalk                               2.4.2                  npm
 chalk                               4.1.2                  npm         
 chalk                               5.3.0                  npm         
 chardet                             0.7.0                  npm         
+chokidar                            3.5.3                  npm         
 chownr                              2.0.0                  npm         
 ci-info                             4.0.0                  npm         
 cidr-regex                          4.0.3                  npm         
@@ -251,6 +256,7 @@ diacritics                          1.3.0                  npm
 diff                                5.1.0                  npm         
 dolby_vision                        3.2.0                  rust-crate  
 dotenv                              16.3.1                 npm         
+dotenv                              16.4.1                 npm         
 dotenv-expand                       10.0.0                 npm         
 eastasianwidth                      0.2.0                  npm         
 ee-first                            1.1.1                  npm         
@@ -269,8 +275,8 @@ escalade                            3.1.1                  npm
 escape-html                         1.0.3                  npm         
 escape-string-regexp                1.0.5                  npm         
 etag                                1.8.1                  npm         
-exiftool-vendored                   24.3.0                 npm         
-exiftool-vendored.pl                12.72.0                npm         
+exiftool-vendored                   24.4.0                 npm         
+exiftool-vendored.pl                12.73.0                npm         
 exponential-backoff                 3.1.1                  npm         
 express                             4.18.2                 npm         
 external-editor                     3.1.0                  npm         
@@ -290,6 +296,7 @@ ffmpeg-libswscale                   6.1.1-r1               apk
 fftw-double-libs                    3.3.10-r5              apk         
 figures                             3.2.0                  npm         
 file-source                         0.6.1                  npm         
+fill-range                          7.0.1                  npm         
 finalhandler                        1.2.0                  npm         
 fluent-ffmpeg                       2.1.2                  npm         
 follow-redirects                    1.15.5                 npm         
@@ -309,7 +316,7 @@ funty                               2.0.0                  rust-crate
 gauge                               3.0.2                  npm         
 gauge                               5.0.1                  npm         
 gdk-pixbuf                          2.42.10-r6             apk         
-geo-tz                              8.0.0                  npm         
+geo-tz                              8.0.1                  npm         
 geobuf                              3.0.2                  npm         
 get-caller-file                     2.0.5                  npm         
 get-intrinsic                       1.2.1                  npm         
@@ -318,6 +325,7 @@ glib                                2.78.4-r0              apk
 glob                                10.3.10                npm         
 glob                                7.2.3                  npm         
 glob                                8.1.0                  npm         
+glob-parent                         5.1.2                  npm         
 glslang-libs                        1.3.261.1-r0           apk         
 graceful-fs                         4.2.11                 npm         
 graphite2                           1.3.14-r6              apk         
@@ -340,7 +348,7 @@ http-proxy-agent                    7.0.0                  npm
 https-proxy-agent                   5.0.1                  npm         
 https-proxy-agent                   7.0.2                  npm         
 hwdata-pci                          0.378-r0               apk         
-i18n-iso-countries                  7.7.0                  npm         
+i18n-iso-countries                  7.8.0                  npm         
 iconv-lite                          0.4.24                 npm         
 iconv-lite                          0.6.3                  npm         
 icu-data-en                         74.2-r0                apk         
@@ -362,7 +370,7 @@ imagemagick-webp                    7.1.1.26-r0            apk
 imagequant                          4.2.2                  rust-crate  
 imagequant-sys                      4.0.3                  rust-crate  
 imath                               3.1.10-r0              apk         
-immich                              1.93.3                 npm         
+immich                              1.94.0                 npm         
 import-fresh                        3.3.0                  npm         
 imurmurhash                         0.1.4                  npm         
 indent-string                       4.0.0                  npm         
@@ -379,11 +387,15 @@ ip-regex                            5.0.0                  npm
 ipaddr.js                           1.9.1                  npm         
 is-arrayish                         0.2.1                  npm         
 is-arrayish                         0.3.2                  npm         
+is-binary-path                      2.1.0                  npm         
 is-cidr                             5.0.3                  npm         
 is-core-module                      2.13.1                 npm         
+is-extglob                          2.1.1                  npm         
 is-fullwidth-code-point             3.0.0                  npm         
+is-glob                             4.0.3                  npm         
 is-interactive                      1.0.0                  npm         
 is-lambda                           1.0.1                  npm         
+is-number                           7.0.0                  npm         
 is-terminal                         0.4.7                  rust-crate  
 is-unicode-supported                0.1.0                  npm         
 isarray                             1.0.0                  npm         
@@ -393,7 +405,7 @@ iterare                             1.2.1                  npm
 itertools                           0.10.5                 rust-crate  
 ivf                                 0.1.2                  rust-crate  
 jackspeak                           2.3.6                  npm         
-joi                                 17.11.0                npm         
+joi                                 17.12.0                npm         
 jose                                4.15.4                 npm         
 jq                                  1.7.1-r0               apk         
 js-tokens                           4.0.0                  npm         
@@ -555,7 +567,7 @@ mpg123-libs                         1.32.4-r0              apk
 ms                                  2.0.0                  npm         
 ms                                  2.1.2                  npm         
 ms                                  2.1.3                  npm         
-msgpackr                            1.9.9                  npm         
+msgpackr                            1.10.1                 npm         
 multer                              1.4.4-lts.1            npm         
 musl                                1.2.4_git20230717-r5   apk         
 musl-utils                          1.2.4_git20230717-r5   apk         
@@ -571,7 +583,7 @@ new_debug_unreachable               1.0.4                  rust-crate
 nghttp2-libs                        1.58.0-r0              apk         
 node-abort-controller               3.1.1                  npm         
 node-addon-api                      5.1.0                  npm         
-node-addon-api                      7.0.0                  npm         
+node-addon-api                      7.1.0                  npm         
 node-fetch                          2.7.0                  npm         
 node-gyp                            10.0.1                 npm         
 nodejs                              20.11.0-r0             apk         
@@ -658,6 +670,8 @@ pg-protocol                         1.6.0                  npm
 pg-types                            2.2.0                  npm         
 pg-types                            4.0.1                  npm         
 pgpass                              1.0.5                  npm         
+picomatch                           2.3.1                  npm         
+picomatch                           3.0.1                  npm         
 pixman                              0.43.2-r0              apk         
 pkgconf                             2.1.0-r0               apk         
 postcss-selector-parser             6.0.15                 npm         
@@ -671,7 +685,7 @@ postgres-interval                   1.2.0                  npm
 postgres-interval                   3.0.0                  npm         
 postgres-range                      1.1.3                  npm         
 ppv-lite86                          0.2.17                 rust-crate  
-prettier                            3.2.0                  npm         
+prettier                            3.2.4                  npm         
 proc-log                            3.0.0                  npm         
 proc-macro-error                    1.0.4                  rust-crate  
 proc-macro-error-attr               1.0.4                  rust-crate  
@@ -710,6 +724,7 @@ read-package-json-fast              3.0.2                  npm
 readable-stream                     2.3.8                  npm         
 readable-stream                     3.6.2                  npm         
 readdir-glob                        1.1.3                  npm         
+readdirp                            3.6.0                  npm         
 readline                            8.2.10-r0              apk         
 redis-errors                        1.2.0                  npm         
 redis-parser                        3.0.0                  npm         
@@ -765,7 +780,7 @@ simple-swizzle                      0.2.2                  npm
 skalibs                             2.14.1.0-r0            apk         
 slice-source                        0.4.1                  npm         
 smart-buffer                        4.2.0                  npm         
-socket.io                           4.7.2                  npm         
+socket.io                           4.7.4                  npm         
 socket.io-adapter                   2.5.2                  npm         
 socket.io-parser                    4.2.4                  npm         
 socks                               2.7.1                  npm         
@@ -797,7 +812,7 @@ strip-ansi                          7.1.0                  npm
 supports-color                      5.5.0                  npm         
 supports-color                      7.2.0                  npm         
 supports-color                      9.4.0                  npm         
-swagger-ui-dist                     5.10.3                 npm         
+swagger-ui-dist                     5.11.0                 npm         
 syn                                 1.0.109                rust-crate  
 syn                                 2.0.16                 rust-crate  
 tap                                 1.0.1                  rust-crate  
@@ -819,6 +834,7 @@ tiff                                4.6.0-r0               apk
 tiff-dev                            4.6.0-r0               apk         
 tiny-relative-date                  1.3.0                  npm         
 tmp                                 0.0.33                 npm         
+to-regex-range                      5.0.1                  npm         
 toidentifier                        1.0.1                  npm         
 tr46                                0.0.3                  npm         
 treeverse                           3.0.0                  npm         
