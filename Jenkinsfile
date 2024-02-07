@@ -230,7 +230,7 @@ pipeline {
           string(credentialsId: 'ci-tests-s3-secret-access-key', variable: 'S3_SECRET')
         ]) {
           script{
-            env.SHELLCHECK_URL = 'https://ci-tests.linuxserver.io/' + env.CONTAINER_NAME + '/' + env.META_TAG + '/shellcheck-result.xml'
+            env.SHELLCHECK_URL = 'https://ci-tests.imagegenius.io/' + env.CONTAINER_NAME + '/' + env.META_TAG + '/shellcheck-result.xml'
           }
           sh '''curl -sL https://raw.githubusercontent.com/linuxserver/docker-jenkins-builder/master/checkrun.sh | /bin/bash'''
           sh '''#! /bin/bash
