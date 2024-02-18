@@ -81,11 +81,15 @@ app_setup_block: |
   To use Intel Quicksync hardware acceleration:
 
   1. Ensure your container has access to the `/dev/dri` video device.
+
   2. Add the device to your container by including the following option in your Docker run command:
 
      ```bash
      docker run --device=/dev/dri:/dev/dri ...
      ```
+
+  > [!TIP]
+  > GPU acceleration for Intel via OpenVINO is not yet available.
 
   ### Nvidia Hardware Acceleration
 
@@ -107,6 +111,8 @@ app_setup_block: |
        docker run --gpus=all ...
        ```
 
+  3. If you want to enable GPU acceleration for the machine-learning, add `MACHINE_LEARNING_GPU_ACCELERATION=cuda`
+
   ## Import your existing libraries into Immich
 
   - Mount your existing library folder to `/import`
@@ -115,6 +121,7 @@ app_setup_block: |
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
+  # By default, ports for the databases are opened, be careful when deploying it
   # Redis:
   docker run -d \
     --name=redis \
@@ -131,6 +138,7 @@ external_application_cli_block: |
     -p 5432:5432 \
     tensorchord/pgvecto-rs:pg14-v0.1.11
 external_application_compose_block: |
+  # By default, ports for the databases are opened, be careful when deploying it
   # Redis:
     redis:
       image: redis
