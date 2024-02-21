@@ -221,7 +221,7 @@ crc32-stream                        5.0.0                              npm
 cron                                3.1.6                              npm     
 cron-parser                         4.9.0                              npm     
 cross-spawn                         7.0.3                              npm     
-cryptography                        42.0.3                             python  
+cryptography                        42.0.4                             python  
 cssesc                              3.0.0                              npm     
 curl                                8.2.1-1ubuntu3.2                   deb     
 cycler                              0.12.1                             python  
@@ -360,7 +360,7 @@ idna                                3.6                                python
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
 imageio                             2.33.1                             python  
-immich                              1.95.0                             npm     
+immich                              1.95.1                             npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  7.0.1                              python  
 imurmurhash                         0.1.4                              npm     
