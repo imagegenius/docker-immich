@@ -371,7 +371,7 @@ imagemagick-webp                    7.1.1.26-r1            apk
 imagequant                          4.2.2                  rust-crate  
 imagequant-sys                      4.0.3                  rust-crate  
 imath                               3.1.10-r0              apk         
-immich                              1.95.0                 npm         
+immich                              1.95.1                 npm         
 import-fresh                        3.3.0                  npm         
 imurmurhash                         0.1.4                  npm         
 indent-string                       4.0.0                  npm         
