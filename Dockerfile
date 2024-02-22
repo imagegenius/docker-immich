@@ -72,9 +72,6 @@ RUN \
     build/* \
     static \
     /app/immich/server/www  && \
-  echo "**** install immich cli (immich upload) ****" && \
-    npm install -g --prefix /tmp/cli @immich/cli && \
-    mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
   echo "**** cleanup ****" && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
