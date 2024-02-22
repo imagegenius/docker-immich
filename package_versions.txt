@@ -767,7 +767,7 @@ picomatch                           4.0.1                              npm
 pillow                              10.2.0                             python  
 pinentry-curses                     1.2.1-1ubuntu1                     deb     
 pip                                 23.2                               python  
-pip                                 23.3.1                             python  
+pip                                 24.0                               python  
 pkginfo                             1.9.6                              python  
 platformdirs                        3.11.0                             python  
 platformdirs                        4.1.0                              python  
@@ -882,7 +882,7 @@ set-function-length                 1.2.1                              npm
 setprototypeof                      1.2.0                              npm     
 setuptools                          68.1.2                             python  
 setuptools                          68.2.2                             python  
-setuptools                          69.0.2                             python  
+setuptools                          69.1.0                             python  
 sha.js                              2.4.11                             npm     
 shapefile                           0.6.6                              npm     
 shared-mime-info                    2.2-1                              deb     
@@ -949,7 +949,7 @@ tomlkit                             0.12.3                             python
 tqdm                                4.66.1                             python  
 tr46                                0.0.3                              npm     
 treeverse                           3.0.0                              npm     
-trove-classifiers                   2024.1.31                          python  
+trove-classifiers                   2024.2.22                          python  
 truncate-utf8-bytes                 1.0.2                              npm     
 tslib                               2.6.2                              npm     
 tuf-js                              2.1.0                              npm     
@@ -982,7 +982,7 @@ validate-npm-package-license        3.0.4                              npm
 validate-npm-package-name           5.0.0                              npm     
 validator                           13.11.0                            npm     
 vary                                1.1.2                              npm     
-virtualenv                          20.25.0                            python  
+virtualenv                          20.25.1                            python  
 walk-up-path                        3.0.1                              npm     
 watchfiles                          0.21.0                             python  
 wcwidth                             0.2.13                             python  
