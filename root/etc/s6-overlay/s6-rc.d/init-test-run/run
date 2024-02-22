@@ -12,10 +12,16 @@ if [[ -n "${TEST_RUN}" ]]; then
     s6-setuidgid postgres pg_ctlcluster 15 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
 
+    if [[ "$(arch)" == "x86_64" ]]; then
+        version="amd64"
+    else
+        version="arm64"
+    fi
+
     # Install vectors
     curl -o \
         /tmp/vectors.deb -L \
-        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.1.11/vectors-pg15-v0.1.11-$(arch)-unknown-linux-gnu.deb"
+        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.2.0/vectors-pg15_0.2.0_$version.deb"
     dpkg -i /tmp/vectors.deb
 
     # Setup vectors
