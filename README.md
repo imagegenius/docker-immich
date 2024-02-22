@@ -53,11 +53,15 @@ To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in
 To use Intel Quicksync hardware acceleration:
 
 1. Ensure your container has access to the `/dev/dri` video device.
+
 2. Add the device to your container by including the following option in your Docker run command:
 
    ```bash
    docker run --device=/dev/dri:/dev/dri ...
    ```
+
+> [!TIP]
+> GPU acceleration for Intel via OpenVINO is not yet available.
 
 ### Nvidia Hardware Acceleration
 
@@ -78,6 +82,8 @@ For Nvidia GPUs with Nvidia/CUDA hardware acceleration:
      ```bash
      docker run --gpus=all ...
      ```
+
+3. If you want to enable GPU acceleration for the machine-learning, add `MACHINE_LEARNING_GPU_ACCELERATION=cuda`
 
 ## Import your existing libraries into Immich
 
@@ -121,6 +127,7 @@ services:
       - 8080:8080
     restart: unless-stopped
 # This container requires an external application to be run separately to be run separately.
+# By default, ports for the databases are opened, be careful when deploying it
 # Redis:
   redis:
     image: redis
@@ -129,7 +136,7 @@ services:
     container_name: redis
 # PostgreSQL 14:
   postgres14:
-    image: tensorchord/pgvecto-rs:pg14-v0.1.11
+    image: tensorchord/pgvecto-rs:pg14-v0.2.0
     ports:
       - 5432:5432
     container_name: postgres14
@@ -170,6 +177,7 @@ docker run -d \
   ghcr.io/imagegenius/immich:latest
 
 # This container requires an external application to be run separately.
+# By default, ports for the databases are opened, be careful when deploying it
 # Redis:
 docker run -d \
   --name=redis \
@@ -184,7 +192,7 @@ docker run -d \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  tensorchord/pgvecto-rs:pg14-v0.1.11
+  tensorchord/pgvecto-rs:pg14-v0.2.0
 
 
 ```
