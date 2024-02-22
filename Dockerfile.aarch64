@@ -100,9 +100,6 @@ RUN \
   cp -a \
     ann/ann.py \
     /app/immich/machine-learning/ann && \
-  echo "**** install immich cli (immich upload) ****" && \
-    npm install -g --prefix /tmp/cli @immich/cli && \
-    mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
