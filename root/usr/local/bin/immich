@@ -1,2 +1,3 @@
-#!/bin/sh
-node /app/cli/dist/src/index.js "$@"
+#!/bin/bash
+
+node /app/immich/server/node_modules/.bin/immich "$@"
