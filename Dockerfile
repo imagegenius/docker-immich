@@ -111,9 +111,6 @@ RUN \
   poetry source add --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/ && \
   poetry add --source ort --group cuda ort-nightly-gpu && \
   poetry remove --group cuda onnxruntime-gpu && \
-  echo "**** install immich cli (immich upload) ****" && \
-    npm install -g --prefix /tmp/cli @immich/cli && \
-    mv /tmp/cli/lib/node_modules/@immich/cli /app/cli && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
