@@ -1,2 +1,3 @@
-#!/bin/sh
-node /app/immich/server/dist/main immich-admin "$@"
+#!/bin/bash
+
+cd /app/immich/server && node /app/immich/server/dist/main immich-admin "$@"
