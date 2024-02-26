@@ -13,11 +13,11 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
-  TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  SERVER_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www" \
-  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
+  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
+  SERVER_PORT="8080" \
+  TRANSFORMERS_CACHE="/config/machine-learning/models"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -108,9 +108,9 @@ RUN \
     /app/immich/machine-learning/ann && \
   echo "**** change machine learning dependencies for cuda acceleration ****" && \
   cd /app/immich/machine-learning/cuda && \
-  poetry source add --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/ && \
-  poetry add --source ort --group cuda ort-nightly-gpu && \
-  poetry remove --group cuda onnxruntime-gpu && \
+  poetry source add --no-interaction --no-ansi --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/ && \
+  poetry add --lock --no-interaction --no-ansi --source ort --group cuda ort-nightly-gpu && \
+  poetry remove --lock --no-interaction --no-ansi --group cuda onnxruntime-gpu && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
