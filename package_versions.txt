@@ -45,7 +45,7 @@ NAME                                VERSION                            TYPE
 @npmcli/query                       3.0.1                              npm     
 @npmcli/run-script                  7.0.2                              npm     
 @nuxtjs/opencollective              0.3.2                              npm     
-@photostructure/tz-lookup           9.0.0                              npm     
+@photostructure/tz-lookup           9.0.1                              npm     
 @pkgjs/parseargs                    0.11.0                             npm     
 @sideway/address                    4.1.5                              npm     
 @sideway/formula                    3.0.1                              npm     
@@ -68,7 +68,7 @@ NAME                                VERSION                            TYPE
 @types/inquirer                     8.2.6                              npm     
 @types/luxon                        3.3.7                              npm     
 @types/luxon                        3.4.2                              npm     
-@types/node                         20.11.17                           npm     
+@types/node                         20.11.20                           npm     
 @types/pg                           8.10.9                             npm     
 @types/picomatch                    2.3.3                              npm     
 @types/through                      0.0.31                             npm     
@@ -129,12 +129,12 @@ base64-js                           1.5.1                              npm
 base64id                            2.0.0                              npm     
 bash                                5.2.15                             binary  
 bash                                5.2.15-2ubuntu1                    deb     
-batch-cluster                       12.1.0                             npm     
+batch-cluster                       13.0.0                             npm     
 bcrypt                              5.1.1                              npm     
 bin-links                           4.0.3                              npm     
 binary-extensions                   2.2.0                              npm     
 bl                                  4.1.0                              npm     
-black                               24.1.1                             python  
+black                               24.2.0                             python  
 blinker                             1.7.0                              python  
 body-parser                         1.20.1                             npm     
 body-parser                         1.20.2                             npm     
@@ -244,7 +244,7 @@ diffutils                           1:3.8-4                            deb
 dirmngr                             2.2.40-1.1ubuntu1                  deb     
 distlib                             0.3.8                              python  
 dotenv                              16.4.1                             npm     
-dotenv                              16.4.4                             npm     
+dotenv                              16.4.5                             npm     
 dotenv-expand                       10.0.0                             npm     
 dpkg                                1.22.0ubuntu1                      deb     
 dulwich                             0.21.7                             python  
@@ -268,8 +268,8 @@ escape-string-regexp                1.0.5                              npm
 etag                                1.8.1                              npm     
 event-target-shim                   5.0.1                              npm     
 events                              3.3.0                              npm     
-exiftool-vendored                   24.4.0                             npm     
-exiftool-vendored.pl                12.73.0                            npm     
+exiftool-vendored                   24.5.0                             npm     
+exiftool-vendored.pl                12.76.0                            npm     
 exponential-backoff                 3.1.1                              npm     
 express                             4.18.2                             npm     
 external-editor                     3.1.0                              npm     
@@ -350,7 +350,7 @@ httpcore                            1.0.2                              python
 https-proxy-agent                   5.0.1                              npm     
 https-proxy-agent                   7.0.2                              npm     
 httptools                           0.6.1                              python  
-httpx                               0.26.0                             python  
+httpx                               0.27.0                             python  
 huggingface-hub                     0.20.3                             python  
 humanfriendly                       10.0                               python  
 i18n-iso-countries                  7.10.0                             npm     
@@ -360,7 +360,7 @@ idna                                3.6                                python
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
 imageio                             2.33.1                             python  
-immich                              1.95.1                             npm     
+immich                              1.96.0                             npm     
 import-fresh                        3.3.0                              npm     
 importlib-metadata                  7.0.1                              python  
 imurmurhash                         0.1.4                              npm     
@@ -401,7 +401,7 @@ jaraco.classes                      3.3.1                              python
 jeepney                             0.8.0                              python  
 jellyfin-ffmpeg6                    6.0.1-2-bookworm                   deb     
 joblib                              1.3.2                              python  
-joi                                 17.12.1                            npm     
+joi                                 17.12.2                            npm     
 jose                                4.15.4                             npm     
 jq                                  1.6-3                              deb     
 js-tokens                           4.0.0                              npm     
@@ -412,7 +412,7 @@ json-stringify-nice                 1.1.4                              npm
 jsonparse                           1.3.1                              npm     
 just-diff                           6.0.2                              npm     
 just-diff-apply                     5.5.0                              npm     
-keyring                             24.3.0                             python  
+keyring                             24.3.1                             python  
 kiwisolver                          1.4.5                              python  
 krb5-locales                        1.20.1-3ubuntu1                    deb     
 lazy_loader                         0.3                                python  
@@ -726,7 +726,7 @@ opencv-python-headless              4.9.0.80                           python
 openid-client                       5.6.4                              npm     
 openssl                             3.0.10-1ubuntu2.2                  deb     
 ora                                 5.4.1                              npm     
-orjson                              3.9.13                             python  
+orjson                              3.9.15                             python  
 os-tmpdir                           1.0.2                              npm     
 p-map                               4.0.0                              npm     
 packaging                           23.2                               python  
@@ -772,7 +772,7 @@ pkginfo                             1.9.6                              python
 platformdirs                        4.1.0                              python  
 platformdirs                        4.2.0                              python  
 pluggy                              1.3.0                              python  
-poetry                              1.8.0                              python  
+poetry                              1.8.1                              python  
 poetry-core                         1.9.0                              python  
 poetry-plugin-export                1.6.0                              python  
 postcss-selector-parser             6.0.13                             npm     
@@ -806,7 +806,7 @@ pycparser                           2.21                               python
 pydantic                            1.10.14                            python  
 pyparsing                           3.1.1                              python  
 pyproject_hooks                     1.0.0                              python  
-pytest                              8.0.0                              python  
+pytest                              8.0.2                              python  
 pytest-asyncio                      0.23.5                             python  
 pytest-cov                          4.1.0                              python  
 pytest-mock                         3.12.0                             python  
@@ -861,7 +861,7 @@ retry                               0.12.0                             npm
 rich                                13.7.0                             python  
 rimraf                              3.0.2                              npm     
 roundrobin                          0.0.4                              python  
-ruff                                0.2.1                              python  
+ruff                                0.2.2                              python  
 run-async                           2.4.1                              npm     
 rxjs                                7.8.1                              npm     
 safe-buffer                         5.1.2                              npm     
@@ -944,8 +944,8 @@ tiny-relative-date                  1.3.0                              npm
 tmp                                 0.0.33                             npm     
 to-regex-range                      5.0.1                              npm     
 toidentifier                        1.0.1                              npm     
-tokenizers                          0.15.1                             python  
-tomlkit                             0.12.3                             python  
+tokenizers                          0.15.2                             python  
+tomlkit                             0.12.4                             python  
 tqdm                                4.66.1                             python  
 tr46                                0.0.3                              npm     
 treeverse                           3.0.0                              npm     
@@ -976,7 +976,7 @@ util-linux                          2.39.1-4ubuntu2                    deb
 util-linux-extra                    2.39.1-4ubuntu2                    deb     
 utils-merge                         1.0.1                              npm     
 uuid                                9.0.1                              npm     
-uvicorn                             0.27.0.post1                       python  
+uvicorn                             0.27.1                             python  
 uvloop                              0.19.0                             python  
 validate-npm-package-license        3.0.4                              npm     
 validate-npm-package-name           5.0.0                              npm     
