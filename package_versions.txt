@@ -306,7 +306,7 @@ iconv-lite                          0.4.24                             npm
 iconv-lite                          0.6.3                              npm     
 ieee754                             1.2.1                              npm     
 ignore-walk                         6.0.3                              npm     
-immich                              1.96.0                             npm     
+immich                              1.97.0                             npm     
 import-fresh                        3.3.0                              npm     
 imurmurhash                         0.1.4                              npm     
 indent-string                       4.0.0                              npm     
