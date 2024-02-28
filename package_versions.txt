@@ -371,7 +371,7 @@ imagemagick-webp                    7.1.1.29-r0            apk
 imagequant                          4.2.2                  rust-crate  
 imagequant-sys                      4.0.3                  rust-crate  
 imath                               3.1.10-r0              apk         
-immich                              1.96.0                 npm         
+immich                              1.97.0                 npm         
 import-fresh                        3.3.0                  npm         
 imurmurhash                         0.1.4                  npm         
 indent-string                       4.0.0                  npm         
@@ -628,7 +628,7 @@ openexr-libiex                      3.1.12-r0              apk
 openexr-libilmthread                3.1.12-r0              apk         
 openexr-libopenexr                  3.1.12-r0              apk         
 openid-client                       5.6.4                  npm         
-openjpeg                            2.5.0-r4               apk         
+openjpeg                            2.5.2-r0               apk         
 openssl                             3.1.5-r5               apk         
 opus                                1.4-r0                 apk         
 ora                                 5.4.1                  npm         
