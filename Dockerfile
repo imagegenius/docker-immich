@@ -108,9 +108,9 @@ RUN \
     /app/immich/machine-learning/ann && \
   echo "**** change machine learning dependencies for cuda acceleration ****" && \
   cd /app/immich/machine-learning/cuda && \
-  poetry source add --no-interaction --no-ansi --priority=supplemental ort https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ort-cuda-12-nightly/pypi/simple/ && \
-  poetry add --lock --no-interaction --no-ansi --source ort --group cuda ort-nightly-gpu && \
+  poetry source add --no-interaction --no-ansi --priority=supplemental cuda12 https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/ && \
   poetry remove --lock --no-interaction --no-ansi --group cuda onnxruntime-gpu && \
+  poetry add --lock --no-interaction --no-ansi --source cuda12 --group cuda onnxruntime-gpu && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
