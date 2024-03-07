@@ -13,10 +13,10 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
+  IMMICH_WEB_ROOT="/app/immich/server/www" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
-  TRANSFORMERS_CACHE="/config/machine-learning/models" \
   SERVER_PORT="8080" \
-  IMMICH_WEB_ROOT="/app/immich/server/www"
+  TRANSFORMERS_CACHE="/config/machine-learning/models"
 
 RUN \
   echo "**** install build packages ****" && \

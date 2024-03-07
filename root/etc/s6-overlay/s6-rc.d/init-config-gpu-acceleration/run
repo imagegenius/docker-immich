@@ -42,11 +42,9 @@ if [ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]; then
         python3 -m venv "$venv_path"
     fi
 
-    # install/update pip packages to /config venv
-    # and install onnxruntime nightly until it supports cuda 12 https://github.com/Microsoft/onnxruntime/releases/
     echo "**** install python dependencies ****"
     source "$source_path"
-    cd /app/immich/machine-learning/cuda || exit
+    cd /app/immich/machine-learning || exit
     poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev
 
 
