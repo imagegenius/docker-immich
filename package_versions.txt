@@ -344,7 +344,7 @@ idna                                3.6                                python  (
 ieee754                             1.2.1                              npm     (+1 duplicate)   
 ignore-walk                         6.0.3                              npm                      
 imageio                             2.33.1                             python                   
-immich                              1.98.0                             npm                      
+immich                              1.98.1                             npm                      
 import-fresh                        3.3.0                              npm                      
 importlib_metadata                  7.0.2                              python                   
 imurmurhash                         0.1.4                              npm                      
@@ -384,7 +384,7 @@ jeepney                             0.8.0                              python
 jellyfin-ffmpeg6                    6.0.1-3-bookworm                   deb                      
 joblib                              1.3.2                              python                   
 joi                                 17.12.2                            npm                      
-jose                                4.15.4                             npm                      
+jose                                4.15.5                             npm                      
 jq                                  1.6-3                              deb                      
 js-tokens                           4.0.0                              npm                      
 js-yaml                             4.1.0                              npm                      
