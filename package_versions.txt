@@ -306,7 +306,7 @@ iconv-lite                          0.4.24                             npm
 iconv-lite                          0.6.3                              npm                      
 ieee754                             1.2.1                              npm     (+1 duplicate)   
 ignore-walk                         6.0.3                              npm                      
-immich                              1.98.0                             npm                      
+immich                              1.98.1                             npm                      
 import-fresh                        3.3.0                              npm                      
 imurmurhash                         0.1.4                              npm                      
 indent-string                       4.0.0                              npm                      
@@ -340,7 +340,7 @@ iterare                             1.2.1                              npm
 jackspeak                           2.3.6                              npm     (+1 duplicate)   
 jellyfin-ffmpeg6                    6.0.1-3-bookworm                   deb                      
 joi                                 17.12.2                            npm                      
-jose                                4.15.4                             npm                      
+jose                                4.15.5                             npm                      
 jq                                  1.6-3                              deb                      
 js-tokens                           4.0.0                              npm                      
 js-yaml                             4.1.0                              npm                      
