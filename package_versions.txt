@@ -29,6 +29,9 @@ NAME                                VERSION                            TYPE
 @nestjs/swagger                     7.3.0                              npm                      
 @nestjs/typeorm                     10.0.2                             npm                      
 @nestjs/websockets                  10.3.3                             npm                      
+@nodelib/fs.scandir                 2.1.5                              npm                      
+@nodelib/fs.stat                    2.0.5                              npm                      
+@nodelib/fs.walk                    1.2.8                              npm                      
 @npmcli/agent                       2.2.0                              npm                      
 @npmcli/arborist                    7.2.1                              npm                      
 @npmcli/config                      8.0.2                              npm                      
@@ -47,6 +50,7 @@ NAME                                VERSION                            TYPE
 @nuxtjs/opencollective              0.3.2                              npm                      
 @photostructure/tz-lookup           9.0.1                              npm                      
 @pkgjs/parseargs                    0.11.0                             npm                      
+@polka/url                          1.0.0-next.25                      npm                      
 @sideway/address                    4.1.5                              npm                      
 @sideway/formula                    3.0.1                              npm                      
 @sideway/pinpoint                   2.0.0                              npm                      
@@ -213,7 +217,7 @@ dirmngr                             2.2.40-1.1ubuntu1                  deb
 dotenv                              16.4.1                             npm                      
 dotenv                              16.4.5                             npm                      
 dotenv-expand                       10.0.0                             npm                      
-dpkg                                1.22.0ubuntu1                      deb                      
+dpkg                                1.22.0ubuntu1.1                    deb                      
 e2fsprogs                           1.47.0-1ubuntu1                    deb                      
 eastasianwidth                      0.2.0                              npm     (+1 duplicate)   
 ee-first                            1.1.1                              npm                      
@@ -239,8 +243,10 @@ exponential-backoff                 3.1.1                              npm
 express                             4.18.2                             npm                      
 external-editor                     3.1.0                              npm                      
 fast-fifo                           1.3.2                              npm                      
+fast-glob                           3.3.2                              npm                      
 fast-safe-stringify                 2.1.1                              npm                      
 fastest-levenshtein                 1.0.16                             npm                      
+fastq                               1.15.0                             npm                      
 figures                             3.2.0                              npm                      
 file-source                         0.6.1                              npm                      
 fill-range                          7.0.1                              npm                      
@@ -306,7 +312,7 @@ iconv-lite                          0.4.24                             npm
 iconv-lite                          0.6.3                              npm                      
 ieee754                             1.2.1                              npm     (+1 duplicate)   
 ignore-walk                         6.0.3                              npm                      
-immich                              1.98.1                             npm                      
+immich                              1.98.2                             npm                      
 import-fresh                        3.3.0                              npm                      
 imurmurhash                         0.1.4                              npm                      
 indent-string                       4.0.0                              npm                      
@@ -378,7 +384,7 @@ libcurl4                            8.2.1-1ubuntu3.2                   deb
 libdatrie1                          0.2.13-2                           deb                      
 libdav1d6                           1.2.1-2                            deb                      
 libdb5.3                            5.3.28+dfsg2-1                     deb                      
-libde265-0                          1.0.12-2                           deb                      
+libde265-0                          1.0.12-2ubuntu0.1                  deb                      
 libdebconfclient0                   0.267ubuntu1                       deb                      
 libdeflate0                         1.18-1                             deb                      
 libdrm-amdgpu1                      2.4.115-1                          deb                      
@@ -571,8 +577,10 @@ mawk                                1.3.4.20200120-3.1                 deb
 media-typer                         0.3.0                              npm                      
 media-types                         10.1.0                             deb                      
 merge-descriptors                   1.0.1                              npm                      
+merge2                              1.4.1                              npm                      
 mesa-va-drivers                     23.2.1-1ubuntu3.1                  deb                      
 methods                             1.1.2                              npm                      
+micromatch                          4.0.5                              npm                      
 mime                                1.6.0                              npm                      
 mime-db                             1.52.0                             npm                      
 mime-types                          2.1.35                             npm                      
@@ -595,6 +603,7 @@ mkdirp                              0.5.6                              npm
 mkdirp                              1.0.4                              npm     (+1 duplicate)   
 mkdirp                              2.1.6                              npm     (+1 duplicate)   
 mount                               2.39.1-4ubuntu2                    deb                      
+mrmime                              2.0.0                              npm                      
 ms                                  2.0.0                              npm     (+3 duplicates)  
 ms                                  2.1.2                              npm     (+1 duplicate)   
 ms                                  2.1.3                              npm     (+1 duplicate)   
@@ -679,7 +688,7 @@ pg-protocol                         1.6.0                              npm
 pg-types                            2.2.0                              npm                      
 pg-types                            4.0.1                              npm                      
 pgpass                              1.0.5                              npm                      
-picomatch                           2.3.1                              npm     (+1 duplicate)   
+picomatch                           2.3.1                              npm     (+2 duplicates)  
 picomatch                           4.0.1                              npm                      
 pinentry-curses                     1.2.1-1ubuntu1                     deb                      
 postcss-selector-parser             6.0.13                             npm                      
@@ -711,6 +720,7 @@ python3.11                          3.11.6-3                           deb
 python3.11-minimal                  3.11.6-3                           deb                      
 qrcode-terminal                     0.12.0                             npm                      
 qs                                  6.11.0                             npm                      
+queue-microtask                     1.2.3                              npm                      
 queue-tick                          1.0.1                              npm                      
 range-parser                        1.2.1                              npm                      
 raw-body                            2.5.1                              npm                      
@@ -736,8 +746,10 @@ resolve-from                        4.0.0                              npm
 resolve-protobuf-schema             2.1.0                              npm                      
 restore-cursor                      3.1.0                              npm                      
 retry                               0.12.0                             npm                      
+reusify                             1.0.4                              npm                      
 rimraf                              3.0.2                              npm                      
 run-async                           2.4.1                              npm                      
+run-parallel                        1.2.0                              npm                      
 rxjs                                7.8.1                              npm                      
 safe-buffer                         5.1.2                              npm     (+1 duplicate)   
 safe-buffer                         5.2.1                              npm     (+1 duplicate)   
@@ -763,6 +775,7 @@ signal-exit                         3.0.7                              npm     (
 signal-exit                         4.1.0                              npm     (+1 duplicate)   
 sigstore                            2.1.0                              npm                      
 simple-swizzle                      0.2.2                              npm                      
+sirv                                2.0.4                              npm                      
 slice-source                        0.4.1                              npm                      
 smart-buffer                        4.2.0                              npm                      
 socket.io                           4.7.4                              npm                      
@@ -806,6 +819,7 @@ tiny-relative-date                  1.3.0                              npm
 tmp                                 0.0.33                             npm                      
 to-regex-range                      5.0.1                              npm                      
 toidentifier                        1.0.1                              npm                      
+totalist                            3.0.1                              npm                      
 tr46                                0.0.3                              npm                      
 treeverse                           3.0.0                              npm                      
 truncate-utf8-bytes                 1.0.2                              npm                      
@@ -815,8 +829,8 @@ type-fest                           0.21.3                             npm
 type-is                             1.6.18                             npm                      
 typedarray                          0.0.6                              npm                      
 typeorm                             0.3.20                             npm                      
-tzdata                              2023d-0ubuntu0.23.10               deb                      
-tzdata-icu                          2023d-0ubuntu0.23.10               deb                      
+tzdata                              2024a-0ubuntu0.23.10               deb                      
+tzdata-icu                          2024a-0ubuntu0.23.10               deb                      
 ua-parser-js                        1.0.37                             npm                      
 ubuntu-keyring                      2021.03.26                         deb                      
 uid                                 2.0.2                              npm                      
