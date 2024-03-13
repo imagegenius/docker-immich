@@ -992,5 +992,5 @@ yargs                               17.7.2                             npm
 yargs-parser                        20.2.9                             npm                      
 yargs-parser                        21.1.1                             npm                      
 zip-stream                          6.0.0                              npm                      
-zipp                                3.17.0                             python                   
+zipp                                3.18.0                             python                   
 zlib1g                              1:1.2.13.dfsg-1ubuntu5             deb                      
