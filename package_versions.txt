@@ -452,11 +452,11 @@ libde265                            1.0.15-r0              apk
 libdovi                             3.2.0-r1               apk                          
 libdrm                              2.4.120-r0             apk                          
 libexif                             0.6.24-r2              apk                          
-libexpat                            2.6.0-r0               apk                          
+libexpat                            2.6.1-r0               apk                          
 libffi                              3.4.6-r0               apk                          
 libflac                             1.4.3-r1               apk                          
-libgcc                              13.2.1_git20231014-r1  apk                          
-libgomp                             13.2.1_git20231014-r1  apk                          
+libgcc                              13.2.1_git20240309-r0  apk                          
+libgomp                             13.2.1_git20240309-r0  apk                          
 libheif                             1.17.6-r0              apk                          
 libhwy                              1.0.7-r0               apk                          
 libidn2                             2.3.7-r0               apk                          
@@ -500,7 +500,7 @@ libspng                             0.7.4-r0               apk
 libsrt                              1.5.3-r0               apk                          
 libssh                              0.10.6-r0              apk                          
 libssl3                             3.1.5-r5               apk                          
-libstdc++                           13.2.1_git20231014-r1  apk                          
+libstdc++                           13.2.1_git20240309-r0  apk                          
 libtheora                           1.1.1-r18              apk                          
 libtiffxx                           4.6.0-r0               apk                          
 libturbojpeg                        3.0.2-r0               apk                          
