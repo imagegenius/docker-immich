@@ -442,7 +442,7 @@ libdrm2                             2.4.115-1                          deb
 libedit2                            3.1-20221030-2                     deb                      
 libelf1                             0.189-4                            deb                      
 libexif12                           0.6.24-1build1                     deb                      
-libexpat1                           2.5.0-2                            deb                      
+libexpat1                           2.5.0-2ubuntu0.1                   deb                      
 libext2fs2                          1.47.0-1ubuntu1                    deb                      
 libffi8                             3.4.4-1                            deb                      
 libfontconfig1                      2.14.2-4ubuntu1                    deb                      
@@ -759,7 +759,7 @@ pkginfo                             1.10.0                             python
 platformdirs                        4.2.0                              python                   
 poetry                              1.8.2                              python                   
 poetry-core                         1.9.0                              python                   
-poetry-plugin-export                1.6.0                              python                   
+poetry-plugin-export                1.7.0                              python                   
 postcss-selector-parser             6.0.13                             npm                      
 postgres-array                      2.0.0                              npm                      
 postgres-array                      3.0.2                              npm                      
@@ -992,5 +992,5 @@ yargs                               17.7.2                             npm
 yargs-parser                        20.2.9                             npm                      
 yargs-parser                        21.1.1                             npm                      
 zip-stream                          6.0.0                              npm                      
-zipp                                3.18.0                             python                   
+zipp                                3.18.1                             python                   
 zlib1g                              1:1.2.13.dfsg-1ubuntu5             deb                      
