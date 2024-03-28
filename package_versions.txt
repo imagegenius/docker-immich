@@ -20,6 +20,7 @@ NAME                                             VERSION                TYPE
 @hapi/validate                                   1.1.3                  npm                          
 @img/sharp-linuxmusl-x64                         0.33.2                 npm                          
 @immich/cli                                      2.0.7                  npm                          
+@immich/cli                                      2.1.0                  npm                          
 @ioredis/commands                                1.2.0                  npm                          
 @isaacs/cliui                                    8.0.2                  npm         (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                  npm                          
@@ -601,7 +602,7 @@ libheif                                          1.17.6-r0              apk
 libhwy                                           1.0.7-r0               apk                          
 libidn2                                          2.3.7-r0               apk                          
 libimagequant                                    4.2.2-r0               apk                          
-libintl                                          0.22.4-r0              apk                          
+libintl                                          0.22.5-r0              apk                          
 libjpeg-turbo                                    3.0.2-r0               apk                          
 libjpeg-turbo-dev                                3.0.2-r0               apk                          
 libjxl                                           0.9.1-r0               apk                          
@@ -670,6 +671,7 @@ lines-and-columns                                1.2.4                  npm
 linux-pam                                        1.5.3-r8               apk                          
 linux-raw-sys                                    0.4.12                 rust-crate                   
 lodash                                           4.17.21                npm                          
+lodash-es                                        4.17.21                npm                          
 lodash.camelcase                                 4.3.0                  npm                          
 lodash.defaults                                  4.2.0                  npm                          
 lodash.isarguments                               3.1.0                  npm                          
@@ -830,7 +832,7 @@ pgpass                                           1.0.5                  npm
 picomatch                                        2.3.1                  npm         (+2 duplicates)  
 picomatch                                        4.0.1                  npm                          
 pixman                                           0.43.2-r0              apk                          
-pkgconf                                          2.1.1-r0               apk                          
+pkgconf                                          2.2.0-r0               apk                          
 postcss-selector-parser                          6.0.15                 npm                          
 postgres-array                                   2.0.0                  npm                          
 postgres-array                                   3.0.2                  npm                          
