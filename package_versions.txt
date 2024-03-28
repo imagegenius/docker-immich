@@ -2,7 +2,7 @@ NAME                                             VERSION                TYPE
 @babel/code-frame                                7.22.13                npm                          
 @babel/helper-validator-identifier               7.22.20                npm                          
 @babel/highlight                                 7.22.20                npm                          
-@babel/runtime                                   7.24.0                 npm                          
+@babel/runtime                                   7.24.1                 npm                          
 @colors/colors                                   1.5.0                  npm                          
 @fig/complete-commander                          3.0.0                  npm                          
 @golevelup/nestjs-discovery                      4.0.0                  npm                          
@@ -19,8 +19,7 @@ NAME                                             VERSION                TYPE
 @hapi/topo                                       5.1.0                  npm                          
 @hapi/validate                                   1.1.3                  npm                          
 @img/sharp-linuxmusl-x64                         0.33.2                 npm                          
-@immich/cli                                      2.0.7                  npm                          
-@immich/cli                                      2.1.0                  npm                          
+@immich/cli                                      2.2.0                  npm                          
 @ioredis/commands                                1.2.0                  npm                          
 @isaacs/cliui                                    8.0.2                  npm         (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                  npm                          
@@ -33,17 +32,17 @@ NAME                                             VERSION                TYPE
 @my-scope/package-b                              0.0.0                  npm                          
 @nestjs/bull-shared                              10.1.0                 npm                          
 @nestjs/bullmq                                   10.1.0                 npm                          
-@nestjs/common                                   10.3.3                 npm                          
+@nestjs/common                                   10.3.5                 npm                          
 @nestjs/config                                   3.2.0                  npm                          
-@nestjs/core                                     10.3.3                 npm                          
+@nestjs/core                                     10.3.5                 npm                          
 @nestjs/event-emitter                            2.0.4                  npm                          
 @nestjs/mapped-types                             2.0.5                  npm                          
-@nestjs/platform-express                         10.3.3                 npm                          
-@nestjs/platform-socket.io                       10.3.3                 npm                          
+@nestjs/platform-express                         10.3.5                 npm                          
+@nestjs/platform-socket.io                       10.3.5                 npm                          
 @nestjs/schedule                                 4.0.1                  npm                          
 @nestjs/swagger                                  7.3.0                  npm                          
 @nestjs/typeorm                                  10.0.2                 npm                          
-@nestjs/websockets                               10.3.3                 npm                          
+@nestjs/websockets                               10.3.5                 npm                          
 @nodelib/fs.scandir                              2.1.5                  npm                          
 @nodelib/fs.stat                                 2.0.5                  npm                          
 @nodelib/fs.walk                                 1.2.8                  npm                          
@@ -65,7 +64,7 @@ NAME                                             VERSION                TYPE
 @nuxtjs/opencollective                           0.3.2                  npm                          
 @opentelemetry/api                               1.7.0                  npm                          
 @opentelemetry/api-logs                          0.49.1                 npm                          
-@opentelemetry/auto-instrumentations-node        0.42.0                 npm                          
+@opentelemetry/auto-instrumentations-node        0.43.0                 npm                          
 @opentelemetry/context-async-hooks               1.22.0                 npm                          
 @opentelemetry/core                              1.22.0                 npm                          
 @opentelemetry/exporter-prometheus               0.49.1                 npm                          
@@ -97,7 +96,7 @@ NAME                                             VERSION                TYPE
 @opentelemetry/instrumentation-koa               0.38.0                 npm                          
 @opentelemetry/instrumentation-lru-memoizer      0.35.0                 npm                          
 @opentelemetry/instrumentation-memcached         0.34.0                 npm                          
-@opentelemetry/instrumentation-mongodb           0.40.0                 npm                          
+@opentelemetry/instrumentation-mongodb           0.41.0                 npm                          
 @opentelemetry/instrumentation-mongoose          0.36.0                 npm                          
 @opentelemetry/instrumentation-mysql             0.36.0                 npm                          
 @opentelemetry/instrumentation-mysql2            0.36.0                 npm                          
@@ -193,7 +192,7 @@ NAME                                             VERSION                TYPE
 @types/mime                                      1.3.3                  npm                          
 @types/mime-db                                   1.43.5                 npm                          
 @types/mysql                                     2.15.22                npm                          
-@types/node                                      20.11.25               npm                          
+@types/node                                      20.11.30               npm                          
 @types/pg                                        8.10.9                 npm                          
 @types/pg                                        8.6.1                  npm                          
 @types/pg-pool                                   2.0.4                  npm                          
@@ -239,8 +238,8 @@ apk-tools                                        2.14.1-r0              apk
 app-root-path                                    3.1.0                  npm                          
 append-field                                     1.0.0                  npm                          
 aproba                                           2.0.0                  npm         (+1 duplicate)   
-archiver                                         7.0.0                  npm                          
-archiver-utils                                   5.0.1                  npm                          
+archiver                                         7.0.1                  npm                          
+archiver-utils                                   5.0.2                  npm                          
 archy                                            1.0.0                  npm                          
 are-we-there-yet                                 2.0.0                  npm                          
 are-we-there-yet                                 4.0.2                  npm                          
@@ -269,14 +268,13 @@ bitstream-io                                     2.2.0                  rust-cra
 bitvec                                           1.0.1                  rust-crate                   
 bitvec_helpers                                   3.1.2                  rust-crate                   
 bl                                               4.1.0                  npm                          
-body-parser                                      1.20.1                 npm                          
 body-parser                                      1.20.2                 npm                          
 brace-expansion                                  1.1.11                 npm                          
 brace-expansion                                  2.0.1                  npm         (+3 duplicates)  
 braces                                           3.0.2                  npm                          
 brotli-libs                                      1.1.0-r1               apk                          
 buffer                                           5.7.1                  npm                          
-buffer                                           6.0.3                  npm         (+4 duplicates)  
+buffer                                           6.0.3                  npm         (+5 duplicates)  
 buffer-crc32                                     1.0.0                  npm                          
 buffer-from                                      1.1.2                  npm                          
 buffer-writer                                    2.0.0                  npm                          
@@ -339,7 +337,7 @@ columnify                                        1.6.0                  npm
 commander                                        11.1.0                 npm                          
 commander                                        2.20.3                 npm                          
 common-ancestor-path                             1.0.1                  npm                          
-compress-commons                                 6.0.1                  npm                          
+compress-commons                                 6.0.2                  npm                          
 concat-map                                       0.0.1                  npm                          
 concat-stream                                    1.6.2                  npm                          
 concat-stream                                    2.0.0                  npm                          
@@ -419,7 +417,7 @@ events                                           3.3.0                  npm
 exiftool-vendored                                24.6.0                 npm                          
 exiftool-vendored.pl                             12.78.0                npm                          
 exponential-backoff                              3.1.1                  npm                          
-express                                          4.18.2                 npm                          
+express                                          4.18.3                 npm                          
 extend                                           3.0.2                  npm                          
 external-editor                                  3.1.0                  npm                          
 fast-fifo                                        1.3.2                  npm                          
@@ -459,7 +457,7 @@ gauge                                            5.0.1                  npm
 gaxios                                           6.2.0                  npm                          
 gcp-metadata                                     6.1.0                  npm                          
 gdk-pixbuf                                       2.42.10-r6             apk                          
-geo-tz                                           8.0.1                  npm                          
+geo-tz                                           8.0.2                  npm                          
 geobuf                                           3.0.2                  npm                          
 get-caller-file                                  2.0.5                  npm                          
 get-intrinsic                                    1.2.4                  npm                          
@@ -494,7 +492,7 @@ http-proxy-agent                                 7.0.2                  npm
 https-proxy-agent                                5.0.1                  npm                          
 https-proxy-agent                                7.0.4                  npm         (+1 duplicate)   
 hwdata-pci                                       0.380-r0               apk                          
-i18n-iso-countries                               7.10.1                 npm                          
+i18n-iso-countries                               7.11.0                 npm                          
 iconv-lite                                       0.4.24                 npm                          
 iconv-lite                                       0.6.3                  npm                          
 icu-data-en                                      74.2-r0                apk                          
@@ -516,7 +514,7 @@ imagemagick-webp                                 7.1.1.29-r0            apk
 imagequant                                       4.2.2                  rust-crate                   
 imagequant-sys                                   4.0.3                  rust-crate                   
 imath                                            3.1.11-r0              apk                          
-immich                                           1.99.0                 npm                          
+immich                                           1.100.0                npm                          
 import-fresh                                     3.3.0                  npm                          
 import-in-the-middle                             1.7.1                  npm                          
 imurmurhash                                      0.1.4                  npm                          
@@ -872,7 +870,6 @@ rand_core                                        0.6.4                  rust-cra
 range-parser                                     1.2.1                  npm                          
 rav1e                                            0.7.1                  rust-crate                   
 rav1e-libs                                       0.7.1-r0               apk                          
-raw-body                                         2.5.1                  npm                          
 raw-body                                         2.5.2                  npm                          
 rayon                                            1.8.0                  rust-crate  (+1 duplicate)   
 rayon-core                                       1.12.0                 rust-crate  (+1 duplicate)   
@@ -882,7 +879,7 @@ read-package-json                                7.0.0                  npm
 read-package-json-fast                           3.0.2                  npm                          
 readable-stream                                  2.3.8                  npm         (+1 duplicate)   
 readable-stream                                  3.6.2                  npm                          
-readable-stream                                  4.5.2                  npm         (+3 duplicates)  
+readable-stream                                  4.5.2                  npm         (+4 duplicates)  
 readdir-glob                                     1.1.3                  npm                          
 readdirp                                         3.6.0                  npm                          
 readline                                         8.2.10-r0              apk                          
@@ -944,7 +941,7 @@ sirv                                             2.0.4                  npm
 skalibs                                          2.14.1.1-r0            apk                          
 slice-source                                     0.4.1                  npm                          
 smart-buffer                                     4.2.0                  npm                          
-socket.io                                        4.7.4                  npm                          
+socket.io                                        4.7.5                  npm                          
 socket.io-adapter                                2.5.2                  npm                          
 socket.io-parser                                 4.2.4                  npm                          
 socks                                            2.8.0                  npm                          
@@ -1069,7 +1066,7 @@ yargs                                            17.7.2                 npm     
 yargs-parser                                     20.2.9                 npm                          
 yargs-parser                                     21.1.1                 npm                          
 zimg                                             3.0.5-r2               apk                          
-zip-stream                                       6.0.0                  npm                          
+zip-stream                                       6.0.1                  npm                          
 zix-libs                                         0.4.2-r0               apk                          
 zlib                                             1.3.1-r0               apk                          
 zlib-dev                                         1.3.1-r0               apk                          
