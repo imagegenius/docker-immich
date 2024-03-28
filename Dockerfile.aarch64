@@ -105,6 +105,19 @@ RUN \
     build/* \
     static \
     /app/immich/server/www  && \
+  echo "**** build CLI ****" && \
+  mkdir -p \
+    /app/immich/cli && \
+  cd /tmp/immich/cli && \
+  npm ci && \
+  npm run build && \
+  npm prune --omit=dev --omit=optional && \
+  cp -a \
+    package.json \
+    package-lock.json \
+    node_modules \
+    dist \
+    /app/immich/cli && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies \
