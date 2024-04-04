@@ -2,7 +2,7 @@
 # project information
 project_name: immich
 project_url: "https://immich.app/"
-project_logo: "https://github.com/immich-app/immich/blob/main/design/immich-logo-stacked-light.svg"
+project_logo: "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-inline-dark.png"
 project_blurb: "Immich is a high performance self-hosted photo and video backup solution."
 project_github_repo_url: "https://github.com/imagegenius/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
@@ -16,7 +16,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning is completely removed, making it still compatible with hardware accelaration." }
+  - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning is completely removed." }
   - { tag: "alpine", desc: "Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images)." }
 
 # container parameters
@@ -64,60 +64,74 @@ unraid_category: "Backup: Cloud: MediaApp:Photos"
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  The WebUI can be accessed at `http://your-ip:8080` Follow the wizard to set up Immich.
-
-  To use Immich, you need to have PostgreSQL 14/15/16 server with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs) set up externally, and Redis set up externally or within the container using a docker mod.
-
-  To set up redis using the docker mod, use the following:
-
-  Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
-
-  To use a SSL connection to your PostgreSQL database, include a PostgreSQL URL in the `DB_URL` environment variable.
-
+  Access the WebUI at `http://your-ip:8080`. Follow the setup wizard to configure Immich.
+  
+  > [!IMPORTANT]
+  > **This image is not officially supported by the Immich team.**
+  > 
+  > Please read and accept the consiquences of using this heavily active (in development) project.
+  > - ⚠️ The project is under very active development.
+  > - ⚠️ Expect bugs and breaking changes.
+  > - ⚠️ Do not use the app as the only way to store your photos and videos.
+  > - ⚠️ Always follow 3-2-1 backup plan for your precious photos and videos!
+  > 
+  > as stated in the official [readme](https://github.com/immich-app/immich#disclaimer).
+  
+  ### Requirements
+  
+  - **PostgreSQL**: Version 14, 15, or 16 with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs) setup externally.
+  - **Redis**: Setup externally or within the container using a docker mod.
+  
+  #### Docker Mod for Redis
+  
+  - Set `DOCKER_MODS=imagegenius/mods:universal-redis`
+  - Configure `REDIS_HOSTNAME` to `localhost`
+  
+  #### SSL Connection for PostgreSQL
+  
+  To use SSL, include a PostgreSQL URL in the `DB_URL` environment variable.
+  
   ## Hardware Acceleration
-
+  
   ### Intel Hardware Acceleration
-
-  To use Intel Quicksync hardware acceleration:
-
-  1. Ensure your container has access to the `/dev/dri` video device.
-
-  2. Add the device to your container by including the following option in your Docker run command:
-
+  
+  To enable Intel Quicksync:
+  
+  1. Ensure container access to `/dev/dri`.
+  2. Add `/dev/dri` to your Docker run command:
+  
      ```bash
      docker run --device=/dev/dri:/dev/dri ...
      ```
-
-  > [!TIP]
+  
+  > [!NOTE]
   > GPU acceleration for Intel via OpenVINO is not yet available.
-
+  
   ### Nvidia Hardware Acceleration
-
-  For Nvidia GPUs with Nvidia/CUDA hardware acceleration:
-
-  1. First, install the Nvidia container runtime on your host machine. Follow the [installation instructions here](https://github.com/NVIDIA/  nvidia-docker).
-
-  2. After installing `nvidia-docker2`, recreate or create a new Docker container using the Nvidia runtime. This can be done in two ways:
-
-     - Add both `--runtime=nvidia` and `NVIDIA_VISIBLE_DEVICES=all` to your Docker run command. Replace `all` with a specific GPU's UUID if needed. Example:
-
-       ```bash
-       docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all
-       ```
-
-     - Alternatively, use `--gpus=all` in your Docker run command. Example:
-
-       ```bash
-       docker run --gpus=all ...
-       ```
-
-  3. If you want to enable GPU acceleration for the machine-learning, add `MACHINE_LEARNING_GPU_ACCELERATION=cuda`
-
-  ## Import your existing libraries into Immich
-
-  - Mount your existing library folder to `/import`
-  - In your administration settings, include `/import` as the external path for your user (if you have multiple users with existing libraries set the external path to `/import/<user>`)
-  - In your account settings, add a new library and set the path to `/import` or `/import/<user>`
+  
+  1. Install the Nvidia container runtime as per [these instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+  
+  2. Create a new Docker container using the Nvidia runtime:
+  
+     - Use `--runtime=nvidia` and `NVIDIA_VISIBLE_DEVICES=all` in your Docker run command, or specify a particular GPU UUID instead of `all`.
+  
+     ```bash
+     docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all
+     ```
+  
+     - Alternatively, use `--gpus=all` to enable all GPUs.
+  
+     ```bash
+     docker run --gpus=all ...
+     ```
+  
+  3. To enable GPU acceleration for machine learning, add `MACHINE_LEARNING_GPU_ACCELERATION=cuda`
+  
+  ## Importing Existing Libraries
+  
+  - Mount the existing library folder to `/import`.
+  - Set `/import` (or `/import/<user>` for multiple users) as the external path in the administration settings.
+  - In account settings, add a new library with the path set to `/import` or `/import/<user>`.
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
