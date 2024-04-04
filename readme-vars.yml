@@ -109,7 +109,7 @@ app_setup_block: |
   
   ### Nvidia Hardware Acceleration
   
-  1. Install the Nvidia container runtime as per [these instructions](https://github.com/NVIDIA/nvidia-docker).
+  1. Install the Nvidia container runtime as per [these instructions](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
   
   2. Create a new Docker container using the Nvidia runtime:
   
