@@ -66,15 +66,15 @@ app_setup_block_enabled: true
 app_setup_block: |
   Access the WebUI at `http://your-ip:8080`. Follow the setup wizard to configure Immich.
   
-  > [!IMPORTANT] > **This image is not officially supported by the Immich team.**
-  >
+  > [!IMPORTANT]
+  > **This image is not officially supported by the Immich team.**
+  > 
   > Please read and accept the consiquences of using this heavily active (in development) project.
-  >
   > - ⚠️ The project is under very active development.
   > - ⚠️ Expect bugs and breaking changes.
   > - ⚠️ Do not use the app as the only way to store your photos and videos.
   > - ⚠️ Always follow 3-2-1 backup plan for your precious photos and videos!
-  >
+  > 
   > as stated in the official [readme](https://github.com/immich-app/immich#disclaimer).
   
   ### Requirements
