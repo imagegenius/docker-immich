@@ -21,12 +21,12 @@ jobs:
           do
             br=$(echo "$br" | sed 's|origin/||g')
             echo "**** Evaluating branch ${br} ****"
-            ig_jenkins_vars=$(curl -sX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/jenkins-vars.yml)
+            ig_jenkins_vars=$(curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/jenkins-vars.yml)
             ig_branch=$(echo "${ig_jenkins_vars}" | yq -r '.ig_branch')
             ig_trigger=$(echo "${ig_jenkins_vars}" | yq -r '.external_type')
             if [[ "${br}" == "${ig_branch}" ]] && [[ "${ig_trigger}" != "os" ]]; then
               echo "**** Branch ${br} appears to be live and trigger is not os; checking workflow. ****"
-              if curl -sfX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/.github/workflows/external_trigger.yml > /dev/null 2>&1; then
+              if curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sfX GET https://raw.githubusercontent.com/imagegenius/docker-immich/${br}/.github/workflows/external_trigger.yml > /dev/null 2>&1; then
                 echo "**** Workflow exists. Triggering external trigger workflow for branch ${br} ****."
                 echo "Triggering external trigger workflow for branch ${br}" >> $GITHUB_STEP_SUMMARY
                 curl -iX POST \
