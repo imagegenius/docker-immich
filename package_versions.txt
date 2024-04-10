@@ -409,7 +409,7 @@ fastq                                            1.15.0                         
 figures                                          3.2.0                              npm                      
 file-source                                      0.6.1                              npm                      
 filelock                                         3.13.1                             python                   
-filelock                                         3.13.3                             python                   
+filelock                                         3.13.4                             python                   
 fill-range                                       7.0.1                              npm                      
 finalhandler                                     1.2.0                              npm                      
 findutils                                        4.9.0-4ubuntu1                     deb                      
@@ -828,7 +828,7 @@ node-abort-controller                            3.1.1                          
 node-addon-api                                   5.1.0                              npm                      
 node-fetch                                       2.7.0                              npm                      
 node-gyp                                         10.0.1                             npm                      
-nodejs                                           20.12.0-1nodesource1               deb                      
+nodejs                                           20.12.1-1nodesource1               deb                      
 nopt                                             5.0.0                              npm                      
 nopt                                             7.2.0                              npm                      
 normalize-package-data                           6.0.0                              npm                      
@@ -968,7 +968,7 @@ qudida                                           0.0.4                          
 queue-microtask                                  1.2.3                              npm                      
 queue-tick                                       1.0.1                              npm                      
 range-parser                                     1.2.1                              npm                      
-rapidfuzz                                        3.7.0                              python                   
+rapidfuzz                                        3.8.1                              python                   
 raw-body                                         2.5.2                              npm                      
 read                                             2.1.0                              npm                      
 read-cmd-shim                                    4.0.0                              npm                      
@@ -1091,7 +1091,7 @@ totalist                                         3.0.1                          
 tqdm                                             4.66.1                             python                   
 tr46                                             0.0.3                              npm                      
 treeverse                                        3.0.0                              npm                      
-trove-classifiers                                2024.3.25                          python                   
+trove-classifiers                                2024.4.10                          python                   
 truncate-utf8-bytes                              1.0.2                              npm                      
 tslib                                            2.6.2                              npm                      
 tuf-js                                           2.2.0                              npm                      
