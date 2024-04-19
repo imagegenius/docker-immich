@@ -76,11 +76,17 @@ RUN \
   rm -rf node_modules/@img/sharp-linux-x64 && \
   cp -r \
     node_modules/@img \
-    /tmp/sharp && \
+    /tmp && \
+  cp -r \
+    node_modules/exiftool-vendored.pl \
+    /tmp && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
   cp -r \
-    /tmp/sharp/@img \
+    /tmp/@img \
+    node_modules && \
+  cp -r \
+    /tmp/exiftool-vendored.pl \
     node_modules && \
   npm link && \
   npm cache clean --force && \
