@@ -367,6 +367,7 @@ event-target-shim                                5.0.1                          
 eventemitter2                                    6.4.9                              npm                      
 events                                           3.3.0                              npm                      
 exiftool-vendored                                24.6.0                             npm                      
+exiftool-vendored.pl                             12.78.0                            npm                      
 exponential-backoff                              3.1.1                              npm                      
 express                                          4.19.2                             npm                      
 extend                                           3.0.2                              npm                      
