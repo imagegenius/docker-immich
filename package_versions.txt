@@ -598,7 +598,7 @@ libgdk-pixbuf2.0-common                          2.42.10+dfsg-1build1           
 libglib2.0-0                                     2.78.0-2                           deb                      
 libglib2.0-data                                  2.78.0-2                           deb                      
 libgmp10                                         2:6.3.0+dfsg-2ubuntu4              deb                      
-libgnutls30                                      3.8.1-4ubuntu1.2                   deb                      
+libgnutls30                                      3.8.1-4ubuntu1.3                   deb                      
 libgomp1                                         13.2.0-4ubuntu3                    deb                      
 libgpg-error0                                    1.46-1                             deb                      
 libgraphite2-3                                   1.3.14-1build2                     deb                      
@@ -910,7 +910,7 @@ pillow                                           10.3.0                         
 pinentry-curses                                  1.2.1-1ubuntu1                     deb                      
 pip                                              23.2                               python  (+1 duplicate)   
 pkginfo                                          1.10.0                             python                   
-platformdirs                                     4.2.0                              python                   
+platformdirs                                     4.2.1                              python                   
 poetry                                           1.8.2                              python                   
 poetry-core                                      1.9.0                              python                   
 poetry-plugin-export                             1.7.1                              python                   
@@ -1122,7 +1122,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.0                              npm                      
 validator                                        13.11.0                            npm                      
 vary                                             1.1.2                              npm                      
-virtualenv                                       20.25.3                            python                   
+virtualenv                                       20.26.0                            python                   
 walk-up-path                                     3.0.1                              npm                      
 watchfiles                                       0.21.0                             python                   
 wcwidth                                          0.2.13                             python                   
