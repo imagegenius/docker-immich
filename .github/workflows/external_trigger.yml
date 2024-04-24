@@ -7,7 +7,7 @@ jobs:
   external-trigger-noml:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v4.1.1
 
       - name: External Trigger
         if: github.ref == 'refs/heads/noml'
@@ -37,6 +37,7 @@ jobs:
           image="imagegenius/immich"
           tag="noml"
           token=$(curl -sX GET \
+            -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" \
             "https://ghcr.io/token?scope=repository%3Aimagegenius%2Fimmich%3Apull" \
             | jq -r '.token')
             multidigest=$(curl -s \
