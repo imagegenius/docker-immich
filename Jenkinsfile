@@ -62,7 +62,7 @@ pipeline {
             returnStdout: true).trim()
           env.CODE_URL = 'https://github.com/' + env.IG_USER + '/' + env.IG_REPO + '/commit/' + env.GIT_COMMIT
           env.PULL_REQUEST = env.CHANGE_ID
-          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE .editorconfig  ./.github/workflows/external_trigger_scheduler.yml  ./.github/workflows/package_trigger_scheduler.yml ./.github/workflows/permissions.yml ./.github/workflows/external_trigger.yml ./.github/workflows/package_trigger.yml ./root/donate.txt'
+          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE .editorconfig  ./.github/workflows/external_trigger_scheduler.yml ./.github/workflows/package_trigger_scheduler.yml ./.github/workflows/permissions.yml ./.github/workflows/external_trigger.yml ./.github/workflows/package_trigger.yml ./root/donate.txt'
         }
         sh '''#! /bin/bash
               echo "The default github branch detected as ${GH_DEFAULT_BRANCH}" '''
@@ -268,11 +268,8 @@ pipeline {
               # ${TEMPDIR}/docs/docker-documentation: Cloned docs repo for pushing docs updates to Github
               # ${TEMPDIR}/unraid/docker-templates: Cloned docker-templates repo to check for logos
               # ${TEMPDIR}/unraid/templates: Cloned templates repo for commiting unraid template changes and pushing back to Github
-              mkdir -p ${TEMPDIR}/source
-              git clone https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/source
-              cd ${TEMPDIR}/source
-              git checkout -f alpine
-              docker run --rm -e CONTAINER_NAME=${CONTAINER_NAME} -e GITHUB_BRANCH=alpine -v ${TEMPDIR}/source:/tmp -v ${TEMPDIR}:/ansible/jenkins ghcr.io/imagegenius/jenkins-builder:latest 
+              git clone --branch alpine --depth 1 https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/${IG_USER}/${IG_REPO}.git ${TEMPDIR}/docker-${CONTAINER_NAME}
+              docker run --rm -v ${TEMPDIR}/docker-${CONTAINER_NAME}:/tmp -e LOCAL=true ghcr.io/imagegenius/jenkins-builder:latest 
               echo "Starting Stage 1 - Jenkinsfile update"
               if [[ "$(md5sum Jenkinsfile | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/docker-${CONTAINER_NAME}/Jenkinsfile | awk '{ print $1 }')" ]]; then
                 mkdir -p ${TEMPDIR}/repo
@@ -347,8 +344,9 @@ pipeline {
                 echo "false" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
                 echo "No templates to update"
               fi
+              echo "Starting Stage 4 - External repo update: Unraid Template"
               mkdir -p ${TEMPDIR}/unraid
-              git clone https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/imagegenius/templates.git ${TEMPDIR}/unraid/templates
+              git clone https://github.com/imagegenius/templates.git ${TEMPDIR}/unraid/templates
               if [[ -f ${TEMPDIR}/unraid/templates/unraid/img/${CONTAINER_NAME}.png ]]; then
                 sed -i "s|main/unraid/img/default.png|main/unraid/img/${CONTAINER_NAME}.png|" ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml
               fi
@@ -367,12 +365,12 @@ pipeline {
                   git add unraid/${CONTAINER_NAME}.xml
                   git commit -m 'Bot Updating Unraid Template'
                 fi
-                git pull https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/linuxserver/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH} --rebase
-                git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/linuxserver/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH} || \
+                git pull https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/imagegenius/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH} --rebase
+                git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/imagegenius/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH} || \
                   (MAXWAIT="10" && echo "Push to unraid templates failed, trying again in ${MAXWAIT} seconds" && \
                   sleep $((RANDOM % MAXWAIT)) && \
-                  git pull https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/linuxserver/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH} --rebase && \
-                  git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/linuxserver/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH})
+                  git pull https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/imagegenius/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH} --rebase && \
+                  git push https://ImageGeniusCI:${GITHUB_TOKEN}@github.com/imagegenius/templates.git ${GH_TEMPLATES_DEFAULT_BRANCH})
               else
                 echo "No updates to Unraid template needed, skipping"
               fi
