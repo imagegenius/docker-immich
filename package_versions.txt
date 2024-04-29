@@ -38,13 +38,13 @@ NAME                                             VERSION                        
 @nestjs/mapped-types                             2.0.5                              npm                      
 @nestjs/platform-express                         10.3.7                             npm                      
 @nestjs/platform-socket.io                       10.3.7                             npm                      
-@nestjs/schedule                                 4.0.1                              npm                      
+@nestjs/schedule                                 4.0.2                              npm                      
 @nestjs/swagger                                  7.3.1                              npm                      
 @nestjs/typeorm                                  10.0.2                             npm                      
 @nestjs/websockets                               10.3.7                             npm                      
-@nodelib/fs.scandir                              2.1.5                              npm                      
-@nodelib/fs.stat                                 2.0.5                              npm                      
-@nodelib/fs.walk                                 1.2.8                              npm                      
+@nodelib/fs.scandir                              2.1.5                              npm     (+1 duplicate)   
+@nodelib/fs.stat                                 2.0.5                              npm     (+1 duplicate)   
+@nodelib/fs.walk                                 1.2.8                              npm     (+1 duplicate)   
 @npmcli/agent                                    2.2.1                              npm                      
 @npmcli/arborist                                 7.4.0                              npm                      
 @npmcli/config                                   8.2.0                              npm                      
@@ -185,7 +185,6 @@ NAME                                             VERSION                        
 @types/koa                                       2.14.0                             npm                      
 @types/koa-compose                               3.2.8                              npm                      
 @types/koa__router                               12.0.3                             npm                      
-@types/luxon                                     3.3.7                              npm                      
 @types/luxon                                     3.4.2                              npm                      
 @types/memcached                                 2.2.10                             npm                      
 @types/mime                                      1.3.3                              npm                      
@@ -262,7 +261,7 @@ bl                                               4.1.0                          
 body-parser                                      1.20.2                             npm                      
 brace-expansion                                  1.1.11                             npm                      
 brace-expansion                                  2.0.1                              npm     (+3 duplicates)  
-braces                                           3.0.2                              npm                      
+braces                                           3.0.2                              npm     (+1 duplicate)   
 bsdutils                                         1:2.39.1-4ubuntu2.2                deb                      
 buffer                                           5.7.1                              npm                      
 buffer                                           6.0.3                              npm     (+5 duplicates)  
@@ -339,7 +338,7 @@ cosmiconfig                                      8.3.6                          
 crashtest                                        0.4.1                              python                   
 crc-32                                           1.2.2                              npm                      
 crc32-stream                                     6.0.0                              npm                      
-cron                                             3.1.6                              npm                      
+cron                                             3.1.7                              npm                      
 cron-parser                                      4.9.0                              npm                      
 cross-spawn                                      7.0.3                              npm     (+1 duplicate)   
 cryptography                                     42.0.5                             python                   
@@ -397,17 +396,18 @@ express                                          4.19.2                         
 extend                                           3.0.2                              npm                      
 external-editor                                  3.1.0                              npm                      
 fast-fifo                                        1.3.2                              npm                      
-fast-glob                                        3.3.2                              npm                      
+fast-glob                                        3.3.2                              npm     (+1 duplicate)   
 fast-safe-stringify                              2.1.1                              npm                      
 fastapi                                          0.110.1                            python                   
 fastest-levenshtein                              1.0.16                             npm                      
 fastjsonschema                                   2.19.1                             python                   
 fastq                                            1.15.0                             npm                      
+fastq                                            1.17.1                             npm                      
 figures                                          3.2.0                              npm                      
 file-source                                      0.6.1                              npm                      
 filelock                                         3.13.1                             python                   
-filelock                                         3.13.4                             python                   
-fill-range                                       7.0.1                              npm                      
+filelock                                         3.14.0                             python                   
+fill-range                                       7.0.1                              npm     (+1 duplicate)   
 finalhandler                                     1.2.0                              npm                      
 findutils                                        4.9.0-4ubuntu1                     deb                      
 flatbuffers                                      23.5.26                            python                   
@@ -439,7 +439,7 @@ glob                                             10.3.10                        
 glob                                             10.3.12                            npm                      
 glob                                             7.2.3                              npm                      
 glob                                             8.1.0                              npm                      
-glob-parent                                      5.1.2                              npm                      
+glob-parent                                      5.1.2                              npm     (+1 duplicate)   
 gnupg                                            2.2.40-1.1ubuntu1                  deb                      
 gnupg-l10n                                       2.2.40-1.1ubuntu1                  deb                      
 gnupg-utils                                      2.2.40-1.1ubuntu1                  deb                      
@@ -485,7 +485,7 @@ idna                                             3.7                            
 ieee754                                          1.2.1                              npm                      
 ignore-walk                                      6.0.4                              npm                      
 imageio                                          2.33.1                             python                   
-immich                                           1.102.3                            npm                      
+immich                                           1.103.0                            npm                      
 import-fresh                                     3.3.0                              npm                      
 import-in-the-middle                             1.7.1                              npm                      
 importlib_metadata                               7.1.0                              python                   
@@ -500,7 +500,7 @@ inquirer                                         8.2.6                          
 insightface                                      0.7.3                              python                   
 installer                                        0.7.0                              python                   
 intel-media-va-driver-non-free                   23.2.3+ds1-1                       deb                      
-ioredis                                          5.3.2                              npm                      
+ioredis                                          5.4.1                              npm                      
 ip-address                                       9.0.5                              npm                      
 ip-regex                                         5.0.0                              npm                      
 ipaddr.js                                        1.9.1                              npm                      
@@ -510,12 +510,12 @@ is-binary-path                                   2.1.0                          
 is-cidr                                          5.0.3                              npm                      
 is-core-module                                   2.13.0                             npm                      
 is-core-module                                   2.13.1                             npm                      
-is-extglob                                       2.1.1                              npm                      
+is-extglob                                       2.1.1                              npm     (+1 duplicate)   
 is-fullwidth-code-point                          3.0.0                              npm     (+1 duplicate)   
-is-glob                                          4.0.3                              npm                      
+is-glob                                          4.0.3                              npm     (+1 duplicate)   
 is-interactive                                   1.0.0                              npm                      
 is-lambda                                        1.0.1                              npm                      
-is-number                                        7.0.0                              npm                      
+is-number                                        7.0.0                              npm     (+1 duplicate)   
 is-stream                                        2.0.1                              npm                      
 is-unicode-supported                             0.1.0                              npm                      
 isarray                                          1.0.0                              npm                      
@@ -771,10 +771,10 @@ mdurl                                            0.1.2                          
 media-typer                                      0.3.0                              npm                      
 media-types                                      10.1.0                             deb                      
 merge-descriptors                                1.0.1                              npm                      
-merge2                                           1.4.1                              npm                      
+merge2                                           1.4.1                              npm     (+1 duplicate)   
 mesa-va-drivers                                  23.2.1-1ubuntu3.1                  deb                      
 methods                                          1.1.2                              npm                      
-micromatch                                       4.0.5                              npm                      
+micromatch                                       4.0.5                              npm     (+1 duplicate)   
 mime                                             1.6.0                              npm                      
 mime-db                                          1.52.0                             npm                      
 mime-types                                       2.1.35                             npm                      
@@ -860,13 +860,13 @@ on-finished                                      2.4.1                          
 on-headers                                       1.0.2                              npm                      
 once                                             1.4.0                              npm                      
 onetime                                          5.1.2                              npm                      
-onnx                                             1.15.0                             python                   
-onnxruntime                                      1.17.1                             python                   
+onnx                                             1.16.0                             python                   
+onnxruntime                                      1.17.3                             python                   
 opencv-python-headless                           4.9.0.80                           python                   
 openid-client                                    5.6.5                              npm                      
 openssl                                          3.0.10-1ubuntu2.3                  deb                      
 ora                                              5.4.1                              npm                      
-orjson                                           3.10.0                             python                   
+orjson                                           3.10.1                             python                   
 os-tmpdir                                        1.0.2                              npm                      
 p-map                                            4.0.0                              npm                      
 packaging                                        23.2                               python                   
@@ -904,7 +904,7 @@ pg-types                                         2.2.0                          
 pg-types                                         4.0.1                              npm                      
 pgpass                                           1.0.5                              npm                      
 picocolors                                       1.0.0                              npm                      
-picomatch                                        2.3.1                              npm     (+2 duplicates)  
+picomatch                                        2.3.1                              npm     (+3 duplicates)  
 picomatch                                        4.0.2                              npm                      
 pillow                                           10.3.0                             python                   
 pinentry-curses                                  1.2.1-1ubuntu1                     deb                      
@@ -944,7 +944,7 @@ publicsuffix                                     20230209.2326-1                
 pycparser                                        2.22                               python                   
 pydantic                                         1.10.15                            python                   
 pyparsing                                        3.1.1                              python                   
-pyproject_hooks                                  1.0.0                              python                   
+pyproject_hooks                                  1.1.0                              python                   
 python-dateutil                                  2.8.2                              python                   
 python-dotenv                                    1.0.0                              python                   
 python-multipart                                 0.0.9                              python                   
@@ -965,7 +965,7 @@ python3.11-venv                                  3.11.6-3                       
 qrcode-terminal                                  0.12.0                             npm                      
 qs                                               6.11.0                             npm                      
 qudida                                           0.0.4                              python                   
-queue-microtask                                  1.2.3                              npm                      
+queue-microtask                                  1.2.3                              npm     (+1 duplicate)   
 queue-tick                                       1.0.1                              npm                      
 range-parser                                     1.2.1                              npm                      
 rapidfuzz                                        3.8.1                              python                   
@@ -993,11 +993,11 @@ resolve-protobuf-schema                          2.1.0                          
 response-time                                    2.3.2                              npm                      
 restore-cursor                                   3.1.0                              npm                      
 retry                                            0.12.0                             npm                      
-reusify                                          1.0.4                              npm                      
+reusify                                          1.0.4                              npm     (+1 duplicate)   
 rich                                             13.7.1                             python                   
 rimraf                                           3.0.2                              npm                      
 run-async                                        2.4.1                              npm                      
-run-parallel                                     1.2.0                              npm                      
+run-parallel                                     1.2.0                              npm     (+1 duplicate)   
 rxjs                                             7.8.1                              npm                      
 safe-buffer                                      5.1.2                              npm     (+1 duplicate)   
 safe-buffer                                      5.2.1                              npm                      
@@ -1081,9 +1081,9 @@ thumbhash                                        0.1.1                          
 tifffile                                         2023.12.9                          python                   
 tiny-relative-date                               1.3.0                              npm                      
 tmp                                              0.0.33                             npm                      
-to-regex-range                                   5.0.1                              npm                      
+to-regex-range                                   5.0.1                              npm     (+1 duplicate)   
 toidentifier                                     1.0.1                              npm                      
-tokenizers                                       0.15.2                             python                   
+tokenizers                                       0.19.1                             python                   
 tomlkit                                          0.12.4                             python                   
 totalist                                         3.0.1                              npm                      
 tqdm                                             4.66.1                             python                   
@@ -1122,7 +1122,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.0                              npm                      
 validator                                        13.11.0                            npm                      
 vary                                             1.1.2                              npm                      
-virtualenv                                       20.26.0                            python                   
+virtualenv                                       20.26.1                            python                   
 walk-up-path                                     3.0.1                              npm                      
 watchfiles                                       0.21.0                             python                   
 wcwidth                                          0.2.13                             python                   
