@@ -45,24 +45,20 @@ RUN \
   echo "**** build server ****" && \
   mkdir -p \
     /app/immich/server \
-    /tmp/sharp && \
+    /tmp/node_modules && \
   cd /tmp/immich/server && \
   npm ci && \
   rm -rf node_modules/@img/sharp-libvips* && \
   rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
   cp -r \
     node_modules/@img \
-    /tmp && \
-  cp -r \
     node_modules/exiftool-vendored.pl \
-    /tmp && \
+    /tmp/node_modules && \
   npm run build && \
   npm prune --omit=dev --omit=optional && \
   cp -r \
-    /tmp/@img \
-    node_modules && \
-  cp -r \
-    /tmp/exiftool-vendored.pl \
+    /tmp/node_modules/@img \
+    /tmp/node_modules/exiftool-vendored.pl \
     node_modules && \
   npm link && \
   npm cache clean --force && \
