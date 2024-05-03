@@ -23,5 +23,3 @@ repo_vars:
   - CI_DOCKERENV = ''
   - CI_AUTH = ''
   - CI_WEBPATH = ''
-sponsor_links:
-  - { name: "Immich", url: "https://immich.app/docs/overview/support-the-project" }
