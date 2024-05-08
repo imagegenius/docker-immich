@@ -227,7 +227,6 @@ anstyle                                          1.0.4                  rust-cra
 anstyle-parse                                    0.2.3                  rust-crate                   
 anstyle-query                                    1.0.2                  rust-crate                   
 any-promise                                      1.3.0                  npm                          
-anyhow                                           1.0.75                 rust-crate                   
 anyhow                                           1.0.79                 rust-crate                   
 anymatch                                         3.1.3                  npm                          
 aom-libs                                         3.9.0-r0               apk                          
@@ -260,10 +259,7 @@ bin-links                                        4.0.3                  npm
 binary-extensions                                2.2.0                  npm                          
 binary-extensions                                2.3.0                  npm                          
 bitflags                                         2.4.1                  rust-crate  (+1 duplicate)   
-bitstream-io                                     1.7.0                  rust-crate                   
 bitstream-io                                     2.2.0                  rust-crate                   
-bitvec                                           1.0.1                  rust-crate                   
-bitvec_helpers                                   3.1.2                  rust-crate                   
 bl                                               4.1.0                  npm                          
 body-parser                                      1.20.2                 npm                          
 brace-expansion                                  1.1.11                 npm                          
@@ -351,9 +347,7 @@ coreutils-fmt                                    9.5-r1                 apk
 coreutils-sha512sum                              9.5-r1                 apk                          
 cors                                             2.8.5                  npm                          
 cosmiconfig                                      8.3.6                  npm                          
-crc                                              3.0.1                  rust-crate                   
 crc-32                                           1.2.2                  npm                          
-crc-catalog                                      2.2.0                  rust-crate                   
 crc32-stream                                     6.0.0                  npm                          
 cron                                             3.1.7                  npm                          
 cron-parser                                      4.9.0                  npm                          
@@ -383,7 +377,6 @@ destroy                                          1.2.0                  npm
 detect-libc                                      2.0.3                  npm                          
 diacritics                                       1.3.0                  npm                          
 diff                                             5.2.0                  npm                          
-dolby_vision                                     3.2.0                  rust-crate                   
 dotenv                                           16.4.5                 npm                          
 dotenv-expand                                    10.0.0                 npm                          
 eastasianwidth                                   0.2.0                  npm         (+1 duplicate)   
@@ -446,7 +439,6 @@ fs-minipass                                      2.1.0                  npm     
 fs-minipass                                      3.0.3                  npm                          
 fs.realpath                                      1.0.0                  npm                          
 function-bind                                    1.1.2                  npm         (+1 duplicate)   
-funty                                            2.0.0                  rust-crate                   
 gauge                                            3.0.2                  npm                          
 gaxios                                           6.2.0                  npm                          
 gcp-metadata                                     6.1.0                  npm                          
@@ -457,7 +449,7 @@ get-caller-file                                  2.0.5                  npm
 get-intrinsic                                    1.2.4                  npm                          
 getrandom                                        0.2.12                 rust-crate                   
 giflib                                           5.2.2-r0               apk                          
-glib                                             2.80.0-r3              apk                          
+glib                                             2.80.1-r0              apk                          
 glob                                             10.3.12                npm         (+1 duplicate)   
 glob                                             7.2.3                  npm                          
 glob                                             8.1.0                  npm                          
@@ -576,16 +568,15 @@ libblkid                                         2.40-r2                apk
 libbluray                                        1.3.4-r1               apk                          
 libbsd                                           0.12.2-r0              apk                          
 libbz2                                           1.0.8-r6               apk                          
-libc                                             0.2.147                rust-crate                   
 libc                                             0.2.149                rust-crate                   
 libc                                             0.2.152                rust-crate                   
 libcrypto3                                       3.3.0-r1               apk                          
 libcurl                                          8.7.1-r0               apk                          
 libdav1d                                         1.4.1-r0               apk                          
 libde265                                         1.0.15-r0              apk                          
-libdovi                                          3.2.0-r1               apk                          
+libdovi                                          3.3.0-r0               apk                          
 libdrm                                           2.4.120-r0             apk                          
-libeconf                                         0.6.2-r0               apk                          
+libeconf                                         0.6.3-r0               apk                          
 libexif                                          0.6.24-r2              apk                          
 libexpat                                         2.6.2-r0               apk                          
 libffi                                           3.4.6-r0               apk                          
@@ -603,7 +594,7 @@ libjxl                                           0.9.1-r0               apk
 libltdl                                          2.4.7-r3               apk                          
 libmd                                            1.1.0-r0               apk                          
 libmount                                         2.40-r2                apk                          
-libncursesw                                      6.4_p20240330-r0       apk                          
+libncursesw                                      6.4_p20240420-r0       apk                          
 libnpmaccess                                     8.0.4                  npm                          
 libnpmdiff                                       6.1.0                  npm                          
 libnpmexec                                       8.0.0                  npm                          
@@ -725,7 +716,7 @@ mute-stream                                      0.0.8                  npm
 mute-stream                                      1.0.0                  npm                          
 mylib                                            0.0.0                  npm                          
 mz                                               2.7.0                  npm                          
-ncurses-terminfo-base                            6.4_p20240330-r0       apk                          
+ncurses-terminfo-base                            6.4_p20240420-r0       apk                          
 negotiator                                       0.6.3                  npm         (+1 duplicate)   
 neo-async                                        2.6.2                  npm                          
 nest-commander                                   3.12.5                 npm                          
@@ -786,7 +777,7 @@ openexr-libopenexr                               3.1.13-r1              apk
 openid-client                                    5.6.5                  npm                          
 openjpeg                                         2.5.2-r0               apk                          
 openssl                                          3.3.0-r1               apk                          
-opus                                             1.4-r0                 apk                          
+opus                                             1.5.2-r0               apk                          
 ora                                              5.4.1                  npm                          
 orc                                              0.4.37-r0              apk                          
 os-tmpdir                                        1.0.2                  npm                          
@@ -860,7 +851,6 @@ qs                                               6.11.0                 npm
 queue-microtask                                  1.2.3                  npm         (+1 duplicate)   
 queue-tick                                       1.0.1                  npm                          
 quote                                            1.0.35                 rust-crate                   
-radium                                           0.7.0                  rust-crate                   
 rand                                             0.8.5                  rust-crate                   
 rand_chacha                                      0.3.1                  rust-crate                   
 rand_core                                        0.6.4                  rust-crate                   
@@ -972,7 +962,6 @@ supports-preserve-symlinks-flag                  1.0.0                  npm
 swagger-ui-dist                                  5.11.2                 npm                          
 syn                                              2.0.48                 rust-crate                   
 systeminformation                                5.22.0                 npm                          
-tap                                              1.0.1                  rust-crate                   
 tar                                              6.2.0                  npm                          
 tar                                              6.2.1                  npm                          
 tar-stream                                       3.1.6                  npm                          
@@ -1047,7 +1036,6 @@ wrap-ansi                                        8.1.0                  npm     
 wrappy                                           1.0.2                  npm                          
 write-file-atomic                                5.0.1                  npm                          
 ws                                               8.11.0                 npm                          
-wyz                                              0.5.1                  rust-crate                   
 x264-libs                                        0.164_git20231001-r0   apk                          
 x265-libs                                        3.6-r0                 apk                          
 xtend                                            4.0.2                  npm                          
