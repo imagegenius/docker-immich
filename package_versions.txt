@@ -341,7 +341,7 @@ crc32-stream                                     6.0.0                          
 cron                                             3.1.7                              npm                      
 cron-parser                                      4.9.0                              npm                      
 cross-spawn                                      7.0.3                              npm     (+1 duplicate)   
-cryptography                                     42.0.5                             python                   
+cryptography                                     42.0.7                             python                   
 cssesc                                           3.0.0                              npm                      
 curl                                             8.2.1-1ubuntu3.3                   deb                      
 cycler                                           0.12.1                             python                   
@@ -642,7 +642,7 @@ libmp3lame0                                      3.100-6                        
 libmpg123-0                                      1.31.3-2                           deb                      
 libncursesw6                                     6.4-4                              deb                      
 libnettle8                                       3.8.1-2                            deb                      
-libnghttp2-14                                    1.55.1-1ubuntu0.1                  deb                      
+libnghttp2-14                                    1.55.1-1ubuntu0.2                  deb                      
 libnpmaccess                                     8.0.2                              npm                      
 libnpmdiff                                       6.0.7                              npm                      
 libnpmexec                                       7.0.8                              npm                      
@@ -911,7 +911,7 @@ pinentry-curses                                  1.2.1-1ubuntu1                 
 pip                                              23.2                               python  (+1 duplicate)   
 pkginfo                                          1.10.0                             python                   
 platformdirs                                     4.2.1                              python                   
-poetry                                           1.8.2                              python                   
+poetry                                           1.8.3                              python                   
 poetry-core                                      1.9.0                              python                   
 poetry-plugin-export                             1.7.1                              python                   
 postcss-selector-parser                          6.0.15                             npm                      
@@ -968,7 +968,7 @@ qudida                                           0.0.4                          
 queue-microtask                                  1.2.3                              npm     (+1 duplicate)   
 queue-tick                                       1.0.1                              npm                      
 range-parser                                     1.2.1                              npm                      
-rapidfuzz                                        3.8.1                              python                   
+rapidfuzz                                        3.9.0                              python                   
 raw-body                                         2.5.2                              npm                      
 read                                             2.1.0                              npm                      
 read-cmd-shim                                    4.0.0                              npm                      
@@ -1084,7 +1084,7 @@ tmp                                              0.0.33                         
 to-regex-range                                   5.0.1                              npm     (+1 duplicate)   
 toidentifier                                     1.0.1                              npm                      
 tokenizers                                       0.19.1                             python                   
-tomlkit                                          0.12.4                             python                   
+tomlkit                                          0.12.5                             python                   
 totalist                                         3.0.1                              npm                      
 tqdm                                             4.66.1                             python                   
 tr46                                             0.0.3                              npm                      
