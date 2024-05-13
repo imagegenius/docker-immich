@@ -1429,7 +1429,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.0                               npm                         
 validator                                        13.11.0                             npm                         
 vary                                             1.1.2                               npm                         
-virtualenv                                       20.26.1                             python                      
+virtualenv                                       20.26.2                             python                      
 walk-up-path                                     3.0.1                               npm                         
 watchfiles                                       0.21.0                              python                      
 watchpack                                        2.4.0                               npm                         
