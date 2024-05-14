@@ -670,7 +670,7 @@ ieee754                                          1.2.1                          
 ignore                                           5.3.1                               npm                         
 ignore-walk                                      6.0.4                               npm                         
 imageio                                          2.33.1                              python                      
-immich                                           1.105.0                             npm                         
+immich                                           1.105.1                             npm                         
 import-fresh                                     3.3.0                               npm                         
 import-in-the-middle                             1.7.1                               npm                         
 import-in-the-middle                             1.7.4                               npm                         
