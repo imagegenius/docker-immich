@@ -1158,7 +1158,7 @@ pinentry-curses                                  1.2.1-1ubuntu1                 
 pip                                              23.2                                python     (+1 duplicate)   
 pirates                                          4.0.6                               npm                         
 pkginfo                                          1.10.0                              python                      
-platformdirs                                     4.2.1                               python                      
+platformdirs                                     4.2.2                               python                      
 poetry                                           1.8.3                               python                      
 poetry-core                                      1.9.0                               python                      
 poetry-plugin-export                             1.8.0                               python                      
@@ -1230,7 +1230,7 @@ queue-microtask                                  1.2.3                          
 queue-tick                                       1.0.1                               npm                         
 randombytes                                      2.1.0                               npm                         
 range-parser                                     1.2.1                               npm                         
-rapidfuzz                                        3.9.0                               python                      
+rapidfuzz                                        3.9.1                               python                      
 raw-body                                         2.5.2                               npm                         
 react                                            18.3.1                              npm                         
 react-dom                                        18.3.1                              npm                         
@@ -1257,7 +1257,8 @@ redis-parser                                     3.0.0                          
 reflect-metadata                                 0.2.2                               npm                         
 regenerator-runtime                              0.13.4                              npm                         
 regenerator-runtime                              0.14.1                              npm                         
-requests                                         2.31.0                              python     (+1 duplicate)   
+requests                                         2.31.0                              python                      
+requests                                         2.32.2                              python                      
 requests-toolbelt                                1.0.0                               python                      
 require-directory                                2.1.1                               npm                         
 require-in-the-middle                            7.2.0                               npm                         
@@ -1389,7 +1390,7 @@ totalist                                         3.0.1                          
 tqdm                                             4.66.3                              python                      
 tr46                                             0.0.3                               npm                         
 treeverse                                        3.0.0                               npm                         
-trove-classifiers                                2024.4.10                           python                      
+trove-classifiers                                2024.5.22                           python                      
 truncate-utf8-bytes                              1.0.2                               npm                         
 ts-interface-checker                             0.1.13                              npm                         
 tslib                                            2.6.2                               npm                         
@@ -1466,5 +1467,5 @@ yargs-parser                                     20.2.9                         
 yargs-parser                                     21.1.1                              npm                         
 yocto-queue                                      0.1.0                               npm                         
 zip-stream                                       6.0.1                               npm                         
-zipp                                             3.18.1                              python                      
+zipp                                             3.18.2                              python                      
 zlib1g                                           1:1.2.13.dfsg-1ubuntu5              deb                         
