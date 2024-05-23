@@ -132,6 +132,8 @@ services:
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
       - MACHINE_LEARNING_GPU_ACCELERATION= #optional
+      - MACHINE_LEARNING_HOST=0.0.0.0 #optional
+      - MACHINE_LEARNING_PORT=3003 #optional
       - MACHINE_LEARNING_WORKERS=1 #optional
       - MACHINE_LEARNING_WORKER_TIMEOUT=120 #optional
     volumes:
@@ -182,6 +184,8 @@ docker run -d \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
   -e MACHINE_LEARNING_GPU_ACCELERATION= `#optional` \
+  -e MACHINE_LEARNING_HOST=0.0.0.0 `#optional` \
+  -e MACHINE_LEARNING_PORT=3003 `#optional` \
   -e MACHINE_LEARNING_WORKERS=1 `#optional` \
   -e MACHINE_LEARNING_WORKER_TIMEOUT=120 `#optional` \
   -p 8080:8080 \
@@ -230,6 +234,8 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-e MACHINE_LEARNING_GPU_ACCELERATION=` | Enable cuda acceleration by setting the value to 'cuda' |
+| `-e MACHINE_LEARNING_HOST=0.0.0.0` | Immich machine-learning host |
+| `-e MACHINE_LEARNING_PORT=3003` | Immich machine-learning port |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
 | `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
 | `-v /config` | Contains machine learning models (~1.5GB with default models) |
