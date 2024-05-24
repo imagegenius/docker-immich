@@ -10,4 +10,4 @@ export LD_PRELOAD="$lib_path"
 exec \
     s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost 8080" \
         cd /app/immich/server s6-setuidgid abc \
-            node dist/main immich
+            node dist/main

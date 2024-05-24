@@ -11,12 +11,13 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
+  IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
+  IMMICH_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  SERVER_PORT="8080" \
   TRANSFORMERS_CACHE="/config/machine-learning/models"
 
 RUN \
