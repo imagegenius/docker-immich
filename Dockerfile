@@ -14,9 +14,10 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 # environment settings
 ENV \
+  IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SERVER_PORT="8080" \
+  IMMICH_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www"
 
 RUN \
