@@ -1230,7 +1230,7 @@ queue-microtask                                  1.2.3                          
 queue-tick                                       1.0.1                               npm                         
 randombytes                                      2.1.0                               npm                         
 range-parser                                     1.2.1                               npm                         
-rapidfuzz                                        3.9.1                               python                      
+rapidfuzz                                        3.9.2                               python                      
 raw-body                                         2.5.2                               npm                         
 react                                            18.3.1                              npm                         
 react-dom                                        18.3.1                              npm                         
@@ -1258,7 +1258,7 @@ reflect-metadata                                 0.2.2                          
 regenerator-runtime                              0.13.4                              npm                         
 regenerator-runtime                              0.14.1                              npm                         
 requests                                         2.31.0                              python                      
-requests                                         2.32.2                              python                      
+requests                                         2.32.3                              python                      
 requests-toolbelt                                1.0.0                               python                      
 require-directory                                2.1.1                               npm                         
 require-in-the-middle                            7.2.0                               npm                         
@@ -1467,5 +1467,5 @@ yargs-parser                                     20.2.9                         
 yargs-parser                                     21.1.1                              npm                         
 yocto-queue                                      0.1.0                               npm                         
 zip-stream                                       6.0.1                               npm                         
-zipp                                             3.18.2                              python                      
+zipp                                             3.19.0                              python                      
 zlib1g                                           1:1.2.13.dfsg-1ubuntu5              deb                         
