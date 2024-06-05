@@ -94,6 +94,11 @@ RUN \
     node_modules \
     dist \
     /app/immich/server && \
+  echo "**** copy scripts ****" && \
+  cd /tmp/immich/docker && \
+  cp -r \
+    scripts \
+    /app/immich/server && \
   echo "**** build open-api ****" && \
   cd /tmp/immich/open-api/typescript-sdk && \
   npm ci && \
