@@ -23,4 +23,5 @@ exec \
         -w "${MACHINE_LEARNING_WORKERS:=1}" \
         -b 0.0.0.0:3003 \
         -t "${MACHINE_LEARNING_WORKER_TIMEOUT:=120}" \
-        --log-config-json log_conf.json || exit
+        --log-config-json log_conf.json \
+        --graceful-timeout 0 || exit
