@@ -1014,7 +1014,7 @@ libplacebo                                                                   6.3
 libpng                                                                       1.6.43-r0                             apk                          
 libproc2                                                                     4.0.4-r0                              apk                          
 libpsl                                                                       0.21.5-r1                             apk                          
-libpulse                                                                     17.0-r0                               apk                          
+libpulse                                                                     17.0-r1                               apk                          
 libraw                                                                       0.21.2-r0                             apk                          
 libraw-dev                                                                   0.21.2-r0                             apk                          
 librist                                                                      0.2.10-r1                             apk                          
@@ -1199,7 +1199,7 @@ openssl                                                                      3.3
 optionator                                                                   0.9.3                                 npm                          
 opus                                                                         1.5.2-r0                              apk                          
 ora                                                                          5.4.1                                 npm                          
-orc                                                                          0.4.37-r0                             apk                          
+orc                                                                          0.4.38-r0                             apk                          
 os-tmpdir                                                                    1.0.2                                 npm                          
 p-limit                                                                      3.1.0                                 npm                          
 p-locate                                                                     5.0.0                                 npm                          
