@@ -11,9 +11,10 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
+  IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SERVER_PORT="8080" \
+  IMMICH_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www"
 
 RUN \
@@ -92,6 +93,11 @@ RUN \
     package-lock.json \
     node_modules \
     dist \
+    /app/immich/server && \
+  echo "**** copy scripts ****" && \
+  cd /tmp/immich/docker && \
+  cp -r \
+    scripts \
     /app/immich/server && \
   echo "**** build open-api ****" && \
   cd /tmp/immich/open-api/typescript-sdk && \
