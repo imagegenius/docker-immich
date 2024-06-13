@@ -47,7 +47,7 @@ NAME                                                                         VER
 @humanwhocodes/module-importer                                               1.0.1                                 npm                          
 @humanwhocodes/object-schema                                                 2.0.2                                 npm                          
 @img/sharp-linuxmusl-x64                                                     0.33.4                                npm                          
-@immich/cli                                                                  2.2.3                                 npm                          
+@immich/cli                                                                  2.2.4                                 npm                          
 @ioredis/commands                                                            1.2.0                                 npm                          
 @isaacs/cliui                                                                8.0.2                                 npm         (+1 duplicate)   
 @isaacs/string-locale-compare                                                1.1.0                                 npm                          
@@ -884,7 +884,7 @@ imagemagick-webp                                                             7.1
 imagequant                                                                   4.2.2                                 rust-crate                   
 imagequant-sys                                                               4.0.3                                 rust-crate                   
 imath                                                                        3.1.11-r2                             apk                          
-immich                                                                       1.106.3                               npm                          
+immich                                                                       1.106.4                               npm                          
 import-fresh                                                                 3.3.0                                 npm                          
 import-in-the-middle                                                         1.7.1                                 npm                          
 import-in-the-middle                                                         1.7.4                                 npm                          
@@ -1441,7 +1441,7 @@ tapable                                                                      2.2
 tar                                                                          6.2.0                                 npm                          
 tar                                                                          6.2.1                                 npm                          
 tar-stream                                                                   3.1.6                                 npm                          
-tdb-libs                                                                     1.4.9-r1                              apk                          
+tdb-libs                                                                     1.4.10-r0                             apk                          
 terminal_size                                                                0.3.0                                 rust-crate                   
 terser                                                                       5.27.0                                npm                          
 terser-webpack-plugin                                                        5.3.10                                npm                          
