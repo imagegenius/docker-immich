@@ -5,7 +5,7 @@ project_name: docker-immich
 external_type: github_stable
 release_type: stable
 release_tag: latest
-ig_branch: main
+ig_branch: cuda
 repo_vars:
   - EXT_GIT_BRANCH = 'main'
   - EXT_USER = 'immich-app'
