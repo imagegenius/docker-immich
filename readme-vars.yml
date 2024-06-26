@@ -15,9 +15,9 @@ available_architectures:
 # development version
 development_versions: true
 development_versions_items:
-  - { tag: "latest", desc: "Latest Immich release with an Ubuntu base." }
-  - { tag: "noml", desc: "Latest Immich release with an Ubuntu base. Machine-learning is completely removed." }
-  - { tag: "alpine", desc: "Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images)." }
+  - { tag: "latest", desc: "Latest Immich release." }
+  - { tag: "noml", desc: "Latest Immich release. Machine-learning is completely removed." }
+  - { tag: "cuda", desc: "Latest Immich release. Machine-learning supports cuda (Nvidia)." }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -46,7 +46,6 @@ opt_param_env_vars:
   - { env_var: "DB_PORT", env_value: "5432", desc: "PostgreSQL Port" }
   - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }
   - { env_var: "REDIS_PASSWORD", env_value: "", desc: "Redis password" }
-  - { env_var: "MACHINE_LEARNING_GPU_ACCELERATION", env_value: "", desc: "Enable cuda acceleration by setting the value to 'cuda'" }
   - { env_var: "MACHINE_LEARNING_HOST", env_value: "0.0.0.0", desc: "Immich machine-learning host" }
   - { env_var: "MACHINE_LEARNING_PORT", env_value: "3003", desc: "Immich machine-learning port" }
   - { env_var: "MACHINE_LEARNING_WORKERS", env_value: "1", desc: "Machine learning workers" }
@@ -126,8 +125,6 @@ app_setup_block: |
      ```bash
      docker run --gpus=all ...
      ```
-  
-  3. To enable GPU acceleration for machine learning, add `MACHINE_LEARNING_GPU_ACCELERATION=cuda`
   
   ## Importing Existing Libraries
   
