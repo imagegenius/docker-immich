@@ -594,7 +594,7 @@ figures                                                                      3.2
 file-entry-cache                                                             6.0.1                                 npm                         
 file-source                                                                  0.6.1                                 npm                         
 filelock                                                                     3.13.1                                python                      
-filelock                                                                     3.15.3                                python                      
+filelock                                                                     3.15.4                                python                      
 fill-range                                                                   7.0.1                                 npm        (+1 duplicate)   
 finalhandler                                                                 1.2.0                                 npm                         
 find-up                                                                      5.0.0                                 npm                         
@@ -867,7 +867,7 @@ immich                                                                       1.1
 import-fresh                                                                 3.3.0                                 npm                         
 import-in-the-middle                                                         1.7.1                                 npm                         
 import-in-the-middle                                                         1.7.4                                 npm                         
-importlib_metadata                                                           7.1.0                                 python                      
+importlib_metadata                                                           8.0.0                                 python                      
 imurmurhash                                                                  0.1.4                                 npm        (+1 duplicate)   
 indent-string                                                                4.0.0                                 npm                         
 inflight                                                                     1.0.6                                 npm                         
@@ -1270,7 +1270,7 @@ node-addon-api                                                               5.1
 node-fetch                                                                   2.7.0                                 npm                         
 node-gyp                                                                     10.1.0                                npm                         
 node-releases                                                                2.0.14                                npm                         
-nodejs                                                                       20.14.0-1nodesource1                  deb                         
+nodejs                                                                       20.15.0-1nodesource1                  deb                         
 nodemailer                                                                   6.9.13                                npm                         
 nopt                                                                         5.0.0                                 npm                         
 nopt                                                                         7.2.0                                 npm        (+1 duplicate)   
@@ -1637,7 +1637,7 @@ validate-npm-package-license                                                 3.0
 validate-npm-package-name                                                    5.0.0                                 npm                         
 validator                                                                    13.11.0                               npm                         
 vary                                                                         1.1.2                                 npm                         
-virtualenv                                                                   20.26.2                               python                      
+virtualenv                                                                   20.26.3                               python                      
 walk-up-path                                                                 3.0.1                                 npm                         
 watchfiles                                                                   0.21.0                                python                      
 watchpack                                                                    2.4.0                                 npm                         
