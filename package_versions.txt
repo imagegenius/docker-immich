@@ -420,7 +420,7 @@ camelcase-css                                                                2.0
 caniuse-lite                                                                 1.0.30001618                          npm                          
 catatonit                                                                    0.2.0-r0                              apk                          
 cfg-if                                                                       1.0.0                                 rust-crate  (+1 duplicate)   
-cfitsio                                                                      4.4.0-r0                              apk                          
+cfitsio                                                                      4.4.1-r0                              apk                          
 cgif                                                                         0.3.2-r0                              apk                          
 chalk                                                                        2.4.2                                 npm                          
 chalk                                                                        4.1.2                                 npm                          
@@ -516,7 +516,7 @@ csstype                                                                      3.1
 curl                                                                         8.8.0-r0                              apk                          
 dario.cat/mergo                                                              v1.0.0                                go-module                    
 dayjs                                                                        1.11.10                               npm                          
-dbus-libs                                                                    1.14.10-r1                            apk                          
+dbus-libs                                                                    1.14.10-r2                            apk                          
 debounce                                                                     2.0.0                                 npm                          
 debug                                                                        2.6.9                                 npm         (+3 duplicates)  
 debug                                                                        4.3.4                                 npm         (+1 duplicate)   
@@ -805,7 +805,7 @@ glob-parent                                                                  6.0
 glob-to-regexp                                                               0.4.1                                 npm                          
 globals                                                                      11.12.0                               npm                          
 globals                                                                      13.22.0                               npm                          
-glslang-libs                                                                 1.3.261.1-r0                          apk                          
+glslang-libs                                                                 1.3.283.0-r0                          apk                          
 go.lsp.dev/uri                                                               v0.3.0                                go-module                    
 go.opencensus.io                                                             v0.24.0                               go-module                    
 go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc  v0.52.0                               go-module                    
@@ -869,18 +869,18 @@ icu-libs                                                                     74.
 ieee754                                                                      1.2.1                                 npm                          
 ignore                                                                       5.3.1                                 npm                          
 ignore-walk                                                                  6.0.5                                 npm                          
-imagemagick                                                                  7.1.1.33-r0                           apk                          
-imagemagick-c++                                                              7.1.1.33-r0                           apk                          
-imagemagick-dev                                                              7.1.1.33-r0                           apk                          
-imagemagick-heic                                                             7.1.1.33-r0                           apk                          
-imagemagick-jpeg                                                             7.1.1.33-r0                           apk                          
-imagemagick-jxl                                                              7.1.1.33-r0                           apk                          
-imagemagick-libs                                                             7.1.1.33-r0                           apk                          
-imagemagick-pango                                                            7.1.1.33-r0                           apk                          
-imagemagick-raw                                                              7.1.1.33-r0                           apk                          
-imagemagick-svg                                                              7.1.1.33-r0                           apk                          
-imagemagick-tiff                                                             7.1.1.33-r0                           apk                          
-imagemagick-webp                                                             7.1.1.33-r0                           apk                          
+imagemagick                                                                  7.1.1.34-r0                           apk                          
+imagemagick-c++                                                              7.1.1.34-r0                           apk                          
+imagemagick-dev                                                              7.1.1.34-r0                           apk                          
+imagemagick-heic                                                             7.1.1.34-r0                           apk                          
+imagemagick-jpeg                                                             7.1.1.34-r0                           apk                          
+imagemagick-jxl                                                              7.1.1.34-r0                           apk                          
+imagemagick-libs                                                             7.1.1.34-r0                           apk                          
+imagemagick-pango                                                            7.1.1.34-r0                           apk                          
+imagemagick-raw                                                              7.1.1.34-r0                           apk                          
+imagemagick-svg                                                              7.1.1.34-r0                           apk                          
+imagemagick-tiff                                                             7.1.1.34-r0                           apk                          
+imagemagick-webp                                                             7.1.1.34-r0                           apk                          
 imagequant                                                                   4.2.2                                 rust-crate                   
 imagequant-sys                                                               4.0.3                                 rust-crate                   
 imath                                                                        3.1.11-r2                             apk                          
@@ -1010,7 +1010,7 @@ libogg                                                                       1.3
 libopenmpt                                                                   0.7.7-r0                              apk                          
 libpciaccess                                                                 0.18.1-r0                             apk                          
 libphonenumber-js                                                            1.10.53                               npm                          
-libplacebo                                                                   6.338.2-r1                            apk                          
+libplacebo                                                                   6.338.2-r2                            apk                          
 libpng                                                                       1.6.43-r0                             apk                          
 libproc2                                                                     4.0.4-r0                              apk                          
 libpsl                                                                       0.21.5-r1                             apk                          
@@ -1048,7 +1048,7 @@ libxdmcp                                                                     1.1
 libxext                                                                      1.3.6-r2                              apk                          
 libxfixes                                                                    6.0.1-r4                              apk                          
 libxft                                                                       2.3.8-r3                              apk                          
-libxml2                                                                      2.12.7-r0                             apk                          
+libxml2                                                                      2.12.8-r0                             apk                          
 libxrender                                                                   0.9.11-r5                             apk                          
 libzmq                                                                       4.3.5-r2                              apk                          
 lilconfig                                                                    2.1.0                                 npm                          
@@ -1228,7 +1228,7 @@ path-type                                                                    4.0
 pbf                                                                          3.2.1                                 npm                          
 pcre2                                                                        10.43-r0                              apk                          
 peberminta                                                                   0.9.0                                 npm                          
-perl                                                                         5.40.0-r0                             apk                          
+perl                                                                         5.40.0-r1                             apk                          
 pg                                                                           8.11.5                                npm                          
 pg-connection-string                                                         2.6.4                                 npm                          
 pg-int8                                                                      1.0.1                                 npm                          
@@ -1363,7 +1363,7 @@ set-blocking                                                                 2.0
 set-function-length                                                          1.2.1                                 npm                          
 setprototypeof                                                               1.2.0                                 npm                          
 sha.js                                                                       2.4.11                                npm                          
-shaderc                                                                      2024.0-r0                             apk                          
+shaderc                                                                      2024.0-r1                             apk                          
 shadow                                                                       4.15.1-r0                             apk                          
 shapefile                                                                    0.6.6                                 npm                          
 shared-mime-info                                                             2.4-r0                                apk                          
