@@ -28,9 +28,18 @@ RUN \
     python3-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
+    libcublas12 \
+    libcublaslt12 \
+    libcudart12 \
+    libcufft11 \
+    libcurand10 \
     python3 \
     python3-pip \
     python3-venv && \
+  echo "**** download libcudnn ****" && \
+  curl -o "/tmp/libcudnn8.deb" -L \
+    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.7.29-1+cuda12.2_amd64.deb" && \
+  dpkg -i "/tmp/libcudnn8.deb" && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -112,7 +121,7 @@ RUN \
   python3 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --with cpu --without dev && \
+  poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev && \
   cp -a \
     pyproject.toml \
     poetry.lock \
