@@ -45,7 +45,7 @@ pipeline {
         script{
           env.EXIT_STATUS = ''
           env.IG_RELEASE = sh(
-            script: '''docker run --rm quay.io/skopeo/stable:v1 inspect docker://ghcr.io/${IG_USER}/${CONTAINER_NAME}:latest 2>/dev/null | jq -r '.Labels.build_version' | awk '{print $3}' | grep '\\-ig' || : ''',
+            script: '''docker run --rm quay.io/skopeo/stable:v1 inspect docker://ghcr.io/${IG_USER}/${CONTAINER_NAME}:cuda 2>/dev/null | jq -r '.Labels.build_version' | awk '{print $3}' | grep '\\-ig' || : ''',
             returnStdout: true).trim()
           env.IG_RELEASE_NOTES = sh(
             script: '''cat readme-vars.yml | awk -F \\" '/date: "[0-9][0-9].[0-9][0-9].[0-9][0-9]:/ {print $4;exit;}' | sed -E ':a;N;$!ba;s/\\r{0,1}\\n/\\\\n/g' ''',
@@ -73,7 +73,7 @@ pipeline {
         script{
           env.IG_TAG_NUMBER = sh(
             script: '''#! /bin/bash
-                       tagsha=$(git rev-list -n 1 ${IG_RELEASE} 2>/dev/null)
+                       tagsha=$(git rev-list -n 1 cuda-${IG_RELEASE} 2>/dev/null)
                        if [ "${tagsha}" == "${COMMIT_SHA}" ]; then
                          echo ${IG_RELEASE_NUMBER}
                        elif [ -z "${GIT_COMMIT}" ]; then
@@ -168,13 +168,13 @@ pipeline {
         script{
           env.GITHUBIMAGE = 'ghcr.io/' + env.IG_USER + '/' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
+            env.CI_TAGS = 'amd64-cuda-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER + '|arm64v8-cuda-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
+            env.CI_TAGS = 'cuda-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
           }
           env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.META_TAG = 'cuda-' + env.EXT_RELEASE_CLEAN + '-ig' + env.IG_TAG_NUMBER
+          env.EXT_RELEASE_TAG = 'cuda-version-' + env.EXT_RELEASE_CLEAN
         }
       }
     }
@@ -188,13 +188,13 @@ pipeline {
         script{
           env.GITHUBIMAGE = 'ghcr.io/' + env.IG_USER + '/igdev-' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+            env.CI_TAGS = 'amd64-cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm64v8-cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+            env.CI_TAGS = 'cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
           }
           env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.META_TAG = 'cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+          env.EXT_RELEASE_TAG = 'cuda-version-' + env.EXT_RELEASE_CLEAN
         }
       }
     }
@@ -207,13 +207,13 @@ pipeline {
         script{
           env.GITHUBIMAGE = 'ghcr.io/' + env.IG_USER + '/igpipepr-' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+            env.CI_TAGS = 'amd64-cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm64v8-cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+            env.CI_TAGS = 'cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           }
           env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.META_TAG = 'cuda-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+          env.EXT_RELEASE_TAG = 'cuda-version-' + env.EXT_RELEASE_CLEAN
           env.CODE_URL = 'https://github.com/' + env.IG_USER + '/' + env.IG_REPO + '/pull/' + env.PULL_REQUEST
         }
       }
@@ -655,12 +655,12 @@ pipeline {
           sh '''#! /bin/bash
                 set -e
                 echo $GITHUB_TOKEN | docker login ghcr.io -u ImageGeniusCI --password-stdin
-                docker tag ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:latest
+                docker tag ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:cuda
                 docker tag ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:${EXT_RELEASE_TAG}
                 if [ -n "${SEMVER}" ]; then
                   docker tag ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:${SEMVER}
                 fi
-                docker push ${GITHUBIMAGE}:latest
+                docker push ${GITHUBIMAGE}:cuda
                 docker push ${GITHUBIMAGE}:${META_TAG}
                 docker push ${GITHUBIMAGE}:${EXT_RELEASE_TAG}
                 if [ -n "${SEMVER}" ]; then
@@ -686,10 +686,10 @@ pipeline {
                   docker tag ghcr.io/imagegenius/igdev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${GITHUBIMAGE}:arm64v8-${META_TAG}
                 fi
                 docker tag ${GITHUBIMAGE}:amd64-${META_TAG} ${GITHUBIMAGE}:amd64-${META_TAG}
-                docker tag ${GITHUBIMAGE}:amd64-${META_TAG} ${GITHUBIMAGE}:amd64-latest
+                docker tag ${GITHUBIMAGE}:amd64-${META_TAG} ${GITHUBIMAGE}:amd64-cuda
                 docker tag ${GITHUBIMAGE}:amd64-${META_TAG} ${GITHUBIMAGE}:amd64-${EXT_RELEASE_TAG}
                 docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ${GITHUBIMAGE}:arm64v8-${META_TAG}
-                docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ${GITHUBIMAGE}:arm64v8-latest
+                docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ${GITHUBIMAGE}:arm64v8-cuda
                 docker tag ${GITHUBIMAGE}:arm64v8-${META_TAG} ${GITHUBIMAGE}:arm64v8-${EXT_RELEASE_TAG}
                 if [ -n "${SEMVER}" ]; then
                   docker tag ${GITHUBIMAGE}:amd64-${META_TAG} ${GITHUBIMAGE}:amd64-${SEMVER}
@@ -697,17 +697,17 @@ pipeline {
                 fi
                 docker push ${GITHUBIMAGE}:amd64-${META_TAG}
                 docker push ${GITHUBIMAGE}:amd64-${EXT_RELEASE_TAG}
-                docker push ${GITHUBIMAGE}:amd64-latest
+                docker push ${GITHUBIMAGE}:amd64-cuda
                 docker push ${GITHUBIMAGE}:arm64v8-${META_TAG}
-                docker push ${GITHUBIMAGE}:arm64v8-latest
+                docker push ${GITHUBIMAGE}:arm64v8-cuda
                 docker push ${GITHUBIMAGE}:arm64v8-${EXT_RELEASE_TAG}
                 if [ -n "${SEMVER}" ]; then
                   docker push ${GITHUBIMAGE}:amd64-${SEMVER}
                   docker push ${GITHUBIMAGE}:arm64v8-${SEMVER}
                 fi
-                docker manifest push --purge ${GITHUBIMAGE}:latest || :
-                docker manifest create ${GITHUBIMAGE}:latest ${GITHUBIMAGE}:amd64-latest ${GITHUBIMAGE}:arm64v8-latest
-                docker manifest annotate ${GITHUBIMAGE}:latest ${GITHUBIMAGE}:arm64v8-latest --os linux --arch arm64 --variant v8
+                docker manifest push --purge ${GITHUBIMAGE}:cuda || :
+                docker manifest create ${GITHUBIMAGE}:cuda ${GITHUBIMAGE}:amd64-cuda ${GITHUBIMAGE}:arm64v8-cuda
+                docker manifest annotate ${GITHUBIMAGE}:cuda ${GITHUBIMAGE}:arm64v8-cuda --os linux --arch arm64 --variant v8
                 docker manifest push --purge ${GITHUBIMAGE}:${META_TAG} || :
                 docker manifest create ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:amd64-${META_TAG} ${GITHUBIMAGE}:arm64v8-${META_TAG}
                 docker manifest annotate ${GITHUBIMAGE}:${META_TAG} ${GITHUBIMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8
@@ -723,13 +723,13 @@ pipeline {
                 digest=$(curl -s \
                   --header "Accept: application/vnd.docker.distribution.manifest.v2+json" \
                   --header "Authorization: Bearer ${token}" \
-                  "https://ghcr.io/v2/imagegenius/${CONTAINER_NAME}/manifests/arm32v7-latest")
+                  "https://ghcr.io/v2/imagegenius/${CONTAINER_NAME}/manifests/arm32v7-cuda")
                 if [[ $(echo "$digest" | jq -r '.layers') != "null" ]]; then
-                  docker manifest push --purge ${GITHUBIMAGE}:arm32v7-latest || :
-                  docker manifest create ${GITHUBIMAGE}:arm32v7-latest ${GITHUBIMAGE}:amd64-latest
-                  docker manifest push --purge ${GITHUBIMAGE}:arm32v7-latest
+                  docker manifest push --purge ${GITHUBIMAGE}:arm32v7-cuda || :
+                  docker manifest create ${GITHUBIMAGE}:arm32v7-cuda ${GITHUBIMAGE}:amd64-cuda
+                  docker manifest push --purge ${GITHUBIMAGE}:arm32v7-cuda
                 fi
-                docker manifest push --purge ${GITHUBIMAGE}:latest
+                docker manifest push --purge ${GITHUBIMAGE}:cuda
                 docker manifest push --purge ${GITHUBIMAGE}:${META_TAG} 
                 docker manifest push --purge ${GITHUBIMAGE}:${EXT_RELEASE_TAG} 
                 if [ -n "${SEMVER}" ]; then
