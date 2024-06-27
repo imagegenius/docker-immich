@@ -4,28 +4,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  package-trigger-main:
+  package-trigger-cuda:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
 
       - name: Package Trigger
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/cuda'
         run: |
-          if [ -n "${{ secrets.PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN }}" ]; then
-            echo "**** Github secret PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN is set; skipping trigger. ****"
-            echo "Github secret \`PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN\` is set; skipping trigger." >> $GITHUB_STEP_SUMMARY
+          if [ -n "${{ secrets.PAUSE_PACKAGE_TRIGGER_IMMICH_CUDA }}" ]; then
+            echo "**** Github secret PAUSE_PACKAGE_TRIGGER_IMMICH_CUDA is set; skipping trigger. ****"
+            echo "Github secret \`PAUSE_PACKAGE_TRIGGER_IMMICH_CUDA\` is set; skipping trigger." >> $GITHUB_STEP_SUMMARY
             exit 0
           fi
-          if [ $(curl -s https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/lastBuild/api/json | jq -r '.building') == "true" ]; then
+          if [ $(curl -s https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/cuda/lastBuild/api/json | jq -r '.building') == "true" ]; then
             echo "**** There already seems to be an active build on Jenkins; skipping package trigger ****"
             echo "There already seems to be an active build on Jenkins; skipping package trigger" >> $GITHUB_STEP_SUMMARY
             exit 0
           fi
-          echo "**** Package trigger running off of main branch. To disable, set a Github secret named \"PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN\". ****"
-          echo "Package trigger running off of main branch. To disable, set a Github secret named \`PAUSE_PACKAGE_TRIGGER_IMMICH_MAIN\`" >> $GITHUB_STEP_SUMMARY
+          echo "**** Package trigger running off of cuda branch. To disable, set a Github secret named \"PAUSE_PACKAGE_TRIGGER_IMMICH_CUDA\". ****"
+          echo "Package trigger running off of cuda branch. To disable, set a Github secret named \`PAUSE_PACKAGE_TRIGGER_IMMICH_CUDA\`" >> $GITHUB_STEP_SUMMARY
           response=$(curl -iX POST \
-            https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/main/buildWithParameters?PACKAGE_CHECK=true \
+            https://ci.imagegenius.io/job/Docker-Pipeline-Builders/job/docker-immich/job/cuda/buildWithParameters?PACKAGE_CHECK=true \
             --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
           echo "**** Jenkins job queue url: ${response%$'\r'} ****"
           echo "**** Sleeping 10 seconds until job starts ****"
