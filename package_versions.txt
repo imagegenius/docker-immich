@@ -1020,9 +1020,9 @@ libgsf-1-114                                                                 1.1
 libgsf-1-common                                                              1.14.50-1                             deb                         
 libgssapi-krb5-2                                                             1.20.1-3ubuntu1                       deb                         
 libharfbuzz0b                                                                8.0.1-1                               deb                         
-libheif-plugin-dav1d                                                         1.16.2-2ubuntu1                       deb                         
-libheif-plugin-libde265                                                      1.16.2-2ubuntu1                       deb                         
-libheif1                                                                     1.16.2-2ubuntu1                       deb                         
+libheif-plugin-dav1d                                                         1.16.2-2ubuntu1.1                     deb                         
+libheif-plugin-libde265                                                      1.16.2-2ubuntu1.1                     deb                         
+libheif1                                                                     1.16.2-2ubuntu1.1                     deb                         
 libhogweed6                                                                  3.8.1-2                               deb                         
 libhwy1                                                                      1.0.7-7                               deb                         
 libicu72                                                                     72.1-3ubuntu3                         deb                         
