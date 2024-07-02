@@ -18,6 +18,7 @@ development_versions_items:
   - { tag: "latest", desc: "Latest Immich release." }
   - { tag: "noml", desc: "Latest Immich release. Machine-learning is completely removed." }
   - { tag: "cuda", desc: "Latest Immich release. Machine-learning supports cuda (Nvidia)." }
+  - { tag: "openvino", desc: "Latest Immich release. Machine-learning supports openvino (Intel)." }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -105,8 +106,14 @@ app_setup_block: |
      docker run --device=/dev/dri:/dev/dri ...
      ```
   
-  > [!NOTE]
-  > GPU acceleration for Intel via OpenVINO is not yet available.
+  To enable OpenVINO:
+
+  1. Make sure your [CPU supports OpenVINO](https://docs.openvino.ai/2024/about-openvino/system-requirements.html)
+  2. Add `--device-cgroup-rule='c 189:* rmw'` and  `-p /dev/bus/usb:/dev/bus/usb` to your Docker run command:
+
+     ```bash
+     docker run --device=/dev/dri --device-cgroup-rule='c 189:* rmw' -p /dev/bus/usb:/dev/bus/usb ...
+     ```
   
   ### Nvidia Hardware Acceleration
   
