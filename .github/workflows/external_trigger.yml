@@ -40,15 +40,10 @@ jobs:
             -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" \
             "https://ghcr.io/token?scope=repository%3Aimagegenius%2Fimmich%3Apull" \
             | jq -r '.token')
-            multidigest=$(curl -s \
-              --header "Accept: application/vnd.docker.distribution.manifest.v2+json" \
-              --header "Authorization: Bearer ${token}" \
-              "https://ghcr.io/v2/${image}/manifests/${tag}" \
-              | jq -r 'first(.manifests[].digest)')
             digest=$(curl -s \
               --header "Accept: application/vnd.docker.distribution.manifest.v2+json" \
               --header "Authorization: Bearer ${token}" \
-              "https://ghcr.io/v2/${image}/manifests/${multidigest}" \
+              "https://ghcr.io/v2/${image}/manifests/${tag}" \
               | jq -r '.config.digest')
           image_info=$(curl -sL \
             --header "Authorization: Bearer ${token}" \
