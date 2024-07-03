@@ -1172,7 +1172,7 @@ picomatch                                        4.0.2                          
 pify                                             2.3.0                               npm                          
 pillow                                           10.3.0                              python                       
 pinentry-curses                                  1.2.1-3ubuntu5                      deb                          
-pip                                              24.0                                python     (+1 duplicate)    
+pip                                              24.0                                python                       
 pirates                                          4.0.6                               npm                          
 pkginfo                                          1.11.1                              python                       
 platformdirs                                     4.2.2                               python                       
@@ -1229,16 +1229,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.9                               python                       
 python3                                          3.12.3-0ubuntu1                     deb                          
 python3-minimal                                  3.12.3-0ubuntu1                     deb                          
-python3-pip                                      24.0+dfsg-1ubuntu1                  deb                          
-python3-pip-whl                                  24.0+dfsg-1ubuntu1                  deb                          
-python3-pkg-resources                            68.1.2-2ubuntu1                     deb                          
-python3-setuptools                               68.1.2-2ubuntu1                     deb                          
-python3-setuptools-whl                           68.1.2-2ubuntu1                     deb                          
-python3-venv                                     3.12.3-0ubuntu1                     deb                          
-python3-wheel                                    0.42.0-2                            deb                          
 python3.12                                       3.12.3-1                            deb                          
 python3.12-minimal                               3.12.3-1                            deb                          
-python3.12-venv                                  3.12.3-1                            deb                          
 qrcode-terminal                                  0.12.0                              npm                          
 qs                                               6.11.0                              npm                          
 qudida                                           0.0.4                               python                       
@@ -1311,7 +1303,6 @@ server-only                                      0.0.1                          
 set-blocking                                     2.0.0                               npm                          
 set-function-length                              1.2.1                               npm                          
 setprototypeof                                   1.2.0                               npm                          
-setuptools                                       68.1.2                              python                       
 setuptools                                       68.2.2                              python                       
 sha.js                                           2.4.11                              npm                          
 shapefile                                        0.6.6                               npm                          
@@ -1458,7 +1449,6 @@ webpack                                          5.90.1                         
 webpack-sources                                  3.2.3                               npm                          
 websockets                                       12.0                                python                       
 whatwg-url                                       5.0.0                               npm                          
-wheel                                            0.42.0                              python                       
 which                                            1.3.1                               npm                          
 which                                            2.0.2                               npm        (+1 duplicate)    
 which                                            4.0.0                               npm                          
