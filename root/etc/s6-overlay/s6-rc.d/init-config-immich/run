@@ -3,10 +3,10 @@
 
 # make folders
 mkdir -p \
-    "$IMMICH_MEDIA_LOCATION"
+    "${IMMICH_MEDIA_LOCATION}"
 
 # permissions
-find "$IMMICH_MEDIA_LOCATION" -maxdepth 0 \( ! -user abc -o ! -group abc \) -exec lsiown -R abc:abc {} \;
+find "${IMMICH_MEDIA_LOCATION}" -maxdepth 0 \( ! -user abc -o ! -group abc \) -exec lsiown -R abc:abc {} \;
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config \
