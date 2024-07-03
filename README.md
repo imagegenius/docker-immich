@@ -131,7 +131,6 @@ services:
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
-      - MACHINE_LEARNING_GPU_ACCELERATION= #optional
       - MACHINE_LEARNING_HOST=0.0.0.0 #optional
       - MACHINE_LEARNING_PORT=3003 #optional
       - MACHINE_LEARNING_WORKERS=1 #optional
@@ -183,7 +182,6 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
-  -e MACHINE_LEARNING_GPU_ACCELERATION= `#optional` \
   -e MACHINE_LEARNING_HOST=0.0.0.0 `#optional` \
   -e MACHINE_LEARNING_PORT=3003 `#optional` \
   -e MACHINE_LEARNING_WORKERS=1 `#optional` \
@@ -233,7 +231,6 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-e MACHINE_LEARNING_GPU_ACCELERATION=` | Enable cuda acceleration by setting the value to 'cuda' |
 | `-e MACHINE_LEARNING_HOST=0.0.0.0` | Immich machine-learning host |
 | `-e MACHINE_LEARNING_PORT=3003` | Immich machine-learning port |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
