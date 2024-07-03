@@ -32,9 +32,10 @@ This image offers different versions via tags. Be cautious when using unstable o
 
 | Tag | Available | Description |
 | :----: | :----: |--- |
-| latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed, making it still compatible with hardware accelaration. |
-| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images). |
+| latest | ✅ | Latest Immich release. |
+| noml | ✅ | Latest Immich release. Machine-learning is completely removed. |
+| cuda | ✅ | Latest Immich release. Machine-learning supports cuda (Nvidia). |
+| openvino | ✅ | Latest Immich release. Machine-learning supports openvino (Intel). |
 
 ## Application Setup
 
