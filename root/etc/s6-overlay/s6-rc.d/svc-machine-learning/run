@@ -7,8 +7,6 @@
 # stop machine learning from starting
 [[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && tail -f /dev/null
 
-[[ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "cuda" ]] && source /config/machine-learning/cuda/.venv/bin/activate
-
 # [[ "${MACHINE_LEARNING_GPU_ACCELERATION,,}" = "openvino" ]] && source /config/machine-learning/openvino/.venv/bin/activate
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
