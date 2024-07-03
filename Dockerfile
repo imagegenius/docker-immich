@@ -27,13 +27,12 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
-    python3-dev && \
-  echo "**** install runtime packages ****" && \
-  apt-get install --no-install-recommends -y \
-    python3.10 \  
     python3.10-dev \
     python3.10-venv \
     python3-pip && \
+  echo "**** install runtime packages ****" && \
+  apt-get install --no-install-recommends -y \
+    python3.10 && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
