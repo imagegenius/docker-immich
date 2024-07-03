@@ -32,9 +32,10 @@ This image offers different versions via tags. Be cautious when using unstable o
 
 | Tag | Available | Description |
 | :----: | :----: |--- |
-| latest | ✅ | Latest Immich release with an Ubuntu base. |
-| noml | ✅ | Latest Immich release with an Ubuntu base. Machine-learning is completely removed. |
-| alpine | ✅ | Latest Immich release with an Alpine base. Machine-learning is completely removed, making it a very lightweight image (can have issues with RAW images). |
+| latest | ✅ | Latest Immich release. |
+| noml | ✅ | Latest Immich release. Machine-learning is completely removed. |
+| cuda | ✅ | Latest Immich release. Machine-learning supports cuda (Nvidia). |
+| openvino | ✅ | Latest Immich release. Machine-learning supports openvino (Intel). |
 
 ## Application Setup
 
@@ -78,8 +79,14 @@ To enable Intel Quicksync:
    docker run --device=/dev/dri:/dev/dri ...
    ```
 
-> [!NOTE]
-> GPU acceleration for Intel via OpenVINO is not yet available.
+To enable OpenVINO:
+
+1. Make sure your [CPU supports OpenVINO](https://docs.openvino.ai/2024/about-openvino/system-requirements.html)
+2. Add `--device-cgroup-rule='c 189:* rmw'` and  `-p /dev/bus/usb:/dev/bus/usb` to your Docker run command:
+
+   ```bash
+   docker run --device=/dev/dri --device-cgroup-rule='c 189:* rmw' -p /dev/bus/usb:/dev/bus/usb ...
+   ```
 
 ### Nvidia Hardware Acceleration
 
@@ -98,8 +105,6 @@ To enable Intel Quicksync:
    ```bash
    docker run --gpus=all ...
    ```
-
-3. To enable GPU acceleration for machine learning, add `MACHINE_LEARNING_GPU_ACCELERATION=cuda`
 
 ## Importing Existing Libraries
 
@@ -131,7 +136,6 @@ services:
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
-      - MACHINE_LEARNING_GPU_ACCELERATION= #optional
       - MACHINE_LEARNING_HOST=0.0.0.0 #optional
       - MACHINE_LEARNING_PORT=3003 #optional
       - MACHINE_LEARNING_WORKERS=1 #optional
@@ -183,7 +187,6 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
-  -e MACHINE_LEARNING_GPU_ACCELERATION= `#optional` \
   -e MACHINE_LEARNING_HOST=0.0.0.0 `#optional` \
   -e MACHINE_LEARNING_PORT=3003 `#optional` \
   -e MACHINE_LEARNING_WORKERS=1 `#optional` \
@@ -233,7 +236,6 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
-| `-e MACHINE_LEARNING_GPU_ACCELERATION=` | Enable cuda acceleration by setting the value to 'cuda' |
 | `-e MACHINE_LEARNING_HOST=0.0.0.0` | Immich machine-learning host |
 | `-e MACHINE_LEARNING_PORT=3003` | Immich machine-learning port |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
