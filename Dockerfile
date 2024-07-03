@@ -22,15 +22,17 @@ ENV \
 
 RUN \
   echo "**** install build packages ****" && \
+  echo "deb [signed-by=/usr/share/keyrings/deadsnakes.gpg] https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" >>/etc/apt/sources.list.d/deadsnakes.list && \
+  curl -s "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" | gpg --dearmor | tee /usr/share/keyrings/deadsnakes.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
-    python3-dev && \
+    python3.10-dev \
+    python3.10-venv \
+    python3-pip && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
-    python3 \
-    python3-pip \
-    python3-venv && \
+    python3.10 && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -109,10 +111,11 @@ RUN \
   cd /tmp/immich/machine-learning && \
   pip install --break-system-packages -U --no-cache-dir \
     poetry && \
-  python3 -m venv /lsiopy && \
+  python3.10 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --with cpu --without dev && \
+  poetry add --lock --no-interaction --no-ansi --group openvino openvino==2023.3.0 && \
+  poetry install --sync --no-interaction --no-ansi --no-root --with openvino --without dev && \
   cp -a \
     pyproject.toml \
     poetry.lock \
@@ -128,7 +131,9 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
-    python3-dev && \
+    python3.10-dev \
+    python3.10-venv \
+    python3-pip && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
