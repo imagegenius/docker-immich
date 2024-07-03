@@ -6,10 +6,10 @@ if [[ -n "${TEST_RUN}" ]]; then
     echo "Configuring CI for test run"
     apt-get update &>/dev/null
     apt-get install -y --no-install-recommends \
-        postgresql-15 \
+        postgresql-16 \
         redis-server &>/dev/null
 
-    s6-setuidgid postgres pg_ctlcluster 15 main start
+    s6-setuidgid postgres pg_ctlcluster 16 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
 
     if [[ "$(arch)" == "x86_64" ]]; then
@@ -21,7 +21,7 @@ if [[ -n "${TEST_RUN}" ]]; then
     # Install vectors
     curl -o \
         /tmp/vectors.deb -L \
-        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.2.0/vectors-pg15_0.2.0_$version.deb"
+        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.2.0/vectors-pg16_0.2.0_$version.deb"
     dpkg -i /tmp/vectors.deb
 
     # Setup vectors
@@ -29,7 +29,7 @@ if [[ -n "${TEST_RUN}" ]]; then
     sleep 1
     pkill postgres
     sleep 1
-    s6-setuidgid postgres pg_ctlcluster 15 main start
+    s6-setuidgid postgres pg_ctlcluster 16 main start
     sleep 1
     s6-setuidgid postgres psql -c "CREATE EXTENSION vectors;"
 

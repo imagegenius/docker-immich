@@ -10,12 +10,12 @@ check_var() {
 }
 
 if [ -z "${DB_URL}" ]; then
-#         Variable           Variable Summary                Additional Message
-check_var "DB_HOSTNAME"      "PostgreSQL database host"
-check_var "DB_USERNAME"      "PostgreSQL database user"
-check_var "DB_PASSWORD"      "PostgreSQL database password"
-check_var "DB_DATABASE_NAME" "PostgreSQL database name"
+    #         Variable           Variable Summary                Additional Message
+    check_var "DB_HOSTNAME"      "PostgreSQL database host"
+    check_var "DB_USERNAME"      "PostgreSQL database user"
+    check_var "DB_PASSWORD"      "PostgreSQL database password"
+    check_var "DB_DATABASE_NAME" "PostgreSQL database name"
 fi
 if [ -z "${REDIS_SOCKET}" ] && [ -z "${REDIS_URL}" ]; then
-check_var "REDIS_HOSTNAME"   "Redis host"
+    check_var "REDIS_HOSTNAME" "Redis host"
 fi
