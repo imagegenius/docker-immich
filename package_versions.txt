@@ -340,7 +340,7 @@ ajv-keywords                                     3.5.2                          
 alpine-baselayout                                3.6.5-r0                            apk                           
 alpine-baselayout-data                           3.6.5-r0                            apk                           
 alpine-keys                                      2.4-r1                              apk                           
-alsa-lib                                         1.2.11-r0                           apk                           
+alsa-lib                                         1.2.12-r0                           apk                           
 ansi-escapes                                     4.3.2                               npm                           
 ansi-regex                                       5.0.1                               npm         (+1 duplicate)    
 ansi-regex                                       6.0.1                               npm         (+2 duplicates)   
