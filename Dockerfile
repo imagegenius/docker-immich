@@ -25,12 +25,12 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
-    python3-dev && \
-  echo "**** install runtime packages ****" && \
-  apt-get install --no-install-recommends -y \
-    python3 \
+    python3-dev \
     python3-pip \
     python3-venv && \
+  echo "**** install runtime packages ****" && \
+  apt-get install --no-install-recommends -y \
+    python3 && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -128,7 +128,9 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
-    python3-dev && \
+    python3-dev \
+    python3-pip \
+    python3-venv && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
