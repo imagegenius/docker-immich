@@ -17,6 +17,7 @@ ENV \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
+  IMMICH_REVERSE_GEOCODING_ROOT="/app/immich/server/geodata" \
   IMMICH_PORT="8080" \
   IMMICH_WEB_ROOT="/app/immich/server/www"
 
@@ -36,7 +37,6 @@ RUN \
     /tmp/immich --strip-components=1 && \
   echo "**** build server ****" && \
   mkdir -p \
-    /app/immich/server \
     /tmp/node_modules && \
   cd /tmp/immich/server && \
   npm ci && \
