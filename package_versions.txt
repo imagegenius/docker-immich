@@ -411,7 +411,7 @@ camelcase-css                                    2.0.1                          
 caniuse-lite                                     1.0.30001618                        npm                          
 catatonit                                        0.1.7-1                             deb                          
 certifi                                          2023.11.17                          python                       
-certifi                                          2024.6.2                            python                       
+certifi                                          2024.7.4                            python                       
 cffi                                             1.16.0                              python                       
 chalk                                            2.4.2                               npm                          
 chalk                                            4.1.2                               npm                          
