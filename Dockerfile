@@ -20,11 +20,6 @@ ENV \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   TRANSFORMERS_CACHE="/config/machine-learning/models"
 
-# To be removed in version > v1.107.2
-ENV \
-  IMMICH_REVERSE_GEOCODING_ROOT="/app/immich/server/geodata" \
-  IMMICH_WEB_ROOT="/app/immich/server/www"
-
 RUN \
   echo "**** install build packages ****" && \
   apt-get update && \
