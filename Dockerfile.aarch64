@@ -11,11 +11,11 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
+  IMMICH_BUILD_DATA="/app/immich/server" \
+  IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  IMMICH_REVERSE_GEOCODING_ROOT="/app/immich/server/geodata" \
-  SERVER_PORT="8080" \
-  IMMICH_WEB_ROOT="/app/immich/server/www"
+  IMMICH_PORT="8080"
 
 RUN \
   echo "**** download immich ****" && \

@@ -9,17 +9,14 @@ ARG IMMICH_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
 
-# nvidia environment variable https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/docker-specialized.html
-ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
-
 # environment settings
 ENV \
+  IMMICH_BUILD_DATA="/app/immich/server" \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  IMMICH_REVERSE_GEOCODING_ROOT="/app/immich/server/geodata" \
   IMMICH_PORT="8080" \
-  IMMICH_WEB_ROOT="/app/immich/server/www"
+  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 RUN \
   echo "**** download immich ****" && \
