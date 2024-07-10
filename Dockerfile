@@ -18,11 +18,6 @@ ENV \
   IMMICH_PORT="8080" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
-# To be removed in version > v1.107.2
-ENV \
-  IMMICH_REVERSE_GEOCODING_ROOT="/app/immich/server/geodata" \
-  IMMICH_WEB_ROOT="/app/immich/server/www"
-
 RUN \
   echo "**** download immich ****" && \
   mkdir -p \
