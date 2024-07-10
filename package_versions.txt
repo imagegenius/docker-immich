@@ -1409,7 +1409,7 @@ to-fast-properties                               2.0.0                          
 to-regex-range                                   5.0.1                               npm        (+1 duplicate)    
 toidentifier                                     1.0.1                               npm                          
 tokenizers                                       0.19.1                              python                       
-tomlkit                                          0.12.5                              python                       
+tomlkit                                          0.13.0                              python                       
 totalist                                         3.0.1                               npm                          
 tqdm                                             4.66.3                              python                       
 tr46                                             0.0.3                               npm                          
