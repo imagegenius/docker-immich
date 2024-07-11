@@ -8,7 +8,7 @@
 [[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && tail -f /dev/null
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
-export LD_PRELOAD="$lib_path"
+export LD_PRELOAD="${lib_path}"
 export MPLCONFIGDIR="/tmp"
 export HF_HOME="/tmp"
 

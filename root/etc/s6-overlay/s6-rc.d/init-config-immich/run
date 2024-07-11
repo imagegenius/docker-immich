@@ -4,10 +4,13 @@
 # make folders
 mkdir -p \
     /config/machine-learning/models \
-    "$IMMICH_MEDIA_LOCATION"
+    "${IMMICH_MEDIA_LOCATION}"
 
 # permissions
-find "$IMMICH_MEDIA_LOCATION" -maxdepth 0 \( ! -user abc -o ! -group abc \) -exec lsiown -R abc:abc {} \;
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
     /config
+lsiown -R abc:abc \
+    "${IMMICH_MEDIA_LOCATION}" &
+
+echo "Spawned chown on ${IMMICH_MEDIA_LOCATION} in the background"
