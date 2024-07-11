@@ -12,4 +12,4 @@ fi
 
 exec \
     cd /app/immich/server s6-setuidgid abc \
-    node dist/main microservices || exit
+        node dist/main microservices || exit
