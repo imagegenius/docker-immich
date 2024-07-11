@@ -14,7 +14,7 @@ Immich is a high performance self-hosted photo and video backup solution.
 
 ## Supported Architectures
 
-We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
+We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://distribution.github.io/distribution/spec/manifest-v2-2/#manifest-list).
 
 To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:noml`. Alternatively, you can also obtain specific architecture images by using tags.
 
@@ -68,7 +68,7 @@ services:
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
-      - path_to_imports:/import:ro #optional
+      - path_to_libraries:/libraries #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -114,7 +114,7 @@ docker run -d \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
-  -v path_to_imports:/import:ro `#optional` \
+  -v path_to_libraries:/libraries `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:noml
 
@@ -157,7 +157,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-v /config` | AppData |
 | `-v /photos` | Contains all the photos uploaded to Immich |
-| `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
+| `-v /libraries` | External libraries to track assets stored outside of Immich |
 
 ## Umask for running applications
 
