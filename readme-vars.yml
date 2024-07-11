@@ -54,7 +54,7 @@ opt_param_env_vars:
   - { env_var: "MACHINE_LEARNING_WORKER_TIMEOUT", env_value: "120", desc: "Machine learning worker timeout" }
 opt_param_usage_include_vols: true
 opt_param_volumes:
-  - { vol_path: "/import:ro", vol_host_path: "path_to_imports", desc: "This folder will be periodically scanned, contents will be automatically imported into Immich" }
+  - { vol_path: "/libraries", vol_host_path: "path_to_libraries", desc: "External libraries to track assets stored outside of Immich" }
 opt_param_usage_include_ports: false
 opt_param_device_map: false
 opt_cap_add_param: false
