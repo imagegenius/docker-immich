@@ -53,7 +53,7 @@ opt_param_env_vars:
   - { env_var: "MACHINE_LEARNING_WORKER_TIMEOUT", env_value: "120", desc: "Machine learning worker timeout" }
 opt_param_usage_include_vols: true
 opt_param_volumes:
-  - { vol_path: "/import:ro", vol_host_path: "path_to_imports", desc: "This folder will be periodically scanned, contents will be automatically imported into Immich" }
+  - { vol_path: "/libraries", vol_host_path: "path_to_libraries", desc: "External libraries to track assets stored outside of Immich" }
 opt_param_usage_include_ports: false
 opt_param_device_map: false
 opt_cap_add_param: false
@@ -109,10 +109,10 @@ app_setup_block: |
   To enable OpenVINO:
 
   1. Make sure your [CPU supports OpenVINO](https://docs.openvino.ai/2024/about-openvino/system-requirements.html)
-  2. Add `--device-cgroup-rule='c 189:* rmw'` and  `-p /dev/bus/usb:/dev/bus/usb` to your Docker run command:
+  2. Add `--device-cgroup-rule='c 189:* rmw'` and  `-v /dev/bus/usb:/dev/bus/usb` to your Docker run command:
 
      ```bash
-     docker run --device=/dev/dri --device-cgroup-rule='c 189:* rmw' -p /dev/bus/usb:/dev/bus/usb ...
+     docker run --device=/dev/dri --device-cgroup-rule='c 189:* rmw' -v /dev/bus/usb:/dev/bus/usb ...
      ```
   
   ### Nvidia Hardware Acceleration
@@ -133,11 +133,11 @@ app_setup_block: |
      docker run --gpus=all ...
      ```
   
-  ## Importing Existing Libraries
+  ## Add Existing Libraries
   
-  - Mount the existing library folder to `/import`.
-  - Set `/import` (or `/import/<user>` for multiple users) as the external path in the administration settings.
-  - In account settings, add a new library with the path set to `/import` or `/import/<user>`.
+  - Mount the existing library folder to `/libraries`.
+  - Set `/libraries` (or `/libraries/<user>` for multiple users) as the external path in the administration settings.
+  - In account settings, add a new library with the path set to `/libraries` or `/libraries/<user>`.
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
