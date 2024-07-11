@@ -14,7 +14,7 @@ Immich is a high performance self-hosted photo and video backup solution.
 
 ## Supported Architectures
 
-We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list).
+We use Docker manifest for cross-platform compatibility. More details can be found on [Docker's website](https://distribution.github.io/distribution/spec/manifest-v2-2/#manifest-list).
 
 To obtain the appropriate image for your architecture, simply pull `ghcr.io/imagegenius/immich:latest`. Alternatively, you can also obtain specific architecture images by using tags.
 
@@ -82,10 +82,10 @@ To enable Intel Quicksync:
 To enable OpenVINO:
 
 1. Make sure your [CPU supports OpenVINO](https://docs.openvino.ai/2024/about-openvino/system-requirements.html)
-2. Add `--device-cgroup-rule='c 189:* rmw'` and  `-p /dev/bus/usb:/dev/bus/usb` to your Docker run command:
+2. Add `--device-cgroup-rule='c 189:* rmw'` and  `-v /dev/bus/usb:/dev/bus/usb` to your Docker run command:
 
    ```bash
-   docker run --device=/dev/dri --device-cgroup-rule='c 189:* rmw' -p /dev/bus/usb:/dev/bus/usb ...
+   docker run --device=/dev/dri --device-cgroup-rule='c 189:* rmw' -v /dev/bus/usb:/dev/bus/usb ...
    ```
 
 ### Nvidia Hardware Acceleration
@@ -106,11 +106,11 @@ To enable OpenVINO:
    docker run --gpus=all ...
    ```
 
-## Importing Existing Libraries
+## Add Existing Libraries
 
-- Mount the existing library folder to `/import`.
-- Set `/import` (or `/import/<user>` for multiple users) as the external path in the administration settings.
-- In account settings, add a new library with the path set to `/import` or `/import/<user>`.
+- Mount the existing library folder to `/libraries`.
+- Set `/libraries` (or `/libraries/<user>` for multiple users) as the external path in the administration settings.
+- In account settings, add a new library with the path set to `/libraries` or `/libraries/<user>`.
 
 ## Usage
 
@@ -143,7 +143,7 @@ services:
     volumes:
       - path_to_appdata:/config
       - path_to_photos:/photos
-      - path_to_imports:/import:ro #optional
+      - path_to_libraries:/libraries #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -194,7 +194,7 @@ docker run -d \
   -p 8080:8080 \
   -v path_to_appdata:/config \
   -v path_to_photos:/photos \
-  -v path_to_imports:/import:ro `#optional` \
+  -v path_to_libraries:/libraries `#optional` \
   --restart unless-stopped \
   ghcr.io/imagegenius/immich:latest
 
@@ -242,7 +242,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e MACHINE_LEARNING_WORKER_TIMEOUT=120` | Machine learning worker timeout |
 | `-v /config` | Contains machine learning models (~1.5GB with default models) |
 | `-v /photos` | Contains all the photos uploaded to Immich |
-| `-v /import:ro` | This folder will be periodically scanned, contents will be automatically imported into Immich |
+| `-v /libraries` | External libraries to track assets stored outside of Immich |
 
 ## Umask for running applications
 
