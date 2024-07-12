@@ -9,8 +9,5 @@ mkdir -p \
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
+    "${IMMICH_MEDIA_LOCATION}"/* \
     /config
-lsiown -R abc:abc \
-    "${IMMICH_MEDIA_LOCATION}" &
-
-echo "Spawned chown on ${IMMICH_MEDIA_LOCATION} in the background"
