@@ -9,5 +9,8 @@ mkdir -p \
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 lsiown -R abc:abc \
-    "${IMMICH_MEDIA_LOCATION}"/* \
     /config
+
+lsiown abc:abc \
+    "${IMMICH_MEDIA_LOCATION}"/* \
+    "${IMMICH_MEDIA_LOCATION}"
