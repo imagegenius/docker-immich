@@ -755,7 +755,6 @@ lazystream                                       1.0.1                          
 leac                                             0.6.0                               npm                          
 levn                                             0.4.1                               npm                          
 libacl1                                          2.3.2-1build1                       deb                          
-libaom3                                          3.8.2-2ubuntu0.1                    deb                          
 libapt-pkg6.0t64                                 2.7.14build2                        deb                          
 libassuan0                                       2.5.6-1build1                       deb                          
 libattr1                                         1:2.5.2-1build1                     deb                          
@@ -782,6 +781,7 @@ libcufft11                                       11.0.1.95~12.0.1-4build4       
 libcurand10                                      11.1.1+~10.3.1.124~12.0.1-4build4   deb                          
 libcurl4t64                                      8.5.0-2ubuntu10.1                   deb                          
 libdatrie1                                       0.2.13-3build1                      deb                          
+libdav1d7                                        1.4.1-1build1                       deb                          
 libdb5.3t64                                      5.3.28+dfsg2-7                      deb                          
 libde265-0                                       1.0.15-1build3                      deb                          
 libdebconfclient0                                0.271ubuntu3                        deb                          
@@ -794,7 +794,7 @@ libdrm-nouveau2                                  2.4.120-2build1                
 libdrm-radeon1                                   2.4.120-2build1                     deb                          
 libdrm2                                          2.4.120-2build1                     deb                          
 libedit2                                         3.1-20230828-1build1                deb                          
-libegl-mesa0                                     24.0.5-1ubuntu1                     deb                          
+libegl-mesa0                                     24.0.9-0ubuntu0.1                   deb                          
 libegl1                                          1.7.0-1build1                       deb                          
 libelf1t64                                       0.190-1.1build4                     deb                          
 libexif12                                        0.6.24-1build2                      deb                          
@@ -804,7 +804,7 @@ libffi8                                          3.4.6-1build1                  
 libfontconfig1                                   2.15.0-1.1ubuntu2                   deb                          
 libfreetype6                                     2.13.2+dfsg-1build3                 deb                          
 libfribidi0                                      1.0.13-3build1                      deb                          
-libgbm1                                          24.0.5-1ubuntu1                     deb                          
+libgbm1                                          24.0.9-0ubuntu0.1                   deb                          
 libgcc-s1                                        14-20240412-0ubuntu1                deb                          
 libgcrypt20                                      1.10.3-2build1                      deb                          
 libgdbm-compat4t64                               1.23-5.1build1                      deb                          
@@ -813,13 +813,13 @@ libgdk-pixbuf-2.0-0                              2.42.10+dfsg-3ubuntu3.1        
 libgdk-pixbuf2.0-bin                             2.42.10+dfsg-3ubuntu3.1             deb                          
 libgdk-pixbuf2.0-common                          2.42.10+dfsg-3ubuntu3.1             deb                          
 libgl1                                           1.7.0-1build1                       deb                          
-libgl1-mesa-dri                                  24.0.5-1ubuntu1                     deb                          
-libglapi-mesa                                    24.0.5-1ubuntu1                     deb                          
+libgl1-mesa-dri                                  24.0.9-0ubuntu0.1                   deb                          
+libglapi-mesa                                    24.0.9-0ubuntu0.1                   deb                          
 libgles2                                         1.7.0-1build1                       deb                          
 libglib2.0-0t64                                  2.80.0-6ubuntu3.1                   deb                          
 libglib2.0-data                                  2.80.0-6ubuntu3.1                   deb                          
 libglvnd0                                        1.7.0-1build1                       deb                          
-libglx-mesa0                                     24.0.5-1ubuntu1                     deb                          
+libglx-mesa0                                     24.0.9-0ubuntu0.1                   deb                          
 libglx0                                          1.7.0-1build1                       deb                          
 libgmp10                                         2:6.3.0+dfsg-2ubuntu6               deb                          
 libgnutls30t64                                   3.8.3-1.1ubuntu3.1                  deb                          
@@ -830,15 +830,13 @@ libgsf-1-114                                     1.14.51-2build2                
 libgsf-1-common                                  1.14.51-2build2                     deb                          
 libgssapi-krb5-2                                 1.20.1-6ubuntu2                     deb                          
 libharfbuzz0b                                    8.3.0-2build2                       deb                          
-libheif-plugin-aomdec                            1.17.6-1ubuntu4                     deb                          
-libheif-plugin-libde265                          1.17.6-1ubuntu4                     deb                          
-libheif1                                         1.17.6-1ubuntu4                     deb                          
 libhogweed6t64                                   3.9.1-2.2build1                     deb                          
 libhwy1t64                                       1.0.7-8.1build1                     deb                          
 libicu74                                         74.2-1ubuntu3                       deb                          
 libidn2-0                                        2.3.7-2build1                       deb                          
 libigdgmm12                                      22.3.19                             deb                          
 libimath-3-1-29t64                               3.1.9-3.1ubuntu2                    deb                          
+libio-compress-brotli-perl                       0.004001-2build3                    deb                          
 libjbig0                                         2.1-6.1ubuntu2                      deb                          
 libjpeg-turbo8                                   2.1.5-2ubuntu2                      deb                          
 libjpeg8                                         8c-2ubuntu11                        deb                          
@@ -1017,8 +1015,8 @@ merge-stream                                     2.0.0                          
 merge2                                           1.4.1                               npm        (+1 duplicate)    
 mesa-utils                                       9.0.0-2                             deb                          
 mesa-utils-bin                                   9.0.0-2                             deb                          
-mesa-va-drivers                                  24.0.5-1ubuntu1                     deb                          
-mesa-vulkan-drivers                              24.0.5-1ubuntu1                     deb                          
+mesa-va-drivers                                  24.0.9-0ubuntu0.1                   deb                          
+mesa-vulkan-drivers                              24.0.9-0ubuntu0.1                   deb                          
 methods                                          1.1.2                               npm                          
 micromatch                                       4.0.5                               npm        (+1 duplicate)    
 mime                                             1.6.0                               npm                          
@@ -1080,7 +1078,7 @@ node-addon-api                                   5.1.0                          
 node-fetch                                       2.7.0                               npm                          
 node-gyp                                         10.1.0                              npm                          
 node-releases                                    2.0.14                              npm                          
-nodejs                                           20.15.0-1nodesource1                deb                          
+nodejs                                           20.15.1-1nodesource1                deb                          
 nodemailer                                       6.9.14                              npm                          
 nopt                                             5.0.0                               npm                          
 nopt                                             7.2.0                               npm        (+1 duplicate)    
