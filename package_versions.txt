@@ -47,7 +47,7 @@ NAME                                             VERSION                        
 @humanwhocodes/module-importer                   1.0.1                               npm                          
 @humanwhocodes/object-schema                     2.0.2                               npm                          
 @img/sharp-linux-x64                             0.33.4                              npm                          
-@immich/cli                                      2.2.8                               npm                          
+@immich/cli                                      2.2.9                               npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)    
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -530,8 +530,8 @@ etag                                             1.8.1                          
 event-target-shim                                5.0.1                               npm                          
 eventemitter2                                    6.4.9                               npm                          
 events                                           3.3.0                               npm                          
-exiftool-vendored                                27.0.0                              npm                          
-exiftool-vendored.pl                             12.85.0                             npm                          
+exiftool-vendored                                26.0.0                              npm                          
+exiftool-vendored.pl                             12.84.0                             npm                          
 exponential-backoff                              3.1.1                               npm                          
 express                                          4.19.2                              npm                          
 extend                                           3.0.2                               npm                          
@@ -633,7 +633,7 @@ iconv-lite                                       0.6.3                          
 ieee754                                          1.2.1                               npm                          
 ignore                                           5.3.1                               npm                          
 ignore-walk                                      6.0.4                               npm                          
-immich                                           1.108.0                             npm                          
+immich                                           1.109.0                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.8.0                               npm                          
 import-in-the-middle                             1.8.1                               npm                          
