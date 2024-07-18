@@ -47,7 +47,7 @@ NAME                                             VERSION                        
 @humanwhocodes/module-importer                   1.0.1                               npm                           
 @humanwhocodes/object-schema                     2.0.2                               npm                           
 @img/sharp-linuxmusl-x64                         0.33.4                              npm                           
-@immich/cli                                      2.2.10                              npm                           
+@immich/cli                                      2.2.11                              npm                           
 @ioredis/commands                                1.2.0                               npm                           
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)    
 @isaacs/string-locale-compare                    1.1.0                               npm                           
@@ -667,7 +667,7 @@ http-errors                                      2.0.0                          
 http-proxy-agent                                 7.0.2                               npm                           
 https-proxy-agent                                5.0.1                               npm                           
 https-proxy-agent                                7.0.4                               npm         (+1 duplicate)    
-hwdata-pci                                       0.382-r0                            apk                           
+hwdata-pci                                       0.384-r0                            apk                           
 i18n-iso-countries                               7.11.2                              npm                           
 iconv-lite                                       0.4.24                              npm                           
 iconv-lite                                       0.6.3                               npm                           
@@ -691,7 +691,7 @@ imagemagick-webp                                 7.1.1.35-r0                    
 imagequant                                       4.2.2                               rust-crate                    
 imagequant-sys                                   4.0.3                               rust-crate                    
 imath                                            3.1.11-r2                           apk                           
-immich                                           1.109.1                             npm                           
+immich                                           1.109.2                             npm                           
 import-fresh                                     3.3.0                               npm                           
 import-in-the-middle                             1.8.0                               npm                           
 import-in-the-middle                             1.8.1                               npm                           
@@ -814,7 +814,7 @@ libnpmsearch                                     7.0.5                          
 libnpmteam                                       6.0.5                               npm                           
 libnpmversion                                    6.0.2                               npm                           
 libogg                                           1.3.5-r5                            apk                           
-libopenmpt                                       0.7.7-r0                            apk                           
+libopenmpt                                       0.7.8-r0                            apk                           
 libpciaccess                                     0.18.1-r0                           apk                           
 libphonenumber-js                                1.10.53                             npm                           
 libplacebo                                       6.338.2-r2                          apk                           
@@ -825,7 +825,7 @@ libpulse                                         17.0-r1                        
 libraw                                           0.21.2-r0                           apk                           
 libraw-dev                                       0.21.2-r0                           apk                           
 librist                                          0.2.10-r1                           apk                           
-librsvg                                          2.58.1-r0                           apk                           
+librsvg                                          2.58.2-r0                           apk                           
 libsharpyuv                                      1.4.0-r0                            apk                           
 libsndfile                                       1.2.2-r0                            apk                           
 libsodium                                        1.0.20-r0                           apk                           
