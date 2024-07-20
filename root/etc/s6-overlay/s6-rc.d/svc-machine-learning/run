@@ -8,7 +8,7 @@
 [[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && tail -f /dev/null
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
-export LD_PRELOAD="$lib_path"
+export LD_PRELOAD="${lib_path}"
 export MPLCONFIGDIR="/tmp"
 export HF_HOME="/tmp"
 
@@ -16,8 +16,8 @@ exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
        gunicorn app.main:app \
         -k uvicorn.workers.UvicornWorker \
-        -w "${MACHINE_LEARNING_WORKERS:=1}" \
+        -w "${MACHINE_LEARNING_WORKERS:-1}" \
         -b "${MACHINE_LEARNING_HOST:-"0.0.0.0"}":"${MACHINE_LEARNING_PORT:-"3003"}" \
-        -t "${MACHINE_LEARNING_WORKER_TIMEOUT:=120}" \
+        -t "${MACHINE_LEARNING_WORKER_TIMEOUT:-120}" \
         --log-config-json log_conf.json \
         --graceful-timeout 0 || exit
