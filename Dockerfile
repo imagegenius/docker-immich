@@ -13,10 +13,9 @@ LABEL maintainer="hydazz, martabal"
 ENV \
   IMMICH_BUILD_DATA="/app/immich/server" \
   IMMICH_ENV="production" \
-  IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   IMMICH_PORT="8080" \
-  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
+  IMMICH_MACHINE_LEARNING_ENABLED=false
 
 RUN \
   echo "**** download immich ****" && \
@@ -108,4 +107,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /libraries
+VOLUME /config /import
