@@ -154,4 +154,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /libraries
+VOLUME /config /import
