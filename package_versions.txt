@@ -953,7 +953,7 @@ libcrypt1                                                                    1:4
 libcublas12                                                                  12.0.2.224~12.0.1-4build4             deb                          
 libcublaslt12                                                                12.0.2.224~12.0.1-4build4             deb                          
 libcudart12                                                                  12.0.146~12.0.1-4build4               deb                          
-libcudnn8                                                                    8.9.7.29-1+cuda12.2                   deb                          
+libcudnn9-cuda-12                                                            9.2.1.18-1                            deb                          
 libcufft11                                                                   11.0.1.95~12.0.1-4build4              deb                          
 libcurand10                                                                  11.1.1+~10.3.1.124~12.0.1-4build4     deb                          
 libcurl4t64                                                                  8.5.0-2ubuntu10.1                     deb                          
