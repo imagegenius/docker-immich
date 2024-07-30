@@ -47,7 +47,7 @@ NAME                                                                         VER
 @humanwhocodes/module-importer                                               1.0.1                                 npm                           
 @humanwhocodes/object-schema                                                 2.0.2                                 npm                           
 @img/sharp-linuxmusl-x64                                                     0.33.4                                npm                           
-@immich/cli                                                                  2.2.12                                npm                           
+@immich/cli                                                                  2.2.13                                npm                           
 @ioredis/commands                                                            1.2.0                                 npm                           
 @isaacs/cliui                                                                8.0.2                                 npm         (+1 duplicate)    
 @isaacs/string-locale-compare                                                1.1.0                                 npm                           
@@ -348,7 +348,7 @@ archiver                                                                     7.0
 archiver-utils                                                               5.0.2                                 npm                           
 archy                                                                        1.0.0                                 npm                           
 are-we-there-yet                                                             2.0.0                                 npm                           
-arg                                                                          5.0.2                                 npm                           
+arg                                                                          5.0.2                                 npm         (+1 duplicate)    
 arg_enum_proc_macro                                                          0.3.4                                 rust-crate                    
 argparse                                                                     2.0.1                                 npm                           
 aria-hidden                                                                  1.2.4                                 npm                           
@@ -393,7 +393,7 @@ busybox                                                                      1.3
 busybox-binsh                                                                1.36.1-r31                            apk                           
 bytemuck                                                                     1.14.0                                rust-crate                    
 bytes                                                                        3.1.2                                 npm                           
-c-ares                                                                       1.32.1-r0                             apk                           
+c-ares                                                                       1.32.2-r0                             apk                           
 ca-certificates                                                              20240705-r0                           apk                           
 ca-certificates-bundle                                                       20240705-r0                           apk                           
 cacache                                                                      18.0.3                                npm                           
@@ -454,7 +454,6 @@ color-name                                                                   1.1
 color-string                                                                 1.9.1                                 npm                           
 color-support                                                                1.1.3                                 npm                           
 colorchoice                                                                  1.0.0                                 rust-crate                    
-command-line-arguments                                                       v1.1291.1                             go-module                     
 commander                                                                    10.0.1                                npm                           
 commander                                                                    11.1.0                                npm         (+1 duplicate)    
 commander                                                                    2.20.3                                npm         (+1 duplicate)    
@@ -572,8 +571,8 @@ etag                                                                         1.8
 event-target-shim                                                            5.0.1                                 npm                           
 eventemitter2                                                                6.4.9                                 npm                           
 events                                                                       3.3.0                                 npm                           
-exiftool-vendored                                                            28.1.0                                npm                           
-exiftool-vendored.pl                                                         12.89.0                               npm                           
+exiftool-vendored                                                            28.2.0                                npm                           
+exiftool-vendored.pl                                                         12.91.0                               npm                           
 exponential-backoff                                                          3.1.1                                 npm                           
 express                                                                      4.19.2                                npm                           
 extend                                                                       3.0.2                                 npm                           
@@ -755,7 +754,7 @@ github.com/skeema/knownhosts                                                 v1.
 github.com/snyk/cli-extension-dep-graph                                      v0.0.0-20230926124856-b0fdf1ee6f73    go-module                     
 github.com/snyk/cli-extension-iac-rules                                      v0.0.0-20240404084125-0098857e0e1a    go-module                     
 github.com/snyk/cli-extension-sbom                                           v0.0.0-20240418082712-4732b4b2d7b3    go-module                     
-github.com/snyk/cli/cliv2                                                    (devel)                               go-module                     
+github.com/snyk/cli/cliv2                                                    v1.1291.1                             go-module                     
 github.com/snyk/code-client-go                                               v1.4.2                                go-module                     
 github.com/snyk/container-cli                                                v0.0.0-20240322120441-6d9b9482f9b1    go-module                     
 github.com/snyk/go-application-framework                                     v0.0.0-20240417122153-755586b0312f    go-module                     
@@ -788,7 +787,7 @@ glob                                                                         10.
 glob                                                                         7.2.3                                 npm         (+1 duplicate)    
 glob                                                                         8.1.0                                 npm                           
 glob-parent                                                                  5.1.2                                 npm         (+1 duplicate)    
-glob-parent                                                                  6.0.2                                 npm         (+1 duplicate)    
+glob-parent                                                                  6.0.2                                 npm         (+2 duplicates)   
 glob-to-regexp                                                               0.4.1                                 npm                           
 globals                                                                      11.12.0                               npm                           
 globals                                                                      13.22.0                               npm                           
@@ -856,22 +855,22 @@ icu-libs                                                                     74.
 ieee754                                                                      1.2.1                                 npm                           
 ignore                                                                       5.3.1                                 npm                           
 ignore-walk                                                                  6.0.5                                 npm                           
-imagemagick                                                                  7.1.1.35-r0                           apk                           
-imagemagick-c++                                                              7.1.1.35-r0                           apk                           
-imagemagick-dev                                                              7.1.1.35-r0                           apk                           
-imagemagick-heic                                                             7.1.1.35-r0                           apk                           
-imagemagick-jpeg                                                             7.1.1.35-r0                           apk                           
-imagemagick-jxl                                                              7.1.1.35-r0                           apk                           
-imagemagick-libs                                                             7.1.1.35-r0                           apk                           
-imagemagick-pango                                                            7.1.1.35-r0                           apk                           
-imagemagick-raw                                                              7.1.1.35-r0                           apk                           
-imagemagick-svg                                                              7.1.1.35-r0                           apk                           
-imagemagick-tiff                                                             7.1.1.35-r0                           apk                           
-imagemagick-webp                                                             7.1.1.35-r0                           apk                           
+imagemagick                                                                  7.1.1.36-r0                           apk                           
+imagemagick-c++                                                              7.1.1.36-r0                           apk                           
+imagemagick-dev                                                              7.1.1.36-r0                           apk                           
+imagemagick-heic                                                             7.1.1.36-r0                           apk                           
+imagemagick-jpeg                                                             7.1.1.36-r0                           apk                           
+imagemagick-jxl                                                              7.1.1.36-r0                           apk                           
+imagemagick-libs                                                             7.1.1.36-r0                           apk                           
+imagemagick-pango                                                            7.1.1.36-r0                           apk                           
+imagemagick-raw                                                              7.1.1.36-r0                           apk                           
+imagemagick-svg                                                              7.1.1.36-r0                           apk                           
+imagemagick-tiff                                                             7.1.1.36-r0                           apk                           
+imagemagick-webp                                                             7.1.1.36-r0                           apk                           
 imagequant                                                                   4.2.2                                 rust-crate                    
 imagequant-sys                                                               4.0.3                                 rust-crate                    
 imath                                                                        3.1.11-r2                             apk                           
-immich                                                                       1.110.0                               npm                           
+immich                                                                       1.111.0                               npm                           
 import-fresh                                                                 3.3.0                                 npm                           
 import-in-the-middle                                                         1.8.0                                 npm                           
 import-in-the-middle                                                         1.8.1                                 npm                           
@@ -1001,7 +1000,7 @@ libplacebo                                                                   6.3
 libpng                                                                       1.6.43-r0                             apk                           
 libproc2                                                                     4.0.4-r0                              apk                           
 libpsl                                                                       0.21.5-r2                             apk                           
-libpulse                                                                     17.0-r2                               apk                           
+libpulse                                                                     17.0-r3                               apk                           
 libraw                                                                       0.21.2-r0                             apk                           
 libraw-dev                                                                   0.21.2-r0                             apk                           
 librist                                                                      0.2.10-r1                             apk                           
@@ -1028,7 +1027,7 @@ libwebp-dev                                                                  1.4
 libwebpdecoder                                                               1.4.0-r0                              apk                           
 libwebpdemux                                                                 1.4.0-r0                              apk                           
 libwebpmux                                                                   1.4.0-r0                              apk                           
-libx11                                                                       1.8.9-r1                              apk                           
+libx11                                                                       1.8.10-r0                             apk                           
 libxau                                                                       1.0.11-r4                             apk                           
 libxcb                                                                       1.16.1-r0                             apk                           
 libxdmcp                                                                     1.1.5-r1                              apk                           
@@ -1390,7 +1389,7 @@ spdx-expression-parse                                                        3.0
 spdx-expression-parse                                                        4.0.0                                 npm                           
 spdx-license-ids                                                             3.0.18                                npm                           
 speexdsp                                                                     1.2.1-r2                              apk                           
-spirv-tools                                                                  1.3.261.1-r0                          apk                           
+spirv-tools                                                                  1.3.290.0-r0                          apk                           
 split2                                                                       4.2.0                                 npm                           
 sprintf-js                                                                   1.1.3                                 npm                           
 sratom                                                                       0.6.16-r0                             apk                           
@@ -1423,6 +1422,10 @@ syn                                                                          2.0
 systeminformation                                                            5.22.0                                npm                           
 tailwind-merge                                                               2.2.0                                 npm                           
 tailwindcss                                                                  3.4.0                                 npm                           
+tailwindcss                                                                  3.4.6                                 npm                           
+tailwindcss-email-variants                                                   3.0.1                                 npm                           
+tailwindcss-mso                                                              1.4.3                                 npm                           
+tailwindcss-preset-email                                                     1.3.2                                 npm                           
 tapable                                                                      2.2.1                                 npm                           
 tar                                                                          6.2.0                                 npm                           
 tar                                                                          6.2.1                                 npm                           
