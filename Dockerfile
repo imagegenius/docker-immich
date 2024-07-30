@@ -37,9 +37,9 @@ RUN \
     python3-pip \
     python3-venv && \
   echo "**** download libcudnn ****" && \
-  curl -o "/tmp/libcudnn8.deb" -L \
-    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn8_8.9.7.29-1+cuda12.2_amd64.deb" && \
-  dpkg -i "/tmp/libcudnn8.deb" && \
+  curl -o "/tmp/libcudnn9.deb" -L \
+    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn9-cuda-12_9.2.1.18-1_amd64.deb" && \
+  dpkg -i "/tmp/libcudnn9.deb" && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
