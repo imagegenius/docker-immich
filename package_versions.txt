@@ -1192,7 +1192,7 @@ p-locate                                                                     5.0
 p-map                                                                        4.0.0                                 npm                           
 package-json-from-dist                                                       1.0.0                                 npm         (+1 duplicate)    
 pacote                                                                       18.0.6                                npm                           
-pango                                                                        1.52.2-r0                             apk                           
+pango                                                                        1.54.0-r0                             apk                           
 parent-module                                                                1.0.1                                 npm                           
 parse-conflict-json                                                          3.0.1                                 npm                           
 parse-json                                                                   5.2.0                                 npm                           
