@@ -113,7 +113,6 @@ RUN \
   python3.10 -m venv /lsiopy && \
   poetry config installer.max-workers 10 && \
   poetry config virtualenvs.create false && \
-  poetry add --lock --no-interaction --no-ansi --group openvino openvino==2023.3.0 && \
   poetry install --sync --no-interaction --no-ansi --no-root --with openvino --without dev && \
   cp -a \
     pyproject.toml \
