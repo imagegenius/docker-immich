@@ -457,7 +457,7 @@ cron-parser                                                                  4.9
 cross-spawn                                                                  7.0.3                                 npm        (+1 duplicate)    
 cssesc                                                                       3.0.0                                 npm        (+1 duplicate)    
 csstype                                                                      3.1.3                                 npm                          
-curl                                                                         8.5.0-2ubuntu10.1                     deb                          
+curl                                                                         8.5.0-2ubuntu10.2                     deb                          
 dario.cat/mergo                                                              v1.0.0                                go-module                    
 dash                                                                         0.5.12-6ubuntu5                       deb                          
 dayjs                                                                        1.11.10                               npm                          
@@ -905,7 +905,7 @@ libcap-ng0                                                                   0.8
 libcap2                                                                      1:2.66-5ubuntu2                       deb                          
 libcom-err2                                                                  1.47.0-2.4~exp1ubuntu4                deb                          
 libcrypt1                                                                    1:4.4.36-4build1                      deb                          
-libcurl4t64                                                                  8.5.0-2ubuntu10.1                     deb                          
+libcurl4t64                                                                  8.5.0-2ubuntu10.2                     deb                          
 libdatrie1                                                                   0.2.13-3build1                        deb                          
 libdav1d7                                                                    1.4.1-1build1                         deb                          
 libdb5.3t64                                                                  5.3.28+dfsg2-7                        deb                          
