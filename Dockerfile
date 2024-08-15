@@ -15,7 +15,8 @@ ENV \
   IMMICH_ENV="production" \
   IMMICH_MEDIA_LOCATION="/photos" \
   IMMICH_PORT="8080" \
-  IMMICH_MACHINE_LEARNING_ENABLED=false
+  IMMICH_MACHINE_LEARNING_ENABLED=false \
+  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 RUN \
   echo "**** download immich ****" && \
