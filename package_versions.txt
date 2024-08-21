@@ -510,7 +510,7 @@ domutils                                                                     3.1
 dotenv                                                                       16.0.3                                npm                          
 dotenv                                                                       16.4.5                                npm                          
 dotenv-expand                                                                10.0.0                                npm                          
-dpkg                                                                         1.22.6ubuntu6                         deb                          
+dpkg                                                                         1.22.6ubuntu6.1                       deb                          
 dulwich                                                                      0.21.7                                python                       
 e2fsprogs                                                                    1.47.0-2.4~exp1ubuntu4                deb                          
 eastasianwidth                                                               0.2.0                                 npm        (+1 duplicate)    
@@ -1058,7 +1058,7 @@ libopenexr-3-1-30                                                            3.1
 libopenjp2-7                                                                 2.5.0-2build3                         deb                          
 libopenmpt0t64                                                               0.7.3-1.1build3                       deb                          
 libopus0                                                                     1.4-1build1                           deb                          
-liborc-0.4-0t64                                                              1:0.4.38-1build1                      deb                          
+liborc-0.4-0t64                                                              1:0.4.38-1ubuntu0.1                   deb                          
 libp11-kit0                                                                  0.25.3-4ubuntu2                       deb                          
 libpam-modules                                                               1.5.3-5ubuntu5.1                      deb                          
 libpam-modules-bin                                                           1.5.3-5ubuntu5.1                      deb                          
@@ -1098,7 +1098,7 @@ libspng0                                                                     0.7
 libsqlite3-0                                                                 3.45.1-1ubuntu2                       deb                          
 libss2                                                                       1.47.0-2.4~exp1ubuntu4                deb                          
 libssh-4                                                                     0.10.6-2build2                        deb                          
-libssl3t64                                                                   3.0.13-0ubuntu3.1                     deb                          
+libssl3t64                                                                   3.0.13-0ubuntu3.2                     deb                          
 libstdc++6                                                                   14-20240412-0ubuntu1                  deb                          
 libsystemd0                                                                  255.4-1ubuntu8.2                      deb                          
 libtasn1-6                                                                   4.19.0-3build1                        deb                          
@@ -1292,7 +1292,7 @@ onnx                                                                         1.1
 onnxruntime-gpu                                                              1.18.1                                python                       
 opencv-python-headless                                                       4.10.0.84                             python                       
 openid-client                                                                5.6.5                                 npm                          
-openssl                                                                      3.0.13-0ubuntu3.1                     deb                          
+openssl                                                                      3.0.13-0ubuntu3.2                     deb                          
 optionator                                                                   0.9.3                                 npm                          
 ora                                                                          5.4.1                                 npm                          
 orjson                                                                       3.10.6                                python                       
