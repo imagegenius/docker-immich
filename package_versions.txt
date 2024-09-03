@@ -34,7 +34,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linux-x64                             0.33.5                              npm                          
-@immich/cli                                      2.2.16                              npm                          
+@immich/cli                                      2.2.17                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)    
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -86,18 +86,29 @@ NAME                                             VERSION                        
 @opentelemetry/api                               1.8.0                               npm                          
 @opentelemetry/api-logs                          0.52.0                              npm                          
 @opentelemetry/api-logs                          0.52.1                              npm        (+2 duplicates)   
-@opentelemetry/auto-instrumentations-node        0.49.1                              npm                          
+@opentelemetry/api-logs                          0.53.0                              npm        (+3 duplicates)   
+@opentelemetry/auto-instrumentations-node        0.49.2                              npm                          
 @opentelemetry/context-async-hooks               1.25.1                              npm                          
+@opentelemetry/context-async-hooks               1.26.0                              npm                          
 @opentelemetry/core                              1.25.0                              npm                          
-@opentelemetry/core                              1.25.1                              npm        (+15 duplicates)  
-@opentelemetry/exporter-prometheus               0.52.1                              npm                          
+@opentelemetry/core                              1.25.1                              npm        (+14 duplicates)  
+@opentelemetry/core                              1.26.0                              npm        (+5 duplicates)   
+@opentelemetry/exporter-logs-otlp-grpc           0.53.0                              npm                          
+@opentelemetry/exporter-logs-otlp-http           0.53.0                              npm                          
+@opentelemetry/exporter-logs-otlp-proto          0.53.0                              npm                          
+@opentelemetry/exporter-prometheus               0.53.0                              npm                          
 @opentelemetry/exporter-trace-otlp-grpc          0.52.1                              npm                          
+@opentelemetry/exporter-trace-otlp-grpc          0.53.0                              npm                          
 @opentelemetry/exporter-trace-otlp-http          0.52.1                              npm                          
+@opentelemetry/exporter-trace-otlp-http          0.53.0                              npm                          
 @opentelemetry/exporter-trace-otlp-proto         0.52.1                              npm                          
+@opentelemetry/exporter-trace-otlp-proto         0.53.0                              npm                          
 @opentelemetry/exporter-zipkin                   1.25.1                              npm                          
+@opentelemetry/exporter-zipkin                   1.26.0                              npm                          
 @opentelemetry/host-metrics                      0.35.1                              npm                          
 @opentelemetry/instrumentation                   0.52.0                              npm                          
 @opentelemetry/instrumentation                   0.52.1                              npm                          
+@opentelemetry/instrumentation                   0.53.0                              npm                          
 @opentelemetry/instrumentation-amqplib           0.41.0                              npm                          
 @opentelemetry/instrumentation-aws-lambda        0.43.0                              npm                          
 @opentelemetry/instrumentation-aws-sdk           0.43.1                              npm                          
@@ -110,7 +121,7 @@ NAME                                             VERSION                        
 @opentelemetry/instrumentation-express           0.41.1                              npm                          
 @opentelemetry/instrumentation-fastify           0.38.0                              npm                          
 @opentelemetry/instrumentation-fs                0.14.0                              npm                          
-@opentelemetry/instrumentation-generic-pool      0.38.0                              npm                          
+@opentelemetry/instrumentation-generic-pool      0.38.1                              npm                          
 @opentelemetry/instrumentation-graphql           0.42.0                              npm                          
 @opentelemetry/instrumentation-grpc              0.52.0                              npm                          
 @opentelemetry/instrumentation-hapi              0.40.0                              npm                          
@@ -122,7 +133,7 @@ NAME                                             VERSION                        
 @opentelemetry/instrumentation-lru-memoizer      0.39.0                              npm                          
 @opentelemetry/instrumentation-memcached         0.38.0                              npm                          
 @opentelemetry/instrumentation-mongodb           0.46.0                              npm                          
-@opentelemetry/instrumentation-mongoose          0.40.0                              npm                          
+@opentelemetry/instrumentation-mongoose          0.41.0                              npm                          
 @opentelemetry/instrumentation-mysql             0.40.0                              npm                          
 @opentelemetry/instrumentation-mysql2            0.40.0                              npm                          
 @opentelemetry/instrumentation-nestjs-core       0.39.0                              npm                          
@@ -130,34 +141,46 @@ NAME                                             VERSION                        
 @opentelemetry/instrumentation-pg                0.43.0                              npm                          
 @opentelemetry/instrumentation-pino              0.41.0                              npm                          
 @opentelemetry/instrumentation-redis             0.41.0                              npm                          
-@opentelemetry/instrumentation-redis-4           0.41.0                              npm                          
+@opentelemetry/instrumentation-redis-4           0.41.1                              npm                          
 @opentelemetry/instrumentation-restify           0.40.0                              npm                          
 @opentelemetry/instrumentation-router            0.39.0                              npm                          
 @opentelemetry/instrumentation-socket.io         0.41.0                              npm                          
-@opentelemetry/instrumentation-tedious           0.12.0                              npm                          
-@opentelemetry/instrumentation-undici            0.4.0                               npm                          
+@opentelemetry/instrumentation-tedious           0.13.0                              npm                          
+@opentelemetry/instrumentation-undici            0.5.0                               npm                          
 @opentelemetry/instrumentation-winston           0.39.0                              npm                          
 @opentelemetry/otlp-exporter-base                0.52.1                              npm                          
+@opentelemetry/otlp-exporter-base                0.53.0                              npm        (+3 duplicates)   
 @opentelemetry/otlp-grpc-exporter-base           0.52.1                              npm                          
+@opentelemetry/otlp-grpc-exporter-base           0.53.0                              npm        (+1 duplicate)    
 @opentelemetry/otlp-transformer                  0.52.1                              npm                          
+@opentelemetry/otlp-transformer                  0.53.0                              npm        (+3 duplicates)   
 @opentelemetry/propagation-utils                 0.30.10                             npm                          
 @opentelemetry/propagator-aws-xray               1.3.1                               npm                          
 @opentelemetry/propagator-b3                     1.25.1                              npm                          
+@opentelemetry/propagator-b3                     1.26.0                              npm                          
 @opentelemetry/propagator-jaeger                 1.25.1                              npm                          
+@opentelemetry/propagator-jaeger                 1.26.0                              npm                          
 @opentelemetry/redis-common                      0.36.2                              npm                          
 @opentelemetry/resource-detector-alibaba-cloud   0.29.0                              npm                          
-@opentelemetry/resource-detector-aws             1.5.2                               npm                          
-@opentelemetry/resource-detector-azure           0.2.9                               npm                          
-@opentelemetry/resource-detector-container       0.3.11                              npm                          
+@opentelemetry/resource-detector-aws             1.6.1                               npm                          
+@opentelemetry/resource-detector-azure           0.2.11                              npm                          
+@opentelemetry/resource-detector-container       0.4.1                               npm                          
 @opentelemetry/resource-detector-gcp             0.29.10                             npm                          
 @opentelemetry/resources                         1.25.1                              npm                          
+@opentelemetry/resources                         1.26.0                              npm        (+4 duplicates)   
 @opentelemetry/sdk-logs                          0.52.1                              npm                          
+@opentelemetry/sdk-logs                          0.53.0                              npm        (+3 duplicates)   
 @opentelemetry/sdk-metrics                       1.25.1                              npm                          
+@opentelemetry/sdk-metrics                       1.26.0                              npm        (+4 duplicates)   
 @opentelemetry/sdk-node                          0.52.1                              npm                          
+@opentelemetry/sdk-node                          0.53.0                              npm                          
 @opentelemetry/sdk-trace-base                    1.25.1                              npm                          
+@opentelemetry/sdk-trace-base                    1.26.0                              npm        (+3 duplicates)   
 @opentelemetry/sdk-trace-node                    1.25.1                              npm                          
+@opentelemetry/sdk-trace-node                    1.26.0                              npm                          
 @opentelemetry/semantic-conventions              1.25.0                              npm                          
-@opentelemetry/semantic-conventions              1.25.1                              npm        (+15 duplicates)  
+@opentelemetry/semantic-conventions              1.25.1                              npm        (+14 duplicates)  
+@opentelemetry/semantic-conventions              1.27.0                              npm        (+7 duplicates)   
 @opentelemetry/sql-common                        0.40.1                              npm                          
 @photostructure/tz-lookup                        10.0.0                              npm                          
 @pkgjs/parseargs                                 0.11.0                              npm                          
@@ -223,11 +246,11 @@ NAME                                             VERSION                        
 @types/luxon                                     3.4.2                               npm                          
 @types/memcached                                 2.2.10                              npm                          
 @types/mysql                                     2.15.22                             npm                          
-@types/node                                      20.16.1                             npm                          
+@types/node                                      20.16.3                             npm                          
 @types/pg                                        8.10.9                              npm                          
 @types/pg                                        8.6.1                               npm                          
 @types/pg-pool                                   2.0.4                               npm                          
-@types/shimmer                                   1.0.5                               npm                          
+@types/shimmer                                   1.2.0                               npm                          
 @types/tedious                                   4.0.14                              npm                          
 @types/through                                   0.0.31                              npm                          
 @types/validator                                 13.11.8                             npm                          
@@ -545,10 +568,10 @@ idna                                             3.8                            
 ieee754                                          1.2.1                               npm                          
 ignore-walk                                      6.0.5                               npm                          
 imageio                                          2.33.1                              python                       
-immich                                           1.113.0                             npm                          
+immich                                           1.113.1                             npm                          
 import-fresh                                     3.3.0                               npm                          
+import-in-the-middle                             1.11.0                              npm        (+1 duplicate)    
 import-in-the-middle                             1.8.0                               npm                          
-import-in-the-middle                             1.8.1                               npm                          
 imurmurhash                                      0.1.4                               npm                          
 indent-string                                    4.0.0                               npm                          
 inflight                                         1.0.6                               npm                          
@@ -1079,7 +1102,7 @@ qudida                                           0.0.4                          
 queue-microtask                                  1.2.3                               npm        (+1 duplicate)    
 queue-tick                                       1.0.1                               npm                          
 range-parser                                     1.2.1                               npm                          
-rapidfuzz                                        3.9.6                               python                       
+rapidfuzz                                        3.9.7                               python                       
 raw-body                                         2.5.2                               npm                          
 react                                            18.3.1                              npm                          
 react-dom                                        18.3.1                              npm                          
