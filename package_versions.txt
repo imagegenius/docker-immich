@@ -401,7 +401,7 @@ cron                                             3.1.7                          
 cron-daemon-common                               3.0pl1-184ubuntu2                   deb                          
 cron-parser                                      4.9.0                               npm                          
 cross-spawn                                      7.0.3                               npm        (+1 duplicate)    
-cryptography                                     43.0.0                              python                       
+cryptography                                     43.0.1                              python                       
 cssesc                                           3.0.0                               npm        (+1 duplicate)    
 curl                                             8.5.0-2ubuntu10.3                   deb                          
 cycler                                           0.12.1                              python                       
