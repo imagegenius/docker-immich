@@ -337,7 +337,7 @@ bytes                                            3.1.2                          
 c-ares                                           1.33.0-r0                           apk                           
 ca-certificates                                  20240705-r0                         apk                           
 ca-certificates-bundle                           20240705-r0                         apk                           
-cacache                                          18.0.3                              npm                           
+cacache                                          18.0.4                              npm                           
 cairo                                            1.18.2-r0                           apk                           
 cairo-gobject                                    1.18.2-r0                           apk                           
 call-bind                                        1.0.7                               npm                           
@@ -432,7 +432,8 @@ dayjs                                            1.11.10                        
 dbus-libs                                        1.14.10-r3                          apk                           
 debounce                                         2.0.0                               npm                           
 debug                                            2.6.9                               npm         (+3 duplicates)   
-debug                                            4.3.5                               npm         (+1 duplicate)    
+debug                                            4.3.5                               npm                           
+debug                                            4.3.6                               npm                           
 deepmerge                                        4.3.1                               npm                           
 defaults                                         1.0.4                               npm                           
 define-data-property                             1.1.3                               npm                           
@@ -511,7 +512,7 @@ findutils                                        4.10.0-r0                      
 fluent-ffmpeg                                    2.1.3                               npm                           
 fontconfig                                       2.15.0-r1                           apk                           
 foreground-child                                 3.1.1                               npm                           
-foreground-child                                 3.2.1                               npm                           
+foreground-child                                 3.3.0                               npm                           
 forwarded                                        0.2.0                               npm                           
 freetype                                         2.13.2-r0                           apk                           
 fresh                                            0.5.2                               npm                           
@@ -534,7 +535,8 @@ giflib                                           5.2.2-r0                       
 github.com/evanw/esbuild                         v0.0.0-20231229203112-6ee82255bdfd  go-module                     
 glib                                             2.80.4-r0                           apk                           
 glob                                             10.3.4                              npm                           
-glob                                             10.4.2                              npm         (+1 duplicate)    
+glob                                             10.4.2                              npm                           
+glob                                             10.4.5                              npm                           
 glob                                             7.2.3                               npm                           
 glob                                             8.1.0                               npm                           
 glob-parent                                      5.1.2                               npm         (+1 duplicate)    
@@ -628,8 +630,8 @@ itertools                                        0.10.5                         
 itertools                                        0.12.0                              rust-crate                    
 ivf                                              0.1.3                               rust-crate                    
 jackspeak                                        2.3.6                               npm                           
-jackspeak                                        3.4.0                               npm                           
 jackspeak                                        3.4.2                               npm                           
+jackspeak                                        3.4.3                               npm                           
 jiti                                             1.21.0                              npm                           
 joi                                              17.13.3                             npm                           
 jose                                             4.15.5                              npm                           
@@ -668,7 +670,7 @@ libbsd                                           0.12.2-r0                      
 libbz2                                           1.0.8-r6                            apk                           
 libc                                             0.2.149                             rust-crate                    
 libc                                             0.2.152                             rust-crate                    
-libcrypto3                                       3.3.1-r3                            apk                           
+libcrypto3                                       3.3.2-r0                            apk                           
 libcurl                                          8.9.1-r1                            apk                           
 libdav1d                                         1.4.3-r0                            apk                           
 libde265                                         1.0.15-r0                           apk                           
@@ -695,7 +697,7 @@ libmount                                         2.40.2-r0                      
 libncursesw                                      6.5_p20240601-r0                    apk                           
 libnpmaccess                                     8.0.6                               npm                           
 libnpmdiff                                       6.1.4                               npm                           
-libnpmexec                                       8.1.3                               npm                           
+libnpmexec                                       8.1.4                               npm                           
 libnpmfund                                       5.0.12                              npm                           
 libnpmhook                                       10.0.5                              npm                           
 libnpmorg                                        6.0.6                               npm                           
@@ -723,7 +725,7 @@ libsodium                                        1.0.20-r0                      
 libspng                                          0.7.4-r0                            apk                           
 libsrt                                           1.5.3-r0                            apk                           
 libssh                                           0.10.6-r0                           apk                           
-libssl3                                          3.3.1-r3                            apk                           
+libssl3                                          3.3.2-r0                            apk                           
 libstdc++                                        14.2.0-r2                           apk                           
 libtheora                                        1.1.1-r18                           apk                           
 libtiffxx                                        4.6.0t-r0                           apk                           
@@ -766,7 +768,7 @@ log-symbols                                      4.1.0                          
 long                                             5.2.3                               npm                           
 loose-envify                                     1.4.0                               npm                           
 lru-cache                                        10.2.0                              npm                           
-lru-cache                                        10.2.2                              npm                           
+lru-cache                                        10.4.3                              npm                           
 lru-cache                                        5.1.1                               npm                           
 lru-cache                                        6.0.0                               npm                           
 luxon                                            3.4.4                               npm                           
@@ -836,7 +838,7 @@ nghttp2-libs                                     1.62.1-r0                      
 node-abort-controller                            3.1.1                               npm                           
 node-addon-api                                   5.1.0                               npm                           
 node-fetch                                       2.7.0                               npm                           
-node-gyp                                         10.1.0                              npm                           
+node-gyp                                         10.2.0                              npm                           
 node-releases                                    2.0.14                              npm                           
 nodejs                                           20.15.1-r0                          apk                           
 nodemailer                                       6.9.14                              npm                           
@@ -848,13 +850,13 @@ nopt                                             7.2.1                          
 normalize-package-data                           6.0.2                               npm                           
 normalize-path                                   3.0.0                               npm                           
 notepack.io                                      3.0.1                               npm                           
-npm                                              10.8.2                              npm                           
-npm                                              10.8.2-r0                           apk                           
+npm                                              10.8.3                              npm                           
+npm                                              10.8.3-r0                           apk                           
 npm-audit-report                                 5.0.0                               npm                           
 npm-bundled                                      3.0.1                               npm                           
 npm-install-checks                               6.3.0                               npm                           
 npm-normalize-package-bin                        3.0.1                               npm                           
-npm-package-arg                                  11.0.2                              npm                           
+npm-package-arg                                  11.0.3                              npm                           
 npm-packlist                                     8.0.2                               npm                           
 npm-pick-manifest                                9.1.0                               npm                           
 npm-profile                                      10.0.0                              npm                           
@@ -887,7 +889,7 @@ openexr-libilmthread                             3.1.13-r1                      
 openexr-libopenexr                               3.1.13-r1                           apk                           
 openid-client                                    5.6.5                               npm                           
 openjpeg                                         2.5.2-r0                            apk                           
-openssl                                          3.3.1-r3                            apk                           
+openssl                                          3.3.2-r0                            apk                           
 opus                                             1.5.2-r0                            apk                           
 ora                                              5.4.1                               npm                           
 orc                                              0.4.38-r0                           apk                           
@@ -940,7 +942,7 @@ postcss-js                                       4.0.1                          
 postcss-load-config                              4.0.2                               npm                           
 postcss-nested                                   6.0.1                               npm                           
 postcss-selector-parser                          6.0.16                              npm                           
-postcss-selector-parser                          6.1.0                               npm                           
+postcss-selector-parser                          6.1.2                               npm                           
 postcss-value-parser                             4.2.0                               npm                           
 postgres-array                                   2.0.0                               npm                           
 postgres-array                                   3.0.2                               npm                           
@@ -954,7 +956,6 @@ postgres-range                                   1.1.3                          
 ppv-lite86                                       0.2.17                              rust-crate                    
 prettier                                         3.3.3                               npm                           
 prismjs                                          1.29.0                              npm                           
-proc-log                                         3.0.0                               npm                           
 proc-log                                         4.2.0                               npm                           
 proc-macro2                                      1.0.76                              rust-crate                    
 process                                          0.11.10                             npm                           
@@ -1032,8 +1033,7 @@ scopeguard                                       1.2.0                          
 sdl2                                             2.30.6-r0                           apk                           
 selderee                                         0.11.0                              npm                           
 semver                                           6.3.1                               npm         (+2 duplicates)   
-semver                                           7.6.2                               npm                           
-semver                                           7.6.3                               npm                           
+semver                                           7.6.3                               npm         (+1 duplicate)    
 send                                             0.18.0                              npm                           
 serd-libs                                        0.32.2-r0                           apk                           
 serve-static                                     1.15.0                              npm                           
