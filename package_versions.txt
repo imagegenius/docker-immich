@@ -481,7 +481,7 @@ fastq                                            1.17.1                         
 figures                                          3.2.0                               npm                          
 file-source                                      0.6.1                               npm                          
 filelock                                         3.13.1                              python                       
-filelock                                         3.16.0                              python                       
+filelock                                         3.16.1                              python                       
 fill-range                                       7.0.1                               npm                          
 fill-range                                       7.1.1                               npm                          
 finalhandler                                     1.2.0                               npm                          
@@ -563,8 +563,8 @@ humanfriendly                                    10.0                           
 i18n-iso-countries                               7.11.3                              npm                          
 iconv-lite                                       0.4.24                              npm                          
 iconv-lite                                       0.6.3                               npm                          
+idna                                             3.10                                python                       
 idna                                             3.6                                 python                       
-idna                                             3.8                                 python                       
 ieee754                                          1.2.1                               npm                          
 ignore-walk                                      6.0.5                               npm                          
 imageio                                          2.33.1                              python                       
@@ -782,8 +782,8 @@ libpng16-16t64                                   1.6.43-5build1                 
 libproc2-0                                       2:4.0.4-4ubuntu3                    deb                          
 libpsl5t64                                       0.21.2-1.1build1                    deb                          
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
-libpython3.12-minimal                            3.12.3-1ubuntu0.1                   deb                          
-libpython3.12-stdlib                             3.12.3-1ubuntu0.1                   deb                          
+libpython3.12-minimal                            3.12.3-1ubuntu0.2                   deb                          
+libpython3.12-stdlib                             3.12.3-1ubuntu0.2                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
 librsvg2-2                                       2.58.0+dfsg-1build1                 deb                          
 librsvg2-common                                  2.58.0+dfsg-1build1                 deb                          
@@ -804,14 +804,14 @@ libspng0                                         0.7.4-1build1                  
 libsqlite3-0                                     3.45.1-1ubuntu2                     deb                          
 libss2                                           1.47.0-2.4~exp1ubuntu4.1            deb                          
 libssh-4                                         0.10.6-2build2                      deb                          
-libssl3t64                                       3.0.13-0ubuntu3.3                   deb                          
+libssl3t64                                       3.0.13-0ubuntu3.4                   deb                          
 libstdc++6                                       14-20240412-0ubuntu1                deb                          
 libsystemd0                                      255.4-1ubuntu8.4                    deb                          
 libtasn1-6                                       4.19.0-3build1                      deb                          
 libthai-data                                     0.1.29-2build1                      deb                          
 libthai0                                         0.1.29-2build1                      deb                          
 libtheora0                                       1.1.1+dfsg.1-16.1build3             deb                          
-libtiff6                                         4.5.1+git230720-4ubuntu2.1          deb                          
+libtiff6                                         4.5.1+git230720-4ubuntu2.2          deb                          
 libtinfo6                                        6.4+20240113-1ubuntu2               deb                          
 libudev1                                         255.4-1ubuntu8.4                    deb                          
 libudfread0                                      1.1.2-1build1                       deb                          
@@ -990,7 +990,7 @@ onnx                                             1.16.0                         
 onnxruntime                                      1.19.2                              python                       
 opencv-python-headless                           4.10.0.84                           python                       
 openid-client                                    5.6.5                               npm                          
-openssl                                          3.0.13-0ubuntu3.3                   deb                          
+openssl                                          3.0.13-0ubuntu3.4                   deb                          
 ora                                              5.4.1                               npm                          
 orjson                                           3.10.7                              python                       
 os-tmpdir                                        1.0.2                               npm                          
@@ -1040,7 +1040,7 @@ pinentry-curses                                  1.2.1-3ubuntu5                 
 pip                                              24.0                                python                       
 pirates                                          4.0.6                               npm                          
 pkginfo                                          1.11.1                              python                       
-platformdirs                                     4.3.2                               python                       
+platformdirs                                     4.3.6                               python                       
 poetry                                           1.8.3                               python                       
 poetry-core                                      1.9.0                               python                       
 poetry-plugin-export                             1.8.0                               python                       
@@ -1093,8 +1093,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.9                               python                       
 python3                                          3.12.3-0ubuntu2                     deb                          
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
-python3.12                                       3.12.3-1ubuntu0.1                   deb                          
-python3.12-minimal                               3.12.3-1ubuntu0.1                   deb                          
+python3.12                                       3.12.3-1ubuntu0.2                   deb                          
+python3.12-minimal                               3.12.3-1ubuntu0.2                   deb                          
 pyyaml                                           6.0.1                               python                       
 qrcode-terminal                                  0.12.0                              npm                          
 qs                                               6.11.0                              npm                          
@@ -1247,7 +1247,7 @@ totalist                                         3.0.1                          
 tqdm                                             4.66.3                              python                       
 tr46                                             0.0.3                               npm                          
 treeverse                                        3.0.0                               npm                          
-trove-classifiers                                2024.7.2                            python                       
+trove-classifiers                                2024.9.12                           python                       
 truncate-utf8-bytes                              1.0.2                               npm                          
 ts-interface-checker                             0.1.13                              npm                          
 tslib                                            2.6.3                               npm                          
@@ -1281,7 +1281,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.1                               npm                          
 validator                                        13.11.0                             npm                          
 vary                                             1.1.2                               npm                          
-virtualenv                                       20.26.4                             python                       
+virtualenv                                       20.26.5                             python                       
 walk-up-path                                     3.0.1                               npm                          
 watchfiles                                       0.21.0                              python                       
 wcwidth                                          0.2.13                              python                       
