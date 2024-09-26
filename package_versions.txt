@@ -34,7 +34,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linux-x64                             0.33.5                              npm                          
-@immich/cli                                      2.2.19                              npm                          
+@immich/cli                                      2.2.20                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)    
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -51,17 +51,17 @@ NAME                                             VERSION                        
 @my-scope/package-b                              0.0.0                               npm                          
 @nestjs/bull-shared                              10.2.1                              npm                          
 @nestjs/bullmq                                   10.2.1                              npm                          
-@nestjs/common                                   10.4.1                              npm                          
+@nestjs/common                                   10.4.3                              npm                          
 @nestjs/config                                   3.2.3                               npm                          
-@nestjs/core                                     10.4.1                              npm                          
+@nestjs/core                                     10.4.4                              npm                          
 @nestjs/event-emitter                            2.0.4                               npm                          
 @nestjs/mapped-types                             2.0.5                               npm                          
-@nestjs/platform-express                         10.4.1                              npm                          
-@nestjs/platform-socket.io                       10.4.1                              npm                          
-@nestjs/schedule                                 4.1.0                               npm                          
-@nestjs/swagger                                  7.4.0                               npm                          
+@nestjs/platform-express                         10.4.4                              npm                          
+@nestjs/platform-socket.io                       10.4.3                              npm                          
+@nestjs/schedule                                 4.1.1                               npm                          
+@nestjs/swagger                                  7.4.2                               npm                          
 @nestjs/typeorm                                  10.0.2                              npm                          
-@nestjs/websockets                               10.4.1                              npm                          
+@nestjs/websockets                               10.4.3                              npm                          
 @next/env                                        14.2.3                              npm                          
 @nodelib/fs.scandir                              2.1.5                               npm        (+1 duplicate)    
 @nodelib/fs.stat                                 2.0.5                               npm        (+1 duplicate)    
@@ -84,103 +84,83 @@ NAME                                             VERSION                        
 @nuxtjs/opencollective                           0.3.2                               npm                          
 @one-ini/wasm                                    0.1.1                               npm                          
 @opentelemetry/api                               1.8.0                               npm                          
-@opentelemetry/api-logs                          0.52.0                              npm                          
-@opentelemetry/api-logs                          0.52.1                              npm        (+2 duplicates)   
-@opentelemetry/api-logs                          0.53.0                              npm        (+3 duplicates)   
-@opentelemetry/auto-instrumentations-node        0.49.2                              npm                          
-@opentelemetry/context-async-hooks               1.25.1                              npm                          
+@opentelemetry/api-logs                          0.53.0                              npm                          
+@opentelemetry/auto-instrumentations-node        0.50.0                              npm                          
 @opentelemetry/context-async-hooks               1.26.0                              npm                          
-@opentelemetry/core                              1.25.0                              npm                          
-@opentelemetry/core                              1.25.1                              npm        (+14 duplicates)  
-@opentelemetry/core                              1.26.0                              npm        (+5 duplicates)   
+@opentelemetry/core                              1.25.1                              npm        (+1 duplicate)    
+@opentelemetry/core                              1.26.0                              npm                          
 @opentelemetry/exporter-logs-otlp-grpc           0.53.0                              npm                          
 @opentelemetry/exporter-logs-otlp-http           0.53.0                              npm                          
 @opentelemetry/exporter-logs-otlp-proto          0.53.0                              npm                          
 @opentelemetry/exporter-prometheus               0.53.0                              npm                          
-@opentelemetry/exporter-trace-otlp-grpc          0.52.1                              npm                          
 @opentelemetry/exporter-trace-otlp-grpc          0.53.0                              npm                          
-@opentelemetry/exporter-trace-otlp-http          0.52.1                              npm                          
 @opentelemetry/exporter-trace-otlp-http          0.53.0                              npm                          
-@opentelemetry/exporter-trace-otlp-proto         0.52.1                              npm                          
 @opentelemetry/exporter-trace-otlp-proto         0.53.0                              npm                          
-@opentelemetry/exporter-zipkin                   1.25.1                              npm                          
 @opentelemetry/exporter-zipkin                   1.26.0                              npm                          
 @opentelemetry/host-metrics                      0.35.1                              npm                          
-@opentelemetry/instrumentation                   0.52.0                              npm                          
-@opentelemetry/instrumentation                   0.52.1                              npm                          
 @opentelemetry/instrumentation                   0.53.0                              npm                          
-@opentelemetry/instrumentation-amqplib           0.41.0                              npm                          
-@opentelemetry/instrumentation-aws-lambda        0.43.0                              npm                          
-@opentelemetry/instrumentation-aws-sdk           0.43.1                              npm                          
-@opentelemetry/instrumentation-bunyan            0.40.0                              npm                          
-@opentelemetry/instrumentation-cassandra-driver  0.40.0                              npm                          
-@opentelemetry/instrumentation-connect           0.38.0                              npm                          
-@opentelemetry/instrumentation-cucumber          0.8.0                               npm                          
-@opentelemetry/instrumentation-dataloader        0.11.0                              npm                          
-@opentelemetry/instrumentation-dns               0.38.0                              npm                          
-@opentelemetry/instrumentation-express           0.41.1                              npm                          
-@opentelemetry/instrumentation-fastify           0.38.0                              npm                          
-@opentelemetry/instrumentation-fs                0.14.0                              npm                          
-@opentelemetry/instrumentation-generic-pool      0.38.1                              npm                          
-@opentelemetry/instrumentation-graphql           0.42.0                              npm                          
-@opentelemetry/instrumentation-grpc              0.52.0                              npm                          
-@opentelemetry/instrumentation-hapi              0.40.0                              npm                          
-@opentelemetry/instrumentation-http              0.52.0                              npm                          
-@opentelemetry/instrumentation-ioredis           0.42.0                              npm                          
-@opentelemetry/instrumentation-kafkajs           0.2.0                               npm                          
-@opentelemetry/instrumentation-knex              0.39.0                              npm                          
-@opentelemetry/instrumentation-koa               0.42.0                              npm                          
-@opentelemetry/instrumentation-lru-memoizer      0.39.0                              npm                          
-@opentelemetry/instrumentation-memcached         0.38.0                              npm                          
-@opentelemetry/instrumentation-mongodb           0.46.0                              npm                          
-@opentelemetry/instrumentation-mongoose          0.41.0                              npm                          
-@opentelemetry/instrumentation-mysql             0.40.0                              npm                          
-@opentelemetry/instrumentation-mysql2            0.40.0                              npm                          
-@opentelemetry/instrumentation-nestjs-core       0.39.0                              npm                          
-@opentelemetry/instrumentation-net               0.38.0                              npm                          
-@opentelemetry/instrumentation-pg                0.43.0                              npm                          
-@opentelemetry/instrumentation-pino              0.41.0                              npm                          
-@opentelemetry/instrumentation-redis             0.41.0                              npm                          
-@opentelemetry/instrumentation-redis-4           0.41.1                              npm                          
-@opentelemetry/instrumentation-restify           0.40.0                              npm                          
-@opentelemetry/instrumentation-router            0.39.0                              npm                          
-@opentelemetry/instrumentation-socket.io         0.41.0                              npm                          
-@opentelemetry/instrumentation-tedious           0.13.0                              npm                          
-@opentelemetry/instrumentation-undici            0.5.0                               npm                          
-@opentelemetry/instrumentation-winston           0.39.0                              npm                          
-@opentelemetry/otlp-exporter-base                0.52.1                              npm                          
+@opentelemetry/instrumentation-amqplib           0.42.0                              npm                          
+@opentelemetry/instrumentation-aws-lambda        0.44.0                              npm                          
+@opentelemetry/instrumentation-aws-sdk           0.44.0                              npm                          
+@opentelemetry/instrumentation-bunyan            0.41.0                              npm                          
+@opentelemetry/instrumentation-cassandra-driver  0.41.0                              npm                          
+@opentelemetry/instrumentation-connect           0.39.0                              npm                          
+@opentelemetry/instrumentation-cucumber          0.9.0                               npm                          
+@opentelemetry/instrumentation-dataloader        0.12.0                              npm                          
+@opentelemetry/instrumentation-dns               0.39.0                              npm                          
+@opentelemetry/instrumentation-express           0.42.0                              npm                          
+@opentelemetry/instrumentation-fastify           0.39.0                              npm                          
+@opentelemetry/instrumentation-fs                0.15.0                              npm                          
+@opentelemetry/instrumentation-generic-pool      0.39.0                              npm                          
+@opentelemetry/instrumentation-graphql           0.43.0                              npm                          
+@opentelemetry/instrumentation-grpc              0.53.0                              npm                          
+@opentelemetry/instrumentation-hapi              0.41.0                              npm                          
+@opentelemetry/instrumentation-http              0.53.0                              npm                          
+@opentelemetry/instrumentation-ioredis           0.43.0                              npm                          
+@opentelemetry/instrumentation-kafkajs           0.3.0                               npm                          
+@opentelemetry/instrumentation-knex              0.40.0                              npm                          
+@opentelemetry/instrumentation-koa               0.43.0                              npm                          
+@opentelemetry/instrumentation-lru-memoizer      0.40.0                              npm                          
+@opentelemetry/instrumentation-memcached         0.39.0                              npm                          
+@opentelemetry/instrumentation-mongodb           0.47.0                              npm                          
+@opentelemetry/instrumentation-mongoose          0.42.0                              npm                          
+@opentelemetry/instrumentation-mysql             0.41.0                              npm                          
+@opentelemetry/instrumentation-mysql2            0.41.0                              npm                          
+@opentelemetry/instrumentation-nestjs-core       0.40.0                              npm                          
+@opentelemetry/instrumentation-net               0.39.0                              npm                          
+@opentelemetry/instrumentation-pg                0.44.0                              npm                          
+@opentelemetry/instrumentation-pino              0.42.0                              npm                          
+@opentelemetry/instrumentation-redis             0.42.0                              npm                          
+@opentelemetry/instrumentation-redis-4           0.42.0                              npm                          
+@opentelemetry/instrumentation-restify           0.41.0                              npm                          
+@opentelemetry/instrumentation-router            0.40.0                              npm                          
+@opentelemetry/instrumentation-socket.io         0.42.0                              npm                          
+@opentelemetry/instrumentation-tedious           0.14.0                              npm                          
+@opentelemetry/instrumentation-undici            0.6.0                               npm                          
+@opentelemetry/instrumentation-winston           0.40.0                              npm                          
 @opentelemetry/otlp-exporter-base                0.53.0                              npm        (+3 duplicates)   
-@opentelemetry/otlp-grpc-exporter-base           0.52.1                              npm                          
 @opentelemetry/otlp-grpc-exporter-base           0.53.0                              npm        (+1 duplicate)    
-@opentelemetry/otlp-transformer                  0.52.1                              npm                          
 @opentelemetry/otlp-transformer                  0.53.0                              npm        (+3 duplicates)   
-@opentelemetry/propagation-utils                 0.30.10                             npm                          
+@opentelemetry/propagation-utils                 0.30.11                             npm                          
 @opentelemetry/propagator-aws-xray               1.3.1                               npm                          
-@opentelemetry/propagator-b3                     1.25.1                              npm                          
 @opentelemetry/propagator-b3                     1.26.0                              npm                          
-@opentelemetry/propagator-jaeger                 1.25.1                              npm                          
 @opentelemetry/propagator-jaeger                 1.26.0                              npm                          
 @opentelemetry/redis-common                      0.36.2                              npm                          
-@opentelemetry/resource-detector-alibaba-cloud   0.29.0                              npm                          
+@opentelemetry/resource-detector-alibaba-cloud   0.29.1                              npm                          
 @opentelemetry/resource-detector-aws             1.6.1                               npm                          
 @opentelemetry/resource-detector-azure           0.2.11                              npm                          
 @opentelemetry/resource-detector-container       0.4.1                               npm                          
-@opentelemetry/resource-detector-gcp             0.29.10                             npm                          
+@opentelemetry/resource-detector-gcp             0.29.11                             npm                          
 @opentelemetry/resources                         1.25.1                              npm                          
 @opentelemetry/resources                         1.26.0                              npm        (+4 duplicates)   
-@opentelemetry/sdk-logs                          0.52.1                              npm                          
 @opentelemetry/sdk-logs                          0.53.0                              npm        (+3 duplicates)   
 @opentelemetry/sdk-metrics                       1.25.1                              npm                          
 @opentelemetry/sdk-metrics                       1.26.0                              npm        (+4 duplicates)   
-@opentelemetry/sdk-node                          0.52.1                              npm                          
 @opentelemetry/sdk-node                          0.53.0                              npm                          
-@opentelemetry/sdk-trace-base                    1.25.1                              npm                          
 @opentelemetry/sdk-trace-base                    1.26.0                              npm        (+3 duplicates)   
-@opentelemetry/sdk-trace-node                    1.25.1                              npm                          
 @opentelemetry/sdk-trace-node                    1.26.0                              npm                          
-@opentelemetry/semantic-conventions              1.25.0                              npm                          
-@opentelemetry/semantic-conventions              1.25.1                              npm        (+14 duplicates)  
-@opentelemetry/semantic-conventions              1.27.0                              npm        (+7 duplicates)   
+@opentelemetry/semantic-conventions              1.25.1                              npm        (+1 duplicate)    
+@opentelemetry/semantic-conventions              1.27.0                              npm                          
 @opentelemetry/sql-common                        0.40.1                              npm                          
 @photostructure/tz-lookup                        10.0.0                              npm                          
 @pkgjs/parseargs                                 0.11.0                              npm                          
@@ -197,10 +177,10 @@ NAME                                             VERSION                        
 @protobufjs/utf8                                 1.1.0                               npm                          
 @react-email/body                                0.0.10                              npm                          
 @react-email/button                              0.0.17                              npm                          
-@react-email/code-block                          0.0.8                               npm                          
+@react-email/code-block                          0.0.9                               npm                          
 @react-email/code-inline                         0.0.4                               npm                          
 @react-email/column                              0.0.12                              npm                          
-@react-email/components                          0.0.24                              npm                          
+@react-email/components                          0.0.25                              npm                          
 @react-email/container                           0.0.14                              npm                          
 @react-email/font                                0.0.8                               npm                          
 @react-email/head                                0.0.11                              npm                          
@@ -233,23 +213,24 @@ NAME                                             VERSION                        
 @swc/helpers                                     0.5.5                               npm                          
 @tufjs/canonical-json                            2.0.0                               npm                          
 @tufjs/models                                    2.0.1                               npm                          
-@turf/boolean-point-in-polygon                   6.5.0                               npm                          
-@turf/helpers                                    6.5.0                               npm                          
-@turf/invariant                                  6.5.0                               npm                          
-@types/aws-lambda                                8.10.122                            npm                          
+@turf/boolean-point-in-polygon                   7.1.0                               npm                          
+@turf/helpers                                    7.1.0                               npm                          
+@turf/invariant                                  7.1.0                               npm                          
+@types/aws-lambda                                8.10.143                            npm                          
 @types/bunyan                                    1.8.9                               npm                          
 @types/chai-withintoleranceof                    0.0.1                               npm                          
 @types/connect                                   3.4.36                              npm                          
 @types/cookie                                    0.4.1                               npm                          
 @types/cors                                      2.8.14                              npm                          
+@types/geojson                                   7946.0.14                           npm                          
 @types/inquirer                                  8.2.6                               npm                          
 @types/luxon                                     3.4.2                               npm                          
 @types/memcached                                 2.2.10                              npm                          
-@types/mysql                                     2.15.22                             npm                          
+@types/mysql                                     2.15.26                             npm                          
 @types/node                                      20.16.5                             npm                          
-@types/pg                                        8.10.9                              npm                          
+@types/pg                                        8.11.10                             npm                          
 @types/pg                                        8.6.1                               npm                          
-@types/pg-pool                                   2.0.4                               npm                          
+@types/pg-pool                                   2.0.6                               npm                          
 @types/shimmer                                   1.2.0                               npm                          
 @types/tedious                                   4.0.14                              npm                          
 @types/through                                   0.0.31                              npm                          
@@ -308,7 +289,7 @@ bin-links                                        4.0.4                          
 binary-extensions                                2.2.0                               npm                          
 binary-extensions                                2.3.0                               npm                          
 bl                                               4.1.0                               npm                          
-body-parser                                      1.20.2                              npm                          
+body-parser                                      1.20.3                              npm                          
 brace-expansion                                  1.1.11                              npm                          
 brace-expansion                                  2.0.1                               npm        (+5 duplicates)   
 braces                                           3.0.2                               npm                          
@@ -343,7 +324,7 @@ chokidar                                         3.6.0                          
 chownr                                           2.0.0                               npm        (+1 duplicate)    
 ci-info                                          4.0.0                               npm                          
 cidr-regex                                       4.1.1                               npm                          
-cjs-module-lexer                                 1.3.1                               npm                          
+cjs-module-lexer                                 1.4.1                               npm                          
 class-transformer                                0.5.1                               npm                          
 class-validator                                  0.14.1                              npm                          
 clean-stack                                      2.2.0                               npm                          
@@ -412,7 +393,8 @@ debconf                                          1.5.86ubuntu1                  
 debianutils                                      5.17build1                          deb                          
 debounce                                         2.0.0                               npm                          
 debug                                            2.6.9                               npm        (+3 duplicates)   
-debug                                            4.3.5                               npm        (+1 duplicate)    
+debug                                            4.3.5                               npm                          
+debug                                            4.3.7                               npm                          
 deepmerge                                        4.3.1                               npm                          
 defaults                                         1.0.4                               npm                          
 define-data-property                             1.1.3                               npm                          
@@ -446,8 +428,9 @@ electron-to-chromium                             1.4.769                        
 emoji-regex                                      8.0.0                               npm        (+1 duplicate)    
 emoji-regex                                      9.2.2                               npm        (+2 duplicates)   
 encodeurl                                        1.0.2                               npm                          
+encodeurl                                        2.0.0                               npm                          
 encoding                                         0.1.13                              npm                          
-engine.io                                        6.5.2                               npm                          
+engine.io                                        6.5.5                               npm                          
 engine.io-parser                                 5.2.1                               npm                          
 entities                                         4.5.0                               npm                          
 env-paths                                        2.2.1                               npm                          
@@ -467,14 +450,14 @@ exceptiongroup                                   1.2.0                          
 exiftool-vendored                                28.2.1                              npm                          
 exiftool-vendored.pl                             12.91.0                             npm                          
 exponential-backoff                              3.1.1                               npm                          
-express                                          4.19.2                              npm                          
+express                                          4.21.0                              npm                          
 extend                                           3.0.2                               npm                          
 external-editor                                  3.1.0                               npm                          
 fast-deep-equal                                  2.0.1                               npm                          
 fast-fifo                                        1.3.2                               npm                          
 fast-glob                                        3.3.2                               npm        (+1 duplicate)    
 fast-safe-stringify                              2.1.1                               npm                          
-fastapi-slim                                     0.114.0                             python                       
+fastapi-slim                                     0.114.2                             python                       
 fastest-levenshtein                              1.0.16                              npm                          
 fastjsonschema                                   2.20.0                              python                       
 fastq                                            1.15.0                              npm                          
@@ -485,7 +468,7 @@ filelock                                         3.13.1                         
 filelock                                         3.16.1                              python                       
 fill-range                                       7.0.1                               npm                          
 fill-range                                       7.1.1                               npm                          
-finalhandler                                     1.2.0                               npm                          
+finalhandler                                     1.3.1                               npm                          
 findutils                                        4.9.0-5build1                       deb                          
 flatbuffers                                      23.5.26                             python                       
 fluent-ffmpeg                                    2.1.3                               npm                          
@@ -509,7 +492,7 @@ gaxios                                           6.2.0                          
 gcc-14-base                                      14-20240412-0ubuntu1                deb                          
 gcp-metadata                                     6.1.0                               npm                          
 gensync                                          1.0.0-beta.2                        npm                          
-geo-tz                                           8.0.2                               npm                          
+geo-tz                                           8.1.1                               npm                          
 geobuf                                           3.0.2                               npm                          
 get-caller-file                                  2.0.5                               npm                          
 get-intrinsic                                    1.2.4                               npm                          
@@ -559,9 +542,9 @@ https-proxy-agent                                5.0.1                          
 https-proxy-agent                                7.0.4                               npm                          
 https-proxy-agent                                7.0.5                               npm                          
 httptools                                        0.6.1                               python                       
-huggingface-hub                                  0.24.6                              python                       
+huggingface-hub                                  0.25.0                              python                       
 humanfriendly                                    10.0                                python                       
-i18n-iso-countries                               7.11.3                              npm                          
+i18n-iso-countries                               7.12.0                              npm                          
 iconv-lite                                       0.4.24                              npm                          
 iconv-lite                                       0.6.3                               npm                          
 idna                                             3.10                                python                       
@@ -569,10 +552,9 @@ idna                                             3.6                            
 ieee754                                          1.2.1                               npm                          
 ignore-walk                                      6.0.5                               npm                          
 imageio                                          2.33.1                              python                       
-immich                                           1.115.0                             npm                          
+immich                                           1.116.0                             npm                          
 import-fresh                                     3.3.0                               npm                          
-import-in-the-middle                             1.11.0                              npm        (+1 duplicate)    
-import-in-the-middle                             1.8.0                               npm                          
+import-in-the-middle                             1.11.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
 indent-string                                    4.0.0                               npm                          
 inflight                                         1.0.6                               npm                          
@@ -621,7 +603,7 @@ jellyfin-ffmpeg6                                 6.0.1-8-noble                  
 jiti                                             1.21.0                              npm                          
 joblib                                           1.3.2                               python                       
 joi                                              17.13.3                             npm                          
-jose                                             4.15.5                              npm                          
+jose                                             4.15.9                              npm                          
 jq                                               1.7.1-3build1                       deb                          
 js-beautify                                      1.15.1                              npm                          
 js-cookie                                        3.0.5                               npm                          
@@ -898,14 +880,15 @@ md-to-react-email                                5.0.2                          
 mdurl                                            0.1.2                               python                       
 media-typer                                      0.3.0                               npm                          
 media-types                                      10.1.0                              deb                          
-merge-descriptors                                1.0.1                               npm                          
+merge-descriptors                                1.0.3                               npm                          
 merge2                                           1.4.1                               npm        (+1 duplicate)    
 mesa-utils                                       9.0.0-2                             deb                          
 mesa-utils-bin                                   9.0.0-2                             deb                          
 mesa-va-drivers                                  24.0.9-0ubuntu0.1                   deb                          
 mesa-vulkan-drivers                              24.0.9-0ubuntu0.1                   deb                          
 methods                                          1.1.2                               npm                          
-micromatch                                       4.0.5                               npm        (+1 duplicate)    
+micromatch                                       4.0.5                               npm                          
+micromatch                                       4.0.8                               npm                          
 mime                                             1.6.0                               npm                          
 mime-db                                          1.52.0                              npm                          
 mime-types                                       2.1.35                              npm                          
@@ -935,7 +918,7 @@ mount                                            2.39.3-9ubuntu6.1              
 mpmath                                           1.3.0                               python                       
 mrmime                                           2.0.0                               npm                          
 ms                                               2.0.0                               npm        (+3 duplicates)   
-ms                                               2.1.2                               npm        (+1 duplicate)    
+ms                                               2.1.2                               npm                          
 ms                                               2.1.3                               npm        (+1 duplicate)    
 msgpack                                          1.1.0                               python                       
 msgpackr                                         1.10.1                              npm                          
@@ -962,7 +945,7 @@ node-fetch                                       2.7.0                          
 node-gyp                                         10.1.0                              npm                          
 node-releases                                    2.0.14                              npm                          
 nodejs                                           20.17.0-1nodesource1                deb                          
-nodemailer                                       6.9.14                              npm                          
+nodemailer                                       6.9.15                              npm                          
 nopt                                             5.0.0                               npm                          
 nopt                                             7.2.0                               npm                          
 nopt                                             7.2.1                               npm                          
@@ -986,7 +969,7 @@ nw-pre-gyp-module-test                           0.0.1                          
 object-assign                                    4.1.1                               npm                          
 object-hash                                      2.2.0                               npm                          
 object-hash                                      3.0.0                               npm                          
-object-inspect                                   1.12.3                              npm                          
+object-inspect                                   1.13.2                              npm                          
 obuf                                             1.1.2                               npm                          
 ocl-icd-libopencl1                               2.3.2-1build1                       deb                          
 oidc-token-hash                                  5.0.3                               npm                          
@@ -997,7 +980,7 @@ onetime                                          5.1.2                          
 onnx                                             1.16.0                              python                       
 onnxruntime-openvino                             1.18.0                              python                       
 opencv-python-headless                           4.10.0.84                           python                       
-openid-client                                    5.6.5                               npm                          
+openid-client                                    5.7.0                               npm                          
 openssl                                          3.0.13-0ubuntu3.4                   deb                          
 ora                                              5.4.1                               npm                          
 orjson                                           3.10.7                              python                       
@@ -1021,8 +1004,8 @@ path-key                                         3.1.1                          
 path-parse                                       1.0.7                               npm                          
 path-scurry                                      1.11.1                              npm        (+1 duplicate)    
 path-source                                      0.1.3                               npm                          
-path-to-regexp                                   0.1.7                               npm                          
-path-to-regexp                                   3.2.0                               npm                          
+path-to-regexp                                   0.1.10                              npm                          
+path-to-regexp                                   3.3.0                               npm                          
 path-type                                        4.0.0                               npm                          
 pbf                                              3.2.1                               npm                          
 peberminta                                       0.9.0                               npm                          
@@ -1030,16 +1013,16 @@ perl                                             5.38.2-3.2build2               
 perl-base                                        5.38.2-3.2build2                    deb                          
 perl-modules-5.38                                5.38.2-3.2build2                    deb                          
 pexpect                                          4.9.0                               python                       
-pg                                               8.12.0                              npm                          
-pg-connection-string                             2.6.4                               npm                          
+pg                                               8.13.0                              npm                          
+pg-connection-string                             2.7.0                               npm                          
 pg-int8                                          1.0.1                               npm                          
 pg-numeric                                       1.0.2                               npm                          
-pg-pool                                          3.6.2                               npm                          
-pg-protocol                                      1.6.1                               npm                          
+pg-pool                                          3.7.0                               npm                          
+pg-protocol                                      1.7.0                               npm                          
 pg-types                                         2.2.0                               npm                          
-pg-types                                         4.0.1                               npm                          
+pg-types                                         4.0.2                               npm                          
 pgpass                                           1.0.5                               npm                          
-picocolors                                       1.0.0                               npm                          
+picocolors                                       1.1.0                               npm                          
 picomatch                                        2.3.1                               npm        (+3 duplicates)   
 picomatch                                        4.0.2                               npm                          
 pify                                             2.3.0                               npm                          
@@ -1052,8 +1035,9 @@ platformdirs                                     4.3.6                          
 poetry                                           1.8.3                               python                       
 poetry-core                                      1.9.0                               python                       
 poetry-plugin-export                             1.8.0                               python                       
+point-in-polygon-hao                             1.1.0                               npm                          
 postcss                                          8.4.31                              npm                          
-postcss                                          8.4.38                              npm                          
+postcss                                          8.4.47                              npm                          
 postcss-import                                   15.1.0                              npm                          
 postcss-js                                       4.0.1                               npm                          
 postcss-load-config                              4.0.2                               npm                          
@@ -1066,10 +1050,10 @@ postgres-array                                   3.0.2                          
 postgres-bytea                                   1.0.0                               npm                          
 postgres-bytea                                   3.0.0                               npm                          
 postgres-date                                    1.0.7                               npm                          
-postgres-date                                    2.0.1                               npm                          
+postgres-date                                    2.1.0                               npm                          
 postgres-interval                                1.2.0                               npm                          
 postgres-interval                                3.0.0                               npm                          
-postgres-range                                   1.1.3                               npm                          
+postgres-range                                   1.1.4                               npm                          
 prettier                                         3.3.3                               npm                          
 prettytable                                      3.9.0                               python                       
 prismjs                                          1.29.0                              npm                          
@@ -1107,7 +1091,7 @@ python3.12                                       3.12.3-1ubuntu0.2              
 python3.12-minimal                               3.12.3-1ubuntu0.2                   deb                          
 pyyaml                                           6.0.1                               python                       
 qrcode-terminal                                  0.12.0                              npm                          
-qs                                               6.11.0                              npm                          
+qs                                               6.13.0                              npm                          
 qudida                                           0.0.4                               python                       
 queue-microtask                                  1.2.3                               npm        (+1 duplicate)    
 queue-tick                                       1.0.1                               npm                          
@@ -1145,7 +1129,7 @@ response-time                                    2.3.2                          
 restore-cursor                                   3.1.0                               npm                          
 retry                                            0.12.0                              npm                          
 reusify                                          1.0.4                               npm        (+1 duplicate)    
-rich                                             13.8.0                              python                       
+rich                                             13.8.1                              python                       
 rimraf                                           3.0.2                               npm                          
 run-async                                        2.4.1                               npm                          
 run-parallel                                     1.2.0                               npm        (+1 duplicate)    
@@ -1164,9 +1148,9 @@ selderee                                         0.11.0                         
 semver                                           6.3.1                               npm        (+2 duplicates)   
 semver                                           7.6.2                               npm                          
 semver                                           7.6.3                               npm                          
-send                                             0.18.0                              npm                          
+send                                             0.19.0                              npm                          
 sensible-utils                                   0.0.22                              deb                          
-serve-static                                     1.15.0                              npm                          
+serve-static                                     1.16.2                              npm                          
 server-only                                      0.0.1                               npm                          
 set-blocking                                     2.0.0                               npm                          
 set-function-length                              1.2.1                               npm                          
@@ -1180,7 +1164,7 @@ shebang-command                                  2.0.0                          
 shebang-regex                                    3.0.0                               npm        (+1 duplicate)    
 shellingham                                      1.5.4                               python                       
 shimmer                                          1.2.1                               npm                          
-side-channel                                     1.0.4                               npm                          
+side-channel                                     1.0.6                               npm                          
 signal-exit                                      3.0.7                               npm        (+1 duplicate)    
 signal-exit                                      4.1.0                               npm        (+1 duplicate)    
 sigstore                                         2.3.1                               npm                          
@@ -1196,7 +1180,7 @@ socket.io-parser                                 4.2.4                          
 socks                                            2.8.3                               npm                          
 socks-proxy-agent                                8.0.4                               npm                          
 source-map                                       0.6.1                               npm                          
-source-map-js                                    1.2.0                               npm                          
+source-map-js                                    1.2.1                               npm                          
 spdx-correct                                     3.2.0                               npm                          
 spdx-exceptions                                  2.5.0                               npm                          
 spdx-expression-parse                            3.0.1                               npm        (+1 duplicate)    
@@ -1234,8 +1218,7 @@ tailwindcss-email-variants                       3.0.1                          
 tailwindcss-mso                                  1.4.3                               npm                          
 tailwindcss-preset-email                         1.3.2                               npm                          
 tar                                              1.35+dfsg-3build1                   deb                          
-tar                                              6.2.0                               npm                          
-tar                                              6.2.1                               npm                          
+tar                                              6.2.1                               npm        (+1 duplicate)    
 tar-stream                                       3.1.6                               npm                          
 text-decoder                                     1.1.0                               npm                          
 text-encoding                                    0.6.4                               npm                          
@@ -1261,6 +1244,7 @@ trove-classifiers                                2024.9.12                      
 truncate-utf8-bytes                              1.0.2                               npm                          
 ts-interface-checker                             0.1.13                              npm                          
 tslib                                            2.6.3                               npm                          
+tslib                                            2.7.0                               npm        (+4 duplicates)   
 tuf-js                                           2.2.1                               npm                          
 type-fest                                        0.21.3                              npm                          
 type-is                                          1.6.18                              npm                          
@@ -1268,7 +1252,7 @@ typedarray                                       0.0.6                          
 typeorm                                          0.3.20                              npm                          
 typing-extensions                                4.12.2                              python                       
 tzdata                                           2024a-3ubuntu1.1                    deb                          
-ua-parser-js                                     1.0.38                              npm                          
+ua-parser-js                                     1.0.39                              npm                          
 ubuntu-keyring                                   2023.11.28.1                        deb                          
 uid                                              2.0.2                               npm                          
 uid2                                             1.0.0                               npm                          
@@ -1309,7 +1293,6 @@ wrap-ansi                                        7.0.0                          
 wrap-ansi                                        8.1.0                               npm        (+1 duplicate)    
 wrappy                                           1.0.2                               npm                          
 write-file-atomic                                5.0.1                               npm                          
-ws                                               8.11.0                              npm                          
 ws                                               8.17.1                              npm                          
 xkb-data                                         2.41-2ubuntu1.1                     deb                          
 xtend                                            4.0.2                               npm                          
