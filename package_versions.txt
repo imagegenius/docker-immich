@@ -1141,7 +1141,7 @@ utils-merge                                      1.0.1                          
 utmps-libs                                       0.1.2.2-r1                          apk                          
 uuid                                             10.0.0                              npm                          
 uuid                                             9.0.1                               npm                          
-v4l-utils-libs                                   1.26.1-r1                           apk                          
+v4l-utils-libs                                   1.28.1-r0                           apk                          
 v_frame                                          0.3.7                               rust-crate                   
 validate-npm-package-license                     3.0.4                               npm                          
 validate-npm-package-name                        5.0.1                               npm                          
