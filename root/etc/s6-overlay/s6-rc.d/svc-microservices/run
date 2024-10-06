@@ -2,7 +2,8 @@
 # shellcheck shell=bash
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
-export LD_PRELOAD="$lib_path"
+export LD_PRELOAD="${lib_path}"
+export IMMICH_WORKERS_INCLUDE="microservices"
 
 : "${CPU_CORES:="$(/app/immich/server/scripts/get-cpus.sh)"}"
 echo "Detected CPU Cores: ${CPU_CORES}"
@@ -12,4 +13,4 @@ fi
 
 exec \
     cd /app/immich/server s6-setuidgid abc \
-        node dist/main microservices || exit
+        node dist/main || exit
