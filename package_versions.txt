@@ -886,7 +886,7 @@ node-addon-api                                   5.1.0                          
 node-fetch                                       2.7.0                               npm                         
 node-gyp                                         10.1.0                              npm                         
 node-releases                                    2.0.14                              npm                         
-nodejs                                           20.17.0-1nodesource1                deb                         
+nodejs                                           20.18.0-1nodesource1                deb                         
 nodemailer                                       6.9.15                              npm                         
 nopt                                             5.0.0                               npm                         
 nopt                                             7.2.0                               npm                         
