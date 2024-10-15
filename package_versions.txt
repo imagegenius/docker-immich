@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                         
 @hapi/topo                                       5.1.0                               npm                         
 @img/sharp-linux-x64                             0.33.5                              npm                         
-@immich/cli                                      2.2.23                              npm                         
+@immich/cli                                      2.2.24                              npm                         
 @ioredis/commands                                1.2.0                               npm                         
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                         
@@ -234,7 +234,7 @@ NAME                                             VERSION                        
 @types/luxon                                     3.4.2                               npm                         
 @types/memcached                                 2.2.10                              npm                         
 @types/mysql                                     2.15.26                             npm                         
-@types/node                                      20.16.10                            npm                         
+@types/node                                      20.16.11                            npm                         
 @types/pg                                        8.11.10                             npm                         
 @types/pg                                        8.6.1                               npm                         
 @types/pg-pool                                   2.0.6                               npm                         
@@ -467,7 +467,7 @@ event-target-shim                                5.0.1                          
 eventemitter2                                    6.4.9                               npm                         
 events                                           3.3.0                               npm                         
 events                                           UNKNOWN                             npm                         
-exiftool-vendored                                28.3.0                              npm                         
+exiftool-vendored                                28.3.1                              npm                         
 exiftool-vendored.pl                             12.96.0                             npm                         
 exponential-backoff                              3.1.1                               npm                         
 express                                          4.21.0                              npm                         
@@ -570,7 +570,7 @@ ieee754                                          1.2.1                          
 ignore-loader                                    UNKNOWN                             npm                         
 ignore-walk                                      6.0.5                               npm                         
 image-size                                       UNKNOWN                             npm                         
-immich                                           1.117.0                             npm                         
+immich                                           1.118.0                             npm                         
 import-fresh                                     3.3.0                               npm                         
 import-in-the-middle                             1.11.0                              npm                         
 imurmurhash                                      0.1.4                               npm                         
