@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.23                              npm                          
+@immich/cli                                      2.2.24                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -234,7 +234,7 @@ NAME                                             VERSION                        
 @types/luxon                                     3.4.2                               npm                          
 @types/memcached                                 2.2.10                              npm                          
 @types/mysql                                     2.15.26                             npm                          
-@types/node                                      20.16.10                            npm                          
+@types/node                                      20.16.11                            npm                          
 @types/pg                                        8.11.10                             npm                          
 @types/pg                                        8.6.1                               npm                          
 @types/pg-pool                                   2.0.6                               npm                          
@@ -503,7 +503,7 @@ event-target-shim                                5.0.1                          
 eventemitter2                                    6.4.9                               npm                          
 events                                           3.3.0                               npm                          
 events                                           UNKNOWN                             npm                          
-exiftool-vendored                                28.3.0                              npm                          
+exiftool-vendored                                28.3.1                              npm                          
 exiftool-vendored.pl                             12.96.0                             npm                          
 exponential-backoff                              3.1.1                               npm                          
 express                                          4.21.0                              npm                          
@@ -562,7 +562,7 @@ get-orientation                                  UNKNOWN                        
 getrandom                                        0.2.12                              rust-crate                   
 giflib                                           5.2.2-r0                            apk                          
 github.com/evanw/esbuild                         v0.0.0-20231229203112-6ee82255bdfd  go-module                    
-glib                                             2.82.1-r0                           apk                          
+glib                                             2.82.1-r1                           apk                          
 glob                                             10.3.4                              npm                          
 glob                                             10.4.2                              npm                          
 glob                                             10.4.5                              npm                          
@@ -630,7 +630,7 @@ imagemagick-webp                                 7.1.1.39-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.117.0                             npm                          
+immich                                           1.118.0                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.11.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -737,7 +737,7 @@ libjxl                                           0.10.2-r0                      
 libltdl                                          2.4.7-r3                            apk                          
 libmd                                            1.1.0-r0                            apk                          
 libmount                                         2.40.2-r3                           apk                          
-libncursesw                                      6.5_p20240601-r1                    apk                          
+libncursesw                                      6.5_p20241006-r0                    apk                          
 libnpmaccess                                     8.0.6                               npm                          
 libnpmdiff                                       6.1.4                               npm                          
 libnpmexec                                       8.1.4                               npm                          
@@ -800,7 +800,7 @@ libxdmcp                                         1.1.5-r1                       
 libxext                                          1.3.6-r2                            apk                          
 libxfixes                                        6.0.1-r4                            apk                          
 libxft                                           2.3.8-r3                            apk                          
-libxml2                                          2.13.4-r0                           apk                          
+libxml2                                          2.13.4-r1                           apk                          
 libxrender                                       0.9.11-r5                           apk                          
 libzmq                                           4.3.5-r2                            apk                          
 lilconfig                                        2.1.0                               npm                          
@@ -885,7 +885,7 @@ mz                                               2.7.0                          
 nanoid                                           3.3.7                               npm                          
 nanoid                                           UNKNOWN                             npm                          
 native-url                                       UNKNOWN                             npm                          
-ncurses-terminfo-base                            6.5_p20240601-r1                    apk                          
+ncurses-terminfo-base                            6.5_p20241006-r0                    apk                          
 negotiator                                       0.6.3                               npm         (+1 duplicate)   
 neo-async                                        2.6.2                               npm                          
 neo-async                                        UNKNOWN                             npm                          
@@ -985,7 +985,7 @@ path-type                                        4.0.0                          
 pbf                                              3.2.1                               npm                          
 pcre2                                            10.43-r0                            apk                          
 peberminta                                       0.9.0                               npm                          
-perl                                             5.40.0-r2                           apk                          
+perl                                             5.40.0-r3                           apk                          
 pg                                               8.13.0                              npm                          
 pg-connection-string                             2.7.0                               npm                          
 pg-int8                                          1.0.1                               npm                          
@@ -1293,7 +1293,7 @@ vips-heif                                        8.15.3-r0                      
 vips-jxl                                         8.15.3-r0                           apk                          
 vips-magick                                      8.15.3-r0                           apk                          
 vm-browserify                                    UNKNOWN                             npm                          
-vulkan-loader                                    1.3.261.1-r0                        apk                          
+vulkan-loader                                    1.3.296.0-r0                        apk                          
 walk-up-path                                     3.0.1                               npm                          
 watchpack                                        UNKNOWN                             npm                          
 wayland-libs-client                              1.23.1-r0                           apk                          
