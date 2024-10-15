@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.24                              npm                          
+@immich/cli                                      2.2.25                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -572,7 +572,7 @@ glob                                             UNKNOWN                        
 glob-parent                                      5.1.2                               npm         (+1 duplicate)   
 glob-parent                                      6.0.2                               npm                          
 globals                                          11.12.0                             npm                          
-glslang-libs                                     1.3.290.0-r0                        apk                          
+glslang-libs                                     1.3.296.0-r0                        apk                          
 golang.org/x/sys                                 v0.0.0-20220715151400-c0bba94af5f8  go-module                    
 gopd                                             1.0.1                               npm                          
 graceful-fs                                      4.2.11                              npm         (+1 duplicate)   
@@ -630,7 +630,7 @@ imagemagick-webp                                 7.1.1.39-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.118.0                             npm                          
+immich                                           1.118.1                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.11.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -762,7 +762,7 @@ libphonenumber-js/min/metadata                   UNKNOWN                        
 libphonenumber-js/mobile                         UNKNOWN                             npm                          
 libphonenumber-js/mobile/examples                UNKNOWN                             npm                          
 libphonenumber-js/mobile/metadata                UNKNOWN                             npm                          
-libplacebo                                       6.338.2-r2                          apk                          
+libplacebo                                       6.338.2-r3                          apk                          
 libpng                                           1.6.44-r0                           apk                          
 libproc2                                         4.0.4-r2                            apk                          
 libpsl                                           0.21.5-r2                           apk                          
@@ -1145,7 +1145,7 @@ set-function-length                              1.2.1                          
 setimmediate                                     UNKNOWN                             npm                          
 setprototypeof                                   1.2.0                               npm                          
 sha.js                                           2.4.11                              npm                          
-shaderc                                          2024.0-r1                           apk                          
+shaderc                                          2024.0-r2                           apk                          
 shadow                                           4.16.0-r0                           apk                          
 shapefile                                        0.6.6                               npm                          
 shared-mime-info                                 2.4-r0                              apk                          
