@@ -744,7 +744,7 @@ libjxl                                           0.10.2-r0                      
 libltdl                                          2.4.7-r3                            apk                          
 libmd                                            1.1.0-r0                            apk                          
 libmount                                         2.40.2-r3                           apk                          
-libncursesw                                      6.5_p20241006-r0                    apk                          
+libncursesw                                      6.5_p20241006-r1                    apk                          
 libnpmaccess                                     9.0.0                               npm                          
 libnpmdiff                                       7.0.0                               npm                          
 libnpmexec                                       9.0.0                               npm                          
@@ -896,7 +896,7 @@ mz                                               2.7.0                          
 nanoid                                           3.3.7                               npm                          
 nanoid                                           UNKNOWN                             npm                          
 native-url                                       UNKNOWN                             npm                          
-ncurses-terminfo-base                            6.5_p20241006-r0                    apk                          
+ncurses-terminfo-base                            6.5_p20241006-r1                    apk                          
 negotiator                                       0.6.3                               npm         (+1 duplicate)   
 neo-async                                        2.6.2                               npm                          
 neo-async                                        UNKNOWN                             npm                          
