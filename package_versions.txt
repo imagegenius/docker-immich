@@ -1185,8 +1185,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.12                              python                      
 python3                                          3.12.3-0ubuntu2                     deb                         
 python3-minimal                                  3.12.3-0ubuntu2                     deb                         
-python3-pip                                      24.0+dfsg-1ubuntu1                  deb                         
-python3-pip-whl                                  24.0+dfsg-1ubuntu1                  deb                         
+python3-pip                                      24.0+dfsg-1ubuntu1.1                deb                         
+python3-pip-whl                                  24.0+dfsg-1ubuntu1.1                deb                         
 python3-pkg-resources                            68.1.2-2ubuntu1.1                   deb                         
 python3-setuptools                               68.1.2-2ubuntu1.1                   deb                         
 python3-setuptools-whl                           68.1.2-2ubuntu1.1                   deb                         
