@@ -807,7 +807,7 @@ libxdmcp                                         1.1.5-r1                       
 libxext                                          1.3.6-r2                            apk                          
 libxfixes                                        6.0.1-r4                            apk                          
 libxft                                           2.3.8-r3                            apk                          
-libxml2                                          2.13.4-r1                           apk                          
+libxml2                                          2.13.4-r2                           apk                          
 libxrender                                       0.9.11-r5                           apk                          
 libzmq                                           4.3.5-r2                            apk                          
 lilconfig                                        2.1.0                               npm                          
@@ -959,9 +959,9 @@ once_cell                                        1.19.0                         
 onetime                                          5.1.2                               npm                          
 onevpl-libs                                      2023.3.1-r2                         apk                          
 oniguruma                                        6.9.9-r0                            apk                          
-openexr-libiex                                   3.1.13-r1                           apk                          
-openexr-libilmthread                             3.1.13-r1                           apk                          
-openexr-libopenexr                               3.1.13-r1                           apk                          
+openexr-libiex                                   3.1.13-r2                           apk                          
+openexr-libilmthread                             3.1.13-r2                           apk                          
+openexr-libopenexr                               3.1.13-r2                           apk                          
 openid-client                                    5.7.0                               npm                          
 openjpeg                                         2.5.2-r0                            apk                          
 openssl                                          3.3.2-r3                            apk                          
