@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                         
 @hapi/topo                                       5.1.0                               npm                         
 @img/sharp-linux-x64                             0.33.5                              npm                         
-@immich/cli                                      2.2.29                              npm                         
+@immich/cli                                      2.2.30                              npm                         
 @ioredis/commands                                1.2.0                               npm                         
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                         
@@ -178,11 +178,11 @@ NAME                                             VERSION                        
 @protobufjs/pool                                 1.1.0                               npm                         
 @protobufjs/utf8                                 1.1.0                               npm                         
 @react-email/body                                0.0.10                              npm                         
-@react-email/button                              0.0.18                              npm                         
+@react-email/button                              0.0.17                              npm                         
 @react-email/code-block                          0.0.9                               npm                         
 @react-email/code-inline                         0.0.4                               npm                         
 @react-email/column                              0.0.12                              npm                         
-@react-email/components                          0.0.26                              npm                         
+@react-email/components                          0.0.25                              npm                         
 @react-email/container                           0.0.14                              npm                         
 @react-email/font                                0.0.8                               npm                         
 @react-email/head                                0.0.11                              npm                         
@@ -190,13 +190,13 @@ NAME                                             VERSION                        
 @react-email/hr                                  0.0.10                              npm                         
 @react-email/html                                0.0.10                              npm                         
 @react-email/img                                 0.0.10                              npm                         
-@react-email/link                                0.0.11                              npm                         
+@react-email/link                                0.0.10                              npm                         
 @react-email/markdown                            0.0.12                              npm                         
 @react-email/preview                             0.0.11                              npm                         
-@react-email/render                              1.0.2                               npm                         
-@react-email/row                                 0.0.11                              npm                         
-@react-email/section                             0.0.15                              npm                         
-@react-email/tailwind                            1.0.0                               npm                         
+@react-email/render                              1.0.1                               npm                         
+@react-email/row                                 0.0.10                              npm                         
+@react-email/section                             0.0.14                              npm                         
+@react-email/tailwind                            0.1.0                               npm                         
 @react-email/text                                0.0.10                              npm                         
 @selderee/plugin-htmlparser2                     0.11.0                              npm                         
 @sideway/address                                 4.1.5                               npm                         
@@ -566,7 +566,7 @@ ieee754                                          1.2.1                          
 ignore-loader                                    UNKNOWN                             npm                         
 ignore-walk                                      6.0.5                               npm                         
 image-size                                       UNKNOWN                             npm                         
-immich                                           1.120.0                             npm                         
+immich                                           1.120.1                             npm                         
 import-fresh                                     3.3.0                               npm                         
 import-in-the-middle                             1.11.0                              npm                         
 imurmurhash                                      0.1.4                               npm                         
@@ -962,8 +962,7 @@ node-releases                                    2.0.14                         
 nodejs                                           20.18.0-1nodesource1                deb                         
 nodemailer                                       6.9.16                              npm                         
 nopt                                             5.0.0                               npm                         
-nopt                                             7.2.0                               npm                         
-nopt                                             7.2.1                               npm                         
+nopt                                             7.2.1                               npm        (+1 duplicate)   
 normalize-package-data                           6.0.2                               npm                         
 normalize-path                                   3.0.0                               npm                         
 notepack.io                                      3.0.1                               npm                         
