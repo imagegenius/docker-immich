@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                         
 @hapi/topo                                       5.1.0                               npm                         
 @img/sharp-linux-x64                             0.33.5                              npm                         
-@immich/cli                                      2.2.30                              npm                         
+@immich/cli                                      2.2.31                              npm                         
 @ioredis/commands                                1.2.0                               npm                         
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                         
@@ -496,7 +496,7 @@ fast-deep-equal                                  2.0.1                          
 fast-fifo                                        1.3.2                               npm                         
 fast-glob                                        3.3.2                               npm        (+1 duplicate)   
 fast-safe-stringify                              2.1.1                               npm                         
-fastapi-slim                                     0.115.4                             python                      
+fastapi                                          0.115.4                             python                      
 fastest-levenshtein                              1.0.16                              npm                         
 fastjsonschema                                   2.20.0                              python                      
 fastq                                            1.15.0                              npm                         
@@ -605,7 +605,7 @@ ignore-loader                                    UNKNOWN                        
 ignore-walk                                      6.0.5                               npm                         
 image-size                                       UNKNOWN                             npm                         
 imageio                                          2.33.1                              python                      
-immich                                           1.120.1                             npm                         
+immich                                           1.120.2                             npm                         
 import-fresh                                     3.3.0                               npm                         
 import-in-the-middle                             1.11.0                              npm                         
 imurmurhash                                      0.1.4                               npm                         
@@ -789,7 +789,7 @@ libmd0                                           1.1.0-2build1                  
 libmimalloc2.0                                   2.1.2+ds-2                          deb                         
 libmount1                                        2.39.3-9ubuntu6.1                   deb                         
 libmp3lame0                                      3.100-6build1                       deb                         
-libmpg123-0t64                                   1.32.5-1ubuntu1                     deb                         
+libmpg123-0t64                                   1.32.5-1ubuntu1.1                   deb                         
 libncursesw6                                     6.4+20240113-1ubuntu2               deb                         
 libnettle8t64                                    3.9.1-2.2build1.1                   deb                         
 libnghttp2-14                                    1.59.0-1ubuntu0.1                   deb                         
@@ -835,6 +835,7 @@ libphonenumber-js/mobile/examples                UNKNOWN                        
 libphonenumber-js/mobile/metadata                UNKNOWN                             npm                         
 libpixman-1-0                                    0.42.2-1build1                      deb                         
 libpng16-16t64                                   1.6.43-5build1                      deb                         
+libpq5                                           16.4-0ubuntu0.24.04.2               deb                         
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                         
 libpsl5t64                                       0.21.2-1.1build1                    deb                         
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                         
@@ -1065,7 +1066,7 @@ p-limit                                          UNKNOWN                        
 p-map                                            4.0.0                               npm                         
 package-json-from-dist                           1.0.0                               npm        (+1 duplicate)   
 packaging                                        23.2                                python                      
-packaging                                        24.1                                python                      
+packaging                                        24.2                                python                      
 pacote                                           18.0.6                              npm                         
 parent-module                                    1.0.1                               npm                         
 parse-conflict-json                              3.0.1                               npm                         
@@ -1143,6 +1144,9 @@ postgres-date                                    2.1.0                          
 postgres-interval                                1.2.0                               npm                         
 postgres-interval                                3.0.0                               npm                         
 postgres-range                                   1.1.4                               npm                         
+postgresql-client                                16+257build1.1                      deb                         
+postgresql-client-16                             16.4-0ubuntu0.24.04.2               deb                         
+postgresql-client-common                         257build1.1                         deb                         
 prettier                                         3.3.3                               npm                         
 prettytable                                      3.9.0                               python                      
 prismjs                                          1.29.0                              npm                         
