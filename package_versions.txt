@@ -528,7 +528,7 @@ ffmpeg-libavutil                                 6.1.1-r10                      
 ffmpeg-libpostproc                               6.1.1-r10                           apk                          
 ffmpeg-libswresample                             6.1.1-r10                           apk                          
 ffmpeg-libswscale                                6.1.1-r10                           apk                          
-fftw-double-libs                                 3.3.10-r5                           apk                          
+fftw-double-libs                                 3.3.10-r6                           apk                          
 figures                                          3.2.0                               npm                          
 file-source                                      0.6.1                               npm                          
 fill-range                                       7.0.1                               npm                          
