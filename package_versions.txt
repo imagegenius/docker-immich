@@ -611,7 +611,7 @@ iterare                                          1.2.1                          
 jackspeak                                        2.3.6                               npm                         
 jackspeak                                        3.4.0                               npm                         
 jackspeak                                        3.4.2                               npm                         
-jellyfin-ffmpeg7                                 7.0.2-5-noble                       deb                         
+jellyfin-ffmpeg7                                 7.0.2-7-noble                       deb                         
 jest-worker                                      UNKNOWN                             npm                         
 jiti                                             1.21.0                              npm                         
 joi                                              17.13.3                             npm                         
