@@ -655,7 +655,7 @@ jackspeak                                        3.4.0                          
 jackspeak                                        3.4.2                               npm                          
 jaraco-classes                                   3.4.0                               python                       
 jeepney                                          0.8.0                               python                       
-jellyfin-ffmpeg7                                 7.0.2-5-noble                       deb                          
+jellyfin-ffmpeg7                                 7.0.2-7-noble                       deb                          
 jest-worker                                      UNKNOWN                             npm                          
 jiti                                             1.21.0                              npm                          
 joblib                                           1.3.2                               python                       
