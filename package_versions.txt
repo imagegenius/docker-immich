@@ -400,7 +400,7 @@ cookie                                           UNKNOWN                        
 cookie-parser                                    1.4.7                               npm                          
 cookie-signature                                 1.0.6                               npm                          
 core-util-is                                     1.0.3                               npm                          
-corepack                                         0.29.3                              npm                          
+corepack                                         0.29.4                              npm                          
 coreutils                                        9.4-3ubuntu6                        deb                          
 cors                                             2.8.5                               npm                          
 cosmiconfig                                      8.3.6                               npm                          
@@ -417,7 +417,7 @@ crypto-browserify                                UNKNOWN                        
 cryptography                                     43.0.3                              python                       
 css.escape                                       UNKNOWN                             npm                          
 cssesc                                           3.0.0                               npm        (+1 duplicate)    
-curl                                             8.5.0-2ubuntu10.4                   deb                          
+curl                                             8.5.0-2ubuntu10.5                   deb                          
 cycler                                           0.12.1                              python                       
 cython                                           3.0.8                               python                       
 dash                                             0.5.12-6ubuntu5                     deb                          
@@ -704,7 +704,7 @@ libcap-ng0                                       0.8.4-2build2                  
 libcap2                                          1:2.66-5ubuntu2                     deb                          
 libcom-err2                                      1.47.0-2.4~exp1ubuntu4.1            deb                          
 libcrypt1                                        1:4.4.36-4build1                    deb                          
-libcurl4t64                                      8.5.0-2ubuntu10.4                   deb                          
+libcurl4t64                                      8.5.0-2ubuntu10.5                   deb                          
 libdatrie1                                       0.2.13-3build1                      deb                          
 libdav1d7                                        1.4.3-1                             deb                          
 libdb5.3t64                                      5.3.28+dfsg2-7                      deb                          
@@ -741,8 +741,8 @@ libgl1                                           1.7.0-1build1                  
 libgl1-mesa-dri                                  24.0.9-0ubuntu0.2                   deb                          
 libglapi-mesa                                    24.0.9-0ubuntu0.2                   deb                          
 libgles2                                         1.7.0-1build1                       deb                          
-libglib2.0-0t64                                  2.80.0-6ubuntu3.1                   deb                          
-libglib2.0-data                                  2.80.0-6ubuntu3.1                   deb                          
+libglib2.0-0t64                                  2.80.0-6ubuntu3.2                   deb                          
+libglib2.0-data                                  2.80.0-6ubuntu3.2                   deb                          
 libglvnd0                                        1.7.0-1build1                       deb                          
 libglx-mesa0                                     24.0.9-0ubuntu0.2                   deb                          
 libglx0                                          1.7.0-1build1                       deb                          
@@ -837,8 +837,8 @@ libpsl5t64                                       0.21.2-1.1build1               
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
 libpython3.10-minimal                            3.10.15-1+noble1                    deb                          
 libpython3.10-stdlib                             3.10.15-1+noble1                    deb                          
-libpython3.12-minimal                            3.12.3-1ubuntu0.2                   deb                          
-libpython3.12-stdlib                             3.12.3-1ubuntu0.2                   deb                          
+libpython3.12-minimal                            3.12.3-1ubuntu0.3                   deb                          
+libpython3.12-stdlib                             3.12.3-1ubuntu0.3                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
 librsvg2-2                                       2.58.0+dfsg-1build1                 deb                          
 librsvg2-common                                  2.58.0+dfsg-1build1                 deb                          
@@ -1020,7 +1020,7 @@ node-fetch                                       UNKNOWN                        
 node-gyp                                         10.1.0                              npm                          
 node-html-parser                                 UNKNOWN                             npm                          
 node-releases                                    2.0.14                              npm                          
-nodejs                                           20.18.0-1nodesource1                deb                          
+nodejs                                           20.18.1-1nodesource1                deb                          
 nodemailer                                       6.9.16                              npm                          
 nopt                                             5.0.0                               npm                          
 nopt                                             7.2.1                               npm        (+1 duplicate)    
@@ -1184,8 +1184,8 @@ python3                                          3.12.3-0ubuntu2                
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
 python3.10                                       3.10.15-1+noble1                    deb                          
 python3.10-minimal                               3.10.15-1+noble1                    deb                          
-python3.12                                       3.12.3-1ubuntu0.2                   deb                          
-python3.12-minimal                               3.12.3-1ubuntu0.2                   deb                          
+python3.12                                       3.12.3-1ubuntu0.3                   deb                          
+python3.12-minimal                               3.12.3-1ubuntu0.3                   deb                          
 pyyaml                                           6.0.1                               python                       
 qrcode-terminal                                  0.12.0                              npm                          
 qs                                               6.13.0                              npm                          
@@ -1411,7 +1411,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.1                               npm                          
 validator                                        13.12.0                             npm                          
 vary                                             1.1.2                               npm                          
-virtualenv                                       20.27.1                             python                       
+virtualenv                                       20.28.0                             python                       
 vm-browserify                                    UNKNOWN                             npm                          
 walk-up-path                                     3.0.1                               npm                          
 watchfiles                                       0.21.0                              python                       
