@@ -414,7 +414,7 @@ cron-parser                                      4.9.0                          
 cross-spawn                                      7.0.3                               npm        (+1 duplicate)    
 cross-spawn                                      UNKNOWN                             npm                          
 crypto-browserify                                UNKNOWN                             npm                          
-cryptography                                     43.0.3                              python                       
+cryptography                                     44.0.0                              python                       
 css.escape                                       UNKNOWN                             npm                          
 cssesc                                           3.0.0                               npm        (+1 duplicate)    
 curl                                             8.5.0-2ubuntu10.5                   deb                          
@@ -499,7 +499,7 @@ fast-glob                                        3.3.2                          
 fast-safe-stringify                              2.1.1                               npm                          
 fastapi                                          0.115.5                             python                       
 fastest-levenshtein                              1.0.16                              npm                          
-fastjsonschema                                   2.20.0                              python                       
+fastjsonschema                                   2.21.1                              python                       
 fastq                                            1.15.0                              npm                          
 fastq                                            1.17.1                              npm                          
 figures                                          3.2.0                               npm                          
@@ -835,8 +835,8 @@ libpq5                                           16.4-0ubuntu0.24.04.2          
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                          
 libpsl5t64                                       0.21.2-1.1build1                    deb                          
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
-libpython3.10-minimal                            3.10.15-1+noble1                    deb                          
-libpython3.10-stdlib                             3.10.15-1+noble1                    deb                          
+libpython3.10-minimal                            3.10.16-1+noble1                    deb                          
+libpython3.10-stdlib                             3.10.16-1+noble1                    deb                          
 libpython3.12-minimal                            3.12.3-1ubuntu0.3                   deb                          
 libpython3.12-stdlib                             3.12.3-1ubuntu0.3                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
@@ -1110,7 +1110,7 @@ pillow                                           10.4.0                         
 pinentry-curses                                  1.2.1-3ubuntu5                      deb                          
 pip                                              23.0.1                              python                       
 pirates                                          4.0.6                               npm                          
-pkginfo                                          1.11.2                              python                       
+pkginfo                                          1.12.0                              python                       
 platform                                         UNKNOWN                             npm                          
 platformdirs                                     4.3.6                               python                       
 poetry                                           1.8.4                               python                       
@@ -1182,8 +1182,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.17                              python                       
 python3                                          3.12.3-0ubuntu2                     deb                          
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
-python3.10                                       3.10.15-1+noble1                    deb                          
-python3.10-minimal                               3.10.15-1+noble1                    deb                          
+python3.10                                       3.10.16-1+noble1                    deb                          
+python3.10-minimal                               3.10.16-1+noble1                    deb                          
 python3.12                                       3.12.3-1ubuntu0.3                   deb                          
 python3.12-minimal                               3.12.3-1ubuntu0.3                   deb                          
 pyyaml                                           6.0.1                               python                       
