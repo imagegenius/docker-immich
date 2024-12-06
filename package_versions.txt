@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.33                              npm                          
+@immich/cli                                      2.2.34                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/fs-minipass                              4.0.1                               npm                          
@@ -632,7 +632,7 @@ imagemagick-webp                                 7.1.1.41-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.122.0                             npm                          
+immich                                           1.122.1                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.11.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -721,7 +721,7 @@ libdav1d                                         1.5.0-r0                       
 libde265                                         1.0.15-r0                           apk                          
 libdeflate                                       1.22-r0                             apk                          
 libdovi                                          3.3.1-r0                            apk                          
-libdrm                                           2.4.123-r1                          apk                          
+libdrm                                           2.4.124-r0                          apk                          
 libeconf                                         0.6.3-r0                            apk                          
 libexif                                          0.6.24-r2                           apk                          
 libexpat                                         2.6.4-r0                            apk                          
@@ -798,7 +798,7 @@ libwebpdemux                                     1.4.0-r0                       
 libwebpmux                                       1.4.0-r0                            apk                          
 libx11                                           1.8.10-r0                           apk                          
 libxau                                           1.0.11-r4                           apk                          
-libxcb                                           1.16.1-r0                           apk                          
+libxcb                                           1.17.0-r0                           apk                          
 libxdmcp                                         1.1.5-r1                            apk                          
 libxext                                          1.3.6-r2                            apk                          
 libxfixes                                        6.0.1-r4                            apk                          
