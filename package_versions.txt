@@ -520,15 +520,15 @@ fastest-levenshtein                              1.0.16                         
 fastq                                            1.15.0                              npm                          
 fastq                                            1.17.1                              npm                          
 fern                                             0.6.2                               rust-crate                   
-ffmpeg                                           6.1.2-r0                            apk                          
-ffmpeg-libavcodec                                6.1.2-r0                            apk                          
-ffmpeg-libavdevice                               6.1.2-r0                            apk                          
-ffmpeg-libavfilter                               6.1.2-r0                            apk                          
-ffmpeg-libavformat                               6.1.2-r0                            apk                          
-ffmpeg-libavutil                                 6.1.2-r0                            apk                          
-ffmpeg-libpostproc                               6.1.2-r0                            apk                          
-ffmpeg-libswresample                             6.1.2-r0                            apk                          
-ffmpeg-libswscale                                6.1.2-r0                            apk                          
+ffmpeg                                           6.1.2-r1                            apk                          
+ffmpeg-libavcodec                                6.1.2-r1                            apk                          
+ffmpeg-libavdevice                               6.1.2-r1                            apk                          
+ffmpeg-libavfilter                               6.1.2-r1                            apk                          
+ffmpeg-libavformat                               6.1.2-r1                            apk                          
+ffmpeg-libavutil                                 6.1.2-r1                            apk                          
+ffmpeg-libpostproc                               6.1.2-r1                            apk                          
+ffmpeg-libswresample                             6.1.2-r1                            apk                          
+ffmpeg-libswscale                                6.1.2-r1                            apk                          
 fftw-double-libs                                 3.3.10-r6                           apk                          
 figures                                          3.2.0                               npm                          
 file-source                                      0.6.1                               npm                          
@@ -565,7 +565,7 @@ get-orientation                                  UNKNOWN                        
 getrandom                                        0.2.12                              rust-crate                   
 giflib                                           5.2.2-r0                            apk                          
 github.com/evanw/esbuild                         v0.0.0-20231229203112-6ee82255bdfd  go-module                    
-glib                                             2.82.2-r0                           apk                          
+glib                                             2.82.3-r0                           apk                          
 glob                                             10.3.4                              npm                          
 glob                                             10.4.5                              npm         (+1 duplicate)   
 glob                                             7.2.3                               npm                          
@@ -1145,7 +1145,7 @@ scheduler-builtin                                UNKNOWN                        
 scheduler-experimental-builtin                   UNKNOWN                             npm                          
 schema-utils                                     UNKNOWN                             npm         (+1 duplicate)   
 scopeguard                                       1.2.0                               rust-crate                   
-sdl2                                             2.30.9-r0                           apk                          
+sdl2                                             2.30.10-r0                          apk                          
 selderee                                         0.11.0                              npm                          
 semver                                           6.3.1                               npm         (+2 duplicates)  
 semver                                           7.6.3                               npm         (+1 duplicate)   
