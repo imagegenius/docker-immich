@@ -960,7 +960,7 @@ openexr-libilmthread                             3.3.2-r0                       
 openexr-libopenexr                               3.3.2-r0                            apk                          
 openexr-libopenexrcore                           3.3.2-r0                            apk                          
 openid-client                                    5.7.0                               npm                          
-openjpeg                                         2.5.2-r0                            apk                          
+openjpeg                                         2.5.3-r0                            apk                          
 openssl                                          3.3.2-r4                            apk                          
 opus                                             1.5.2-r1                            apk                          
 ora                                              5.4.1                               npm                          
