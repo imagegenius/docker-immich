@@ -37,7 +37,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                         
 @hapi/topo                                       5.1.0                               npm                         
 @img/sharp-linux-x64                             0.33.5                              npm                         
-@immich/cli                                      2.2.35                              npm                         
+@immich/cli                                      2.2.36                              npm                         
 @ioredis/commands                                1.2.0                               npm                         
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                         
@@ -608,7 +608,7 @@ ignore-loader                                    UNKNOWN                        
 ignore-walk                                      6.0.5                               npm                         
 image-size                                       UNKNOWN                             npm                         
 imageio                                          2.33.1                              python                      
-immich                                           1.122.2                             npm                         
+immich                                           1.122.3                             npm                         
 import-fresh                                     3.3.0                               npm                         
 import-in-the-middle                             1.11.0                              npm                         
 imurmurhash                                      0.1.4                               npm                         
@@ -1182,7 +1182,7 @@ pyparsing                                        3.1.1                          
 pyproject-hooks                                  1.2.0                               python                      
 python-dateutil                                  2.8.2                               python                      
 python-dotenv                                    1.0.0                               python                      
-python-multipart                                 0.0.17                              python                      
+python-multipart                                 0.0.19                              python                      
 python3                                          3.12.3-0ubuntu2                     deb                         
 python3-minimal                                  3.12.3-0ubuntu2                     deb                         
 python3-pip                                      24.0+dfsg-1ubuntu1.1                deb                         
