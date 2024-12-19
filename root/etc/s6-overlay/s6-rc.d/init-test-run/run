@@ -5,6 +5,8 @@
 if [[ -n "${TEST_RUN}" ]]; then
     echo "Configuring CI for test run"
     apt-get update &>/dev/null
+    apt remove -y --purge \
+        postgresql* &>/dev/null
     apt-get install -y --no-install-recommends \
         postgresql-16 \
         redis-server &>/dev/null
