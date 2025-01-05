@@ -4,12 +4,14 @@
 # make folders
 mkdir -p \
     /config/machine-learning/models \
-    "${IMMICH_MEDIA_LOCATION}/library"
+    "${IMMICH_MEDIA_LOCATION}"/{library,backups,profile,upload,thumbs,encoded-video}
 
 # permissions
 find /app/immich -path "*/node_modules" -prune -o -exec chown abc:abc {} +
 chown -R abc:abc \
-    /config \
+    /config
+
+chown abc:abc \
     "${IMMICH_MEDIA_LOCATION}" \
     "${IMMICH_MEDIA_LOCATION}"/*
 
