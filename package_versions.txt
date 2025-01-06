@@ -456,7 +456,7 @@ domhandler                                       5.0.3                          
 domutils                                         3.1.0                               npm                         
 dotenv                                           16.4.5                              npm                         
 dpkg                                             1.22.6ubuntu6.1                     deb                         
-dulwich                                          0.21.7                              python                      
+dulwich                                          0.22.7                              python                      
 e2fsprogs                                        1.47.0-2.4~exp1ubuntu4.1            deb                         
 eastasianwidth                                   0.2.0                               npm        (+1 duplicate)   
 easydict                                         1.11                                python                      
@@ -656,6 +656,8 @@ jackspeak                                        2.3.6                          
 jackspeak                                        3.4.0                               npm                         
 jackspeak                                        3.4.2                               npm                         
 jaraco-classes                                   3.4.0                               python                      
+jaraco-context                                   6.0.1                               python                      
+jaraco-functools                                 4.1.0                               python                      
 jeepney                                          0.8.0                               python                      
 jellyfin-ffmpeg7                                 7.0.2-7-noble                       deb                         
 jest-worker                                      UNKNOWN                             npm                         
@@ -681,7 +683,7 @@ jsonwebtoken                                     UNKNOWN                        
 just-diff                                        6.0.2                               npm                         
 just-diff-apply                                  5.5.0                               npm                         
 keyboxd                                          2.4.4-2ubuntu17                     deb                         
-keyring                                          24.3.1                              python                      
+keyring                                          25.6.0                              python                      
 kiwisolver                                       1.4.5                               python                      
 krb5-locales                                     1.20.1-6ubuntu2.2                   deb                         
 lazy-loader                                      0.3                                 python                      
@@ -1090,7 +1092,6 @@ peberminta                                       0.9.0                          
 perl                                             5.38.2-3.2build2                    deb                         
 perl-base                                        5.38.2-3.2build2                    deb                         
 perl-modules-5.38                                5.38.2-3.2build2                    deb                         
-pexpect                                          4.9.0                               python                      
 pg                                               8.13.1                              npm                         
 pg-connection-string                             2.7.0                               npm                         
 pg-int8                                          1.0.1                               npm                         
@@ -1112,9 +1113,8 @@ pirates                                          4.0.6                          
 pkginfo                                          1.12.0                              python                      
 platform                                         UNKNOWN                             npm                         
 platformdirs                                     4.3.6                               python                      
-poetry                                           1.8.5                               python                      
-poetry-core                                      1.9.1                               python                      
-poetry-plugin-export                             1.8.0                               python                      
+poetry                                           2.0.0                               python                      
+poetry-core                                      2.0.0                               python                      
 point-in-polygon-hao                             1.1.0                               npm                         
 postcss                                          8.4.31                              npm                         
 postcss                                          8.4.47                              npm                         
@@ -1167,7 +1167,6 @@ protobuf                                         4.25.2                         
 protobufjs                                       7.4.0                               npm                         
 protocol-buffers-schema                          3.6.0                               npm                         
 proxy-addr                                       2.0.7                               npm                         
-ptyprocess                                       0.7.0                               python                      
 publicsuffix                                     20231001.0357-0.1                   deb                         
 punycode                                         UNKNOWN                             npm                         
 pycparser                                        2.22                                python                      
@@ -1409,7 +1408,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.1                               npm                         
 validator                                        13.12.0                             npm                         
 vary                                             1.1.2                               npm                         
-virtualenv                                       20.28.0                             python                      
+virtualenv                                       20.28.1                             python                      
 vm-browserify                                    UNKNOWN                             npm                         
 walk-up-path                                     3.0.1                               npm                         
 watchfiles                                       0.21.0                              python                      
