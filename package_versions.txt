@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.38                              npm                          
+@immich/cli                                      2.2.39                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/fs-minipass                              4.0.1                               npm                          
@@ -633,7 +633,7 @@ imagemagick-webp                                 7.1.1.43-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.124.0                             npm                          
+immich                                           1.124.1                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.12.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
