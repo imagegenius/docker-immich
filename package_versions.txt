@@ -584,11 +584,11 @@ ini                                              4.1.3                          
 init-package-json                                6.0.3                               npm                         
 init-system-helpers                              1.66ubuntu1                         deb                         
 inquirer                                         8.2.6                               npm                         
-intel-igc-core-2                                 2.1.12                              deb                         
-intel-igc-opencl-2                               2.1.12                              deb                         
-intel-level-zero-gpu                             1.6.31740.9                         deb                         
+intel-igc-core-2                                 2.5.6                               deb                         
+intel-igc-opencl-2                               2.5.6                               deb                         
+intel-level-zero-gpu                             1.6.32224.5                         deb                         
 intel-media-va-driver-non-free                   24.1.0+ds1-1                        deb                         
-intel-opencl-icd                                 24.45.31740.9                       deb                         
+intel-opencl-icd                                 24.52.32224.5                       deb                         
 invalid main                                     UNKNOWN                             npm        (+1 duplicate)   
 invalid_main                                     UNKNOWN                             npm                         
 ioredis                                          5.4.1                               npm                         
@@ -720,7 +720,7 @@ libhogweed6t64                                   3.9.1-2.2build1.1              
 libhwy1t64                                       1.2.0-3ubuntu2                      deb                         
 libicu74                                         74.2-1ubuntu3.1                     deb                         
 libidn2-0                                        2.3.7-2build1                       deb                         
-libigdgmm12                                      22.5.2                              deb                         
+libigdgmm12                                      22.5.5                              deb                         
 libimath-3-1-29t64                               3.1.9-3.1ubuntu2                    deb                         
 libio-compress-brotli-perl                       0.004001-2build3                    deb                         
 libio-pty-perl                                   1:1.20-1build2                      deb                         
