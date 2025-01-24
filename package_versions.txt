@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.42                              npm                          
+@immich/cli                                      2.2.43                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/fs-minipass                              4.0.1                               npm                          
@@ -635,7 +635,7 @@ imagemagick-webp                                 7.1.1.43-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.125.1                             npm                          
+immich                                           1.125.2                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.12.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -746,7 +746,7 @@ libjxl                                           0.10.3-r0                      
 libltdl                                          2.4.7-r3                            apk                          
 libmd                                            1.1.0-r0                            apk                          
 libmount                                         2.40.4-r0                           apk                          
-libncursesw                                      6.5_p20241006-r3                    apk                          
+libncursesw                                      6.5_p20250118-r0                    apk                          
 libnpmaccess                                     9.0.0                               npm                          
 libnpmdiff                                       7.0.0                               npm                          
 libnpmexec                                       9.0.0                               npm                          
@@ -896,7 +896,7 @@ mz                                               2.7.0                          
 nanoid                                           3.3.8                               npm                          
 nanoid                                           UNKNOWN                             npm                          
 native-url                                       UNKNOWN                             npm                          
-ncurses-terminfo-base                            6.5_p20241006-r3                    apk                          
+ncurses-terminfo-base                            6.5_p20250118-r0                    apk                          
 negotiator                                       0.6.3                               npm                          
 negotiator                                       0.6.4                               npm                          
 negotiator                                       1.0.0                               npm                          
