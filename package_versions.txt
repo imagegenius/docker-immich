@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linux-x64                             0.33.5                              npm                          
-@immich/cli                                      2.2.43                              npm                          
+@immich/cli                                      2.2.44                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)    
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -305,7 +305,7 @@ browser_field                                    UNKNOWN                        
 browserify-zlib                                  UNKNOWN                             npm                          
 browserslist                                     4.24.3                              npm                          
 browserslist                                     UNKNOWN                             npm                          
-bsdutils                                         1:2.39.3-9ubuntu6.1                 deb                          
+bsdutils                                         1:2.39.3-9ubuntu6.2                 deb                          
 buffer                                           5.7.1                               npm                          
 buffer                                           6.0.3                               npm        (+1 duplicate)    
 buffer                                           UNKNOWN                             npm                          
@@ -615,7 +615,7 @@ ignore-loader                                    UNKNOWN                        
 ignore-walk                                      6.0.5                               npm                          
 image-size                                       UNKNOWN                             npm                          
 imageio                                          2.33.1                              python                       
-immich                                           1.125.2                             npm                          
+immich                                           1.125.3                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.12.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -706,7 +706,7 @@ libassuan0                                       2.5.6-1build1                  
 libattr1                                         1:2.5.2-1build1                     deb                          
 libaudit-common                                  1:3.1.2-2.1build1.1                 deb                          
 libaudit1                                        1:3.1.2-2.1build1.1                 deb                          
-libblkid1                                        2.39.3-9ubuntu6.1                   deb                          
+libblkid1                                        2.39.3-9ubuntu6.2                   deb                          
 libbluray2                                       1:1.3.4-1build1                     deb                          
 libbrotli1                                       1.1.0-2build2                       deb                          
 libbsd0                                          0.12.1-1build1                      deb                          
@@ -799,7 +799,7 @@ liblz4-1                                         1.9.4-1build1.1                
 liblzma5                                         5.6.1+really5.4.5-1build0.1         deb                          
 libmd0                                           1.1.0-2build1                       deb                          
 libmimalloc2.0                                   2.1.2+ds-2                          deb                          
-libmount1                                        2.39.3-9ubuntu6.1                   deb                          
+libmount1                                        2.39.3-9ubuntu6.2                   deb                          
 libmp3lame0                                      3.100-6build1                       deb                          
 libmpg123-0t64                                   1.32.5-1ubuntu1.1                   deb                          
 libncursesw6                                     6.4+20240113-1ubuntu2               deb                          
@@ -822,7 +822,7 @@ libnuma1                                         2.0.18-1build1                 
 libogg0                                          1.3.5-3build1                       deb                          
 libonig5                                         6.9.9-1build1                       deb                          
 libopenexr-3-1-30                                3.1.5-5.1build3                     deb                          
-libopenjp2-7                                     2.5.0-2ubuntu0.2                    deb                          
+libopenjp2-7                                     2.5.0-2ubuntu0.3                    deb                          
 libopenmpt0t64                                   0.7.3-1.1build3                     deb                          
 libopus0                                         1.4-1build1                         deb                          
 libp11-kit0                                      0.25.3-4ubuntu2.1                   deb                          
@@ -854,8 +854,8 @@ libpsl5t64                                       0.21.2-1.1build1               
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
 libpython3.10-minimal                            3.10.16-1+noble1                    deb                          
 libpython3.10-stdlib                             3.10.16-1+noble1                    deb                          
-libpython3.12-minimal                            3.12.3-1ubuntu0.3                   deb                          
-libpython3.12-stdlib                             3.12.3-1ubuntu0.3                   deb                          
+libpython3.12-minimal                            3.12.3-1ubuntu0.4                   deb                          
+libpython3.12-stdlib                             3.12.3-1ubuntu0.4                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
 librsvg2-2                                       2.58.0+dfsg-1build1                 deb                          
 librsvg2-common                                  2.58.0+dfsg-1build1                 deb                          
@@ -871,7 +871,7 @@ libsensors-config                                1:3.6.0-9build1                
 libsensors5                                      1:3.6.0-9build1                     deb                          
 libsepol2                                        3.5-2build1                         deb                          
 libsharpyuv0                                     1.4.0-0.1                           deb                          
-libsmartcols1                                    2.39.3-9ubuntu6.1                   deb                          
+libsmartcols1                                    2.39.3-9ubuntu6.2                   deb                          
 libspng0                                         0.7.4-1build1                       deb                          
 libsqlite3-0                                     3.45.1-1ubuntu2                     deb                          
 libss2                                           1.47.0-2.4~exp1ubuntu4.1            deb                          
@@ -890,7 +890,7 @@ libtirpc3t64                                     1.3.4+ds-1.1build1             
 libudev1                                         255.4-1ubuntu8.4                    deb                          
 libudfread0                                      1.1.2-1build1                       deb                          
 libunistring5                                    1.1-2build1                         deb                          
-libuuid1                                         2.39.3-9ubuntu6.1                   deb                          
+libuuid1                                         2.39.3-9ubuntu6.2                   deb                          
 libva2                                           2.20.0-2build1                      deb                          
 libvorbis0a                                      1.3.7-1build3                       deb                          
 libvorbisenc2                                    1.3.7-1build3                       deb                          
@@ -1002,7 +1002,7 @@ mkdirp                                           2.1.6                          
 module-details-from-path                         1.0.3                               npm                          
 monorepo-symlink-test                            0.0.0                               npm        (+1 duplicate)    
 more-itertools                                   10.6.0                              python                       
-mount                                            2.39.3-9ubuntu6.1                   deb                          
+mount                                            2.39.3-9ubuntu6.2                   deb                          
 mpmath                                           1.3.0                               python                       
 mrmime                                           2.0.0                               npm                          
 ms                                               2.0.0                               npm        (+3 duplicates)   
@@ -1038,7 +1038,7 @@ node-fetch                                       UNKNOWN                        
 node-gyp                                         10.1.0                              npm                          
 node-html-parser                                 UNKNOWN                             npm                          
 node-releases                                    2.0.19                              npm                          
-nodejs                                           20.18.1-1nodesource1                deb                          
+nodejs                                           20.18.2-1nodesource1                deb                          
 nodemailer                                       6.9.16                              npm                          
 nopt                                             5.0.0                               npm                          
 nopt                                             7.2.1                               npm                          
@@ -1199,8 +1199,8 @@ python3                                          3.12.3-0ubuntu2                
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
 python3.10                                       3.10.16-1+noble1                    deb                          
 python3.10-minimal                               3.10.16-1+noble1                    deb                          
-python3.12                                       3.12.3-1ubuntu0.3                   deb                          
-python3.12-minimal                               3.12.3-1ubuntu0.3                   deb                          
+python3.12                                       3.12.3-1ubuntu0.4                   deb                          
+python3.12-minimal                               3.12.3-1ubuntu0.4                   deb                          
 pyyaml                                           6.0.1                               python                       
 qrcode-terminal                                  0.12.0                              npm                          
 qs                                               6.13.0                              npm                          
@@ -1422,7 +1422,7 @@ urllib3                                          2.3.0                          
 utf8-byte-length                                 1.0.5                               npm                          
 util                                             UNKNOWN                             npm                          
 util-deprecate                                   1.0.2                               npm        (+1 duplicate)    
-util-linux                                       2.39.3-9ubuntu6.1                   deb                          
+util-linux                                       2.39.3-9ubuntu6.2                   deb                          
 utils-merge                                      1.0.1                               npm                          
 uuid                                             9.0.1                               npm        (+3 duplicates)   
 uvicorn                                          0.34.0                              python                       
