@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.43                              npm                          
+@immich/cli                                      2.2.44                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/fs-minipass                              4.0.1                               npm                          
@@ -272,7 +272,7 @@ any-promise                                      1.3.0                          
 anyhow                                           1.0.79                              rust-crate                   
 anymatch                                         3.1.3                               npm                          
 aom-libs                                         3.11.0-r0                           apk                          
-apk-tools                                        2.14.7-r0                           apk                          
+apk-tools                                        2.14.9-r0                           apk                          
 app-root-path                                    3.1.0                               npm                          
 append-field                                     1.0.0                               npm                          
 aproba                                           2.0.0                               npm         (+1 duplicate)   
@@ -325,8 +325,8 @@ buffer-crc32                                     1.0.0                          
 buffer-from                                      1.1.2                               npm                          
 bullmq                                           4.18.2                              npm                          
 busboy                                           1.6.0                               npm                          
-busybox                                          1.37.0-r11                          apk                          
-busybox-binsh                                    1.37.0-r11                          apk                          
+busybox                                          1.37.0-r13                          apk                          
+busybox-binsh                                    1.37.0-r13                          apk                          
 bytemuck                                         1.14.0                              rust-crate                   
 bytes                                            3.1.2                               npm                          
 bytes                                            UNKNOWN                             npm                          
@@ -635,7 +635,7 @@ imagemagick-webp                                 7.1.1.43-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.125.2                             npm                          
+immich                                           1.125.3                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.12.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -906,7 +906,7 @@ nest-commander                                   3.15.0                         
 nestjs-cls                                       4.5.0                               npm                          
 nestjs-kysely                                    1.0.0                               npm                          
 nestjs-otel                                      6.1.2                               npm                          
-netcat-openbsd                                   1.228-r0                            apk                          
+netcat-openbsd                                   1.228.1-r0                          apk                          
 new_debug_unreachable                            1.0.4                               rust-crate                   
 next                                             15.1.2                              npm                          
 nghttp2-libs                                     1.64.0-r0                           apk                          
@@ -1214,7 +1214,7 @@ split2                                           4.2.0                          
 sprintf-js                                       1.1.3                               npm                          
 sqlite-libs                                      3.48.0-r0                           apk                          
 sratom                                           0.6.16-r0                           apk                          
-ssl_client                                       1.37.0-r11                          apk                          
+ssl_client                                       1.37.0-r13                          apk                          
 ssri                                             10.0.6                              npm                          
 ssri                                             12.0.0                              npm                          
 stacktrace-parser                                UNKNOWN                             npm                          
