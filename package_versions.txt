@@ -1445,7 +1445,7 @@ validate-npm-package-license                     3.0.4                          
 validate-npm-package-name                        5.0.1                               npm                          
 validator                                        13.12.0                             npm                          
 vary                                             1.1.2                               npm                          
-virtualenv                                       20.29.1                             python                       
+virtualenv                                       20.29.2                             python                       
 vm-browserify                                    UNKNOWN                             npm                          
 walk-up-path                                     3.0.1                               npm                          
 watchfiles                                       0.21.0                              python                       
