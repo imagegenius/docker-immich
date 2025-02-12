@@ -407,7 +407,7 @@ cross-spawn                                      7.0.3                          
 cross-spawn                                      7.0.6                               npm                          
 cross-spawn                                      UNKNOWN                             npm                          
 crypto-browserify                                UNKNOWN                             npm                          
-cryptography                                     44.0.0                              python                       
+cryptography                                     44.0.1                              python                       
 css.escape                                       UNKNOWN                             npm                          
 cssesc                                           3.0.0                               npm        (+1 duplicate)    
 curl                                             8.5.0-2ubuntu10.6                   deb                          
