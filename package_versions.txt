@@ -729,7 +729,7 @@ libbsd                                           0.12.2-r0                      
 libbz2                                           1.0.8-r6                            apk                          
 libc                                             0.2.149                             rust-crate                   
 libc                                             0.2.152                             rust-crate                   
-libcrypto3                                       3.3.2-r6                            apk                          
+libcrypto3                                       3.3.3-r0                            apk                          
 libcurl                                          8.11.1-r1                           apk                          
 libdav1d                                         1.5.1-r0                            apk                          
 libde265                                         1.0.15-r0                           apk                          
@@ -794,7 +794,7 @@ libsodium                                        1.0.20-r0                      
 libspng                                          0.7.4-r0                            apk                          
 libsrt                                           1.5.3-r0                            apk                          
 libssh                                           0.11.1-r0                           apk                          
-libssl3                                          3.3.2-r6                            apk                          
+libssl3                                          3.3.3-r0                            apk                          
 libstdc++                                        14.2.0-r5                           apk                          
 libtheora                                        1.1.1-r18                           apk                          
 libtiffxx                                        4.7.0-r0                            apk                          
@@ -977,7 +977,7 @@ openexr-libopenexr                               3.3.2-r0                       
 openexr-libopenexrcore                           3.3.2-r0                            apk                          
 openid-client                                    5.7.1                               npm                          
 openjpeg                                         2.5.3-r0                            apk                          
-openssl                                          3.3.2-r6                            apk                          
+openssl                                          3.3.3-r0                            apk                          
 opus                                             1.5.2-r1                            apk                          
 ora                                              5.4.1                               npm                          
 ora                                              UNKNOWN                             npm                          
