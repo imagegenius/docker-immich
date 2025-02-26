@@ -287,7 +287,7 @@ async-sema                                       UNKNOWN                        
 b4a                                              1.6.7                               npm                         
 babel-packages                                   UNKNOWN                             npm                         
 balanced-match                                   1.0.2                               npm        (+1 duplicate)   
-base-files                                       13ubuntu10.1                        deb                         
+base-files                                       13ubuntu10.2                        deb                         
 base-passwd                                      3.6.3build1                         deb                         
 base64-js                                        1.5.1                               npm                         
 base64id                                         2.0.0                               npm                         
@@ -705,7 +705,7 @@ just-diff-apply                                  5.5.0                          
 keyboxd                                          2.4.4-2ubuntu17                     deb                         
 keyring                                          25.6.0                              python                      
 kiwisolver                                       1.4.5                               python                      
-krb5-locales                                     1.20.1-6ubuntu2.2                   deb                         
+krb5-locales                                     1.20.1-6ubuntu2.3                   deb                         
 kysely                                           0.27.5                              npm                         
 kysely-postgres-js                               2.0.0                               npm                         
 lazy-loader                                      0.3                                 python                      
@@ -778,7 +778,7 @@ libgpg-error0                                    1.47-3build2.1                 
 libgraphite2-3                                   1.3.14-2build1                      deb                         
 libgsf-1-114                                     1.14.51-2ubuntu0.1                  deb                         
 libgsf-1-common                                  1.14.51-2ubuntu0.1                  deb                         
-libgssapi-krb5-2                                 1.20.1-6ubuntu2.2                   deb                         
+libgssapi-krb5-2                                 1.20.1-6ubuntu2.3                   deb                         
 libharfbuzz0b                                    8.3.0-2build2                       deb                         
 libhogweed6t64                                   3.9.1-2.2build1.1                   deb                         
 libhwy1t64                                       1.2.0-3ubuntu2                      deb                         
@@ -791,10 +791,10 @@ libjbig0                                         2.1-6.1ubuntu2                 
 libjpeg-turbo8                                   2.1.5-2ubuntu2                      deb                         
 libjpeg8                                         8c-2ubuntu11                        deb                         
 libjq1                                           1.7.1-3build1                       deb                         
-libk5crypto3                                     1.20.1-6ubuntu2.2                   deb                         
+libk5crypto3                                     1.20.1-6ubuntu2.3                   deb                         
 libkeyutils1                                     1.6.3-3build1                       deb                         
-libkrb5-3                                        1.20.1-6ubuntu2.2                   deb                         
-libkrb5support0                                  1.20.1-6ubuntu2.2                   deb                         
+libkrb5-3                                        1.20.1-6ubuntu2.3                   deb                         
+libkrb5support0                                  1.20.1-6ubuntu2.3                   deb                         
 libksba8                                         1.6.6-1build1                       deb                         
 liblcms2-2                                       2.14-2build1                        deb                         
 libldap-common                                   2.6.7+dfsg-1~exp1ubuntu8.1          deb                         
@@ -856,12 +856,12 @@ libphonenumber-js/mobile/examples                UNKNOWN                        
 libphonenumber-js/mobile/metadata                UNKNOWN                             npm                         
 libpixman-1-0                                    0.42.2-1build1                      deb                         
 libpng16-16t64                                   1.6.43-5build1                      deb                         
-libpq5                                           17.3-1.pgdg24.04+1                  deb                         
+libpq5                                           17.4-1.pgdg24.04+2                  deb                         
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                         
 libpsl5t64                                       0.21.2-1.1build1                    deb                         
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                         
-libpython3.12-minimal                            3.12.3-1ubuntu0.4                   deb                         
-libpython3.12-stdlib                             3.12.3-1ubuntu0.4                   deb                         
+libpython3.12-minimal                            3.12.3-1ubuntu0.5                   deb                         
+libpython3.12-stdlib                             3.12.3-1ubuntu0.5                   deb                         
 libreadline8t64                                  8.2-4build1                         deb                         
 librsvg2-2                                       2.58.0+dfsg-1build1                 deb                         
 librsvg2-common                                  2.58.0+dfsg-1build1                 deb                         
@@ -1164,10 +1164,10 @@ postgres-array                                   2.0.0                          
 postgres-bytea                                   1.0.0                               npm                         
 postgres-date                                    1.0.7                               npm                         
 postgres-interval                                1.2.0                               npm                         
-postgresql-client-14                             14.16-1.pgdg24.04+1                 deb                         
-postgresql-client-15                             15.11-1.pgdg24.04+1                 deb                         
-postgresql-client-16                             16.7-1.pgdg24.04+1                  deb                         
-postgresql-client-common                         273.pgdg24.04+1                     deb                         
+postgresql-client-14                             14.17-1.pgdg24.04+1                 deb                         
+postgresql-client-15                             15.12-1.pgdg24.04+1                 deb                         
+postgresql-client-16                             16.8-1.pgdg24.04+1                  deb                         
+postgresql-client-common                         274.pgdg24.04+1                     deb                         
 preact                                           10.4.1                              npm                         
 preact-compat                                    4.0.0                               npm                         
 preact-debug                                     1.0.0                               npm                         
@@ -1205,8 +1205,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.20                              python                      
 python3                                          3.12.3-0ubuntu2                     deb                         
 python3-minimal                                  3.12.3-0ubuntu2                     deb                         
-python3.12                                       3.12.3-1ubuntu0.4                   deb                         
-python3.12-minimal                               3.12.3-1ubuntu0.4                   deb                         
+python3.12                                       3.12.3-1ubuntu0.5                   deb                         
+python3.12-minimal                               3.12.3-1ubuntu0.5                   deb                         
 pyyaml                                           6.0.1                               python                      
 qrcode-terminal                                  0.12.0                              npm                         
 qs                                               6.13.0                              npm                         
@@ -1414,7 +1414,7 @@ type-is                                          2.0.0                          
 typedarray                                       0.0.6                               npm                         
 typeorm                                          0.3.20                              npm                         
 typing-extensions                                4.12.2                              python     (+1 duplicate)   
-tzdata                                           2024b-0ubuntu0.24.04                deb                         
+tzdata                                           2024b-0ubuntu0.24.04.1              deb                         
 ua-parser-js                                     1.0.40                              npm                         
 ua-parser-js                                     UNKNOWN                             npm                         
 ubuntu-keyring                                   2023.11.28.1                        deb                         
