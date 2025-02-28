@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                         
 @hapi/topo                                       5.1.0                               npm                         
 @img/sharp-linux-x64                             0.33.5                              npm                         
-@immich/cli                                      2.2.51                              npm                         
+@immich/cli                                      2.2.52                              npm                         
 @ioredis/commands                                1.2.0                               npm                         
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)   
 @isaacs/string-locale-compare                    1.1.0                               npm                         
@@ -627,7 +627,7 @@ ignore-loader                                    UNKNOWN                        
 ignore-walk                                      6.0.5                               npm                         
 image-size                                       UNKNOWN                             npm                         
 imageio                                          2.33.1                              python                      
-immich                                           1.127.0                             npm                         
+immich                                           1.128.0                             npm                         
 import-fresh                                     3.3.0                               npm                         
 import-in-the-middle                             1.12.0                              npm                         
 imurmurhash                                      0.1.4                               npm                         
@@ -683,7 +683,7 @@ jackspeak                                        3.4.3                          
 jaraco-classes                                   3.4.0                               python                      
 jaraco-context                                   6.0.1                               python                      
 jaraco-functools                                 4.1.0                               python                      
-jeepney                                          0.8.0                               python                      
+jeepney                                          0.9.0                               python                      
 jellyfin-ffmpeg7                                 7.0.2-7-noble                       deb                         
 jest-worker                                      UNKNOWN                             npm                         
 jiti                                             1.21.6                              npm                         
