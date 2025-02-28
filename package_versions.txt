@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                          
-@immich/cli                                      2.2.51                              npm                          
+@immich/cli                                      2.2.52                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)   
 @isaacs/fs-minipass                              4.0.1                               npm                          
@@ -578,7 +578,7 @@ get-proto                                        1.0.1                          
 getrandom                                        0.2.12                              rust-crate                   
 giflib                                           5.2.2-r0                            apk                          
 github.com/evanw/esbuild                         v0.0.0-20240702033312-9d506806bdd9  go-module                    
-glib                                             2.82.5-r0                           apk                          
+glib                                             2.82.5-r1                           apk                          
 glob                                             10.3.4                              npm                          
 glob                                             10.4.5                              npm         (+1 duplicate)   
 glob                                             7.2.3                               npm                          
@@ -644,7 +644,7 @@ imagemagick-webp                                 7.1.1.44-r0                    
 imagequant                                       4.2.2                               rust-crate                   
 imagequant-sys                                   4.0.3                               rust-crate                   
 imath                                            3.1.12-r0                           apk                          
-immich                                           1.127.0                             npm                          
+immich                                           1.128.0                             npm                          
 import-fresh                                     3.3.0                               npm                          
 import-in-the-middle                             1.12.0                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -742,7 +742,7 @@ libdrm                                           2.4.124-r0                     
 libeconf                                         0.6.3-r0                            apk                          
 libexif                                          0.6.25-r0                           apk                          
 libexpat                                         2.6.4-r0                            apk                          
-libffi                                           3.4.6-r0                            apk                          
+libffi                                           3.4.7-r0                            apk                          
 libflac                                          1.4.3-r1                            apk                          
 libgcc                                           14.2.0-r5                           apk                          
 libgomp                                          14.2.0-r5                           apk                          
@@ -1340,7 +1340,7 @@ vips-heif                                        8.15.3-r5                      
 vips-jxl                                         8.15.3-r5                           apk                          
 vips-magick                                      8.15.3-r5                           apk                          
 vm-browserify                                    UNKNOWN                             npm                          
-vulkan-loader                                    1.3.296.0-r0                        apk                          
+vulkan-loader                                    1.4.304.1-r1                        apk                          
 walk-up-path                                     3.0.1                               npm                          
 watchpack                                        UNKNOWN                             npm                          
 wayland-libs-client                              1.23.1-r0                           apk                          
