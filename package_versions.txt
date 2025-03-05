@@ -274,7 +274,7 @@ any-promise                                      1.3.0                          
 anyhow                                           1.0.79                              rust-crate                   
 anymatch                                         3.1.3                               npm                          
 aom-libs                                         3.11.0-r1                           apk                          
-apk-tools                                        2.14.9-r0                           apk                          
+apk-tools                                        2.14.9-r1                           apk                          
 app-root-path                                    3.1.0                               npm                          
 append-field                                     1.0.0                               npm                          
 aproba                                           2.0.0                               npm         (+1 duplicate)   
@@ -437,10 +437,10 @@ crossbeam-utils                                  0.8.19                         
 crypto-browserify                                UNKNOWN                             npm                          
 css.escape                                       UNKNOWN                             npm                          
 cssesc                                           3.0.0                               npm         (+1 duplicate)   
-curl                                             8.12.0-r0                           apk                          
+curl                                             8.12.1-r0                           apk                          
 data-uri-to-buffer                               UNKNOWN                             npm                          
 dayjs                                            1.11.13                             npm                          
-dbus-libs                                        1.16.0-r0                           apk                          
+dbus-libs                                        1.16.2-r1                           apk                          
 debounce                                         2.0.0                               npm                          
 debug                                            2.6.9                               npm                          
 debug                                            3.1.0                               npm                          
@@ -722,6 +722,7 @@ lcms2-dev                                        2.16-r0                        
 lcms2-plugins                                    2.16-r0                             apk                          
 leac                                             0.6.0                               npm                          
 libSvtAv1Enc                                     2.3.0-r0                            apk                          
+libapk2                                          2.14.9-r1                           apk                          
 libarchive                                       3.7.7-r0                            apk                          
 libass                                           0.17.3-r0                           apk                          
 libasyncns                                       0.8-r4                              apk                          
@@ -733,7 +734,7 @@ libbz2                                           1.0.8-r6                       
 libc                                             0.2.149                             rust-crate                   
 libc                                             0.2.152                             rust-crate                   
 libcrypto3                                       3.3.3-r0                            apk                          
-libcurl                                          8.12.0-r0                           apk                          
+libcurl                                          8.12.1-r0                           apk                          
 libdav1d                                         1.5.1-r0                            apk                          
 libde265                                         1.0.15-r0                           apk                          
 libdeflate                                       1.23-r0                             apk                          
@@ -786,7 +787,7 @@ libplacebo                                       6.338.2-r3                     
 libpng                                           1.6.46-r0                           apk                          
 libproc2                                         4.0.4-r2                            apk                          
 libpsl                                           0.21.5-r3                           apk                          
-libpulse                                         17.0-r4                             apk                          
+libpulse                                         17.0-r5                             apk                          
 libraw                                           0.21.3-r0                           apk                          
 libraw-dev                                       0.21.3-r0                           apk                          
 librist                                          0.2.10-r1                           apk                          
@@ -902,7 +903,7 @@ ms                                               2.1.3                          
 msgpackr                                         1.11.2                              npm                          
 multer                                           1.4.5-lts.1                         npm                          
 musl                                             1.2.5-r10                           apk                          
-musl-utils                                       1.2.5-r9                            apk                          
+musl-utils                                       1.2.5-r10                           apk                          
 mute-stream                                      0.0.8                               npm                          
 mute-stream                                      2.0.0                               npm                          
 mylib                                            0.0.0                               npm         (+2 duplicates)  
@@ -973,7 +974,7 @@ once_cell                                        1.18.0                         
 once_cell                                        1.19.0                              rust-crate                   
 onetime                                          5.1.2                               npm                          
 onevpl-libs                                      2023.3.1-r2                         apk                          
-oniguruma                                        6.9.9-r0                            apk                          
+oniguruma                                        6.9.10-r0                           apk                          
 openexr-libiex                                   3.3.2-r0                            apk                          
 openexr-libilmthread                             3.3.2-r0                            apk                          
 openexr-libopenexr                               3.3.2-r0                            apk                          
@@ -1167,8 +1168,8 @@ scheduler-builtin                                UNKNOWN                        
 scheduler-experimental-builtin                   UNKNOWN                             npm                          
 schema-utils                                     UNKNOWN                             npm         (+1 duplicate)   
 scopeguard                                       1.2.0                               rust-crate                   
-sdl2-compat                                      2.32.50-r0                          apk                          
-sdl3                                             3.2.4-r0                            apk                          
+sdl2-compat                                      2.32.52-r0                          apk                          
+sdl3                                             3.2.6-r0                            apk                          
 selderee                                         0.11.0                              npm                          
 semver                                           6.3.1                               npm         (+2 duplicates)  
 semver                                           7.6.3                               npm                          
