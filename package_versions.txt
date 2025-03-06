@@ -1040,7 +1040,7 @@ picomatch                                        UNKNOWN                        
 pify                                             2.3.0                               npm                          
 pirates                                          4.0.6                               npm                          
 pixman                                           0.43.4-r1                           apk                          
-pkgconf                                          2.3.0-r0                            apk                          
+pkgconf                                          2.4.0-r0                            apk                          
 platform                                         UNKNOWN                             npm                          
 point-in-polygon-hao                             1.2.3                               npm                          
 postcss                                          8.4.31                              npm                          
