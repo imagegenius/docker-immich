@@ -114,7 +114,7 @@ RUN \
   tar xf \
     /tmp/uv.tar.gz -C \
     /tmp --strip-components=1 && \
-  /tmp/uv python install --default --preview 3.11 && \
+  /tmp/uv python install 3.11 && \
   /tmp/uv sync --active --frozen --extra openvino --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
   cp -a \
     pyproject.toml \
