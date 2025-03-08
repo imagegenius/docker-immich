@@ -18,16 +18,14 @@ ENV \
   IMMICH_PORT="8080" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  TRANSFORMERS_CACHE="/config/machine-learning/models"
+  TRANSFORMERS_CACHE="/config/machine-learning/models" \
+  UV_PYTHON_INSTALL_DIR="/usr/local/bin"
 
 RUN \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    build-essential \
-    python3-dev \
-    python3-pip \
-    python3-venv && \
+    build-essential && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     python3 && \
@@ -106,17 +104,23 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning/ann && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir \
-    poetry && \
-  python3 -m venv /lsiopy && \
-  poetry config installer.max-workers 10 && \
-  poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --with cpu --without dev && \
+  if [ -z ${UV_VERSION} ]; then \
+    UV_VERSION=$(curl -sL https://api.github.com/repos/astral-sh/uv/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/uv.tar.gz -L \
+    "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-unknown-linux-gnu.tar.gz" && \
+  tar xf \
+    /tmp/uv.tar.gz -C \
+    /tmp --strip-components=1 && \
+  /tmp/uv python install 3.11 && \
+  /tmp/uv sync --active --frozen --extra cpu --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
   cp -a \
     pyproject.toml \
-    poetry.lock \
     app \
     log_conf.json \
+    uv.lock \
     /app/immich/machine-learning && \
   cp -a \
     ann/ann.py \
@@ -126,10 +130,7 @@ RUN \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
   done && \
   apt-get remove -y --purge \
-    build-essential \
-    python3-dev \
-    python3-pip \
-    python3-venv && \
+    build-essential && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
