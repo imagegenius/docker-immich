@@ -584,7 +584,7 @@ get-proto                                        1.0.1                          
 getrandom                                        0.2.12                              rust-crate                   
 giflib                                           5.2.2-r0                            apk                          
 github.com/evanw/esbuild                         v0.0.0-20240702033312-9d506806bdd9  go-module                    
-glib                                             2.82.5-r1                           apk                          
+glib                                             2.84.0-r0                           apk                          
 glob                                             10.3.4                              npm                          
 glob                                             10.4.5                              npm         (+1 duplicate)   
 glob                                             7.2.3                               npm                          
@@ -791,7 +791,7 @@ libphonenumber-js/mobile                         UNKNOWN                        
 libphonenumber-js/mobile/examples                UNKNOWN                             npm                          
 libphonenumber-js/mobile/metadata                UNKNOWN                             npm                          
 libplacebo                                       6.338.2-r3                          apk                          
-libpng                                           1.6.46-r0                           apk                          
+libpng                                           1.6.47-r0                           apk                          
 libproc2                                         4.0.4-r2                            apk                          
 libpsl                                           0.21.5-r3                           apk                          
 libpulse                                         17.0-r5                             apk                          
@@ -1040,7 +1040,7 @@ picomatch                                        UNKNOWN                        
 pify                                             2.3.0                               npm                          
 pirates                                          4.0.6                               npm                          
 pixman                                           0.43.4-r1                           apk                          
-pkgconf                                          2.4.0-r0                            apk                          
+pkgconf                                          2.4.3-r0                            apk                          
 platform                                         UNKNOWN                             npm                          
 point-in-polygon-hao                             1.2.3                               npm                          
 postcss                                          8.4.31                              npm                          
