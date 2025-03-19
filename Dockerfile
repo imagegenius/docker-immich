@@ -18,28 +18,30 @@ ENV \
   IMMICH_PORT="8080" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  TRANSFORMERS_CACHE="/config/machine-learning/models"
+  TRANSFORMERS_CACHE="/config/machine-learning/models" \
+  UV_PYTHON="/usr/bin/python3.11"
 
 RUN \
   echo "**** install build packages ****" && \
+  echo "deb [signed-by=/usr/share/keyrings/deadsnakes.gpg] https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" >>/etc/apt/sources.list.d/deadsnakes.list && \
+  curl -s "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" | gpg --dearmor | tee /usr/share/keyrings/deadsnakes.gpg >/dev/null && \
+  echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" >>/etc/apt/sources.list.d/cuda.list && \
+  curl -s "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" | gpg --dearmor | tee /usr/share/keyrings/cuda-archive-keyring.gpg >/dev/null && \
+  printf "Package: *\nPin: release l=NVIDIA CUDA\nPin-Priority: 600" > /etc/apt/preferences.d/cuda && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
-    python3-dev && \
+    python3.11-dev \
+    python3.11-venv && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     libcublas12 \
     libcublaslt12 \
     libcudart12 \
+    libcudnn9-cuda-12 \
     libcufft11 \
-    libcurand10 \
-    python3 \
-    python3-pip \
-    python3-venv && \
-  echo "**** download libcudnn ****" && \
-  curl -o "/tmp/libcudnn9.deb" -L \
-    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcudnn9-cuda-12_9.2.1.18-1_amd64.deb" && \
-  dpkg -i "/tmp/libcudnn9.deb" && \
+    libcurand10 
+    python3.11 && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -115,17 +117,22 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning/ann && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir \
-    poetry && \
-  python3 -m venv /lsiopy && \
-  poetry config installer.max-workers 10 && \
-  poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --with cuda --without dev && \
+  if [ -z ${UV_VERSION} ]; then \
+    UV_VERSION=$(curl -sL https://api.github.com/repos/astral-sh/uv/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/uv.tar.gz -L \
+    "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-unknown-linux-gnu.tar.gz" && \
+  tar xf \
+    /tmp/uv.tar.gz -C \
+    /tmp --strip-components=1 && \
+  /tmp/uv sync --active --frozen --extra openvino --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
   cp -a \
     pyproject.toml \
-    poetry.lock \
     app \
     log_conf.json \
+    uv.lock \
     /app/immich/machine-learning && \
   cp -a \
     ann/ann.py \
@@ -136,11 +143,17 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
-    python3-dev && \
+    python3.11-dev \
+    python3.11-venv && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
+    /etc/apt/preferences.d/cuda \
+    /etc/apt/sources.list.d/cuda.list \
+    /root/.cache \
+    /root/.npm
     /tmp/* \
+    /usr/share/keyrings/cuda-archive-keyring.gpg \
     /var/tmp/* \
     /var/lib/apt/lists/* \
     /root/.cache \
