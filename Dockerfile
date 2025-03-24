@@ -28,8 +28,7 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
-    python3.11-dev \
-    python3.11-venv && \
+    python3.11-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     python3.11 && \
@@ -134,8 +133,7 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
-    python3.11-dev \
-    python3.11-venv && \
+    python3.11-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
