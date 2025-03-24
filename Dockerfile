@@ -134,8 +134,8 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
-    python3.10-dev \
-    python3.10-venv && \
+    python3.11-dev \
+    python3.11-venv && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
