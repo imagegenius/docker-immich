@@ -28,6 +28,7 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
+    execstack \
     python3.11-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
@@ -118,6 +119,7 @@ RUN \
     /tmp/uv.tar.gz -C \
     /tmp --strip-components=1 && \
   /tmp/uv sync --active --frozen --extra openvino --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
+  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
   cp -a \
     pyproject.toml \
     app \
@@ -133,6 +135,7 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
+    execstack \
     python3.11-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
