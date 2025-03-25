@@ -39,7 +39,7 @@ RUN \
     libcudart12 \
     libcudnn9-cuda-12 \
     libcufft11 \
-    libcurand10 
+    libcurand10 \
     python3.11 && \
   echo "**** download immich ****" && \
   mkdir -p \
@@ -149,7 +149,7 @@ RUN \
     /etc/apt/preferences.d/cuda \
     /etc/apt/sources.list.d/cuda.list \
     /root/.cache \
-    /root/.npm
+    /root/.npm \
     /tmp/* \
     /usr/share/keyrings/cuda-archive-keyring.gpg \
     /var/tmp/* \
