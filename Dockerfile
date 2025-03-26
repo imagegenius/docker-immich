@@ -18,7 +18,8 @@ ENV \
   IMMICH_PORT="8080" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  TRANSFORMERS_CACHE="/config/machine-learning/models"
+  TRANSFORMERS_CACHE="/config/machine-learning/models" \
+  UV_PYTHON="/usr/bin/python3.11"
 
 RUN \
   echo "**** install build packages ****" && \
@@ -27,12 +28,11 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
-    python3.10-dev \
-    python3.10-venv \
-    python3-pip && \
+    execstack \
+    python3.11-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
-    python3.10 && \
+    python3.11 && \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
@@ -108,17 +108,23 @@ RUN \
   mkdir -p \
     /app/immich/machine-learning/ann && \
   cd /tmp/immich/machine-learning && \
-  pip install --break-system-packages -U --no-cache-dir \
-    poetry && \
-  python3.10 -m venv /lsiopy && \
-  poetry config installer.max-workers 10 && \
-  poetry config virtualenvs.create false && \
-  poetry install --sync --no-interaction --no-ansi --no-root --with openvino --without dev && \
+  if [ -z ${UV_VERSION} ]; then \
+    UV_VERSION=$(curl -sL https://api.github.com/repos/astral-sh/uv/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/uv.tar.gz -L \
+    "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-unknown-linux-gnu.tar.gz" && \
+  tar xf \
+    /tmp/uv.tar.gz -C \
+    /tmp --strip-components=1 && \
+  /tmp/uv sync --active --frozen --extra openvino --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
+  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
   cp -a \
     pyproject.toml \
-    poetry.lock \
     app \
     log_conf.json \
+    uv.lock \
     /app/immich/machine-learning && \
   cp -a \
     ann/ann.py \
@@ -129,9 +135,8 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
-    python3.10-dev \
-    python3.10-venv \
-    python3-pip && \
+    execstack \
+    python3.11-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
