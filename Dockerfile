@@ -127,7 +127,7 @@ RUN \
   tar xf \
     /tmp/uv.tar.gz -C \
     /tmp --strip-components=1 && \
-  /tmp/uv sync --active --frozen --extra openvino --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
+  /tmp/uv sync --active --frozen --extra cuda --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
   find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
   cp -a \
     pyproject.toml \
