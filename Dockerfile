@@ -72,6 +72,12 @@ RUN \
     node_modules \
     dist \
     /app/immich/server && \
+  echo "**** copy server immich-healthcheck ****" && \
+  mkdir -p \
+    /app/immich/server/bin && \
+  cp -a \
+    /tmp/immich/server/bin/immich-healthcheck \
+    /app/immich/server/bin/immich-healthcheck && \
   echo "**** copy scripts ****" && \
   cd /tmp/immich/docker && \
   cp -r \
