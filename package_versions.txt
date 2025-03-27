@@ -1035,7 +1035,7 @@ on-headers                                       1.0.2                          
 once                                             1.4.0                               npm                          
 onetime                                          5.1.2                               npm                          
 onnx                                             1.16.0                              python                       
-onnxruntime-openvino                             1.18.0                              python                       
+onnxruntime-gpu                                  1.19.2                              python                       
 opencv-python-headless                           4.11.0.86                           python                       
 openid-client                                    5.7.1                               npm                          
 openssl                                          3.0.13-0ubuntu3.5                   deb                          
