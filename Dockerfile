@@ -15,7 +15,6 @@ ENV \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  IMMICH_PORT="8080" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
@@ -130,14 +129,10 @@ RUN \
   /tmp/uv sync --active --frozen --extra cuda --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
   find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
   cp -a \
+    immich_ml \
     pyproject.toml \
-    app \
-    log_conf.json \
     uv.lock \
     /app/immich/machine-learning && \
-  cp -a \
-    ann/ann.py \
-    /app/immich/machine-learning/ann && \
   echo "**** cleanup ****" && \
   for cleanfiles in *.pyc *.pyo; do \
     find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
