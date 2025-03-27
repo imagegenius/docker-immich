@@ -31,7 +31,7 @@ NAME                                             VERSION                        
 @hapi/hoek                                       9.3.0                               npm                           
 @hapi/topo                                       5.1.0                               npm                           
 @img/sharp-linuxmusl-x64                         0.33.5                              npm                           
-@immich/cli                                      2.2.56                              npm                           
+@immich/cli                                      2.2.57                              npm                           
 @ioredis/commands                                1.2.0                               npm                           
 @isaacs/cliui                                    8.0.2                               npm         (+1 duplicate)    
 @isaacs/fs-minipass                              4.0.1                               npm                           
@@ -572,7 +572,7 @@ graceful-fs                                      4.2.11                         
 graphite2                                        1.3.14-r6                           apk                           
 gzip-size                                        UNKNOWN                             npm                           
 handlebars                                       4.7.8                               npm                           
-harfbuzz                                         10.2.0-r0                           apk                           
+harfbuzz                                         10.2.0-r1                           apk                           
 has-flag                                         4.0.0                               npm                           
 has-symbols                                      1.1.0                               npm                           
 has-tostringtag                                  1.0.2                               npm                           
@@ -599,8 +599,8 @@ iconv-lite                                       0.4.24                         
 iconv-lite                                       0.5.2                               npm                           
 iconv-lite                                       0.6.3                               npm         (+1 duplicate)    
 icss-utils                                       UNKNOWN                             npm                           
-icu-data-en                                      74.2-r0                             apk                           
-icu-libs                                         74.2-r0                             apk                           
+icu-data-en                                      76.1-r0                             apk                           
+icu-libs                                         76.1-r0                             apk                           
 ieee754                                          1.2.1                               npm                           
 ignore-loader                                    UNKNOWN                             npm                           
 ignore-walk                                      7.0.0                               npm                           
@@ -620,7 +620,7 @@ imagemagick-webp                                 7.1.1.44-r0                    
 imagequant                                       4.2.2                               rust-crate                    
 imagequant-sys                                   4.0.3                               rust-crate                    
 imath                                            3.1.12-r0                           apk                           
-immich                                           1.130.2                             npm                           
+immich                                           1.130.3                             npm                           
 import-fresh                                     3.3.1                               npm                           
 import-in-the-middle                             1.13.1                              npm                           
 imurmurhash                                      0.1.4                               npm                           
@@ -897,7 +897,7 @@ node-fetch                                       UNKNOWN                        
 node-gyp                                         10.2.0                              npm                           
 node-html-parser                                 UNKNOWN                             npm                           
 node-releases                                    2.0.19                              npm                           
-nodejs                                           22.13.1-r3                          apk                           
+nodejs                                           22.13.1-r4                          apk                           
 nodemailer                                       6.10.0                              npm                           
 nom                                              7.1.3                               rust-crate                    
 noop_proc_macro                                  0.3.0                               rust-crate                    
@@ -1294,11 +1294,11 @@ validate-npm-package-name                        6.0.0                          
 validator                                        13.12.0                             npm                           
 vary                                             1.1.2                               npm                           
 vidstab                                          1.1.1-r0                            apk                           
-vips                                             8.15.3-r5                           apk                           
-vips-cpp                                         8.15.3-r5                           apk                           
-vips-heif                                        8.15.3-r5                           apk                           
-vips-jxl                                         8.15.3-r5                           apk                           
-vips-magick                                      8.15.3-r5                           apk                           
+vips                                             8.15.3-r6                           apk                           
+vips-cpp                                         8.15.3-r6                           apk                           
+vips-heif                                        8.15.3-r6                           apk                           
+vips-jxl                                         8.15.3-r6                           apk                           
+vips-magick                                      8.15.3-r6                           apk                           
 vm-browserify                                    UNKNOWN                             npm                           
 vulkan-loader                                    1.4.304.1-r1                        apk                           
 walk-up-path                                     3.0.1                               npm                           
@@ -1327,7 +1327,7 @@ x264-libs                                        0.164.3108-r0                  
 x265-libs                                        3.6-r0                              apk                           
 xtend                                            4.0.2                               npm                           
 xvidcore                                         1.3.7-r2                            apk                           
-xz-libs                                          5.6.4-r0                            apk                           
+xz-libs                                          5.8.0-r0                            apk                           
 y18n                                             5.0.8                               npm                           
 y4m                                              0.8.0                               rust-crate                    
 yallist                                          3.1.1                               npm                           
