@@ -11,7 +11,7 @@ lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
 export LD_PRELOAD="${lib_path}"
 export MPLCONFIGDIR="/tmp"
 export HF_HOME="/tmp"
-export IMMICH_HOST="${MACHINE_LEARNING_HOST:-"0.0.0.0"}":
+export IMMICH_HOST="${MACHINE_LEARNING_HOST:-"0.0.0.0"}"
 export IMMICH_PORT="${MACHINE_LEARNING_PORT:-"3003"}"
 
 exec \
