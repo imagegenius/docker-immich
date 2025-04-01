@@ -16,4 +16,4 @@ export IMMICH_PORT="${MACHINE_LEARNING_PORT:-"3003"}"
 
 exec \
     cd /app/immich/machine-learning s6-setuidgid abc \
-    python3 -m immich_ml || exit
+        python3 -m immich_ml || exit
