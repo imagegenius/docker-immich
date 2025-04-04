@@ -19,3 +19,16 @@ fi
 if [ -z "${REDIS_SOCKET}" ] && [ -z "${REDIS_URL}" ]; then
     check_var "REDIS_HOSTNAME" "Redis host"
 fi
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+if [ -n "$IMMICH_PORT" ]; then
+    echo -e "${RED}Don't use \"IMMICH_PORT\":${NC} if you want to change the server port use the environment variable \"SERVER_PORT\", if you want to change the machine-learning port, use the environment variable \"MACHINE_LEARNING_PORT\""
+    sleep infinity
+fi
+
+if [ -n "$IMMICH_HOST" ]; then
+    echo -e "${RED}Don't use \"IMMICH_HOST\":${NC} if you want to change the server host use the environment variable \"SERVER_HOST\", if you want to change the machine-learning host, use the environment variable \"MACHINE_LEARNING_HOST\"/"
+    sleep infinity
+fi
