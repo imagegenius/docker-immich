@@ -136,6 +136,8 @@ services:
       - DB_PORT=5432 #optional
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
+      - SERVER_HOST=0.0.0.0 #optional
+      - SERVER_PORT=2283 #optional
       - MACHINE_LEARNING_HOST=0.0.0.0 #optional
       - MACHINE_LEARNING_PORT=3003 #optional
       - MACHINE_LEARNING_WORKERS=1 #optional
@@ -187,6 +189,8 @@ docker run -d \
   -e DB_PORT=5432 `#optional` \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
+  -e SERVER_HOST=0.0.0.0 `#optional` \
+  -e SERVER_PORT=2283 `#optional` \
   -e MACHINE_LEARNING_HOST=0.0.0.0 `#optional` \
   -e MACHINE_LEARNING_PORT=3003 `#optional` \
   -e MACHINE_LEARNING_WORKERS=1 `#optional` \
@@ -236,6 +240,8 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_PORT=5432` | PostgreSQL Port |
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
+| `-e SERVER_HOST=0.0.0.0` | Immich server host |
+| `-e SERVER_PORT=2283` | Immich server port |
 | `-e MACHINE_LEARNING_HOST=0.0.0.0` | Immich machine-learning host |
 | `-e MACHINE_LEARNING_PORT=3003` | Immich machine-learning port |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
@@ -284,6 +290,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **04.04.25:** - use "SERVER_PORT" or "MACHINE_LEARNING_PORT" instead of "IMMICH_PORT" and use "SERVER_HOST" or "MACHINE_LEARNING_HOST" instead of "IMMICH_HOST"
 * **22.01.24:** - support GPU acceleration with CUDA for machine-learning
 * **23.12.23:** - move to using seperate immich baseimage
 * **07.12.23:** - rebase to ubuntu mantic
