@@ -137,7 +137,7 @@ services:
       - REDIS_PORT=6379 #optional
       - REDIS_PASSWORD= #optional
       - SERVER_HOST=0.0.0.0 #optional
-      - SERVER_PORT=2283 #optional
+      - SERVER_PORT=8080 #optional
       - MACHINE_LEARNING_HOST=0.0.0.0 #optional
       - MACHINE_LEARNING_PORT=3003 #optional
       - MACHINE_LEARNING_WORKERS=1 #optional
@@ -190,7 +190,7 @@ docker run -d \
   -e REDIS_PORT=6379 `#optional` \
   -e REDIS_PASSWORD= `#optional` \
   -e SERVER_HOST=0.0.0.0 `#optional` \
-  -e SERVER_PORT=2283 `#optional` \
+  -e SERVER_PORT=8080 `#optional` \
   -e MACHINE_LEARNING_HOST=0.0.0.0 `#optional` \
   -e MACHINE_LEARNING_PORT=3003 `#optional` \
   -e MACHINE_LEARNING_WORKERS=1 `#optional` \
@@ -241,7 +241,7 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e REDIS_PORT=6379` | Redis Port |
 | `-e REDIS_PASSWORD=` | Redis password |
 | `-e SERVER_HOST=0.0.0.0` | Immich server host |
-| `-e SERVER_PORT=2283` | Immich server port |
+| `-e SERVER_PORT=8080` | Immich server port |
 | `-e MACHINE_LEARNING_HOST=0.0.0.0` | Immich machine-learning host |
 | `-e MACHINE_LEARNING_PORT=3003` | Immich machine-learning port |
 | `-e MACHINE_LEARNING_WORKERS=1` | Machine learning workers |
