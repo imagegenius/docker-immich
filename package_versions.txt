@@ -252,8 +252,8 @@ agent-base                                       6.0.2                          
 agent-base                                       7.1.1                               npm                           
 agent-base                                       7.1.3                               npm                           
 aggregate-error                                  3.1.0                               npm                           
-alpine-baselayout                                3.6.8-r1                            apk                           
-alpine-baselayout-data                           3.6.8-r1                            apk                           
+alpine-baselayout                                3.7.0-r0                            apk                           
+alpine-baselayout-data                           3.7.0-r0                            apk                           
 alpine-keys                                      2.5-r0                              apk                           
 alsa-lib                                         1.2.13-r0                           apk                           
 amphtml-validator                                UNKNOWN                             npm                           
@@ -331,8 +331,8 @@ bytemuck                                         1.14.0                         
 bytes                                            3.1.2                               npm                           
 bytes                                            UNKNOWN                             npm                           
 c-ares                                           1.34.4-r0                           apk                           
-ca-certificates                                  20241121-r1                         apk                           
-ca-certificates-bundle                           20241121-r1                         apk                           
+ca-certificates                                  20241121-r2                         apk                           
+ca-certificates-bundle                           20241121-r2                         apk                           
 cacache                                          18.0.4                              npm                           
 cacache                                          19.0.1                              npm                           
 cairo                                            1.18.2-r1                           apk                           
@@ -527,7 +527,7 @@ finalhandler                                     2.1.0                          
 find-up                                          UNKNOWN                             npm                           
 findutils                                        4.10.0-r0                           apk                           
 fluent-ffmpeg                                    2.1.3                               npm                           
-fontconfig                                       2.15.0-r2                           apk                           
+fontconfig                                       2.15.0-r3                           apk                           
 foreground-child                                 3.3.0                               npm                           
 foreground-child                                 3.3.1                               npm                           
 form-data                                        4.0.2                               npm                           
@@ -555,7 +555,7 @@ get-proto                                        1.0.1                          
 getrandom                                        0.2.12                              rust-crate                    
 giflib                                           5.2.2-r0                            apk                           
 github.com/evanw/esbuild                         v0.0.0-20240702033312-9d506806bdd9  go-module                     
-glib                                             2.84.0-r0                           apk                           
+glib                                             2.84.1-r0                           apk                           
 glob                                             10.3.4                              npm                           
 glob                                             10.4.5                              npm         (+3 duplicates)   
 glob                                             7.2.3                               npm                           
@@ -564,7 +564,7 @@ glob                                             UNKNOWN                        
 glob-parent                                      5.1.2                               npm         (+1 duplicate)    
 glob-parent                                      6.0.2                               npm                           
 globals                                          11.12.0                             npm                           
-glslang-libs                                     1.4.304.0-r0                        apk                           
+glslang-libs                                     1.4.309.0-r0                        apk                           
 golang.org/x/sys                                 v0.0.0-20220715151400-c0bba94af5f8  go-module                     
 google-logging-utils                             0.0.2                               npm                           
 gopd                                             1.2.0                               npm                           
@@ -593,7 +593,7 @@ https-proxy-agent                                5.0.1                          
 https-proxy-agent                                7.0.5                               npm                           
 https-proxy-agent                                7.0.6                               npm                           
 https-proxy-agent                                UNKNOWN                             npm                           
-hwdata-pci                                       0.393-r0                            apk                           
+hwdata-pci                                       0.394-r0                            apk                           
 i18n-iso-countries                               7.14.0                              npm                           
 iconv-lite                                       0.4.24                              npm                           
 iconv-lite                                       0.5.2                               npm                           
@@ -695,11 +695,11 @@ lcms2-plugins                                    2.16-r0                        
 leac                                             0.6.0                               npm                           
 libSvtAv1Enc                                     2.3.0-r0                            apk                           
 libapk2                                          2.14.9-r1                           apk                           
-libarchive                                       3.7.7-r0                            apk                           
+libarchive                                       3.7.9-r0                            apk                           
 libass                                           0.17.3-r0                           apk                           
 libasyncns                                       0.8-r4                              apk                           
 libattr                                          2.5.2-r2                            apk                           
-libblkid                                         2.41-r0                             apk                           
+libblkid                                         2.41-r1                             apk                           
 libbluray                                        1.3.4-r1                            apk                           
 libbsd                                           0.12.2-r0                           apk                           
 libbz2                                           1.0.8-r6                            apk                           
@@ -714,7 +714,7 @@ libdovi                                          3.3.1-r0                       
 libdrm                                           2.4.124-r0                          apk                           
 libeconf                                         0.6.3-r0                            apk                           
 libexif                                          0.6.25-r0                           apk                           
-libexpat                                         2.7.0-r0                            apk                           
+libexpat                                         2.7.1-r0                            apk                           
 libffi                                           3.4.7-r0                            apk                           
 libflac                                          1.4.3-r1                            apk                           
 libgcc                                           14.2.0-r5                           apk                           
@@ -729,7 +729,7 @@ libjpeg-turbo-dev                                3.1.0-r0                       
 libjxl                                           0.10.3-r1                           apk                           
 libltdl                                          2.5.4-r0                            apk                           
 libmd                                            1.1.0-r0                            apk                           
-libmount                                         2.41-r0                             apk                           
+libmount                                         2.41-r1                             apk                           
 libncursesw                                      6.5_p20250216-r0                    apk                           
 libnpmaccess                                     9.0.0                               npm                           
 libnpmdiff                                       7.0.0                               npm                           
@@ -799,7 +799,7 @@ libzmq                                           4.3.5-r2                       
 lilconfig                                        3.1.3                               npm                           
 lilv-libs                                        0.24.26-r0                          apk                           
 lines-and-columns                                1.2.4                               npm                           
-linux-pam                                        1.7.0-r1                            apk                           
+linux-pam                                        1.7.0-r2                            apk                           
 linux-raw-sys                                    0.4.12                              rust-crate                    
 ljharb-monorepo-symlink-test                     0.0.0                               npm                           
 loader-runner                                    UNKNOWN                             npm                           
@@ -1186,7 +1186,7 @@ spdx-expression-parse                            3.0.1                          
 spdx-expression-parse                            4.0.0                               npm                           
 spdx-license-ids                                 3.0.20                              npm                           
 speexdsp                                         1.2.1-r2                            apk                           
-spirv-tools                                      1.4.304.0-r0                        apk                           
+spirv-tools                                      1.4.309.0-r0                        apk                           
 split2                                           4.2.0                               npm                           
 sprintf-js                                       1.1.3                               npm                           
 sql-highlight                                    6.0.0                               npm                           
@@ -1264,7 +1264,7 @@ type-is                                          1.6.18                         
 type-is                                          2.0.0                               npm                           
 typedarray                                       0.0.6                               npm                           
 typeorm                                          0.3.21                              npm                           
-tzdata                                           2025a-r0                            apk                           
+tzdata                                           2025b-r0                            apk                           
 ua-is-frozen                                     0.1.2                               npm                           
 ua-parser-js                                     2.0.3                               npm                           
 ua-parser-js                                     UNKNOWN                             npm                           
@@ -1328,7 +1328,7 @@ x264-libs                                        0.164.3108-r0                  
 x265-libs                                        3.6-r0                              apk                           
 xtend                                            4.0.2                               npm                           
 xvidcore                                         1.3.7-r2                            apk                           
-xz-libs                                          5.8.0-r0                            apk                           
+xz-libs                                          5.8.1-r0                            apk                           
 y18n                                             5.0.8                               npm                           
 y4m                                              0.8.0                               rust-crate                    
 yallist                                          3.1.1                               npm                           
