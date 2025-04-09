@@ -779,7 +779,6 @@ libnpmsearch                                     7.0.6                          
 libnpmteam                                       6.0.5                               npm                          
 libnpmversion                                    6.0.3                               npm                          
 libnpth0t64                                      1.6-3.1build1                       deb                          
-libnsl2                                          1.3.0-3build3                       deb                          
 libnuma1                                         2.0.18-1build1                      deb                          
 libogg0                                          1.3.5-3build1                       deb                          
 libonig5                                         6.9.9-1build1                       deb                          
@@ -814,8 +813,8 @@ libpq5                                           17.4-1.pgdg24.04+2             
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                          
 libpsl5t64                                       0.21.2-1.1build1                    deb                          
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
-libpython3.11-minimal                            3.11.11-1+noble1                    deb                          
-libpython3.11-stdlib                             3.11.11-1+noble1                    deb                          
+libpython3.11-minimal                            3.11.12-1+noble1                    deb                          
+libpython3.11-stdlib                             3.11.12-1+noble1                    deb                          
 libpython3.12-minimal                            3.12.3-1ubuntu0.5                   deb                          
 libpython3.12-stdlib                             3.12.3-1ubuntu0.5                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
@@ -847,8 +846,6 @@ libthai0                                         0.1.29-2build1                 
 libtheora0                                       1.1.1+dfsg.1-16.1build3             deb                          
 libtiff6                                         4.5.1+git230720-4ubuntu2.2          deb                          
 libtinfo6                                        6.4+20240113-1ubuntu2               deb                          
-libtirpc-common                                  1.3.4+ds-1.3                        deb                          
-libtirpc3t64                                     1.3.4+ds-1.3                        deb                          
 libudev1                                         255.4-1ubuntu8.6                    deb                          
 libudfread0                                      1.1.2-1build1                       deb                          
 libunistring5                                    1.1-2build1.1                       deb                          
@@ -1142,8 +1139,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.20                              python                       
 python3                                          3.12.3-0ubuntu2                     deb                          
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
-python3.11                                       3.11.11-1+noble1                    deb                          
-python3.11-minimal                               3.11.11-1+noble1                    deb                          
+python3.11                                       3.11.12-1+noble1                    deb                          
+python3.11-minimal                               3.11.12-1+noble1                    deb                          
 python3.12                                       3.12.3-1ubuntu0.5                   deb                          
 python3.12-minimal                               3.12.3-1ubuntu0.5                   deb                          
 pyyaml                                           6.0.1                               python                       
