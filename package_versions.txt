@@ -514,7 +514,7 @@ function-bind                                    1.1.2                          
 gauge                                            3.0.2                               npm                          
 gaxios                                           6.7.1                               npm                          
 gcc-14-base                                      14.2.0-19ubuntu2                    deb                          
-gcc-15-base                                      15-20250329-1ubuntu1                deb                          
+gcc-15-base                                      15-20250404-0ubuntu1                deb                          
 gcp-metadata                                     6.1.1                               npm                          
 gensync                                          1.0.0-beta.2                        npm                          
 geo-tz                                           8.1.4                               npm                          
@@ -714,7 +714,7 @@ libfontconfig1                                   2.15.0-1.1ubuntu2              
 libfreetype6                                     2.13.2+dfsg-1build3                 deb                          
 libfribidi0                                      1.0.13-3build1                      deb                          
 libgbm1                                          24.2.8-1ubuntu1~24.04.1             deb                          
-libgcc-s1                                        15-20250329-1ubuntu1                deb                          
+libgcc-s1                                        15-20250404-0ubuntu1                deb                          
 libgcrypt20                                      1.10.3-2build1                      deb                          
 libgdbm-compat4t64                               1.23-5.1build1                      deb                          
 libgdbm6t64                                      1.23-5.1build1                      deb                          
@@ -732,7 +732,7 @@ libglx-mesa0                                     24.2.8-1ubuntu1~24.04.1        
 libglx0                                          1.7.0-1build1                       deb                          
 libgmp10                                         2:6.3.0+dfsg-2ubuntu6.1             deb                          
 libgnutls30t64                                   3.8.3-1.1ubuntu3.3                  deb                          
-libgomp1                                         15-20250329-1ubuntu1                deb                          
+libgomp1                                         15-20250404-0ubuntu1                deb                          
 libgpg-error0                                    1.47-3build2.1                      deb                          
 libgraphite2-3                                   1.3.14-2build1                      deb                          
 libgsf-1-114                                     1.14.51-2ubuntu0.1                  deb                          
@@ -785,7 +785,6 @@ libnpmsearch                                     7.0.6                          
 libnpmteam                                       6.0.5                               npm                          
 libnpmversion                                    6.0.3                               npm                          
 libnpth0t64                                      1.6-3.1build1                       deb                          
-libnsl2                                          1.3.0-3build3                       deb                          
 libnuma1                                         2.0.18-1build1                      deb                          
 libogg0                                          1.3.5-3build1                       deb                          
 libonig5                                         6.9.9-1build1                       deb                          
@@ -820,8 +819,8 @@ libpq5                                           17.4-1.pgdg24.04+2             
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                          
 libpsl5t64                                       0.21.2-1.1build1                    deb                          
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
-libpython3.11-minimal                            3.11.11-1+noble1                    deb                          
-libpython3.11-stdlib                             3.11.11-1+noble1                    deb                          
+libpython3.11-minimal                            3.11.12-1+noble1                    deb                          
+libpython3.11-stdlib                             3.11.12-1+noble1                    deb                          
 libpython3.12-minimal                            3.12.3-1ubuntu0.5                   deb                          
 libpython3.12-stdlib                             3.12.3-1ubuntu0.5                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
@@ -845,7 +844,7 @@ libsqlite3-0                                     3.45.1-1ubuntu2.1              
 libss2                                           1.47.0-2.4~exp1ubuntu4.1            deb                          
 libssh-4                                         0.10.6-2build2                      deb                          
 libssl3t64                                       3.0.13-0ubuntu3.5                   deb                          
-libstdc++6                                       15-20250329-1ubuntu1                deb                          
+libstdc++6                                       15-20250404-0ubuntu1                deb                          
 libsystemd0                                      255.4-1ubuntu8.6                    deb                          
 libtasn1-6                                       4.19.0-3ubuntu0.24.04.1             deb                          
 libthai-data                                     0.1.29-2build1                      deb                          
@@ -853,8 +852,6 @@ libthai0                                         0.1.29-2build1                 
 libtheora0                                       1.1.1+dfsg.1-16.1build3             deb                          
 libtiff6                                         4.5.1+git230720-4ubuntu2.2          deb                          
 libtinfo6                                        6.4+20240113-1ubuntu2               deb                          
-libtirpc-common                                  1.3.4+ds-1.3                        deb                          
-libtirpc3t64                                     1.3.4+ds-1.3                        deb                          
 libudev1                                         255.4-1ubuntu8.6                    deb                          
 libudfread0                                      1.1.2-1build1                       deb                          
 libunistring5                                    1.1-2build1.1                       deb                          
@@ -1148,8 +1145,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.20                              python                       
 python3                                          3.12.3-0ubuntu2                     deb                          
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
-python3.11                                       3.11.11-1+noble1                    deb                          
-python3.11-minimal                               3.11.11-1+noble1                    deb                          
+python3.11                                       3.11.12-1+noble1                    deb                          
+python3.11-minimal                               3.11.12-1+noble1                    deb                          
 python3.12                                       3.12.3-1ubuntu0.5                   deb                          
 python3.12-minimal                               3.12.3-1ubuntu0.5                   deb                          
 pyyaml                                           6.0.1                               python                       
