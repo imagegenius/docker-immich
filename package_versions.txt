@@ -608,7 +608,7 @@ iterare                                          1.2.1                          
 jackspeak                                        2.3.6                               npm                          
 jackspeak                                        3.4.0                               npm                          
 jackspeak                                        3.4.3                               npm        (+2 duplicates)   
-jellyfin-ffmpeg7                                 7.0.2-7-noble                       deb                          
+jellyfin-ffmpeg7                                 7.0.2-9-noble                       deb                          
 jest-worker                                      UNKNOWN                             npm                          
 jiti                                             1.21.7                              npm                          
 joi                                              17.13.3                             npm                          
@@ -671,7 +671,7 @@ libegl-mesa0                                     24.2.8-1ubuntu1~24.04.1        
 libegl1                                          1.7.0-1build1                       deb                          
 libelf1t64                                       0.190-1.1ubuntu0.1                  deb                          
 libexif12                                        0.6.24-1build2                      deb                          
-libexpat1                                        2.6.1-2ubuntu0.2                    deb                          
+libexpat1                                        2.6.1-2ubuntu0.3                    deb                          
 libext2fs2t64                                    1.47.0-2.4~exp1ubuntu4.1            deb                          
 libffi8                                          3.4.6-1build1                       deb                          
 libfontconfig1                                   2.15.0-1.1ubuntu2                   deb                          
@@ -1062,7 +1062,7 @@ postgresql-client-14                             14.17-1.pgdg24.04+1            
 postgresql-client-15                             15.12-1.pgdg24.04+1                 deb                          
 postgresql-client-16                             16.8-1.pgdg24.04+1                  deb                          
 postgresql-client-17                             17.4-1.pgdg24.04+2                  deb                          
-postgresql-client-common                         274.pgdg24.04+1                     deb                          
+postgresql-client-common                         277.pgdg24.04+1                     deb                          
 prettier                                         3.4.2                               npm                          
 prettier                                         3.5.3                               npm                          
 prismjs                                          1.29.0                              npm                          
