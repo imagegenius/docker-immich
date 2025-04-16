@@ -59,6 +59,23 @@ opt_param_device_map: false
 opt_cap_add_param: false
 optional_block_1: false
 
+opt_custom_params:
+  - name_compose: "healthcheck"
+    array: true
+    value: 
+      - "test: immich-healthcheck"
+      - "start_period: 20s"      
+      - "interval: 30s"   
+      - "retries: 5"   
+      - "timeout: 5s"   
+  - name_compose: "depends_on"
+    array: true
+    value: 
+      - "postgres14"
+      - "  condition: service_healthy"      
+      - "redis"   
+      - "  condition: service_healthy"   
+      
 # unraid template
 unraid_requirement: "PostgreSQL 14/15/16 with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs), Redis"
 unraid_category: "Backup: Cloud: MediaApp:Photos"
@@ -94,6 +111,13 @@ external_application_compose_block: |
       ports:
         - 6379:6379
       container_name: redis
+      healthcheck: #optional
+        test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+        start_period: 20s
+        interval: 30s
+        retries: 5
+        timeout: 5s
+
   # PostgreSQL 14:
     postgres14:
       image: tensorchord/pgvecto-rs:pg14-v0.2.0
@@ -106,6 +130,12 @@ external_application_compose_block: |
         POSTGRES_DB: immich
       volumes:
         - path_to_postgres:/var/lib/postgresql/data
+      healthcheck: #optional
+        test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+        start_period: 20s
+        interval: 30s
+        retries: 5
+        timeout: 5s
 external_application_unraid_block: |
   You can also use a docker mods to start redis within the container,
   Set `DOCKER_MODS=imagegenius/mods:universal-redis`, and `REDIS_HOSTNAME` to `localhost`.
