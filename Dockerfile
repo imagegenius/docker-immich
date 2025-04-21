@@ -49,7 +49,6 @@ RUN \
     /tmp/node_modules/@img \
     /tmp/node_modules/exiftool-vendored.pl \
     node_modules && \
-  npm link && \
   npm cache clean --force && \
   cp -a \
     resources \
