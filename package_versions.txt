@@ -30,8 +30,8 @@ NAME                                             VERSION                        
 @hapi/accept                                     UNKNOWN                             npm                          
 @hapi/hoek                                       9.3.0                               npm                          
 @hapi/topo                                       5.1.0                               npm                          
-@img/sharp-linux-x64                             0.33.5                              npm                          
-@immich/cli                                      2.2.62                              npm                          
+@img/sharp-linux-x64                             0.34.1                              npm                          
+@immich/cli                                      2.2.63                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)    
 @isaacs/string-locale-compare                    1.1.0                               npm                          
@@ -581,7 +581,7 @@ ignore-loader                                    UNKNOWN                        
 ignore-walk                                      6.0.5                               npm                          
 image-size                                       UNKNOWN                             npm                          
 imageio                                          2.33.1                              python                       
-immich                                           1.132.0                             npm                          
+immich                                           1.132.1                             npm                          
 import-fresh                                     3.3.1                               npm                          
 import-in-the-middle                             1.13.1                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -1227,7 +1227,7 @@ setprototypeof                                   1.2.0                          
 sha.js                                           2.4.11                              npm                          
 shapefile                                        0.6.6                               npm                          
 shared-mime-info                                 2.4-4                               deb                          
-sharp                                            0.33.5                              npm                          
+sharp                                            0.34.1                              npm                          
 shebang-command                                  2.0.0                               npm        (+1 duplicate)    
 shebang-regex                                    3.0.0                               npm        (+1 duplicate)    
 shell-quote                                      UNKNOWN                             npm                          
