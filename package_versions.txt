@@ -428,7 +428,7 @@ diacritics                                       1.3.0                          
 didyoumean                                       1.2.2                               npm                          
 diff                                             5.2.0                               npm                          
 diffutils                                        1:3.10-1build1                      deb                          
-dirmngr                                          2.4.4-2ubuntu17                     deb                          
+dirmngr                                          2.4.4-2ubuntu17.2                   deb                          
 dlv                                              1.1.3                               npm                          
 dom-serializer                                   2.0.0                               npm                          
 domain-browser                                   UNKNOWN                             npm                          
@@ -532,18 +532,18 @@ glob                                             UNKNOWN                        
 glob-parent                                      5.1.2                               npm        (+1 duplicate)    
 glob-parent                                      6.0.2                               npm                          
 globals                                          11.12.0                             npm                          
-gnupg                                            2.4.4-2ubuntu17                     deb                          
-gnupg-l10n                                       2.4.4-2ubuntu17                     deb                          
-gnupg-utils                                      2.4.4-2ubuntu17                     deb                          
+gnupg                                            2.4.4-2ubuntu17.2                   deb                          
+gnupg-l10n                                       2.4.4-2ubuntu17.2                   deb                          
+gnupg-utils                                      2.4.4-2ubuntu17.2                   deb                          
 golang.org/x/sys                                 v0.0.0-20220715151400-c0bba94af5f8  go-module                    
 google-logging-utils                             0.0.2                               npm                          
 gopd                                             1.2.0                               npm                          
-gpg                                              2.4.4-2ubuntu17                     deb                          
-gpg-agent                                        2.4.4-2ubuntu17                     deb                          
-gpg-wks-client                                   2.4.4-2ubuntu17                     deb                          
-gpgconf                                          2.4.4-2ubuntu17                     deb                          
-gpgsm                                            2.4.4-2ubuntu17                     deb                          
-gpgv                                             2.4.4-2ubuntu17                     deb                          
+gpg                                              2.4.4-2ubuntu17.2                   deb                          
+gpg-agent                                        2.4.4-2ubuntu17.2                   deb                          
+gpg-wks-client                                   2.4.4-2ubuntu17.2                   deb                          
+gpgconf                                          2.4.4-2ubuntu17.2                   deb                          
+gpgsm                                            2.4.4-2ubuntu17.2                   deb                          
+gpgv                                             2.4.4-2ubuntu17.2                   deb                          
 graceful-fs                                      4.2.11                              npm        (+1 duplicate)    
 grep                                             3.11-4build1                        deb                          
 gunicorn                                         23.0.0                              python                       
@@ -598,11 +598,13 @@ init-system-helpers                              1.66ubuntu1                    
 inquirer                                         8.2.6                               npm                          
 insightface                                      0.7.3                               python                       
 intel-igc-core                                   1.0.17537.20                        deb                          
+intel-igc-core-2                                 2.10.8                              deb                          
 intel-igc-opencl                                 1.0.17537.20                        deb                          
-intel-level-zero-gpu                             1.3.30872.22                        deb                          
+intel-igc-opencl-2                               2.10.8                              deb                          
+intel-level-zero-gpu                             1.6.33276.16                        deb                          
 intel-level-zero-gpu-legacy1                     1.3.30872.22                        deb                          
 intel-media-va-driver-non-free                   24.1.0+ds1-1                        deb                          
-intel-opencl-icd                                 24.35.30872.22                      deb                          
+intel-opencl-icd                                 25.13.33276.16                      deb                          
 intel-opencl-icd-legacy1                         24.35.30872.22                      deb                          
 invalid_main                                     UNKNOWN                             npm                          
 ioredis                                          5.6.0                               npm                          
@@ -656,7 +658,7 @@ jsonparse                                        1.3.1                          
 jsonwebtoken                                     UNKNOWN                             npm                          
 just-diff                                        6.0.2                               npm                          
 just-diff-apply                                  5.5.0                               npm                          
-keyboxd                                          2.4.4-2ubuntu17                     deb                          
+keyboxd                                          2.4.4-2ubuntu17.2                   deb                          
 kiwisolver                                       1.4.5                               python                       
 krb5-locales                                     1.20.1-6ubuntu2.5                   deb                          
 kysely                                           0.27.6                              npm                          
@@ -737,7 +739,7 @@ libhogweed6t64                                   3.9.1-2.2build1.1              
 libhwy1t64                                       1.2.0-3ubuntu3                      deb                          
 libicu74                                         74.2-1ubuntu3.1                     deb                          
 libidn2-0                                        2.3.7-2build1.1                     deb                          
-libigdgmm12                                      22.5.0                              deb                          
+libigdgmm12                                      22.7.0                              deb                          
 libimath-3-1-29t64                               3.1.9-3.1ubuntu2                    deb                          
 libio-compress-brotli-perl                       0.004001-2build3                    deb                          
 libjbig0                                         2.1-6.1ubuntu2                      deb                          
@@ -796,7 +798,7 @@ libpangocairo-1.0-0                              1.52.1+ds-1build1              
 libpangoft2-1.0-0                                1.52.1+ds-1build1                   deb                          
 libpciaccess0                                    0.17-3build1                        deb                          
 libpcre2-8-0                                     10.42-4ubuntu2.1                    deb                          
-libperl5.38t64                                   5.38.2-3.2build2.1                  deb                          
+libperl5.38t64                                   5.38.2-3.2ubuntu0.1                 deb                          
 libphonenumber-js                                1.12.5                              npm                          
 libphonenumber-js/build                          UNKNOWN                             npm                          
 libphonenumber-js/core                           UNKNOWN                             npm                          
@@ -1059,9 +1061,9 @@ path-to-regexp                                   UNKNOWN                        
 path-type                                        4.0.0                               npm                          
 pbf                                              3.3.0                               npm                          
 peberminta                                       0.9.0                               npm                          
-perl                                             5.38.2-3.2build2.1                  deb                          
-perl-base                                        5.38.2-3.2build2.1                  deb                          
-perl-modules-5.38                                5.38.2-3.2build2.1                  deb                          
+perl                                             5.38.2-3.2ubuntu0.1                 deb                          
+perl-base                                        5.38.2-3.2ubuntu0.1                 deb                          
+perl-modules-5.38                                5.38.2-3.2ubuntu0.1                 deb                          
 pg                                               8.14.1                              npm                          
 pg-connection-string                             2.7.0                               npm                          
 pg-int8                                          1.0.1                               npm                          
@@ -1342,7 +1344,7 @@ type-is                                          2.0.0                          
 typedarray                                       0.0.6                               npm                          
 typeorm                                          0.3.21                              npm                          
 typing-extensions                                4.12.2                              python                       
-tzdata                                           2024b-0ubuntu0.24.04.1              deb                          
+tzdata                                           2025b-0ubuntu0.24.04                deb                          
 ua-is-frozen                                     0.1.2                               npm                          
 ua-parser-js                                     2.0.3                               npm                          
 ua-parser-js                                     UNKNOWN                             npm                          
