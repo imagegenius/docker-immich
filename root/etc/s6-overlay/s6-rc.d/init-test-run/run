@@ -8,8 +8,7 @@ if [[ -n "${TEST_RUN}" ]]; then
     apt remove -y --purge \
         postgresql* &>/dev/null
     apt-get install -y --no-install-recommends \
-        postgresql-16 \
-        redis-server &>/dev/null
+        postgresql-16
 
     s6-setuidgid postgres pg_ctlcluster 16 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
@@ -35,7 +34,5 @@ if [[ -n "${TEST_RUN}" ]]; then
     sleep 1
     s6-setuidgid postgres psql -c "CREATE EXTENSION vectors;"
 
-    s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
-
-    echo "PostgreSQL/Redis started"
+    echo "PostgreSQL started"
 fi

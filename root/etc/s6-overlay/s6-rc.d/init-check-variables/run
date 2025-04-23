@@ -16,9 +16,6 @@ if [ -z "${DB_URL}" ]; then
     check_var "DB_PASSWORD"      "PostgreSQL database password"
     check_var "DB_DATABASE_NAME" "PostgreSQL database name"
 fi
-if [ -z "${REDIS_SOCKET}" ] && [ -z "${REDIS_URL}" ]; then
-    check_var "REDIS_HOSTNAME" "Redis host"
-fi
 
 RED='\033[0;31m'
 NC='\033[0m'

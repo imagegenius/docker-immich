@@ -30,7 +30,6 @@ param_env_vars:
   - { env_var: "DB_USERNAME", env_value: "postgres", desc: "PostgreSQL Username" }
   - { env_var: "DB_PASSWORD", env_value: "postgres", desc: "PostgreSQL Password" }
   - { env_var: "DB_DATABASE_NAME", env_value: "immich", desc: "PostgreSQL Database Name" }
-  - { env_var: "REDIS_HOSTNAME", env_value: "192.168.1.x", desc: "Redis Hostname" }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "path_to_appdata", desc: "AppData" }
@@ -45,8 +44,6 @@ cap_add_param: false
 opt_param_usage_include_env: true
 opt_param_env_vars:
   - { env_var: "DB_PORT", env_value: "5432", desc: "PostgreSQL Port" }
-  - { env_var: "REDIS_PORT", env_value: "6379", desc: "Redis Port" }
-  - { env_var: "REDIS_PASSWORD", env_value: "", desc: "Redis password" }
 opt_param_usage_include_vols: true
 opt_param_volumes:
   - { vol_path: "/libraries", vol_host_path: "path_to_libraries", desc: "External libraries to track assets stored outside of Immich" }
@@ -62,12 +59,6 @@ app_setup_block: |
 
 external_application_snippet_enabled: true
 external_application_cli_block: |
-  # Redis:
-  docker run -d \
-    --name=redis \
-    -p 6379:6379 \
-    redis
-
   # PostgreSQL 14 with pgvecto.rs:
   docker run -d \
     --name=postgres14 \
@@ -78,12 +69,6 @@ external_application_cli_block: |
     -p 5432:5432 \
     tensorchord/pgvecto-rs:pg14-v0.1.11
 external_application_compose_block: |
-  # Redis:
-    redis:
-      image: redis
-      ports:
-        - 6379:6379
-      container_name: redis
   # PostgreSQL 14:
     postgres14:
       image: postgres:14
