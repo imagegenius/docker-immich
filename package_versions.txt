@@ -952,7 +952,7 @@ node-fetch                                       UNKNOWN                        
 node-gyp                                         10.1.0                              npm                          
 node-html-parser                                 UNKNOWN                             npm                          
 node-releases                                    2.0.19                              npm                          
-nodejs                                           20.19.0-1nodesource1                deb                          
+nodejs                                           20.19.1-1nodesource1                deb                          
 nodemailer                                       6.10.1                              npm                          
 nopt                                             5.0.0                               npm                          
 nopt                                             7.2.1                               npm                          
