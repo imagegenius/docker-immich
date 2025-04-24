@@ -17,6 +17,7 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
+  SHARP_FORCE_GLOBAL_LIBVIPS=true \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
   UV_PYTHON="/usr/bin/python3.11"
 
@@ -27,6 +28,13 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libjpeg-dev \
+    librsvg2-dev \
+    libspng-dev \
+    pkg-config \
     python3.11-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
@@ -127,6 +135,15 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libhwy-dev \
+    libjpeg-dev \
+    librsvg2-dev \
+    libspng-dev \
+    libwebp-dev \
+    pkg-config \
     python3.11-dev && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
