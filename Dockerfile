@@ -16,7 +16,7 @@ ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   IMMICH_PORT="8080" \
-  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
+  SHARP_FORCE_GLOBAL_LIBVIPS=true
 
 RUN \
   echo "**** download immich ****" && \
@@ -32,6 +32,17 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
+  echo "**** install runtime packages ****" && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    build-essential \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libjpeg-dev \
+    librsvg2-dev \
+    libspng-dev \
+    pkg-config && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
@@ -90,6 +101,15 @@ RUN \
     dist \
     /app/immich/cli && \
   echo "**** cleanup ****" && \
+  apt-get remove -y --purge \
+    build-essential \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libjpeg-dev \
+    librsvg2-dev \
+    libspng-dev \
+    pkg-config && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
