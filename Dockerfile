@@ -6,6 +6,7 @@ FROM ghcr.io/imagegenius/baseimage-immich:latest
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
+ARG NODEJS_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
 
@@ -15,8 +16,9 @@ ENV \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  IMMICH_PORT="8080" \
-  SHARP_FORCE_GLOBAL_LIBVIPS=true
+  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
+  SERVER_PORT="8080" \
+  SHARP_FORCE_GLOBAL_LIBVIPS="true"
 
 RUN \
   echo "**** download immich ****" && \
@@ -32,7 +34,16 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  echo "**** install runtime packages ****" && \
+  if [ -z "${NODEJS_VERSION}" ]; then \
+    NODEJS_VERSION="$(cat /tmp/immich/server/.nvmrc)" && \
+    echo "**** detected node version ${NODEJS_VERSION} ****"; \
+  fi && \
+  NODEJS_MAJOR_VERSION=$(echo "$NODEJS_VERSION" | cut -d '.' -f 1) && \
+  NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
+  echo "**** setup repos ****" && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
+  curl -s "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
+  echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
@@ -43,6 +54,9 @@ RUN \
     librsvg2-dev \
     libspng-dev \
     pkg-config && \
+    echo "**** install runtime packages ****" && \
+  apt-get install --no-install-recommends -y \
+    nodejs=$NODEJS_VERSION && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
@@ -113,11 +127,13 @@ RUN \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
-    /tmp/* \
-    /var/tmp/* \
-    /var/lib/apt/lists/* \
+    /etc/apt/sources.list.d/node.list \
     /root/.cache \
-    /root/.npm
+    /root/.npm \
+    /tmp/* \
+    /usr/share/keyrings/nodesource-repo.gpg \
+    /var/tmp/* \
+    /var/lib/apt/lists/*
 
 # copy local files
 COPY root/ /
