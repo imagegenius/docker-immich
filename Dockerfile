@@ -6,6 +6,7 @@ FROM ghcr.io/imagegenius/baseimage-immich:latest
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
+ARG NODEJS_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
 
@@ -17,17 +18,39 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  SHARP_FORCE_GLOBAL_LIBVIPS=true \
+  SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
   UV_PYTHON="/usr/bin/python3.11"
 
 RUN \
-  echo "**** install build packages ****" && \
+  echo "**** download immich ****" && \
+  mkdir -p \
+    /tmp/immich && \
+  if [ -z ${IMMICH_VERSION} ]; then \
+    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
+      jq -r '.tag_name'); \
+  fi && \
+  curl -o \
+    /tmp/immich.tar.gz -L \
+    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
+  tar xf \
+    /tmp/immich.tar.gz -C \
+    /tmp/immich --strip-components=1 && \
+  if [ -z "${NODEJS_VERSION}" ]; then \
+    NODEJS_VERSION="$(cat /tmp/immich/server/.nvmrc)" && \
+    echo "**** detected node version ${NODEJS_VERSION} ****"; \
+  fi && \
+  NODEJS_MAJOR_VERSION=$(echo "$NODEJS_VERSION" | cut -d '.' -f 1) && \
+  NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
+  echo "**** setup repos ****" && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
+  curl -s "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
   echo "deb [signed-by=/usr/share/keyrings/deadsnakes.gpg] https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" >>/etc/apt/sources.list.d/deadsnakes.list && \
   curl -s "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" | gpg --dearmor | tee /usr/share/keyrings/deadsnakes.gpg >/dev/null && \
   echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" >>/etc/apt/sources.list.d/cuda.list && \
   curl -s "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" | gpg --dearmor | tee /usr/share/keyrings/cuda-archive-keyring.gpg >/dev/null && \
   printf "Package: *\nPin: release l=NVIDIA CUDA\nPin-Priority: 600" > /etc/apt/preferences.d/cuda && \
+  echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
@@ -48,20 +71,8 @@ RUN \
     libcudnn9-cuda-12 \
     libcufft11 \
     libcurand10 \
+    nodejs=$NODEJS_VERSION \
     python3.11 && \
-  echo "**** download immich ****" && \
-  mkdir -p \
-    /tmp/immich && \
-  if [ -z ${IMMICH_VERSION} ]; then \
-    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
-  curl -o \
-    /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/immich.tar.gz -C \
-    /tmp/immich --strip-components=1 && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
@@ -162,14 +173,14 @@ RUN \
   rm -rf \
     /etc/apt/preferences.d/cuda \
     /etc/apt/sources.list.d/cuda.list \
+    /etc/apt/sources.list.d/node.list \
     /root/.cache \
     /root/.npm \
     /tmp/* \
     /usr/share/keyrings/cuda-archive-keyring.gpg \
-    /var/tmp/* \
+    /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/* \
-    /root/.cache \
-    /root/.npm
+    /var/tmp/*
 
 # copy local files
 COPY root/ /
