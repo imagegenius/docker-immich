@@ -680,7 +680,7 @@ libcrypt1                                        1:4.4.36-4build1               
 libcublas12                                      12.0.2.224~12.0.1-4build4           deb                          
 libcublaslt12                                    12.0.2.224~12.0.1-4build4           deb                          
 libcudart12                                      12.0.146~12.0.1-4build4             deb                          
-libcudnn9-cuda-12                                9.8.0.87-1                          deb                          
+libcudnn9-cuda-12                                9.9.0.52-1                          deb                          
 libcufft11                                       11.0.1.95~12.0.1-4build4            deb                          
 libcurand10                                      11.1.1+~10.3.1.124~12.0.1-4build4   deb                          
 libcurl4t64                                      8.5.0-2ubuntu10.6                   deb                          
@@ -884,7 +884,7 @@ libxext6                                         2:1.3.4-1build2                
 libxfixes3                                       1:6.0.0-2build1                     deb                          
 libxkbcommon-x11-0                               1.6.0-1build1                       deb                          
 libxkbcommon0                                    1.6.0-1build1                       deb                          
-libxml2                                          2.9.14+dfsg-1.3ubuntu3.2            deb                          
+libxml2                                          2.9.14+dfsg-1.3ubuntu3.3            deb                          
 libxrender1                                      1:0.9.10-1.1build1                  deb                          
 libxshmfence1                                    1.3-1build5                         deb                          
 libxxf86vm1                                      1:1.1.4-1build4                     deb                          
