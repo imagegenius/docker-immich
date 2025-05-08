@@ -1,14 +1,15 @@
 ---
 # jenkins variables
 project_name: docker-immich
-external_type: github_stable
+
+# Pin immich to v1.131.3 (pip package versions are exceeding system versions = incompatibility)
+external_type: na
+custom_version_command: "echo 'v1.131.3'"
+
 release_type: prerelease
 release_tag: alpine
 ig_branch: alpine
 repo_vars:
-  - EXT_GIT_BRANCH = 'main'
-  - EXT_USER = 'immich-app'
-  - EXT_REPO = 'immich'
   - BUILD_VERSION_ARG = 'IMMICH_VERSION'
   - IG_USER = 'imagegenius'
   - IG_REPO = 'docker-immich'
