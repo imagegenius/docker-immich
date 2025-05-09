@@ -4,8 +4,10 @@
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
 export LD_PRELOAD="${lib_path}"
 export IMMICH_WORKERS_INCLUDE="api"
+export IMMICH_HOST="${SERVER_HOST:-"0.0.0.0"}"
+export IMMICH_PORT="${SERVER_PORT:-"8080"}"
 
 exec \
-    s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost ${SERVER_PORT}" \
+    s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost ${IMMICH_PORT}" \
         cd /app/immich/server s6-setuidgid abc \
             node dist/main
