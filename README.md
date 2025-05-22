@@ -218,17 +218,8 @@ docker run -d \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=immich \
-  -v path_to_postgres:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
-
-# PostgreSQL 14 if on an HDD:
-docker run -d \
-  --name=postgres14 \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=immich \
-  -e DB_STORAGE_TYPE: 'HDD' \
+  # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+  # -e DB_STORAGE_TYPE: 'HDD' \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
   ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
