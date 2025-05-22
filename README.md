@@ -160,7 +160,7 @@ services:
     container_name: redis
 # PostgreSQL 14:
   postgres14:
-    image: tensorchord/pgvecto-rs:pg14-v0.2.0
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
     ports:
       - 5432:5432
     container_name: postgres14
@@ -168,6 +168,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: immich
+      # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+      # DB_STORAGE_TYPE: 'HDD'
     volumes:
       - path_to_postgres:/var/lib/postgresql/data
 
@@ -218,7 +220,18 @@ docker run -d \
   -e POSTGRES_DB=immich \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  tensorchord/pgvecto-rs:pg14-v0.2.0
+  ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+
+# PostgreSQL 14 if on an HDD:
+docker run -d \
+  --name=postgres14 \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=immich \
+  -e DB_STORAGE_TYPE: 'HDD' \
+  -v path_to_postgres:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
 
 ```
 
@@ -290,6 +303,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **22.05.25:** - change `pgvecto.rs` to `VectorChord`
 * **04.04.25:** - use "SERVER_PORT" or "MACHINE_LEARNING_PORT" instead of "IMMICH_PORT" and use "SERVER_HOST" or "MACHINE_LEARNING_HOST" instead of "IMMICH_HOST"
 * **22.01.24:** - support GPU acceleration with CUDA for machine-learning
 * **23.12.23:** - move to using seperate immich baseimage
