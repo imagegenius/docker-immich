@@ -1,6 +1,9 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor > /usr/share/keyrings/pgdg-archive-keyring.gpg && \
+echo "deb [signed-by=/usr/share/keyrings/pgdg-archive-keyring.gpg] https://apt.postgresql.org/pub/repos/apt noble-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+
 # install immich dependencies for test runs
 if [[ -n "${TEST_RUN}" ]]; then
     echo "Configuring CI for test run"
@@ -9,10 +12,12 @@ if [[ -n "${TEST_RUN}" ]]; then
         postgresql* &>/dev/null
     apt-get install -y --no-install-recommends \
         postgresql-16 \
+        postgresql-16-pgvector \
         redis-server &>/dev/null
 
     s6-setuidgid postgres pg_ctlcluster 16 main start
     s6-setuidgid postgres psql -c "ALTER USER postgres WITH PASSWORD 'password';"
+    s6-setuidgid postgres psql -c "CREATE EXTENSION vector;"
 
     if [[ "$(arch)" == "x86_64" ]]; then
         version="amd64"
@@ -20,20 +25,21 @@ if [[ -n "${TEST_RUN}" ]]; then
         version="arm64"
     fi
 
-    # Install vectors
+    # Install vchord
     curl -o \
-        /tmp/vectors.deb -L \
-        "https://github.com/tensorchord/pgvecto.rs/releases/download/v0.2.0/vectors-pg16_0.2.0_$version.deb"
-    dpkg -i /tmp/vectors.deb
+        /tmp/vchord.deb -L \
+        "https://github.com/tensorchord/VectorChord/releases/download/0.3.0/postgresql-16-vchord_0.3.0-1_$version.deb"
+    dpkg -i /tmp/vchord.deb
 
-    # Setup vectors
-    s6-setuidgid postgres psql -c 'ALTER SYSTEM SET shared_preload_libraries = "vectors.so"'
+    # Setup vchord
+    s6-setuidgid postgres psql -c "ALTER EXTENSION vector UPDATE;"
+    s6-setuidgid postgres psql -c 'ALTER SYSTEM SET shared_preload_libraries = "vchord.so"'
     sleep 1
     pkill postgres
     sleep 1
     s6-setuidgid postgres pg_ctlcluster 16 main start
     sleep 1
-    s6-setuidgid postgres psql -c "CREATE EXTENSION vectors;"
+    s6-setuidgid postgres psql -c "CREATE EXTENSION vchord CASCADE;"
 
     s6-setuidgid abc redis-server --dir /config/ &>/dev/null &
 
