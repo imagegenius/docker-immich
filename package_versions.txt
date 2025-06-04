@@ -822,8 +822,8 @@ libpq5                                           17.5-1.pgdg24.04+1             
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                          
 libpsl5t64                                       0.21.2-1.1build1                    deb                          
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
-libpython3.11-minimal                            3.11.12-1+noble1                    deb                          
-libpython3.11-stdlib                             3.11.12-1+noble1                    deb                          
+libpython3.11-minimal                            3.11.13-1+noble1                    deb                          
+libpython3.11-stdlib                             3.11.13-1+noble1                    deb                          
 libpython3.12-minimal                            3.12.3-1ubuntu0.5                   deb                          
 libpython3.12-stdlib                             3.12.3-1ubuntu0.5                   deb                          
 libreadline8t64                                  8.2-4build1                         deb                          
@@ -1147,8 +1147,8 @@ python-dotenv                                    1.0.0                          
 python-multipart                                 0.0.20                              python                       
 python3                                          3.12.3-0ubuntu2                     deb                          
 python3-minimal                                  3.12.3-0ubuntu2                     deb                          
-python3.11                                       3.11.12-1+noble1                    deb                          
-python3.11-minimal                               3.11.12-1+noble1                    deb                          
+python3.11                                       3.11.13-1+noble1                    deb                          
+python3.11-minimal                               3.11.13-1+noble1                    deb                          
 python3.12                                       3.12.3-1ubuntu0.5                   deb                          
 python3.12-minimal                               3.12.3-1ubuntu0.5                   deb                          
 pyyaml                                           6.0.1                               python                       
