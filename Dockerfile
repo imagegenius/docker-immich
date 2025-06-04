@@ -97,10 +97,14 @@ RUN \
   cd /tmp/immich/web && \
   npm ci && \
   npm run build && \
+  npm prune --omit=dev --omit=optional && \
   cp -a \
     build/* \
+    node_modules \
+    package.json \
+    package-lock.json \
     static \
-    /app/immich/server/www  && \
+    /app/immich/server/www && \
   echo "**** build CLI ****" && \
   mkdir -p \
     /app/immich/cli && \
