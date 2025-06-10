@@ -54,8 +54,8 @@ Access the WebUI at `http://your-ip:8080`. Follow the setup wizard to configure 
 
 ### Requirements
 
-- **PostgreSQL**: Version 14, 15, or 16 with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs) setup externally.
-- **Redis**: Setup externally or within the container using a docker mod.
+- **PostgreSQL**: Version 14, 15, 16 or 17 with [vectorchord](https://github.com/tensorchord/VectorChord) setup externally.
+- **Valkey/Redis**: Setup externally or within the container using a docker mod.
 
 #### Docker Mod for Redis
 
@@ -152,15 +152,15 @@ services:
 
 # This container requires an external application to be run separately.
 # By default, ports for the databases are opened, be careful when deploying it
-# Redis:
-  redis:
-    image: redis
+# Valkey:
+  valkey:
+    image: valkey/valkey:8-bookworm
     ports:
       - 6379:6379
-    container_name: redis
+    container_name: valkey
 # PostgreSQL 14:
   postgres14:
-    image: tensorchord/pgvecto-rs:pg14-v0.2.0
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
     ports:
       - 5432:5432
     container_name: postgres14
@@ -168,6 +168,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: immich
+      # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+      # DB_STORAGE_TYPE: 'HDD'
     volumes:
       - path_to_postgres:/var/lib/postgresql/data
 
@@ -204,11 +206,11 @@ docker run -d \
 
 # This container requires an external application to be run separately.
 # By default, ports for the databases are opened, be careful when deploying it
-# Redis:
+# Valkey:
 docker run -d \
-  --name=redis \
+  --name=valkey \
   -p 6379:6379 \
-  redis
+  valkey/valkey:8-bookworm
 
 # PostgreSQL 14:
 docker run -d \
@@ -216,9 +218,11 @@ docker run -d \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=immich \
+  # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+  # -e DB_STORAGE_TYPE: 'HDD' \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  tensorchord/pgvecto-rs:pg14-v0.2.0
+  ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
 
 ```
 
@@ -236,10 +240,10 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_USERNAME=postgres` | PostgreSQL Username |
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
-| `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
+| `-e REDIS_HOSTNAME=192.168.1.x` | Valkey/Redis Hostname |
 | `-e DB_PORT=5432` | PostgreSQL Port |
-| `-e REDIS_PORT=6379` | Redis Port |
-| `-e REDIS_PASSWORD=` | Redis password |
+| `-e REDIS_PORT=6379` | Valkey/Redis Port |
+| `-e REDIS_PASSWORD=` | Valkey/Redis password |
 | `-e SERVER_HOST=0.0.0.0` | Immich server host |
 | `-e SERVER_PORT=8080` | Immich server port |
 | `-e MACHINE_LEARNING_HOST=0.0.0.0` | Immich machine-learning host |
@@ -290,7 +294,8 @@ Instructions for updating containers:
 
 ## Versions
 
-* **04.04.25:** - use "SERVER_PORT" or "MACHINE_LEARNING_PORT" instead of "IMMICH_PORT" and use "SERVER_HOST" or "MACHINE_LEARNING_HOST" instead of "IMMICH_HOST"
+* **22.05.25:** - change `pgvecto.rs` to `VectorChord`
+* **04.04.25:** - use `SERVER_PORT` or `MACHINE_LEARNING_PORT` instead of `IMMICH_PORT` and use `SERVER_HOST` or `MACHINE_LEARNING_HOST` instead of `IMMICH_HOST`
 * **22.01.24:** - support GPU acceleration with CUDA for machine-learning
 * **23.12.23:** - move to using seperate immich baseimage
 * **07.12.23:** - rebase to ubuntu mantic
