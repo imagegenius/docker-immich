@@ -18,6 +18,7 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
+  NVIDIA_VISIBLE_DEVICES="all" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
   UV_PYTHON="/usr/bin/python3.11"
