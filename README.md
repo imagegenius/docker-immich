@@ -10,7 +10,7 @@
 
 Immich is a high performance self-hosted photo and video backup solution.
 
-[![immich](https://user-images.githubusercontent.com/27055614/182044984-2ee6d1ed-c4a7-4331-8a4b-64fcde77fe1f.png)](https://immich.app/)
+[![immich](https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo-inline-dark.png)](https://immich.app/)
 
 ## Supported Architectures
 
@@ -74,15 +74,16 @@ services:
     restart: unless-stopped
 
 # This container requires an external application to be run separately.
-# Redis:
-  redis:
-    image: redis
+# By default, ports for the databases are opened, be careful when deploying it
+# Valkey/Redis:
+  valkey:
+    image: valkey/valkey:8-bookworm
     ports:
       - 6379:6379
-    container_name: redis
+    container_name: valkey
 # PostgreSQL 14:
   postgres14:
-    image: postgres:14
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
     ports:
       - 5432:5432
     container_name: postgres14
@@ -90,6 +91,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: immich
+      # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+      # DB_STORAGE_TYPE: 'HDD'
     volumes:
       - path_to_postgres:/var/lib/postgresql/data
 
@@ -119,21 +122,24 @@ docker run -d \
   ghcr.io/imagegenius/immich:noml
 
 # This container requires an external application to be run separately.
-# Redis:
+# By default, ports for the databases are opened, be careful when deploying it
+# Valkey/Redis:
 docker run -d \
-  --name=redis \
+  --name=valkey \
   -p 6379:6379 \
-  redis
+  valkey/valkey:8-bookworm
 
-# PostgreSQL 14 with pgvecto.rs:
+# PostgreSQL 14 with vectorchord:
 docker run -d \
   --name=postgres14 \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=immich \
+  # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+  # -e DB_STORAGE_TYPE: 'HDD' \
   -v path_to_postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
-  tensorchord/pgvecto-rs:pg14-v0.1.11
+  ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
 
 ```
 
@@ -151,10 +157,10 @@ To configure the container, pass variables at runtime using the format `<externa
 | `-e DB_USERNAME=postgres` | PostgreSQL Username |
 | `-e DB_PASSWORD=postgres` | PostgreSQL Password |
 | `-e DB_DATABASE_NAME=immich` | PostgreSQL Database Name |
-| `-e REDIS_HOSTNAME=192.168.1.x` | Redis Hostname |
+| `-e REDIS_HOSTNAME=192.168.1.x` | Valkey/Redis Hostname |
 | `-e DB_PORT=5432` | PostgreSQL Port |
-| `-e REDIS_PORT=6379` | Redis Port |
-| `-e REDIS_PASSWORD=` | Redis password |
+| `-e REDIS_PORT=6379` | Valkey/Redis Port |
+| `-e REDIS_PASSWORD=` | Valkey/Redis password |
 | `-v /config` | AppData |
 | `-v /photos` | Contains all the photos uploaded to Immich |
 | `-v /libraries` | External libraries to track assets stored outside of Immich |
@@ -199,6 +205,7 @@ Instructions for updating containers:
 
 ## Versions
 
+* **22.05.25:** - change `pgvecto.rs` to `VectorChord`
 * **23.12.23:** - move to use seperate baseimage
 * **13.11.23:** - rebase noml to ubuntu
 * **02.01.23:** - Initial Release.
