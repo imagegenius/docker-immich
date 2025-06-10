@@ -62,7 +62,7 @@ opt_cap_add_param: false
 optional_block_1: false
 
 # unraid template
-unraid_requirement: "PostgreSQL 14/15/16 with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs), Redis"
+unraid_requirement: "PostgreSQL 14/15/16 with [VectorChord](https://github.com/tensorchord/VectorChord), Redis"
 unraid_category: "Backup: Cloud: MediaApp:Photos"
 
 # application setup block
@@ -83,7 +83,7 @@ app_setup_block: |
   
   ### Requirements
   
-  - **PostgreSQL**: Version 14, 15, or 16 with [pgvecto.rs](https://github.com/tensorchord/pgvecto.rs) setup externally.
+  - **PostgreSQL**: Version 14, 15, or 16 with [VectorChord](https://github.com/tensorchord/VectorChord) setup externally.
   - **Redis**: Setup externally or within the container using a docker mod.
   
   #### Docker Mod for Redis
@@ -156,9 +156,11 @@ external_application_cli_block: |
     -e POSTGRES_USER=postgres \
     -e POSTGRES_PASSWORD=postgres \
     -e POSTGRES_DB=immich \
+    # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+    # -e DB_STORAGE_TYPE: 'HDD' \
     -v path_to_postgres:/var/lib/postgresql/data \
     -p 5432:5432 \
-    tensorchord/pgvecto-rs:pg14-v0.2.0
+    ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
 external_application_compose_block: |
   # By default, ports for the databases are opened, be careful when deploying it
   # Redis:
@@ -169,14 +171,16 @@ external_application_compose_block: |
       container_name: redis
   # PostgreSQL 14:
     postgres14:
-      image: tensorchord/pgvecto-rs:pg14-v0.2.0
+      image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
       ports:
         - 5432:5432
       container_name: postgres14
       environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
-        POSTGRES_DB: immich
+        POSTGRES_DB: immich      
+        # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
+        # DB_STORAGE_TYPE: 'HDD'
       volumes:
         - path_to_postgres:/var/lib/postgresql/data
 external_application_unraid_block: |
@@ -185,6 +189,7 @@ external_application_unraid_block: |
 
 # changelog
 changelogs:
+  - { date: "23.05.25:", desc: "change `pgvecto.rs` to `VectorChord` }
   - { date: "04.04.25:", desc: "use \"SERVER_PORT\" or \"MACHINE_LEARNING_PORT\" instead of \"IMMICH_PORT\" and use \"SERVER_HOST\" or \"MACHINE_LEARNING_HOST\" instead of \"IMMICH_HOST\"" }
   - { date: "22.01.24:", desc: "support GPU acceleration with CUDA for machine-learning" }
   - { date: "23.12.23:", desc: "move to using seperate immich baseimage" }
