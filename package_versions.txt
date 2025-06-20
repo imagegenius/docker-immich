@@ -19,10 +19,8 @@ NAME                                             VERSION                        
 @grpc/grpc-js                                    1.13.3                              npm                         
 @grpc/proto-loader                               0.7.13                              npm                         
 @hapi/accept                                     UNKNOWN                             npm                         
-@hapi/hoek                                       9.3.0                               npm                         
-@hapi/topo                                       5.1.0                               npm                         
 @img/sharp-linux-x64                             0.34.2                              npm                         
-@immich/cli                                      2.2.70                              npm                         
+@immich/cli                                      2.2.71                              npm                         
 @ioredis/commands                                1.2.0                               npm                         
 @isaacs/cliui                                    8.0.2                               npm        (+1 duplicate)   
 @isaacs/fs-minipass                              4.0.1                               npm                         
@@ -187,9 +185,6 @@ NAME                                             VERSION                        
 @react-email/text                                0.1.4                               npm                         
 @scarf/scarf                                     1.4.0                               npm                         
 @selderee/plugin-htmlparser2                     0.11.0                              npm                         
-@sideway/address                                 4.1.5                               npm                         
-@sideway/formula                                 3.0.1                               npm                         
-@sideway/pinpoint                                2.0.0                               npm                         
 @sigstore/bundle                                 3.0.0                               npm                         
 @sigstore/core                                   2.0.0                               npm                         
 @sigstore/protobuf-specs                         0.3.2                               npm                         
@@ -542,7 +537,7 @@ ieee754                                          1.2.1                          
 ignore-loader                                    UNKNOWN                             npm                         
 ignore-walk                                      7.0.0                               npm                         
 image-size                                       UNKNOWN                             npm                         
-immich                                           1.135.1                             npm                         
+immich                                           1.135.2                             npm                         
 import-fresh                                     3.3.1                               npm                         
 import-in-the-middle                             1.13.1                              npm                         
 imurmurhash                                      0.1.4                               npm                         
@@ -596,7 +591,6 @@ jackspeak                                        4.1.0                          
 jellyfin-ffmpeg7                                 7.1.1-3-noble                       deb                         
 jest-worker                                      UNKNOWN                             npm                         
 jiti                                             1.21.7                              npm                         
-joi                                              17.13.3                             npm                         
 jose                                             6.0.10                              npm                         
 jq                                               1.7.1-3build1                       deb                         
 js-tokens                                        4.0.0                               npm                         
