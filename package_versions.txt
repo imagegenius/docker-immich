@@ -255,8 +255,8 @@ anymatch                                         3.1.3                          
 app-root-path                                    3.1.0                               npm                         
 append-field                                     1.0.0                               npm                         
 aproba                                           2.0.0                               npm                         
-apt                                              2.7.14build2                        deb                         
-apt-utils                                        2.7.14build2                        deb                         
+apt                                              2.8.3                               deb                         
+apt-utils                                        2.8.3                               deb                         
 archiver                                         7.0.1                               npm                         
 archiver-utils                                   5.0.2                               npm                         
 archy                                            1.0.0                               npm                         
@@ -615,7 +615,7 @@ isexe                                            3.1.1                          
 iterare                                          1.2.1                               npm                         
 jackspeak                                        3.4.3                               npm        (+3 duplicates)  
 jackspeak                                        4.1.0                               npm                         
-jellyfin-ffmpeg7                                 7.1.1-3-noble                       deb                         
+jellyfin-ffmpeg7                                 7.1.1-6-noble                       deb                         
 jest-worker                                      UNKNOWN                             npm                         
 jiti                                             1.21.7                              npm                         
 joblib                                           1.3.2                               python                      
@@ -636,14 +636,14 @@ just-diff                                        6.0.2                          
 just-diff-apply                                  5.5.0                               npm                         
 keyboxd                                          2.4.4-2ubuntu17.2                   deb                         
 kiwisolver                                       1.4.5                               python                      
-krb5-locales                                     1.20.1-6ubuntu2.5                   deb                         
+krb5-locales                                     1.20.1-6ubuntu2.6                   deb                         
 kysely                                           0.28.2                              npm                         
 kysely-postgres-js                               2.0.0                               npm                         
 lazy-loader                                      0.3                                 python                      
 lazystream                                       1.0.1                               npm                         
 leac                                             0.6.0                               npm                         
 libacl1                                          2.3.2-1build1.1                     deb                         
-libapt-pkg6.0t64                                 2.7.14build2                        deb                         
+libapt-pkg6.0t64                                 2.8.3                               deb                         
 libassuan0                                       2.5.6-1build1                       deb                         
 libattr1                                         1:2.5.2-1build1.1                   deb                         
 libaudit-common                                  1:3.1.2-2.1build1.1                 deb                         
@@ -709,7 +709,7 @@ libgpg-error0                                    1.47-3build2.1                 
 libgraphite2-3                                   1.3.14-2build1                      deb                         
 libgsf-1-114                                     1.14.51-2ubuntu0.1                  deb                         
 libgsf-1-common                                  1.14.51-2ubuntu0.1                  deb                         
-libgssapi-krb5-2                                 1.20.1-6ubuntu2.5                   deb                         
+libgssapi-krb5-2                                 1.20.1-6ubuntu2.6                   deb                         
 libharfbuzz0b                                    8.3.0-2build2                       deb                         
 libhogweed6t64                                   3.9.1-2.2build1.1                   deb                         
 libhwy1t64                                       1.2.0-3ubuntu3                      deb                         
@@ -722,10 +722,10 @@ libjbig0                                         2.1-6.1ubuntu2                 
 libjpeg-turbo8                                   2.1.5-2ubuntu2                      deb                         
 libjpeg8                                         8c-2ubuntu11                        deb                         
 libjq1                                           1.7.1-3build1                       deb                         
-libk5crypto3                                     1.20.1-6ubuntu2.5                   deb                         
+libk5crypto3                                     1.20.1-6ubuntu2.6                   deb                         
 libkeyutils1                                     1.6.3-3build1                       deb                         
-libkrb5-3                                        1.20.1-6ubuntu2.5                   deb                         
-libkrb5support0                                  1.20.1-6ubuntu2.5                   deb                         
+libkrb5-3                                        1.20.1-6ubuntu2.6                   deb                         
+libkrb5support0                                  1.20.1-6ubuntu2.6                   deb                         
 libksba8                                         1.6.6-1build1                       deb                         
 liblcms2-2                                       2.14-2build1                        deb                         
 libldap-common                                   2.6.7+dfsg-1~exp1ubuntu8.2          deb                         
@@ -792,8 +792,8 @@ libpsl5t64                                       0.21.2-1.1build1               
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                         
 libpython3.11-minimal                            3.11.13-1+noble1                    deb                         
 libpython3.11-stdlib                             3.11.13-1+noble1                    deb                         
-libpython3.12-minimal                            3.12.3-1ubuntu0.5                   deb                         
-libpython3.12-stdlib                             3.12.3-1ubuntu0.5                   deb                         
+libpython3.12-minimal                            3.12.3-1ubuntu0.7                   deb                         
+libpython3.12-stdlib                             3.12.3-1ubuntu0.7                   deb                         
 libreadline8t64                                  8.2-4build1                         deb                         
 librsvg2-2                                       2.58.0+dfsg-1build1                 deb                         
 librsvg2-common                                  2.58.0+dfsg-1build1                 deb                         
@@ -816,14 +816,14 @@ libss2                                           1.47.0-2.4~exp1ubuntu4.1       
 libssh-4                                         0.10.6-2build2                      deb                         
 libssl3t64                                       3.0.13-0ubuntu3.5                   deb                         
 libstdc++6                                       14.2.0-4ubuntu2~24.04               deb                         
-libsystemd0                                      255.4-1ubuntu8.6                    deb                         
+libsystemd0                                      255.4-1ubuntu8.8                    deb                         
 libtasn1-6                                       4.19.0-3ubuntu0.24.04.1             deb                         
 libthai-data                                     0.1.29-2build1                      deb                         
 libthai0                                         0.1.29-2build1                      deb                         
 libtheora0                                       1.1.1+dfsg.1-16.1build3             deb                         
 libtiff6                                         4.5.1+git230720-4ubuntu2.2          deb                         
 libtinfo6                                        6.4+20240113-1ubuntu2               deb                         
-libudev1                                         255.4-1ubuntu8.6                    deb                         
+libudev1                                         255.4-1ubuntu8.8                    deb                         
 libudfread0                                      1.1.2-1build1                       deb                         
 libunistring5                                    1.1-2build1.1                       deb                         
 libuuid1                                         2.39.3-9ubuntu6.2                   deb                         
@@ -1118,8 +1118,8 @@ python3                                          3.12.3-0ubuntu2                
 python3-minimal                                  3.12.3-0ubuntu2                     deb                         
 python3.11                                       3.11.13-1+noble1                    deb                         
 python3.11-minimal                               3.11.13-1+noble1                    deb                         
-python3.12                                       3.12.3-1ubuntu0.5                   deb                         
-python3.12-minimal                               3.12.3-1ubuntu0.5                   deb                         
+python3.12                                       3.12.3-1ubuntu0.7                   deb                         
+python3.12-minimal                               3.12.3-1ubuntu0.7                   deb                         
 pyyaml                                           6.0.1                               python                      
 qrcode-terminal                                  0.12.0                              npm                         
 qs                                               6.14.0                              npm                         
@@ -1275,7 +1275,7 @@ supports-color                                   9.4.0                          
 supports-preserve-symlinks-flag                  1.0.0                               npm                         
 swagger-ui-dist                                  5.21.0                              npm                         
 sympy                                            1.12                                python                      
-systemd-standalone-sysusers                      255.4-1ubuntu8.6                    deb                         
+systemd-standalone-sysusers                      255.4-1ubuntu8.8                    deb                         
 systeminformation                                5.23.8                              npm                         
 sysvinit-utils                                   3.08-6ubuntu3                       deb                         
 tailwindcss                                      3.4.17                              npm                         
@@ -1321,7 +1321,7 @@ typedarray                                       0.0.6                          
 typeorm                                          0.3.24                              npm                         
 typing-extensions                                4.12.2                              python                      
 typing-inspection                                0.4.0                               python                      
-tzdata                                           2025b-0ubuntu0.24.04                deb                         
+tzdata                                           2025b-0ubuntu0.24.04.1              deb                         
 ua-is-frozen                                     0.1.2                               npm                         
 ua-parser-js                                     2.0.3                               npm                         
 ua-parser-js                                     UNKNOWN                             npm                         
