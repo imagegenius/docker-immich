@@ -69,7 +69,7 @@ RUN \
     libcublas12 \
     libcublaslt12 \
     libcudart12 \
-    libcudnn9-cuda-12 \
+    libcudnn9-cuda-12=9.10.2.21-1 \
     libcufft11 \
     libcurand10 \
     nodejs=$NODEJS_VERSION \
@@ -100,9 +100,9 @@ RUN \
     dist \
     /app/immich/server && \
   echo "**** copy scripts ****" && \
-  cd /tmp/immich/docker && \
+  cd /tmp/immich/server && \
   cp -r \
-    scripts \
+    bin \
     /app/immich/server && \
   echo "**** build open-api ****" && \
   cd /tmp/immich/open-api/typescript-sdk && \
