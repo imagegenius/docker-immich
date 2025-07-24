@@ -90,9 +90,9 @@ RUN \
     dist \
     /app/immich/server && \
   echo "**** copy scripts ****" && \
-  cd /tmp/immich/docker && \
+  cd /tmp/immich/server && \
   cp -r \
-    scripts \
+    bin \
     /app/immich/server && \
   echo "**** build open-api ****" && \
   cd /tmp/immich/open-api/typescript-sdk && \
