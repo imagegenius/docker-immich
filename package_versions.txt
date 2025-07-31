@@ -13,7 +13,7 @@ NAME                                             VERSION                        
 @grpc/grpc-js                                    1.13.4                              npm                          
 @grpc/proto-loader                               0.7.15                              npm                          
 @img/sharp-linux-x64                             0.34.2                              npm                          
-@immich/cli                                      2.2.73                              npm                          
+@immich/cli                                      2.2.74                              npm                          
 @ioredis/commands                                1.2.0                               npm                          
 @isaacs/balanced-match                           4.0.1                               npm                          
 @isaacs/brace-expansion                          5.0.0                               npm                          
@@ -271,7 +271,7 @@ buffer                                           5.7.1                          
 buffer                                           6.0.3                               npm        (+1 duplicate)    
 buffer-crc32                                     1.0.0                               npm                          
 buffer-from                                      1.1.2                               npm                          
-bullmq                                           5.56.4                              npm                          
+bullmq                                           5.56.5                              npm                          
 busboy                                           1.6.0                               npm                          
 bytes                                            3.1.2                               npm                          
 ca-certificates                                  20240203                            deb                          
@@ -440,7 +440,7 @@ fonts-dejavu-mono                                2.37-8                         
 fonttools                                        4.47.2                              python                       
 foreground-child                                 3.3.0                               npm                          
 foreground-child                                 3.3.1                               npm                          
-form-data                                        4.0.3                               npm                          
+form-data                                        4.0.4                               npm                          
 forwarded                                        0.2.0                               npm                          
 forwarded-parse                                  2.1.2                               npm                          
 fresh                                            2.0.0                               npm                          
@@ -507,7 +507,7 @@ idna                                             3.6                            
 ieee754                                          1.2.1                               npm                          
 ignore-walk                                      7.0.0                               npm                          
 imageio                                          2.33.1                              python                       
-immich                                           1.136.0                             npm                          
+immich                                           1.137.0                             npm                          
 import-fresh                                     3.3.1                               npm                          
 import-in-the-middle                             1.14.2                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -1048,7 +1048,7 @@ range-parser                                     1.2.1                          
 raw-body                                         3.0.0                               npm                          
 react                                            19.1.0                              npm                          
 react-dom                                        19.1.0                              npm                          
-react-email                                      4.2.3                               npm                          
+react-email                                      4.2.4                               npm                          
 react-promise-suspense                           0.3.4                               npm                          
 read                                             4.0.0                               npm                          
 read-cache                                       1.0.0                               npm                          
