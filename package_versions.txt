@@ -687,7 +687,7 @@ libpangocairo-1.0-0                              1.52.1+ds-1build1              
 libpangoft2-1.0-0                                1.52.1+ds-1build1                   deb                          
 libpciaccess0                                    0.17-3ubuntu0.24.04.2               deb                          
 libpcre2-8-0                                     10.42-4ubuntu2.1                    deb                          
-libperl5.38t64                                   5.38.2-3.2ubuntu0.1                 deb                          
+libperl5.38t64                                   5.38.2-3.2ubuntu0.2                 deb                          
 libphonenumber-js                                1.12.9                              npm                          
 libphonenumber-js/build                          UNKNOWN                             npm                          
 libphonenumber-js/core                           UNKNOWN                             npm                          
@@ -930,9 +930,9 @@ path-type                                        4.0.0                          
 pathe                                            2.0.3                               npm                          
 pbf                                              3.3.0                               npm                          
 peberminta                                       0.9.0                               npm                          
-perl                                             5.38.2-3.2ubuntu0.1                 deb                          
-perl-base                                        5.38.2-3.2ubuntu0.1                 deb                          
-perl-modules-5.38                                5.38.2-3.2ubuntu0.1                 deb                          
+perl                                             5.38.2-3.2ubuntu0.2                 deb                          
+perl-base                                        5.38.2-3.2ubuntu0.2                 deb                          
+perl-modules-5.38                                5.38.2-3.2ubuntu0.2                 deb                          
 pg                                               8.16.3                              npm                          
 pg-connection-string                             2.9.1                               npm                          
 pg-int8                                          1.0.1                               npm                          
