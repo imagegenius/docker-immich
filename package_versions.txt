@@ -13,7 +13,7 @@ NAME                                             VERSION                        
 @grpc/grpc-js                                    1.13.4                              npm                          
 @grpc/proto-loader                               0.7.15                              npm                          
 @img/sharp-linux-x64                             0.34.2                              npm                          
-@immich/cli                                      2.2.78                              npm                          
+@immich/cli                                      2.2.79                              npm                          
 @ioredis/commands                                1.3.0                               npm                          
 @isaacs/balanced-match                           4.0.1                               npm                          
 @isaacs/brace-expansion                          5.0.0                               npm                          
@@ -243,7 +243,7 @@ async-lock                                       1.4.1                          
 asynckit                                         0.4.0                               npm                          
 b4a                                              1.6.7                               npm                          
 balanced-match                                   1.0.2                               npm        (+1 duplicate)    
-base-files                                       13ubuntu10.2                        deb                          
+base-files                                       13ubuntu10.3                        deb                          
 base-passwd                                      3.6.3build1                         deb                          
 base64-js                                        1.5.1                               npm                          
 base64id                                         2.0.0                               npm                          
@@ -476,7 +476,7 @@ iconv-lite                                       0.4.24                         
 iconv-lite                                       0.6.3                               npm        (+1 duplicate)    
 ieee754                                          1.2.1                               npm                          
 ignore-walk                                      7.0.0                               npm                          
-immich                                           1.138.0                             npm                          
+immich                                           1.138.1                             npm                          
 import-fresh                                     3.3.1                               npm                          
 import-in-the-middle                             1.14.2                              npm                          
 imurmurhash                                      0.1.4                               npm                          
@@ -692,7 +692,7 @@ libphonenumber-js/mobile/examples                UNKNOWN                        
 libphonenumber-js/mobile/metadata                UNKNOWN                             npm                          
 libpixman-1-0                                    0.42.2-1build1                      deb                          
 libpng16-16t64                                   1.6.43-5build1                      deb                          
-libpq5                                           17.5-1.pgdg24.04+1                  deb                          
+libpq5                                           17.6-1.pgdg24.04+1                  deb                          
 libproc2-0                                       2:4.0.4-4ubuntu3.2                  deb                          
 libpsl5t64                                       0.21.2-1.1build1                    deb                          
 libpython3-stdlib                                3.12.3-0ubuntu2                     deb                          
@@ -952,10 +952,10 @@ postgres-array                                   2.0.0                          
 postgres-bytea                                   1.0.0                               npm                          
 postgres-date                                    1.0.7                               npm                          
 postgres-interval                                1.2.0                               npm                          
-postgresql-client-14                             14.18-1.pgdg24.04+1                 deb                          
-postgresql-client-15                             15.13-1.pgdg24.04+1                 deb                          
-postgresql-client-16                             16.9-1.pgdg24.04+1                  deb                          
-postgresql-client-17                             17.5-1.pgdg24.04+1                  deb                          
+postgresql-client-14                             14.19-1.pgdg24.04+1                 deb                          
+postgresql-client-15                             15.14-1.pgdg24.04+1                 deb                          
+postgresql-client-16                             16.10-1.pgdg24.04+1                 deb                          
+postgresql-client-17                             17.6-1.pgdg24.04+1                  deb                          
 postgresql-client-common                         281.pgdg24.04+1                     deb                          
 prettier                                         3.6.2                               npm                          
 prismjs                                          1.30.0                              npm                          
