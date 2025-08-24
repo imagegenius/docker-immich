@@ -63,63 +63,55 @@ RUN \
   apt-get install --no-install-recommends -y \
     nodejs=$NODEJS_VERSION \
     python3.11 && \
+  echo "**** install pnpm via corepack ****" && \
+  npm install --global corepack@latest && \
+  corepack enable pnpm && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
-  cd /tmp/immich/server && \
-  npm ci && \
-  rm -rf node_modules/@img/sharp-libvips* && \
-  rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
+  cd /tmp/immich && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter immich --frozen-lockfile install && \
+  rm -rf server/node_modules/@img/sharp-libvips* && \
+  rm -rf server/node_modules/@img/sharp-linuxmusl-x64 && \
   cp -r \
-    node_modules/@img \
-    node_modules/exiftool-vendored.pl \
+    server/node_modules/@img \
+    server/node_modules/exiftool-vendored.pl \
     /tmp/node_modules && \
-  npm run build && \
-  npm prune --omit=dev --omit=optional && \
+  pnpm --filter immich build && \
+  pnpm --filter immich --prod --no-optional deploy /tmp/server-pruned && \
   cp -r \
     /tmp/node_modules/@img \
     /tmp/node_modules/exiftool-vendored.pl \
-    node_modules && \
-  npm cache clean --force && \
+    /tmp/server-pruned/node_modules && \
+  pnpm store prune && \
   cp -a \
-    resources \
-    package.json \
-    package-lock.json \
-    node_modules \
-    dist \
-    /app/immich/server && \
-  echo "**** copy scripts ****" && \
-  cd /tmp/immich/server && \
-  cp -r \
-    bin \
-    /app/immich/server && \
+    server/resources \
+    server/bin \
+    /tmp/server-pruned && \
+  cp -r /tmp/server-pruned/* /app/immich/server && \
   echo "**** build open-api ****" && \
-  cd /tmp/immich/open-api/typescript-sdk && \
-  npm ci && \
-  npm run build && \
+  cd /tmp/immich && \
+  pnpm --filter @immich/sdk --frozen-lockfile install && \
+  pnpm --filter @immich/sdk build && \
   echo "**** build web ****" && \
   mkdir -p \
     /app/immich/server/www && \
-  cd /tmp/immich/web && \
-  npm ci && \
-  npm run build && \
+  cd /tmp/immich && \
+  pnpm --filter @immich/sdk --filter immich-web --frozen-lockfile --force install && \
+  pnpm --filter @immich/sdk --filter immich-web build && \
   cp -a \
-    build/* \
-    static \
+    web/build/* \
+    web/static \
     /app/immich/server/www  && \
   echo "**** build CLI ****" && \
   mkdir -p \
     /app/immich/cli && \
-  cd /tmp/immich/cli && \
-  npm ci && \
-  npm run build && \
-  npm prune --omit=dev --omit=optional && \
-  cp -a \
-    package.json \
-    package-lock.json \
-    node_modules \
-    dist \
-    /app/immich/cli && \
+  cd /tmp/immich && \
+  pnpm --filter @immich/sdk --filter @immich/cli --frozen-lockfile install && \
+  pnpm --filter @immich/sdk --filter @immich/cli build && \
+  pnpm --filter @immich/cli --prod --no-optional deploy /tmp/cli-pruned && \
+  cp -r /tmp/cli-pruned/* /app/immich/cli && \
+  ln -s ../cli/bin/immich /app/immich/server/bin/immich && \
   echo "**** build machine-learning ****" && \
   mkdir -p \
     /app/immich/machine-learning/ann && \
@@ -161,7 +153,7 @@ RUN \
   rm -rf \
     /etc/apt/sources.list.d/node.list \
     /root/.cache \
-    /root/.npm \
+    /root/.local/share/pnpm \
     /tmp/* \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/* \
