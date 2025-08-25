@@ -12,7 +12,7 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
-  IMMICH_BUILD_DATA="/app/immich/server" \
+  IMMICH_BUILD_DATA="/app/immich/data" \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
@@ -63,55 +63,65 @@ RUN \
   apt-get install --no-install-recommends -y \
     nodejs=$NODEJS_VERSION \
     python3.11 && \
-  echo "**** install pnpm via corepack ****" && \
+  echo "**** setup pnpm ****" && \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
   cd /tmp/immich && \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm --filter immich --frozen-lockfile install && \
-  rm -rf server/node_modules/@img/sharp-libvips* && \
-  rm -rf server/node_modules/@img/sharp-linuxmusl-x64 && \
-  cp -r \
-    server/node_modules/@img \
-    server/node_modules/exiftool-vendored.pl \
-    /tmp/node_modules && \
-  pnpm --filter immich build && \
-  pnpm --filter immich --prod --no-optional deploy /tmp/server-pruned && \
-  cp -r \
-    /tmp/node_modules/@img \
-    /tmp/node_modules/exiftool-vendored.pl \
-    /tmp/server-pruned/node_modules && \
-  pnpm store prune && \
-  cp -a \
-    server/resources \
-    server/bin \
-    /tmp/server-pruned && \
-  cp -r /tmp/server-pruned/* /app/immich/server && \
-  echo "**** build open-api ****" && \
-  cd /tmp/immich && \
-  pnpm --filter @immich/sdk --frozen-lockfile install && \
-  pnpm --filter @immich/sdk build && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+    --filter immich \
+    --frozen-lockfile \
+    build && \
+  SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm \
+    --filter immich \
+    --frozen-lockfile \
+    --prod \
+    --no-optional \
+    --force \
+    deploy /app/immich/server && \
   echo "**** build web ****" && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+    --filter @immich/sdk \
+    --filter immich-web \
+    --frozen-lockfile \
+    --force install && \
+  pnpm \
+    --filter @immich/sdk \
+    --filter immich-web \
+    build && \
   mkdir -p \
-    /app/immich/server/www && \
-  cd /tmp/immich && \
-  pnpm --filter @immich/sdk --filter immich-web --frozen-lockfile --force install && \
-  pnpm --filter @immich/sdk --filter immich-web build && \
+    /app/immich/data/www && \
   cp -a \
     web/build/* \
     web/static \
-    /app/immich/server/www  && \
+    /app/immich/data/www && \
   echo "**** build CLI ****" && \
+  pnpm \
+    --filter @immich/sdk \
+    --filter @immich/cli \
+    --frozen-lockfile \
+    install && \
+  pnpm \
+    --filter @immich/sdk \
+    --filter @immich/cli \
+    build && \
+  pnpm \
+    --filter @immich/cli \
+    --prod \
+    --no-optional \
+    --force \
+    deploy /app/immich/cli && \
+  cp -a \
+    node_modules \
+    /app/immich && \
+  echo "**** copy scripts ****" && \
   mkdir -p \
-    /app/immich/cli && \
-  cd /tmp/immich && \
-  pnpm --filter @immich/sdk --filter @immich/cli --frozen-lockfile install && \
-  pnpm --filter @immich/sdk --filter @immich/cli build && \
-  pnpm --filter @immich/cli --prod --no-optional deploy /tmp/cli-pruned && \
-  cp -r /tmp/cli-pruned/* /app/immich/cli && \
-  ln -s ../cli/bin/immich /app/immich/server/bin/immich && \
+    /app/immich/server/bin && \
+  cp -r \
+    /tmp/immich/server/bin/get-cpus.sh \
+    /app/immich/server/bin && \
   echo "**** build machine-learning ****" && \
   mkdir -p \
     /app/immich/machine-learning/ann && \
@@ -126,16 +136,13 @@ RUN \
   tar xf \
     /tmp/uv.tar.gz -C \
     /tmp --strip-components=1 && \
-  /tmp/uv sync --active --frozen --extra cpu --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
+  cd /tmp/immich/machine-learning && \
   cp -a \
     immich_ml \
     pyproject.toml \
     uv.lock \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
-  for cleanfiles in *.pyc *.pyo; do \
-    find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
-  done && \
   apt-get remove -y --purge \
     build-essential \
     libexif-dev \
@@ -152,11 +159,15 @@ RUN \
   apt-get clean && \
   rm -rf \
     /etc/apt/sources.list.d/node.list \
+    /etc/apt/sources.list.d/deadsnakes.list \
+    /usr/share/keyrings/deadsnakes.gpg \
     /root/.cache \
-    /root/.local/share/pnpm \
+    /root/.local \
+    /root/.npm \
     /tmp/* \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/* \
+    /var/log/* \
     /var/tmp/*
 
 # copy local files
@@ -167,4 +178,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /libraries
+VOLUME /config /photos /libraries
