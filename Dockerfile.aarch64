@@ -135,13 +135,16 @@ RUN \
   tar xf \
     /tmp/uv.tar.gz -C \
     /tmp --strip-components=1 && \
-  cd /tmp/immich/machine-learning && \
+  /tmp/uv sync --active --frozen --extra cpu --no-dev --no-editable --no-install-project --compile-bytecode --no-progress && \
   cp -a \
     immich_ml \
     pyproject.toml \
     uv.lock \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
+  for cleanfiles in *.pyc *.pyo; do \
+    find /usr/local/lib/python3.* /usr/lib/python3.* /lsiopy/lib/python3.* -name "${cleanfiles}" -delete; \
+  done && \
   apt-get remove -y --purge \
     build-essential \
     libexif-dev \
