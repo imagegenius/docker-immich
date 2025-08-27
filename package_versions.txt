@@ -1029,7 +1029,7 @@ camelcase-css                                                                  2
 caniuse-api                                                                    3.0.0                                npm                          
 caniuse-lite                                                                   1.0.30001726                         npm                          
 caniuse-lite                                                                   1.0.30001735                         npm                          
-canvas                                                                         2.11.2                               npm                          
+canvas                                                                         2.11.2                               npm        (+1 duplicate)    
 catatonit                                                                      0.1.7-1                              deb                          
 ccount                                                                         2.0.1                                npm                          
 certifi                                                                        2023.11.17                           python                       
