@@ -12,11 +12,10 @@ LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
-  IMMICH_BUILD_DATA="/app/immich/server" \
+  IMMICH_BUILD_DATA="/app/immich/data" \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SERVER_PORT="8080" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true"
 
 RUN \
@@ -56,83 +55,89 @@ RUN \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     nodejs=$NODEJS_VERSION && \
+  echo "**** setup pnpm ****" && \
+  npm install --global corepack@latest && \
+  corepack enable pnpm && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
-  cd /tmp/immich/server && \
-  npm ci && \
-  rm -rf node_modules/@img/sharp-libvips* && \
-  rm -rf node_modules/@img/sharp-linuxmusl-x64 && \
-  cp -r \
-    node_modules/@img \
-    node_modules/exiftool-vendored.pl \
-    /tmp/node_modules && \
-  npm run build && \
-  npm prune --omit=dev --omit=optional && \
-  cp -r \
-    /tmp/node_modules/@img \
-    /tmp/node_modules/exiftool-vendored.pl \
-    node_modules && \
-  npm cache clean --force && \
-  cp -a \
-    resources \
-    package.json \
-    package-lock.json \
-    node_modules \
-    dist \
-    /app/immich/server && \
-  echo "**** copy scripts ****" && \
-  cd /tmp/immich/server && \
-  cp -r \
-    bin \
-    /app/immich/server && \
-  echo "**** build open-api ****" && \
-  cd /tmp/immich/open-api/typescript-sdk && \
-  npm ci && \
-  npm run build && \
+  cd /tmp/immich && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+    --filter immich \
+    --frozen-lockfile \
+    build && \
+  SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm \
+    --filter immich \
+    --frozen-lockfile \
+    --prod \
+    --no-optional \
+    --force \
+    deploy /app/immich/server && \
   echo "**** build web ****" && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+    --filter @immich/sdk \
+    --filter immich-web \
+    --frozen-lockfile \
+    --force install && \
+  pnpm \
+    --filter @immich/sdk \
+    --filter immich-web \
+    build && \
   mkdir -p \
-    /app/immich/server/www && \
-  cd /tmp/immich/web && \
-  npm ci && \
-  npm run build && \
+    /app/immich/data/www && \
   cp -a \
-    build/* \
-    static \
-    /app/immich/server/www  && \
+    web/build/* \
+    web/static \
+    /app/immich/data/www && \
   echo "**** build CLI ****" && \
-  mkdir -p \
-    /app/immich/cli && \
-  cd /tmp/immich/cli && \
-  npm ci && \
-  npm run build && \
-  npm prune --omit=dev --omit=optional && \
+  pnpm \
+    --filter @immich/sdk \
+    --filter @immich/cli \
+    --frozen-lockfile \
+    install && \
+  pnpm \
+    --filter @immich/sdk \
+    --filter @immich/cli \
+    build && \
+  pnpm \
+    --filter @immich/cli \
+    --prod \
+    --no-optional \
+    --force \
+    deploy /app/immich/cli && \
   cp -a \
-    package.json \
-    package-lock.json \
     node_modules \
-    dist \
-    /app/immich/cli && \
+    /app/immich && \
+  echo "**** copy scripts ****" && \
+  mkdir -p \
+    /app/immich/server/bin && \
+  cp -r \
+    /tmp/immich/server/bin/get-cpus.sh \
+    /app/immich/server/bin && \
   echo "**** cleanup ****" && \
   apt-get remove -y --purge \
     build-essential \
     libexif-dev \
     libexpat1-dev \
     libglib2.0-dev \
+    libhwy-dev \
     libjpeg-dev \
     librsvg2-dev \
     libspng-dev \
+    libwebp-dev \
     pkg-config && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
     /etc/apt/sources.list.d/node.list \
     /root/.cache \
+    /root/.local \
     /root/.npm \
     /tmp/* \
     /usr/share/keyrings/nodesource-repo.gpg \
-    /var/tmp/* \
-    /var/lib/apt/lists/*
+    /var/lib/apt/lists/* \
+    /var/log/* \
+    /var/tmp/*
 
 # copy local files
 COPY root/ /
@@ -142,4 +147,4 @@ ENV NODE_ENV="production"
 
 # ports and volumes
 EXPOSE 8080
-VOLUME /config /libraries
+VOLUME /config /photos
