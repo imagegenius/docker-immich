@@ -1,0 +1,63 @@
+---
+services:
+  immich:
+    image: ghcr.io/imagegenius/immich:latest
+    container_name: immich
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+      # Database Configuration
+      - DB_HOSTNAME=postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE_NAME=immich
+      - DB_PORT=5432
+      # Redis Configuration
+      - REDIS_HOSTNAME=redis
+      - REDIS_PORT=6379
+      # Server Configuration
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8080
+      # Machine Learning Configuration
+      - MACHINE_LEARNING_HOST=0.0.0.0
+      - MACHINE_LEARNING_PORT=3003
+      - MACHINE_LEARNING_WORKERS=1
+      - MACHINE_LEARNING_WORKER_TIMEOUT=120
+      # ⭐ Cloudflare R2 Configuration
+      - UPLOAD_LOCATION=s3
+      - S3_ENDPOINT=https://2e60eefffc34fef5586904199ea6a451.r2.cloudflarestorage.com
+      - S3_BUCKET_NAME=immich-photos
+      - S3_ACCESS_KEY=${S3_ACCESS_KEY}
+      - S3_SECRET_KEY=${S3_SECRET_KEY}
+      - S3_REGION=weur
+    volumes:
+      - ./config:/config
+      - ./libraries:/libraries
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - redis
+
+  # PostgreSQL Database
+  postgres:
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+    container_name: immich_postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=immich
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: immich_redis
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redis_data:/data
+    restart: unless-stopped
