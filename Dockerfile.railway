@@ -183,6 +183,12 @@ ENV TRANSFORMERS_CACHE="/config/machine-learning/models"
 
 # Create directories with proper permissions
 RUN mkdir -p /config /photos /libraries /home/config && \
+    mkdir -p /config/machine-learning/models && \
+    mkdir -p /home/config/machine-learning/models && \
+    mkdir -p /config/machine-learning/models/facial-recognition && \
+    mkdir -p /config/machine-learning/models/clip && \
+    mkdir -p /home/config/machine-learning/models/facial-recognition && \
+    mkdir -p /home/config/machine-learning/models/clip && \
     chown -R 1000:1000 /config /photos /libraries /home/config && \
     chmod -R 755 /config /photos /libraries /home/config
 
