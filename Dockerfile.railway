@@ -178,9 +178,13 @@ COPY root/ /
 
 # environment settings
 ENV NODE_ENV="production"
+ENV MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models"
+ENV TRANSFORMERS_CACHE="/config/machine-learning/models"
 
-# Create directories instead of using VOLUME
-RUN mkdir -p /config /photos /libraries
+# Create directories with proper permissions
+RUN mkdir -p /config /photos /libraries /home/config && \
+    chown -R 1000:1000 /config /photos /libraries /home/config && \
+    chmod -R 755 /config /photos /libraries /home/config
 
 # ports - NO VOLUME command for Railway
 EXPOSE 8080
