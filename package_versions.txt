@@ -1261,7 +1261,7 @@ domutils                                                                       3
 dot-case                                                                       3.0.4                                npm                          
 dot-prop                                                                       6.0.1                                npm                          
 dotenv                                                                         17.2.2                               npm                          
-dpkg                                                                           1.22.6ubuntu6.5                      deb                          
+dpkg                                                                           1.22.6ubuntu6.2                      deb                          
 dunder-proto                                                                   1.0.1                                npm        (+1 duplicate)    
 duplexer                                                                       0.1.2                                npm                          
 e2fsprogs                                                                      1.47.0-2.4~exp1ubuntu4.1             deb                          
