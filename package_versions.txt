@@ -344,7 +344,7 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.3                               npm                          
 @img/sharp-win32-ia32                                                          0.34.3                               npm                          
 @img/sharp-win32-x64                                                           0.34.3                               npm                          
-@immich/cli                                                                    2.2.94                               npm                          
+@immich/cli                                                                    2.2.95                               npm                          
 @immich/ui                                                                     0.29.0                               npm                          
 @inquirer/checkbox                                                             4.2.1                                npm                          
 @inquirer/confirm                                                              5.1.15                               npm                          
@@ -1497,7 +1497,7 @@ image-size                                                                     2
 imagediff                                                                      1.0.8                                npm                          
 imagetools-core                                                                8.0.0                                npm                          
 immediate                                                                      3.3.0                                npm                          
-immich                                                                         1.144.1                              npm                          
+immich                                                                         2.0.0                                npm                          
 import-fresh                                                                   3.3.1                                npm        (+1 duplicate)    
 import-in-the-middle                                                           1.14.2                               npm        (+1 duplicate)    
 import-lazy                                                                    4.0.0                                npm                          
