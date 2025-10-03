@@ -344,7 +344,7 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.3                               npm                          
 @img/sharp-win32-ia32                                                          0.34.3                               npm                          
 @img/sharp-win32-x64                                                           0.34.3                               npm                          
-@immich/cli                                                                    2.2.95                               npm                          
+@immich/cli                                                                    2.2.96                               npm                          
 @immich/ui                                                                     0.29.0                               npm                          
 @inquirer/checkbox                                                             4.2.1                                npm                          
 @inquirer/confirm                                                              5.1.15                               npm                          
@@ -1523,7 +1523,7 @@ imagediff                                                                      1
 imageio                                                                        2.33.1                               python                       
 imagetools-core                                                                8.0.0                                npm                          
 immediate                                                                      3.3.0                                npm                          
-immich                                                                         2.0.0                                npm                          
+immich                                                                         2.0.1                                npm                          
 import-fresh                                                                   3.3.1                                npm        (+1 duplicate)    
 import-in-the-middle                                                           1.14.2                               npm        (+1 duplicate)    
 import-lazy                                                                    4.0.0                                npm                          
@@ -2146,7 +2146,7 @@ node-gyp                                                                       1
 node-gyp-build                                                                 4.8.4                                npm        (+1 duplicate)    
 node-gyp-build-optional-packages                                               5.2.2                                npm                          
 node-releases                                                                  2.0.19                               npm                          
-nodejs                                                                         22.19.0-1nodesource1                 deb                          
+nodejs                                                                         22.20.0-1nodesource1                 deb                          
 nodemailer                                                                     7.0.6                                npm        (+1 duplicate)    
 nopt                                                                           1.0.10                               npm                          
 nopt                                                                           5.0.0                                npm                          
