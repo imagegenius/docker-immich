@@ -2364,7 +2364,7 @@ postgresql-client-14                                                           1
 postgresql-client-15                                                           15.14-1.pgdg24.04+1                  deb                          
 postgresql-client-16                                                           16.10-1.pgdg24.04+1                  deb                          
 postgresql-client-17                                                           17.6-2.pgdg24.04+1                   deb                          
-postgresql-client-common                                                       283.pgdg24.04+1                      deb                          
+postgresql-client-common                                                       285.pgdg24.04+1                      deb                          
 potpack                                                                        1.0.2                                npm                          
 potpack                                                                        2.1.0                                npm                          
 prelude-ls                                                                     1.2.1                                npm                          
