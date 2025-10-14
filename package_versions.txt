@@ -1803,10 +1803,10 @@ libopenjp2-7                                                                   2
 libopenmpt0t64                                                                 0.7.3-1.1build3                      deb                          
 libopus0                                                                       1.4-1build1                          deb                          
 libp11-kit0                                                                    0.25.3-4ubuntu2.1                    deb                          
-libpam-modules                                                                 1.5.3-5ubuntu5.4                     deb                          
-libpam-modules-bin                                                             1.5.3-5ubuntu5.4                     deb                          
-libpam-runtime                                                                 1.5.3-5ubuntu5.4                     deb                          
-libpam0g                                                                       1.5.3-5ubuntu5.4                     deb                          
+libpam-modules                                                                 1.5.3-5ubuntu5.5                     deb                          
+libpam-modules-bin                                                             1.5.3-5ubuntu5.5                     deb                          
+libpam-runtime                                                                 1.5.3-5ubuntu5.5                     deb                          
+libpam0g                                                                       1.5.3-5ubuntu5.5                     deb                          
 libpango-1.0-0                                                                 1.52.1+ds-1build1                    deb                          
 libpangocairo-1.0-0                                                            1.52.1+ds-1build1                    deb                          
 libpangoft2-1.0-0                                                              1.52.1+ds-1build1                    deb                          
@@ -1829,8 +1829,8 @@ libpq5                                                                         1
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                   deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                     deb                          
 libpython3-stdlib                                                              3.12.3-0ubuntu2                      deb                          
-libpython3.11-minimal                                                          3.11.13-1+noble1                     deb                          
-libpython3.11-stdlib                                                           3.11.13-1+noble1                     deb                          
+libpython3.11-minimal                                                          3.11.14-1+noble1                     deb                          
+libpython3.11-stdlib                                                           3.11.14-1+noble1                     deb                          
 libpython3.12-minimal                                                          3.12.3-1ubuntu0.8                    deb                          
 libpython3.12-stdlib                                                           3.12.3-1ubuntu0.8                    deb                          
 libreadline8t64                                                                8.2-4build1                          deb                          
@@ -2422,8 +2422,8 @@ python-dotenv                                                                  1
 python-multipart                                                               0.0.20                               python                       
 python3                                                                        3.12.3-0ubuntu2                      deb                          
 python3-minimal                                                                3.12.3-0ubuntu2                      deb                          
-python3.11                                                                     3.11.13-1+noble1                     deb                          
-python3.11-minimal                                                             3.11.13-1+noble1                     deb                          
+python3.11                                                                     3.11.14-1+noble1                     deb                          
+python3.11-minimal                                                             3.11.14-1+noble1                     deb                          
 python3.12                                                                     3.12.3-1ubuntu0.8                    deb                          
 python3.12-minimal                                                             3.12.3-1ubuntu0.8                    deb                          
 pyyaml                                                                         6.0.1                                python                       
