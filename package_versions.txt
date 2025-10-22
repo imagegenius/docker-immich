@@ -1089,7 +1089,7 @@ core-js                                                                        3
 core-js-compat                                                                 3.45.0                               npm                          
 core-js-pure                                                                   3.43.0                               npm                          
 core-util-is                                                                   1.0.3                                npm        (+1 duplicate)    
-corepack                                                                       0.34.0                               npm                          
+corepack                                                                       0.34.1                               npm                          
 coreutils                                                                      9.4-3ubuntu6.1                       deb                          
 cors                                                                           2.8.5                                npm        (+1 duplicate)    
 cosmiconfig                                                                    8.3.6                                npm        (+1 duplicate)    
