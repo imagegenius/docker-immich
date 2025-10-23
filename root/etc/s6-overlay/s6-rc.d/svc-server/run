@@ -8,6 +8,6 @@ export IMMICH_HOST="${SERVER_HOST:-"0.0.0.0"}"
 export IMMICH_PORT="${SERVER_PORT:-"8080"}"
 
 exec \
-    s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z localhost ${IMMICH_PORT}" \
+    s6-notifyoncheck -d -n 300 -w 5000 -c "nc -z ${IMMICH_HOST} ${IMMICH_PORT}" \
         cd /app/immich/server s6-setuidgid abc \
             node dist/main
