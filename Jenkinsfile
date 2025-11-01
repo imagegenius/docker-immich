@@ -22,7 +22,7 @@ pipeline {
     IG_REPO = 'docker-immich'
     CONTAINER_NAME = 'immich'
     DIST_IMAGE = 'ubuntu'
-    MULTIARCH = 'true'
+    MULTIARCH = 'false'
     CI = 'true'
     CI_WEB = 'true'
     CI_PORT = '8080'
