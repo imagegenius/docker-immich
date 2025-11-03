@@ -357,7 +357,7 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.4                               npm                          
 @img/sharp-win32-ia32                                                          0.34.4                               npm                          
 @img/sharp-win32-x64                                                           0.34.4                               npm                          
-@immich/cli                                                                    2.2.99                               npm                          
+@immich/cli                                                                    2.2.100                              npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                npm                          
 @immich/svelte-markdown-preprocess                                             0.0.1                                npm                          
 @immich/ui                                                                     0.40.2                               npm                          
@@ -922,7 +922,6 @@ async                                                                          3
 async-lock                                                                     1.4.1                                npm        (+1 duplicate)    
 async-mutex                                                                    0.5.0                                npm                          
 asynckit                                                                       0.4.0                                npm                          
-autocommand                                                                    2.2.2                                python                       
 autocomplete.js                                                                0.37.1                               npm                          
 autoprefixer                                                                   10.4.21                              npm                          
 axobject-query                                                                 4.1.0                                npm                          
@@ -932,7 +931,6 @@ babel-plugin-dynamic-import-node                                               2
 babel-plugin-polyfill-corejs2                                                  0.4.14                               npm                          
 babel-plugin-polyfill-corejs3                                                  0.13.0                               npm                          
 babel-plugin-polyfill-regenerator                                              0.6.5                                npm                          
-backports-tarfile                                                              1.2.0                                python                       
 bail                                                                           1.0.5                                npm                          
 bail                                                                           2.0.2                                npm                          
 balanced-match                                                                 1.0.2                                npm        (+2 duplicates)   
@@ -1039,10 +1037,6 @@ class-validator                                                                0
 clean-css                                                                      5.3.3                                npm                          
 clean-regexp                                                                   1.0.0                                npm                          
 clean-stack                                                                    2.2.0                                npm                          
-cli                                                                            UNKNOWN                              binary                       
-cli-32                                                                         UNKNOWN                              binary                       
-cli-64                                                                         UNKNOWN                              binary                       
-cli-arm64                                                                      UNKNOWN                              binary                       
 cli-boxes                                                                      3.0.0                                npm                          
 cli-color                                                                      2.0.4                                npm                          
 cli-columns                                                                    4.0.0                                npm                          
@@ -1117,7 +1111,7 @@ core-js                                                                        3
 core-js-compat                                                                 3.46.0                               npm                          
 core-js-pure                                                                   3.46.0                               npm                          
 core-util-is                                                                   1.0.3                                npm        (+1 duplicate)    
-corepack                                                                       0.34.1                               npm                          
+corepack                                                                       0.34.2                               npm                          
 coreutils                                                                      9.4-3ubuntu6.1                       deb                          
 cors                                                                           2.8.5                                npm        (+1 duplicate)    
 cosmiconfig                                                                    8.3.6                                npm        (+1 duplicate)    
@@ -1473,10 +1467,6 @@ graphemer                                                                      1
 gray-matter                                                                    4.0.3                                npm                          
 grep                                                                           3.11-4build1                         deb                          
 grid-index                                                                     1.1.0                                npm                          
-gui                                                                            UNKNOWN                              binary                       
-gui-32                                                                         UNKNOWN                              binary                       
-gui-64                                                                         UNKNOWN                              binary                       
-gui-arm64                                                                      UNKNOWN                              binary                       
 gunicorn                                                                       23.0.0                               python                       
 gzip                                                                           1.12-1ubuntu3.1                      deb                          
 gzip-size                                                                      6.0.0                                npm                          
@@ -1562,16 +1552,14 @@ imagediff                                                                      1
 imageio                                                                        2.33.1                               python                       
 imagetools-core                                                                8.0.0                                npm                          
 immediate                                                                      3.3.0                                npm                          
-immich                                                                         2.2.1                                npm                          
+immich                                                                         2.2.2                                npm                          
 import-fresh                                                                   3.3.1                                npm        (+1 duplicate)    
 import-in-the-middle                                                           2.0.0                                npm        (+1 duplicate)    
 import-lazy                                                                    4.0.0                                npm                          
-importlib-metadata                                                             8.0.0                                python                       
 imurmurhash                                                                    0.1.4                                npm        (+2 duplicates)   
 indent-string                                                                  4.0.0                                npm                          
 indent-string                                                                  5.0.0                                npm                          
 infima                                                                         0.2.0-alpha.45                       npm                          
-inflect                                                                        7.3.1                                python                       
 inflight                                                                       1.0.6                                npm                          
 inherits                                                                       2.0.3                                npm                          
 inherits                                                                       2.0.4                                npm        (+1 duplicate)    
@@ -1659,10 +1647,6 @@ istanbul-reports                                                               3
 iterare                                                                        1.2.1                                npm        (+1 duplicate)    
 jackspeak                                                                      3.4.3                                npm        (+2 duplicates)   
 jackspeak                                                                      4.1.1                                npm        (+2 duplicates)   
-jaraco-collections                                                             5.1.0                                python                       
-jaraco-context                                                                 5.3.0                                python                       
-jaraco-functools                                                               4.0.1                                python                       
-jaraco-text                                                                    3.12.1                               python                       
 jellyfin-ffmpeg7                                                               7.1.1-6-noble                        deb                          
 jest-util                                                                      29.7.0                               npm                          
 jest-worker                                                                    27.5.1                               npm                          
@@ -1946,7 +1930,7 @@ libxdmcp6                                                                      1
 libxext6                                                                       2:1.3.4-1build2                      deb                          
 libxkbcommon-x11-0                                                             1.6.0-1build1                        deb                          
 libxkbcommon0                                                                  1.6.0-1build1                        deb                          
-libxml2                                                                        2.9.14+dfsg-1.3ubuntu3.5             deb                          
+libxml2                                                                        2.9.14+dfsg-1.3ubuntu3.6             deb                          
 libxrender1                                                                    1:0.9.10-1.1build1                   deb                          
 libxshmfence1                                                                  1.3-1build5                          deb                          
 libxxf86vm1                                                                    1:1.1.4-1build4                      deb                          
@@ -2146,7 +2130,6 @@ mnemonist                                                                      0
 mock-fs                                                                        5.5.0                                npm                          
 module-details-from-path                                                       1.0.4                                npm        (+1 duplicate)    
 moo                                                                            0.5.2                                npm                          
-more-itertools                                                                 10.3.0                               python                       
 mount                                                                          2.39.3-9ubuntu6.3                    deb                          
 mpmath                                                                         1.3.0                                python                       
 mri                                                                            1.2.0                                npm                          
@@ -2160,7 +2143,6 @@ multicast-dns                                                                  7
 murmurhash-js                                                                  1.0.0                                npm                          
 mute-stream                                                                    0.0.8                                npm        (+1 duplicate)    
 mute-stream                                                                    2.0.0                                npm        (+1 duplicate)    
-my-test-package                                                                1.0                                  python                       
 mylib                                                                          0.0.0                                npm        (+1 duplicate)    
 mz                                                                             2.7.0                                npm        (+1 duplicate)    
 nan                                                                            2.23.0                               npm                          
@@ -2274,7 +2256,6 @@ package                                                                        0
 package-json                                                                   8.1.1                                npm                          
 package-json-from-dist                                                         1.0.1                                npm        (+2 duplicates)   
 packaging                                                                      23.2                                 python                       
-packaging                                                                      24.2                                 python                       
 pacote                                                                         21.0.3                               npm                          
 pagent                                                                         UNKNOWN                              binary                       
 param-case                                                                     3.0.4                                npm                          
@@ -2331,7 +2312,6 @@ pinentry-curses                                                                1
 pirates                                                                        4.0.7                                npm        (+1 duplicate)    
 pkg-dir                                                                        7.0.0                                npm                          
 pkg-types                                                                      2.3.0                                npm        (+1 duplicate)    
-platformdirs                                                                   4.2.2                                python                       
 playwright                                                                     1.56.1                               npm                          
 playwright-core                                                                1.56.1                               npm                          
 pluralize                                                                      8.0.0                                npm                          
@@ -2636,7 +2616,6 @@ set-cookie-parser                                                              2
 set-function-length                                                            1.2.2                                npm                          
 setprototypeof                                                                 1.1.0                                npm                          
 setprototypeof                                                                 1.2.0                                npm        (+1 duplicate)    
-setuptools                                                                     80.9.0                               python                       
 shallow-clone                                                                  3.0.1                                npm                          
 shallowequal                                                                   1.1.0                                npm                          
 shapefile                                                                      0.6.6                                npm        (+1 duplicate)    
@@ -2821,7 +2800,6 @@ to-vfile                                                                       6
 toidentifier                                                                   1.0.1                                npm        (+1 duplicate)    
 token-types                                                                    6.1.1                                npm        (+1 duplicate)    
 tokenizers                                                                     0.21.4                               python                       
-tomli                                                                          2.0.1                                python                       
 totalist                                                                       3.0.1                                npm        (+1 duplicate)    
 tough-cookie                                                                   4.1.4                                npm                          
 tough-cookie                                                                   5.1.2                                npm                          
@@ -2854,11 +2832,10 @@ type-is                                                                        1
 type-is                                                                        2.0.1                                npm        (+1 duplicate)    
 typedarray                                                                     0.0.6                                npm        (+1 duplicate)    
 typedarray-to-buffer                                                           3.1.5                                npm                          
-typeguard                                                                      4.3.0                                python                       
 typescript                                                                     5.8.3                                npm                          
 typescript                                                                     5.9.3                                npm                          
 typescript-eslint                                                              8.46.2                               npm                          
-typing-extensions                                                              4.12.2                               python     (+1 duplicate)    
+typing-extensions                                                              4.12.2                               python                       
 typing-inspection                                                              0.4.0                                python                       
 tzdata                                                                         2025b-0ubuntu0.24.04.1               deb                          
 ua-is-frozen                                                                   0.1.2                                npm        (+1 duplicate)    
@@ -2971,7 +2948,6 @@ whatwg-mimetype                                                                4
 whatwg-url                                                                     11.0.0                               npm                          
 whatwg-url                                                                     14.2.0                               npm                          
 whatwg-url                                                                     5.0.0                                npm                          
-wheel                                                                          0.45.1                               python                       
 which                                                                          1.3.1                                npm        (+1 duplicate)    
 which                                                                          2.0.2                                npm        (+2 duplicates)   
 which                                                                          5.0.0                                npm        (+2 duplicates)   
@@ -3017,7 +2993,6 @@ yoctocolors                                                                    2
 yoctocolors-cjs                                                                2.1.2                                npm                          
 zimmerframe                                                                    1.1.4                                npm                          
 zip-stream                                                                     6.0.1                                npm        (+1 duplicate)    
-zipp                                                                           3.19.2                               python                       
 zlib1g                                                                         1:1.3.dfsg-3.1ubuntu2.1              deb                          
 zod                                                                            4.1.12                               npm                          
 zwitch                                                                         1.0.5                                npm                          
