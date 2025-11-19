@@ -1100,7 +1100,7 @@ core-js                                                                        3
 core-js-compat                                                                 3.46.0                               npm                          
 core-js-pure                                                                   3.46.0                               npm                          
 core-util-is                                                                   1.0.3                                npm        (+1 duplicate)    
-corepack                                                                       0.34.3                               npm                          
+corepack                                                                       0.34.4                               npm                          
 coreutils                                                                      9.4-3ubuntu6.1                       deb                          
 cors                                                                           2.8.5                                npm        (+1 duplicate)    
 cosmiconfig                                                                    8.3.6                                npm        (+1 duplicate)    
@@ -1817,10 +1817,10 @@ libphonenumber-js/mobile/examples                                              U
 libphonenumber-js/mobile/metadata                                              UNKNOWN                              npm        (+1 duplicate)    
 libpixman-1-0                                                                  0.42.2-1build1                       deb                          
 libpng16-16t64                                                                 1.6.43-5build1                       deb                          
-libpq5                                                                         18.0-1.pgdg24.04+3                   deb                          
+libpq5                                                                         18.1-1.pgdg24.04+2                   deb                          
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                   deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                     deb                          
-libpython3-stdlib                                                              3.12.3-0ubuntu2                      deb                          
+libpython3-stdlib                                                              3.12.3-0ubuntu2.1                    deb                          
 libpython3.12-minimal                                                          3.12.3-1ubuntu0.8                    deb                          
 libpython3.12-stdlib                                                           3.12.3-1ubuntu0.8                    deb                          
 libreadline8t64                                                                8.2-4build1                          deb                          
@@ -1842,7 +1842,7 @@ libsmartcols1                                                                  2
 libspng0                                                                       0.7.4-1build1                        deb                          
 libsqlite3-0                                                                   3.45.1-1ubuntu2.5                    deb                          
 libss2                                                                         1.47.0-2.4~exp1ubuntu4.1             deb                          
-libssh-4                                                                       0.10.6-2ubuntu0.1                    deb                          
+libssh-4                                                                       0.10.6-2ubuntu0.2                    deb                          
 libssl3t64                                                                     3.0.13-0ubuntu3.6                    deb                          
 libstdc++6                                                                     14.2.0-4ubuntu2~24.04                deb                          
 libsystemd0                                                                    255.4-1ubuntu8.11                    deb                          
@@ -2345,11 +2345,11 @@ postgres-array                                                                 2
 postgres-bytea                                                                 1.0.0                                npm        (+1 duplicate)    
 postgres-date                                                                  1.0.7                                npm        (+1 duplicate)    
 postgres-interval                                                              1.2.0                                npm        (+1 duplicate)    
-postgresql-client-14                                                           14.19-1.pgdg24.04+1                  deb                          
-postgresql-client-15                                                           15.14-1.pgdg24.04+1                  deb                          
-postgresql-client-16                                                           16.10-1.pgdg24.04+1                  deb                          
-postgresql-client-17                                                           17.6-2.pgdg24.04+1                   deb                          
-postgresql-client-common                                                       285.pgdg24.04+1                      deb                          
+postgresql-client-14                                                           14.20-1.pgdg24.04+1                  deb                          
+postgresql-client-15                                                           15.15-1.pgdg24.04+1                  deb                          
+postgresql-client-16                                                           16.11-1.pgdg24.04+1                  deb                          
+postgresql-client-17                                                           17.7-3.pgdg24.04+1                   deb                          
+postgresql-client-common                                                       287.pgdg24.04+1                      deb                          
 potpack                                                                        1.0.2                                npm                          
 potpack                                                                        2.1.0                                npm                          
 prelude-ls                                                                     1.2.1                                npm                          
@@ -2389,8 +2389,8 @@ pump                                                                           3
 punycode                                                                       1.4.1                                npm                          
 punycode                                                                       2.3.1                                npm                          
 pupa                                                                           3.3.0                                npm                          
-python3                                                                        3.12.3-0ubuntu2                      deb                          
-python3-minimal                                                                3.12.3-0ubuntu2                      deb                          
+python3                                                                        3.12.3-0ubuntu2.1                    deb                          
+python3-minimal                                                                3.12.3-0ubuntu2.1                    deb                          
 python3.12                                                                     3.12.3-1ubuntu0.8                    deb                          
 python3.12-minimal                                                             3.12.3-1ubuntu0.8                    deb                          
 qrcode                                                                         1.5.4                                npm                          
