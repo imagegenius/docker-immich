@@ -255,54 +255,54 @@ NAME                                                                           V
 @emnapi/runtime                                                                1.5.0                                npm                          
 @emnapi/wasi-threads                                                           1.1.0                                npm                          
 @esbuild/aix-ppc64                                                             0.19.12                              npm                          
-@esbuild/aix-ppc64                                                             0.25.11                              npm                          
+@esbuild/aix-ppc64                                                             0.25.12                              npm                          
 @esbuild/android-arm                                                           0.19.12                              npm                          
-@esbuild/android-arm                                                           0.25.11                              npm                          
+@esbuild/android-arm                                                           0.25.12                              npm                          
 @esbuild/android-arm64                                                         0.19.12                              npm                          
-@esbuild/android-arm64                                                         0.25.11                              npm                          
+@esbuild/android-arm64                                                         0.25.12                              npm                          
 @esbuild/android-x64                                                           0.19.12                              npm                          
-@esbuild/android-x64                                                           0.25.11                              npm                          
+@esbuild/android-x64                                                           0.25.12                              npm                          
 @esbuild/darwin-arm64                                                          0.19.12                              npm                          
-@esbuild/darwin-arm64                                                          0.25.11                              npm                          
+@esbuild/darwin-arm64                                                          0.25.12                              npm                          
 @esbuild/darwin-x64                                                            0.19.12                              npm                          
-@esbuild/darwin-x64                                                            0.25.11                              npm                          
+@esbuild/darwin-x64                                                            0.25.12                              npm                          
 @esbuild/freebsd-arm64                                                         0.19.12                              npm                          
-@esbuild/freebsd-arm64                                                         0.25.11                              npm                          
+@esbuild/freebsd-arm64                                                         0.25.12                              npm                          
 @esbuild/freebsd-x64                                                           0.19.12                              npm                          
-@esbuild/freebsd-x64                                                           0.25.11                              npm                          
+@esbuild/freebsd-x64                                                           0.25.12                              npm                          
 @esbuild/linux-arm                                                             0.19.12                              npm                          
-@esbuild/linux-arm                                                             0.25.11                              npm                          
+@esbuild/linux-arm                                                             0.25.12                              npm                          
 @esbuild/linux-arm64                                                           0.19.12                              npm                          
-@esbuild/linux-arm64                                                           0.25.11                              npm                          
+@esbuild/linux-arm64                                                           0.25.12                              npm                          
 @esbuild/linux-ia32                                                            0.19.12                              npm                          
-@esbuild/linux-ia32                                                            0.25.11                              npm                          
+@esbuild/linux-ia32                                                            0.25.12                              npm                          
 @esbuild/linux-loong64                                                         0.19.12                              npm                          
-@esbuild/linux-loong64                                                         0.25.11                              npm                          
+@esbuild/linux-loong64                                                         0.25.12                              npm                          
 @esbuild/linux-mips64el                                                        0.19.12                              npm                          
-@esbuild/linux-mips64el                                                        0.25.11                              npm                          
+@esbuild/linux-mips64el                                                        0.25.12                              npm                          
 @esbuild/linux-ppc64                                                           0.19.12                              npm                          
-@esbuild/linux-ppc64                                                           0.25.11                              npm                          
+@esbuild/linux-ppc64                                                           0.25.12                              npm                          
 @esbuild/linux-riscv64                                                         0.19.12                              npm                          
-@esbuild/linux-riscv64                                                         0.25.11                              npm                          
+@esbuild/linux-riscv64                                                         0.25.12                              npm                          
 @esbuild/linux-s390x                                                           0.19.12                              npm                          
-@esbuild/linux-s390x                                                           0.25.11                              npm                          
+@esbuild/linux-s390x                                                           0.25.12                              npm                          
 @esbuild/linux-x64                                                             0.19.12                              npm                          
-@esbuild/linux-x64                                                             0.25.11                              npm                          
-@esbuild/netbsd-arm64                                                          0.25.11                              npm                          
+@esbuild/linux-x64                                                             0.25.12                              npm                          
+@esbuild/netbsd-arm64                                                          0.25.12                              npm                          
 @esbuild/netbsd-x64                                                            0.19.12                              npm                          
-@esbuild/netbsd-x64                                                            0.25.11                              npm                          
-@esbuild/openbsd-arm64                                                         0.25.11                              npm                          
+@esbuild/netbsd-x64                                                            0.25.12                              npm                          
+@esbuild/openbsd-arm64                                                         0.25.12                              npm                          
 @esbuild/openbsd-x64                                                           0.19.12                              npm                          
-@esbuild/openbsd-x64                                                           0.25.11                              npm                          
-@esbuild/openharmony-arm64                                                     0.25.11                              npm                          
+@esbuild/openbsd-x64                                                           0.25.12                              npm                          
+@esbuild/openharmony-arm64                                                     0.25.12                              npm                          
 @esbuild/sunos-x64                                                             0.19.12                              npm                          
-@esbuild/sunos-x64                                                             0.25.11                              npm                          
+@esbuild/sunos-x64                                                             0.25.12                              npm                          
 @esbuild/win32-arm64                                                           0.19.12                              npm                          
-@esbuild/win32-arm64                                                           0.25.11                              npm                          
+@esbuild/win32-arm64                                                           0.25.12                              npm                          
 @esbuild/win32-ia32                                                            0.19.12                              npm                          
-@esbuild/win32-ia32                                                            0.25.11                              npm                          
+@esbuild/win32-ia32                                                            0.25.12                              npm                          
 @esbuild/win32-x64                                                             0.19.12                              npm                          
-@esbuild/win32-x64                                                             0.25.11                              npm                          
+@esbuild/win32-x64                                                             0.25.12                              npm                          
 @eslint-community/eslint-utils                                                 4.9.0                                npm                          
 @eslint-community/regexpp                                                      4.12.2                               npm                          
 @eslint/config-array                                                           0.21.1                               npm                          
@@ -314,6 +314,8 @@ NAME                                                                           V
 @eslint/object-schema                                                          2.1.7                                npm                          
 @eslint/plugin-kit                                                             0.3.5                                npm                          
 @eslint/plugin-kit                                                             0.4.0                                npm                          
+@extism/extism                                                                 2.0.0-rc13                           npm        (+1 duplicate)    
+@extism/js-pdk                                                                 1.1.1                                npm                          
 @faker-js/faker                                                                10.1.0                               npm                          
 @fig/complete-commander                                                        3.2.0                                npm        (+1 duplicate)    
 @floating-ui/core                                                              1.7.3                                npm                          
@@ -357,10 +359,10 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.4                               npm                          
 @img/sharp-win32-ia32                                                          0.34.4                               npm                          
 @img/sharp-win32-x64                                                           0.34.4                               npm                          
-@immich/cli                                                                    2.2.101                              npm                          
+@immich/cli                                                                    2.2.102                              npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                npm                          
-@immich/svelte-markdown-preprocess                                             0.0.1                                npm                          
-@immich/ui                                                                     0.40.2                               npm                          
+@immich/svelte-markdown-preprocess                                             0.1.0                                npm                          
+@immich/ui                                                                     0.43.0                               npm                          
 @inquirer/checkbox                                                             4.2.1                                npm                          
 @inquirer/confirm                                                              5.1.15                               npm                          
 @inquirer/core                                                                 10.1.15                              npm                          
@@ -421,7 +423,7 @@ NAME                                                                           V
 @mapbox/vector-tile                                                            1.3.1                                npm                          
 @mapbox/vector-tile                                                            2.0.4                                npm                          
 @mapbox/whoots-js                                                              3.1.0                                npm                          
-@maplibre/maplibre-gl-style-spec                                               24.3.0                               npm                          
+@maplibre/maplibre-gl-style-spec                                               24.3.1                               npm                          
 @maplibre/vt-pbf                                                               4.0.3                                npm                          
 @mdi/js                                                                        7.4.47                               npm                          
 @mdi/react                                                                     1.6.1                                npm                          
@@ -438,16 +440,16 @@ NAME                                                                           V
 @nestjs/bull-shared                                                            11.0.4                               npm        (+1 duplicate)    
 @nestjs/bullmq                                                                 11.0.4                               npm        (+1 duplicate)    
 @nestjs/cli                                                                    11.0.10                              npm                          
-@nestjs/common                                                                 11.1.7                               npm        (+1 duplicate)    
-@nestjs/core                                                                   11.1.7                               npm        (+1 duplicate)    
+@nestjs/common                                                                 11.1.8                               npm        (+1 duplicate)    
+@nestjs/core                                                                   11.1.8                               npm        (+1 duplicate)    
 @nestjs/mapped-types                                                           2.1.0                                npm        (+1 duplicate)    
-@nestjs/platform-express                                                       11.1.7                               npm        (+1 duplicate)    
-@nestjs/platform-socket.io                                                     11.1.7                               npm        (+1 duplicate)    
+@nestjs/platform-express                                                       11.1.8                               npm        (+1 duplicate)    
+@nestjs/platform-socket.io                                                     11.1.8                               npm        (+1 duplicate)    
 @nestjs/schedule                                                               6.0.1                                npm        (+1 duplicate)    
 @nestjs/schematics                                                             11.0.9                               npm                          
 @nestjs/swagger                                                                11.2.1                               npm        (+1 duplicate)    
-@nestjs/testing                                                                11.1.7                               npm                          
-@nestjs/websockets                                                             11.1.7                               npm        (+1 duplicate)    
+@nestjs/testing                                                                11.1.8                               npm                          
+@nestjs/websockets                                                             11.1.8                               npm        (+1 duplicate)    
 @noble/hashes                                                                  1.8.0                                npm                          
 @nodelib/fs.scandir                                                            2.1.5                                npm        (+1 duplicate)    
 @nodelib/fs.stat                                                               2.0.5                                npm        (+1 duplicate)    
@@ -511,7 +513,7 @@ NAME                                                                           V
 @photo-sphere-viewer/resolution-plugin                                         5.14.0                               npm                          
 @photo-sphere-viewer/settings-plugin                                           5.14.0                               npm                          
 @photo-sphere-viewer/video-plugin                                              5.14.0                               npm                          
-@photostructure/tz-lookup                                                      11.2.1                               npm        (+1 duplicate)    
+@photostructure/tz-lookup                                                      11.3.0                               npm        (+1 duplicate)    
 @pkgjs/parseargs                                                               0.11.0                               npm        (+1 duplicate)    
 @pkgr/core                                                                     0.2.9                                npm                          
 @playwright/test                                                               1.56.1                               npm                          
@@ -639,7 +641,7 @@ NAME                                                                           V
 @sveltejs/acorn-typescript                                                     1.0.6                                npm                          
 @sveltejs/adapter-static                                                       3.0.10                               npm                          
 @sveltejs/enhanced-img                                                         0.8.4                                npm                          
-@sveltejs/kit                                                                  2.47.3                               npm                          
+@sveltejs/kit                                                                  2.48.3                               npm                          
 @sveltejs/vite-plugin-svelte                                                   6.2.1                                npm                          
 @sveltejs/vite-plugin-svelte-inspector                                         5.0.0                                npm                          
 @svgr/babel-plugin-add-jsx-attribute                                           8.0.0                                npm                          
@@ -656,9 +658,9 @@ NAME                                                                           V
 @svgr/plugin-jsx                                                               8.1.0                                npm                          
 @svgr/plugin-svgo                                                              8.1.0                                npm                          
 @svgr/webpack                                                                  8.1.0                                npm                          
-@swc/core                                                                      1.13.5                               npm                          
-@swc/core-linux-x64-gnu                                                        1.13.5                               npm                          
-@swc/core-linux-x64-musl                                                       1.13.5                               npm                          
+@swc/core                                                                      1.14.0                               npm                          
+@swc/core-linux-x64-gnu                                                        1.14.0                               npm                          
+@swc/core-linux-x64-musl                                                       1.14.0                               npm                          
 @swc/counter                                                                   0.1.3                                npm                          
 @swc/helpers                                                                   0.5.17                               npm                          
 @swc/types                                                                     0.1.25                               npm                          
@@ -749,6 +751,7 @@ NAME                                                                           V
 @types/istanbul-reports                                                        3.0.4                                npm                          
 @types/js-yaml                                                                 4.0.9                                npm                          
 @types/json-schema                                                             7.0.15                               npm                          
+@types/jsonwebtoken                                                            9.0.10                               npm                          
 @types/justified-layout                                                        4.1.4                                npm                          
 @types/keygrip                                                                 1.0.6                                npm                          
 @types/koa                                                                     3.0.0                                npm                          
@@ -768,13 +771,14 @@ NAME                                                                           V
 @types/node                                                                    17.0.45                              npm                          
 @types/node                                                                    18.19.130                            npm                          
 @types/node                                                                    20.19.24                             npm                          
-@types/node                                                                    22.18.13                             npm        (+1 duplicate)    
-@types/node                                                                    24.9.2                               npm                          
+@types/node                                                                    22.19.1                              npm        (+1 duplicate)    
+@types/node                                                                    24.10.0                              npm                          
 @types/node-forge                                                              1.3.14                               npm                          
 @types/nodemailer                                                              7.0.3                                npm                          
 @types/oidc-provider                                                           9.5.0                                npm                          
 @types/parse5                                                                  5.0.3                                npm                          
 @types/pg                                                                      8.15.5                               npm        (+1 duplicate)    
+@types/pg                                                                      8.15.6                               npm        (+1 duplicate)    
 @types/pg-pool                                                                 2.0.6                                npm        (+1 duplicate)    
 @types/picomatch                                                               4.0.2                                npm                          
 @types/pngjs                                                                   6.0.5                                npm                          
@@ -806,7 +810,7 @@ NAME                                                                           V
 @types/ua-parser-js                                                            0.7.39                               npm                          
 @types/unist                                                                   2.0.11                               npm                          
 @types/unist                                                                   3.0.3                                npm                          
-@types/validator                                                               13.15.3                              npm        (+1 duplicate)    
+@types/validator                                                               13.15.4                              npm        (+1 duplicate)    
 @types/whatwg-mimetype                                                         3.0.2                                npm                          
 @types/ws                                                                      8.18.1                               npm                          
 @types/yargs                                                                   17.0.34                              npm                          
@@ -870,7 +874,7 @@ aggregate-error                                                                3
 ai                                                                             5.0.82                               npm                          
 aiocache                                                                       0.12.3                               python                       
 ajv                                                                            6.12.6                               npm                          
-ajv                                                                            8.17.1                               npm                          
+ajv                                                                            8.17.1                               npm        (+1 duplicate)    
 ajv-formats                                                                    2.1.1                                npm                          
 ajv-formats                                                                    3.0.1                                npm                          
 ajv-keywords                                                                   3.5.2                                npm                          
@@ -952,7 +956,7 @@ baz                                                                            U
 bcp-47-match                                                                   1.0.3                                npm                          
 bcrypt                                                                         6.0.0                                npm        (+1 duplicate)    
 bcrypt-pbkdf                                                                   1.0.2                                npm                          
-benchmark                                                                      1.0.0                                npm                          
+benchmark                                                                      1.0.0                                npm        (+1 duplicate)    
 big.js                                                                         5.2.2                                npm                          
 bin                                                                            1.0.0                                npm                          
 bin-links                                                                      5.0.0                                npm                          
@@ -976,10 +980,11 @@ bsdutils                                                                       1
 buffer                                                                         5.7.1                                npm        (+1 duplicate)    
 buffer                                                                         6.0.3                                npm        (+1 duplicate)    
 buffer-crc32                                                                   1.0.0                                npm        (+1 duplicate)    
+buffer-equal-constant-time                                                     1.0.1                                npm        (+1 duplicate)    
 buffer-from                                                                    1.1.2                                npm        (+1 duplicate)    
 buildcheck                                                                     0.0.6                                npm                          
 builtin-modules                                                                5.0.0                                npm                          
-bullmq                                                                         5.61.2                               npm        (+1 duplicate)    
+bullmq                                                                         5.62.1                               npm        (+1 duplicate)    
 bundle-name                                                                    4.1.0                                npm                          
 busboy                                                                         1.6.0                                npm        (+1 duplicate)    
 byline                                                                         5.0.0                                npm                          
@@ -1237,6 +1242,7 @@ earcut                                                                         2
 earcut                                                                         3.0.2                                npm                          
 eastasianwidth                                                                 0.2.0                                npm        (+2 duplicates)   
 easydict                                                                       1.11                                 python                       
+ecdsa-sig-formatter                                                            1.0.11                               npm        (+1 duplicate)    
 ee-first                                                                       1.1.1                                npm        (+1 duplicate)    
 electron-to-chromium                                                           1.5.243                              npm                          
 email-dev                                                                      0.0.2                                npm        (+1 duplicate)    
@@ -1274,7 +1280,7 @@ es6-weak-map                                                                   2
 esast-util-from-estree                                                         2.0.0                                npm                          
 esast-util-from-js                                                             2.0.1                                npm                          
 esbuild                                                                        0.19.12                              npm                          
-esbuild                                                                        0.25.11                              npm        (+1 duplicate)    
+esbuild                                                                        0.25.12                              npm        (+1 duplicate)    
 esbuild                                                                        UNKNOWN                              binary     (+5 duplicates)   
 escalade                                                                       3.2.0                                npm        (+1 duplicate)    
 escape-goat                                                                    4.0.0                                npm                          
@@ -1324,8 +1330,8 @@ events                                                                         3
 events-universal                                                               1.0.1                                npm        (+1 duplicate)    
 eventsource-parser                                                             3.0.6                                npm                          
 execa                                                                          5.1.1                                npm                          
-exiftool-vendored                                                              31.1.0                               npm        (+1 duplicate)    
-exiftool-vendored.pl                                                           13.38.0                              npm        (+1 duplicate)    
+exiftool-vendored                                                              31.3.0                               npm        (+1 duplicate)    
+exiftool-vendored.pl                                                           13.41.0                              npm        (+1 duplicate)    
 expect-type                                                                    1.2.1                                npm                          
 exponential-backoff                                                            3.1.2                                npm                          
 exponential-backoff                                                            3.1.3                                npm        (+1 duplicate)    
@@ -1339,14 +1345,14 @@ fabric                                                                         6
 factory.ts                                                                     1.4.2                                npm                          
 false_main                                                                     UNKNOWN                              npm        (+1 duplicate)    
 fast-deep-equal                                                                2.0.1                                npm        (+1 duplicate)    
-fast-deep-equal                                                                3.1.3                                npm                          
+fast-deep-equal                                                                3.1.3                                npm        (+1 duplicate)    
 fast-diff                                                                      1.3.0                                npm                          
 fast-fifo                                                                      1.3.2                                npm        (+1 duplicate)    
 fast-glob                                                                      3.3.3                                npm        (+1 duplicate)    
 fast-json-stable-stringify                                                     2.1.0                                npm                          
 fast-levenshtein                                                               2.0.6                                npm                          
 fast-safe-stringify                                                            2.1.1                                npm        (+1 duplicate)    
-fast-uri                                                                       3.1.0                                npm                          
+fast-uri                                                                       3.1.0                                npm        (+1 duplicate)    
 fast-xml-parser                                                                5.2.5                                npm                          
 fastapi                                                                        0.116.1                              python                       
 fastest-levenshtein                                                            1.0.16                               npm                          
@@ -1422,7 +1428,7 @@ get-proto                                                                      1
 get-stream                                                                     6.0.1                                npm                          
 github-slugger                                                                 1.5.0                                npm                          
 github.com/evanw/esbuild                                                       v0.0.0-20240123173857-d7fd1ad35715   go-module  (+19 duplicates)  
-github.com/evanw/esbuild                                                       v0.0.0-20251015021112-6b7c4f2dcbca   go-module  (+21 duplicates)  
+github.com/evanw/esbuild                                                       v0.0.0-20251101233416-208f539945b1   go-module  (+21 duplicates)  
 gl-matrix                                                                      3.4.4                                npm                          
 gl-matrix/mat2                                                                 UNKNOWN                              npm                          
 gl-matrix/mat2d                                                                UNKNOWN                              npm                          
@@ -1473,7 +1479,7 @@ gzip-size                                                                      6
 h11                                                                            0.14.0                               python                       
 handle-thing                                                                   2.0.1                                npm                          
 handlebars                                                                     4.7.8                                npm        (+1 duplicate)    
-happy-dom                                                                      20.0.8                               npm                          
+happy-dom                                                                      20.0.10                              npm                          
 has-flag                                                                       4.0.0                                npm        (+1 duplicate)    
 has-property-descriptors                                                       1.0.2                                npm                          
 has-symbols                                                                    1.1.0                                npm        (+1 duplicate)    
@@ -1552,7 +1558,7 @@ imagediff                                                                      1
 imageio                                                                        2.33.1                               python                       
 imagetools-core                                                                8.0.0                                npm                          
 immediate                                                                      3.3.0                                npm                          
-immich                                                                         2.2.3                                npm                          
+immich                                                                         2.3.0                                npm                          
 import-fresh                                                                   3.3.1                                npm        (+1 duplicate)    
 import-in-the-middle                                                           2.0.0                                npm        (+1 duplicate)    
 import-lazy                                                                    4.0.0                                npm                          
@@ -1656,7 +1662,7 @@ jiti                                                                           2
 jiti                                                                           2.6.1                                npm                          
 joblib                                                                         1.3.2                                python                       
 joi                                                                            17.13.3                              npm                          
-jose                                                                           5.10.0                               npm                          
+jose                                                                           5.10.0                               npm        (+1 duplicate)    
 jose                                                                           6.1.0                                npm        (+1 duplicate)    
 jq                                                                             1.7.1-3ubuntu0.24.04.1               deb                          
 js-tokens                                                                      4.0.0                                npm        (+1 duplicate)    
@@ -1672,7 +1678,7 @@ json-parse-even-better-errors                                                  2
 json-parse-even-better-errors                                                  4.0.0                                npm                          
 json-schema                                                                    0.4.0                                npm                          
 json-schema-traverse                                                           0.4.1                                npm                          
-json-schema-traverse                                                           1.0.0                                npm                          
+json-schema-traverse                                                           1.0.0                                npm        (+1 duplicate)    
 json-stable-stringify-without-jsonify                                          1.0.1                                npm                          
 json-stringify-nice                                                            1.1.4                                npm                          
 json-stringify-pretty-compact                                                  4.0.0                                npm                          
@@ -1680,10 +1686,13 @@ json5                                                                          2
 jsonc-parser                                                                   3.3.1                                npm                          
 jsonfile                                                                       6.2.0                                npm                          
 jsonparse                                                                      1.3.1                                npm                          
+jsonwebtoken                                                                   9.0.2                                npm        (+1 duplicate)    
 just-compare                                                                   2.3.0                                npm                          
 just-diff                                                                      6.0.2                                npm                          
 just-diff-apply                                                                5.5.0                                npm                          
 justified-layout                                                               4.1.0                                npm                          
+jwa                                                                            1.4.2                                npm        (+1 duplicate)    
+jws                                                                            3.2.2                                npm        (+1 duplicate)    
 kdbush                                                                         3.0.0                                npm                          
 kdbush                                                                         4.0.2                                npm                          
 keyboxd                                                                        2.4.4-2ubuntu17.3                    deb                          
@@ -1962,9 +1971,16 @@ lodash-es                                                                      4
 lodash.camelcase                                                               4.3.0                                npm        (+1 duplicate)    
 lodash.debounce                                                                4.0.8                                npm                          
 lodash.defaults                                                                4.2.0                                npm        (+1 duplicate)    
+lodash.includes                                                                4.3.0                                npm        (+1 duplicate)    
 lodash.isarguments                                                             3.1.0                                npm        (+1 duplicate)    
+lodash.isboolean                                                               3.0.3                                npm        (+1 duplicate)    
+lodash.isinteger                                                               4.0.4                                npm        (+1 duplicate)    
+lodash.isnumber                                                                3.0.3                                npm        (+1 duplicate)    
+lodash.isplainobject                                                           4.0.6                                npm        (+1 duplicate)    
+lodash.isstring                                                                4.0.1                                npm        (+1 duplicate)    
 lodash.memoize                                                                 4.1.2                                npm                          
 lodash.merge                                                                   4.6.2                                npm                          
+lodash.once                                                                    4.1.1                                npm        (+1 duplicate)    
 lodash.uniq                                                                    4.5.0                                npm                          
 log-symbols                                                                    4.1.0                                npm        (+1 duplicate)    
 log-symbols                                                                    6.0.0                                npm        (+1 duplicate)    
@@ -1993,7 +2009,7 @@ make-dir                                                                       4
 make-fetch-happen                                                              14.0.3                               npm        (+2 duplicates)   
 make-fetch-happen                                                              15.0.2                               npm                          
 mapbox-gl                                                                      1.13.3                               npm                          
-maplibre-gl                                                                    5.9.0                                npm                          
+maplibre-gl                                                                    5.10.0                               npm                          
 maplibre-gl                                                                    UNKNOWN                              npm                          
 mark.js                                                                        8.11.1                               npm                          
 markdown-extensions                                                            2.0.0                                npm                          
@@ -2480,7 +2496,7 @@ react                                                                          1
 react                                                                          19.2.0                               npm        (+1 duplicate)    
 react-dom                                                                      18.3.1                               npm                          
 react-dom                                                                      19.2.0                               npm        (+1 duplicate)    
-react-email                                                                    4.3.1                                npm        (+1 duplicate)    
+react-email                                                                    4.3.2                                npm        (+1 duplicate)    
 react-fast-compare                                                             3.2.2                                npm                          
 react-is                                                                       16.13.1                              npm                          
 react-is                                                                       17.0.2                               npm                          
@@ -2533,7 +2549,7 @@ renderkid                                                                      3
 repeat-string                                                                  1.6.1                                npm                          
 requests                                                                       2.32.3                               python                       
 require-directory                                                              2.1.1                                npm        (+1 duplicate)    
-require-from-string                                                            2.0.2                                npm                          
+require-from-string                                                            2.0.2                                npm        (+1 duplicate)    
 require-in-the-middle                                                          8.0.0                                npm        (+1 duplicate)    
 require-like                                                                   0.1.2                                npm                          
 require-main-filename                                                          2.0.0                                npm                          
@@ -2629,7 +2645,7 @@ signal-exit                                                                    4
 sigstore                                                                       4.0.0                                npm                          
 simple-concat                                                                  1.0.1                                npm                          
 simple-get                                                                     3.1.1                                npm                          
-simple-icons                                                                   15.17.0                              npm                          
+simple-icons                                                                   15.18.0                              npm                          
 sirv                                                                           2.0.4                                npm                          
 sirv                                                                           3.0.2                                npm        (+1 duplicate)    
 sisteransi                                                                     1.0.5                                npm        (+1 duplicate)    
@@ -2718,13 +2734,13 @@ supports-color                                                                 1
 supports-color                                                                 7.2.0                                npm        (+1 duplicate)    
 supports-color                                                                 8.1.1                                npm                          
 supports-preserve-symlinks-flag                                                1.0.0                                npm        (+1 duplicate)    
-svelte                                                                         5.41.3                               npm                          
+svelte                                                                         5.43.0                               npm                          
 svelte-check                                                                   4.3.3                                npm                          
 svelte-eslint-parser                                                           1.4.0                                npm                          
 svelte-gestures                                                                5.2.2                                npm                          
 svelte-highlight                                                               7.8.4                                npm                          
 svelte-i18n                                                                    4.0.1                                npm                          
-svelte-maplibre                                                                1.2.3                                npm                          
+svelte-maplibre                                                                1.2.5                                npm                          
 svelte-parse-markup                                                            0.1.5                                npm                          
 svelte-persisted-store                                                         0.12.0                               npm                          
 svelte-toolbelt                                                                0.9.3                                npm                          
@@ -2877,6 +2893,7 @@ url                                                                            0
 url-loader                                                                     4.1.1                                npm                          
 url-parse                                                                      1.5.10                               npm                          
 urllib3                                                                        2.1.0                                python                       
+urlpattern-polyfill                                                            8.0.2                                npm                          
 use-sync-external-store                                                        1.6.0                                npm                          
 utf8-byte-length                                                               1.0.5                                npm        (+1 duplicate)    
 util-deprecate                                                                 1.0.2                                npm        (+2 duplicates)   
@@ -2892,7 +2909,7 @@ uvicorn                                                                        0
 uvloop                                                                         0.19.0                               python                       
 validate-npm-package-license                                                   3.0.4                                npm                          
 validate-npm-package-name                                                      6.0.2                                npm                          
-validator                                                                      13.15.15                             npm        (+1 duplicate)    
+validator                                                                      13.15.20                             npm        (+1 duplicate)    
 value-equal                                                                    1.0.1                                npm                          
 vary                                                                           1.1.2                                npm        (+1 duplicate)    
 vfile                                                                          4.2.1                                npm                          
