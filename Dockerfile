@@ -16,7 +16,10 @@ ENV \
   IMMICH_ENV="production" \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  SHARP_FORCE_GLOBAL_LIBVIPS="true"
+  SHARP_FORCE_GLOBAL_LIBVIPS="true" \
+  MISE_TRUSTED_CONFIG_PATHS="/app/immich/plugins/mise.toml"\
+  MISE_DATA_DIR="/buildcache/mise"\
+  NODE_OPTIONS="--max-old-space-size=8192"
 
 RUN \
   echo "**** download immich ****" && \
@@ -41,6 +44,8 @@ RUN \
   echo "**** setup repos ****" && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
   curl -s "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
+  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub] https://mise.jdx.dev/deb stable main" >>/etc/apt/sources.list.d/mise.list && \
+  curl -fSs "https://mise.jdx.dev/gpg-key.pub" | tee /etc/apt/keyrings/mise-archive-keyring.pub 1> /dev/null && \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -51,13 +56,36 @@ RUN \
     libjpeg-dev \
     librsvg2-dev \
     libspng-dev \
-    pkg-config && \
+    pkg-config \
+    mise && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     nodejs=$NODEJS_VERSION && \
   echo "**** setup pnpm ****" && \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
+  echo "**** setup plugins (mise) ****" && \
+  mkdir -p \
+    /app/immich/plugins && \
+  cp /tmp/immich/plugins/mise.toml /app/immich/plugins && \
+  mise install --cd /app/immich/plugins && \
+  echo "**** build plugins (mise) ****" && \
+  ls -a /tmp/immich/ && \
+  cp -a /tmp/immich/plugins/* /app/immich/plugins && \
+  cp /tmp/immich/.pnpmfile.cjs /app/immich/plugins && \
+  cp /tmp/immich/pnpm-lock.yaml /app/immich/plugins && \
+  cp /tmp/immich/pnpm-workspace.yaml /app/immich/plugins && \
+  ls -a /app/immich/plugins && \
+  cat /app/immich/plugins/package.json && \
+  sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' /app/immich/plugins/mise.toml && \
+  cat /app/immich/plugins/mise.toml && \
+  mise run build --cd /app/immich/plugins && \
+  mkdir -p \
+    /app/immich/data/corePlugin && \
+  cp -a \
+    /app/immich/plugins/* \
+    /app/immich/data/corePlugin && \  
+  ls -a /app/immich/data/corePlugin && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
@@ -125,7 +153,8 @@ RUN \
     librsvg2-dev \
     libspng-dev \
     libwebp-dev \
-    pkg-config && \
+    pkg-config \
+    mise && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
