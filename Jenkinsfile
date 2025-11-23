@@ -23,7 +23,7 @@ pipeline {
     CONTAINER_NAME = 'immich'
     DIST_IMAGE = 'ubuntu'
     MULTIARCH = 'true'
-    CI = 'true'
+    CI = 'false'
     CI_WEB = 'true'
     CI_PORT = '8080'
     CI_SSL = 'false'
