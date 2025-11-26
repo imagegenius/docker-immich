@@ -1116,7 +1116,7 @@ core-js                                                                        3
 core-js-compat                                                                 3.46.0                                npm                          
 core-js-pure                                                                   3.46.0                                npm                          
 core-util-is                                                                   1.0.3                                 npm        (+1 duplicate)    
-corepack                                                                       0.34.4                                npm                          
+corepack                                                                       0.34.5                                npm                          
 coreutils                                                                      9.4-3ubuntu6.1                        deb                          
 cors                                                                           2.8.5                                 npm        (+1 duplicate)    
 cosmiconfig                                                                    8.3.6                                 npm        (+1 duplicate)    
@@ -1904,8 +1904,8 @@ libpsl5t64                                                                     0
 libpython3-stdlib                                                              3.12.3-0ubuntu2.1                     deb                          
 libpython3.11-minimal                                                          3.11.14-1+noble1                      deb                          
 libpython3.11-stdlib                                                           3.11.14-1+noble1                      deb                          
-libpython3.12-minimal                                                          3.12.3-1ubuntu0.8                     deb                          
-libpython3.12-stdlib                                                           3.12.3-1ubuntu0.8                     deb                          
+libpython3.12-minimal                                                          3.12.3-1ubuntu0.9                     deb                          
+libpython3.12-stdlib                                                           3.12.3-1ubuntu0.9                     deb                          
 libreadline8t64                                                                8.2-4build1                           deb                          
 librsvg2-2                                                                     2.58.0+dfsg-1build1                   deb                          
 librsvg2-common                                                                2.58.0+dfsg-1build1                   deb                          
@@ -2509,8 +2509,8 @@ python3                                                                        3
 python3-minimal                                                                3.12.3-0ubuntu2.1                     deb                          
 python3.11                                                                     3.11.14-1+noble1                      deb                          
 python3.11-minimal                                                             3.11.14-1+noble1                      deb                          
-python3.12                                                                     3.12.3-1ubuntu0.8                     deb                          
-python3.12-minimal                                                             3.12.3-1ubuntu0.8                     deb                          
+python3.12                                                                     3.12.3-1ubuntu0.9                     deb                          
+python3.12-minimal                                                             3.12.3-1ubuntu0.9                     deb                          
 pyyaml                                                                         6.0.2                                 python                       
 qrcode                                                                         1.5.4                                 npm                          
 qrcode-terminal                                                                0.12.0                                npm                          
