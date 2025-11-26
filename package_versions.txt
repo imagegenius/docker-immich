@@ -1116,7 +1116,7 @@ core-js                                                                        3
 core-js-compat                                                                 3.46.0                                npm                          
 core-js-pure                                                                   3.46.0                                npm                          
 core-util-is                                                                   1.0.3                                 npm        (+1 duplicate)    
-corepack                                                                       0.34.4                                npm                          
+corepack                                                                       0.34.5                                npm                          
 coreutils                                                                      9.4-3ubuntu6.1                        deb                          
 cors                                                                           2.8.5                                 npm        (+1 duplicate)    
 cosmiconfig                                                                    8.3.6                                 npm        (+1 duplicate)    
@@ -1618,9 +1618,9 @@ inline-style-parser                                                            0
 inquirer                                                                       8.2.7                                 npm        (+1 duplicate)    
 insightface                                                                    0.7.3                                 python                       
 intel-igc-core                                                                 1.0.17537.20                          deb                          
-intel-igc-core-2                                                               2.20.3                                deb                          
+intel-igc-core-2                                                               2.22.2                                deb                          
 intel-igc-opencl                                                               1.0.17537.20                          deb                          
-intel-igc-opencl-2                                                             2.20.3                                deb                          
+intel-igc-opencl-2                                                             2.22.2                                deb                          
 intel-level-zero-gpu                                                           1.3.30872.22                          deb                          
 intel-level-zero-gpu-legacy1                                                   1.3.30872.22                          deb                          
 intel-media-va-driver-non-free                                                 24.1.0+ds1-1                          deb                          
@@ -1790,10 +1790,10 @@ libde265-0                                                                     1
 libdebconfclient0                                                              0.271ubuntu3                          deb                          
 libdecor-0-0                                                                   0.2.2-1build2                         deb                          
 libdeflate0                                                                    1.19-1build1.1                        deb                          
-libdrm-amdgpu1                                                                 2.4.122-1~ubuntu0.24.04.1             deb                          
-libdrm-common                                                                  2.4.122-1~ubuntu0.24.04.1             deb                          
-libdrm-intel1                                                                  2.4.122-1~ubuntu0.24.04.1             deb                          
-libdrm2                                                                        2.4.122-1~ubuntu0.24.04.1             deb                          
+libdrm-amdgpu1                                                                 2.4.122-1~ubuntu0.24.04.2             deb                          
+libdrm-common                                                                  2.4.122-1~ubuntu0.24.04.2             deb                          
+libdrm-intel1                                                                  2.4.122-1~ubuntu0.24.04.2             deb                          
+libdrm2                                                                        2.4.122-1~ubuntu0.24.04.2             deb                          
 libedit2                                                                       3.1-20230828-1build1                  deb                          
 libegl-mesa0                                                                   25.0.7-0ubuntu0.24.04.2               deb                          
 libegl1                                                                        1.7.0-1build1                         deb                          
@@ -1910,8 +1910,8 @@ libpsl5t64                                                                     0
 libpython3-stdlib                                                              3.12.3-0ubuntu2.1                     deb                          
 libpython3.11-minimal                                                          3.11.14-1+noble1                      deb                          
 libpython3.11-stdlib                                                           3.11.14-1+noble1                      deb                          
-libpython3.12-minimal                                                          3.12.3-1ubuntu0.8                     deb                          
-libpython3.12-stdlib                                                           3.12.3-1ubuntu0.8                     deb                          
+libpython3.12-minimal                                                          3.12.3-1ubuntu0.9                     deb                          
+libpython3.12-stdlib                                                           3.12.3-1ubuntu0.9                     deb                          
 libreadline8t64                                                                8.2-4build1                           deb                          
 librsvg2-2                                                                     2.58.0+dfsg-1build1                   deb                          
 librsvg2-common                                                                2.58.0+dfsg-1build1                   deb                          
@@ -2515,8 +2515,8 @@ python3                                                                        3
 python3-minimal                                                                3.12.3-0ubuntu2.1                     deb                          
 python3.11                                                                     3.11.14-1+noble1                      deb                          
 python3.11-minimal                                                             3.11.14-1+noble1                      deb                          
-python3.12                                                                     3.12.3-1ubuntu0.8                     deb                          
-python3.12-minimal                                                             3.12.3-1ubuntu0.8                     deb                          
+python3.12                                                                     3.12.3-1ubuntu0.9                     deb                          
+python3.12-minimal                                                             3.12.3-1ubuntu0.9                     deb                          
 pyyaml                                                                         6.0.2                                 python                       
 qrcode                                                                         1.5.4                                 npm                          
 qrcode-terminal                                                                0.12.0                                npm                          
