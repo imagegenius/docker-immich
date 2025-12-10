@@ -1693,7 +1693,7 @@ istanbul-reports                                                               3
 iterare                                                                        1.2.1                                 npm        (+1 duplicate)    
 jackspeak                                                                      3.4.3                                 npm        (+2 duplicates)   
 jackspeak                                                                      4.1.1                                 npm        (+2 duplicates)   
-jellyfin-ffmpeg7                                                               7.1.1-6-noble                         deb                          
+jellyfin-ffmpeg7                                                               7.1.3-1-noble                         deb                          
 jest-util                                                                      29.7.0                                npm                          
 jest-worker                                                                    27.5.1                                npm                          
 jest-worker                                                                    29.7.0                                npm                          
@@ -1816,8 +1816,8 @@ libgdk-pixbuf2.0-common                                                        2
 libgl1                                                                         1.7.0-1build1                         deb                          
 libgl1-mesa-dri                                                                25.0.7-0ubuntu0.24.04.2               deb                          
 libgles2                                                                       1.7.0-1build1                         deb                          
-libglib2.0-0t64                                                                2.80.0-6ubuntu3.4                     deb                          
-libglib2.0-data                                                                2.80.0-6ubuntu3.4                     deb                          
+libglib2.0-0t64                                                                2.80.0-6ubuntu3.5                     deb                          
+libglib2.0-data                                                                2.80.0-6ubuntu3.5                     deb                          
 libglvnd0                                                                      1.7.0-1build1                         deb                          
 libglx-mesa0                                                                   25.0.7-0ubuntu0.24.04.2               deb                          
 libglx0                                                                        1.7.0-1build1                         deb                          
