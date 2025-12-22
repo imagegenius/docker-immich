@@ -89,22 +89,19 @@ RUN \
   cp /tmp/immich/plugins/mise.toml /app/immich/plugins && \
   mise install --cd /app/immich/plugins && \
   echo "**** build plugins (mise) ****" && \
-  ls -a /tmp/immich/ && \
   cp -a /tmp/immich/plugins/* /app/immich/plugins && \
-  cp /tmp/immich/.pnpmfile.cjs /app/immich/plugins && \
-  cp /tmp/immich/pnpm-lock.yaml /app/immich/plugins && \
-  cp /tmp/immich/pnpm-workspace.yaml /app/immich/plugins && \
-  ls -a /app/immich/plugins && \
-  cat /app/immich/plugins/package.json && \
+  cp -a \
+    /tmp/immich/.pnpmfile.cjs \
+    /tmp/immich/pnpm-lock.yaml \
+    /tmp/immich/pnpm-workspace.yaml \
+    /app/immich/plugins && \
   sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' /app/immich/plugins/mise.toml && \
-  cat /app/immich/plugins/mise.toml && \
-  mise run build --cd /app/immich/plugins && \
+  cd /app/immich/plugins && mise run build && \
   mkdir -p \
     /app/immich/data/corePlugin && \
   cp -a \
     /app/immich/plugins/* \
     /app/immich/data/corePlugin && \  
-  ls -a /app/immich/data/corePlugin && \
   echo "**** build server ****" && \
   mkdir -p \
     /tmp/node_modules && \
