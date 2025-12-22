@@ -79,7 +79,7 @@ RUN \
   cat /app/immich/plugins/package.json && \
   sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' /app/immich/plugins/mise.toml && \
   cat /app/immich/plugins/mise.toml && \
-  mise run build --cd /app/immich/plugins && \
+  cd /app/immich/plugins && mise run build && \
   mkdir -p \
     /app/immich/data/corePlugin && \
   cp -a \
