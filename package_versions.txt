@@ -1911,7 +1911,7 @@ libphonenumber-js/mobile                                                       U
 libphonenumber-js/mobile/examples                                              UNKNOWN                               npm        (+1 duplicate)    
 libphonenumber-js/mobile/metadata                                              UNKNOWN                               npm        (+1 duplicate)    
 libpixman-1-0                                                                  0.42.2-1build1                        deb                          
-libpng16-16t64                                                                 1.6.43-5ubuntu0.1                     deb                          
+libpng16-16t64                                                                 1.6.43-5ubuntu0.3                     deb                          
 libpq5                                                                         18.1-1.pgdg24.04+2                    deb                          
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                    deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                      deb                          
