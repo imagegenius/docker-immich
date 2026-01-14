@@ -1877,8 +1877,8 @@ libpq5                                                                         1
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                    deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                      deb                          
 libpython3-stdlib                                                              3.12.3-0ubuntu2.1                     deb                          
-libpython3.12-minimal                                                          3.12.3-1ubuntu0.9                     deb                          
-libpython3.12-stdlib                                                           3.12.3-1ubuntu0.9                     deb                          
+libpython3.12-minimal                                                          3.12.3-1ubuntu0.10                    deb                          
+libpython3.12-stdlib                                                           3.12.3-1ubuntu0.10                    deb                          
 libreadline8t64                                                                8.2-4build1                           deb                          
 librsvg2-2                                                                     2.58.0+dfsg-1build1                   deb                          
 librsvg2-common                                                                2.58.0+dfsg-1build1                   deb                          
@@ -2459,8 +2459,8 @@ punycode                                                                       2
 pupa                                                                           3.3.0                                 npm                          
 python3                                                                        3.12.3-0ubuntu2.1                     deb                          
 python3-minimal                                                                3.12.3-0ubuntu2.1                     deb                          
-python3.12                                                                     3.12.3-1ubuntu0.9                     deb                          
-python3.12-minimal                                                             3.12.3-1ubuntu0.9                     deb                          
+python3.12                                                                     3.12.3-1ubuntu0.10                    deb                          
+python3.12-minimal                                                             3.12.3-1ubuntu0.10                    deb                          
 qrcode                                                                         1.5.4                                 npm                          
 qrcode-terminal                                                                0.12.0                                npm                          
 qs                                                                             6.14.0                                npm        (+1 duplicate)    
