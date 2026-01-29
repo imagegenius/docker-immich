@@ -390,7 +390,7 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.5                                npm                          
 @img/sharp-win32-ia32                                                          0.34.5                                npm                          
 @img/sharp-win32-x64                                                           0.34.5                                npm                          
-@immich/cli                                                                    2.2.106                               npm                          
+@immich/cli                                                                    2.5.2                                 npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                 npm                          
 @immich/svelte-markdown-preprocess                                             0.1.0                                 npm                          
 @immich/ui                                                                     0.59.0                                npm                          
@@ -1765,7 +1765,7 @@ imagediff                                                                      1
 imageio                                                                        2.33.1                                python                       
 imagetools-core                                                                9.1.0                                 npm                          
 immediate                                                                      3.3.0                                 npm                          
-immich                                                                         2.5.0                                 npm                          
+immich                                                                         2.5.2                                 npm                          
 immutable                                                                      5.1.4                                 npm                          
 immutable-json-patch                                                           6.0.2                                 npm                          
 import-fresh                                                                   3.3.1                                 npm        (+1 duplicate)    
