@@ -390,7 +390,7 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.5                                npm                          
 @img/sharp-win32-ia32                                                          0.34.5                                npm                          
 @img/sharp-win32-x64                                                           0.34.5                                npm                          
-@immich/cli                                                                    2.5.2                                 npm                          
+@immich/cli                                                                    2.5.3                                 npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                 npm                          
 @immich/svelte-markdown-preprocess                                             0.1.0                                 npm                          
 @immich/ui                                                                     0.59.0                                npm                          
@@ -1736,7 +1736,7 @@ image-size                                                                     2
 imagediff                                                                      1.0.8                                 npm                          
 imagetools-core                                                                9.1.0                                 npm                          
 immediate                                                                      3.3.0                                 npm                          
-immich                                                                         2.5.2                                 npm                          
+immich                                                                         2.5.3                                 npm                          
 immutable                                                                      5.1.4                                 npm                          
 immutable-json-patch                                                           6.0.2                                 npm                          
 import-fresh                                                                   3.3.1                                 npm        (+1 duplicate)    
@@ -1916,8 +1916,8 @@ libbluray2                                                                     1
 libbrotli1                                                                     1.1.0-2build2                         deb                          
 libbsd0                                                                        0.12.1-1build1.1                      deb                          
 libbz2-1.0                                                                     1.0.8-5.1build0.1                     deb                          
-libc-bin                                                                       2.39-0ubuntu8.6                       deb                          
-libc6                                                                          2.39-0ubuntu8.6                       deb                          
+libc-bin                                                                       2.39-0ubuntu8.7                       deb                          
+libc6                                                                          2.39-0ubuntu8.7                       deb                          
 libcairo-gobject2                                                              1.18.0-3build1                        deb                          
 libcairo2                                                                      1.18.0-3build1                        deb                          
 libcap-ng0                                                                     0.8.4-2build2                         deb                          
@@ -1932,12 +1932,12 @@ libde265-0                                                                     1
 libdebconfclient0                                                              0.271ubuntu3                          deb                          
 libdecor-0-0                                                                   0.2.2-1build2                         deb                          
 libdeflate0                                                                    1.19-1build1.1                        deb                          
-libdrm-amdgpu1                                                                 2.4.122-1~ubuntu0.24.04.2             deb                          
-libdrm-common                                                                  2.4.122-1~ubuntu0.24.04.2             deb                          
-libdrm-intel1                                                                  2.4.122-1~ubuntu0.24.04.2             deb                          
-libdrm2                                                                        2.4.122-1~ubuntu0.24.04.2             deb                          
+libdrm-amdgpu1                                                                 2.4.125-1ubuntu0.1~24.04.1            deb                          
+libdrm-common                                                                  2.4.125-1ubuntu0.1~24.04.1            deb                          
+libdrm-intel1                                                                  2.4.125-1ubuntu0.1~24.04.1            deb                          
+libdrm2                                                                        2.4.125-1ubuntu0.1~24.04.1            deb                          
 libedit2                                                                       3.1-20230828-1build1                  deb                          
-libegl-mesa0                                                                   25.0.7-0ubuntu0.24.04.2               deb                          
+libegl-mesa0                                                                   25.2.8-0ubuntu0.24.04.1               deb                          
 libegl1                                                                        1.7.0-1build1                         deb                          
 libelf1t64                                                                     0.190-1.1ubuntu0.1                    deb                          
 libexif12                                                                      0.6.24-1build2                        deb                          
@@ -1947,7 +1947,7 @@ libffi8                                                                        3
 libfontconfig1                                                                 2.15.0-1.1ubuntu2                     deb                          
 libfreetype6                                                                   2.13.2+dfsg-1build3                   deb                          
 libfribidi0                                                                    1.0.13-3build1                        deb                          
-libgbm1                                                                        25.0.7-0ubuntu0.24.04.2               deb                          
+libgbm1                                                                        25.2.8-0ubuntu0.24.04.1               deb                          
 libgcc-s1                                                                      14.2.0-4ubuntu2~24.04                 deb                          
 libgcrypt20                                                                    1.10.3-2build1                        deb                          
 libgdbm-compat4t64                                                             1.23-5.1build1                        deb                          
@@ -1956,12 +1956,12 @@ libgdk-pixbuf-2.0-0                                                            2
 libgdk-pixbuf2.0-bin                                                           2.42.10+dfsg-3ubuntu3.2               deb                          
 libgdk-pixbuf2.0-common                                                        2.42.10+dfsg-3ubuntu3.2               deb                          
 libgl1                                                                         1.7.0-1build1                         deb                          
-libgl1-mesa-dri                                                                25.0.7-0ubuntu0.24.04.2               deb                          
+libgl1-mesa-dri                                                                25.2.8-0ubuntu0.24.04.1               deb                          
 libgles2                                                                       1.7.0-1build1                         deb                          
 libglib2.0-0t64                                                                2.80.0-6ubuntu3.7                     deb                          
 libglib2.0-data                                                                2.80.0-6ubuntu3.7                     deb                          
 libglvnd0                                                                      1.7.0-1build1                         deb                          
-libglx-mesa0                                                                   25.0.7-0ubuntu0.24.04.2               deb                          
+libglx-mesa0                                                                   25.2.8-0ubuntu0.24.04.1               deb                          
 libglx0                                                                        1.7.0-1build1                         deb                          
 libgmp10                                                                       2:6.3.0+dfsg-2ubuntu6.1               deb                          
 libgnutls30t64                                                                 3.8.3-1.1ubuntu3.4                    deb                          
@@ -2016,7 +2016,7 @@ libnpmsearch                                                                   9
 libnpmteam                                                                     8.0.2                                 npm                          
 libnpmversion                                                                  8.0.2                                 npm                          
 libnpth0t64                                                                    1.6-3.1build1                         deb                          
-libnuma1                                                                       2.0.18-1build1                        deb                          
+libnuma1                                                                       2.0.18-1ubuntu0.24.04.1               deb                          
 libogg0                                                                        1.3.5-3build1                         deb                          
 libonig5                                                                       6.9.9-1build1                         deb                          
 libopenexr-3-1-30                                                              3.1.5-5.1build3                       deb                          
@@ -2045,7 +2045,7 @@ libphonenumber-js/mobile                                                       U
 libphonenumber-js/mobile/examples                                              UNKNOWN                               npm        (+1 duplicate)    
 libphonenumber-js/mobile/metadata                                              UNKNOWN                               npm        (+1 duplicate)    
 libpixman-1-0                                                                  0.42.2-1build1                        deb                          
-libpng16-16t64                                                                 1.6.43-5ubuntu0.3                     deb                          
+libpng16-16t64                                                                 1.6.43-5ubuntu0.4                     deb                          
 libpq5                                                                         18.1-1.pgdg24.04+2                    deb                          
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                    deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                      deb                          
@@ -2085,7 +2085,7 @@ libudev1                                                                       2
 libudfread0                                                                    1.1.2-1build1                         deb                          
 libunistring5                                                                  1.1-2build1.1                         deb                          
 libuuid1                                                                       2.39.3-9ubuntu6.4                     deb                          
-libva2                                                                         2.20.0-2build1                        deb                          
+libva2                                                                         2.20.0-2ubuntu0.1                     deb                          
 libvips-42                                                                     UNKNOWN                               binary     (+2 duplicates)   
 libvips-cpp-8.17.3                                                             UNKNOWN                               binary     (+2 duplicates)   
 libvorbis0a                                                                    1.3.7-1build3                         deb                          
@@ -2095,7 +2095,6 @@ libvpx9                                                                        1
 libvulkan1                                                                     1.3.275.0-1build1                     deb                          
 libwayland-client0                                                             1.22.0-2.1build1                      deb                          
 libwayland-egl1                                                                1.22.0-2.1build1                      deb                          
-libwayland-server0                                                             1.22.0-2.1build1                      deb                          
 libwebp7                                                                       1.5.0-0.1build1                       deb                          
 libwebpdemux2                                                                  1.5.0-0.1build1                       deb                          
 libwebpmux3                                                                    1.5.0-0.1build1                       deb                          
@@ -2147,7 +2146,7 @@ load-esm                                                                       1
 load-tsconfig                                                                  0.2.5                                 npm                          
 loader-runner                                                                  4.3.1                                 npm                          
 loader-utils                                                                   2.0.4                                 npm                          
-locales                                                                        2.39-0ubuntu8.6                       deb                          
+locales                                                                        2.39-0ubuntu8.7                       deb                          
 locate-character                                                               3.0.0                                 npm                          
 locate-path                                                                    5.0.0                                 npm                          
 locate-path                                                                    6.0.0                                 npm                          
@@ -2241,11 +2240,11 @@ merge-descriptors                                                              2
 merge-stream                                                                   2.0.0                                 npm                          
 merge2                                                                         1.4.1                                 npm        (+1 duplicate)    
 mermaid                                                                        11.12.2                               npm                          
-mesa-libgallium                                                                25.0.7-0ubuntu0.24.04.2               deb                          
+mesa-libgallium                                                                25.2.8-0ubuntu0.24.04.1               deb                          
 mesa-utils                                                                     9.0.0-2                               deb                          
 mesa-utils-bin                                                                 9.0.0-2                               deb                          
-mesa-va-drivers                                                                25.0.7-0ubuntu0.24.04.2               deb                          
-mesa-vulkan-drivers                                                            25.0.7-0ubuntu0.24.04.2               deb                          
+mesa-va-drivers                                                                25.2.8-0ubuntu0.24.04.1               deb                          
+mesa-vulkan-drivers                                                            25.2.8-0ubuntu0.24.04.1               deb                          
 methods                                                                        1.1.2                                 npm                          
 micromark                                                                      4.0.2                                 npm                          
 micromark-core-commonmark                                                      2.0.3                                 npm                          
