@@ -390,10 +390,10 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.5                                npm                          
 @img/sharp-win32-ia32                                                          0.34.5                                npm                          
 @img/sharp-win32-x64                                                           0.34.5                                npm                          
-@immich/cli                                                                    2.5.3                                 npm                          
+@immich/cli                                                                    2.5.5                                 npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                 npm                          
-@immich/svelte-markdown-preprocess                                             0.1.0                                 npm                          
-@immich/ui                                                                     0.59.0                                npm                          
+@immich/svelte-markdown-preprocess                                             0.2.1                                 npm                          
+@immich/ui                                                                     0.61.3                                npm                          
 @inquirer/ansi                                                                 1.0.2                                 npm                          
 @inquirer/ansi                                                                 2.0.3                                 npm                          
 @inquirer/checkbox                                                             4.3.2                                 npm                          
@@ -1543,6 +1543,7 @@ forwarded-parse                                                                2
 fraction.js                                                                    5.3.4                                 npm                          
 fresh                                                                          0.5.2                                 npm                          
 fresh                                                                          2.0.0                                 npm        (+1 duplicate)    
+front-matter                                                                   4.0.2                                 npm                          
 fs-constants                                                                   1.0.0                                 npm                          
 fs-extra                                                                       10.1.0                                npm                          
 fs-extra                                                                       11.3.2                                npm                          
@@ -1736,7 +1737,7 @@ image-size                                                                     2
 imagediff                                                                      1.0.8                                 npm                          
 imagetools-core                                                                9.1.0                                 npm                          
 immediate                                                                      3.3.0                                 npm                          
-immich                                                                         2.5.3                                 npm                          
+immich                                                                         2.5.5                                 npm                          
 immutable                                                                      5.1.4                                 npm                          
 immutable-json-patch                                                           6.0.2                                 npm                          
 import-fresh                                                                   3.3.1                                 npm        (+1 duplicate)    
@@ -1958,8 +1959,8 @@ libgdk-pixbuf2.0-common                                                        2
 libgl1                                                                         1.7.0-1build1                         deb                          
 libgl1-mesa-dri                                                                25.2.8-0ubuntu0.24.04.1               deb                          
 libgles2                                                                       1.7.0-1build1                         deb                          
-libglib2.0-0t64                                                                2.80.0-6ubuntu3.7                     deb                          
-libglib2.0-data                                                                2.80.0-6ubuntu3.7                     deb                          
+libglib2.0-0t64                                                                2.80.0-6ubuntu3.8                     deb                          
+libglib2.0-data                                                                2.80.0-6ubuntu3.8                     deb                          
 libglvnd0                                                                      1.7.0-1build1                         deb                          
 libglx-mesa0                                                                   25.2.8-0ubuntu0.24.04.1               deb                          
 libglx0                                                                        1.7.0-1build1                         deb                          
@@ -2050,8 +2051,8 @@ libpq5                                                                         1
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                    deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                      deb                          
 libpython3-stdlib                                                              3.12.3-0ubuntu2.1                     deb                          
-libpython3.12-minimal                                                          3.12.3-1ubuntu0.10                    deb                          
-libpython3.12-stdlib                                                           3.12.3-1ubuntu0.10                    deb                          
+libpython3.12-minimal                                                          3.12.3-1ubuntu0.11                    deb                          
+libpython3.12-stdlib                                                           3.12.3-1ubuntu0.11                    deb                          
 libreadline8t64                                                                8.2-4build1                           deb                          
 librsvg2-2                                                                     2.58.0+dfsg-1build1                   deb                          
 librsvg2-common                                                                2.58.0+dfsg-1build1                   deb                          
@@ -2206,6 +2207,7 @@ markdown-table                                                                 2
 markdown-table                                                                 3.0.4                                 npm                          
 marked                                                                         15.0.12                               npm        (+1 duplicate)    
 marked                                                                         16.4.2                                npm                          
+marked                                                                         17.0.1                                npm                          
 math-intrinsics                                                                1.1.0                                 npm        (+1 duplicate)    
 mawk                                                                           1.3.4.20240123-1build1                deb                          
 mdast-util-directive                                                           3.1.0                                 npm                          
@@ -2646,8 +2648,8 @@ punycode                                                                       2
 pupa                                                                           3.3.0                                 npm                          
 python3                                                                        3.12.3-0ubuntu2.1                     deb                          
 python3-minimal                                                                3.12.3-0ubuntu2.1                     deb                          
-python3.12                                                                     3.12.3-1ubuntu0.10                    deb                          
-python3.12-minimal                                                             3.12.3-1ubuntu0.10                    deb                          
+python3.12                                                                     3.12.3-1ubuntu0.11                    deb                          
+python3.12-minimal                                                             3.12.3-1ubuntu0.11                    deb                          
 qrcode                                                                         1.5.4                                 npm                          
 qrcode-terminal                                                                0.12.0                                npm                          
 qs                                                                             6.14.1                                npm        (+1 duplicate)    
