@@ -390,10 +390,10 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.5                                npm                          
 @img/sharp-win32-ia32                                                          0.34.5                                npm                          
 @img/sharp-win32-x64                                                           0.34.5                                npm                          
-@immich/cli                                                                    2.5.5                                 npm                          
+@immich/cli                                                                    2.5.6                                 npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                 npm                          
 @immich/svelte-markdown-preprocess                                             0.2.1                                 npm                          
-@immich/ui                                                                     0.61.3                                npm                          
+@immich/ui                                                                     0.61.4                                npm                          
 @inquirer/ansi                                                                 1.0.2                                 npm                          
 @inquirer/ansi                                                                 2.0.3                                 npm                          
 @inquirer/checkbox                                                             4.3.2                                 npm                          
@@ -882,7 +882,7 @@ NAME                                                                           V
 @types/node                                                                    17.0.45                               npm                          
 @types/node                                                                    18.19.130                             npm                          
 @types/node                                                                    20.19.30                              npm                          
-@types/node                                                                    24.10.9                               npm        (+1 duplicate)    
+@types/node                                                                    24.10.13                              npm        (+1 duplicate)    
 @types/node                                                                    25.0.9                                npm                          
 @types/node-forge                                                              1.3.14                                npm                          
 @types/nodemailer                                                              7.0.5                                 npm                          
@@ -1766,7 +1766,7 @@ imagediff                                                                      1
 imageio                                                                        2.33.1                                python                       
 imagetools-core                                                                9.1.0                                 npm                          
 immediate                                                                      3.3.0                                 npm                          
-immich                                                                         2.5.5                                 npm                          
+immich                                                                         2.5.6                                 npm                          
 immutable                                                                      5.1.4                                 npm                          
 immutable-json-patch                                                           6.0.2                                 npm                          
 import-fresh                                                                   3.3.1                                 npm        (+1 duplicate)    
@@ -2023,8 +2023,8 @@ libkrb5-3                                                                      1
 libkrb5support0                                                                1.20.1-6ubuntu2.6                     deb                          
 libksba8                                                                       1.6.6-1build1                         deb                          
 liblcms2-2                                                                     2.14-2build1                          deb                          
-libldap-common                                                                 2.6.7+dfsg-1~exp1ubuntu8.2            deb                          
-libldap2                                                                       2.6.7+dfsg-1~exp1ubuntu8.2            deb                          
+libldap-common                                                                 2.6.10+dfsg-0ubuntu0.24.04.1          deb                          
+libldap2                                                                       2.6.10+dfsg-0ubuntu0.24.04.1          deb                          
 liblerc4                                                                       4.0.0+ds-4ubuntu2                     deb                          
 libllvm20                                                                      1:20.1.2-0ubuntu1~24.04.2             deb                          
 liblqr-1-0                                                                     0.4.2-2.1build2                       deb                          
@@ -2108,7 +2108,7 @@ libspng0                                                                       0
 libsqlite3-0                                                                   3.45.1-1ubuntu2.5                     deb                          
 libss2                                                                         1.47.0-2.4~exp1ubuntu4.1              deb                          
 libssh-4                                                                       0.10.6-2ubuntu0.2                     deb                          
-libssl3t64                                                                     3.0.13-0ubuntu3.6                     deb                          
+libssl3t64                                                                     3.0.13-0ubuntu3.7                     deb                          
 libstdc++6                                                                     14.2.0-4ubuntu2~24.04                 deb                          
 libsystemd0                                                                    255.4-1ubuntu8.12                     deb                          
 libtasn1-6                                                                     4.19.0-3ubuntu0.24.04.2               deb                          
@@ -2476,7 +2476,7 @@ opencv-python                                                                  4
 opencv-python-headless                                                         4.11.0.86                             python                       
 opener                                                                         1.5.2                                 npm                          
 openid-client                                                                  6.8.1                                 npm        (+1 duplicate)    
-openssl                                                                        3.0.13-0ubuntu3.6                     deb                          
+openssl                                                                        3.0.13-0ubuntu3.7                     deb                          
 optionator                                                                     0.9.4                                 npm                          
 ora                                                                            5.4.1                                 npm        (+1 duplicate)    
 ora                                                                            8.2.0                                 npm        (+1 duplicate)    
