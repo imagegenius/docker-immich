@@ -2127,7 +2127,7 @@ libvips-cpp-8.17.3                                                             U
 libvorbis0a                                                                    1.3.7-1build3                         deb                          
 libvorbisenc2                                                                  1.3.7-1build3                         deb                          
 libvorbisfile3                                                                 1.3.7-1build3                         deb                          
-libvpx9                                                                        1.14.0-1ubuntu2.2                     deb                          
+libvpx9                                                                        1.14.0-1ubuntu2.3                     deb                          
 libvulkan1                                                                     1.3.275.0-1build1                     deb                          
 libwayland-client0                                                             1.22.0-2.1build1                      deb                          
 libwayland-egl1                                                                1.22.0-2.1build1                      deb                          
