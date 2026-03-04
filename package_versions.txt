@@ -1276,7 +1276,7 @@ cssom                                                                          0
 cssstyle                                                                       2.3.0                                 npm                          
 cssstyle                                                                       4.6.0                                 npm                          
 csstype                                                                        3.2.3                                 npm                          
-curl                                                                           8.5.0-2ubuntu10.6                     deb                          
+curl                                                                           8.5.0-2ubuntu10.7                     deb                          
 cycler                                                                         0.12.1                                python                       
 cython                                                                         3.0.8                                 python                       
 cytoscape                                                                      3.33.1                                npm                          
@@ -1964,7 +1964,7 @@ libcudart12                                                                    1
 libcudnn9-cuda-12                                                              9.10.2.21-1                           deb                          
 libcufft11                                                                     11.0.1.95~12.0.1-4build4              deb                          
 libcurand10                                                                    11.1.1+~10.3.1.124~12.0.1-4build4     deb                          
-libcurl4t64                                                                    8.5.0-2ubuntu10.6                     deb                          
+libcurl4t64                                                                    8.5.0-2ubuntu10.7                     deb                          
 libdatrie1                                                                     0.2.13-3build1                        deb                          
 libdav1d7                                                                      1.5.3-1                               deb                          
 libdb5.3t64                                                                    5.3.28+dfsg2-7                        deb                          
@@ -2004,7 +2004,7 @@ libglvnd0                                                                      1
 libglx-mesa0                                                                   25.2.8-0ubuntu0.24.04.1               deb                          
 libglx0                                                                        1.7.0-1build1                         deb                          
 libgmp10                                                                       2:6.3.0+dfsg-2ubuntu6.1               deb                          
-libgnutls30t64                                                                 3.8.3-1.1ubuntu3.4                    deb                          
+libgnutls30t64                                                                 3.8.3-1.1ubuntu3.5                    deb                          
 libgomp1                                                                       14.2.0-4ubuntu2~24.04.1               deb                          
 libgpg-error0                                                                  1.47-3build2.1                        deb                          
 libgraphite2-3                                                                 1.3.14-2build1                        deb                          
@@ -2086,12 +2086,12 @@ libphonenumber-js/mobile/examples                                              U
 libphonenumber-js/mobile/metadata                                              UNKNOWN                               npm        (+1 duplicate)    
 libpixman-1-0                                                                  0.42.2-1build1                        deb                          
 libpng16-16t64                                                                 1.6.43-5ubuntu0.5                     deb                          
-libpq5                                                                         18.2-1.pgdg24.04+1                    deb                          
+libpq5                                                                         18.3-1.pgdg24.04+1                    deb                          
 libproc2-0                                                                     2:4.0.4-4ubuntu3.2                    deb                          
 libpsl5t64                                                                     0.21.2-1.1build1                      deb                          
 libpython3-stdlib                                                              3.12.3-0ubuntu2.1                     deb                          
-libpython3.11-minimal                                                          3.11.14-1+noble1                      deb                          
-libpython3.11-stdlib                                                           3.11.14-1+noble1                      deb                          
+libpython3.11-minimal                                                          3.11.15-1+noble1                      deb                          
+libpython3.11-stdlib                                                           3.11.15-1+noble1                      deb                          
 libpython3.12-minimal                                                          3.12.3-1ubuntu0.11                    deb                          
 libpython3.12-stdlib                                                           3.12.3-1ubuntu0.11                    deb                          
 libreadline8t64                                                                8.2-4build1                           deb                          
@@ -2656,12 +2656,12 @@ postgres-array                                                                 2
 postgres-bytea                                                                 1.0.1                                 npm        (+1 duplicate)    
 postgres-date                                                                  1.0.7                                 npm        (+1 duplicate)    
 postgres-interval                                                              1.2.0                                 npm        (+1 duplicate)    
-postgresql-client-14                                                           14.21-1.pgdg24.04+1                   deb                          
-postgresql-client-15                                                           15.16-1.pgdg24.04+1                   deb                          
-postgresql-client-16                                                           16.12-1.pgdg24.04+1                   deb                          
-postgresql-client-17                                                           17.8-1.pgdg24.04+1                    deb                          
-postgresql-client-18                                                           18.2-1.pgdg24.04+1                    deb                          
-postgresql-client-common                                                       289.pgdg24.04+1                       deb                          
+postgresql-client-14                                                           14.22-1.pgdg24.04+1                   deb                          
+postgresql-client-15                                                           15.17-1.pgdg24.04+1                   deb                          
+postgresql-client-16                                                           16.13-1.pgdg24.04+1                   deb                          
+postgresql-client-17                                                           17.9-1.pgdg24.04+1                    deb                          
+postgresql-client-18                                                           18.3-1.pgdg24.04+1                    deb                          
+postgresql-client-common                                                       290.pgdg24.04+1                       deb                          
 potpack                                                                        1.0.2                                 npm                          
 potpack                                                                        2.1.0                                 npm                          
 prelude-ls                                                                     1.2.1                                 npm                          
@@ -2715,8 +2715,8 @@ python-dotenv                                                                  1
 python-multipart                                                               0.0.21                                python                       
 python3                                                                        3.12.3-0ubuntu2.1                     deb                          
 python3-minimal                                                                3.12.3-0ubuntu2.1                     deb                          
-python3.11                                                                     3.11.14-1+noble1                      deb                          
-python3.11-minimal                                                             3.11.14-1+noble1                      deb                          
+python3.11                                                                     3.11.15-1+noble1                      deb                          
+python3.11-minimal                                                             3.11.15-1+noble1                      deb                          
 python3.12                                                                     3.12.3-1ubuntu0.11                    deb                          
 python3.12-minimal                                                             3.12.3-1ubuntu0.11                    deb                          
 pyyaml                                                                         6.0.2                                 python                       
