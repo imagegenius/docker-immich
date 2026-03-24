@@ -240,9 +240,11 @@ NAME                                                                           V
 @docusaurus/utils-common                                                       3.9.2                                 npm                          
 @docusaurus/utils-validation                                                   3.9.2                                 npm                          
 @emnapi/core                                                                   1.8.1                                 npm                          
+@emnapi/core                                                                   1.9.0                                 npm                          
 @emnapi/runtime                                                                1.7.1                                 npm                          
 @emnapi/runtime                                                                1.8.1                                 npm                          
 @emnapi/wasi-threads                                                           1.1.0                                 npm                          
+@emnapi/wasi-threads                                                           1.2.0                                 npm                          
 @esbuild/aix-ppc64                                                             0.19.12                               npm                          
 @esbuild/aix-ppc64                                                             0.27.3                                npm                          
 @esbuild/android-arm                                                           0.19.12                               npm                          
@@ -358,7 +360,7 @@ NAME                                                                           V
 @img/sharp-win32-arm64                                                         0.34.5                                npm                          
 @img/sharp-win32-ia32                                                          0.34.5                                npm                          
 @img/sharp-win32-x64                                                           0.34.5                                npm                          
-@immich/cli                                                                    2.6.1                                 npm                          
+@immich/cli                                                                    2.6.2                                 npm                          
 @immich/justified-layout-wasm                                                  0.4.3                                 npm                          
 @immich/sql-tools                                                              0.3.2                                 npm        (+1 duplicate)    
 @immich/svelte-markdown-preprocess                                             0.2.1                                 npm                          
@@ -514,6 +516,8 @@ NAME                                                                           V
 @opentelemetry/sdk-trace-node                                                  2.6.0                                 npm        (+1 duplicate)    
 @opentelemetry/semantic-conventions                                            1.40.0                                npm        (+1 duplicate)    
 @opentelemetry/sql-common                                                      0.41.2                                npm        (+1 duplicate)    
+@oxc-project/runtime                                                           0.115.0                               npm                          
+@oxc-project/types                                                             0.115.0                               npm                          
 @paralleldrive/cuid2                                                           2.3.1                                 npm                          
 @parcel/watcher                                                                2.5.1                                 npm                          
 @parcel/watcher-android-arm64                                                  2.5.1                                 npm                          
@@ -575,6 +579,22 @@ NAME                                                                           V
 @react-email/tailwind                                                          1.2.2                                 npm        (+1 duplicate)    
 @react-email/text                                                              0.1.5                                 npm        (+1 duplicate)    
 @replit/codemirror-indentation-markers                                         6.5.3                                 npm                          
+@rolldown/binding-android-arm64                                                1.0.0-rc.9                            npm                          
+@rolldown/binding-darwin-arm64                                                 1.0.0-rc.9                            npm                          
+@rolldown/binding-darwin-x64                                                   1.0.0-rc.9                            npm                          
+@rolldown/binding-freebsd-x64                                                  1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-arm-gnueabihf                                          1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-arm64-gnu                                              1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-arm64-musl                                             1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-ppc64-gnu                                              1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-s390x-gnu                                              1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-x64-gnu                                                1.0.0-rc.9                            npm                          
+@rolldown/binding-linux-x64-musl                                               1.0.0-rc.9                            npm                          
+@rolldown/binding-openharmony-arm64                                            1.0.0-rc.9                            npm                          
+@rolldown/binding-wasm32-wasi                                                  1.0.0-rc.9                            npm                          
+@rolldown/binding-win32-arm64-msvc                                             1.0.0-rc.9                            npm                          
+@rolldown/binding-win32-x64-msvc                                               1.0.0-rc.9                            npm                          
+@rolldown/pluginutils                                                          1.0.0-rc.9                            npm                          
 @rollup/pluginutils                                                            5.3.0                                 npm                          
 @rollup/rollup-android-arm-eabi                                                4.55.1                                npm                          
 @rollup/rollup-android-arm64                                                   4.55.1                                npm                          
@@ -624,10 +644,9 @@ NAME                                                                           V
 @standard-schema/spec                                                          1.1.0                                 npm                          
 @sveltejs/acorn-typescript                                                     1.0.9                                 npm                          
 @sveltejs/adapter-static                                                       3.0.10                                npm                          
-@sveltejs/enhanced-img                                                         0.10.3                                npm                          
+@sveltejs/enhanced-img                                                         0.10.4                                npm                          
 @sveltejs/kit                                                                  2.53.4                                npm                          
-@sveltejs/vite-plugin-svelte                                                   6.2.4                                 npm                          
-@sveltejs/vite-plugin-svelte-inspector                                         5.0.1                                 npm                          
+@sveltejs/vite-plugin-svelte                                                   7.0.0                                 npm                          
 @svgr/babel-plugin-add-jsx-attribute                                           8.0.0                                 npm                          
 @svgr/babel-plugin-remove-jsx-attribute                                        8.0.0                                 npm                          
 @svgr/babel-plugin-remove-jsx-empty-expression                                 8.0.0                                 npm                          
@@ -648,21 +667,21 @@ NAME                                                                           V
 @swc/helpers                                                                   0.5.17                                npm                          
 @swc/types                                                                     0.1.25                                npm                          
 @szmarczak/http-timer                                                          5.0.1                                 npm                          
-@tailwindcss/node                                                              4.2.1                                 npm                          
-@tailwindcss/oxide                                                             4.2.1                                 npm                          
-@tailwindcss/oxide-android-arm64                                               4.2.1                                 npm                          
-@tailwindcss/oxide-darwin-arm64                                                4.2.1                                 npm                          
-@tailwindcss/oxide-darwin-x64                                                  4.2.1                                 npm                          
-@tailwindcss/oxide-freebsd-x64                                                 4.2.1                                 npm                          
-@tailwindcss/oxide-linux-arm-gnueabihf                                         4.2.1                                 npm                          
-@tailwindcss/oxide-linux-arm64-gnu                                             4.2.1                                 npm                          
-@tailwindcss/oxide-linux-arm64-musl                                            4.2.1                                 npm                          
-@tailwindcss/oxide-linux-x64-gnu                                               4.2.1                                 npm                          
-@tailwindcss/oxide-linux-x64-musl                                              4.2.1                                 npm                          
-@tailwindcss/oxide-wasm32-wasi                                                 4.2.1                                 npm                          
-@tailwindcss/oxide-win32-arm64-msvc                                            4.2.1                                 npm                          
-@tailwindcss/oxide-win32-x64-msvc                                              4.2.1                                 npm                          
-@tailwindcss/vite                                                              4.2.1                                 npm                          
+@tailwindcss/node                                                              4.2.2                                 npm                          
+@tailwindcss/oxide                                                             4.2.2                                 npm                          
+@tailwindcss/oxide-android-arm64                                               4.2.2                                 npm                          
+@tailwindcss/oxide-darwin-arm64                                                4.2.2                                 npm                          
+@tailwindcss/oxide-darwin-x64                                                  4.2.2                                 npm                          
+@tailwindcss/oxide-freebsd-x64                                                 4.2.2                                 npm                          
+@tailwindcss/oxide-linux-arm-gnueabihf                                         4.2.2                                 npm                          
+@tailwindcss/oxide-linux-arm64-gnu                                             4.2.2                                 npm                          
+@tailwindcss/oxide-linux-arm64-musl                                            4.2.2                                 npm                          
+@tailwindcss/oxide-linux-x64-gnu                                               4.2.2                                 npm                          
+@tailwindcss/oxide-linux-x64-musl                                              4.2.2                                 npm                          
+@tailwindcss/oxide-wasm32-wasi                                                 4.2.2                                 npm                          
+@tailwindcss/oxide-win32-arm64-msvc                                            4.2.2                                 npm                          
+@tailwindcss/oxide-win32-x64-msvc                                              4.2.2                                 npm                          
+@tailwindcss/vite                                                              4.2.2                                 npm                          
 @testing-library/dom                                                           10.4.1                                npm                          
 @testing-library/jest-dom                                                      6.9.1                                 npm                          
 @testing-library/svelte                                                        5.3.1                                 npm                          
@@ -1266,6 +1285,7 @@ detect-libc                                                                    2
 detect-node                                                                    2.1.0                                 npm                          
 detect-port                                                                    1.6.1                                 npm                          
 devalue                                                                        5.6.3                                 npm                          
+devalue                                                                        5.6.4                                 npm                          
 devlop                                                                         1.1.0                                 npm                          
 dezalgo                                                                        1.0.4                                 npm                          
 diacritics                                                                     1.3.0                                 npm        (+1 duplicate)    
@@ -1662,7 +1682,7 @@ imagediff                                                                      1
 imageio                                                                        2.33.1                                python                       
 imagetools-core                                                                9.1.0                                 npm                          
 immediate                                                                      3.3.0                                 npm                          
-immich                                                                         2.6.1                                 npm                          
+immich                                                                         2.6.2                                 npm                          
 immutable                                                                      5.1.4                                 npm                          
 immutable-json-patch                                                           6.0.2                                 npm                          
 import-fresh                                                                   3.3.1                                 npm        (+1 duplicate)    
@@ -1684,9 +1704,9 @@ inline-style-parser                                                            0
 inquirer                                                                       8.2.7                                 npm        (+1 duplicate)    
 insightface                                                                    0.7.3                                 python                       
 intel-igc-core                                                                 1.0.17537.20                          deb                          
-intel-igc-core-2                                                               2.28.4                                deb                          
+intel-igc-core-2                                                               2.30.1                                deb                          
 intel-igc-opencl                                                               1.0.17537.20                          deb                          
-intel-igc-opencl-2                                                             2.28.4                                deb                          
+intel-igc-opencl-2                                                             2.30.1                                deb                          
 intel-level-zero-gpu                                                           1.3.30872.22                          deb                          
 intel-level-zero-gpu-legacy1                                                   1.3.30872.22                          deb                          
 intel-media-va-driver-non-free                                                 24.1.0+ds1-1                          deb                          
@@ -2017,7 +2037,7 @@ libtasn1-6                                                                     4
 libthai-data                                                                   0.1.29-2build1                        deb                          
 libthai0                                                                       0.1.29-2build1                        deb                          
 libtheora0                                                                     1.1.1+dfsg.1-16.1build3               deb                          
-libtiff6                                                                       4.5.1+git230720-4ubuntu2.4            deb                          
+libtiff6                                                                       4.5.1+git230720-4ubuntu2.5            deb                          
 libtinfo6                                                                      6.4+20240113-1ubuntu2                 deb                          
 libudev1                                                                       255.4-1ubuntu8.12                     deb                          
 libudfread0                                                                    1.1.2-1build1                         deb                          
@@ -2064,18 +2084,18 @@ libxxhash0                                                                     0
 libzstd1                                                                       1.5.5+dfsg2-2build1.1                 deb                          
 libzvbi-common                                                                 0.2.42-2                              deb                          
 libzvbi0t64                                                                    0.2.42-2                              deb                          
-lightningcss                                                                   1.31.1                                npm                          
-lightningcss-android-arm64                                                     1.31.1                                npm                          
-lightningcss-darwin-arm64                                                      1.31.1                                npm                          
-lightningcss-darwin-x64                                                        1.31.1                                npm                          
-lightningcss-freebsd-x64                                                       1.31.1                                npm                          
-lightningcss-linux-arm-gnueabihf                                               1.31.1                                npm                          
-lightningcss-linux-arm64-gnu                                                   1.31.1                                npm                          
-lightningcss-linux-arm64-musl                                                  1.31.1                                npm                          
-lightningcss-linux-x64-gnu                                                     1.31.1                                npm                          
-lightningcss-linux-x64-musl                                                    1.31.1                                npm                          
-lightningcss-win32-arm64-msvc                                                  1.31.1                                npm                          
-lightningcss-win32-x64-msvc                                                    1.31.1                                npm                          
+lightningcss                                                                   1.32.0                                npm                          
+lightningcss-android-arm64                                                     1.32.0                                npm                          
+lightningcss-darwin-arm64                                                      1.32.0                                npm                          
+lightningcss-darwin-x64                                                        1.32.0                                npm                          
+lightningcss-freebsd-x64                                                       1.32.0                                npm                          
+lightningcss-linux-arm-gnueabihf                                               1.32.0                                npm                          
+lightningcss-linux-arm64-gnu                                                   1.32.0                                npm                          
+lightningcss-linux-arm64-musl                                                  1.32.0                                npm                          
+lightningcss-linux-x64-gnu                                                     1.32.0                                npm                          
+lightningcss-linux-x64-musl                                                    1.32.0                                npm                          
+lightningcss-win32-arm64-msvc                                                  1.32.0                                npm                          
+lightningcss-win32-x64-msvc                                                    1.32.0                                npm                          
 lilconfig                                                                      2.1.0                                 npm                          
 lilconfig                                                                      3.1.3                                 npm        (+1 duplicate)    
 lines-and-columns                                                              1.2.4                                 npm        (+1 duplicate)    
@@ -2701,6 +2721,7 @@ reusify                                                                        1
 rich                                                                           14.3.2                                python                       
 rimraf                                                                         3.0.2                                 npm                          
 robust-predicates                                                              3.0.2                                 npm        (+1 duplicate)    
+rolldown                                                                       1.0.0-rc.9                            npm                          
 rollup                                                                         4.55.1                                npm                          
 rollup-plugin-visualizer                                                       6.0.11                                npm                          
 roughjs                                                                        4.6.6                                 npm                          
@@ -2869,7 +2890,7 @@ supports-color                                                                 1
 supports-color                                                                 7.2.0                                 npm        (+1 duplicate)    
 supports-color                                                                 8.1.1                                 npm                          
 supports-preserve-symlinks-flag                                                1.0.0                                 npm        (+1 duplicate)    
-svelte                                                                         5.53.7                                npm                          
+svelte                                                                         5.53.13                               npm                          
 svelte-awesome                                                                 3.3.5                                 npm                          
 svelte-check                                                                   4.4.4                                 npm                          
 svelte-eslint-parser                                                           1.6.0                                 npm                          
@@ -2898,7 +2919,7 @@ tabbable                                                                       6
 tailwind-merge                                                                 3.5.0                                 npm                          
 tailwind-variants                                                              3.2.2                                 npm                          
 tailwindcss                                                                    3.4.19                                npm        (+1 duplicate)    
-tailwindcss                                                                    4.2.1                                 npm                          
+tailwindcss                                                                    4.2.2                                 npm                          
 tailwindcss-email-variants                                                     3.0.5                                 npm        (+1 duplicate)    
 tailwindcss-mso                                                                2.0.3                                 npm        (+1 duplicate)    
 tailwindcss-preset-email                                                       1.4.1                                 npm        (+1 duplicate)    
@@ -3061,10 +3082,11 @@ vfile-location                                                                 5
 vfile-message                                                                  2.0.4                                 npm                          
 vfile-message                                                                  4.0.3                                 npm                          
 vite                                                                           7.3.1                                 npm                          
+vite                                                                           8.0.0                                 npm                          
 vite-imagetools                                                                9.0.3                                 npm                          
 vite-node                                                                      3.2.4                                 npm                          
 vite-tsconfig-paths                                                            6.1.1                                 npm                          
-vitefu                                                                         1.1.1                                 npm                          
+vitefu                                                                         1.1.2                                 npm                          
 vitest                                                                         3.2.4                                 npm                          
 vitest                                                                         4.0.18                                npm                          
 vitest-fetch-mock                                                              0.4.5                                 npm                          
