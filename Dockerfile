@@ -6,6 +6,7 @@ FROM ghcr.io/imagegenius/baseimage-immich:latest
 ARG BUILD_DATE
 ARG VERSION
 ARG IMMICH_VERSION
+ARG LATEST_UBUNTU_VERSION="resolute"
 ARG NODEJS_VERSION
 LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydazz, martabal"
@@ -46,25 +47,42 @@ RUN \
   NODEJS_MAJOR_VERSION=$(echo "$NODEJS_VERSION" | cut -d '.' -f 1) && \
   NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
   echo "**** setup repos ****" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
+  echo "deb http://archive.ubuntu.com/ubuntu ${LATEST_UBUNTU_VERSION} main restricted universe multiverse" \
+    >/etc/apt/sources.list.d/immich.list && \
+  printf "Package: *\nPin: release n=${LATEST_UBUNTU_VERSION}\nPin-Priority: 450" \
+    >/etc/apt/preferences.d/preferences && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" \
+    >>/etc/apt/sources.list.d/node.list && \
   curl -s "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
-  echo "deb [signed-by=/usr/share/keyrings/deadsnakes.gpg] https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" >>/etc/apt/sources.list.d/deadsnakes.list && \
+  echo "deb [signed-by=/usr/share/keyrings/deadsnakes.gpg] https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" \
+    >>/etc/apt/sources.list.d/deadsnakes.list && \
   curl -s "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" | gpg --dearmor | tee /usr/share/keyrings/deadsnakes.gpg >/dev/null && \
-  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub] https://mise.jdx.dev/deb stable main" >>/etc/apt/sources.list.d/mise.list && \
+  mkdir -p \
+    /etc/apt/keyrings && \
+  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub] https://mise.jdx.dev/deb stable main" \
+    >>/etc/apt/sources.list.d/mise.list && \
   curl -fSs "https://mise.jdx.dev/gpg-key.pub" | tee /etc/apt/keyrings/mise-archive-keyring.pub 1> /dev/null && \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
+    git \
     libexif-dev \
     libexpat1-dev \
     libglib2.0-dev \
     libjpeg-dev \
-    librsvg2-dev \
     libspng-dev \
     pkg-config \
     python3.11-dev \
     mise && \
+  apt-get install --no-install-recommends -y -t ${LATEST_UBUNTU_VERSION} \
+    libhwy-dev \
+    librsvg2-dev \
+    libsharpyuv-dev \
+    libwebp-dev \
+    libwebp7 \
+    libwebpdemux2 \
+    libwebpmux3 && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     nodejs=$NODEJS_VERSION \
@@ -86,14 +104,7 @@ RUN \
     /app/immich/plugins && \
   sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' /app/immich/plugins/mise.toml && \
   cd /app/immich/plugins && mise run build && \
-  mkdir -p \
-    /app/immich/data/corePlugin && \
-  cp -a \
-    /app/immich/plugins/* \
-    /app/immich/data/corePlugin && \  
   echo "**** build server ****" && \
-  mkdir -p \
-    /tmp/node_modules && \
   cd /tmp/immich && \
   SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
     --filter immich \
@@ -104,7 +115,6 @@ RUN \
     --frozen-lockfile \
     --prod \
     --no-optional \
-    --force \
     deploy /app/immich/server && \
   echo "**** build web ****" && \
   SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
@@ -116,12 +126,6 @@ RUN \
     --filter @immich/sdk \
     --filter immich-web \
     build && \
-  mkdir -p \
-    /app/immich/data/www && \
-  cp -a \
-    web/build/* \
-    web/static \
-    /app/immich/data/www && \
   echo "**** build CLI ****" && \
   pnpm \
     --filter @immich/sdk \
@@ -136,20 +140,33 @@ RUN \
     --filter @immich/cli \
     --prod \
     --no-optional \
-    --force \
     deploy /app/immich/cli && \
+  echo "**** install core plugins ****" && \
+  mkdir -p \
+    /app/immich/data/corePlugin \
+    /app/immich/data/www && \
   cp -a \
-    node_modules \
-    /app/immich && \
+    /app/immich/plugins/dist \
+    /app/immich/data/corePlugin/dist && \
+  cp -a \
+    /tmp/immich/plugins/manifest.json \
+    /app/immich/data/corePlugin/manifest.json && \
+  cp -a \
+    /tmp/immich/web/build/. \
+    /app/immich/data/www && \
   echo "**** copy scripts ****" && \
   mkdir -p \
+    /app/immich/machine-learning \
     /app/immich/server/bin && \
-  cp -r \
+  cp -a \
     /tmp/immich/server/bin/get-cpus.sh \
+    /tmp/immich/server/bin/immich-healthcheck \
+    /tmp/immich/server/bin/start.sh \
     /app/immich/server/bin && \
+  ln -s \
+    ../../cli/bin/immich \
+    /app/immich/server/bin/immich && \
   echo "**** build machine-learning ****" && \
-  mkdir -p \
-    /app/immich/machine-learning/ann && \
   cd /tmp/immich/machine-learning && \
   if [ -z ${UV_VERSION} ]; then \
     UV_VERSION=$(curl -sL https://api.github.com/repos/astral-sh/uv/releases/latest | \
@@ -165,6 +182,7 @@ RUN \
   cp -a \
     immich_ml \
     pyproject.toml \
+    scripts \
     uv.lock \
     /app/immich/machine-learning && \
   echo "**** cleanup ****" && \
@@ -173,10 +191,12 @@ RUN \
   done && \
   apt-get remove -y --purge \
     build-essential \
+    git \
     libexif-dev \
     libexpat1-dev \
     libglib2.0-dev \
     libhwy-dev \
+    libsharpyuv-dev \
     libjpeg-dev \
     librsvg2-dev \
     libspng-dev \
@@ -187,13 +207,17 @@ RUN \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
-    /etc/apt/sources.list.d/node.list \
+    /etc/apt/preferences.d/preferences \
     /etc/apt/sources.list.d/deadsnakes.list \
-    /usr/share/keyrings/deadsnakes.gpg \
+    /etc/apt/sources.list.d/immich.list \
+    /etc/apt/sources.list.d/mise.list \
+    /etc/apt/sources.list.d/node.list \
+    /etc/apt/keyrings/mise-archive-keyring.pub \
     /root/.cache \
     /root/.local \
     /root/.npm \
     /tmp/* \
+    /usr/share/keyrings/deadsnakes.gpg \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/* \
     /var/log/* \
