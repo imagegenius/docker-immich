@@ -19,7 +19,7 @@ NAME                                        VERSION                             
 @grpc/grpc-js                               1.14.3                                npm                         
 @grpc/proto-loader                          0.8.0                                 npm                         
 @img/colour                                 1.0.0                                 npm                         
-@immich/cli                                 2.7.0                                 npm                         
+@immich/cli                                 2.7.2                                 npm                         
 @immich/sql-tools                           0.3.2                                 npm                         
 @inquirer/external-editor                   1.0.3                                 npm                         
 @ioredis/commands                           1.5.0                                 npm                         
@@ -466,7 +466,7 @@ i18n-iso-countries                          7.14.0                              
 iconv-lite                                  0.7.2                                 npm        (+1 duplicate)   
 ieee754                                     1.2.1                                 npm                         
 ignore-walk                                 8.0.0                                 npm                         
-immich                                      2.7.0                                 npm                         
+immich                                      2.7.2                                 npm                         
 import-fresh                                3.3.1                                 npm                         
 import-in-the-middle                        3.0.0                                 npm                         
 imurmurhash                                 0.1.4                                 npm        (+1 duplicate)   
@@ -1106,7 +1106,7 @@ type-fest                                   0.21.3                              
 type-is                                     1.6.18                                npm                         
 type-is                                     2.0.1                                 npm                         
 typedarray                                  0.0.6                                 npm                         
-typescript                                  5.9.3                                 npm                         
+typescript                                  6.0.2                                 npm                         
 tzdata                                      2025b-0ubuntu0.24.04.1                deb                         
 ua-is-frozen                                0.1.2                                 npm                         
 ua-parser-js                                2.0.9                                 npm                         
