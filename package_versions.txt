@@ -19,7 +19,7 @@ NAME                                        VERSION                             
 @grpc/grpc-js                               1.14.3                                npm                         
 @grpc/proto-loader                          0.8.0                                 npm                         
 @img/colour                                 1.0.0                                 npm                         
-@immich/cli                                 2.7.0                                 npm                         
+@immich/cli                                 2.7.2                                 npm                         
 @immich/sql-tools                           0.3.2                                 npm                         
 @inquirer/external-editor                   1.0.3                                 npm                         
 @ioredis/commands                           1.5.0                                 npm                         
@@ -492,7 +492,7 @@ idna                                        3.11                                
 ieee754                                     1.2.1                                 npm                         
 ignore-walk                                 8.0.0                                 npm                         
 imageio                                     2.33.1                                python                      
-immich                                      2.7.0                                 npm                         
+immich                                      2.7.2                                 npm                         
 import-fresh                                3.3.1                                 npm                         
 import-in-the-middle                        3.0.0                                 npm                         
 imurmurhash                                 0.1.4                                 npm        (+1 duplicate)   
@@ -905,7 +905,7 @@ npm-pick-manifest                           11.0.3                              
 npm-profile                                 12.0.1                                npm                         
 npm-registry-fetch                          19.1.1                                npm                         
 npm-user-validate                           4.0.0                                 npm                         
-numpy                                       2.4.2                                 python                      
+numpy                                       2.3.5                                 python                      
 nypm                                        0.6.0                                 npm                         
 oauth4webapi                                3.8.5                                 npm                         
 object-assign                               4.1.1                                 npm                         
@@ -1183,7 +1183,7 @@ type-fest                                   0.21.3                              
 type-is                                     1.6.18                                npm                         
 type-is                                     2.0.1                                 npm                         
 typedarray                                  0.0.6                                 npm                         
-typescript                                  5.9.3                                 npm                         
+typescript                                  6.0.2                                 npm                         
 typing-extensions                           4.15.0                                python                      
 typing-inspection                           0.4.2                                 python                      
 tzdata                                      2025b-0ubuntu0.24.04.1                deb                         
