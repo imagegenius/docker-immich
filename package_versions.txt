@@ -19,7 +19,7 @@ NAME                                        VERSION                             
 @grpc/grpc-js                               1.14.3                                npm                         
 @grpc/proto-loader                          0.8.0                                 npm                         
 @img/colour                                 1.0.0                                 npm                         
-@immich/cli                                 2.7.2                                 npm                         
+@immich/cli                                 2.7.3                                 npm                         
 @immich/sql-tools                           0.3.2                                 npm                         
 @inquirer/external-editor                   1.0.3                                 npm                         
 @ioredis/commands                           1.5.0                                 npm                         
@@ -330,7 +330,6 @@ engine.io                                   6.6.5                               
 engine.io-parser                            5.2.3                                 npm                         
 engine.io-parser                            UNKNOWN                               npm        (+1 duplicate)   
 entities                                    4.5.0                                 npm                         
-entities                                    7.0.1                                 npm                         
 env-paths                                   2.2.1                                 npm        (+1 duplicate)   
 err-code                                    2.0.3                                 npm        (+1 duplicate)   
 error-ex                                    1.3.4                                 npm                         
@@ -342,7 +341,6 @@ esbuild                                     0.27.4                              
 escalade                                    3.2.0                                 npm                         
 escape-html                                 1.0.3                                 npm                         
 escape-string-regexp                        1.0.5                                 npm                         
-escape-string-regexp                        4.0.0                                 npm                         
 etag                                        1.8.1                                 npm                         
 event-target-shim                           5.0.1                                 npm                         
 events                                      3.3.0                                 npm                         
@@ -456,7 +454,6 @@ helmet                                      8.1.0                               
 hosted-git-info                             9.0.2                                 npm                         
 hostname                                    3.23+nmu2ubuntu2                      deb                         
 html-to-text                                9.0.5                                 npm                         
-htmlparser2                                 10.1.0                                npm                         
 htmlparser2                                 8.0.2                                 npm                         
 http-cache-semantics                        4.2.0                                 npm        (+1 duplicate)   
 http-errors                                 2.0.1                                 npm                         
@@ -466,7 +463,7 @@ i18n-iso-countries                          7.14.0                              
 iconv-lite                                  0.7.2                                 npm        (+1 duplicate)   
 ieee754                                     1.2.1                                 npm                         
 ignore-walk                                 8.0.0                                 npm                         
-immich                                      2.7.2                                 npm                         
+immich                                      2.7.3                                 npm                         
 import-fresh                                3.3.1                                 npm                         
 import-in-the-middle                        3.0.0                                 npm                         
 imurmurhash                                 0.1.4                                 npm        (+1 duplicate)   
@@ -497,7 +494,6 @@ is-glob                                     4.0.3                               
 is-interactive                              1.0.0                                 npm                         
 is-interactive                              2.0.0                                 npm                         
 is-number                                   7.0.0                                 npm                         
-is-plain-object                             5.0.0                                 npm                         
 is-promise                                  4.0.0                                 npm                         
 is-standalone-pwa                           0.1.1                                 npm                         
 is-stream                                   2.0.1                                 npm                         
@@ -678,7 +674,7 @@ libphonenumber-js/mobile                    UNKNOWN                             
 libphonenumber-js/mobile/examples           UNKNOWN                               npm                         
 libphonenumber-js/mobile/metadata           UNKNOWN                               npm                         
 libpixman-1-0                               0.46.4-1                              deb                         
-libpng16-16t64                              1.6.55-1                              deb                         
+libpng16-16t64                              1.6.56-1                              deb                         
 libpq5                                      18.3-1.pgdg24.04+1                    deb                         
 libproc2-0                                  2:4.0.4-4ubuntu3.2                    deb                         
 libpsl5t64                                  0.21.2-1.1build1                      deb                         
@@ -889,7 +885,6 @@ pacote                                      21.4.0                              
 parent-module                               1.0.1                                 npm                         
 parse-conflict-json                         5.0.1                                 npm                         
 parse-json                                  5.2.0                                 npm                         
-parse-srcset                                1.0.2                                 npm                         
 parseley                                    0.12.1                                npm                         
 parseurl                                    1.3.3                                 npm                         
 passwd                                      1:4.17.4-2ubuntu3                     deb                         
@@ -1011,7 +1006,6 @@ safe-buffer                                 5.1.2                               
 safe-buffer                                 5.2.1                                 npm                         
 safer-buffer                                2.1.2                                 npm        (+1 duplicate)   
 sanitize-filename                           1.6.4                                 npm                         
-sanitize-html                               2.17.2                                npm                         
 scheduler                                   0.27.0                                npm                         
 sed                                         4.9-2build1                           deb                         
 selderee                                    0.11.0                                npm                         
