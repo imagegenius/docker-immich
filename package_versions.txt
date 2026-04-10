@@ -19,7 +19,7 @@ NAME                                        VERSION                             
 @grpc/grpc-js                               1.14.3                                npm                         
 @grpc/proto-loader                          0.8.0                                 npm                         
 @img/colour                                 1.0.0                                 npm                         
-@immich/cli                                 2.7.3                                 npm                         
+@immich/cli                                 2.7.4                                 npm                         
 @immich/sql-tools                           0.3.2                                 npm                         
 @inquirer/external-editor                   1.0.3                                 npm                         
 @ioredis/commands                           1.5.0                                 npm                         
@@ -463,7 +463,7 @@ i18n-iso-countries                          7.14.0                              
 iconv-lite                                  0.7.2                                 npm        (+1 duplicate)   
 ieee754                                     1.2.1                                 npm                         
 ignore-walk                                 8.0.0                                 npm                         
-immich                                      2.7.3                                 npm                         
+immich                                      2.7.4                                 npm                         
 import-fresh                                3.3.1                                 npm                         
 import-in-the-middle                        3.0.0                                 npm                         
 imurmurhash                                 0.1.4                                 npm        (+1 duplicate)   
