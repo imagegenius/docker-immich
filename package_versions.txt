@@ -19,7 +19,7 @@ NAME                                        VERSION                             
 @grpc/grpc-js                               1.14.3                                npm                         
 @grpc/proto-loader                          0.8.0                                 npm                         
 @img/colour                                 1.0.0                                 npm                         
-@immich/cli                                 2.7.4                                 npm                         
+@immich/cli                                 2.7.5                                 npm                         
 @immich/sql-tools                           0.3.2                                 npm                         
 @inquirer/external-editor                   1.0.3                                 npm                         
 @ioredis/commands                           1.5.0                                 npm                         
@@ -489,7 +489,7 @@ idna                                        3.11                                
 ieee754                                     1.2.1                                 npm                         
 ignore-walk                                 8.0.0                                 npm                         
 imageio                                     2.33.1                                python                      
-immich                                      2.7.4                                 npm                         
+immich                                      2.7.5                                 npm                         
 import-fresh                                3.3.1                                 npm                         
 import-in-the-middle                        3.0.0                                 npm                         
 imurmurhash                                 0.1.4                                 npm        (+1 duplicate)   
@@ -655,7 +655,7 @@ libllvm20                                   1:20.1.2-0ubuntu1~24.04.2           
 liblqr-1-0                                  0.4.2-2.1build2                       deb                         
 libltdl7                                    2.4.7-7build1                         deb                         
 liblz4-1                                    1.9.4-1build1.1                       deb                         
-liblzma5                                    5.8.2-2                               deb                         
+liblzma5                                    5.8.3-1                               deb                         
 libmd0                                      1.1.0-2build1.1                       deb                         
 libmimalloc2.0                              2.1.2+ds-2                            deb                         
 libmount1                                   2.41.3-3ubuntu2                       deb                         
