@@ -19,7 +19,7 @@ NAME                                        VERSION                             
 @grpc/grpc-js                               1.14.3                                npm                         
 @grpc/proto-loader                          0.8.0                                 npm                         
 @img/colour                                 1.0.0                                 npm                         
-@immich/cli                                 2.7.4                                 npm                         
+@immich/cli                                 2.7.5                                 npm                         
 @immich/sql-tools                           0.3.2                                 npm                         
 @inquirer/external-editor                   1.0.3                                 npm                         
 @ioredis/commands                           1.5.0                                 npm                         
@@ -280,7 +280,7 @@ cookie-signature                            1.0.6                               
 cookie-signature                            1.2.2                                 npm                         
 core-util-is                                1.0.3                                 npm                         
 corepack                                    0.34.6                                npm                         
-coreutils                                   9.4-3ubuntu6.1                        deb                         
+coreutils                                   9.4-3ubuntu6.2                        deb                         
 cors                                        2.8.6                                 npm                         
 cosmiconfig                                 8.3.6                                 npm                         
 crc-32                                      1.2.2                                 npm                         
@@ -463,7 +463,7 @@ i18n-iso-countries                          7.14.0                              
 iconv-lite                                  0.7.2                                 npm        (+1 duplicate)   
 ieee754                                     1.2.1                                 npm                         
 ignore-walk                                 8.0.0                                 npm                         
-immich                                      2.7.4                                 npm                         
+immich                                      2.7.5                                 npm                         
 import-fresh                                3.3.1                                 npm                         
 import-in-the-middle                        3.0.0                                 npm                         
 imurmurhash                                 0.1.4                                 npm        (+1 duplicate)   
@@ -625,7 +625,7 @@ libllvm20                                   1:20.1.2-0ubuntu1~24.04.2           
 liblqr-1-0                                  0.4.2-2.1build2                       deb                         
 libltdl7                                    2.4.7-7build1                         deb                         
 liblz4-1                                    1.9.4-1build1.1                       deb                         
-liblzma5                                    5.8.2-2                               deb                         
+liblzma5                                    5.8.3-1                               deb                         
 libmd0                                      1.1.0-2build1.1                       deb                         
 libmimalloc2.0                              2.1.2+ds-2                            deb                         
 libmount1                                   2.41.3-3ubuntu2                       deb                         
@@ -703,13 +703,13 @@ libss2                                      1.47.0-2.4~exp1ubuntu4.1            
 libssh-4                                    0.10.6-2ubuntu0.4                     deb                         
 libssl3t64                                  3.0.13-0ubuntu3.7                     deb                         
 libstdc++6                                  14.2.0-4ubuntu2~24.04.1               deb                         
-libsystemd0                                 255.4-1ubuntu8.12                     deb                         
+libsystemd0                                 255.4-1ubuntu8.14                     deb                         
 libtasn1-6                                  4.19.0-3ubuntu0.24.04.2               deb                         
 libthai-data                                0.1.30-1                              deb                         
 libthai0                                    0.1.30-1                              deb                         
 libtheora0                                  1.1.1+dfsg.1-16.1build3               deb                         
 libtinfo6                                   6.4+20240113-1ubuntu2                 deb                         
-libudev1                                    255.4-1ubuntu8.12                     deb                         
+libudev1                                    255.4-1ubuntu8.14                     deb                         
 libudfread0                                 1.1.2-1build1                         deb                         
 libunistring5                               1.1-2build1.1                         deb                         
 libuuid1                                    2.41.3-3ubuntu2                       deb                         
@@ -1063,7 +1063,7 @@ supports-color                              10.2.2                              
 supports-color                              7.2.0                                 npm                         
 supports-preserve-symlinks-flag             1.0.0                                 npm                         
 swagger-ui-dist                             5.31.0                                npm                         
-systemd-standalone-sysusers                 255.4-1ubuntu8.12                     deb                         
+systemd-standalone-sysusers                 255.4-1ubuntu8.14                     deb                         
 systeminformation                           5.23.8                                npm                         
 sysvinit-utils                              3.08-6ubuntu3                         deb                         
 tailwindcss                                 3.4.19                                npm                         
