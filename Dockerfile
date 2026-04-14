@@ -177,6 +177,9 @@ FROM python:3.11-bookworm AS machine-learning
 
 ARG UV_VERSION
 
+ENV \
+  UV_PYTHON="/usr/local/bin/python3.11"
+
 RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -202,8 +205,10 @@ RUN \
   tar xf \
     /tmp/uv.tar.gz -C \
     /tmp --strip-components=1 && \
-  /tmp/uv venv /opt/venv && \
-  . /opt/venv/bin/activate && \
+  /tmp/uv venv \
+    /lsiopy \
+    --python "${UV_PYTHON}" && \
+  . /lsiopy/bin/activate && \
   /tmp/uv sync \
     --active \
     --frozen \
@@ -234,13 +239,13 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  PATH="/opt/venv/bin:${PATH}:/app/immich/server/bin" \
+  PATH="${PATH}:/app/immich/server/bin" \
   PYTHONDONTWRITEBYTECODE="1" \
   PYTHONPATH="/app/immich/machine-learning" \
   PYTHONUNBUFFERED="1" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  VIRTUAL_ENV="/opt/venv" \
+  VIRTUAL_ENV="/lsiopy" \
   NODE_OPTIONS="--max-old-space-size=8192"
 
 COPY --from=build /tmp/.nvmrc /tmp/.nvmrc
@@ -250,7 +255,7 @@ COPY --from=machine-learning /usr/local/bin/python3.11 /usr/local/bin/python3.11
 COPY --from=machine-learning /usr/local/lib/python3.11 /usr/local/lib/python3.11
 COPY --from=machine-learning /usr/local/lib/libpython3.11.so /usr/local/lib/libpython3.11.so
 COPY --from=machine-learning /usr/local/lib/libpython3.11.so.1.0 /usr/local/lib/libpython3.11.so.1.0
-COPY --from=machine-learning /opt/venv /opt/venv
+COPY --from=machine-learning /lsiopy /lsiopy
 COPY --from=machine-learning /tmp/immich/machine-learning /app/immich/machine-learning
 
 RUN \
