@@ -710,7 +710,7 @@ libphonenumber-js/mobile                    UNKNOWN                             
 libphonenumber-js/mobile/examples           UNKNOWN                               npm                         
 libphonenumber-js/mobile/metadata           UNKNOWN                               npm                         
 libpixman-1-0                               0.46.4-1                              deb                         
-libpng16-16t64                              1.6.56-1                              deb                         
+libpng16-16t64                              1.6.57-1                              deb                         
 libpq5                                      18.3-1.pgdg24.04+1                    deb                         
 libproc2-0                                  2:4.0.4-4ubuntu3.2                    deb                         
 libpsl5t64                                  0.21.2-1.1build1                      deb                         
