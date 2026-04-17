@@ -1,15 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-immich:arm64v8-latest
+FROM ghcr.io/imagegenius/baseimage-immich:arm64v8-latest AS build
 
-# set version label
-ARG BUILD_DATE
-ARG VERSION
 ARG IMMICH_VERSION
 ARG LATEST_UBUNTU_VERSION="resolute"
 ARG NODEJS_VERSION
-LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="hydazz, martabal"
 
 # environment settings
 ENV \
@@ -18,15 +13,16 @@ ENV \
   IMMICH_MACHINE_LEARNING_ENABLED="false" \
   IMMICH_MEDIA_LOCATION="/photos" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
-  MISE_TRUSTED_CONFIG_PATHS="/app/immich/plugins/mise.toml"\
-  MISE_DATA_DIR="/buildcache/mise"\
+  MISE_TRUSTED_CONFIG_PATHS="/app/immich/plugins/mise.toml" \
+  MISE_DATA_DIR="/buildcache/mise" \
   NODE_OPTIONS="--max-old-space-size=8192"
 
 RUN \
   echo "**** download immich ****" && \
   mkdir -p \
+    /app/immich \
     /tmp/immich && \
-  if [ -z ${IMMICH_VERSION} ]; then \
+  if [ -z "${IMMICH_VERSION}" ]; then \
     IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
       jq -r '.tag_name'); \
   fi && \
@@ -36,23 +32,31 @@ RUN \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
+  cp \
+    /tmp/immich/server/.nvmrc \
+    /tmp/.nvmrc && \
   if [ -z "${NODEJS_VERSION}" ]; then \
-    NODEJS_VERSION="$(cat /tmp/immich/server/.nvmrc)" && \
+    NODEJS_VERSION="$(cat /tmp/.nvmrc)" && \
     echo "**** detected node version ${NODEJS_VERSION} ****"; \
   fi && \
-  NODEJS_MAJOR_VERSION=$(echo "$NODEJS_VERSION" | cut -d '.' -f 1) && \
+  NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
   NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
   echo "**** setup repos ****" && \
   echo "deb http://ports.ubuntu.com/ubuntu-ports ${LATEST_UBUNTU_VERSION} main restricted universe multiverse" \
     >/etc/apt/sources.list.d/immich.list && \
-  printf "Package: *\nPin: release n=${LATEST_UBUNTU_VERSION}\nPin-Priority: 450" \
+  printf "Package: *\nPin: release n=${LATEST_UBUNTU_VERSION}\nPin-Priority: 450\n" \
     >/etc/apt/preferences.d/preferences && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" >>/etc/apt/sources.list.d/node.list && \
-  curl -s "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" \
+    >/etc/apt/sources.list.d/node.list && \
+  curl -s \
+    "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | \
+    gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
   mkdir -p \
     /etc/apt/keyrings && \
-  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub] https://mise.jdx.dev/deb stable main" >>/etc/apt/sources.list.d/mise.list && \
-  curl -fSs "https://mise.jdx.dev/gpg-key.pub" | tee /etc/apt/keyrings/mise-archive-keyring.pub 1> /dev/null && \
+  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub] https://mise.jdx.dev/deb stable main" \
+    >/etc/apt/sources.list.d/mise.list && \
+  curl -fSs \
+    "https://mise.jdx.dev/gpg-key.pub" | tee /etc/apt/keyrings/mise-archive-keyring.pub >/dev/null && \
   echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -75,24 +79,30 @@ RUN \
     libwebpmux3 && \
   echo "**** install runtime packages ****" && \
   apt-get install --no-install-recommends -y \
-    nodejs=$NODEJS_VERSION && \
+    nodejs="${NODEJS_VERSION}" && \
   echo "**** setup pnpm ****" && \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
   echo "**** setup plugins (mise) ****" && \
   mkdir -p \
     /app/immich/plugins && \
-  cp /tmp/immich/plugins/mise.toml /app/immich/plugins && \
+  cp \
+    /tmp/immich/plugins/mise.toml \
+    /app/immich/plugins && \
   mise install --cd /app/immich/plugins && \
   echo "**** build plugins (mise) ****" && \
-  cp -a /tmp/immich/plugins/* /app/immich/plugins && \
+  cp -a \
+    /tmp/immich/plugins/. \
+    /app/immich/plugins && \
   cp -a \
     /tmp/immich/.pnpmfile.cjs \
     /tmp/immich/pnpm-lock.yaml \
     /tmp/immich/pnpm-workspace.yaml \
     /app/immich/plugins && \
-  sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' /app/immich/plugins/mise.toml && \
-  cd /app/immich/plugins && mise run build && \
+  sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' \
+    /app/immich/plugins/mise.toml && \
+  cd /app/immich/plugins && \
+  mise run build && \
   echo "**** build server ****" && \
   cd /tmp/immich && \
   SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
@@ -154,37 +164,54 @@ RUN \
   ln -s \
     ../../cli/bin/immich \
     /app/immich/server/bin/immich && \
-  echo "**** cleanup ****" && \
-  apt-get remove -y --purge \
-    build-essential \
-    git \
-    libexif-dev \
-    libexpat1-dev \
-    libglib2.0-dev \
-    libhwy-dev \
-    libjpeg-dev \
-    librsvg2-dev \
-    libsharpyuv-dev \
-    libspng-dev \
-    libwebp-dev \
-    pkg-config \
-    mise && \
-  apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
-    /etc/apt/preferences.d/preferences \
-    /etc/apt/sources.list.d/immich.list \
-    /etc/apt/sources.list.d/mise.list \
+    /var/lib/apt/lists/*
+
+FROM ghcr.io/imagegenius/baseimage-immich:arm64v8-latest
+
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+ARG NODEJS_VERSION
+LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="hydazz, martabal"
+
+# environment settings
+ENV \
+  IMMICH_BUILD_DATA="/app/immich/data" \
+  IMMICH_ENV="production" \
+  IMMICH_MACHINE_LEARNING_ENABLED="false" \
+  IMMICH_MEDIA_LOCATION="/photos" \
+  PATH="${PATH}:/app/immich/server/bin" \
+  SHARP_FORCE_GLOBAL_LIBVIPS="true" \
+  NODE_OPTIONS="--max-old-space-size=8192"
+
+COPY --from=build /tmp/.nvmrc /tmp/.nvmrc
+COPY --from=build /app/immich /app/immich
+
+RUN \
+  if [ -z "${NODEJS_VERSION}" ]; then \
+    NODEJS_VERSION="$(cat /tmp/.nvmrc)" && \
+    echo "**** detected node version ${NODEJS_VERSION} ****"; \
+  fi && \
+  NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
+  NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" \
+    >/etc/apt/sources.list.d/node.list && \
+  curl -s \
+    "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | \
+    gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    nodejs="${NODEJS_VERSION}" && \
+  ldconfig /usr/local/lib && \
+  apt-get clean && \
+  rm -rf \
     /etc/apt/sources.list.d/node.list \
-    /etc/apt/keyrings/mise-archive-keyring.pub \
-    /root/.cache \
-    /root/.local \
-    /root/.npm \
-    /tmp/* \
+    /tmp/.nvmrc \
     /usr/share/keyrings/nodesource-repo.gpg \
-    /var/lib/apt/lists/* \
-    /var/log/* \
-    /var/tmp/*
+    /var/lib/apt/lists/*
 
 # copy local files
 COPY root/ /
