@@ -81,6 +81,7 @@ RUN \
     libwebp-dev \
     libwebp7 \
     libtiff6 \
+    dcraw \
     libwebpdemux2 \
     libwebpmux3 && \
   apt-get install --no-install-recommends -y \
