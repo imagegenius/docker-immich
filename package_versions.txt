@@ -636,8 +636,8 @@ libpq5                                      18.3-1.pgdg24.04+1                 d
 libproc2-0                                  2:4.0.4-4ubuntu3.2                 deb                    
 libpsl5t64                                  0.21.2-1.1build1                   deb                    
 libpython3-stdlib                           3.12.3-0ubuntu2.1                  deb                    
-libpython3.12-minimal                       3.12.3-1ubuntu0.12                 deb                    
-libpython3.12-stdlib                        3.12.3-1ubuntu0.12                 deb                    
+libpython3.12-minimal                       3.12.3-1ubuntu0.13                 deb                    
+libpython3.12-stdlib                        3.12.3-1ubuntu0.13                 deb                    
 libreadline8t64                             8.2-4build1                        deb                    
 librsvg2-2                                  2.58.0+dfsg-1build1                deb                    
 librsvg2-common                             2.58.0+dfsg-1build1                deb                    
@@ -912,8 +912,8 @@ proxy-addr                                  2.0.7                              n
 publicsuffix                                20231001.0357-0.1                  deb                    
 python3                                     3.12.3-0ubuntu2.1                  deb                    
 python3-minimal                             3.12.3-0ubuntu2.1                  deb                    
-python3.12                                  3.12.3-1ubuntu0.12                 deb                    
-python3.12-minimal                          3.12.3-1ubuntu0.12                 deb                    
+python3.12                                  3.12.3-1ubuntu0.13                 deb                    
+python3.12-minimal                          3.12.3-1ubuntu0.13                 deb                    
 qrcode-terminal                             0.12.0                             npm                    
 qs                                          6.14.1                             npm                    
 queue-microtask                             1.2.3                              npm                    
@@ -1056,7 +1056,7 @@ type-is                                     1.6.18                             n
 type-is                                     2.0.1                              npm                    
 typedarray                                  0.0.6                              npm                    
 typescript                                  6.0.2                              npm                    
-tzdata                                      2025b-0ubuntu0.24.04.1             deb                    
+tzdata                                      2026a-0ubuntu0.24.04.1             deb                    
 ua-is-frozen                                0.1.2                              npm                    
 ua-parser-js                                2.0.9                              npm                    
 ubuntu-keyring                              2023.11.28.1                       deb                    
