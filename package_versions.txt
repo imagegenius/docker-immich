@@ -689,8 +689,8 @@ libpq5                                      18.3-1.pgdg24.04+1                 d
 libproc2-0                                  2:4.0.4-4ubuntu3.2                 deb                      
 libpsl5t64                                  0.21.2-1.1build1                   deb                      
 libpython3-stdlib                           3.12.3-0ubuntu2.1                  deb                      
-libpython3.12-minimal                       3.12.3-1ubuntu0.12                 deb                      
-libpython3.12-stdlib                        3.12.3-1ubuntu0.12                 deb                      
+libpython3.12-minimal                       3.12.3-1ubuntu0.13                 deb                      
+libpython3.12-stdlib                        3.12.3-1ubuntu0.13                 deb                      
 libreadline8t64                             8.2-4build1                        deb                      
 librsvg2-2                                  2.58.0+dfsg-1build1                deb                      
 librsvg2-common                             2.58.0+dfsg-1build1                deb                      
@@ -996,8 +996,8 @@ python-dotenv                               1.0.0                              p
 python-multipart                            0.0.22                             python                   
 python3                                     3.12.3-0ubuntu2.1                  deb                      
 python3-minimal                             3.12.3-0ubuntu2.1                  deb                      
-python3.12                                  3.12.3-1ubuntu0.12                 deb                      
-python3.12-minimal                          3.12.3-1ubuntu0.12                 deb                      
+python3.12                                  3.12.3-1ubuntu0.13                 deb                      
+python3.12-minimal                          3.12.3-1ubuntu0.13                 deb                      
 pyyaml                                      6.0.2                              python                   
 qrcode-terminal                             0.12.0                             npm                      
 qs                                          6.14.1                             npm                      
