@@ -207,7 +207,7 @@ bare-os                                     3.8.0                               
 bare-path                                   3.0.0                                 npm                         
 bare-stream                                 2.11.0                                npm                         
 bare-url                                    2.4.0                                 npm                         
-base-files                                  14ubuntu5                             deb                         
+base-files                                  14ubuntu6                             deb                         
 base-passwd                                 3.6.8                                 deb                         
 base64-js                                   1.5.1                                 npm                         
 base64id                                    2.0.0                                 npm                         
@@ -290,7 +290,7 @@ cookie-parser                               1.4.7                               
 cookie-signature                            1.0.6                                 npm                         
 cookie-signature                            1.2.2                                 npm                         
 core-util-is                                1.0.3                                 npm                         
-corepack                                    0.34.6                                npm                         
+corepack                                    0.34.7                                npm                         
 coreutils                                   9.4-3ubuntu6.2                        deb                         
 cors                                        2.8.6                                 npm                         
 cosmiconfig                                 8.3.6                                 npm                         
@@ -328,7 +328,7 @@ dom-serializer                              2.0.0                               
 domelementtype                              2.3.0                                 npm                         
 domhandler                                  5.0.3                                 npm                         
 domutils                                    3.2.2                                 npm                         
-dpkg                                        1.22.6ubuntu6.5                       deb                         
+dpkg                                        1.23.7ubuntu1                         deb                         
 dunder-proto                                1.0.1                                 npm                         
 e2fsprogs                                   1.47.0-2.4~exp1ubuntu4.1              deb                         
 eastasianwidth                              0.2.0                                 npm                         
@@ -576,9 +576,9 @@ libbluray2                                  1:1.3.4-1build1                     
 libbrotli1                                  1.2.0-3build1                         deb                         
 libbsd0                                     0.12.1-1build1.1                      deb                         
 libbz2-1.0                                  1.0.8-6build2                         deb                         
-libc-bin                                    2.43-2ubuntu1                         deb                         
-libc-gconv-modules-extra                    2.43-2ubuntu1                         deb                         
-libc6                                       2.43-2ubuntu1                         deb                         
+libc-bin                                    2.43-2ubuntu2                         deb                         
+libc-gconv-modules-extra                    2.43-2ubuntu2                         deb                         
+libc6                                       2.43-2ubuntu2                         deb                         
 libcairo-gobject2                           1.18.4-3                              deb                         
 libcairo2                                   1.18.4-3                              deb                         
 libcap-ng0                                  0.8.4-2build2                         deb                         
@@ -704,15 +704,15 @@ libphonenumber-js/mobile                    UNKNOWN                             
 libphonenumber-js/mobile/examples           UNKNOWN                               npm                         
 libphonenumber-js/mobile/metadata           UNKNOWN                               npm                         
 libpixman-1-0                               0.46.4-1                              deb                         
-libpng16-16t64                              1.6.56-1                              deb                         
+libpng16-16t64                              1.6.57-1                              deb                         
 libpq5                                      18.3-1.pgdg24.04+1                    deb                         
 libproc2-0                                  2:4.0.4-4ubuntu3.2                    deb                         
 libpsl5t64                                  0.21.2-1.1build1                      deb                         
 libpython3-stdlib                           3.12.3-0ubuntu2.1                     deb                         
 libpython3.11-minimal                       3.11.15-1+noble1                      deb                         
 libpython3.11-stdlib                        3.11.15-1+noble1                      deb                         
-libpython3.12-minimal                       3.12.3-1ubuntu0.12                    deb                         
-libpython3.12-stdlib                        3.12.3-1ubuntu0.12                    deb                         
+libpython3.12-minimal                       3.12.3-1ubuntu0.13                    deb                         
+libpython3.12-stdlib                        3.12.3-1ubuntu0.13                    deb                         
 libreadline8t64                             8.2-4build1                           deb                         
 librsvg2-2                                  2.61.3+dfsg-3                         deb                         
 librsvg2-common                             2.61.3+dfsg-3                         deb                         
@@ -789,7 +789,7 @@ lilconfig                                   3.1.3                               
 lines-and-columns                           1.2.4                                 npm                         
 ljharb-monorepo-symlink-test                0.0.0                                 npm                         
 load-esm                                    1.0.3                                 npm                         
-locales                                     2.43-2ubuntu1                         deb                         
+locales                                     2.43-2ubuntu2                         deb                         
 lodash                                      4.17.23                               npm                         
 lodash                                      4.18.1                                npm                         
 lodash-es                                   4.18.1                                npm                         
@@ -1016,8 +1016,8 @@ python3                                     3.12.3-0ubuntu2.1                   
 python3-minimal                             3.12.3-0ubuntu2.1                     deb                         
 python3.11                                  3.11.15-1+noble1                      deb                         
 python3.11-minimal                          3.11.15-1+noble1                      deb                         
-python3.12                                  3.12.3-1ubuntu0.12                    deb                         
-python3.12-minimal                          3.12.3-1ubuntu0.12                    deb                         
+python3.12                                  3.12.3-1ubuntu0.13                    deb                         
+python3.12-minimal                          3.12.3-1ubuntu0.13                    deb                         
 pyyaml                                      6.0.2                                 python                      
 qrcode-terminal                             0.12.0                                npm                         
 qs                                          6.14.1                                npm                         
@@ -1180,7 +1180,7 @@ typedarray                                  0.0.6                               
 typescript                                  6.0.2                                 npm                         
 typing-extensions                           4.15.0                                python                      
 typing-inspection                           0.4.2                                 python                      
-tzdata                                      2025b-0ubuntu0.24.04.1                deb                         
+tzdata                                      2026a-0ubuntu0.24.04.1                deb                         
 ua-is-frozen                                0.1.2                                 npm                         
 ua-parser-js                                2.0.9                                 npm                         
 ubuntu-keyring                              2023.11.28.1                          deb                         
