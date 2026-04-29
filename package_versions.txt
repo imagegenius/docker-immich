@@ -539,7 +539,7 @@ jiti                                        2.4.2                               
 joblib                                      1.3.2                                 python                      
 jose                                        5.10.0                                npm                         
 jose                                        6.2.2                                 npm                         
-jq                                          1.7.1-3ubuntu0.24.04.1                deb                         
+jq                                          1.7.1-3ubuntu0.24.04.2                deb                         
 js-tokens                                   4.0.0                                 npm                         
 js-yaml                                     4.1.1                                 npm                         
 jsesc                                       3.1.0                                 npm                         
@@ -641,7 +641,7 @@ libidn2-0                                   2.3.7-2build1.1                     
 libigdgmm12                                 22.9.0                                deb                         
 libimath-3-1-29t64                          3.1.9-3.1ubuntu2                      deb                         
 libio-compress-brotli-perl                  0.004001-2build3                      deb                         
-libjq1                                      1.7.1-3ubuntu0.24.04.1                deb                         
+libjq1                                      1.7.1-3ubuntu0.24.04.2                deb                         
 libjxl0.11                                  0.11.1-6ubuntu4                       deb                         
 libk5crypto3                                1.20.1-6ubuntu2.6                     deb                         
 libkeyutils1                                1.6.3-3build1                         deb                         
@@ -733,15 +733,15 @@ libspng0                                    0.7.4-1build1                       
 libsqlite3-0                                3.45.1-1ubuntu2.5                     deb                         
 libss2                                      1.47.0-2.4~exp1ubuntu4.1              deb                         
 libssh-4                                    0.10.6-2ubuntu0.4                     deb                         
-libssl3t64                                  3.0.13-0ubuntu3.7                     deb                         
+libssl3t64                                  3.0.13-0ubuntu3.9                     deb                         
 libstdc++6                                  14.2.0-4ubuntu2~24.04.1               deb                         
-libsystemd0                                 255.4-1ubuntu8.14                     deb                         
+libsystemd0                                 255.4-1ubuntu8.15                     deb                         
 libtasn1-6                                  4.19.0-3ubuntu0.24.04.2               deb                         
 libthai-data                                0.1.30-1                              deb                         
 libthai0                                    0.1.30-1                              deb                         
 libtheora0                                  1.1.1+dfsg.1-16.1build3               deb                         
 libtinfo6                                   6.4+20240113-1ubuntu2                 deb                         
-libudev1                                    255.4-1ubuntu8.14                     deb                         
+libudev1                                    255.4-1ubuntu8.15                     deb                         
 libudfread0                                 1.1.2-1build1                         deb                         
 libunistring5                               1.1-2build1.1                         deb                         
 libuuid1                                    2.41.3-3ubuntu2                       deb                         
@@ -920,7 +920,7 @@ onnxruntime-openvino                        1.24.1                              
 opencv-python                               4.11.0.86                             python                      
 opencv-python-headless                      4.13.0.92                             python                      
 openid-client                               6.8.2                                 npm                         
-openssl                                     3.0.13-0ubuntu3.7                     deb                         
+openssl                                     3.0.13-0ubuntu3.9                     deb                         
 ora                                         5.4.1                                 npm                         
 ora                                         8.2.0                                 npm                         
 orjson                                      3.11.7                                python                      
@@ -1136,7 +1136,7 @@ supports-color                              7.2.0                               
 supports-preserve-symlinks-flag             1.0.0                                 npm                         
 swagger-ui-dist                             5.31.0                                npm                         
 sympy                                       1.12                                  python                      
-systemd-standalone-sysusers                 255.4-1ubuntu8.14                     deb                         
+systemd-standalone-sysusers                 255.4-1ubuntu8.15                     deb                         
 systeminformation                           5.23.8                                npm                         
 sysvinit-utils                              3.08-6ubuntu3                         deb                         
 tailwindcss                                 3.4.19                                npm                         
