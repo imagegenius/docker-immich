@@ -507,7 +507,7 @@ libc6                                       2.39-0ubuntu8.7                    d
 libcairo-gobject2                           1.18.0-3build1                     deb                    
 libcairo2                                   1.18.0-3build1                     deb                    
 libcap-ng0                                  0.8.4-2build2                      deb                    
-libcap2                                     1:2.66-5ubuntu2.2                  deb                    
+libcap2                                     1:2.66-5ubuntu2.4                  deb                    
 libcom-err2                                 1.47.0-2.4~exp1ubuntu4.1           deb                    
 libcrypt1                                   1:4.4.36-4build1                   deb                    
 libcurl4t64                                 8.5.0-2ubuntu10.8                  deb                    
@@ -574,7 +574,7 @@ libkeyutils1                                1.6.3-3build1                      d
 libkrb5-3                                   1.20.1-6ubuntu2.6                  deb                    
 libkrb5support0                             1.20.1-6ubuntu2.6                  deb                    
 libksba8                                    1.6.6-1build1                      deb                    
-liblcms2-2                                  2.14-2build1                       deb                    
+liblcms2-2                                  2.14-2ubuntu0.1                    deb                    
 libldap-common                              2.6.10+dfsg-0ubuntu0.24.04.1       deb                    
 libldap2                                    2.6.10+dfsg-0ubuntu0.24.04.1       deb                    
 liblerc4                                    4.0.0+ds-4ubuntu2                  deb                    
