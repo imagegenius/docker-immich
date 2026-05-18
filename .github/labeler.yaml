@@ -1,0 +1,26 @@
+---
+area/image:
+  - changed-files:
+      - any-glob-to-any-file:
+          - Dockerfile
+          - docker-bake.hcl
+          - root/**/*
+area/github:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**/*
+area/mise:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .mise.toml
+area/renovate:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .renovate/**/*
+          - .renovaterc.json5
+area/tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - go.mod
+          - go.sum
+          - tests/**/*

@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "*.json5": "json5"
+    },
+}

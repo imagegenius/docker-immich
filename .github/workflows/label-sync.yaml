@@ -1,0 +1,44 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Label Sync
+
+on:
+  schedule:
+    - cron: 30 1 * * *
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  label-sync:
+    name: Label Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Generate Token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: app-token
+        with:
+          app-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+
+      - name: Setup Just
+        uses: extractions/setup-crate@7577c1bdf2d95e6d65d532788f35ed79d4b1dda2 # v2.0.1
+        with:
+          repo: casey/just
+
+      - name: Generate Label Config
+        run: |-
+          just generate-label-config
+
+      - name: Sync Labels
+        uses: EndBug/label-sync@52074158190acb45f3077f9099fea818aa43f97a # v2.3.3
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          config-file: .github/labels.yaml
+          delete-other-labels: true

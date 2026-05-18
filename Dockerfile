@@ -1,11 +1,18 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/imagegenius/baseimage-immich:latest AS build
+ARG BASE_IMAGE
+ARG UV_IMAGE
+
+FROM ${UV_IMAGE} AS uv
+
+# =============================================================================
+# build: download immich, install build deps, pnpm build server/web/cli/plugins
+# =============================================================================
+FROM ${BASE_IMAGE} AS build
 
 ARG IMMICH_VERSION
-ARG LATEST_UBUNTU_VERSION="resolute"
 ARG NODEJS_VERSION
-ARG UV_VERSION
+ARG LATEST_UBUNTU_VERSION="resolute"
 
 ENV \
   IMMICH_BUILD_DATA="/app/immich/data" \
@@ -17,7 +24,7 @@ ENV \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
   UV_PYTHON="/usr/bin/python3.11" \
-  MISE_TRUSTED_CONFIG_PATHS="/app/immich/plugins/mise.toml" \
+  MISE_TRUSTED_CONFIG_PATHS="/tmp/immich" \
   MISE_DATA_DIR="/buildcache/mise" \
   NODE_OPTIONS="--max-old-space-size=8192"
 
@@ -26,23 +33,12 @@ RUN \
   mkdir -p \
     /app/immich \
     /tmp/immich && \
-  if [ -z "${IMMICH_VERSION}" ]; then \
-    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
   curl -o \
     /tmp/immich.tar.gz -L \
     "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
-  cp \
-    /tmp/immich/server/.nvmrc \
-    /tmp/.nvmrc && \
-  if [ -z "${NODEJS_VERSION}" ]; then \
-    NODEJS_VERSION="$(cat /tmp/.nvmrc)" && \
-    echo "**** detected node version ${NODEJS_VERSION} ****"; \
-  fi && \
   NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
   NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
   echo "**** setup repos ****" && \
@@ -88,24 +84,10 @@ RUN \
   echo "**** setup pnpm ****" && \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
-  echo "**** setup plugins (mise) ****" && \
-  mkdir -p \
-    /app/immich/plugins && \
-  cp \
-    /tmp/immich/plugins/mise.toml \
-    /app/immich/plugins && \
-  mise install --cd /app/immich/plugins && \
   echo "**** build plugins (mise) ****" && \
-  cp -a \
-    /tmp/immich/plugins/. \
-    /app/immich/plugins && \
-  cp -a \
-    /tmp/immich/.pnpmfile.cjs \
-    /tmp/immich/pnpm-lock.yaml \
-    /tmp/immich/pnpm-workspace.yaml \
-    /app/immich/plugins && \
-  sed -i 's/pnpm install --frozen-lockfile/pnpm install --no-frozen-lockfile/' /app/immich/plugins/mise.toml && \
-  cd /app/immich/plugins && \
+  rm /tmp/immich/mise.toml && \
+  mise install --cd /tmp/immich/plugins && \
+  cd /tmp/immich/plugins && \
   mise run build && \
   echo "**** build server ****" && \
   cd /tmp/immich && \
@@ -149,7 +131,7 @@ RUN \
     /app/immich/data/corePlugin \
     /app/immich/data/www && \
   cp -a \
-    /app/immich/plugins/dist \
+    /tmp/immich/plugins/dist \
     /app/immich/data/corePlugin/dist && \
   cp -a \
     /tmp/immich/plugins/manifest.json \
@@ -173,9 +155,10 @@ RUN \
   rm -rf \
     /var/lib/apt/lists/*
 
-FROM python:3.11-bookworm AS machine-learning
-
-ARG UV_VERSION
+# =============================================================================
+# ml-base: uv from official multi-arch image, source machine-learning sources
+# =============================================================================
+FROM python:3.11-bookworm AS ml-base
 
 ENV \
   UV_PYTHON="/usr/local/bin/python3.11"
@@ -183,33 +166,26 @@ ENV \
 RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    curl \
-    g++ \
-    jq && \
+    g++ && \
   apt-get clean && \
   rm -rf \
     /var/lib/apt/lists/*
 
+COPY --from=uv /uv /uvx /usr/local/bin/
 COPY --from=build /tmp/immich/machine-learning /tmp/immich/machine-learning
 
 WORKDIR /tmp/immich/machine-learning
 
+RUN uv venv /lsiopy --python "${UV_PYTHON}"
+
+# =============================================================================
+# ml-cpu: uv sync with cpu extras
+# =============================================================================
+FROM ml-base AS ml-cpu
+
 RUN \
-  if [ -z "${UV_VERSION}" ]; then \
-    UV_VERSION=$(curl -sL https://api.github.com/repos/astral-sh/uv/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
-  curl -o \
-    /tmp/uv.tar.gz -L \
-    "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-x86_64-unknown-linux-gnu.tar.gz" && \
-  tar xf \
-    /tmp/uv.tar.gz -C \
-    /tmp --strip-components=1 && \
-  /tmp/uv venv \
-    /lsiopy \
-    --python "${UV_PYTHON}" && \
   . /lsiopy/bin/activate && \
-  /tmp/uv sync \
+  uv sync \
     --active \
     --frozen \
     --extra cpu \
@@ -217,75 +193,179 @@ RUN \
     --no-editable \
     --no-install-project \
     --compile-bytecode \
-    --no-progress && \
-  rm -rf \
-    /tmp/uv \
-    /tmp/uv.tar.gz
+    --no-progress
 
-FROM ghcr.io/imagegenius/baseimage-immich:latest
+# =============================================================================
+# runtime-base: shared final scaffolding for all variants
+# =============================================================================
+FROM ${BASE_IMAGE} AS runtime-base
 
-# set version label
-ARG BUILD_DATE
-ARG VERSION
 ARG NODEJS_VERSION
-LABEL build_version="ImageGenius Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="hydazz, martabal"
 
-# environment settings
+LABEL org.opencontainers.image.authors="hydazz, martabal"
+
 ENV \
   IMMICH_BUILD_DATA="/app/immich/data" \
   IMMICH_ENV="production" \
-  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   IMMICH_MEDIA_LOCATION="/photos" \
-  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
-  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  PATH="${PATH}:/app/immich/server/bin" \
-  PYTHONDONTWRITEBYTECODE="1" \
-  PYTHONPATH="/app/immich/machine-learning" \
-  PYTHONUNBUFFERED="1" \
-  SHARP_FORCE_GLOBAL_LIBVIPS="true" \
-  TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  VIRTUAL_ENV="/lsiopy" \
-  NODE_OPTIONS="--max-old-space-size=8192"
+  NODE_ENV="production" \
+  NODE_OPTIONS="--max-old-space-size=8192" \
+  PATH="${PATH}:/app/immich/server/bin"
 
-COPY --from=build /tmp/.nvmrc /tmp/.nvmrc
 COPY --from=build /app/immich /app/immich
-COPY --from=machine-learning /usr/local/bin/python3 /usr/local/bin/python3
-COPY --from=machine-learning /usr/local/bin/python3.11 /usr/local/bin/python3.11
-COPY --from=machine-learning /usr/local/lib/python3.11 /usr/local/lib/python3.11
-COPY --from=machine-learning /usr/local/lib/libpython3.11.so /usr/local/lib/libpython3.11.so
-COPY --from=machine-learning /usr/local/lib/libpython3.11.so.1.0 /usr/local/lib/libpython3.11.so.1.0
-COPY --from=machine-learning /lsiopy /lsiopy
-COPY --from=machine-learning /tmp/immich/machine-learning /app/immich/machine-learning
 
 RUN \
-  if [ -z "${NODEJS_VERSION}" ]; then \
-    NODEJS_VERSION="$(cat /tmp/.nvmrc)" && \
-    echo "**** detected node version ${NODEJS_VERSION} ****"; \
-  fi && \
   NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
   NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
-  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" > /etc/apt/sources.list.d/node.list && \
+  echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" \
+    >/etc/apt/sources.list.d/node.list && \
   curl -s \
     "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | \
     gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     nodejs="${NODEJS_VERSION}" && \
-  ldconfig /usr/local/lib && \
   apt-get clean && \
   rm -rf \
     /etc/apt/sources.list.d/node.list \
-    /tmp/.nvmrc \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/*
 
-# copy local files
 COPY root/ /
 
-# environment settings
-ENV NODE_ENV="production"
-
-# ports and volumes
 EXPOSE 8080
 VOLUME /config /photos /libraries
+
+# =============================================================================
+# final-main: Ubuntu + ML (CPU)
+# =============================================================================
+FROM runtime-base AS final-main
+
+ENV \
+  IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
+  MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
+  NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
+  PYTHONDONTWRITEBYTECODE="1" \
+  PYTHONPATH="/app/immich/machine-learning" \
+  PYTHONUNBUFFERED="1" \
+  SHARP_FORCE_GLOBAL_LIBVIPS="true" \
+  TRANSFORMERS_CACHE="/config/machine-learning/models" \
+  VIRTUAL_ENV="/lsiopy"
+
+COPY --from=ml-cpu /usr/local/bin/python3 /usr/local/bin/python3
+COPY --from=ml-cpu /usr/local/bin/python3.11 /usr/local/bin/python3.11
+COPY --from=ml-cpu /usr/local/lib/python3.11 /usr/local/lib/python3.11
+COPY --from=ml-cpu /usr/local/lib/libpython3.11.so /usr/local/lib/libpython3.11.so
+COPY --from=ml-cpu /usr/local/lib/libpython3.11.so.1.0 /usr/local/lib/libpython3.11.so.1.0
+COPY --from=ml-cpu /lsiopy /lsiopy
+COPY --from=ml-cpu /tmp/immich/machine-learning /app/immich/machine-learning
+
+RUN ldconfig /usr/local/lib
+
+# =============================================================================
+# final-noml: Ubuntu, no ML — drop s6 ML service
+# =============================================================================
+FROM runtime-base AS final-noml
+
+ENV \
+  IMMICH_MACHINE_LEARNING_ENABLED="false"
+
+RUN rm -rf \
+      /etc/s6-overlay/s6-rc.d/svc-machine-learning \
+      /etc/s6-overlay/s6-rc.d/user/contents.d/svc-machine-learning \
+      /etc/s6-overlay/s6-rc.d/svc-microservices/dependencies.d/svc-machine-learning
+
+# =============================================================================
+# ml-cuda: uv sync with cuda extras
+# =============================================================================
+FROM ml-base AS ml-cuda
+
+RUN \
+  . /lsiopy/bin/activate && \
+  uv sync \
+    --active \
+    --frozen \
+    --extra cuda \
+    --no-dev \
+    --no-editable \
+    --no-install-project \
+    --compile-bytecode \
+    --no-progress
+
+# =============================================================================
+# final-cuda: final-main + CUDA runtime libs
+# =============================================================================
+FROM final-main AS final-cuda
+
+ENV \
+  NVIDIA_VISIBLE_DEVICES="all"
+
+# Replace ml-cpu artifacts with ml-cuda artifacts
+COPY --from=ml-cuda /lsiopy /lsiopy
+COPY --from=ml-cuda /tmp/immich/machine-learning /app/immich/machine-learning
+
+RUN \
+  echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" \
+    >/etc/apt/sources.list.d/cuda.list && \
+  curl -s \
+    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" | \
+    gpg --dearmor | tee /usr/share/keyrings/cuda-archive-keyring.gpg >/dev/null && \
+  printf "Package: *\nPin: release l=NVIDIA CUDA\nPin-Priority: 600\n" \
+    >/etc/apt/preferences.d/cuda && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    execstack \
+    libcublas12 \
+    libcublaslt12 \
+    libcudart12 \
+    libcudnn9-cuda-12=9.10.2.21-1 \
+    libcufft11 \
+    libcurand10 && \
+  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
+  apt-get remove -y --purge \
+    execstack && \
+  ldconfig /usr/local/lib && \
+  apt-get clean && \
+  rm -rf \
+    /etc/apt/preferences.d/cuda \
+    /etc/apt/sources.list.d/cuda.list \
+    /usr/share/keyrings/cuda-archive-keyring.gpg \
+    /var/lib/apt/lists/*
+
+# =============================================================================
+# ml-openvino: uv sync with openvino extras
+# =============================================================================
+FROM ml-base AS ml-openvino
+
+RUN \
+  . /lsiopy/bin/activate && \
+  uv sync \
+    --active \
+    --frozen \
+    --extra openvino \
+    --no-dev \
+    --no-editable \
+    --no-install-project \
+    --compile-bytecode \
+    --no-progress
+
+# =============================================================================
+# final-openvino: final-main + execstack on OpenVINO .so files
+# =============================================================================
+FROM final-main AS final-openvino
+
+# Replace ml-cpu artifacts with ml-openvino artifacts
+COPY --from=ml-openvino /lsiopy /lsiopy
+COPY --from=ml-openvino /tmp/immich/machine-learning /app/immich/machine-learning
+
+RUN \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    execstack && \
+  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
+  apt-get remove -y --purge \
+    execstack && \
+  ldconfig /usr/local/lib && \
+  apt-get clean && \
+  rm -rf \
+    /var/lib/apt/lists/*

@@ -1,0 +1,46 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Stale
+
+on:
+  schedule:
+    - cron: 30 1 * * *
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stale:
+    name: Stale
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Generate Token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: app-token
+        with:
+          app-id: "${{ secrets.BOT_APP_ID }}"
+          private-key: "${{ secrets.BOT_APP_PRIVATE_KEY }}"
+
+      - name: Stale
+        uses: actions/stale@b5d41d4e1d5dceea10e7104786b73624c18a190f # v10.2.0
+        with:
+          repo-token: ${{ steps.app-token.outputs.token }}
+          stale-issue-message: |
+            This issue has been marked as stale due to 60 days of inactivity. Please remove the stale label or leave a comment to keep it open.
+            If no action is taken, it will be automatically closed in 7 days.
+          stale-pr-message: |
+            This pull request has been marked as stale due to 60 days of inactivity. Please remove the stale label or leave a comment to keep it open.
+            If no action is taken, it will be automatically closed in 7 days.
+          close-issue-message: |
+            This issue has been automatically closed after 7 days of inactivity following the stale status.
+          close-pr-message: |
+            This pull request has been automatically closed after 7 days of inactivity following the stale status.
+          stale-issue-label: stale
+          stale-pr-label: stale
+          delete-branch: true

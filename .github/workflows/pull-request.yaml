@@ -1,0 +1,44 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Pull Request
+
+on:
+  pull_request:
+  merge_group:
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ${{ matrix.variant }}
+    uses: ./.github/workflows/build.yaml
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
+      packages: write
+    secrets: inherit
+    strategy:
+      fail-fast: false
+      matrix:
+        variant:
+          - main
+          - noml
+          - cuda
+          - openvino
+    with:
+      variant: ${{ matrix.variant }}
+      release: false
+
+  status:
+    if: ${{ !cancelled() }}
+    name: Build Success
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
+      - if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: echo "All builds passed"
