@@ -444,6 +444,12 @@ RUN \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/*
 
+RUN \
+  echo "**** prevent core dumps ****" && \
+  echo "hard core 0" >> /etc/security/limits.conf && \
+  echo "fs.suid_dumpable 0" >> /etc/sysctl.conf && \
+  echo 'ulimit -S -c 0 > /dev/null 2>&1' >> /etc/profile
+
 COPY root/ /
 
 EXPOSE 8080
@@ -457,6 +463,7 @@ FROM runtime-base AS final-main
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
+  MACHINE_LEARNING_MODEL_ARENA="false" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   PYTHONDONTWRITEBYTECODE="1" \
   PYTHONPATH="/app/immich/machine-learning" \
@@ -527,16 +534,12 @@ RUN \
     >/etc/apt/preferences.d/cuda && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    execstack \
     libcublas12 \
     libcublaslt12 \
     libcudart12 \
     libcudnn9-cuda-12=9.10.2.21-1 \
     libcufft11 \
     libcurand10 && \
-  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
-  apt-get remove -y --purge \
-    execstack && \
   ldconfig /usr/local/lib && \
   apt-get clean && \
   rm -rf \
@@ -563,22 +566,15 @@ RUN \
     --no-progress
 
 # =============================================================================
-# final-openvino: final-main + execstack on OpenVINO .so files
+# final-openvino: final-main + OpenVINO ml venv
 # =============================================================================
 FROM final-main AS final-openvino
+
+ENV \
+  MACHINE_LEARNING_MODEL_ARENA="true"
 
 # Replace ml-cpu artifacts with ml-openvino artifacts
 COPY --from=ml-openvino /lsiopy /lsiopy
 COPY --from=ml-openvino /tmp/immich/machine-learning /app/immich/machine-learning
 
-RUN \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \
-    execstack && \
-  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
-  apt-get remove -y --purge \
-    execstack && \
-  ldconfig /usr/local/lib && \
-  apt-get clean && \
-  rm -rf \
-    /var/lib/apt/lists/*
+RUN ldconfig /usr/local/lib
