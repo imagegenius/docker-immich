@@ -156,4 +156,10 @@ Or with compose: `docker compose pull && docker compose up -d`.
 
 ## How this image is built
 
-CI/CD runs on GitHub Actions, following the container workflow used by [`home-operations/containers`](https://github.com/home-operations/containers). Variants are Dockerfile stages selected at build time by [`docker-bake.hcl`](docker-bake.hcl); the s6-overlay supervision tree lives under [`root/`](root). Upstream Immich versions are tracked by Renovate via annotations on the bake file.
+This repo is built with GitHub Actions, based on the workflow shape from [home-operations/containers](https://github.com/home-operations/containers).
+
+- The container starts from [linuxserver/docker-baseimage-ubuntu](https://github.com/linuxserver/docker-baseimage-ubuntu).
+- Immich's upstream media dependency scripts run in this Dockerfile, then the app and variant stages build on top.
+- Variants are selected by [`docker-bake.hcl`](docker-bake.hcl).
+- s6-overlay bits live under [`root/`](root).
+- Renovate tracks Immich and build input bumps from the bake annotations.
