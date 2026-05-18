@@ -1,0 +1,68 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile
+      - docker-bake.hcl
+      - 'root/**'
+      - 'tests/**'
+      - '.github/**'
+  workflow_dispatch:
+    inputs:
+      variant:
+        type: choice
+        options:
+          - main
+          - noml
+          - cuda
+          - openvino
+          - all
+        default: all
+      release:
+        type: boolean
+        default: true
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: ${{ matrix.variant }}
+    uses: ./.github/workflows/build.yaml
+    permissions:
+      artifact-metadata: write
+      attestations: write
+      contents: write
+      id-token: write
+      packages: write
+      security-events: write
+    secrets: inherit
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: >-
+          ${{
+            github.event_name == 'workflow_dispatch' && inputs.variant != 'all'
+            && fromJSON(format('["{0}"]', inputs.variant))
+            || fromJSON('["main","noml","cuda","openvino"]')
+          }}
+    with:
+      variant: ${{ matrix.variant }}
+      release: ${{ github.event_name == 'workflow_dispatch' && inputs.release || github.event_name == 'push' }}
+
+  status:
+    if: ${{ !cancelled() }}
+    name: Release Success
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
+      - if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: echo "All releases passed"

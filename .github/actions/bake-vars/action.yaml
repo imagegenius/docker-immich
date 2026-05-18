@@ -1,0 +1,33 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-action.json
+name: Bake Vars
+description: Reads platforms and version for a given variant from docker-bake.hcl
+
+inputs:
+  variant:
+    description: Variant name (main, noml, cuda, openvino)
+    required: true
+
+outputs:
+  platforms:
+    description: Platforms array as JSON string
+    value: ${{ steps.opts.outputs.platforms }}
+  version:
+    description: Upstream immich version (v-stripped)
+    value: ${{ steps.opts.outputs.version }}
+
+runs:
+  using: composite
+  steps:
+    - id: opts
+      shell: bash
+      env:
+        VARIANT: ${{ inputs.variant }}
+      run: |-
+        BAKE=$(docker buildx bake "image-${VARIANT}" --print --progress=quiet)
+        PLATFORMS=$(jq --raw-output --compact-output ".target.\"image-${VARIANT}\".platforms" <<<"$BAKE")
+        VERSION=$(jq --raw-output ".target.\"image-${VARIANT}\".args.IMMICH_VERSION" <<<"$BAKE" | sed 's/^v//')
+        {
+          echo "platforms=${PLATFORMS}"
+          echo "version=${VERSION}"
+        } >>"$GITHUB_OUTPUT"

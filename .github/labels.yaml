@@ -1,0 +1,24 @@
+---
+# Areas
+- name: area/image
+  color: 0e8a16
+- name: area/github
+  color: 0e8a16
+- name: area/mise
+  color: 0e8a16
+- name: area/renovate
+  color: 0e8a16
+- name: area/tests
+  color: 0e8a16
+# Semantic Types
+- name: type/digest
+  color: ffeC19
+- name: type/patch
+  color: ffeC19
+- name: type/minor
+  color: ff9800
+- name: type/major
+  color: f6412d
+# Uncategorized
+- name: stale
+  color: c5def5
