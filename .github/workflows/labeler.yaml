@@ -29,15 +29,6 @@ jobs:
           app-id: ${{ secrets.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
 
-      - name: Setup Just
-        uses: extractions/setup-crate@7577c1bdf2d95e6d65d532788f35ed79d4b1dda2 # v2.0.1
-        with:
-          repo: casey/just
-
-      - name: Generate Label Config
-        run: |-
-          just generate-label-config
-
       - name: Labeler
         uses: actions/labeler@f27b608878404679385c85cfa523b85ccb86e213 # v6.1.0
         with:
