@@ -16,7 +16,7 @@ variable "VERSION" {
 
 variable "NODEJS_VERSION" {
   # renovate: datasource=github-releases depName=nodejs/node versioning=node
-  default = "22.18.0"
+  default = "22.22.3"
 }
 
 variable "UV_IMAGE" {
