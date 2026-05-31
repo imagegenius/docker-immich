@@ -11,7 +11,7 @@ variable "BASE_IMAGE" {
 
 variable "IMMICH_BASE_IMAGES_VERSION" {
   # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
-  default = "202605121138"
+  default = "202605191202"
 }
 
 variable "VERSION" {
