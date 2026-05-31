@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 # check=skip=InvalidDefaultArgInFrom
 
-ARG BASE_IMAGE
 ARG UV_IMAGE
 
 FROM ${UV_IMAGE} AS uv
@@ -9,7 +8,7 @@ FROM ${UV_IMAGE} AS uv
 # =============================================================================
 # media-deps: Immich media/runtime dependencies
 # =============================================================================
-FROM ${BASE_IMAGE} AS media-deps
+FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS media-deps
 
 ARG IMMICH_BASE_IMAGES_VERSION
 ARG TARGETARCH

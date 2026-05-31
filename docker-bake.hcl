@@ -4,11 +4,6 @@ variable "OWNER" {
   default = "imagegenius"
 }
 
-variable "BASE_IMAGE" {
-  # renovate: datasource=docker depName=ghcr.io/linuxserver/baseimage-ubuntu versioning=docker
-  default = "ghcr.io/linuxserver/baseimage-ubuntu:resolute@sha256:077ed7e60b2c0c585d35a7f6786fb60586d9d3f2c6f7a4be5e13a69f38a83503"
-}
-
 variable "IMMICH_BASE_IMAGES_VERSION" {
   # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
   default = "202605191202"
@@ -40,7 +35,6 @@ group "default" {
 target "image" {
   inherits = ["docker-metadata-action"]
   args = {
-    BASE_IMAGE                 = "${BASE_IMAGE}"
     IMMICH_BASE_IMAGES_VERSION = "${IMMICH_BASE_IMAGES_VERSION}"
     IMMICH_VERSION             = "${VERSION}"
     NODEJS_VERSION             = "${NODEJS_VERSION}"
