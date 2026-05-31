@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1
+# check=skip=InvalidDefaultArgInFrom
 
 ARG BASE_IMAGE
 ARG UV_IMAGE
@@ -6,13 +7,228 @@ ARG UV_IMAGE
 FROM ${UV_IMAGE} AS uv
 
 # =============================================================================
+# media-deps: Immich media/runtime dependencies
+# =============================================================================
+FROM ${BASE_IMAGE} AS media-deps
+
+ARG IMMICH_BASE_IMAGES_VERSION
+ARG TARGETARCH
+
+ENV \
+  LD_LIBRARY_PATH="/usr/local/lib:/usr/lib/jellyfin-ffmpeg/lib:/usr/lib/wsl/lib" \
+  LD_RUN_PATH="/usr/local/lib"
+
+RUN \
+  echo "**** setup media dependency build ****" && \
+  mkdir -p \
+    /app/immich/data/geodata \
+    /tmp/immich-dependencies && \
+  curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor > /usr/share/keyrings/pgdg-archive-keyring.gpg && \
+  echo "deb [signed-by=/usr/share/keyrings/pgdg-archive-keyring.gpg] https://apt.postgresql.org/pub/repos/apt resolute-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
+  apt-get update && \
+  echo "**** install media build packages ****" && \
+  apt-get install --no-install-recommends -y \
+    autoconf \
+    automake \
+    aom-tools \
+    bc \
+    build-essential \
+    ca-certificates \
+    cmake \
+    git \
+    jq \
+    libaom-dev \
+    libbrotli-dev \
+    libdav1d-dev \
+    libde265-dev \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libhwy-dev \
+    libjpeg-dev \
+    liblcms2-dev \
+    libltdl-dev \
+    librsvg2-dev \
+    libsharpyuv-dev \
+    libspng-dev \
+    libtool \
+    libwebm-dev \
+    libwebp-dev \
+    libyuv-dev \
+    make \
+    meson \
+    ninja-build \
+    pkg-config \
+    postgresql-client-14 \
+    postgresql-client-15 \
+    postgresql-client-16 \
+    postgresql-client-17 \
+    postgresql-client-18 \
+    unzip \
+    wget && \
+  echo "**** install media runtime packages ****" && \
+  apt-get install --no-install-recommends -y \
+    libaom3 \
+    libdav1d7 \
+    libde265-0 \
+    libexif12 \
+    libexpat1 \
+    libgcc-s1 \
+    libglib2.0-0 \
+    libgomp1 \
+    libgsf-1-114 \
+    libhwy1t64 \
+    libio-compress-brotli-perl \
+    liblcms2-2 \
+    liblqr-1-0 \
+    libltdl7 \
+    libmimalloc3 \
+    libopenexr-3-1-30 \
+    libopenjp2-7 \
+    libpng16-16 \
+    librsvg2-2 \
+    libspng0 \
+    libwebp7 \
+    libwebpdemux2 \
+    libwebpmux3 \
+    libwebm1 \
+    libyuv0 \
+    mesa-utils \
+    mesa-va-drivers \
+    mesa-vulkan-drivers \
+    ocl-icd-libopencl1 \
+    perl \
+    zlib1g && \
+  apt-mark manual \
+    libaom3 \
+    libwebm1 \
+    libyuv0 && \
+  if [ "${TARGETARCH:-$(dpkg --print-architecture)}" = "amd64" ]; then \
+    echo "**** install intel opencl runtime ****" && \
+    apt-get install --no-install-recommends -y \
+      intel-media-va-driver-non-free && \
+    mkdir -p /tmp/intel && \
+    wget -nv -P /tmp/intel \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-core_1.0.17537.24_amd64.deb" \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-opencl_1.0.17537.24_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/24.35.30872.36/intel-opencl-icd-legacy1_24.35.30872.36_amd64.deb" \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.32.7/intel-igc-core-2_2.32.7+21184_amd64.deb" \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.32.7/intel-igc-opencl-2_2.32.7+21184_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.14.37833.4/intel-opencl-icd_26.14.37833.4-0_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.14.37833.4/libigdgmm12_22.9.0_amd64.deb" && \
+    dpkg -i /tmp/intel/*.deb; \
+  fi && \
+  echo "**** download upstream immich base-image scripts ****" && \
+  curl -o \
+    /tmp/immich-dependencies.tar.gz -L \
+    "https://github.com/immich-app/base-images/archive/${IMMICH_BASE_IMAGES_VERSION}.tar.gz" && \
+  tar xf \
+    /tmp/immich-dependencies.tar.gz -C \
+    /tmp/immich-dependencies --strip-components=1 && \
+  echo "**** build upstream media dependencies ****" && \
+  cd /tmp/immich-dependencies/server/sources && \
+  FFMPEG_ARCH="${TARGETARCH:-$(dpkg --print-architecture)}" && \
+  FFMPEG_VERSION=$(jq -cr '.version' /tmp/immich-dependencies/server/packages/ffmpeg.json) && \
+  FFMPEG_ASSET="jellyfin-ffmpeg7_${FFMPEG_VERSION}-resolute_${FFMPEG_ARCH}.deb" && \
+  FFMPEG_SHA256=$(curl -fsSL "https://api.github.com/repos/jellyfin/jellyfin-ffmpeg/releases/tags/v${FFMPEG_VERSION}" | jq -er --arg asset "${FFMPEG_ASSET}" '.assets[] | select(.name == $asset) | .digest | sub("^sha256:"; "")') && \
+  curl -o \
+    /tmp/ffmpeg.deb -L \
+    "https://github.com/jellyfin/jellyfin-ffmpeg/releases/download/v${FFMPEG_VERSION}/${FFMPEG_ASSET}" && \
+  echo "${FFMPEG_SHA256}  /tmp/ffmpeg.deb" | sha256sum -c - && \
+  apt-get install --no-install-recommends -y -f \
+    /tmp/ffmpeg.deb && \
+  ldconfig /usr/lib/jellyfin-ffmpeg/lib && \
+  ln -s \
+    /usr/lib/jellyfin-ffmpeg/ffmpeg \
+    /usr/bin && \
+  ln -s \
+    /usr/lib/jellyfin-ffmpeg/ffprobe \
+    /usr/bin && \
+  ./libjxl.sh \
+    --JPEGLI_LIBJPEG_LIBRARY_SOVERSION 8 \
+    --JPEGLI_LIBJPEG_LIBRARY_VERSION 8.2.2 && \
+  ./libheif.sh && \
+  ./libraw.sh && \
+  ./imagemagick.sh && \
+  ./libvips.sh && \
+  jq -s '.' /tmp/immich-dependencies/server/packages/*.json > /tmp/packages.json && \
+  jq -s '.' /tmp/immich-dependencies/server/sources/*.json > /tmp/sources.json && \
+  jq -n \
+    --slurpfile sources /tmp/sources.json \
+    --slurpfile packages /tmp/packages.json \
+    '{sources: $sources[0], packages: $packages[0]}' \
+    > /app/immich/data/build-lock.json && \
+  echo "**** download geocoding data ****" && \
+  curl -o \
+    /tmp/cities500.zip -L \
+    "https://download.geonames.org/export/dump/cities500.zip" && \
+  curl -o \
+    /app/immich/data/geodata/admin1CodesASCII.txt -L \
+    "https://download.geonames.org/export/dump/admin1CodesASCII.txt" && \
+  curl -o \
+    /app/immich/data/geodata/admin2Codes.txt -L \
+    "https://download.geonames.org/export/dump/admin2Codes.txt" && \
+  curl -o \
+    /app/immich/data/geodata/ne_10m_admin_0_countries.geojson -L \
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson" && \
+  unzip \
+    /tmp/cities500.zip -d \
+    /app/immich/data/geodata && \
+  date --iso-8601=seconds | tr -d "\n" > /app/immich/data/geodata/geodata-date.txt && \
+  echo "**** cleanup media dependency build ****" && \
+  apt-get remove -y --purge \
+    autoconf \
+    automake \
+    aom-tools \
+    bc \
+    build-essential \
+    cmake \
+    git \
+    libaom-dev \
+    libbrotli-dev \
+    libdav1d-dev \
+    libde265-dev \
+    libexif-dev \
+    libexpat1-dev \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libheif-dev \
+    libhwy-dev \
+    libjpeg-dev \
+    liblcms2-dev \
+    libltdl-dev \
+    librsvg2-dev \
+    libsharpyuv-dev \
+    libspng-dev \
+    libtool \
+    libwebm-dev \
+    libwebp-dev \
+    libyuv-dev \
+    make \
+    meson \
+    ninja-build \
+    pkg-config \
+    unzip \
+    wget && \
+  apt-get autoremove -y --purge && \
+  apt-get clean && \
+  rm -rf \
+    /etc/apt/sources.list.d/pgdg.list \
+    /tmp/* \
+    /usr/share/keyrings/pgdg-archive-keyring.gpg \
+    /var/lib/apt/lists/* \
+    /var/log/* \
+    /var/tmp/* && \
+  ldconfig /usr/local/lib
+
+# =============================================================================
 # build: download immich, install build deps, pnpm build server/web/cli/plugins
 # =============================================================================
-FROM ${BASE_IMAGE} AS build
+FROM media-deps AS build
 
 ARG IMMICH_VERSION
 ARG NODEJS_VERSION
-ARG LATEST_UBUNTU_VERSION="resolute"
 
 ENV \
   IMMICH_BUILD_DATA="/app/immich/data" \
@@ -23,7 +239,6 @@ ENV \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  UV_PYTHON="/usr/bin/python3.11" \
   MISE_TRUSTED_CONFIG_PATHS="/tmp/immich" \
   MISE_DATA_DIR="/buildcache/mise" \
   NODE_OPTIONS="--max-old-space-size=8192"
@@ -42,45 +257,39 @@ RUN \
   NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
   NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
   echo "**** setup repos ****" && \
-  echo "deb http://archive.ubuntu.com/ubuntu ${LATEST_UBUNTU_VERSION} main restricted universe multiverse" > /etc/apt/sources.list.d/immich.list && \
-  printf "Package: *\nPin: release n=${LATEST_UBUNTU_VERSION}\nPin-Priority: 450\n" > /etc/apt/preferences.d/preferences && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODEJS_MAJOR_VERSION}.x nodistro main" > /etc/apt/sources.list.d/node.list && \
   curl -s \
     "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | \
     gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
-  echo "deb [signed-by=/usr/share/keyrings/deadsnakes.gpg] https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu noble main" > /etc/apt/sources.list.d/deadsnakes.list && \
-  curl -s \
-    "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF23C5A6CF475977595C89F51BA6932366A755776" | \
-    gpg --dearmor | tee /usr/share/keyrings/deadsnakes.gpg >/dev/null && \
   mkdir -p \
     /etc/apt/keyrings && \
-  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub] https://mise.jdx.dev/deb stable main" > /etc/apt/sources.list.d/mise.list && \
+  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg] https://mise.jdx.dev/deb stable main" > /etc/apt/sources.list.d/mise.list && \
   curl -fSs \
-    "https://mise.jdx.dev/gpg-key.pub" | tee /etc/apt/keyrings/mise-archive-keyring.pub >/dev/null && \
+    "https://mise.jdx.dev/gpg-key.pub" | \
+    gpg --dearmor | tee /etc/apt/keyrings/mise-archive-keyring.gpg >/dev/null && \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
     git \
+    libcairo2-dev \
     libexif-dev \
     libexpat1-dev \
+    libfontconfig-dev \
     libglib2.0-dev \
-    libjpeg-dev \
-    libspng-dev \
-    pkg-config \
-    python3.11-dev \
-    mise && \
-  apt-get install --no-install-recommends -y -t ${LATEST_UBUNTU_VERSION} \
     libhwy-dev \
+    libjpeg-dev \
+    liblcms2-dev \
+    libpango1.0-dev \
+    libpng-dev \
     librsvg2-dev \
-    libsharpyuv-dev \
+    libspng-dev \
     libwebp-dev \
-    libwebp7 \
-    libwebpdemux2 \
-    libwebpmux3 && \
+    pkg-config \
+    python3 \
+    mise && \
   apt-get install --no-install-recommends -y \
-    nodejs="${NODEJS_VERSION}" \
-    python3.11 && \
+    nodejs="${NODEJS_VERSION}" && \
   echo "**** setup pnpm ****" && \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
@@ -153,6 +362,10 @@ RUN \
     /app/immich/server/bin/immich && \
   apt-get clean && \
   rm -rf \
+    /etc/apt/sources.list.d/mise.list \
+    /etc/apt/sources.list.d/node.list \
+    /etc/apt/keyrings/mise-archive-keyring.gpg \
+    /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/*
 
 # =============================================================================
@@ -198,7 +411,7 @@ RUN \
 # =============================================================================
 # runtime-base: shared final scaffolding for all variants
 # =============================================================================
-FROM ${BASE_IMAGE} AS runtime-base
+FROM media-deps AS runtime-base
 
 ARG NODEJS_VERSION
 
@@ -231,6 +444,12 @@ RUN \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/*
 
+RUN \
+  echo "**** prevent core dumps ****" && \
+  echo "hard core 0" >> /etc/security/limits.conf && \
+  echo "fs.suid_dumpable 0" >> /etc/sysctl.conf && \
+  echo 'ulimit -S -c 0 > /dev/null 2>&1' >> /etc/profile
+
 COPY root/ /
 
 EXPOSE 8080
@@ -244,6 +463,7 @@ FROM runtime-base AS final-main
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
+  MACHINE_LEARNING_MODEL_ARENA="false" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   PYTHONDONTWRITEBYTECODE="1" \
   PYTHONPATH="/app/immich/machine-learning" \
@@ -314,16 +534,12 @@ RUN \
     >/etc/apt/preferences.d/cuda && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    execstack \
     libcublas12 \
     libcublaslt12 \
     libcudart12 \
     libcudnn9-cuda-12=9.10.2.21-1 \
     libcufft11 \
     libcurand10 && \
-  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
-  apt-get remove -y --purge \
-    execstack && \
   ldconfig /usr/local/lib && \
   apt-get clean && \
   rm -rf \
@@ -350,22 +566,15 @@ RUN \
     --no-progress
 
 # =============================================================================
-# final-openvino: final-main + execstack on OpenVINO .so files
+# final-openvino: final-main + OpenVINO ml venv
 # =============================================================================
 FROM final-main AS final-openvino
+
+ENV \
+  MACHINE_LEARNING_MODEL_ARENA="true"
 
 # Replace ml-cpu artifacts with ml-openvino artifacts
 COPY --from=ml-openvino /lsiopy /lsiopy
 COPY --from=ml-openvino /tmp/immich/machine-learning /app/immich/machine-learning
 
-RUN \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \
-    execstack && \
-  find /lsiopy/lib -name "*linux-gnu.so" -exec execstack -c {} \; && \
-  apt-get remove -y --purge \
-    execstack && \
-  ldconfig /usr/local/lib && \
-  apt-get clean && \
-  rm -rf \
-    /var/lib/apt/lists/*
+RUN ldconfig /usr/local/lib

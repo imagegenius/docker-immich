@@ -5,8 +5,13 @@ variable "OWNER" {
 }
 
 variable "BASE_IMAGE" {
-  # renovate: datasource=docker depName=ghcr.io/imagegenius/baseimage-immich
-  default = "ghcr.io/imagegenius/baseimage-immich@sha256:971e2332d0a6654d7513173385a9cb5d4ccedcbf612b49df3dbdd93fd908f545"
+  # renovate: datasource=docker depName=ghcr.io/linuxserver/baseimage-ubuntu versioning=docker
+  default = "ghcr.io/linuxserver/baseimage-ubuntu:resolute@sha256:077ed7e60b2c0c585d35a7f6786fb60586d9d3f2c6f7a4be5e13a69f38a83503"
+}
+
+variable "IMMICH_BASE_IMAGES_VERSION" {
+  # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
+  default = "202605121138"
 }
 
 variable "VERSION" {
@@ -16,7 +21,7 @@ variable "VERSION" {
 
 variable "NODEJS_VERSION" {
   # renovate: datasource=github-releases depName=nodejs/node versioning=node
-  default = "22.18.0"
+  default = "24.14.1"
 }
 
 variable "UV_IMAGE" {
@@ -35,10 +40,11 @@ group "default" {
 target "image" {
   inherits = ["docker-metadata-action"]
   args = {
-    BASE_IMAGE     = "${BASE_IMAGE}"
-    IMMICH_VERSION = "${VERSION}"
-    NODEJS_VERSION = "${NODEJS_VERSION}"
-    UV_IMAGE       = "${UV_IMAGE}"
+    BASE_IMAGE                 = "${BASE_IMAGE}"
+    IMMICH_BASE_IMAGES_VERSION = "${IMMICH_BASE_IMAGES_VERSION}"
+    IMMICH_VERSION             = "${VERSION}"
+    NODEJS_VERSION             = "${NODEJS_VERSION}"
+    UV_IMAGE                   = "${UV_IMAGE}"
   }
   labels = {
     "org.opencontainers.image.source" = "${SOURCE}"
