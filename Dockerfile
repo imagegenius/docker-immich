@@ -370,7 +370,7 @@ RUN \
 # =============================================================================
 # ml-base: uv from official multi-arch image, source machine-learning sources
 # =============================================================================
-FROM python:3.11-bookworm AS ml-base
+FROM python:3.14-bookworm AS ml-base
 
 ENV \
   UV_PYTHON="/usr/local/bin/python3.11"
