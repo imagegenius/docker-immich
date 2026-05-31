@@ -111,6 +111,7 @@ jobs:
             ./docker-bake.hcl
             cwd://${{ runner.temp }}/docker-metadata-action-bake.json
           targets: image-${{ inputs.variant }}
+          provenance: false
           set: |
             *.platform=${{ matrix.platform }}
             *.cache-from=${{ format('type=registry,ref=ghcr.io/{0}/immich-cache:{1}-{2}', github.repository_owner, inputs.variant, steps.target.outputs.arch) }}
@@ -218,7 +219,7 @@ jobs:
       - name: Attestation
         uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
         with:
-          push-to-registry: true
+          push-to-registry: false
           subject-name: ghcr.io/${{ github.repository_owner }}/immich
           subject-digest: ${{ needs.merge.outputs.digest }}
 
