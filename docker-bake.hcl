@@ -6,7 +6,7 @@ variable "OWNER" {
 
 variable "IMMICH_BASE_IMAGES_VERSION" {
   # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
-  default = "202605191202"
+  default = "202606021219"
 }
 
 variable "VERSION" {
