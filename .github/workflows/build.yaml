@@ -120,7 +120,7 @@ jobs:
             *.labels.org.opencontainers.image.version=${{ needs.plan.outputs.version }}
             *.labels.org.opencontainers.image.revision=${{ github.sha }}
             *.labels.org.opencontainers.image.vendor=${{ github.repository_owner }}
-            *.output=type=image,name=ghcr.io/${{ github.repository_owner }}/immich,push-by-digest=true,name-canonical=true,push=true,compression=zstd,force-compression=true
+            *.output=type=image,name=ghcr.io/${{ github.repository_owner }}/immich,push-by-digest=true,name-canonical=true,push=true,compression=zstd,force-compression=true,oci-mediatypes=true
             *.tags=
 
       - name: Export Digest
