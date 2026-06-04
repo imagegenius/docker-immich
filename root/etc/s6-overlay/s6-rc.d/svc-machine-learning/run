@@ -7,8 +7,8 @@
 # stop machine learning from starting
 [[ "${DISABLE_MACHINE_LEARNING}" == "true" || "${IMMICH_MACHINE_LEARNING_URL}" != "http://127.0.0.1:3003" ]] && tail -f /dev/null
 
-lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.2"
-export LD_PRELOAD="${lib_path}"
+lib_path="$(ls /usr/lib/$(arch)-linux-gnu/libmimalloc.so.* 2>/dev/null | sort -V | tail -1)"
+[[ -n "${lib_path}" ]] && export LD_PRELOAD="${lib_path}"
 export IMMICH_HOST="${MACHINE_LEARNING_HOST:-"0.0.0.0"}"
 export IMMICH_PORT="${MACHINE_LEARNING_PORT:-"3003"}"
 export MPLCONFIGDIR="/tmp"
