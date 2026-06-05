@@ -1,9 +1,8 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-lib_path="$(ls /usr/lib/$(arch)-linux-gnu/libmimalloc.so.* 2>/dev/null | sort -V | tail -1)"
 export IMMICH_WORKERS_INCLUDE="microservices"
-[[ -n "${lib_path}" ]] && export LD_PRELOAD="${lib_path}"
+export LD_PRELOAD="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.3"
 
 exec \
     cd /app/immich/server s6-setuidgid abc \
