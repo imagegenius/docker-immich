@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"io"
 	"os"
 	"testing"
 	"time"
@@ -71,4 +72,12 @@ func Test(t *testing.T) {
 	)
 	testcontainers.CleanupContainer(t, immich)
 	require.NoError(t, err, "immich failed to come up; check DB+Redis reachability and logs above")
+
+	logs, err := immich.Logs(ctx)
+	require.NoError(t, err)
+	defer logs.Close()
+
+	logBytes, err := io.ReadAll(logs)
+	require.NoError(t, err)
+	require.NotContains(t, string(logBytes), "cannot be preloaded")
 }
