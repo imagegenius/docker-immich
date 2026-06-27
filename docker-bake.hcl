@@ -6,7 +6,7 @@ variable "OWNER" {
 
 variable "IMMICH_BASE_IMAGES_VERSION" {
   # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
-  default = "202603251709"
+  default = "202605121138"
 }
 
 variable "VERSION" {
@@ -15,13 +15,19 @@ variable "VERSION" {
 }
 
 variable "NODEJS_VERSION" {
-  # renovate: datasource=github-releases depName=nodejs/node versioning=node
   default = "24.14.1"
 }
 
 variable "UV_IMAGE" {
-  # renovate: datasource=docker depName=ghcr.io/astral-sh/uv
-  default = "ghcr.io/astral-sh/uv:0.11.14@sha256:1025398289b62de8269e70c45b91ffa37c373f38118d7da036fb8bb8efc85d97"
+  default = "ghcr.io/astral-sh/uv:0.8.15"
+}
+
+variable "MISE_IMAGE" {
+  default = "ghcr.io/jdx/mise:2026.3.12"
+}
+
+variable "IMMICH_MEDIA_BUILD_JOBS" {
+  default = "4"
 }
 
 variable "SOURCE" {
@@ -36,7 +42,9 @@ target "image" {
   inherits = ["docker-metadata-action"]
   args = {
     IMMICH_BASE_IMAGES_VERSION = "${IMMICH_BASE_IMAGES_VERSION}"
+    IMMICH_MEDIA_BUILD_JOBS    = "${IMMICH_MEDIA_BUILD_JOBS}"
     IMMICH_VERSION             = "${VERSION}"
+    MISE_IMAGE                 = "${MISE_IMAGE}"
     NODEJS_VERSION             = "${NODEJS_VERSION}"
     UV_IMAGE                   = "${UV_IMAGE}"
   }

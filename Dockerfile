@@ -2,8 +2,10 @@
 # check=skip=InvalidDefaultArgInFrom
 
 ARG UV_IMAGE
+ARG MISE_IMAGE
 
 FROM ${UV_IMAGE} AS uv
+FROM ${MISE_IMAGE} AS mise
 
 # =============================================================================
 # media-deps: Immich media/runtime dependencies
@@ -11,6 +13,7 @@ FROM ${UV_IMAGE} AS uv
 FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS media-deps
 
 ARG IMMICH_BASE_IMAGES_VERSION
+ARG IMMICH_MEDIA_BUILD_JOBS=4
 ARG TARGETARCH
 
 ENV \
@@ -112,10 +115,10 @@ RUN \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-core_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-opencl_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/compute-runtime/releases/download/24.35.30872.36/intel-opencl-icd-legacy1_24.35.30872.36_amd64.deb" \
-      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.32.7/intel-igc-core-2_2.32.7+21184_amd64.deb" \
-      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.32.7/intel-igc-opencl-2_2.32.7+21184_amd64.deb" \
-      "https://github.com/intel/compute-runtime/releases/download/26.14.37833.4/intel-opencl-icd_26.14.37833.4-0_amd64.deb" \
-      "https://github.com/intel/compute-runtime/releases/download/26.14.37833.4/libigdgmm12_22.9.0_amd64.deb" && \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.28.4/intel-igc-core-2_2.28.4+20760_amd64.deb" \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.28.4/intel-igc-opencl-2_2.28.4+20760_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.05.37020.3/intel-opencl-icd_26.05.37020.3-0_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.05.37020.3/libigdgmm12_22.9.0_amd64.deb" && \
     dpkg -i /tmp/intel/*.deb; \
   fi && \
   echo "**** download upstream immich base-image scripts ****" && \
@@ -128,13 +131,12 @@ RUN \
   echo "**** build upstream media dependencies ****" && \
   cd /tmp/immich-dependencies/server/sources && \
   FFMPEG_ARCH="${TARGETARCH:-$(dpkg --print-architecture)}" && \
+  FFMPEG_DEBIAN_RELEASE="resolute" && \
   FFMPEG_VERSION=$(jq -cr '.version' /tmp/immich-dependencies/server/packages/ffmpeg.json) && \
-  FFMPEG_ASSET="jellyfin-ffmpeg7_${FFMPEG_VERSION}-resolute_${FFMPEG_ARCH}.deb" && \
-  FFMPEG_SHA256=$(curl -fsSL "https://api.github.com/repos/jellyfin/jellyfin-ffmpeg/releases/tags/v${FFMPEG_VERSION}" | jq -er --arg asset "${FFMPEG_ASSET}" '.assets[] | select(.name == $asset) | .digest | sub("^sha256:"; "")') && \
-  curl -o \
+  FFMPEG_ASSET="jellyfin-ffmpeg7_${FFMPEG_VERSION}-${FFMPEG_DEBIAN_RELEASE}_${FFMPEG_ARCH}.deb" && \
+  curl -f -o \
     /tmp/ffmpeg.deb -L \
     "https://github.com/jellyfin/jellyfin-ffmpeg/releases/download/v${FFMPEG_VERSION}/${FFMPEG_ASSET}" && \
-  echo "${FFMPEG_SHA256}  /tmp/ffmpeg.deb" | sha256sum -c - && \
   apt-get install --no-install-recommends -y -f \
     /tmp/ffmpeg.deb && \
   ldconfig /usr/lib/jellyfin-ffmpeg/lib && \
@@ -144,6 +146,10 @@ RUN \
   ln -s \
     /usr/lib/jellyfin-ffmpeg/ffprobe \
     /usr/bin && \
+  mkdir -p /tmp/media-build-bin && \
+  printf '#!/bin/sh\nprintf "%%s\\n" "${IMMICH_MEDIA_BUILD_JOBS:-4}"\n' > /tmp/media-build-bin/nproc && \
+  chmod +x /tmp/media-build-bin/nproc && \
+  PATH="/tmp/media-build-bin:${PATH}" && \
   ./libjxl.sh \
     --JPEGLI_LIBJPEG_LIBRARY_SOVERSION 8 \
     --JPEGLI_LIBJPEG_LIBRARY_VERSION 8.2.2 && \
@@ -229,6 +235,8 @@ FROM media-deps AS build
 ARG IMMICH_VERSION
 ARG NODEJS_VERSION
 
+COPY --from=mise /usr/local/bin/mise /usr/local/bin/mise
+
 ENV \
   IMMICH_BUILD_DATA="/app/immich/data" \
   IMMICH_ENV="production" \
@@ -260,12 +268,6 @@ RUN \
   curl -s \
     "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | \
     gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
-  mkdir -p \
-    /etc/apt/keyrings && \
-  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg] https://mise.jdx.dev/deb stable main" > /etc/apt/sources.list.d/mise.list && \
-  curl -fSs \
-    "https://mise.jdx.dev/gpg-key.pub" | \
-    gpg --dearmor | tee /etc/apt/keyrings/mise-archive-keyring.gpg >/dev/null && \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
@@ -285,8 +287,7 @@ RUN \
     libspng-dev \
     libwebp-dev \
     pkg-config \
-    python3 \
-    mise && \
+    python3 && \
   apt-get install --no-install-recommends -y \
     nodejs="${NODEJS_VERSION}" && \
   echo "**** setup pnpm ****" && \
@@ -361,9 +362,7 @@ RUN \
     /app/immich/server/bin/immich && \
   apt-get clean && \
   rm -rf \
-    /etc/apt/sources.list.d/mise.list \
     /etc/apt/sources.list.d/node.list \
-    /etc/apt/keyrings/mise-archive-keyring.gpg \
     /usr/share/keyrings/nodesource-repo.gpg \
     /var/lib/apt/lists/*
 
@@ -374,6 +373,29 @@ FROM python:3.11-bookworm AS ml-base
 
 ENV \
   UV_PYTHON="/usr/local/bin/python3.11"
+
+RUN \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    g++ && \
+  apt-get clean && \
+  rm -rf \
+    /var/lib/apt/lists/*
+
+COPY --from=uv /uv /uvx /usr/local/bin/
+COPY --from=build /tmp/immich/machine-learning /tmp/immich/machine-learning
+
+WORKDIR /tmp/immich/machine-learning
+
+RUN uv venv /lsiopy --python "${UV_PYTHON}"
+
+# =============================================================================
+# ml-base-openvino: upstream OpenVINO Python base
+# =============================================================================
+FROM python:3.13-slim-trixie AS ml-base-openvino
+
+ENV \
+  UV_PYTHON="/usr/local/bin/python3.13"
 
 RUN \
   apt-get update && \
@@ -550,7 +572,7 @@ RUN \
 # =============================================================================
 # ml-openvino: uv sync with openvino extras
 # =============================================================================
-FROM ml-base AS ml-openvino
+FROM ml-base-openvino AS ml-openvino
 
 RUN \
   . /lsiopy/bin/activate && \
@@ -574,6 +596,11 @@ ENV \
 
 # Replace ml-cpu artifacts with ml-openvino artifacts
 COPY --from=ml-openvino /lsiopy /lsiopy
+COPY --from=ml-openvino /usr/local/bin/python3 /usr/local/bin/python3
+COPY --from=ml-openvino /usr/local/bin/python3.13 /usr/local/bin/python3.13
+COPY --from=ml-openvino /usr/local/lib/python3.13 /usr/local/lib/python3.13
+COPY --from=ml-openvino /usr/local/lib/libpython3.13.so /usr/local/lib/libpython3.13.so
+COPY --from=ml-openvino /usr/local/lib/libpython3.13.so.1.0 /usr/local/lib/libpython3.13.so.1.0
 COPY --from=ml-openvino /tmp/immich/machine-learning /app/immich/machine-learning
 
 RUN ldconfig /usr/local/lib
