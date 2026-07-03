@@ -304,6 +304,12 @@ RUN \
     --filter @immich/sdk \
     --filter @immich/plugin-sdk \
     --filter immich \
+    --frozen-lockfile \
+    install && \
+  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+    --filter @immich/sdk \
+    --filter @immich/plugin-sdk \
+    --filter immich \
     build && \
   SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm \
     --filter immich \
