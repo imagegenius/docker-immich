@@ -304,11 +304,9 @@ RUN \
     --filter @immich/sdk \
     --filter @immich/plugin-sdk \
     --filter immich \
-    --frozen-lockfile \
     build && \
   SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm \
     --filter immich \
-    --frozen-lockfile \
     --prod \
     --no-optional \
     deploy /app/immich/server && \
