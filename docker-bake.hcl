@@ -6,24 +6,35 @@ variable "OWNER" {
 
 variable "IMMICH_BASE_IMAGES_VERSION" {
   # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
-  default = "202605121138"
+  default = "202606161235"
 }
 
 variable "VERSION" {
-  # renovate: datasource=github-releases depName=immich-app/immich
-  default = "v2.7.5"
+  # renovate: datasource=github-tags depName=immich-app/immich versioning=semver
+  default = "v3.0.1"
 }
 
 variable "NODEJS_VERSION" {
-  default = "24.14.1"
+  # renovate: datasource=node-version depName=node versioning=node
+  default = "24.15.0"
 }
 
-variable "UV_IMAGE" {
-  default = "ghcr.io/astral-sh/uv:0.8.15"
+variable "UV_IMAGE_REPOSITORY" {
+  default = "ghcr.io/astral-sh/uv"
 }
 
-variable "MISE_IMAGE" {
-  default = "ghcr.io/jdx/mise:2026.3.12"
+variable "UV_IMAGE_VERSION" {
+  # renovate: datasource=docker depName=ghcr.io/astral-sh/uv versioning=docker
+  default = "0.8.15"
+}
+
+variable "MISE_IMAGE_REPOSITORY" {
+  default = "ghcr.io/jdx/mise"
+}
+
+variable "MISE_IMAGE_VERSION" {
+  # renovate: datasource=docker depName=ghcr.io/jdx/mise versioning=docker
+  default = "2026.6.10"
 }
 
 variable "IMMICH_MEDIA_BUILD_JOBS" {
@@ -44,9 +55,9 @@ target "image" {
     IMMICH_BASE_IMAGES_VERSION = "${IMMICH_BASE_IMAGES_VERSION}"
     IMMICH_MEDIA_BUILD_JOBS    = "${IMMICH_MEDIA_BUILD_JOBS}"
     IMMICH_VERSION             = "${VERSION}"
-    MISE_IMAGE                 = "${MISE_IMAGE}"
+    MISE_IMAGE                 = "${MISE_IMAGE_REPOSITORY}:${MISE_IMAGE_VERSION}"
     NODEJS_VERSION             = "${NODEJS_VERSION}"
-    UV_IMAGE                   = "${UV_IMAGE}"
+    UV_IMAGE                   = "${UV_IMAGE_REPOSITORY}:${UV_IMAGE_VERSION}"
   }
   labels = {
     "org.opencontainers.image.source" = "${SOURCE}"

@@ -31,7 +31,7 @@
     {
       description: ["Manual Review for Toolchain Updates"],
       matchFileNames: ["docker-bake.hcl"],
-      matchDepNames: ["nodejs/node", "astral-sh/uv"],
+      matchDepNames: ["node", "ghcr.io/astral-sh/uv", "ghcr.io/jdx/mise"],
       automerge: false,
     },
   ],

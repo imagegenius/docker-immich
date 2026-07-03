@@ -115,10 +115,10 @@ RUN \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-core_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-opencl_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/compute-runtime/releases/download/24.35.30872.36/intel-opencl-icd-legacy1_24.35.30872.36_amd64.deb" \
-      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.28.4/intel-igc-core-2_2.28.4+20760_amd64.deb" \
-      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.28.4/intel-igc-opencl-2_2.28.4+20760_amd64.deb" \
-      "https://github.com/intel/compute-runtime/releases/download/26.05.37020.3/intel-opencl-icd_26.05.37020.3-0_amd64.deb" \
-      "https://github.com/intel/compute-runtime/releases/download/26.05.37020.3/libigdgmm12_22.9.0_amd64.deb" && \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.36.3/intel-igc-core-2_2.36.3+21719_amd64.deb" \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.36.3/intel-igc-opencl-2_2.36.3+21719_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.22.38646.4/intel-opencl-icd_26.22.38646.4-0_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.22.38646.4/libigdgmm12_22.10.0_amd64.deb" && \
     dpkg -i /tmp/intel/*.deb; \
   fi && \
   echo "**** download upstream immich base-image scripts ****" && \
@@ -246,8 +246,9 @@ ENV \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  MISE_TRUSTED_CONFIG_PATHS="/tmp/immich" \
+  MISE_TRUSTED_CONFIG_PATHS="/tmp/immich/mise.toml" \
   MISE_DATA_DIR="/buildcache/mise" \
+  MISE_DISABLE_TOOLS="flutter" \
   NODE_OPTIONS="--max-old-space-size=8192"
 
 RUN \
@@ -294,13 +295,14 @@ RUN \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
   echo "**** build plugins (mise) ****" && \
-  rm /tmp/immich/mise.toml && \
-  mise install --cd /tmp/immich/plugins && \
-  cd /tmp/immich/plugins && \
-  mise run build && \
+  cd /tmp/immich && \
+  mise install && \
+  mise //:plugins && \
   echo "**** build server ****" && \
   cd /tmp/immich && \
   SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+    --filter @immich/sdk \
+    --filter @immich/plugin-sdk \
     --filter immich \
     --frozen-lockfile \
     build && \
@@ -340,10 +342,10 @@ RUN \
     /app/immich/data/corePlugin \
     /app/immich/data/www && \
   cp -a \
-    /tmp/immich/plugins/dist \
+    /tmp/immich/packages/plugin-core/dist \
     /app/immich/data/corePlugin/dist && \
   cp -a \
-    /tmp/immich/plugins/manifest.json \
+    /tmp/immich/packages/plugin-core/manifest.json \
     /app/immich/data/corePlugin/manifest.json && \
   cp -a \
     /tmp/immich/web/build/. \
