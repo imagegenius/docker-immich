@@ -343,14 +343,14 @@ RUN \
     deploy /app/immich/cli && \
   echo "**** install core plugins ****" && \
   mkdir -p \
-    /app/immich/data/corePlugin \
+    /app/immich/data/plugins/immich-plugin-core \
     /app/immich/data/www && \
   cp -a \
     /tmp/immich/packages/plugin-core/dist \
-    /app/immich/data/corePlugin/dist && \
+    /app/immich/data/plugins/immich-plugin-core/dist && \
   cp -a \
     /tmp/immich/packages/plugin-core/manifest.json \
-    /app/immich/data/corePlugin/manifest.json && \
+    /app/immich/data/plugins/immich-plugin-core/manifest.json && \
   cp -a \
     /tmp/immich/web/build/. \
     /app/immich/data/www && \
