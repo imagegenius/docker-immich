@@ -445,12 +445,14 @@ ARG NODEJS_VERSION
 LABEL org.opencontainers.image.authors="hydazz, martabal"
 
 ENV \
+  HOME="/config" \
   IMMICH_BUILD_DATA="/app/immich/data" \
   IMMICH_ENV="production" \
   IMMICH_MEDIA_LOCATION="/photos" \
   NODE_ENV="production" \
   NODE_OPTIONS="--max-old-space-size=8192" \
-  PATH="${PATH}:/app/immich/server/bin"
+  PATH="${PATH}:/app/immich/server/bin" \
+  XDG_CACHE_HOME="/tmp"
 
 COPY --from=build /app/immich /app/immich
 
