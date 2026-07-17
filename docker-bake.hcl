@@ -34,7 +34,7 @@ variable "MISE_IMAGE_REPOSITORY" {
 
 variable "MISE_IMAGE_VERSION" {
   # renovate: datasource=docker depName=ghcr.io/jdx/mise versioning=docker
-  default = "2026.6.10"
+  default = "2026.7.10"
 }
 
 variable "IMMICH_MEDIA_BUILD_JOBS" {
