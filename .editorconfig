@@ -1,20 +1,39 @@
-# This file is globally distributed to all container image projects from
-# https://github.com/imagegenius/docker-jenkins-builder/blob/master/.editorconfig
+; https://editorconfig.org/
 
-# top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
-end_of_line = lf
-insert_final_newline = true
-# trim_trailing_whitespace may cause unintended issues and should not be globally set true
-trim_trailing_whitespace = false
-
-[{Dockerfile*,**.yml}]
 indent_style = space
 indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
 
-[{**.sh,root/etc/s6-overlay/s6-rc.d/**,root/etc/cont-init.d/**,root/etc/services.d/**}]
-indent_style = space
+[*.md]
+indent_size = 4
+trim_trailing_whitespace = false
+
+[Dockerfile]
+indent_size = 4
+
+[*.py]
+indent_size = 4
+
+[{*.sh,*.bash}]
+indent_size = 4
+
+[{*.just,*.justfile}]
+indent_size = 4
+
+[{Makefile,*.mk}]
+indent_style = tab
+indent_size = 4
+
+[{*.go,go.mod,go.sum}]
+indent_style = tab
+indent_size = 4
+
+[.gitmodules]
+indent_style = tab
 indent_size = 4

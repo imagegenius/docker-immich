@@ -14,10 +14,15 @@ on:
         description: Release
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   plan:
     name: Plan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
     outputs:
       platforms: ${{ steps.opts.outputs.platforms }}
       version: ${{ steps.opts.outputs.version }}
@@ -73,7 +78,10 @@ jobs:
       fail-fast: false
       matrix:
         platform: ${{ fromJson(needs.plan.outputs.platforms) }}
-    runs-on: ${{ startsWith(matrix.platform, 'linux/arm') && 'ubuntu-24.04-arm' || 'ubuntu-latest' }}
+    runs-on: ${{ startsWith(matrix.platform, 'linux/arm') && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -83,9 +91,11 @@ jobs:
       - name: Get Target Architecture
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         id: target
+        env:
+          PLATFORM: ${{ matrix.platform }}
         with:
           script: |-
-            core.setOutput('arch', '${{ matrix.platform }}'.split('/').pop());
+            core.setOutput('arch', process.env.PLATFORM.split('/').pop());
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
@@ -120,10 +130,11 @@ jobs:
             *.labels.org.opencontainers.image.version=${{ needs.plan.outputs.version }}
             *.labels.org.opencontainers.image.revision=${{ github.sha }}
             *.labels.org.opencontainers.image.vendor=${{ github.repository_owner }}
-            *.output=type=image,name=ghcr.io/${{ github.repository_owner }}/immich,push-by-digest=true,name-canonical=true,push=true,compression=gzip,force-compression=true,oci-mediatypes=true
-            *.tags=
+            *.output=${{ inputs.release && format('type=image,name=ghcr.io/{0}/immich,push-by-digest=true,name-canonical=true,push=true,compression=gzip,force-compression=true,oci-mediatypes=true', github.repository_owner) || 'type=docker' }}
+            *.tags=${{ ! inputs.release && format('immich:sandbox-{0}', inputs.variant) || '' }}
 
       - name: Export Digest
+        if: ${{ inputs.release }}
         env:
           METADATA: ${{ steps.bake.outputs.metadata }}
           TARGET: image-${{ inputs.variant }}
@@ -134,6 +145,7 @@ jobs:
           touch "${{ runner.temp }}/digests/${DIGEST#sha256:}"
 
       - name: Upload Digest
+        if: ${{ inputs.release }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ inputs.variant }}-digests-${{ steps.target.outputs.arch }}
@@ -141,9 +153,36 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
+      - name: Setup Mise
+        if: ${{ ! inputs.release }}
+        uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+        with:
+          experimental: true
+          install_args: --locked
+
+      - name: Restore Go Modules
+        if: ${{ ! inputs.release }}
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
+
+      - name: Run Tests
+        if: ${{ ! inputs.release }}
+        env:
+          TEST_IMAGE: immich:sandbox-${{ inputs.variant }}
+          VARIANT: ${{ inputs.variant }}
+        run: go test -v -timeout 15m ./tests/...
+
   merge:
+    if: ${{ inputs.release }}
     name: Merge
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
     needs:
       - build
     outputs:
@@ -175,6 +214,7 @@ jobs:
           OWNER: ${{ github.repository_owner }}
           META: ${{ runner.temp }}/docker-metadata-action-bake.json
         run: |-
+          # shellcheck disable=SC2046
           docker buildx imagetools create \
               $(jq --raw-output --compact-output ".target.\"docker-metadata-action\".tags | map(select(startswith(\"ghcr.io/$OWNER/immich\")) | \"-t \" + .) | join(\" \")" "$META") \
               $(printf "ghcr.io/$OWNER/immich@sha256:%s " *)
@@ -198,10 +238,16 @@ jobs:
           echo "digest=$DIGEST" >>"$GITHUB_OUTPUT"
 
   attest:
+    if: ${{ inputs.release }}
     name: Attest
     needs:
       - merge
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
+      packages: write
     steps:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
@@ -219,39 +265,14 @@ jobs:
       - name: Attestation
         uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4.2.0
         with:
-          push-to-registry: false
+          push-to-registry: true
           subject-name: ghcr.io/${{ github.repository_owner }}/immich
           subject-digest: ${{ needs.merge.outputs.digest }}
 
       - name: Verify Attestation
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          DIGEST: ${{ needs.merge.outputs.digest }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
         run: |-
-          gh attestation verify \
-            --repo ${{ github.repository }} \
-            oci://ghcr.io/${{ github.repository_owner }}/immich@${{ needs.merge.outputs.digest }}
-
-  test:
-    if: ${{ ! inputs.release }}
-    name: Test
-    needs:
-      - merge
-      - attest
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          persist-credentials: false
-
-      - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
-
-      - name: Run Tests
-        env:
-          TEST_IMAGE: ghcr.io/${{ github.repository_owner }}/immich@${{ needs.merge.outputs.digest }}
-          VARIANT: ${{ inputs.variant }}
-        run: |-
-          go test -v -timeout 15m ./tests/...
+          gh attestation verify --repo "$REPO" "oci://ghcr.io/${{ github.repository_owner }}/immich@${DIGEST}"

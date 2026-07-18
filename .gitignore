@@ -41,7 +41,5 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-.jenkins-external
-
 # Local build artifacts
 .cache/

@@ -1,0 +1,38 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-action.json
+name: Bake Matrix
+description: Builds a variant/platform matrix from docker-bake.hcl
+
+inputs:
+  variants:
+    description: JSON array of variant names
+    required: true
+
+outputs:
+  matrix:
+    description: GitHub Actions matrix include array
+    value: ${{ steps.matrix.outputs.matrix }}
+
+runs:
+  using: composite
+  steps:
+    - id: matrix
+      shell: bash
+      env:
+        VARIANTS: ${{ inputs.variants }}
+      run: |-
+        matrix=$(
+          jq --raw-output '.[]' <<<"$VARIANTS" | while read -r variant; do
+            bake=$(docker buildx bake "image-${variant}" --print --progress=quiet)
+            jq --compact-output --arg variant "$variant" '
+              .target["image-\($variant)"].platforms[]
+              | {
+                  variant: $variant,
+                  platform: .,
+                  runner: (if startswith("linux/arm") then "ubuntu-24.04-arm" else "ubuntu-24.04" end)
+                }
+            ' <<<"$bake"
+          done | jq --slurp --compact-output .
+        )
+
+        echo "matrix=${matrix}" >>"$GITHUB_OUTPUT"

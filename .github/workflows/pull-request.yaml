@@ -6,37 +6,87 @@ on:
   pull_request:
   merge_group:
 
+permissions:
+  contents: read
+
 concurrency:
   group: pr-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
+  plan:
+    name: Plan
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Build Matrix
+        uses: ./.github/actions/bake-matrix
+        id: matrix
+        with:
+          variants: '["main","noml","cuda","openvino"]'
+
   build:
-    name: ${{ matrix.variant }}
-    uses: ./.github/workflows/build.yaml
-    permissions:
-      attestations: write
-      contents: read
-      id-token: write
-      packages: write
-    secrets: inherit
+    name: ${{ matrix.variant }} / Build and Test (${{ matrix.platform }})
+    needs:
+      - plan
+    runs-on: ${{ matrix.runner }}
     strategy:
       fail-fast: false
       matrix:
-        variant:
-          - main
-          - noml
-          - cuda
-          - openvino
-    with:
-      variant: ${{ matrix.variant }}
-      release: false
+        include: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup Mise
+        uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+        with:
+          experimental: true
+          install_args: --locked
+
+      - name: Restore Go Modules
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
+
+      - name: Build Local Image
+        run: |-
+          docker buildx bake \
+            --no-cache \
+            --file docker-bake.hcl \
+            --set image-${{ matrix.variant }}-local.platform=${{ matrix.platform }} \
+            --load \
+            image-${{ matrix.variant }}-local
+
+      - name: Run Tests
+        env:
+          TEST_IMAGE: immich:local-${{ matrix.variant }}
+          VARIANT: ${{ matrix.variant }}
+        run: |-
+          go test -v -timeout 15m ./tests/...
 
   status:
     if: ${{ !cancelled() }}
     name: Build Success
-    needs: build
-    runs-on: ubuntu-latest
+    needs:
+      - plan
+      - build
+    runs-on: ubuntu-24.04
+    permissions: {}
     steps:
       - if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1

@@ -1,0 +1,8 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/hadolint.json
+ignored:
+  - DL3018
+  - DL3013
+  - DL3008
+  - DL4006
+  - SC3060
