@@ -25,7 +25,7 @@ variable "UV_IMAGE_REPOSITORY" {
 
 variable "UV_IMAGE_VERSION" {
   # renovate: datasource=docker depName=ghcr.io/astral-sh/uv versioning=docker
-  default = "0.11.29"
+  default = "0.11.32"
 }
 
 variable "MISE_IMAGE_REPOSITORY" {
