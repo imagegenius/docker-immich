@@ -16,7 +16,7 @@ variable "VERSION" {
 
 variable "NODEJS_VERSION" {
   # renovate: datasource=node-version depName=node versioning=node
-  default = "24.15.0"
+  default = "24.18.0"
 }
 
 variable "UV_IMAGE_REPOSITORY" {
