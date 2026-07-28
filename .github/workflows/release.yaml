@@ -10,8 +10,6 @@ on:
       - Dockerfile
       - docker-bake.hcl
       - "root/**"
-      - "tests/**"
-      - ".github/**"
   workflow_dispatch:
     inputs:
       variant:
