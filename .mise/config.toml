@@ -1,6 +1,9 @@
 [settings]
 experimental = true
-unix_default_inline_shell_args = "bash -c -o errexit -o pipefail -o nounset"
+pin = true
+lockfile = true
+lockfile_platforms = ["linux-x64", "linux-arm64", "macos-arm64"]
+minimum_release_age = "12 hours"
 
 [tools]
 gh = "2.96.0"
