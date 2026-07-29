@@ -11,7 +11,7 @@ variable "IMMICH_BASE_IMAGES_VERSION" {
 
 variable "VERSION" {
   # renovate: datasource=github-tags depName=immich-app/immich versioning=semver
-  default = "v3.0.3"
+  default = "v3.1.0"
 }
 
 variable "NODEJS_VERSION" {
