@@ -54,6 +54,7 @@ RUN \
     librsvg2-dev \
     libsharpyuv-dev \
     libspng-dev \
+    libtiff-dev \
     libtool \
     libwebm-dev \
     libwebp-dev \
@@ -91,6 +92,7 @@ RUN \
     libpng16-16 \
     librsvg2-2 \
     libspng0 \
+    libtiff6 \
     libwebp7 \
     libwebpdemux2 \
     libwebpmux3 \
@@ -206,6 +208,7 @@ RUN \
     librsvg2-dev \
     libsharpyuv-dev \
     libspng-dev \
+    libtiff-dev \
     libtool \
     libwebm-dev \
     libwebp-dev \
