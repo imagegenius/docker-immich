@@ -6,13 +6,13 @@ lockfile_platforms = ["linux-x64", "linux-arm64", "macos-arm64"]
 minimum_release_age = "12 hours"
 
 [tools]
-gh = "2.96.0"
+gh = "2.97.0"
 go = "1.26.6"
 hadolint = "2.15.1"
 jq = "1.8.2"
 lefthook = "2.1.10"
-node = "26.5.0"
-oxfmt = "0.63.0"
+node = "26.7.0"
+oxfmt = "0.64.0"
 regctl = "0.11.5"
 shellcheck = "0.11.0"
 yq = "4.53.3"
