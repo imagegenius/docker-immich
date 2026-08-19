@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bytes"
 	"context"
+	"encoding/base64"
 	"io"
 	"os"
 	"testing"
@@ -12,10 +14,58 @@ import (
 	"github.com/testcontainers/testcontainers-go/network"
 	"github.com/testcontainers/testcontainers-go/wait"
 
-	"github.com/imagegenius/docker-immich/tests/testhelpers"
+	helpers "github.com/hydazz/containers/tests"
 )
 
 const postgresImage = "ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0"
+
+// tiffFixture is a 1x1 uncompressed grayscale TIFF.
+const tiffFixture = "TU0AKgAAACgAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAAA/wAQAQAAAwAAAAEAAQAAAQEAAwAAAAEAAQAAAQIAAwAAAAIACAAIAQMAAwAAAAEAAQAAAQYAAwAAAAEAAQAAAQoAAwAAAAEAAQAAAREABAAAAAEAAAAmARIAAwAAAAEAAQAAARUAAwAAAAEAAgAAARYAAwAAAAEAAQAAARcABAAAAAEAAAACARwAAwAAAAEAAQAAASgAAwAAAAEAAgAAAVIAAwAAAAEAAgAAAVMAAwAAAAIAAQABh2kABAAAAAEAAAAIAAAAAA=="
+
+func TestSharpDecodesTIFF(t *testing.T) {
+	ctx := context.Background()
+	image := helpers.GetTestImage("immich:local-main")
+
+	fixture, err := base64.StdEncoding.DecodeString(tiffFixture)
+	require.NoError(t, err)
+
+	container, err := testcontainers.Run(ctx, image,
+		testcontainers.WithEntrypoint("node"),
+		testcontainers.WithEntrypointArgs(
+			"-e",
+			`const sharp = require("/app/immich/server/node_modules/sharp");
+sharp("/tmp/sample.tiff").jpeg().toBuffer({ resolveWithObject: true })
+  .then(({ info: { width, height } }) => {
+    if (width !== 1 || height !== 1) {
+      throw new Error("unexpected dimensions: " + width + "x" + height);
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });`,
+		),
+		testcontainers.WithFiles(testcontainers.ContainerFile{
+			Reader:            bytes.NewReader(fixture),
+			ContainerFilePath: "/tmp/sample.tiff",
+			FileMode:          0o644,
+		}),
+		testcontainers.WithWaitStrategy(wait.ForExit()),
+	)
+	testcontainers.CleanupContainer(t, container)
+	require.NoError(t, err)
+
+	state, err := container.State(ctx)
+	require.NoError(t, err)
+
+	logs, err := container.Logs(ctx)
+	require.NoError(t, err)
+	defer logs.Close()
+
+	logBytes, err := io.ReadAll(logs)
+	require.NoError(t, err)
+	require.Equal(t, 0, state.ExitCode, "Sharp should decode TIFF images:\n%s", logBytes)
+}
 
 func Test(t *testing.T) {
 	ctx := context.Background()
@@ -23,7 +73,7 @@ func Test(t *testing.T) {
 	if variant == "" {
 		variant = "main"
 	}
-	image := testhelpers.GetTestImage("immich:local-" + variant)
+	image := helpers.GetTestImage("immich:local-" + variant)
 	t.Logf("testing image: %s", image)
 
 	net, err := network.New(ctx)
