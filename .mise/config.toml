@@ -7,7 +7,7 @@ minimum_release_age = "12 hours"
 
 [tools]
 gh = "2.97.0"
-go = "1.26.6"
+go = "1.27.0"
 hadolint = "2.15.1"
 jq = "1.8.2"
 lefthook = "2.1.10"
