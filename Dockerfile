@@ -20,6 +20,8 @@ ENV \
   LD_LIBRARY_PATH="/usr/local/lib:/usr/lib/jellyfin-ffmpeg/lib:/usr/lib/wsl/lib" \
   LD_RUN_PATH="/usr/local/lib"
 
+# Keep setup, source builds, and cleanup in one layer so temporary build inputs do not persist.
+# hadolint ignore=DL3003
 RUN \
   echo "**** setup media dependency build ****" && \
   mkdir -p \
@@ -68,8 +70,7 @@ RUN \
     postgresql-client-16 \
     postgresql-client-17 \
     postgresql-client-18 \
-    unzip \
-    wget && \
+    unzip && \
   echo "**** install media runtime packages ****" && \
   apt-get install --no-install-recommends -y \
     libaom3 \
@@ -113,7 +114,7 @@ RUN \
     apt-get install --no-install-recommends -y \
       intel-media-va-driver-non-free && \
     mkdir -p /tmp/intel && \
-    wget -nv -P /tmp/intel \
+    curl -fsSL --remote-name-all --output-dir /tmp/intel \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-core_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-opencl_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/compute-runtime/releases/download/24.35.30872.36/intel-opencl-icd-legacy1_24.35.30872.36_amd64.deb" \
@@ -149,7 +150,7 @@ RUN \
     /usr/lib/jellyfin-ffmpeg/ffprobe \
     /usr/bin && \
   mkdir -p /tmp/media-build-bin && \
-  printf '#!/bin/sh\nprintf "%%s\\n" "${IMMICH_MEDIA_BUILD_JOBS:-4}"\n' > /tmp/media-build-bin/nproc && \
+  printf "#!/bin/sh\nprintf \"%%s\\\\n\" \"\${IMMICH_MEDIA_BUILD_JOBS:-4}\"\n" > /tmp/media-build-bin/nproc && \
   chmod +x /tmp/media-build-bin/nproc && \
   PATH="/tmp/media-build-bin:${PATH}" && \
   ./libjxl.sh \
@@ -217,8 +218,7 @@ RUN \
     meson \
     ninja-build \
     pkg-config \
-    unzip \
-    wget && \
+    unzip && \
   apt-get autoremove -y --purge && \
   apt-get clean && \
   rm -rf \
@@ -253,6 +253,8 @@ ENV \
   MISE_DATA_DIR="/buildcache/mise" \
   MISE_DISABLE_TOOLS="flutter" \
   NODE_OPTIONS="--max-old-space-size=8192"
+
+WORKDIR /tmp/immich
 
 RUN \
   echo "**** download immich ****" && \
@@ -298,11 +300,9 @@ RUN \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
   echo "**** build plugins (mise) ****" && \
-  cd /tmp/immich && \
   mise install && \
   mise //:plugins && \
   echo "**** build server ****" && \
-  cd /tmp/immich && \
   SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
     --filter @immich/sdk \
     --filter @immich/plugin-sdk \
