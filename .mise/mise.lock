@@ -121,7 +121,7 @@ checksum = "sha256:7ee659a7768e641bbfd5360940660b8e8fd0052f77488f365562bac522fc1
 url = "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-arm64.tar.gz"
 
 [[tools.oxfmt]]
-version = "0.64.0"
+version = "0.65.0"
 backend = "npm:oxfmt"
 
 [[tools.regctl]]
