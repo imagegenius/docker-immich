@@ -15,10 +15,6 @@
   ],
   packageRules: [
     {
-      matchManagers: ["mise"],
-      minimumReleaseAge: "12 hours",
-    },
-    {
       description: ["Release Rules for Image Updates"],
       commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
       commitMessageTopic: "{{depName}}",
@@ -36,6 +32,12 @@
       description: ["Manual Review for Toolchain Updates"],
       matchFileNames: ["docker-bake.hcl"],
       matchDepNames: ["node", "ghcr.io/astral-sh/uv", "ghcr.io/jdx/mise"],
+      automerge: false,
+    },
+    {
+      description: ["Manual Review for Immich Base Images"],
+      matchFileNames: ["docker-bake.hcl"],
+      matchDepNames: ["immich-app/base-images"],
       automerge: false,
     },
   ],
