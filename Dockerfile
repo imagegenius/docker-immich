@@ -247,7 +247,6 @@ ENV \
   IMMICH_MEDIA_LOCATION="/photos" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-  SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
   MISE_TRUSTED_CONFIG_PATHS="/tmp/immich/mise.toml" \
   MISE_DATA_DIR="/buildcache/mise" \
@@ -303,24 +302,28 @@ RUN \
   mise install && \
   mise //:plugins && \
   echo "**** build server ****" && \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+  pnpm \
     --filter @immich/sdk \
     --filter @immich/plugin-sdk \
     --filter immich \
     --frozen-lockfile \
     install && \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+  pnpm \
     --filter @immich/sdk \
     --filter @immich/plugin-sdk \
     --filter immich \
     build && \
-  SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm \
+  pnpm \
     --filter immich \
     --prod \
     --no-optional \
     deploy /app/immich/server && \
+  SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm \
+    --config.verify-deps-before-run=false \
+    --dir /app/immich/server/node_modules/sharp \
+    exec npm run build && \
   echo "**** build web ****" && \
-  SHARP_IGNORE_GLOBAL_LIBVIPS=true pnpm \
+  pnpm \
     --filter @immich/sdk \
     --filter immich-web \
     --frozen-lockfile \
