@@ -6,17 +6,17 @@ lockfile_platforms = ["linux-x64", "linux-arm64", "macos-arm64"]
 minimum_release_age = "12 hours"
 
 [tools]
-gh = "2.98.0"
+gh = "2.100.0"
 go = "1.27.0"
 hadolint = "2.15.1"
 jq = "1.8.2"
-lefthook = "2.1.11"
+lefthook = "2.1.12"
 node = "26.7.0"
-oxfmt = "0.64.0"
-regctl = "0.11.5"
+oxfmt = "0.67.0"
+regctl = "0.11.6"
 shellcheck = "0.11.0"
 yq = "4.53.6"
-zizmor = "1.29.0"
+zizmor = "1.30.1"
 
 [tasks.local-build]
 description = "Build and test a variant locally"
