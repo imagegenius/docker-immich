@@ -16,7 +16,7 @@ concurrency:
 jobs:
   plan:
     name: Plan
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
@@ -85,7 +85,7 @@ jobs:
     needs:
       - plan
       - build
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions: {}
     steps:
       - if: ${{ contains(needs.*.result, 'failure') }}
