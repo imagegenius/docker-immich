@@ -8,6 +8,21 @@ FROM ${UV_IMAGE} AS uv
 FROM ${MISE_IMAGE} AS mise
 
 # =============================================================================
+# source: download once, independently of native media and application builds
+# =============================================================================
+FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS source
+
+ARG IMMICH_VERSION
+
+WORKDIR /tmp/immich
+
+RUN \
+  curl -fL -o /tmp/immich.tar.gz \
+    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
+  tar xf /tmp/immich.tar.gz -C /tmp/immich --strip-components=1 && \
+  rm /tmp/immich.tar.gz
+
+# =============================================================================
 # media-deps: Immich media/runtime dependencies
 # =============================================================================
 FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS media-deps
@@ -231,14 +246,14 @@ RUN \
   ldconfig /usr/local/lib
 
 # =============================================================================
-# build: download immich, install build deps, pnpm build server/web/cli/plugins
+# build: install build deps, pnpm build server/web/cli/plugins
 # =============================================================================
 FROM media-deps AS build
 
-ARG IMMICH_VERSION
 ARG NODEJS_VERSION
 
 COPY --from=mise /usr/local/bin/mise /usr/local/bin/mise
+COPY --from=source /tmp/immich /tmp/immich
 
 ENV \
   IMMICH_BUILD_DATA="/app/immich/data" \
@@ -256,16 +271,6 @@ ENV \
 WORKDIR /tmp/immich
 
 RUN \
-  echo "**** download immich ****" && \
-  mkdir -p \
-    /app/immich \
-    /tmp/immich && \
-  curl -o \
-    /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/immich.tar.gz -C \
-    /tmp/immich --strip-components=1 && \
   NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
   NODEJS_VERSION="${NODEJS_VERSION}-1nodesource1" && \
   echo "**** setup repos ****" && \
@@ -395,7 +400,7 @@ RUN \
     /var/lib/apt/lists/*
 
 COPY --from=uv /uv /uvx /usr/local/bin/
-COPY --from=build /tmp/immich/machine-learning /tmp/immich/machine-learning
+COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
 
 WORKDIR /tmp/immich/machine-learning
 
@@ -418,7 +423,7 @@ RUN \
     /var/lib/apt/lists/*
 
 COPY --from=uv /uv /uvx /usr/local/bin/
-COPY --from=build /tmp/immich/machine-learning /tmp/immich/machine-learning
+COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
 
 WORKDIR /tmp/immich/machine-learning
 
@@ -491,9 +496,9 @@ EXPOSE 8080
 VOLUME /config /photos /libraries
 
 # =============================================================================
-# final-main: Ubuntu + ML (CPU)
+# runtime-ml: common ML environment without a backend or Python installation
 # =============================================================================
-FROM runtime-base AS final-main
+FROM runtime-base AS runtime-ml
 
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
@@ -506,6 +511,11 @@ ENV \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
   VIRTUAL_ENV="/lsiopy"
+
+# =============================================================================
+# final-main: Ubuntu + ML (CPU)
+# =============================================================================
+FROM runtime-ml AS final-main
 
 COPY --from=ml-cpu /usr/local/bin/python3 /usr/local/bin/python3
 COPY --from=ml-cpu /usr/local/bin/python3.11 /usr/local/bin/python3.11
@@ -548,14 +558,18 @@ RUN \
     --no-progress
 
 # =============================================================================
-# final-cuda: final-main + CUDA runtime libs
+# final-cuda: Ubuntu + CUDA ML and runtime libs
 # =============================================================================
-FROM final-main AS final-cuda
+FROM runtime-ml AS final-cuda
 
 ENV \
   NVIDIA_VISIBLE_DEVICES="all"
 
-# Replace ml-cpu artifacts with ml-cuda artifacts
+COPY --from=ml-cuda /usr/local/bin/python3 /usr/local/bin/python3
+COPY --from=ml-cuda /usr/local/bin/python3.11 /usr/local/bin/python3.11
+COPY --from=ml-cuda /usr/local/lib/python3.11 /usr/local/lib/python3.11
+COPY --from=ml-cuda /usr/local/lib/libpython3.11.so /usr/local/lib/libpython3.11.so
+COPY --from=ml-cuda /usr/local/lib/libpython3.11.so.1.0 /usr/local/lib/libpython3.11.so.1.0
 COPY --from=ml-cuda /lsiopy /lsiopy
 COPY --from=ml-cuda /tmp/immich/machine-learning /app/immich/machine-learning
 
@@ -601,14 +615,13 @@ RUN \
     --no-progress
 
 # =============================================================================
-# final-openvino: final-main + OpenVINO ml venv
+# final-openvino: Ubuntu + OpenVINO ML and Python 3.13
 # =============================================================================
-FROM final-main AS final-openvino
+FROM runtime-ml AS final-openvino
 
 ENV \
   MACHINE_LEARNING_MODEL_ARENA="true"
 
-# Replace ml-cpu artifacts with ml-openvino artifacts
 COPY --from=ml-openvino /lsiopy /lsiopy
 COPY --from=ml-openvino /usr/local/bin/python3 /usr/local/bin/python3
 COPY --from=ml-openvino /usr/local/bin/python3.13 /usr/local/bin/python3.13

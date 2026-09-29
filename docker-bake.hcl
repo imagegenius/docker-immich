@@ -123,3 +123,7 @@ group "image-multiarch" {
 group "image-amd64-only" {
   targets = ["image-cuda", "image-openvino"]
 }
+
+group "image-all" {
+  targets = ["image-main", "image-noml", "image-cuda", "image-openvino"]
+}

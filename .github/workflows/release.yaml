@@ -21,6 +21,10 @@ on:
           - openvino
           - all
         default: all
+      no-cache:
+        type: boolean
+        description: Build without layer cache
+        default: false
       release:
         type: boolean
         default: true
@@ -34,8 +38,7 @@ concurrency:
 
 jobs:
   build:
-    name: ${{ matrix.variant }}
-    uses: ./.github/workflows/build.yaml
+    uses: $/.github/workflows/build.yaml
     permissions:
       artifact-metadata: write
       attestations: write
@@ -43,18 +46,10 @@ jobs:
       id-token: write
       packages: write
       security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        variant: >-
-          ${{
-            github.event_name == 'workflow_dispatch' && inputs.variant != 'all'
-            && fromJSON(format('["{0}"]', inputs.variant))
-            || fromJSON('["main","noml","cuda","openvino"]')
-          }}
     with:
-      variant: ${{ matrix.variant }}
+      variant: ${{ github.event_name == 'workflow_dispatch' && inputs.variant || 'all' }}
       release: ${{ github.event_name == 'workflow_dispatch' && inputs.release || github.event_name == 'push' }}
+      no-cache: ${{ github.event_name == 'workflow_dispatch' && inputs.no-cache }}
 
   status:
     if: ${{ !cancelled() }}
@@ -63,7 +58,7 @@ jobs:
     runs-on: ubuntu-26.04
     permissions: {}
     steps:
-      - if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1
-      - if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: echo "All releases passed"
+      - name: Check Build Result
+        env:
+          RESULT: ${{ needs.build.result }}
+        run: test "$RESULT" = success
