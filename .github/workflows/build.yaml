@@ -285,6 +285,8 @@ jobs:
         uses: anchore/sbom-action@3ad7283483fc7af8ff2b4ea19663c2d5ca935e26 # v0.24.2
         with:
           dependency-snapshot: true
+          registry-username: ${{ github.actor }}
+          registry-password: ${{ github.token }}
           image: ghcr.io/${{ github.repository_owner }}/immich@${{ steps.digest.outputs.digest }}
 
       - name: Attestation
