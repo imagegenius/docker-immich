@@ -1,5 +1,5 @@
 [[remotes]]
-git_url = "https://github.com/hydazz/.github"
+git_url = "https://github.com/imagegenius/.github"
 ref = "main"
 configs = ["lefthook.common.toml"]
 
