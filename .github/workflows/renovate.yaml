@@ -10,17 +10,54 @@ on:
       - .renovaterc.json5
       - .renovate/**.json5
   workflow_dispatch:
+  issues:
+    types:
+      - edited
+  pull_request:
+    types:
+      - closed
+      - edited
 
 permissions: {}
+
+concurrency:
+  group: renovate-${{ github.event.issue.number || github.event.pull_request.number || github.event_name }}
+  cancel-in-progress: true
 
 jobs:
   renovate:
     name: Renovate
+    if: >-
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.actor != vars.BOT_USERNAME &&
+        (
+          (
+            github.event_name == 'issues' &&
+            contains(github.event.issue.title, 'Renovate Dashboard') &&
+            (
+              contains(github.event.issue.body, '- [x]') ||
+              contains(github.event.issue.body, 'approve-all-pending-prs') ||
+              contains(github.event.issue.body, 'create-all-rate-limited-prs') ||
+              contains(github.event.issue.body, 'rebase-all-open-prs')
+            )
+          ) ||
+          (
+            github.event_name == 'pull_request' &&
+            github.event.pull_request.user.login == vars.BOT_USERNAME &&
+            (
+              github.event.action == 'closed' ||
+              contains(github.event.pull_request.body, '- [x]')
+            )
+          )
+        )
+      )
     runs-on: ubuntu-26.04
     steps:
       - name: Generate Token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
           client-id: ${{ secrets.BOT_CLIENT_ID }}
           private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
@@ -41,6 +78,7 @@ jobs:
           echo "run_id=${RUN_URL##*/}" >> "$GITHUB_OUTPUT"
 
       - name: Await Renovate Completion
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           RUN_ID: ${{ steps.dispatch.outputs.run_id }}
@@ -51,10 +89,11 @@ jobs:
             --exit-status
 
       - name: Renovate Output
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           RUN_ID: ${{ steps.dispatch.outputs.run_id }}
-        run: |
+        run: |-
           gh run view \
             --repo "${{ github.repository_owner }}/.github" \
             --log "${RUN_ID}"
