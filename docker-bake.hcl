@@ -6,12 +6,12 @@ variable "OWNER" {
 
 variable "IMMICH_BASE_IMAGES_VERSION" {
   # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
-  default = "202609281550"
+  default = "202610021601"
 }
 
 variable "VERSION" {
   # renovate: datasource=github-tags depName=immich-app/immich versioning=semver
-  default = "v3.2.4"
+  default = "v3.3.0"
 }
 
 variable "NODEJS_VERSION" {
@@ -34,7 +34,7 @@ variable "MISE_IMAGE_REPOSITORY" {
 
 variable "MISE_IMAGE_VERSION" {
   # renovate: datasource=docker depName=ghcr.io/jdx/mise versioning=docker
-  default = "2026.8.2"
+  default = "2026.9.12"
 }
 
 variable "IMMICH_MEDIA_BUILD_JOBS" {

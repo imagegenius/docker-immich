@@ -10,7 +10,7 @@ FROM ${MISE_IMAGE} AS mise
 # =============================================================================
 # source: download once, independently of native media and application builds
 # =============================================================================
-FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS source
+FROM --platform=$BUILDPLATFORM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS source
 
 ARG IMMICH_VERSION
 
@@ -67,6 +67,7 @@ RUN \
     libhwy-dev \
     libjpeg-dev \
     liblcms2-dev \
+    libopenjp2-7-dev \
     libltdl-dev \
     librsvg2-dev \
     libsharpyuv-dev \
@@ -133,10 +134,10 @@ RUN \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-core_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17537.24/intel-igc-opencl_1.0.17537.24_amd64.deb" \
       "https://github.com/intel/compute-runtime/releases/download/24.35.30872.36/intel-opencl-icd-legacy1_24.35.30872.36_amd64.deb" \
-      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.36.3/intel-igc-core-2_2.36.3+21719_amd64.deb" \
-      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.36.3/intel-igc-opencl-2_2.36.3+21719_amd64.deb" \
-      "https://github.com/intel/compute-runtime/releases/download/26.22.38646.4/intel-opencl-icd_26.22.38646.4-0_amd64.deb" \
-      "https://github.com/intel/compute-runtime/releases/download/26.22.38646.4/libigdgmm12_22.10.0_amd64.deb" && \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.41.5/intel-igc-core-2_2.41.5+22716_amd64.deb" \
+      "https://github.com/intel/intel-graphics-compiler/releases/download/v2.41.5/intel-igc-opencl-2_2.41.5+22716_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.35.39758.10/intel-opencl-icd_26.35.39758.10-0_amd64.deb" \
+      "https://github.com/intel/compute-runtime/releases/download/26.35.39758.10/libigdgmm12_22.10.0_amd64.deb" && \
     dpkg -i /tmp/intel/*.deb; \
   fi && \
   echo "**** download upstream immich base-image scripts ****" && \
@@ -168,9 +169,10 @@ RUN \
   printf "#!/bin/sh\nprintf \"%%s\\\\n\" \"\${IMMICH_MEDIA_BUILD_JOBS:-4}\"\n" > /tmp/media-build-bin/nproc && \
   chmod +x /tmp/media-build-bin/nproc && \
   PATH="/tmp/media-build-bin:${PATH}" && \
-  ./libjxl.sh \
+  ./jpegli.sh \
     --JPEGLI_LIBJPEG_LIBRARY_SOVERSION 8 \
     --JPEGLI_LIBJPEG_LIBRARY_VERSION 8.2.2 && \
+  ./libjxl.sh && \
   ./libheif.sh && \
   ./libraw.sh && \
   ./imagemagick.sh && \
@@ -182,6 +184,8 @@ RUN \
     --slurpfile packages /tmp/packages.json \
     '{sources: $sources[0], packages: $packages[0]}' \
     > /app/immich/data/build-lock.json && \
+  mkdir -p /etc/ImageMagick && \
+  cp /tmp/immich-dependencies/server/policy.xml /etc/ImageMagick/policy.xml && \
   echo "**** download geocoding data ****" && \
   curl -o \
     /tmp/cities500.zip -L \
@@ -195,6 +199,8 @@ RUN \
   curl -o \
     /app/immich/data/geodata/ne_10m_admin_0_countries.geojson -L \
     "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson" && \
+  curl -fL -o /app/immich/data/geodata/countryInfo.txt \
+    "https://download.geonames.org/export/dump/countryInfo.txt" && \
   unzip \
     /tmp/cities500.zip -d \
     /app/immich/data/geodata && \
@@ -220,6 +226,7 @@ RUN \
     libhwy-dev \
     libjpeg-dev \
     liblcms2-dev \
+    libopenjp2-7-dev \
     libltdl-dev \
     librsvg2-dev \
     libsharpyuv-dev \
@@ -291,6 +298,7 @@ RUN \
     libhwy-dev \
     libjpeg-dev \
     liblcms2-dev \
+    libopenjp2-7-dev \
     libpango1.0-dev \
     libpng-dev \
     librsvg2-dev \
@@ -304,7 +312,7 @@ RUN \
   npm install --global corepack@latest && \
   corepack enable pnpm && \
   echo "**** build plugins (mise) ****" && \
-  mise install && \
+  mise install --locked && \
   mise //:plugins && \
   echo "**** build server ****" && \
   pnpm \
@@ -386,30 +394,7 @@ RUN \
 # =============================================================================
 # ml-base: uv from official multi-arch image, source machine-learning sources
 # =============================================================================
-FROM python:3.11-bookworm AS ml-base
-
-ENV \
-  UV_PYTHON="/usr/local/bin/python3.11"
-
-RUN \
-  apt-get update && \
-  apt-get install --no-install-recommends -y \
-    g++ && \
-  apt-get clean && \
-  rm -rf \
-    /var/lib/apt/lists/*
-
-COPY --from=uv /uv /uvx /usr/local/bin/
-COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
-
-WORKDIR /tmp/immich/machine-learning
-
-RUN uv venv /lsiopy --python "${UV_PYTHON}"
-
-# =============================================================================
-# ml-base-openvino: upstream OpenVINO Python base
-# =============================================================================
-FROM python:3.13-slim-trixie AS ml-base-openvino
+FROM python:3.13-slim-trixie AS ml-base
 
 ENV \
   UV_PYTHON="/usr/local/bin/python3.13"
@@ -417,7 +402,8 @@ ENV \
 RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    g++ && \
+    g++ \
+    git && \
   apt-get clean && \
   rm -rf \
     /var/lib/apt/lists/*
@@ -428,6 +414,78 @@ COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
 WORKDIR /tmp/immich/machine-learning
 
 RUN uv venv /lsiopy --python "${UV_PYTHON}"
+
+# =============================================================================
+# ml-base-cuda: upstream CUDA Python base
+# =============================================================================
+FROM python:3.13-slim-bookworm AS ml-base-cuda
+
+ENV \
+  UV_PYTHON="/usr/local/bin/python3.13"
+
+RUN \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    g++ \
+    git && \
+  apt-get clean && \
+  rm -rf \
+    /var/lib/apt/lists/*
+
+COPY --from=uv /uv /uvx /usr/local/bin/
+COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
+
+WORKDIR /tmp/immich/machine-learning
+
+RUN uv venv /lsiopy --python "${UV_PYTHON}"
+
+# =============================================================================
+# ml-base-openvino: ONNX Runtime with upstream's bundled OpenVINO build
+# =============================================================================
+FROM ml-base AS ml-base-openvino
+
+# renovate: datasource=github-releases depName=microsoft/onnxruntime
+ARG ONNXRUNTIME_VERSION="v1.30.0"
+ARG IMMICH_MEDIA_BUILD_JOBS=4
+ENV VIRTUAL_ENV=/lsiopy \
+    OpenVINO_DIR=/lsiopy/lib/python3.13/site-packages/openvino/cmake \
+    CCACHE_DIR=/ccache
+
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends make patch cmake ccache patchelf && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  git clone --depth 1 --branch "${ONNXRUNTIME_VERSION}" https://github.com/microsoft/onnxruntime /code/onnxruntime && \
+  uv sync --frozen --extra openvino --group onnxruntime-openvino-build \
+    --no-dev --no-editable --no-install-project --no-progress --active
+
+WORKDIR /code/onnxruntime
+RUN --mount=type=cache,target=/ccache \
+    /lsiopy/bin/python tools/ci_build/build.py \
+    --allow_running_as_root \
+    --build_dir build \
+    --config Release \
+    --build_wheel \
+    --update \
+    --build \
+    --parallel "${IMMICH_MEDIA_BUILD_JOBS}" \
+    --cmake_extra_defines onnxruntime_BUILD_UNIT_TESTS=OFF \
+    --skip_tests \
+    --use_openvino CPU \
+    --use_cache \
+    --compile_no_warning_as_error
+
+# Bundle OpenVINO beside its ONNX execution provider.
+WORKDIR /code/onnxruntime/build/Release/dist
+# hadolint ignore=SC2016
+RUN /lsiopy/bin/wheel unpack onnxruntime_openvino-*.whl && \
+    capi=$(echo onnxruntime_openvino-*/onnxruntime/capi) && \
+    cp /lsiopy/lib/python3.13/site-packages/openvino/libs/* "$capi" && \
+    mv "$capi"/libopenvino_c.so.* "$capi/libopenvino_c.so" && \
+    patchelf --set-rpath '$ORIGIN' --force-rpath "$capi/libonnxruntime_providers_openvino.so" && \
+    /lsiopy/bin/wheel pack onnxruntime_openvino-*/ -d /opt
+
+WORKDIR /tmp/immich/machine-learning
 
 # =============================================================================
 # ml-cpu: uv sync with cpu extras
@@ -463,7 +521,9 @@ ENV \
   NODE_ENV="production" \
   NODE_OPTIONS="--max-old-space-size=8192" \
   PATH="${PATH}:/app/immich/server/bin" \
-  XDG_CACHE_HOME="/tmp"
+  XDG_CACHE_HOME="/tmp" \
+  XDG_DATA_DIRS="/usr/lib/jellyfin-ffmpeg/share:/usr/local/share:/usr/share" \
+  MAGICK_CONFIGURE_PATH="/etc/ImageMagick"
 
 COPY --from=build /app/immich /app/immich
 
@@ -500,6 +560,11 @@ VOLUME /config /photos /libraries
 # =============================================================================
 FROM runtime-base AS runtime-ml
 
+RUN apt-get update && \
+  apt-get install --no-install-recommends -y ccache && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
 ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
@@ -510,18 +575,22 @@ ENV \
   PYTHONUNBUFFERED="1" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  VIRTUAL_ENV="/lsiopy"
+  VIRTUAL_ENV="/lsiopy" \
+  CUDA_CACHE_PATH="/config/machine-learning/models/jit/cuda" \
+  NEO_CACHE_DIR="/config/machine-learning/models/jit/neo"
 
 # =============================================================================
 # final-main: Ubuntu + ML (CPU)
 # =============================================================================
 FROM runtime-ml AS final-main
 
+ENV DEVICE="cpu"
+
 COPY --from=ml-cpu /usr/local/bin/python3 /usr/local/bin/python3
-COPY --from=ml-cpu /usr/local/bin/python3.11 /usr/local/bin/python3.11
-COPY --from=ml-cpu /usr/local/lib/python3.11 /usr/local/lib/python3.11
-COPY --from=ml-cpu /usr/local/lib/libpython3.11.so /usr/local/lib/libpython3.11.so
-COPY --from=ml-cpu /usr/local/lib/libpython3.11.so.1.0 /usr/local/lib/libpython3.11.so.1.0
+COPY --from=ml-cpu /usr/local/bin/python3.13 /usr/local/bin/python3.13
+COPY --from=ml-cpu /usr/local/lib/python3.13 /usr/local/lib/python3.13
+COPY --from=ml-cpu /usr/local/lib/libpython3.13.so /usr/local/lib/libpython3.13.so
+COPY --from=ml-cpu /usr/local/lib/libpython3.13.so.1.0 /usr/local/lib/libpython3.13.so.1.0
 COPY --from=ml-cpu /lsiopy /lsiopy
 COPY --from=ml-cpu /tmp/immich/machine-learning /app/immich/machine-learning
 
@@ -543,7 +612,7 @@ RUN rm -rf \
 # =============================================================================
 # ml-cuda: uv sync with cuda extras
 # =============================================================================
-FROM ml-base AS ml-cuda
+FROM ml-base-cuda AS ml-cuda
 
 RUN \
   . /lsiopy/bin/activate && \
@@ -563,13 +632,14 @@ RUN \
 FROM runtime-ml AS final-cuda
 
 ENV \
-  NVIDIA_VISIBLE_DEVICES="all"
+  NVIDIA_VISIBLE_DEVICES="all" \
+  DEVICE="cuda"
 
 COPY --from=ml-cuda /usr/local/bin/python3 /usr/local/bin/python3
-COPY --from=ml-cuda /usr/local/bin/python3.11 /usr/local/bin/python3.11
-COPY --from=ml-cuda /usr/local/lib/python3.11 /usr/local/lib/python3.11
-COPY --from=ml-cuda /usr/local/lib/libpython3.11.so /usr/local/lib/libpython3.11.so
-COPY --from=ml-cuda /usr/local/lib/libpython3.11.so.1.0 /usr/local/lib/libpython3.11.so.1.0
+COPY --from=ml-cuda /usr/local/bin/python3.13 /usr/local/bin/python3.13
+COPY --from=ml-cuda /usr/local/lib/python3.13 /usr/local/lib/python3.13
+COPY --from=ml-cuda /usr/local/lib/libpython3.13.so /usr/local/lib/libpython3.13.so
+COPY --from=ml-cuda /usr/local/lib/libpython3.13.so.1.0 /usr/local/lib/libpython3.13.so.1.0
 COPY --from=ml-cuda /lsiopy /lsiopy
 COPY --from=ml-cuda /tmp/immich/machine-learning /app/immich/machine-learning
 
@@ -612,7 +682,8 @@ RUN \
     --no-editable \
     --no-install-project \
     --compile-bytecode \
-    --no-progress
+    --no-progress && \
+  uv pip install --no-deps /opt/onnxruntime_openvino-*.whl
 
 # =============================================================================
 # final-openvino: Ubuntu + OpenVINO ML and Python 3.13
@@ -620,6 +691,7 @@ RUN \
 FROM runtime-ml AS final-openvino
 
 ENV \
+  DEVICE="openvino" \
   MACHINE_LEARNING_MODEL_ARENA="true"
 
 COPY --from=ml-openvino /lsiopy /lsiopy
