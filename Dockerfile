@@ -644,22 +644,21 @@ COPY --from=ml-cuda /lsiopy /lsiopy
 COPY --from=ml-cuda /tmp/immich/machine-learning /app/immich/machine-learning
 
 RUN \
-  echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" \
+  echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" \
     >/etc/apt/sources.list.d/cuda.list && \
   curl -s \
-    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" | \
+    "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub" | \
     gpg --dearmor | tee /usr/share/keyrings/cuda-archive-keyring.gpg >/dev/null && \
   printf "Package: *\nPin: release l=NVIDIA CUDA\nPin-Priority: 600\n" \
     >/etc/apt/preferences.d/cuda && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    libcublas12 \
-    libcublaslt12 \
-    libcudart12 \
-    libcudnn9-cuda-12=9.10.2.21-1 \
-    libcufft11 \
-    libcurand10 && \
-  ldconfig /usr/local/lib && \
+    cuda-libraries-12-2=12.2.2-1 \
+    cuda-nvtx-12-2=12.2.140-1 \
+    libnccl2=2.19.3-1+cuda12.2 \
+    libcudnn9-cuda-12=9.10.2.21-1 && \
+  echo /usr/local/cuda-12.2/targets/x86_64-linux/lib > /etc/ld.so.conf.d/cuda.conf && \
+  ldconfig && \
   apt-get clean && \
   rm -rf \
     /etc/apt/preferences.d/cuda \
