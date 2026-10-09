@@ -394,7 +394,7 @@ RUN \
 # =============================================================================
 # ml-base: uv from official multi-arch image, source machine-learning sources
 # =============================================================================
-FROM python:3.13-slim-trixie AS ml-base
+FROM python:3.14-slim-trixie AS ml-base
 
 ENV \
   UV_PYTHON="/usr/local/bin/python3.13"
@@ -418,7 +418,7 @@ RUN uv venv /lsiopy --python "${UV_PYTHON}"
 # =============================================================================
 # ml-base-cuda: upstream CUDA Python base
 # =============================================================================
-FROM python:3.13-slim-bookworm AS ml-base-cuda
+FROM python:3.14-slim-bookworm AS ml-base-cuda
 
 ENV \
   UV_PYTHON="/usr/local/bin/python3.13"
