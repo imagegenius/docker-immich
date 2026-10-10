@@ -445,7 +445,7 @@ RUN uv venv /lsiopy --python "${UV_PYTHON}"
 FROM ml-base AS ml-base-openvino
 
 # renovate: datasource=github-releases depName=microsoft/onnxruntime
-ARG ONNXRUNTIME_VERSION="v1.30.0"
+ARG ONNXRUNTIME_VERSION="v1.31.0"
 ARG IMMICH_MEDIA_BUILD_JOBS=4
 ENV VIRTUAL_ENV=/lsiopy \
     OpenVINO_DIR=/lsiopy/lib/python3.13/site-packages/openvino/cmake \
