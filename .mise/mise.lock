@@ -49,21 +49,21 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/599854720"
 provenance = "github-attestations"
 
 [[tools.go]]
-version = "1.27.1"
+version = "1.27.2"
 backend = "core:go"
-specifiers = ["1.27.1"]
+specifiers = ["1.27.2"]
 
 [tools.go."platforms.linux-arm64"]
-checksum = "sha256:3450b45a3f9ee8568792736a5c5e70a1f2e9b36c35a8f74958c03e51d7d92bec"
-url = "https://dl.google.com/go/go1.27.1.linux-arm64.tar.gz"
+checksum = "sha256:94f3e30b8e374bc285e7dadc11e0865726b9bc6e85b841ccceaabc0214c6b7c8"
+url = "https://dl.google.com/go/go1.27.2.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-x64"]
-checksum = "sha256:63d339f0da5ab53635a56f2490a7984dfe12dfcff22ad749f63edaf590168445"
-url = "https://dl.google.com/go/go1.27.1.linux-amd64.tar.gz"
+checksum = "sha256:ecbadb99091a3f46e31f5f934b068b1864eafa7995211b39eaddf76996045fe5"
+url = "https://dl.google.com/go/go1.27.2.linux-amd64.tar.gz"
 
 [tools.go."platforms.macos-arm64"]
-checksum = "sha256:ee215d57e0ec269c60cc9ceca68e6bda321ba9ee5afe24f4b0988703c2d87d12"
-url = "https://dl.google.com/go/go1.27.1.darwin-arm64.tar.gz"
+checksum = "sha256:76812b213b1b2302c978d28fa52fa92d541704b9e7d9d5db8002c50e4018c4c5"
+url = "https://dl.google.com/go/go1.27.2.darwin-arm64.tar.gz"
 
 [[tools.hadolint]]
 version = "2.15.1"
