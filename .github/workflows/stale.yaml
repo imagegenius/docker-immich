@@ -15,24 +15,14 @@ jobs:
     name: Stale
     runs-on: ubuntu-26.04
     permissions:
-      actions: write
       contents: write
       issues: write
       pull-requests: write
     steps:
-      - name: Generate Token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        id: app-token
-        with:
-          client-id: "${{ secrets.BOT_CLIENT_ID }}"
-          private-key: "${{ secrets.BOT_APP_PRIVATE_KEY }}"
-          permission-issues: write
-          permission-pull-requests: write
-
       - name: Stale
         uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         with:
-          repo-token: ${{ steps.app-token.outputs.token }}
+          repo-token: ${{ github.token }}
           stale-issue-message: |
             This issue has been marked as stale due to 60 days of inactivity. Please remove the stale label or leave a comment to keep it open.
             If no action is taken, it will be automatically closed in 7 days.

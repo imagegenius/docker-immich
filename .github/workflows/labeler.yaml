@@ -22,16 +22,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Generate Token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        id: app-token
-        with:
-          client-id: ${{ secrets.BOT_CLIENT_ID }}
-          private-key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
-          permission-pull-requests: write
-
       - name: Labeler
         uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0
         with:
-          repo-token: ${{ steps.app-token.outputs.token }}
+          repo-token: ${{ github.token }}
           configuration-path: .github/labeler.yaml
