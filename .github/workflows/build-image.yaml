@@ -1,0 +1,212 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Build Image
+
+on:
+  workflow_call:
+    inputs:
+      variant:
+        type: string
+        description: Variant name or all
+        required: true
+      no-cache:
+        type: boolean
+        description: Build without layer cache
+        default: false
+      release:
+        type: boolean
+        description: Release
+        required: true
+    outputs:
+      variants:
+        value: ${{ jobs.plan.outputs.variants }}
+
+# The build job inherits its caller: contents: read for PRs, plus packages: write for releases.
+
+jobs:
+  plan:
+    name: Plan
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      variants: ${{ steps.matrix.outputs.variants }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Group Bake Targets
+        uses: $/.github/actions/bake-matrix
+        id: matrix
+        with:
+          variant: ${{ inputs.variant }}
+
+  metadata:
+    name: Metadata (${{ matrix.variant }})
+    needs: plan
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: ${{ fromJson(needs.plan.outputs.variants) }}
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Get Bake Vars
+        uses: $/.github/actions/bake-vars
+        id: opts
+        with:
+          variant: ${{ matrix.variant }}
+
+      - name: Build Variant Metadata
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
+        id: meta
+        env:
+          DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/immich
+          flavor: latest=false
+          labels: |
+            org.opencontainers.image.version=${{ steps.opts.outputs.version }}
+          tags: |
+            ${{ matrix.variant == 'main' && format(
+              'type=raw,value=latest,enable={0}
+              type=semver,pattern={{{{version}}}},value={1},enable={0}
+              type=semver,pattern={{{{major}}}}.{{{{minor}}}},value={1},enable={0}
+              type=semver,pattern={{{{major}}}},value={1},enable={0}',
+              inputs.release, steps.opts.outputs.version
+            ) || format(
+              'type=raw,value={0},enable={1}
+              type=semver,pattern={{{{version}}}}-{0},value={2},enable={1}
+              type=semver,pattern={{{{major}}}}.{{{{minor}}}}-{0},value={2},enable={1}
+              type=semver,pattern={{{{major}}}}-{0},value={2},enable={1}',
+              matrix.variant, inputs.release, steps.opts.outputs.version
+            ) }}
+            type=raw,value=sandbox-${{ matrix.variant }},enable=${{ ! inputs.release }}
+
+      - name: Upload Bake Metadata
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ matrix.variant }}-bake-metadata
+          path: ${{ steps.meta.outputs.bake-file }}
+          if-no-files-found: error
+          retention-days: 1
+
+  build:
+    name: Build (${{ matrix.platform }})
+    needs:
+      - plan
+      - metadata
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.plan.outputs.matrix) }}
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Login to GitHub Container Registry
+        if: ${{ inputs.release }}
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Download Bake Metadata
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: "*-bake-metadata"
+          path: ${{ runner.temp }}/metadata
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+        with:
+          buildkitd-config-inline: |
+            [worker.oci]
+              max-parallelism = 2
+
+      - name: Prepare Bake Targets
+        id: targets
+        env:
+          APP: immich
+          VARIANTS: ${{ toJson(matrix.variants) }}
+          PLATFORM: ${{ matrix.platform }}
+          ARCH: ${{ matrix.arch }}
+          OWNER: ${{ github.repository_owner }}
+          REVISION: ${{ github.sha }}
+          RELEASE: ${{ inputs.release }}
+        run: bash .github/scripts/prepare-bake.sh
+
+      - name: Build Variants
+        uses: docker/bake-action@018cb6412ab401ebaa809aa5f85966b74628600f # v7.4.0
+        id: bake
+        with:
+          files: |
+            ./docker-bake.hcl
+            cwd://${{ runner.temp }}/ci-bake.json
+          targets: ${{ steps.targets.outputs.targets }}
+          provenance: false
+          no-cache: ${{ inputs.no-cache }}
+
+      - name: Export Digests
+        if: ${{ inputs.release }}
+        env:
+          METADATA: ${{ steps.bake.outputs.metadata }}
+          VARIANTS: ${{ toJson(matrix.variants) }}
+          ARCH: ${{ matrix.arch }}
+        run: |-
+          while read -r variant; do
+            digest=$(jq -er --arg target "image-$variant" '.[$target]["containerimage.digest"] | select(test("^sha256:[0-9a-f]{64}$"))' <<<"$METADATA")
+            mkdir -p "$RUNNER_TEMP/digests/$variant"
+            printf '%s\n' "$digest" >"$RUNNER_TEMP/digests/$variant/$ARCH"
+          done < <(jq -r '.[]' <<<"$VARIANTS")
+
+      - name: Upload Digests
+        if: ${{ inputs.release }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: digests-${{ matrix.arch }}
+          path: ${{ runner.temp }}/digests/
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Setup Mise
+        if: ${{ ! inputs.release }}
+        uses: jdx/mise-action@2d8d4cafcbd33be2ea37d2b6f5ad595363d1f1ca # v5.1.1
+        with:
+          experimental: true
+          install_args: --locked
+
+      - name: Restore Go Modules
+        if: ${{ ! inputs.release }}
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
+
+      - name: Run Tests
+        if: ${{ ! inputs.release }}
+        env:
+          VARIANTS: ${{ toJson(matrix.variants) }}
+        run: |-
+          failed=0
+          while read -r variant; do
+            echo "::group::Test $variant"
+            TEST_IMAGE="immich:sandbox-$variant" VARIANT="$variant" go test -count=1 -v -timeout 15m ./tests/... || failed=1
+            echo "::endgroup::"
+          done < <(jq -r '.[]' <<<"$VARIANTS")
+          exit "$failed"

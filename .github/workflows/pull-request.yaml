@@ -15,12 +15,9 @@ concurrency:
 
 jobs:
   build:
-    uses: $/.github/workflows/build.yaml
+    uses: $/.github/workflows/build-image.yaml
     permissions:
-      attestations: write
       contents: read
-      id-token: write
-      packages: write
     with:
       variant: all
       release: false
