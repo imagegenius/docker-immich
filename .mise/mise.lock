@@ -152,10 +152,10 @@ checksum = "sha256:d916511b55965e91be7a88e17f88d895b6793ceaba3e6c9b194aefe51c2c6
 url = "https://nodejs.org/dist/v26.11.1/node-v26.11.1-darwin-arm64.tar.gz"
 
 [[tools.oxfmt]]
-version = "0.72.0"
-aube = { path = "locks/oxfmt/0.72.0", digest = "sha256:8cff19be82a82e83efe243f08fd8bf1a2a2f635f10384d070d7956209ddd9b44" }
+version = "0.73.0"
+aube = { path = "locks/oxfmt/0.73.0", digest = "sha256:e42eeebedd060ec6393c40caa35362b541991453b9aab2de3d33d41a0c245a62" }
 backend = "npm:oxfmt"
-specifiers = ["0.72.0"]
+specifiers = ["0.73.0"]
 
 [[tools.regctl]]
 version = "0.11.6"
