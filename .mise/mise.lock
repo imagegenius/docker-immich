@@ -26,26 +26,26 @@ url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/3849248
 provenance = "github-attestations"
 
 [[tools.gh]]
-version = "2.102.1"
+version = "2.103.0"
 backend = "aqua:cli/cli"
-specifiers = ["2.102.1"]
+specifiers = ["2.103.0"]
 
 [tools.gh."platforms.linux-arm64"]
-checksum = "sha256:5019b3cc6e8a03bb4d88600f8dbda2add8e6407705c159b0c63151036e77a1af"
-url = "https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/660284837"
+checksum = "sha256:7f322df34e624d14f5ec0c4acb121fd6dfa14392fdbbd1066aa8e0a05ac3721e"
+url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/662956401"
 provenance = "github-attestations"
 
 [tools.gh."platforms.linux-x64"]
-checksum = "sha256:77b9e297e94c50336823d0f84de7ef1be60cba704601fa0d98f129f47a94987b"
-url = "https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/660284822"
+checksum = "sha256:fdd768eb70f6409f80fcfa9f3a1c0adf0fc98d827ab3ce0bed2ac22762c5d786"
+url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/662956379"
 provenance = "github-attestations"
 
 [tools.gh."platforms.macos-arm64"]
-checksum = "sha256:08bfef98b50c553df122bb34ee8dcf415cae7d3b108891488964a0df07aa2aeb"
-url = "https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_macOS_arm64.zip"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/660284918"
+checksum = "sha256:54be566e9f614bea5de8021e95b9ad33dfee3b9d2ea120c9c294c00defaa5014"
+url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_macOS_arm64.zip"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/662956481"
 provenance = "github-attestations"
 
 [[tools.go]]
@@ -158,26 +158,26 @@ backend = "npm:oxfmt"
 specifiers = ["0.74.0"]
 
 [[tools.regctl]]
-version = "0.11.6"
+version = "0.11.7"
 backend = "aqua:regclient/regclient/regctl"
-specifiers = ["0.11.6"]
+specifiers = ["0.11.7"]
 
 [tools.regctl."platforms.linux-arm64"]
-checksum = "sha256:a9b71a3ee79b2d1dbbd7d51fd5e8fa214722c192864235d3d8764463c751a1ff"
-url = "https://github.com/regclient/regclient/releases/download/v0.11.6/regctl-linux-arm64"
-url_api = "https://api.github.com/repos/regclient/regclient/releases/assets/541343835"
+checksum = "sha256:9f349bab5c407ac04f3dabf99c7c7a6b0f9e9723c23f2775380e804d02c6dbb9"
+url = "https://github.com/regclient/regclient/releases/download/v0.11.7/regctl-linux-arm64"
+url_api = "https://api.github.com/repos/regclient/regclient/releases/assets/660897956"
 provenance = "cosign"
 
 [tools.regctl."platforms.linux-x64"]
-checksum = "sha256:8e0e62a497fcdb8048d18aa927a139613176ba0531f412bc541044e28f9856bd"
-url = "https://github.com/regclient/regclient/releases/download/v0.11.6/regctl-linux-amd64"
-url_api = "https://api.github.com/repos/regclient/regclient/releases/assets/541343840"
+checksum = "sha256:3737fbbdd791e04e7a831640b681f3397a376498e80e2ad9b1b2d27296f239bc"
+url = "https://github.com/regclient/regclient/releases/download/v0.11.7/regctl-linux-amd64"
+url_api = "https://api.github.com/repos/regclient/regclient/releases/assets/660897960"
 provenance = "cosign"
 
 [tools.regctl."platforms.macos-arm64"]
-checksum = "sha256:5b52b71861abc300ab513e87a4c3794cff6508035ac7f6b6bdfa1fa5688c0040"
-url = "https://github.com/regclient/regclient/releases/download/v0.11.6/regctl-darwin-arm64"
-url_api = "https://api.github.com/repos/regclient/regclient/releases/assets/541343870"
+checksum = "sha256:8ac077a1eeb834d3053714e86ccbd838d0da46567df8cd7c2695d1a19135bf60"
+url = "https://github.com/regclient/regclient/releases/download/v0.11.7/regctl-darwin-arm64"
+url_api = "https://api.github.com/repos/regclient/regclient/releases/assets/660897975"
 provenance = "cosign"
 
 [[tools.shellcheck]]
