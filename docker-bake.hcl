@@ -4,38 +4,17 @@ variable "OWNER" {
   default = "imagegenius"
 }
 
-variable "IMMICH_BASE_IMAGES_VERSION" {
-  # renovate: datasource=github-tags depName=immich-app/base-images versioning=regex:^(?<major>\d{8})(?<minor>\d{4})$
-  default = "202610211607"
-}
-
 variable "VERSION" {
   # renovate: datasource=github-tags depName=immich-app/immich versioning=semver
   default = "v3.3.5"
 }
 
-variable "NODEJS_VERSION" {
-  # renovate: datasource=node-version depName=node versioning=node
-  default = "24.22.1"
-}
-
-variable "UV_IMAGE_REPOSITORY" {
-  default = "ghcr.io/astral-sh/uv"
-}
-
-variable "UV_IMAGE_VERSION" {
-  # renovate: datasource=docker depName=ghcr.io/astral-sh/uv versioning=docker
-  default = "0.8.15"
-}
-
-variable "MISE_IMAGE_REPOSITORY" {
-  default = "ghcr.io/jdx/mise"
-}
-
-variable "MISE_IMAGE_VERSION" {
-  # renovate: datasource=docker depName=ghcr.io/jdx/mise versioning=docker
-  default = "2026.9.12"
-}
+# Upstream Immich pins these at VERSION; .github/scripts/upstream-inputs.sh reads them.
+variable "IMMICH_BASE_IMAGES_VERSION" {}
+variable "MISE_IMAGE" {}
+variable "NODEJS_VERSION" {}
+variable "ONNXRUNTIME_VERSION" {}
+variable "UV_IMAGE" {}
 
 variable "IMMICH_MEDIA_BUILD_JOBS" {
   default = "4"
@@ -55,9 +34,10 @@ target "image" {
     IMMICH_BASE_IMAGES_VERSION = "${IMMICH_BASE_IMAGES_VERSION}"
     IMMICH_MEDIA_BUILD_JOBS    = "${IMMICH_MEDIA_BUILD_JOBS}"
     IMMICH_VERSION             = "${VERSION}"
-    MISE_IMAGE                 = "${MISE_IMAGE_REPOSITORY}:${MISE_IMAGE_VERSION}"
+    MISE_IMAGE                 = "${MISE_IMAGE}"
     NODEJS_VERSION             = "${NODEJS_VERSION}"
-    UV_IMAGE                   = "${UV_IMAGE_REPOSITORY}:${UV_IMAGE_VERSION}"
+    ONNXRUNTIME_VERSION        = "${ONNXRUNTIME_VERSION}"
+    UV_IMAGE                   = "${UV_IMAGE}"
   }
   labels = {
     "org.opencontainers.image.source" = "${SOURCE}"

@@ -26,7 +26,7 @@ arg "[variant]" help="variant (default: main)"
 '''
 run = '''
 variant="${usage_variant:-main}"
-docker buildx bake --no-cache --metadata-file .cache/docker-bake.json --set=*.output=type=docker --load "image-${variant}-local"
+env $(bash .github/scripts/upstream-inputs.sh) docker buildx bake --no-cache --metadata-file .cache/docker-bake.json --set=*.output=type=docker --load "image-${variant}-local"
 TEST_IMAGE="$(jq -r --arg target "image-${variant}-local" '.[$target]."image.name" | sub("^docker.io/library/"; "")' .cache/docker-bake.json)" VARIANT="$variant" go test -v ./tests/...
 '''
 

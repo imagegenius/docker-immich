@@ -149,6 +149,9 @@ jobs:
           RELEASE: ${{ inputs.release }}
         run: bash .github/scripts/prepare-bake.sh
 
+      - name: Resolve Upstream Build Inputs
+        run: bash .github/scripts/upstream-inputs.sh >>"$GITHUB_ENV"
+
       - name: Build Variants
         uses: docker/bake-action@59cb1203cd42bcefd40a1b6d73b589e48c86040e # v7.5.0
         id: bake

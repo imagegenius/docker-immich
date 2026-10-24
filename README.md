@@ -162,4 +162,4 @@ This repo is built with GitHub Actions, based on the workflow shape from [home-o
 - Immich's upstream media dependency scripts run in this Dockerfile, then the app and variant stages build on top.
 - Variants are selected by [`docker-bake.hcl`](docker-bake.hcl).
 - s6-overlay bits live under [`root/`](root).
-- Renovate tracks Immich and build input bumps from the bake annotations.
+- Renovate tracks the Immich version. The uv and mise images, Node.js, base-images and ONNX Runtime versions are whatever that Immich release pins, read by [`upstream-inputs.sh`](.github/scripts/upstream-inputs.sh) at build time.
