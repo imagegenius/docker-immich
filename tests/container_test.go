@@ -67,6 +67,35 @@ sharp("/tmp/sample.tiff").jpeg().toBuffer({ resolveWithObject: true })
 	require.Equal(t, 0, state.ExitCode, "Sharp should decode TIFF images:\n%s", logBytes)
 }
 
+func TestHDRToneMapping(t *testing.T) {
+	ctx := context.Background()
+	image := helpers.GetTestImage("immich:local-main")
+	script, err := os.ReadFile("verify-hdr.mjs")
+	require.NoError(t, err)
+
+	container, err := testcontainers.Run(ctx, image,
+		testcontainers.WithEntrypoint("node"),
+		testcontainers.WithEntrypointArgs("/tmp/verify-hdr.mjs"),
+		testcontainers.WithFiles(testcontainers.ContainerFile{
+			Reader:            bytes.NewReader(script),
+			ContainerFilePath: "/tmp/verify-hdr.mjs",
+			FileMode:          0o644,
+		}),
+		testcontainers.WithWaitStrategy(wait.ForExit()),
+	)
+	testcontainers.CleanupContainer(t, container)
+	require.NoError(t, err)
+
+	state, err := container.State(ctx)
+	require.NoError(t, err)
+	logs, err := container.Logs(ctx)
+	require.NoError(t, err)
+	defer logs.Close()
+	output, err := io.ReadAll(logs)
+	require.NoError(t, err)
+	require.Equal(t, 0, state.ExitCode, "HLG/PQ tone mapping should preserve luminance:\n%s", output)
+}
+
 func Test(t *testing.T) {
 	ctx := context.Background()
 	variant := os.Getenv("VARIANT")
