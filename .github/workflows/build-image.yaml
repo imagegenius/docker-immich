@@ -27,6 +27,7 @@ jobs:
   plan:
     name: Plan
     runs-on: ubuntu-26.04
+    timeout-minutes: 230
     permissions:
       contents: read
     outputs:
@@ -52,6 +53,7 @@ jobs:
       matrix:
         variant: ${{ fromJson(needs.plan.outputs.variants) }}
     runs-on: ubuntu-26.04
+    timeout-minutes: 230
     permissions:
       contents: read
     steps:
@@ -110,6 +112,7 @@ jobs:
       matrix:
         include: ${{ fromJson(needs.plan.outputs.matrix) }}
     runs-on: ${{ matrix.runner }}
+    timeout-minutes: 230
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

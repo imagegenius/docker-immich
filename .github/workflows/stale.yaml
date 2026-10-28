@@ -14,6 +14,7 @@ jobs:
   stale:
     name: Stale
     runs-on: ubuntu-26.04
+    timeout-minutes: 15
     permissions:
       contents: write
       issues: write

@@ -6,6 +6,10 @@ on:
   # zizmor: ignore[dangerous-triggers]
   pull_request_target:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -13,6 +17,7 @@ jobs:
   labeler:
     name: Labeler
     runs-on: ubuntu-26.04
+    timeout-minutes: 15
     permissions:
       contents: read
       pull-requests: write

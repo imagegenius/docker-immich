@@ -27,6 +27,7 @@ jobs:
     name: Build Success
     needs: build
     runs-on: ubuntu-26.04
+    timeout-minutes: 210
     permissions: {}
     steps:
       - name: Check Build Result

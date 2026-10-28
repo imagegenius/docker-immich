@@ -37,6 +37,7 @@ jobs:
     if: ${{ inputs.release }}
     name: Publish (${{ matrix.variant }})
     runs-on: ubuntu-26.04
+    timeout-minutes: 230
     permissions:
       contents: read
       packages: write
