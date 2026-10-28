@@ -22,15 +22,45 @@ jobs:
       variant: all
       release: false
 
+  workflow-lint:
+    name: Workflow Lint
+    runs-on: ubuntu-26.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Mise
+        uses: jdx/mise-action@8418fedb1110381a0d3ba51a7a415d7c1b884550 # v5.2.2
+        with:
+          experimental: true
+          install_args: --locked aqua:jdx/jactionlint
+
+      - name: Lint workflows
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: jactionlint --online --shellcheck= --format github
+
   status:
     if: ${{ !cancelled() }}
     name: Build Success
-    needs: build
+    needs:
+      - build
+      - workflow-lint
     runs-on: ubuntu-26.04
     timeout-minutes: 210
     permissions: {}
     steps:
-      - name: Check Build Result
+      - name: Any jobs failed?
+        if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
+
+      - name: All jobs passed or skipped?
+        if: ${{ !(contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
         env:
-          RESULT: ${{ needs.build.result }}
-        run: test "$RESULT" = success
+          RESULTS: ${{ toJSON(needs.*.result) }}
+        run: echo "All jobs passed or skipped" && echo "$RESULTS"

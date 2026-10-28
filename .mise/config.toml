@@ -6,7 +6,7 @@ lockfile_platforms = ["linux-x64", "linux-arm64", "macos-arm64"]
 minimum_release_age = "12 hours"
 
 [tools]
-actionlint = "1.7.12"
+"aqua:jdx/jactionlint" = "2.3.0"
 gh = "2.103.2"
 go = "1.27.3"
 hadolint = "2.15.1"
@@ -17,7 +17,6 @@ oxfmt = "0.74.0"
 regctl = "0.11.7"
 shellcheck = "0.11.0"
 yq = "4.54.1"
-zizmor = "1.31.1"
 
 [tasks.local-build]
 description = "Build and test a variant locally"
