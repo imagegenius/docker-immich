@@ -7,7 +7,7 @@ minimum_release_age = "12 hours"
 
 [tools]
 "aqua:jdx/jactionlint" = "2.3.0"
-gh = "2.103.2"
+gh = "2.103.3"
 go = "1.27.3"
 hadolint = "2.15.1"
 jq = "1.8.2"
