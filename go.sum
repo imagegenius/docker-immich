@@ -78,6 +78,8 @@ github.com/hydazz/containers v0.0.0-20261030083704-d8edaf26baf1 h1:7qLLc3xXqMWsa
 github.com/hydazz/containers v0.0.0-20261030083704-d8edaf26baf1/go.mod h1:kfn8OjUcG7DumwF3ZtkjtP2pe8T8dQyWuXhWdmjwbCA=
 github.com/hydazz/containers v0.0.0-20261030152740-42bff555b32a h1:SinWBVkIZs9Gj4+Fay0AgE8Spd1wkLhNOzksiUr0p50=
 github.com/hydazz/containers v0.0.0-20261030152740-42bff555b32a/go.mod h1:kfn8OjUcG7DumwF3ZtkjtP2pe8T8dQyWuXhWdmjwbCA=
+github.com/hydazz/containers v0.0.0-20261031060213-38310c96f445 h1:swa0J7rjt7CYIj24tAdvE7WMDp8xyi7LbnGdo/eDLpA=
+github.com/hydazz/containers v0.0.0-20261031060213-38310c96f445/go.mod h1:kfn8OjUcG7DumwF3ZtkjtP2pe8T8dQyWuXhWdmjwbCA=
 github.com/klauspost/compress v1.19.2 h1:hMRETovs/pu/dVWN7zIT1PGG8t509MwT6bO7XSi26R8=
 github.com/klauspost/compress v1.19.2/go.mod h1:cwPg85FWrGar70rWktvGQj8/hthj3wpl0PGDogxkrSQ=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
