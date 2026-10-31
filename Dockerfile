@@ -35,6 +35,9 @@ ENV \
   LD_LIBRARY_PATH="/usr/local/lib:/usr/lib/jellyfin-ffmpeg/lib:/usr/lib/wsl/lib" \
   LD_RUN_PATH="/usr/local/lib"
 
+# FFmpeg 8 includes the CUDA HLG reference-white fix (immich-app/immich#23106).
+COPY packages/ffmpeg.json /tmp/ffmpeg.json
+
 # Keep setup, source builds, and cleanup in one layer so temporary build inputs do not persist.
 # hadolint ignore=DL3003
 RUN \
@@ -151,11 +154,13 @@ RUN \
   cd /tmp/immich-dependencies/server/sources && \
   FFMPEG_ARCH="${TARGETARCH:-$(dpkg --print-architecture)}" && \
   FFMPEG_DEBIAN_RELEASE="resolute" && \
-  FFMPEG_VERSION=$(jq -cr '.version' /tmp/immich-dependencies/server/packages/ffmpeg.json) && \
-  FFMPEG_ASSET="jellyfin-ffmpeg7_${FFMPEG_VERSION}-${FFMPEG_DEBIAN_RELEASE}_${FFMPEG_ARCH}.deb" && \
+  FFMPEG_VERSION=$(jq -er '.version' /tmp/ffmpeg.json) && \
+  FFMPEG_CHECKSUM=$(jq -er --arg arch "$FFMPEG_ARCH" '.sha256[$arch]' /tmp/ffmpeg.json) && \
+  FFMPEG_ASSET="jellyfin-ffmpeg8_${FFMPEG_VERSION}-${FFMPEG_DEBIAN_RELEASE}_${FFMPEG_ARCH}.deb" && \
   curl -f -o \
     /tmp/ffmpeg.deb -L \
     "https://github.com/jellyfin/jellyfin-ffmpeg/releases/download/v${FFMPEG_VERSION}/${FFMPEG_ASSET}" && \
+  echo "${FFMPEG_CHECKSUM}  /tmp/ffmpeg.deb" | sha256sum --check - && \
   apt-get install --no-install-recommends -y -f \
     /tmp/ffmpeg.deb && \
   ldconfig /usr/lib/jellyfin-ffmpeg/lib && \
@@ -177,6 +182,7 @@ RUN \
   ./libraw.sh && \
   ./imagemagick.sh && \
   ./libvips.sh && \
+  cp /tmp/ffmpeg.json /tmp/immich-dependencies/server/packages/ffmpeg.json && \
   jq -s '.' /tmp/immich-dependencies/server/packages/*.json > /tmp/packages.json && \
   jq -s '.' /tmp/immich-dependencies/server/sources/*.json > /tmp/sources.json && \
   jq -n \
