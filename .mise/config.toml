@@ -6,7 +6,7 @@ lockfile_platforms = ["linux-x64", "linux-arm64", "macos-arm64"]
 minimum_release_age = "12 hours"
 
 [tools]
-"aqua:jdx/jactionlint" = "2.3.0"
+"aqua:jdx/jactionlint" = "2.4.0"
 gh = "2.103.3"
 go = "1.27.3"
 hadolint = "2.15.1"
