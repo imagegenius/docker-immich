@@ -38,7 +38,7 @@ jobs:
         uses: jdx/mise-action@6be3c7ed4c21d4f76b208d351d95aac273ebb76d # v5.2.4
         with:
           experimental: true
-          install_args: --locked aqua:jdx/jactionlint
+          install_args: --locked jactionlint
 
       - name: Lint workflows
         env:
