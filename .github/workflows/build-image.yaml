@@ -23,6 +23,9 @@ on:
 
 # The build job inherits its caller: contents: read for PRs, plus packages: write for releases.
 
+env:
+  MISE_NO_HOOKS: "1"
+
 jobs:
   plan:
     name: Plan
@@ -192,8 +195,7 @@ jobs:
         if: ${{ ! inputs.release }}
         uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
         with:
-          experimental: true
-          install_args: --locked
+          install_args: --locked go jq
 
       - name: Restore Go Modules
         if: ${{ ! inputs.release }}

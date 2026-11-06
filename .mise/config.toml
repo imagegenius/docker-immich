@@ -19,23 +19,36 @@ shellcheck = "0.11.0"
 yq = "4.54.1"
 
 [tasks.local-build]
-description = "Build and test a variant locally"
+description = "Build and test the selected image"
 usage = '''
-arg "[variant]" help="variant (default: main)"
+arg "[variant]" default="main" {
+    choices "main" "noml" "cuda" "openvino"
+}
 '''
 run = '''
-variant="${usage_variant:-main}"
-env $(bash .github/scripts/upstream-inputs.sh) docker buildx bake --no-cache --metadata-file .cache/docker-bake.json --set=*.output=type=docker --load "image-${variant}-local"
-TEST_IMAGE="$(jq -r --arg target "image-${variant}-local" '.[$target]."image.name" | sub("^docker.io/library/"; "")' .cache/docker-bake.json)" VARIANT="$variant" go test -v ./tests/...
+#!/usr/bin/env bash
+set -euo pipefail
+metadata=$(mktemp)
+trap 'rm -f "$metadata"' EXIT
+variant="${usage_variant?}"
+inputs=$(bash .github/scripts/upstream-inputs.sh)
+while IFS= read -r input; do
+    export "$input"
+done <<< "$inputs"
+docker buildx bake --no-cache --metadata-file "$metadata" --load "image-${variant}-local"
+image=$(jq -er --arg target "image-${variant}-local" '.[$target]."image.name" | sub("^docker.io/library/"; "")' "$metadata")
+TEST_IMAGE="$image" VARIANT="$variant" go test -v ./tests/...
 '''
 
 [tasks.remote-build]
-description = "Trigger a remote build"
+description = "Start the GitHub release workflow"
 usage = '''
-arg "[variant]" help="variant (default: main)"
-arg "[release]" help="release flag (default: false)"
+arg "[variant]" default="main" {
+    choices "main" "noml" "cuda" "openvino" "all"
+}
+flag "--release" help="Publish the image"
 '''
-run = 'gh workflow run release.yaml -f variant="${usage_variant:-main}" -f release="${usage_release:-false}"'
+run = 'gh workflow run release.yaml -f variant="${usage_variant?}" -f release="${usage_release:-false}"'
 
 [hooks]
-postinstall = ["mkdir -p {{config_root}}/.cache", "lefthook install"]
+postinstall = "lefthook install"
