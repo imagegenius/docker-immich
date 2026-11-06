@@ -392,12 +392,13 @@ RUN \
     /var/lib/apt/lists/*
 
 # =============================================================================
-# ml-base: uv from official multi-arch image, source machine-learning sources
+# ml-python: shared Python environment for CPU and OpenVINO
 # =============================================================================
-FROM python:3.13-slim-trixie AS ml-base
+FROM python:3.13-slim-trixie AS ml-python
 
 ENV \
-  UV_PYTHON="/usr/local/bin/python3.13"
+  VIRTUAL_ENV=/lsiopy \
+  PATH="/lsiopy/bin:$PATH"
 
 RUN \
   apt-get update && \
@@ -409,11 +410,12 @@ RUN \
     /var/lib/apt/lists/*
 
 COPY --from=uv /uv /uvx /usr/local/bin/
-COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
-
 WORKDIR /tmp/immich/machine-learning
 
-RUN uv venv /lsiopy --python "${UV_PYTHON}"
+RUN python3 -m venv --without-pip "${VIRTUAL_ENV}"
+
+FROM ml-python AS ml-base
+COPY --from=source /tmp/immich/machine-learning ./
 
 # =============================================================================
 # ml-base-cuda: upstream CUDA Python base
@@ -421,7 +423,8 @@ RUN uv venv /lsiopy --python "${UV_PYTHON}"
 FROM python:3.13-slim-bookworm AS ml-base-cuda
 
 ENV \
-  UV_PYTHON="/usr/local/bin/python3.13"
+  VIRTUAL_ENV=/lsiopy \
+  PATH="/lsiopy/bin:$PATH"
 
 RUN \
   apt-get update && \
@@ -433,34 +436,39 @@ RUN \
     /var/lib/apt/lists/*
 
 COPY --from=uv /uv /uvx /usr/local/bin/
-COPY --from=source /tmp/immich/machine-learning /tmp/immich/machine-learning
-
 WORKDIR /tmp/immich/machine-learning
 
-RUN uv venv /lsiopy --python "${UV_PYTHON}"
+RUN python3 -m venv --without-pip "${VIRTUAL_ENV}"
+COPY --from=source /tmp/immich/machine-learning ./
 
 # =============================================================================
-# ml-base-openvino: ONNX Runtime with upstream's bundled OpenVINO build
+# OpenVINO: build the ONNX Runtime wheel from its resolved dependencies
 # =============================================================================
-FROM ml-base AS ml-base-openvino
+FROM ml-python AS openvino-requirements
+
+COPY --from=source /tmp/immich/machine-learning/pyproject.toml /tmp/immich/machine-learning/uv.lock ./
+# Exclude Immich's own version so app releases can reuse the compiled wheel.
+RUN uv export --frozen --extra openvino --group onnxruntime-openvino-build \
+    --no-dev --no-emit-project --no-header --format pylock.toml --output-file /pylock.toml --quiet
+
+FROM ml-python AS openvino-wheel
 
 ARG ONNXRUNTIME_VERSION
 ARG IMMICH_MEDIA_BUILD_JOBS=4
-ENV VIRTUAL_ENV=/lsiopy \
-    OpenVINO_DIR=/lsiopy/lib/python3.13/site-packages/openvino/cmake \
+ENV OpenVINO_DIR=${VIRTUAL_ENV}/lib/python3.13/site-packages/openvino/cmake \
     CCACHE_DIR=/ccache
 
+COPY --from=openvino-requirements /pylock.toml /tmp/pylock.toml
 RUN apt-get update && \
   apt-get install -y --no-install-recommends make patch cmake ccache patchelf && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   git clone --depth 1 --branch "${ONNXRUNTIME_VERSION}" https://github.com/microsoft/onnxruntime /code/onnxruntime && \
-  uv sync --frozen --extra openvino --group onnxruntime-openvino-build \
-    --no-dev --no-editable --no-install-project --no-progress --active
+  uv pip sync --no-progress /tmp/pylock.toml
 
 WORKDIR /code/onnxruntime
 RUN --mount=type=cache,target=/ccache \
-    /lsiopy/bin/python tools/ci_build/build.py \
+    python tools/ci_build/build.py \
     --allow_running_as_root \
     --build_dir build \
     --config Release \
@@ -478,23 +486,19 @@ RUN --mount=type=cache,target=/ccache \
 # Bundle OpenVINO beside its ONNX execution provider.
 WORKDIR /code/onnxruntime/build/Release/dist
 # hadolint ignore=SC2016
-RUN /lsiopy/bin/wheel unpack onnxruntime_openvino-*.whl && \
+RUN wheel unpack onnxruntime_openvino-*.whl && \
     capi=$(echo onnxruntime_openvino-*/onnxruntime/capi) && \
-    cp /lsiopy/lib/python3.13/site-packages/openvino/libs/* "$capi" && \
+    cp "${VIRTUAL_ENV}"/lib/python3.13/site-packages/openvino/libs/* "$capi" && \
     mv "$capi"/libopenvino_c.so.* "$capi/libopenvino_c.so" && \
     patchelf --set-rpath '$ORIGIN' --force-rpath "$capi/libonnxruntime_providers_openvino.so" && \
-    /lsiopy/bin/wheel pack onnxruntime_openvino-*/ -d /opt
-
-WORKDIR /tmp/immich/machine-learning
+    wheel pack onnxruntime_openvino-*/ -d /opt
 
 # =============================================================================
 # ml-cpu: uv sync with cpu extras
 # =============================================================================
 FROM ml-base AS ml-cpu
 
-RUN \
-  . /lsiopy/bin/activate && \
-  uv sync \
+RUN uv sync \
     --active \
     --frozen \
     --extra cpu \
@@ -575,7 +579,6 @@ ENV \
   PYTHONUNBUFFERED="1" \
   SHARP_FORCE_GLOBAL_LIBVIPS="true" \
   TRANSFORMERS_CACHE="/config/machine-learning/models" \
-  VIRTUAL_ENV="/lsiopy" \
   CUDA_CACHE_PATH="/config/machine-learning/models/jit/cuda" \
   NEO_CACHE_DIR="/config/machine-learning/models/jit/neo"
 
@@ -614,9 +617,7 @@ RUN rm -rf \
 # =============================================================================
 FROM ml-base-cuda AS ml-cuda
 
-RUN \
-  . /lsiopy/bin/activate && \
-  uv sync \
+RUN uv sync \
     --active \
     --frozen \
     --extra cuda \
@@ -669,11 +670,11 @@ RUN \
 # =============================================================================
 # ml-openvino: uv sync with openvino extras
 # =============================================================================
-FROM ml-base-openvino AS ml-openvino
+FROM ml-base AS ml-openvino
 
-RUN \
-  . /lsiopy/bin/activate && \
-  uv sync \
+COPY --from=openvino-wheel /opt/onnxruntime_openvino-*.whl /opt/
+
+RUN uv sync \
     --active \
     --frozen \
     --extra openvino \
