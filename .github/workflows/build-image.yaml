@@ -42,6 +42,18 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup Mise
+        if: ${{ !inputs.release }}
+        uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
+        with:
+          install_args: --locked jactionlint
+
+      - name: Lint workflows
+        if: ${{ !inputs.release }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: jactionlint --online --shellcheck= --format github
+
       - name: Group Bake Targets
         uses: $/.github/actions/bake-matrix
         id: matrix
@@ -195,16 +207,7 @@ jobs:
         if: ${{ ! inputs.release }}
         uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
         with:
-          install_args: --locked go jq
-
-      - name: Restore Go Modules
-        if: ${{ ! inputs.release }}
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: |
-            ~/.cache/go-build
-            ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
+          install_args: --locked go
 
       - name: Run Tests
         if: ${{ ! inputs.release }}

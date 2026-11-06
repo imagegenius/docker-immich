@@ -11,10 +11,11 @@ permissions:
 
 concurrency:
   group: pr-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
+    name: Image
     uses: $/.github/workflows/build-image.yaml
     permissions:
       contents: read
@@ -22,44 +23,16 @@ jobs:
       variant: all
       release: false
 
-  workflow-lint:
-    name: Workflow Lint
-    runs-on: ubuntu-26.04
-    timeout-minutes: 15
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Setup Mise
-        uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
-        with:
-          install_args: --locked jactionlint
-
-      - name: Lint workflows
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: jactionlint --online --shellcheck= --format github
-
   status:
     if: ${{ !cancelled() }}
     name: Build Success
     needs:
       - build
-      - workflow-lint
     runs-on: ubuntu-26.04
-    timeout-minutes: 210
+    timeout-minutes: 5
     permissions: {}
     steps:
-      - name: Any jobs failed?
-        if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
-        run: exit 1
-
-      - name: All jobs passed or skipped?
-        if: ${{ !(contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
+      - name: Check results
         env:
-          RESULTS: ${{ toJSON(needs.*.result) }}
-        run: echo "All jobs passed or skipped" && echo "$RESULTS"
+          RESULTS: ${{ toJSON(needs) }}
+        run: jq -e 'all(.[]; .result == "success")' <<<"$RESULTS"
