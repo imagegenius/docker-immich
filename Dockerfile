@@ -472,7 +472,8 @@ RUN --mount=type=cache,target=/ccache \
     --skip_tests \
     --use_openvino CPU \
     --use_cache \
-    --compile_no_warning_as_error
+    --compile_no_warning_as_error \
+    --no_telemetry
 
 # Bundle OpenVINO beside its ONNX execution provider.
 WORKDIR /code/onnxruntime/build/Release/dist
