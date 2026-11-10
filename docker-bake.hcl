@@ -6,7 +6,7 @@ variable "OWNER" {
 
 variable "VERSION" {
   # renovate: datasource=github-tags depName=immich-app/immich versioning=semver
-  default = "v3.3.6"
+  default = "v3.4.0"
 }
 
 # Upstream Immich pins these at VERSION; .github/scripts/upstream-inputs.sh reads them.
