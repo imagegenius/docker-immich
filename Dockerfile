@@ -3,9 +3,13 @@
 
 ARG UV_IMAGE
 ARG MISE_IMAGE
+ARG RESTIC_IMAGE
+ARG RESTIC_PROXY_IMAGE
 
 FROM ${UV_IMAGE} AS uv
 FROM ${MISE_IMAGE} AS mise
+FROM ${RESTIC_IMAGE} AS restic
+FROM ${RESTIC_PROXY_IMAGE} AS restic-proxy
 
 # =============================================================================
 # source: download once, independently of native media and application builds
@@ -530,6 +534,8 @@ ENV \
   MAGICK_CONFIGURE_PATH="/etc/ImageMagick"
 
 COPY --from=build /app/immich /app/immich
+COPY --from=restic /usr/bin/restic /usr/local/bin/restic
+COPY --from=restic-proxy /usr/local/bin/restic-proxy /usr/local/bin/restic-proxy
 
 RUN \
   NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \

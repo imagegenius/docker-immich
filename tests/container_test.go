@@ -11,6 +11,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
+	tcexec "github.com/testcontainers/testcontainers-go/exec"
 	"github.com/testcontainers/testcontainers-go/network"
 	"github.com/testcontainers/testcontainers-go/wait"
 
@@ -130,4 +131,16 @@ func Test(t *testing.T) {
 	logBytes, err := io.ReadAll(logs)
 	require.NoError(t, err)
 	require.NotContains(t, string(logBytes), "cannot be preloaded")
+
+	// FUTO Backups spawns restic from PATH; "+futo" marks FUTO's fork rather than stock restic.
+	code, out, err := immich.Exec(ctx, []string{"restic", "version"}, tcexec.Multiplexed())
+	require.NoError(t, err)
+	outBytes, err := io.ReadAll(out)
+	require.NoError(t, err)
+	require.Equal(t, 0, code, "restic version failed:\n%s", outBytes)
+	require.Contains(t, string(outBytes), "+futo")
+
+	code, _, err = immich.Exec(ctx, []string{"test", "-x", "/usr/local/bin/restic-proxy"})
+	require.NoError(t, err)
+	require.Equal(t, 0, code, "restic-proxy missing or not executable")
 }
