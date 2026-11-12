@@ -3,9 +3,13 @@
 
 ARG UV_IMAGE
 ARG MISE_IMAGE
+ARG RESTIC_IMAGE
+ARG RESTIC_PROXY_IMAGE
 
 FROM ${UV_IMAGE} AS uv
 FROM ${MISE_IMAGE} AS mise
+FROM ${RESTIC_IMAGE} AS restic
+FROM ${RESTIC_PROXY_IMAGE} AS restic-proxy
 
 # =============================================================================
 # source: download once, independently of native media and application builds
@@ -530,6 +534,8 @@ ENV \
   MAGICK_CONFIGURE_PATH="/etc/ImageMagick"
 
 COPY --from=build /app/immich /app/immich
+COPY --from=restic /usr/bin/restic /usr/local/bin/restic
+COPY --from=restic-proxy /usr/local/bin/restic-proxy /usr/local/bin/restic-proxy
 
 RUN \
   NODEJS_MAJOR_VERSION=$(echo "${NODEJS_VERSION}" | cut -d '.' -f 1) && \
@@ -541,7 +547,8 @@ RUN \
     gpg --dearmor | tee /usr/share/keyrings/nodesource-repo.gpg >/dev/null && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
-    nodejs="${NODEJS_VERSION}" && \
+    nodejs="${NODEJS_VERSION}" \
+    pigz && \
   apt-get clean && \
   rm -rf \
     /etc/apt/sources.list.d/node.list \
@@ -573,6 +580,7 @@ ENV \
   IMMICH_MACHINE_LEARNING_URL="http://127.0.0.1:3003" \
   MACHINE_LEARNING_CACHE_FOLDER="/config/machine-learning/models" \
   MACHINE_LEARNING_MODEL_ARENA="false" \
+  MACHINE_LEARNING_MODEL_REVISION="v2" \
   NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
   PYTHONDONTWRITEBYTECODE="1" \
   PYTHONPATH="/app/immich/machine-learning" \
