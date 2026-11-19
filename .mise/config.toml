@@ -7,7 +7,7 @@ minimum_release_age = "12 hours"
 
 [tools]
 jactionlint = "v2.6.0"
-gh = "2.104.0"
+gh = "2.105.0"
 go = "1.27.4"
 hadolint = "2.15.1"
 jq = "1.8.2"
