@@ -19,7 +19,6 @@ shellcheck = "0.11.0"
 yq = "4.54.3"
 
 [tasks.local-build]
-description = "Build and test the selected image"
 usage = '''
 arg "[variant]" default="main" {
     choices "main" "noml" "cuda" "openvino"
@@ -41,7 +40,6 @@ TEST_IMAGE="$image" VARIANT="$variant" go test -v ./tests/...
 '''
 
 [tasks.remote-build]
-description = "Start the GitHub release workflow"
 usage = '''
 arg "[variant]" default="main" {
     choices "main" "noml" "cuda" "openvino" "all"
